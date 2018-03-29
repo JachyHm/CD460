@@ -1299,6 +1299,73 @@ function Napoveda (zprava, level)
 		SysCall("ScenarioManager:ShowInfoMessageExt", ZPRAVA_HLAVICKA_NAPOVEDA, zprava,5,16,0,0)
 	end
 end
+function NactiIS()
+	local souborCile = io.open("cile.ci4", "rb")
+	local souborLinky = io.open("linky.lin", "rb")
+	local linky = {}
+	local cileVnitrni = {}
+	local cileVnejsi = {}
+	local cileCelaPlocha = {}
+	if souborCile then
+		souborCile:close()
+		for radek in io.lines("cile.ci4") do
+			if not string.find(radek,"#") then
+				cileVnitrni[#cileVnitrni+1], cileVnejsi[#cileVnejsi+1], cileCelaPlocha[#cileCelaPlocha+1] = radek.split("|")
+			end
+		end
+	else
+		cileVnitrni[1] = ""
+		cileVnejsi[1] = ""
+		cileCelaPlocha[1] = ""
+	end
+	if souborLinky then
+		souborLinky:close()
+		for radek in io.lines("linky.lin") do 
+			if not string.find(radek,"#") then
+				linky[#cileCelaPlocha+1] = radek
+			end
+		end
+	else
+		linky[1] = ""
+	end
+	return {"cileIN" = cileVnitrni, "cileOUT" = cileVnejsi, "cileIsWhole" = cileCelaPlocha,"linky" = linky}
+end
+IS = NactiIS()
+IS.maxDelky = {}
+IS.maxDelky.MSVlinkaOUT = 3
+IS.maxDelky.MSVlinkaIN = 3
+IS.maxDelky.MSVcil1OUT = 20
+IS.maxDelky.MSVcil1IN = 12
+IS.maxDelky.MSVcil2OUT = 20
+IS.maxDelky.MSVcil2IN = 12
+IS.maxDelky.ID = 2
+IS.Zapis = function(kam, co)
+	local maxDelka = IS.maxDelky[kam]
+	if maxDelka then
+		if string.len(co) > maxDelka then
+			string.sub(co,1,20)
+		end
+		while string.len(co) < maxDelka do
+			co = co.." "
+		end
+		Call(kam..":SetText",co,0)
+	end
+end
+IS.NastavLinku = function(self, ID)
+	IS:zapis("MSVlinkaOUT",IS.linky[ID])
+	IS:zapis("MSVlinkaIN",IS.linky[ID])
+end
+IS.NastavCil1 = function(self, ID)
+	IS:zapis("MSVcil1OUT",IS.cileOUT[ID])
+	IS:zapis("MSVcil1IN",IS.cileIN[ID])
+end
+IS.NastavCil2 = function(self, ID)
+	IS:zapis("MSVcil2OUT",IS.cileOUT[ID])
+	IS:zapis("MSVcil2IN",IS.cileIN[ID])
+end
+IS.NastavCislo = function(self, ID)
+	IS:zapis("MSVid",tostring(ID))
+end
 function Update (cas)
 	if ToBolAndBack (Call("GetIsNearCamera")) then
 		MaPredniPantograf = Call("ControlExists","PantoPredni",0)
