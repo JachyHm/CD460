@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cCabCameraBlueprint>
+	<Element>
+		<Value>
+			<Attribute name="Name">
+				<cDeltaString>
+					<Element>
+						<Value>Interier</Value>
+					</Element>
+				</cDeltaString>
+			</Attribute>
+			<Attribute name="RenderComponent">
+				<cCameraRenderBlueprint>
+					<Element>
+						<Value />
+					</Element>
+				</cCameraRenderBlueprint>
+			</Attribute>
+			<Attribute name="UpdateComponent">
+				<cCabCameraUpdateBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="cameraOffset">
+								<cRVector3>
+									<Element>
+										<Value>
+											<Attribute name="X">
+												<sFloat32>
+													<Element>
+														<Value>0.85461</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Y">
+												<sFloat32>
+													<Element>
+														<Value>2.4</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Z">
+												<sFloat32>
+													<Element>
+														<Value>-5.59619</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cRVector3>
+							</Attribute>
+							<Attribute name="cameraDirection">
+								<cRVector3>
+									<Element>
+										<Value>
+											<Attribute name="X">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Y">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Z">
+												<sFloat32>
+													<Element>
+														<Value>1</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cRVector3>
+							</Attribute>
+							<Attribute name="HasWindowCamera">
+								<eBoolean>
+									<Element>
+										<Value>eFalse</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="windowCameraOffset">
+								<cRVector3>
+									<Element>
+										<Value>
+											<Attribute name="X">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Y">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Z">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cRVector3>
+							</Attribute>
+							<Attribute name="windowCameraDirection">
+								<cRVector3>
+									<Element>
+										<Value>
+											<Attribute name="X">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Y">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="Z">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cRVector3>
+							</Attribute>
+							<Attribute name="verticalDirectionalFreedom">
+								<sFloat32>
+									<Element>
+										<Value>6.28318548</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="horizontalDirectionalFreedom">
+								<sFloat32>
+									<Element>
+										<Value>6.28318548</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="MinFOV">
+								<sFloat32>
+									<Element>
+										<Value>0.4</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="MaxFOV">
+								<sFloat32>
+									<Element>
+										<Value>1</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="WindowMinFOV">
+								<sFloat32>
+									<Element>
+										<Value>0.4</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="WindowMaxFOV">
+								<sFloat32>
+									<Element>
+										<Value>1</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="SpringXCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>10</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="SpringYCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>12</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="SpringZCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>6</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="DampingXCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>0.018</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="DampingYCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>0.015</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="DampingZCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>0.01</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="TimelineEntry">
+								<__Indexed__cCabCameraPosition>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cCabCameraPosition>
+							</Attribute>
+						</Value>
+					</Element>
+				</cCabCameraUpdateBlueprint>
+			</Attribute>
+			<Attribute name="PosOriComponent">
+				<cPosOriBlueprint>
+					<Element>
+						<Value />
+					</Element>
+				</cPosOriBlueprint>
+			</Attribute>
+		</Value>
+	</Element>
+</cCabCameraBlueprint>

@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cEmitterBlueprint>
+	<Element>
+		<Value>
+			<Attribute name="Name">
+				<cDeltaString>
+					<Element>
+						<Value>SnihOdKol</Value>
+					</Element>
+				</cDeltaString>
+			</Attribute>
+			<Attribute name="BrowseInformation">
+				<iBrowseableBlueprint-cBrowseInformation>
+					<Element>
+						<Value>
+							<Attribute name="DisplayName">
+								<Localisation-cUserLocalisedString>
+									<Element>
+										<Value>
+											<Attribute name="English">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="French">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Italian">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="German">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Spanish">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Dutch">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Polish">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Russian">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Other">
+												<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+													<Element>
+														<Value />
+													</Element>
+												</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+											</Attribute>
+											<Attribute name="Key">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</Localisation-cUserLocalisedString>
+							</Attribute>
+							<Attribute name="Description">
+								<Localisation-cUserLocalisedString>
+									<Element>
+										<Value>
+											<Attribute name="English">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="French">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Italian">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="German">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Spanish">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Dutch">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Polish">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Russian">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Other">
+												<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+													<Element>
+														<Value />
+													</Element>
+												</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+											</Attribute>
+											<Attribute name="Key">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</Localisation-cUserLocalisedString>
+							</Attribute>
+							<Attribute name="Category">
+								<iBrowseableBlueprint-eBrowseableCategory>
+									<Element>
+										<Value>eExcludeFromBrowserList</Value>
+									</Element>
+								</iBrowseableBlueprint-eBrowseableCategory>
+							</Attribute>
+							<Attribute name="ValidInScenarios">
+								<eBoolean>
+									<Element>
+										<Value>eFalse</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+						</Value>
+					</Element>
+				</iBrowseableBlueprint-cBrowseInformation>
+			</Attribute>
+			<Attribute name="EmitterComponentBP">
+				<cEmitterComponentBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="_iMaxParticles">
+								<sInt32>
+									<Element>
+										<Value>750</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="_sEmitterProperties">
+								<sEmitterBPProp>
+									<Element>
+										<Value>
+											<Attribute name="_iParticlesToRelease">
+												<sInt32>
+													<Element>
+														<Value>1</Value>
+													</Element>
+												</sInt32>
+											</Attribute>
+											<Attribute name="_iParticleEmissionRollOffRate">
+												<sInt32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sInt32>
+											</Attribute>
+											<Attribute name="_fTimeBeforeRestart">
+												<sFloat32>
+													<Element>
+														<Value>0</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_bRestartEmitting">
+												<eBoolean>
+													<Element>
+														<Value>eFalse</Value>
+													</Element>
+												</eBoolean>
+											</Attribute>
+											<Attribute name="_vInitVelocity">
+												<sVector3>
+													<Element>
+														<Value>
+															<Attribute name="X">
+																<sFloat32>
+																	<Element>
+																		<Value>0</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Y">
+																<sFloat32>
+																	<Element>
+																		<Value>0</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Z">
+																<sFloat32>
+																	<Element>
+																		<Value>0</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+														</Value>
+													</Element>
+												</sVector3>
+											</Attribute>
+											<Attribute name="_vGravity">
+												<sVector3>
+													<Element>
+														<Value>
+															<Attribute name="X">
+																<sFloat32>
+																	<Element>
+																		<Value>0</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Y">
+																<sFloat32>
+																	<Element>
+																		<Value>0</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Z">
+																<sFloat32>
+																	<Element>
+																		<Value>0</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+														</Value>
+													</Element>
+												</sVector3>
+											</Attribute>
+											<Attribute name="_v2Spread">
+												<sVector3>
+													<Element>
+														<Value>
+															<Attribute name="X">
+																<sFloat32>
+																	<Element>
+																		<Value>0.5</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Y">
+																<sFloat32>
+																	<Element>
+																		<Value>0.5</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Z">
+																<sFloat32>
+																	<Element>
+																		<Value>0.5</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+														</Value>
+													</Element>
+												</sVector3>
+											</Attribute>
+											<Attribute name="_fEmissionRate">
+												<sFloat32>
+													<Element>
+														<Value>0.01</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_fVelocityVariance">
+												<sFloat32>
+													<Element>
+														<Value>2</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_fResistanceFactor">
+												<sFloat32>
+													<Element>
+														<Value>1</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_bIntense">
+												<eBoolean>
+													<Element>
+														<Value>eTrue</Value>
+													</Element>
+												</eBoolean>
+											</Attribute>
+										</Value>
+									</Element>
+								</sEmitterBPProp>
+							</Attribute>
+							<Attribute name="_sParticleProperties">
+								<sParticleBPProp>
+									<Element>
+										<Value>
+											<Attribute name="_bSwitchColor">
+												<eBoolean>
+													<Element>
+														<Value>eFalse</Value>
+													</Element>
+												</eBoolean>
+											</Attribute>
+											<Attribute name="_bIsMesh">
+												<eBoolean>
+													<Element>
+														<Value>eFalse</Value>
+													</Element>
+												</eBoolean>
+											</Attribute>
+											<Attribute name="_HcInitialColor">
+												<cHcColour>
+													<Element>
+														<Value>
+															<Attribute name="Red">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Green">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Blue">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Alpha">
+																<sFloat32>
+																	<Element>
+																		<Value>0.5850623</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+														</Value>
+													</Element>
+												</cHcColour>
+											</Attribute>
+											<Attribute name="_HcMidColor">
+												<cHcColour>
+													<Element>
+														<Value>
+															<Attribute name="Red">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Green">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Blue">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Alpha">
+																<sFloat32>
+																	<Element>
+																		<Value>0.3381743</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+														</Value>
+													</Element>
+												</cHcColour>
+											</Attribute>
+											<Attribute name="_HcFinalColor">
+												<cHcColour>
+													<Element>
+														<Value>
+															<Attribute name="Red">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Green">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Blue">
+																<sFloat32>
+																	<Element>
+																		<Value>1</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+															<Attribute name="Alpha">
+																<sFloat32>
+																	<Element>
+																		<Value>0</Value>
+																	</Element>
+																</sFloat32>
+															</Attribute>
+														</Value>
+													</Element>
+												</cHcColour>
+											</Attribute>
+											<Attribute name="_fPercSwitchToMidColor">
+												<sFloat32>
+													<Element>
+														<Value>0.1</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_fSpin">
+												<sFloat32>
+													<Element>
+														<Value>0.1</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_fSize">
+												<sFloat32>
+													<Element>
+														<Value>0.1</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_fFinalSize">
+												<sFloat32>
+													<Element>
+														<Value>0.4</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+											<Attribute name="_fLifeCycle">
+												<sFloat32>
+													<Element>
+														<Value>3</Value>
+													</Element>
+												</sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</sParticleBPProp>
+							</Attribute>
+							<Attribute name="_bRandomizeTexture">
+								<eBoolean>
+									<Element>
+										<Value>eTrue</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="_texID">
+								<cDeltaString>
+									<Element>
+										<Value>RailVehicles\Electric\Common\BogieSnow\Textures\smoke2.ace</Value>
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="_iRowColumnSize">
+								<sInt32>
+									<Element>
+										<Value>4</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="_fFrameSwitchTime">
+								<sFloat32>
+									<Element>
+										<Value>0</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="ShaderName">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="BoundingRadius">
+								<sFloat32>
+									<Element>
+										<Value>0</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+						</Value>
+					</Element>
+				</cEmitterComponentBlueprint>
+			</Attribute>
+			<Attribute name="PosOriComponent">
+				<cPosOriBlueprint>
+					<Element>
+						<Value />
+					</Element>
+				</cPosOriBlueprint>
+			</Attribute>
+			<Attribute name="RenderComponent">
+				<cEditorSceneryRenderBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="PrimaryNamedTextureSet">
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<Element>
+										<Value>
+											<Attribute name="BlueprintSetID">
+												<iBlueprintLibrary-cBlueprintSetID>
+													<Element>
+														<Value>
+															<Attribute name="Provider">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+															<Attribute name="Product">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cBlueprintSetID>
+											</Attribute>
+											<Attribute name="BlueprintID">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</Attribute>
+							<Attribute name="SecondaryNamedTextureSet">
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<Element>
+										<Value>
+											<Attribute name="BlueprintSetID">
+												<iBlueprintLibrary-cBlueprintSetID>
+													<Element>
+														<Value>
+															<Attribute name="Provider">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+															<Attribute name="Product">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cBlueprintSetID>
+											</Attribute>
+											<Attribute name="BlueprintID">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</Attribute>
+							<Attribute name="GeometryID">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="CollisionGeometryID">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="Pickable">
+								<eBoolean>
+									<Element>
+										<Value>eTrue</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="CastsShadows">
+								<eBoolean>
+									<Element>
+										<Value>eTrue</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="ShadowType">
+								<eShadowType>
+									<Element>
+										<Value>eShadowType_Blobby</Value>
+									</Element>
+								</eShadowType>
+							</Attribute>
+							<Attribute name="ViewType">
+								<cSceneryRenderBlueprint-eViewType>
+									<Element>
+										<Value>ExternalView</Value>
+									</Element>
+								</cSceneryRenderBlueprint-eViewType>
+							</Attribute>
+							<Attribute name="Palettised">
+								<eBoolean>
+									<Element>
+										<Value>eFalse</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="Palette0Index">
+								<sInt32>
+									<Element>
+										<Value>-1</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="Palette1Index">
+								<sInt32>
+									<Element>
+										<Value>-1</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="Palette2Index">
+								<sInt32>
+									<Element>
+										<Value>-1</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="HeatHaze">
+								<__Indexed__cSceneryRenderBlueprint-sHeatHaze>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cSceneryRenderBlueprint-sHeatHaze>
+							</Attribute>
+							<Attribute name="TexText">
+								<__Indexed__cSceneryRenderBlueprint-sTexText>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cSceneryRenderBlueprint-sTexText>
+							</Attribute>
+							<Attribute name="ProjectedLightElement">
+								<__Indexed__cSceneryRenderBlueprint-sProjectedLight>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cSceneryRenderBlueprint-sProjectedLight>
+							</Attribute>
+							<Attribute name="Instancable">
+								<bool>
+									<Element>
+										<Value>0</Value>
+									</Element>
+								</bool>
+							</Attribute>
+							<Attribute name="DetailLevelGenerationRange">
+								<cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+									<Element>
+										<Value>
+											<Attribute name="HighestLevel_1isHighest">
+												<sInt32>
+													<Element>
+														<Value>1</Value>
+													</Element>
+												</sInt32>
+											</Attribute>
+											<Attribute name="LowestLevel_10isLowest">
+												<sInt32>
+													<Element>
+														<Value>10</Value>
+													</Element>
+												</sInt32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+							</Attribute>
+						</Value>
+					</Element>
+				</cEditorSceneryRenderBlueprint>
+			</Attribute>
+		</Value>
+	</Element>
+</cEmitterBlueprint>
