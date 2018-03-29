@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kLoud-cProxyControlLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<ProxyControl>
+		<cGenericAudioControl xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
+			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
+			<Sound>
+				<kLoud-cRandomSampleSound d:id="117806">
+					<Name d:type="cDeltaString">Klapot kol IN</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">65</Priority>
+					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">10</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">25</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="118056">
+							<Likelihood d:type="sFloat32">0.25</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\460_Klapot01_IN.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="118060">
+							<Likelihood d:type="sFloat32">0.25</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\460_Klapot02_IN.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="118064">
+							<Likelihood d:type="sFloat32">0.25</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\460_Klapot03_IN.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="118068">
+							<Likelihood d:type="sFloat32">0.25</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\460_Klapot04_IN.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
+			</Sound>
+			<Curve>
+				<kLoud-cCurve d:id="118073">
+					<Name d:type="cDeltaString">Klapot kol pitch</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="118076">
+							<X d:type="sFloat32">0.1</X>
+							<Y d:type="sFloat32">0.8</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118079">
+							<X d:type="sFloat32">80</X>
+							<Y d:type="sFloat32">1.3</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="118082">
+					<Name d:type="cDeltaString">Klapot kol hlasitost</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="118085">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118088">
+							<X d:type="sFloat32">0.25</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118091">
+							<X d:type="sFloat32">110</X>
+							<Y d:type="sFloat32">0.4</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+			</Curve>
+			<ModifierChain>
+				<kLoud-cModifierChain d:id="118095">
+					<Name d:type="cDeltaString">Klapot kol</Name>
+					<Modifier>
+						<kLoud-cPitchCurveModifier d:id="118098">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">SpeedometerKPH</ControllerName>
+							<Curve d:type="ref">118073</Curve>
+						</kLoud-cPitchCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="118102">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">SpeedometerKPH</ControllerName>
+							<Curve d:type="ref">118082</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+			</ModifierChain>
+			<InstanceGroup />
+			<Loop />
+			<Oneshot>
+				<kLoud-cTriggeredOneshot d:id="118109">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">Klapot kol</Name>
+					<Sound d:type="ref">117806</Sound>
+					<ModifierChain d:type="ref">118095</ModifierChain>
+					<ControllerName d:type="cDeltaString">JointCount</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">1</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+			</Oneshot>
+		</cGenericAudioControl>
+	</ProxyControl>
+</kLoud-cProxyControlLoader>

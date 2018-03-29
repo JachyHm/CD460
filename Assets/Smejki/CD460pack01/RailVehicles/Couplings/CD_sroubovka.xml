@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cBlueprintLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<Blueprint>
+		<cCouplingTypeBlueprint xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<UncoupledGeometry d:type="cDeltaString">Smejki\CD460pack01\RailVehicles\Couplings\[00]CD_uncoupled</UncoupledGeometry>
+			<Bogey d:type="cDeltaString"></Bogey>
+			<Strength d:type="sFloat32">300</Strength>
+			<CouplingConnection>
+				<cCouplingConnectionBlueprint d:id="123326">
+					<Type d:type="cDeltaString">3link</Type>
+					<CoupledGeometry d:type="cDeltaString">Smejki\CD460pack01\RailVehicles\Couplings\[00]CD_coupled</CoupledGeometry>
+					<ReceivingGeometry d:type="cDeltaString">Smejki\CD460pack01\RailVehicles\Couplings\[00]CD_receiver</ReceivingGeometry>
+					<PivotType d:type="cDeltaString">eReceivingPoint</PivotType>
+					<MinDistance d:type="sFloat32">0</MinDistance>
+					<MaxDistance d:type="sFloat32">0.01</MaxDistance>
+					<TargetDistance d:type="sFloat32">0.02</TargetDistance>
+					<SpringCoefficient d:type="sFloat32">8000</SpringCoefficient>
+					<Damping d:type="sFloat32">6000</Damping>
+					<MaxForce d:type="sFloat32">8000</MaxForce>
+					<ManualCoupling d:type="bool">1</ManualCoupling>
+				</cCouplingConnectionBlueprint>
+			</CouplingConnection>
+		</cCouplingTypeBlueprint>
+	</Blueprint>
+</cBlueprintLoader>

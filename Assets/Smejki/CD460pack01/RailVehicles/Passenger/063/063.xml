@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cBlueprintLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<Blueprint>
+		<cWagonBlueprint xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<Name d:type="cDeltaString">CD 063</Name>
+			<BrowseInformation>
+				<iRailVehicleBlueprint-cBrowseRVInformation>
+					<DisplayName>
+						<Localisation-cUserLocalisedString>
+							<English d:type="cDeltaString">CD 063</English>
+							<French d:type="cDeltaString">CD 063</French>
+							<Italian d:type="cDeltaString">CD 063</Italian>
+							<German d:type="cDeltaString">CD 063</German>
+							<Spanish d:type="cDeltaString">CD 063</Spanish>
+							<Dutch d:type="cDeltaString">CD 063</Dutch>
+							<Polish d:type="cDeltaString">CD 063</Polish>
+							<Russian d:type="cDeltaString">CD 063</Russian>
+							<Other />
+							<Key d:type="cDeltaString"></Key>
+						</Localisation-cUserLocalisedString>
+					</DisplayName>
+				</iRailVehicleBlueprint-cBrowseRVInformation>
+			</BrowseInformation>
+			<RailVehicleComponent>
+				<cWagonComponentBlueprint>
+					<NumberingList>
+						<cCSVContainer>
+							<CsvFile d:type="cDeltaString"></CsvFile>
+						</cCSVContainer>
+					</NumberingList>
+					<NumberingFormat d:type="cDeltaString"></NumberingFormat>
+					<Numberings d:type="sUInt32">0</Numberings>
+					<FrontCouplingBlueprintID>
+						<iBlueprintLibrary-cAbsoluteBlueprintID>
+							<BlueprintSetID>
+								<iBlueprintLibrary-cBlueprintSetID>
+									<Provider d:type="cDeltaString">Smejki</Provider>
+									<Product d:type="cDeltaString">CD460pack01</Product>
+								</iBlueprintLibrary-cBlueprintSetID>
+							</BlueprintSetID>
+							<BlueprintID d:type="cDeltaString">RailVehicles\Couplings\CD_sroubovka.xml</BlueprintID>
+						</iBlueprintLibrary-cAbsoluteBlueprintID>
+					</FrontCouplingBlueprintID>
+					<RearCouplingBlueprintID>
+						<iBlueprintLibrary-cAbsoluteBlueprintID>
+							<BlueprintSetID>
+								<iBlueprintLibrary-cBlueprintSetID>
+									<Provider d:type="cDeltaString">Smejki</Provider>
+									<Product d:type="cDeltaString">CD460pack01</Product>
+								</iBlueprintLibrary-cBlueprintSetID>
+							</BlueprintSetID>
+							<BlueprintID d:type="cDeltaString">RailVehicles\Couplings\CD_sroubovka.xml</BlueprintID>
+						</iBlueprintLibrary-cAbsoluteBlueprintID>
+					</RearCouplingBlueprintID>
+					<FrontCouplingPivot>
+						<cHcRMatrix4x4>
+							<Element>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1.151335</e>
+								<e d:type="sFloat32">11.8916</e>
+								<e d:type="sFloat32">1</e>
+							</Element>
+						</cHcRMatrix4x4>
+					</FrontCouplingPivot>
+					<RearCouplingPivot>
+						<cHcRMatrix4x4>
+							<Element>
+								<e d:type="sFloat32">-1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">-8.742278E-08</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">8.742278E-08</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">-1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">2.214501E-12</e>
+								<e d:type="sFloat32">1.114794</e>
+								<e d:type="sFloat32">-11.76196</e>
+								<e d:type="sFloat32">1</e>
+							</Element>
+						</cHcRMatrix4x4>
+					</RearCouplingPivot>
+					<FrontCouplingReceivingPoint>
+						<cHcRMatrix4x4>
+							<Element>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1.748456E-07</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">-1.748456E-07</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">7.910269E-13</e>
+								<e d:type="sFloat32">1.111834</e>
+								<e d:type="sFloat32">12.0188</e>
+								<e d:type="sFloat32">1</e>
+							</Element>
+						</cHcRMatrix4x4>
+					</FrontCouplingReceivingPoint>
+					<RearCouplingReceivingPoint>
+						<cHcRMatrix4x4>
+							<Element>
+								<e d:type="sFloat32">-1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">-2.237186E-05</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">2.237186E-05</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">-1</e>
+								<e d:type="sFloat32">0</e>
+								<e d:type="sFloat32">1.258158E-10</e>
+								<e d:type="sFloat32">1.073662</e>
+								<e d:type="sFloat32">-11.82111</e>
+								<e d:type="sFloat32">1</e>
+							</Element>
+						</cHcRMatrix4x4>
+					</RearCouplingReceivingPoint>
+					<Mass d:type="sFloat32">37</Mass>
+					<EaseOfDerailment d:type="sFloat32">0.4375</EaseOfDerailment>
+					<FrontPivotX d:type="sFloat32">12.3</FrontPivotX>
+					<FrontPivotY d:type="sFloat32">1</FrontPivotY>
+					<BackPivotX d:type="sFloat32">-12.3</BackPivotX>
+					<BackPivotY d:type="sFloat32">1</BackPivotY>
+					<CollisionCentreX d:type="sFloat32">0</CollisionCentreX>
+					<CollisionCentreY d:type="sFloat32">2.1</CollisionCentreY>
+					<CollisionWidth d:type="sFloat32">2.8</CollisionWidth>
+					<CollisionHeight d:type="sFloat32">4</CollisionHeight>
+					<CollisionLength d:type="sFloat32">24.04</CollisionLength>
+					<DragCoefficient d:type="sFloat32">7.2</DragCoefficient>
+					<RollingFrictionCoefficient d:type="sFloat32">0.0015</RollingFrictionCoefficient>
+					<DryFriction d:type="sFloat32">0.5</DryFriction>
+					<WetFriction d:type="sFloat32">0.25</WetFriction>
+					<SnowFriction d:type="sFloat32">0.15</SnowFriction>
+					<SandFrictionMultiplier d:type="sFloat32">1.3</SandFrictionMultiplier>
+					<Bogey>
+						<cRailVehicleComponentBlueprint-tag_sBogey d:id="185365">
+							<BogeyPivotX d:type="sFloat32">8.646</BogeyPivotX>
+							<BogeyPivotY d:type="sFloat32">0.91</BogeyPivotY>
+							<BogeyBlueprint>
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<BlueprintSetID>
+										<iBlueprintLibrary-cBlueprintSetID>
+											<Provider d:type="cDeltaString">Smejki</Provider>
+											<Product d:type="cDeltaString">CD460pack01</Product>
+										</iBlueprintLibrary-cBlueprintSetID>
+									</BlueprintSetID>
+									<BlueprintID d:type="cDeltaString">RailVehicles\Passenger\063\Bogey.xml</BlueprintID>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</BogeyBlueprint>
+						</cRailVehicleComponentBlueprint-tag_sBogey>
+						<cRailVehicleComponentBlueprint-tag_sBogey d:id="185373">
+							<BogeyPivotX d:type="sFloat32">-8.82</BogeyPivotX>
+							<BogeyPivotY d:type="sFloat32">0.91</BogeyPivotY>
+							<BogeyBlueprint>
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<BlueprintSetID>
+										<iBlueprintLibrary-cBlueprintSetID>
+											<Provider d:type="cDeltaString">Smejki</Provider>
+											<Product d:type="cDeltaString">CD460pack01</Product>
+										</iBlueprintLibrary-cBlueprintSetID>
+									</BlueprintSetID>
+									<BlueprintID d:type="cDeltaString">RailVehicles\Passenger\063\Bogey_0001.xml</BlueprintID>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</BogeyBlueprint>
+						</cRailVehicleComponentBlueprint-tag_sBogey>
+					</Bogey>
+					<StopgoRemapper d:type="cDeltaString"></StopgoRemapper>
+					<IntermediateRemapper d:type="cDeltaString"></IntermediateRemapper>
+					<ExpertRemapper d:type="cDeltaString"></ExpertRemapper>
+					<BogieAudioControlName d:type="cDeltaString"></BogieAudioControlName>
+					<CouplingAudioControlName d:type="cDeltaString"></CouplingAudioControlName>
+					<AnimatedBodyNodeName d:type="cDeltaString"></AnimatedBodyNodeName>
+					<MaxComfortableAcceleration d:type="sFloat32">100</MaxComfortableAcceleration>
+					<TrainBrakeAssembly>
+						<EngineSimulation-cTrainAirBrakeBlueprint d:id="185389">
+							<BrakeType>
+								<EngineSimulation-cTrainAirBrakeDataBlueprint d:id="185391">
+									<EquipmentType d:type="cDeltaString">eAirSinglePipe</EquipmentType>
+									<MaxForcePercentOfVehicleWeight d:type="sFloat32">110</MaxForcePercentOfVehicleWeight>
+									<Control />
+									<Handbrake />
+									<GraduatedRelease d:type="cDeltaString">eFalse</GraduatedRelease>
+									<ProportionalBrake d:type="cDeltaString">eFalse</ProportionalBrake>
+									<MaxReleaseRate d:type="sFloat32">5</MaxReleaseRate>
+									<MaxApplicationRate d:type="sFloat32">10</MaxApplicationRate>
+									<MaxCylinderPressure d:type="sFloat32">90</MaxCylinderPressure>
+									<PressureForMaxForce d:type="sFloat32">70</PressureForMaxForce>
+									<MaxSystemPressure d:type="sFloat32">70</MaxSystemPressure>
+									<MinSystemPressure d:type="sFloat32">0</MinSystemPressure>
+									<Distributor />
+									<EmergencyBraking />
+									<AuxiliaryBraking />
+									<PressureUsedFromPipePerPoundGained d:type="sFloat32">0.3</PressureUsedFromPipePerPoundGained>
+									<PressureGainedFromOnePipePounds d:type="sFloat32">100</PressureGainedFromOnePipePounds>
+									<RetainerType d:type="cDeltaString">eNoRetainer</RetainerType>
+									<TripleValve d:type="cDeltaString">eFalse</TripleValve>
+									<TripleValveRatio d:type="sFloat32">2.5</TripleValveRatio>
+									<RetainerSlowReleaseRate d:type="sFloat32">15</RetainerSlowReleaseRate>
+								</EngineSimulation-cTrainAirBrakeDataBlueprint>
+							</BrakeType>
+						</EngineSimulation-cTrainAirBrakeBlueprint>
+					</TrainBrakeAssembly>
+				</cWagonComponentBlueprint>
+			</RailVehicleComponent>
+			<RenderComponent>
+				<cAnimObjectRenderBlueprint>
+					<PrimaryNamedTextureSet>
+						<iBlueprintLibrary-cAbsoluteBlueprintID>
+							<BlueprintSetID>
+								<iBlueprintLibrary-cBlueprintSetID>
+									<Provider d:type="cDeltaString"></Provider>
+									<Product d:type="cDeltaString"></Product>
+								</iBlueprintLibrary-cBlueprintSetID>
+							</BlueprintSetID>
+							<BlueprintID d:type="cDeltaString"></BlueprintID>
+						</iBlueprintLibrary-cAbsoluteBlueprintID>
+					</PrimaryNamedTextureSet>
+					<SecondaryNamedTextureSet>
+						<iBlueprintLibrary-cAbsoluteBlueprintID>
+							<BlueprintSetID>
+								<iBlueprintLibrary-cBlueprintSetID>
+									<Provider d:type="cDeltaString"></Provider>
+									<Product d:type="cDeltaString"></Product>
+								</iBlueprintLibrary-cBlueprintSetID>
+							</BlueprintSetID>
+							<BlueprintID d:type="cDeltaString"></BlueprintID>
+						</iBlueprintLibrary-cAbsoluteBlueprintID>
+					</SecondaryNamedTextureSet>
+					<GeometryID d:type="cDeltaString">Smejki\CD460pack01\RailVehicles\Passenger\063\[00]063</GeometryID>
+					<CollisionGeometryID d:type="cDeltaString">Smejki\CD460pack01\RailVehicles\Passenger\063\[00]063</CollisionGeometryID>
+					<Pickable d:type="cDeltaString">eTrue</Pickable>
+					<CastsShadows d:type="cDeltaString">eTrue</CastsShadows>
+					<ShadowType d:type="cDeltaString">eShadowType_Blobby</ShadowType>
+					<ViewType d:type="cDeltaString">AllViews</ViewType>
+					<Palettised d:type="cDeltaString">eFalse</Palettised>
+					<Palette0Index d:type="sInt32">-1</Palette0Index>
+					<Palette1Index d:type="sInt32">-1</Palette1Index>
+					<Palette2Index d:type="sInt32">-1</Palette2Index>
+					<HeatHaze />
+					<TexText />
+					<ProjectedLightElement />
+					<Instancable d:type="bool">0</Instancable>
+					<DetailLevelGenerationRange>
+						<cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+							<HighestLevel_1isHighest d:type="sInt32">1</HighestLevel_1isHighest>
+							<LowestLevel_10isLowest d:type="sInt32">10</LowestLevel_10isLowest>
+						</cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+					</DetailLevelGenerationRange>
+					<AnimSet />
+				</cAnimObjectRenderBlueprint>
+			</RenderComponent>
+			<PosOriComponent>
+				<cPosOriBlueprint />
+			</PosOriComponent>
+			<ControlContainerComponent>
+				<cControlContainerBlueprint>
+					<InteriorInterface>
+						<cControlContainerBlueprint-cInteriorInterface>
+							<InteriorGeometryID d:type="cDeltaString"></InteriorGeometryID>
+							<NumberOfCabs d:type="cDeltaString">eSingleCab</NumberOfCabs>
+							<InteriorCamera>
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<BlueprintSetID>
+										<iBlueprintLibrary-cBlueprintSetID>
+											<Provider d:type="cDeltaString"></Provider>
+											<Product d:type="cDeltaString"></Product>
+										</iBlueprintLibrary-cBlueprintSetID>
+									</BlueprintSetID>
+									<BlueprintID d:type="cDeltaString"></BlueprintID>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</InteriorCamera>
+							<CabOcclusion>
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<BlueprintSetID>
+										<iBlueprintLibrary-cBlueprintSetID>
+											<Provider d:type="cDeltaString"></Provider>
+											<Product d:type="cDeltaString"></Product>
+										</iBlueprintLibrary-cBlueprintSetID>
+									</BlueprintSetID>
+									<BlueprintID d:type="cDeltaString"></BlueprintID>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</CabOcclusion>
+						</cControlContainerBlueprint-cInteriorInterface>
+					</InteriorInterface>
+					<CarriageInteriorInterface>
+						<cControlContainerBlueprint-cInteriorInterface>
+							<InteriorGeometryID d:type="cDeltaString"></InteriorGeometryID>
+							<NumberOfCabs d:type="cDeltaString">eSingleCab</NumberOfCabs>
+							<InteriorCamera>
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<BlueprintSetID>
+										<iBlueprintLibrary-cBlueprintSetID>
+											<Provider d:type="cDeltaString"></Provider>
+											<Product d:type="cDeltaString"></Product>
+										</iBlueprintLibrary-cBlueprintSetID>
+									</BlueprintSetID>
+									<BlueprintID d:type="cDeltaString"></BlueprintID>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</InteriorCamera>
+							<CabOcclusion>
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<BlueprintSetID>
+										<iBlueprintLibrary-cBlueprintSetID>
+											<Provider d:type="cDeltaString"></Provider>
+											<Product d:type="cDeltaString"></Product>
+										</iBlueprintLibrary-cBlueprintSetID>
+									</BlueprintSetID>
+									<BlueprintID d:type="cDeltaString"></BlueprintID>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</CabOcclusion>
+						</cControlContainerBlueprint-cInteriorInterface>
+					</CarriageInteriorInterface>
+					<HUDControlsPath d:type="cDeltaString"></HUDControlsPath>
+					<MinimalHUDControlsPath d:type="cDeltaString"></MinimalHUDControlsPath>
+					<HUDControlsTexturePath d:type="cDeltaString"></HUDControlsTexturePath>
+					<ControlValues>
+						<cControlContainerBlueprint-cControlValue d:id="185474">
+							<ControlName d:type="cDeltaString">DoorsOpenCloseRight</ControlName>
+							<DefaultValue d:type="sFloat32">0</DefaultValue>
+							<MinimumValue d:type="sFloat32">0</MinimumValue>
+							<MaximumValue d:type="sFloat32">1</MaximumValue>
+							<BriefDescription d:type="cDeltaString"></BriefDescription>
+							<LocalisedControlName>
+								<Localisation-cUserLocalisedString>
+									<English d:type="cDeltaString"></English>
+									<French d:type="cDeltaString"></French>
+									<Italian d:type="cDeltaString"></Italian>
+									<German d:type="cDeltaString"></German>
+									<Spanish d:type="cDeltaString"></Spanish>
+									<Dutch d:type="cDeltaString"></Dutch>
+									<Polish d:type="cDeltaString"></Polish>
+									<Russian d:type="cDeltaString"></Russian>
+									<Other />
+									<Key d:type="cDeltaString"></Key>
+								</Localisation-cUserLocalisedString>
+							</LocalisedControlName>
+							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
+							<ApplyToConsist d:type="cDeltaString">eFalse</ApplyToConsist>
+							<HUDControlID d:type="sUInt32">0</HUDControlID>
+							<InterfaceElements>
+								<cControlContainerBlueprint-cExteriorAnimation d:id="185495">
+									<ElementName d:type="cDeltaString">Untitled</ElementName>
+									<DifficultyType d:type="cDeltaString">StopGo</DifficultyType>
+									<AnimationID d:type="cDeltaString"></AnimationID>
+									<AnimStyle d:type="cDeltaString">Once</AnimStyle>
+								</cControlContainerBlueprint-cExteriorAnimation>
+							</InterfaceElements>
+						</cControlContainerBlueprint-cControlValue>
+						<cControlContainerBlueprint-cControlValue d:id="185500">
+							<ControlName d:type="cDeltaString">DoorsOpenCloseLeft</ControlName>
+							<DefaultValue d:type="sFloat32">0</DefaultValue>
+							<MinimumValue d:type="sFloat32">0</MinimumValue>
+							<MaximumValue d:type="sFloat32">1</MaximumValue>
+							<BriefDescription d:type="cDeltaString"></BriefDescription>
+							<LocalisedControlName>
+								<Localisation-cUserLocalisedString>
+									<English d:type="cDeltaString"></English>
+									<French d:type="cDeltaString"></French>
+									<Italian d:type="cDeltaString"></Italian>
+									<German d:type="cDeltaString"></German>
+									<Spanish d:type="cDeltaString"></Spanish>
+									<Dutch d:type="cDeltaString"></Dutch>
+									<Polish d:type="cDeltaString"></Polish>
+									<Russian d:type="cDeltaString"></Russian>
+									<Other />
+									<Key d:type="cDeltaString"></Key>
+								</Localisation-cUserLocalisedString>
+							</LocalisedControlName>
+							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
+							<ApplyToConsist d:type="cDeltaString">eFalse</ApplyToConsist>
+							<HUDControlID d:type="sUInt32">0</HUDControlID>
+							<InterfaceElements>
+								<cControlContainerBlueprint-cExteriorAnimation d:id="185521">
+									<ElementName d:type="cDeltaString">Untitled</ElementName>
+									<DifficultyType d:type="cDeltaString">StopGo</DifficultyType>
+									<AnimationID d:type="cDeltaString"></AnimationID>
+									<AnimStyle d:type="cDeltaString">Once</AnimStyle>
+								</cControlContainerBlueprint-cExteriorAnimation>
+							</InterfaceElements>
+						</cControlContainerBlueprint-cControlValue>
+					</ControlValues>
+					<WiperPairs />
+				</cControlContainerBlueprint>
+			</ControlContainerComponent>
+			<CargoComponent>
+				<cCargoComponentBlueprint>
+					<CargoDef>
+						<cPassengerDoorwayDef d:id="185529">
+							<Name d:type="cDeltaString">DvereLevePredni</Name>
+							<DoorSide d:type="cDeltaString">LHS</DoorSide>
+							<OffsetX d:type="sFloat32">-1.42751</OffsetX>
+							<OffsetZ d:type="sFloat32">11.23446</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="185535">
+							<Name d:type="cDeltaString">DvereLeveProstredni</Name>
+							<DoorSide d:type="cDeltaString">LHS</DoorSide>
+							<OffsetX d:type="sFloat32">-1.3356</OffsetX>
+							<OffsetZ d:type="sFloat32">0.0414</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="185541">
+							<Name d:type="cDeltaString">DvereLeveZadni</Name>
+							<DoorSide d:type="cDeltaString">LHS</DoorSide>
+							<OffsetX d:type="sFloat32">-1.42845</OffsetX>
+							<OffsetZ d:type="sFloat32">-11.13657</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="185547">
+							<Name d:type="cDeltaString">DverePravePredni</Name>
+							<DoorSide d:type="cDeltaString">RHS</DoorSide>
+							<OffsetX d:type="sFloat32">1.43393</OffsetX>
+							<OffsetZ d:type="sFloat32">11.28886</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="185553">
+							<Name d:type="cDeltaString">DverePraveProstredni</Name>
+							<DoorSide d:type="cDeltaString">RHS</DoorSide>
+							<OffsetX d:type="sFloat32">1.34658</OffsetX>
+							<OffsetZ d:type="sFloat32">0.0414</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="185559">
+							<Name d:type="cDeltaString">DverePraveZadni</Name>
+							<DoorSide d:type="cDeltaString">RHS</DoorSide>
+							<OffsetX d:type="sFloat32">1.43641</OffsetX>
+							<OffsetZ d:type="sFloat32">-11.12439</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+					</CargoDef>
+					<CargoBlueprintID>
+						<iBlueprintLibrary-cAbsoluteBlueprintID>
+							<BlueprintSetID>
+								<iBlueprintLibrary-cBlueprintSetID>
+									<Provider d:type="cDeltaString"></Provider>
+									<Product d:type="cDeltaString"></Product>
+								</iBlueprintLibrary-cBlueprintSetID>
+							</BlueprintSetID>
+							<BlueprintID d:type="cDeltaString"></BlueprintID>
+						</iBlueprintLibrary-cAbsoluteBlueprintID>
+					</CargoBlueprintID>
+				</cCargoComponentBlueprint>
+			</CargoComponent>
+			<ContainerComponent>
+				<cEntityContainerBlueprint>
+					<TrackTerrainInEditor d:type="bool">0</TrackTerrainInEditor>
+					<Children />
+				</cEntityContainerBlueprint>
+			</ContainerComponent>
+			<ScriptComponent>
+				<cScriptComponentBlueprint>
+					<Name d:type="cDeltaString">Smejki\CD460pack01\RailVehicles\Passenger\063\063</Name>
+				</cScriptComponentBlueprint>
+			</ScriptComponent>
+		</cWagonBlueprint>
+	</Blueprint>
+</cBlueprintLoader>

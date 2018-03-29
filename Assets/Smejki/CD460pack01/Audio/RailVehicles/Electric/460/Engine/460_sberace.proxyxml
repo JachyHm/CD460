@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kLoud-cProxyControlLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<ProxyControl>
+		<cGenericAudioControl xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
+			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
+			<Sound>
+				<kLoud-cSingleSampleSound d:id="157780">
+					<Name d:type="cDeltaString">Sberac_D</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">50</Priority>
+					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">10</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">30</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_sberac_spusteni.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
+				<kLoud-cSingleSampleSound d:id="157793">
+					<Name d:type="cDeltaString">Sberac_N</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">50</Priority>
+					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">10</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">30</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_sberac_zdvih.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
+				<kLoud-cRandomSampleSound d:id="157806">
+					<Name d:type="cDeltaString">Jiskreni</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="157818">
+							<Likelihood d:type="sFloat32">0.33</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_jiskra01.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="157822">
+							<Likelihood d:type="sFloat32">0.33</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_jiskra02.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="157826">
+							<Likelihood d:type="sFloat32">0.33</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_jiskra03.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
+			</Sound>
+			<Curve />
+			<ModifierChain />
+			<InstanceGroup>
+				<kLoud-cInstanceGroup d:id="157833">
+					<Name d:type="cDeltaString">ChDown</Name>
+					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
+					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
+				</kLoud-cInstanceGroup>
+				<kLoud-cInstanceGroup d:id="157837">
+					<Name d:type="cDeltaString">ChUp</Name>
+					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
+					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
+				</kLoud-cInstanceGroup>
+			</InstanceGroup>
+			<Loop />
+			<Oneshot>
+				<kLoud-cTriggeredOneshot d:id="157843">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">PantoPredniNahoru</Name>
+					<Sound d:type="ref">157793</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">PantoPredni</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">157837</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="157853">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">PantoZadniNahoru</Name>
+					<Sound d:type="ref">157793</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">PantoZadni</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">157837</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="157863">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">PantoPredniDolu</Name>
+					<Sound d:type="ref">157780</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">PantoPredni</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">157833</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="157873">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">PantoZadniDolu</Name>
+					<Sound d:type="ref">157780</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">PantoZadni</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">157833</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="157883">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">Jiskreni</Name>
+					<Sound d:type="ref">157806</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">ZimniJiskraPrehrajZvuka</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+			</Oneshot>
+		</cGenericAudioControl>
+	</ProxyControl>
+</kLoud-cProxyControlLoader>

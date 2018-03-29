@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kLoud-cProxyControlLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<ProxyControl>
+		<cGenericAudioControl xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
+			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
+			<Sound>
+				<kLoud-cSingleSampleSound d:id="118123">
+					<Name d:type="cDeltaString">ZdrzeJizda</Name>
+					<IsLooped d:type="bool">1</IsLooped>
+					<Priority d:type="sUInt32">50</Priority>
+					<BaseVolume d:type="sFloat32">0.4</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">2</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\ZdrzeJizda.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
+				<kLoud-cSingleSampleSound d:id="118136">
+					<Name d:type="cDeltaString">ZdrzeSkripani</Name>
+					<IsLooped d:type="bool">1</IsLooped>
+					<Priority d:type="sUInt32">50</Priority>
+					<BaseVolume d:type="sFloat32">0.6</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.05</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">2</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\ZdrzeSkripani.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
+				<kLoud-cRandomSampleSound d:id="118149">
+					<Name d:type="cDeltaString">Dobrzdeni</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">0.75</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">50</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="118161">
+							<Likelihood d:type="sFloat32">0.33</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\Dobrzdeni.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="118165">
+							<Likelihood d:type="sFloat32">0.33</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\Dobrzdeni02.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="118169">
+							<Likelihood d:type="sFloat32">0.33</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\ZdrzeKonec.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
+			</Sound>
+			<Curve>
+				<kLoud-cCurve d:id="118174">
+					<Name d:type="cDeltaString">Zdrze hlasitost brzda_valce</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="118177">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118180">
+							<X d:type="sFloat32">1</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="118183">
+					<Name d:type="cDeltaString">Zdrze jizda hlasitost Speed</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="118186">
+							<X d:type="sFloat32">1</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118189">
+							<X d:type="sFloat32">8</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="118192">
+					<Name d:type="cDeltaString">Zdrze jizda pitch Speed</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="118195">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">0.7</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118198">
+							<X d:type="sFloat32">45</X>
+							<Y d:type="sFloat32">1.3</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="118201">
+					<Name d:type="cDeltaString">Zdrze skripani hlasitost Speed</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="118204">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118207">
+							<X d:type="sFloat32">0.5</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118210">
+							<X d:type="sFloat32">4</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118213">
+							<X d:type="sFloat32">9</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="118216">
+					<Name d:type="cDeltaString">DobrzdeniTrainBrakeAmount</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="118219">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="118222">
+							<X d:type="sFloat32">0.0001</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+			</Curve>
+			<ModifierChain>
+				<kLoud-cModifierChain d:id="118226">
+					<Name d:type="cDeltaString">Zdrze jizda</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="118229">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
+							<Curve d:type="ref">118174</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="118233">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">118183</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cPitchCurveModifier d:id="118237">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">118192</Curve>
+						</kLoud-cPitchCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="118241">
+					<Name d:type="cDeltaString">Zdrze skripot</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="118244">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
+							<Curve d:type="ref">118174</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="118248">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">118201</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="118252">
+					<Name d:type="cDeltaString">DobrzdeniTrainBrakeAmountChain</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="118255">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
+							<Curve d:type="ref">118216</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+			</ModifierChain>
+			<InstanceGroup />
+			<Loop>
+				<kLoud-cControlledLoop d:id="118261">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">Zdrze jizda</Name>
+					<Sound d:type="ref">118123</Sound>
+					<ModifierChain d:type="ref">118226</ModifierChain>
+					<ControllerName d:type="cDeltaString">VirtualTrainBrakeCylinderPressureBAR</ControllerName>
+					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
+					<ActiveRangeStartValue d:type="sFloat32">0.2</ActiveRangeStartValue>
+					<ActiveRangeEndValue d:type="sFloat32">200</ActiveRangeEndValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cControlledLoop>
+				<kLoud-cControlledLoop d:id="118272">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">Zdrze skripani</Name>
+					<Sound d:type="ref">118136</Sound>
+					<ModifierChain d:type="ref">118241</ModifierChain>
+					<ControllerName d:type="cDeltaString">VirtualTrainBrakeCylinderPressureBAR</ControllerName>
+					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
+					<ActiveRangeStartValue d:type="sFloat32">0.2</ActiveRangeStartValue>
+					<ActiveRangeEndValue d:type="sFloat32">200</ActiveRangeEndValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cControlledLoop>
+			</Loop>
+			<Oneshot>
+				<cRadiusOneshot d:id="118284">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">Zdrze konec</Name>
+					<Sound d:type="ref">118149</Sound>
+					<ModifierChain d:type="ref">118252</ModifierChain>
+					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
+					<TriggerValue d:type="sFloat32">1</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Category d:type="cDeltaString">eUncategorised</Category>
+					<MinRadius d:type="sFloat32">0</MinRadius>
+					<MaxRadius d:type="sFloat32">0</MaxRadius>
+				</cRadiusOneshot>
+			</Oneshot>
+		</cGenericAudioControl>
+	</ProxyControl>
+</kLoud-cProxyControlLoader>

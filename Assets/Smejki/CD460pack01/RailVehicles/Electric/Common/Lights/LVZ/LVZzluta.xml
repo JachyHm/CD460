@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cBlueprintLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<Blueprint>
+		<cPointLightBlueprint xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<Name d:type="cDeltaString">LVZzluta</Name>
+			<BrowseInformation>
+				<iBrowseableBlueprint-cBrowseInformation>
+					<DisplayName>
+						<Localisation-cUserLocalisedString>
+							<English d:type="cDeltaString"></English>
+							<French d:type="cDeltaString"></French>
+							<Italian d:type="cDeltaString"></Italian>
+							<German d:type="cDeltaString"></German>
+							<Spanish d:type="cDeltaString"></Spanish>
+							<Dutch d:type="cDeltaString"></Dutch>
+							<Polish d:type="cDeltaString"></Polish>
+							<Russian d:type="cDeltaString"></Russian>
+							<Other />
+							<Key d:type="cDeltaString"></Key>
+						</Localisation-cUserLocalisedString>
+					</DisplayName>
+					<Description>
+						<Localisation-cUserLocalisedString>
+							<English d:type="cDeltaString"></English>
+							<French d:type="cDeltaString"></French>
+							<Italian d:type="cDeltaString"></Italian>
+							<German d:type="cDeltaString"></German>
+							<Spanish d:type="cDeltaString"></Spanish>
+							<Dutch d:type="cDeltaString"></Dutch>
+							<Polish d:type="cDeltaString"></Polish>
+							<Russian d:type="cDeltaString"></Russian>
+							<Other />
+							<Key d:type="cDeltaString"></Key>
+						</Localisation-cUserLocalisedString>
+					</Description>
+					<Category d:type="cDeltaString">eExcludeFromBrowserList</Category>
+					<ValidInScenarios d:type="cDeltaString">eFalse</ValidInScenarios>
+				</iBrowseableBlueprint-cBrowseInformation>
+			</BrowseInformation>
+			<RenderComponent>
+				<cEditorSceneryRenderBlueprint>
+					<PrimaryNamedTextureSet>
+						<iBlueprintLibrary-cAbsoluteBlueprintID>
+							<BlueprintSetID>
+								<iBlueprintLibrary-cBlueprintSetID>
+									<Provider d:type="cDeltaString"></Provider>
+									<Product d:type="cDeltaString"></Product>
+								</iBlueprintLibrary-cBlueprintSetID>
+							</BlueprintSetID>
+							<BlueprintID d:type="cDeltaString"></BlueprintID>
+						</iBlueprintLibrary-cAbsoluteBlueprintID>
+					</PrimaryNamedTextureSet>
+					<SecondaryNamedTextureSet>
+						<iBlueprintLibrary-cAbsoluteBlueprintID>
+							<BlueprintSetID>
+								<iBlueprintLibrary-cBlueprintSetID>
+									<Provider d:type="cDeltaString"></Provider>
+									<Product d:type="cDeltaString"></Product>
+								</iBlueprintLibrary-cBlueprintSetID>
+							</BlueprintSetID>
+							<BlueprintID d:type="cDeltaString"></BlueprintID>
+						</iBlueprintLibrary-cAbsoluteBlueprintID>
+					</SecondaryNamedTextureSet>
+					<GeometryID d:type="cDeltaString"></GeometryID>
+					<CollisionGeometryID d:type="cDeltaString"></CollisionGeometryID>
+					<Pickable d:type="cDeltaString">eTrue</Pickable>
+					<CastsShadows d:type="cDeltaString">eTrue</CastsShadows>
+					<ShadowType d:type="cDeltaString">eShadowType_Blobby</ShadowType>
+					<ViewType d:type="cDeltaString">ExternalView</ViewType>
+					<Palettised d:type="cDeltaString">eFalse</Palettised>
+					<Palette0Index d:type="sInt32">-1</Palette0Index>
+					<Palette1Index d:type="sInt32">-1</Palette1Index>
+					<Palette2Index d:type="sInt32">-1</Palette2Index>
+					<HeatHaze />
+					<TexText />
+					<ProjectedLightElement />
+					<Instancable d:type="bool">0</Instancable>
+					<DetailLevelGenerationRange>
+						<cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+							<HighestLevel_1isHighest d:type="sInt32">1</HighestLevel_1isHighest>
+							<LowestLevel_10isLowest d:type="sInt32">10</LowestLevel_10isLowest>
+						</cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+					</DetailLevelGenerationRange>
+				</cEditorSceneryRenderBlueprint>
+			</RenderComponent>
+			<PosOriComponent>
+				<cPosOriBlueprint />
+			</PosOriComponent>
+			<LightComponent>
+				<cPointLightComponentBlueprint>
+					<Radius d:type="sFloat32">0.02</Radius>
+					<Colour>
+						<cHcColour>
+							<Red d:type="sFloat32">1</Red>
+							<Green d:type="sFloat32">0.5311204</Green>
+							<Blue d:type="sFloat32">0</Blue>
+							<Alpha d:type="sFloat32">1</Alpha>
+						</cHcColour>
+					</Colour>
+					<CastShadow d:type="bool">0</CastShadow>
+					<DayNightCycle d:type="bool">0</DayNightCycle>
+					<AnimTexture d:type="cDeltaString"></AnimTexture>
+					<ProjectedTexture d:type="cDeltaString"></ProjectedTexture>
+				</cPointLightComponentBlueprint>
+			</LightComponent>
+		</cPointLightBlueprint>
+	</Blueprint>
+</cBlueprintLoader>
