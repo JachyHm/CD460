@@ -177,6 +177,17 @@ resetujPUpoZvednuti = false
 
 RizenaRidiciLast = ""
 
+MSVsipkaLevaLast = false
+MSVsipkaPravaLast = false
+MSVsipkaDoluLast = false
+MSVsipkaNahoruLast = false
+MSVokLast = false
+MSVsipkaLeva = false
+MSVsipkaPrava = false
+MSVsipkaDolu = false
+MSVsipkaNahoru = false
+MSVok = false
+
 -- srv = net.createConnection(net.TCP, 0)
 -- srv:on("receive", function(sck, c) Print(c) end)
 -- srv:on("connection", function(sck, c)
@@ -1303,68 +1314,203 @@ function NactiIS()
 	local souborCile = io.open("cile.ci4", "rb")
 	local souborLinky = io.open("linky.lin", "rb")
 	local linky = {}
-	local cileVnitrni = {}
-	local cileVnejsi = {}
+	local linkyVnitrni = {}
+	local cile1Vnitrni = {}
+	local cile1Vnejsi = {}
 	local cileCelaPlocha = {}
+	local cile2Vnitrni = {}
+	local cile2Vnejsi = {}
 	if souborCile then
 		souborCile:close()
 		for radek in io.lines("cile.ci4") do
 			if not string.find(radek,"#") then
-				cileVnitrni[#cileVnitrni+1], cileVnejsi[#cileVnejsi+1], cileCelaPlocha[#cileCelaPlocha+1] = radek.split("|")
+				cile1Vnitrni[table.getn(cile1Vnitrni)+1], cile1Vnejsi[table.getn(cile1Vnejsi)+1], cileCelaPlocha[table.getn(cileCelaPlocha)+1] = radek.split("|")
+				if not cileCelaPlocha[table.getn(cileCelaPlocha)] then
+					cile2Vnitrni[table.getn(cile2Vnitrni)+1], cile2Vnejsi[table.getn(cile2Vnejsi)+1] = radek.split("|")
+				end
+			end
+			if table.getn(cile1Vnitrni) == 99 then
+				break
 			end
 		end
 	else
-		cileVnitrni[1] = ""
-		cileVnejsi[1] = ""
+		cile1Vnitrni[1] = ""
+		cile1Vnejsi[1] = ""
 		cileCelaPlocha[1] = ""
+		cile2Vnitrni[1] = ""
+		cile2Vnejsi[1] = ""
 	end
 	if souborLinky then
 		souborLinky:close()
 		for radek in io.lines("linky.lin") do 
 			if not string.find(radek,"#") then
-				linky[#cileCelaPlocha+1] = radek
+				linkyVnitrni[table.getn(linkyVnitrni)+1],linkyVnejsi[table.getn(linkyVnejsi)+1] = radek.split("|")
+			end
+			if table.getn(linky == 99) then
+				break
 			end
 		end
 	else
-		linky[1] = ""
+		linkyVnitrni[1] = ""
+		linkyVnejsi[1] = ""
 	end
-	return {"cileIN" = cileVnitrni, "cileOUT" = cileVnejsi, "cileIsWhole" = cileCelaPlocha,"linky" = linky}
+	return {cile1IN = cile1Vnitrni, cile1OUT = cile1Vnejsi, cileIsWhole = cileCelaPlocha, cile2IN = cile2Vnitrni, cile2OUT = cile2Vnejsi, linky = linky, stav = "start", cil1ID = 0, cil2ID = 0, linkaID = 0, casStart = 0}
 end
 IS = NactiIS()
 IS.maxDelky = {}
 IS.maxDelky.MSVlinkaOUT = 3
-IS.maxDelky.MSVlinkaIN = 3
-IS.maxDelky.MSVcil1OUT = 20
-IS.maxDelky.MSVcil1IN = 12
-IS.maxDelky.MSVcil2OUT = 20
-IS.maxDelky.MSVcil2IN = 12
-IS.maxDelky.ID = 2
-IS.Zapis = function(kam, co)
+IS.maxDelky.MSVlinkaIN = 16
+IS.maxDelky.MSVcil1OUT = 16
+IS.maxDelky.MSVcil1IN = 16
+IS.maxDelky.MSVcil2OUT = 16
+IS.maxDelky.MSVcil2IN = 16
+IS.maxDelky.MSVcilCelaPlochaOUT = 16
+IS.maxDelky.MSVcilCelaPlochaIN = 16
+IS.maxDelky.MSVid = 2
+IS.Zapis = function(kam, co, zleva)
 	local maxDelka = IS.maxDelky[kam]
 	if maxDelka then
 		if string.len(co) > maxDelka then
-			string.sub(co,1,20)
+			string.sub(co,1,maxDelka)
 		end
 		while string.len(co) < maxDelka do
-			co = co.." "
+			if not zleva then
+				co = co.." "
+			else
+				co = " "..co
+			end
 		end
-		Call(kam..":SetText",co,0)
+		SysCall("ScenarioManager:ShowInfoMessageExt", "IStest", kam..":"..co,5,16,0,0)
+		--Call(kam..":SetText",co,0)
 	end
 end
-IS.NastavLinku = function(self, ID)
-	IS:zapis("MSVlinkaOUT",IS.linky[ID])
-	IS:zapis("MSVlinkaIN",IS.linky[ID])
+IS.NastavLinku = function(self, ID, venku)
+	if venku then
+		IS:Zapis("MSVlinkaOUT",IS.linky[ID],false)
+	end
+	IS:Zapis("MSVlinkaIN",IS.linky[ID],false)
 end
-IS.NastavCil1 = function(self, ID)
-	IS:zapis("MSVcil1OUT",IS.cileOUT[ID])
-	IS:zapis("MSVcil1IN",IS.cileIN[ID])
+IS.NastavCil1 = function(self, ID, venku)
+	if venku and not IS.cileIsWhole[ID] then
+		IS:Zapis("MSVcil1OUT",IS.cile1OUT[ID],false)
+		IS:Zapis("MSVcilCelaPlochaOUT","",false)
+	elseif venku then
+		IS:Zapis("MSVcil1OUT","",false)
+		IS:Zapis("MSVcilCelaPlochaOUT",IS.cile1OUT[ID],false)
+	end
+	if IS.cileIsWhole[ID] then
+		IS:Zapis("MSVcil1IN","",false)
+		IS:Zapis("MSVcil2OUT","",false)
+		IS:Zapis("MSVcil2IN","",false)
+	else
+		IS:Zapis("MSVcil1IN",IS.cile1IN[ID],false)
+	end
 end
-IS.NastavCil2 = function(self, ID)
-	IS:zapis("MSVcil2OUT",IS.cileOUT[ID])
-	IS:zapis("MSVcil2IN",IS.cileIN[ID])
+IS.NastavCil2 = function(self, ID, venku)
+	if venku then
+		IS:Zapis("MSVcil2OUT",IS.cile2OUT[ID],true)
+	end
+	IS:Zapis("MSVcil2IN",IS.cile2IN[ID],true)
 end
 IS.NastavCislo = function(self, ID)
-	IS:zapis("MSVid",tostring(ID))
+	IS:Zapis("MSVid",tostring(ID),false)
+end
+IS.SipkaNahoru = function(self)
+	if IS.stav == "sleep" then
+		IS.stav = "cil1"
+	elseif IS.stav == "cil1" then
+		IS.cil1ID = IS.cil1ID + 1
+		if IS.cil1ID > table.getn(IS.cile1IN) then
+			IS.cil1ID = 0
+		end
+		IS:NastavCil1(IS.cil1ID,false)
+		IS:NastavCislo(IS.cil1ID)
+	elseif IS.stav == "cil2" then
+		IS.cil2ID = IS.cil2ID + 1
+		if IS.cil2ID > table.getn(IS.cile2IN) then
+			IS.cil2ID = 0
+		end
+		IS:NastavCil2(IS.cil2ID,false)
+		IS:NastavCislo(IS.cil1ID)
+	elseif IS.stav == "linka" then
+		IS.linkaID = IS.linkaID + 1
+		if IS.linkaID > table.getn(IS.linky) then
+			IS.linkaID = 0
+		end
+		IS:NastavLinku(IS.linkaID,false)
+		IS:NastavCislo(IS.linkaID)
+	end
+end
+IS.SipkaDolu = function(self)
+	if IS.stav == "sleep" then
+		IS.stav = "cil1"
+	elseif IS.stav == "cil1" then
+		IS.cil1ID = IS.cil1ID - 1
+		if IS.cil1ID < 0 then
+			IS.cil1ID = table.getn(IS.cile1IN)
+		end
+		IS:NastavCil1(IS.cil1ID,false)
+		IS:NastavCislo(IS.cil1ID)
+	elseif IS.stav == "cil2" then
+		IS.cil2ID = IS.cil2ID - 1
+		if IS.cil2ID < 0 then
+			IS.cil2ID = table.getn(IS.cile2IN)
+		end
+		IS:NastavCil2(IS.cil2ID,false)
+		IS:NastavCislo(IS.cil1ID)
+	elseif IS.stav == "linka" then
+		IS.linkaID = IS.linkaID - 1
+		if IS.linkaID < 0 then
+			IS.linkaID = table.getn(IS.linky)
+		end
+		IS:NastavLinku(IS.linkaID,false)
+		IS:NastavCislo(IS.linkaID)
+	end
+end
+IS.Potvrzeni = function(self)
+	if IS.stav == "sleep" then
+		IS.stav = "cil1"
+	elseif IS.stav == "cil1" then
+		IS:NastavCil1(IS.cil1ID,true)
+		IS:NastavCislo(IS.cil2ID)
+		if not IS.cileIsWhole[IS.cil1ID] then
+			IS.stav = "cil2"
+		end
+	elseif IS.stav == "cil2" then
+		IS:NastavCil2(IS.cil2ID,true)
+		IS:NastavCislo(IS.linkaID)
+		IS.stav = "linka"
+	elseif IS.stav == "linka" then
+		IS:NastavLinku(IS.cil1ID,true)
+		IS:NastavCislo(IS.cil1ID)
+		IS.stav = "cil1"
+	end
+end
+IS.SipkaBok = function(self)
+	if IS.stav == "sleep" then
+		IS.stav = "cil1"
+	elseif (IS.stav == "cil1" or IS.stav == "cil2") and not IS.cileIsWhole[IS.cil1ID] then
+		local cil1 = IS.cil1ID
+		local cil2 = IS.cil2ID
+		IS.cil1ID = cil2
+		IS.cil2ID = cil1
+		IS:NastavCil1(IS.cil1ID)
+		IS:NastavCil2(IS.cil2ID)
+		if IS.stav == "cil1" then
+			IS:NastavCislo(IS.cil1ID)
+		elseif IS.stav == "cil2" then
+			IS:NastavCislo(IS.cil2ID)
+		end
+	end
+end
+IS.VymazVse = function(self)
+	IS:Zapis("MSVlinkaOUT","",false)
+	IS:Zapis("MSVlinkaIN","",false)
+	IS:Zapis("MSVcil1OUT","",false)
+	IS:Zapis("MSVcil1IN","",false)
+	IS:Zapis("MSVcil2OUT","",false)
+	IS:Zapis("MSVcil2IN","",false)
+	IS:Zapis("MSVid","",false)
 end
 function Update (cas)
 	if ToBolAndBack (Call("GetIsNearCamera")) then
@@ -1546,6 +1692,51 @@ function Update (cas)
 					else
 						RizenaRidici = "ridici"
 					end
+					----------------------------------------IS------------------------------------------------
+						MSVsipkaDoluLast = MSVsipkaDolu
+						MSVsipkaNahoruLast = MSVsipkaNahoru
+						MSVsipkaLevaLast = MSVsipkaLeva
+						MSVsipkaPravaLast = MSVsipkaPrava
+						MSVokLast = MSVok
+
+						MSVsipkaDolu = ToBolAndBack(Call("GetControlValue","MSVdolu",0))
+						MSVsipkaNahoru = ToBolAndBack(Call("GetControlValue","MSVnahoru",0))
+						MSVsipkaLeva = ToBolAndBack(Call("GetControlValue","MSVleva",0))
+						MSVsipkaPrava = ToBolAndBack(Call("GetControlValue","MSVprava",0))
+						MSVok = ToBolAndBack(Call("GetControlValue","MSVok",0))
+
+						if IS.stav == "start" and Baterie then
+							IS.casStart = IS.casStart + cas
+							if IS.casStart > 5 then
+								IS.stav = "sleep"
+								IS:NastavCil1(1,true)
+								IS:NastavCil2(1,true)
+								IS:NastavLinku(1,true)
+							end
+						else
+							IS.casStart = 0
+						end
+						if Baterie ~= 1 then
+							IS.stav = "start"
+							IS:VymazVse()
+						end
+
+						if MSVsipkaDolu and not MSVsipkaDoluLast then
+							IS:SipkaDolu()
+						end
+						if MSVsipkaNahoru and not MSVsipkaNahoruLast then
+							IS:SipkaNahoru()
+						end
+						if MSVsipkaLeva and not MSVsipkaLevaLast then
+							IS:SipkaBok()
+						end
+						if MSVsipkaPrava and not MSVsipkaPravaLast then
+							IS:SipkaBok()
+						end
+						if MSVok and not MSVokLast then
+							IS:Potvrzeni()
+						end
+
 					----------------------------------------Prechod z RI do RA--------------------------------
 						if RizenaRidici == "rizena" and RizenaRidiciLast == "ridici" then
 							--komplet vypnuti
