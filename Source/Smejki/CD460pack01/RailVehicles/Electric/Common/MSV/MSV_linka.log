@@ -1,0 +1,185 @@
+
+ Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\IGS_ExpModFile.txt
+------  Materials:ShaderName  ------
+('shadow', 'StencilShadow.fx')
+('trdiff', 'TrainBasicObjectDiffuse.fx')
+('trglass', 'TrainGlass.fx')
+('trspec', 'TrainBasicObjectSpecular.fx')
+('trspecem', 'TrainSpecEnvMask.fx')
+('trbumpspec', 'TrainBumpSpec.fx')
+('trbumpspecem', 'TrainBumpSpecEnvMask.fx')
+('trglassweather', 'TrainGlassWeatherEffects.fx')
+('trlightmap', 'TrainLightMapWithDiffuse.fx')
+('trenv', 'TrainEnv.fx')
+('trflora', 'TrainFlora.fx')
+('trvfaceflora', 'TrainViewFacingFlora.fx')
+('trupvfaceflora', 'TrainUprightViewFacingFlora.fx')
+('lofttexdiff', 'LoftTexDiff.fx')
+('lofttexdifftr', 'LoftTexDiffTrans.fx')
+('skin', 'SkinDiffuse.fx')
+('water', 'WaterCubeMap.fx')
+('waterscenery', 'WaterScenery.fx')
+('sky', 'TrainSkyDome.fx')
+
+
+ >>>> INFO: File C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\MSV_linka_IGSExpModFile2.txt not found <<<<
+ >>>> INFO: Using file C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\IGSExpModFile2.txt <<<<
+
+ Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\IGSExpModFile2.txt
+------  Materials:AlphaTestMode  ------
+------  Materials:Ambient  ------
+------  Materials:ZBufferMode  ------
+('primarynumber_0', '3')
+('primarynumber_1', '3')
+('primarynumber_2', '3')
+('primarynumber_3', '3')
+('primarynumber_4', '3')
+('primarynumber_5', '3')
+('primarynumber_6', '3')
+('primarynumber_7', '3')
+('primarynumber_8', '3')
+('primarynumber_9', '3')
+('primarynumber_10', '3')
+('primarynumber_11', '3')
+('primarynumber_12', '3')
+('primarynumber_13', '3')
+('primarynumber_14', '3')
+('primarynumber_15', '3')
+------  Miscellaneous  ------
+('targettexturesdirectory', 'Textures')
+('mainobject', '1_1024_primarydigits_16')
+('hierarchy', 'unchanged')
+('centermainobject', '0,0,N')
+------  UVArguments  ------
+
+
+ MainObject to find = 1_1024_primarydigits_16
+ MainObject 1_1024_primarydigits_16 not found or not visible
+ Main object selected = 1_1024_primarydigits_2
+
+ ------------------ Groups list -----------------
+ --- 1 groups ---
+
+--- Group --- 1_1024_primarydigits_2 (1 item)
+    LOD level 1 / LOD distance 1024 / keyword _primarydigits_2
+    Parent group: None
+    Group objects:
+                  1_1024_primarydigits_2
+
+ INFO: ZBufferMode for material primarynumber_0: 3
+ INFO: ZBufferMode for material primarynumber_1: 3
+================================================================================
+IG file header information (0)
+--------------------------------------------------------------------------------
+CommentField                  : 'Blender 2.78 (sub 0) - IGS exporter version 1.4.8'
+ObjectCount                   : 1
+MeshCount                     : 1
+MaterialCount                 : 2
+================================================================================
+Materials list (2 materials):
+--------------------------------------------------------------------------------
+         Name         |             Shader             |              First texture               / UVArguments
+ primarynumber_0      | TrainDecal.fx                  | Textures\decal_primarynumber_0           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_1      | TrainDecal.fx                  | Textures\decal_primarynumber_1           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+================================================================================
+--------------------------------------------------------------------------------
+Material main parameters [ 1 / 2 ] : 'primarynumber_0'
+------------------------------.
+Name                          : 'primarynumber_0'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 2 / 2 ] : 'primarynumber_1'
+------------------------------.
+Name                          : 'primarynumber_1'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+================================================================================
+IGTextureNames               : [ 1 ]
+--------------------------------------------------------------------------------
+IGfTextureNames [ 1 / 1 ] (44)
+------------------------------.
+TextureNameListLength         : 62
+TextureNameCount              : 2
+--------------------------------------------------------------------------------
+TextureNameStartOffsetList -----.
+  TextureNameStartOffset[1]     : 0 (TextureName[1])
+  TextureNameStartOffset[2]     : 31 (TextureName[2])
+TextureNameList ----------------.
+  TextureName[1]                : 'Textures\decal_primarynumber_0'
+  TextureName[2]                : 'Textures\decal_primarynumber_1'
+
+
+IGS export time: 0.00
