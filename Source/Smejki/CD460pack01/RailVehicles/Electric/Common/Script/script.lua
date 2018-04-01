@@ -243,40 +243,70 @@ local function utf8_to_unicode(utf8str, pos)
    -- returns code, number of bytes in this utf8 char
    return code, size
 end
-
-local map_1252_to_unicode = {
-   [128] = 8364,
+--------------------------------TABULKA ZNAKU---------------
+	--á(225) = °(176)
+	--Á(193) = 1(49)
+	--č(269) = 2(50)
+	--Č(268) = 3(51)
+	--ď(271) = 4(52)
+	--Ď(270) = 5(53)
+	--é(233) = 6(54)
+	--ě(283) = 7(55)
+	--É(201) = 8(56)
+	--Ě(282) = 9(57)
+	--í(237) = 0(48)
+	--Í(205) = %(37)
+	--ň(328) = +(43)
+	--Ň(327) = `(96)
+	--ó(243) = !(33)
+	--Ó(211) = @(64)
+	--ř(345) = #(35)
+	--Ř(344) = $(36)
+	--š(353) = ^(94)
+	--Š(352) = &(38)
+	--ť(357) = *(42)
+	--Ť(356) = =(61)
+	--ú(250) = {(123)
+	--ů(367) = }(125)
+	--Ú(218) = [(91)
+	--Ů(366) = ](93)
+	--ý(253) = ;(59)
+	--Ý(221) = ¤(164)
+	--ž(382) = /(47)
+	--Ž(381) = \(92)
+local map_unicode_to_1252 = {
+   [8364] = 128,
    [129] = 129,
-   [130] = 8218,
-   [131] = 402,
-   [132] = 8222,
-   [133] = 8230,
-   [134] = 8224,
-   [135] = 8225,
-   [136] = 710,
-   [137] = 8240,
-   [138] = 352,
-   [139] = 8249,
-   [140] = 338,
+   [8218] = 130,
+   [402] = 131,
+   [8222] = 132,
+   [8230] = 133,
+   [8224] = 134,
+   [8225] = 135,
+   [710] = 136,
+   [8240] = 137,
+   [352] = 38,
+   [8249] = 139,
+   [338] = 140,
    [141] = 141,
-   [142] = 381,
+   [381] = 92,
    [143] = 143,
    [144] = 144,
-   [145] = 8216,
-   [146] = 8217,
-   [147] = 8220,
-   [148] = 8221,
-   [149] = 8226,
-   [150] = 8211,
-   [151] = 8212,
-   [152] = 732,
-   [153] = 8482,
-   [154] = 353,
-   [155] = 8250,
-   [156] = 339,
+   [8216] = 145,
+   [8217] = 146,
+   [8220] = 147,
+   [8221] = 148,
+   [8226] = 149,
+   [8211] = 150,
+   [8212] = 151,
+   [732] = 152,
+   [8482] = 153,
+   [353] = 94,
+   [8250] = 155,
+   [339] = 156,
    [157] = 157,
-   [158] = 382,
-   [159] = 376,
+   [382] = 47,
+   [376] = 159,
    [160] = 160,
    [161] = 161,
    [162] = 162,
@@ -286,125 +316,112 @@ local map_1252_to_unicode = {
    [166] = 166,
    [167] = 167,
    [168] = 168,
-   [169] = 196,
+   [196] = 48,
    [170] = 170,
-   [171] = 356,
+   [356] = 61,
    [172] = 172,
    [173] = 173,
-   [174] = 1125,
+   [1125] = 174,
    [175] = 175,
    [176] = 176,
    [177] = 177,
    [178] = 178,
    [179] = 179,
    [180] = 180,
-   [181] = 162,
+   [162] = 181,
    [182] = 182,
    [183] = 183,
    [184] = 184,
-   [185] = 197,
+   [197] = 48,
    [186] = 186,
-   [187] = 357,
+   [357] = 42,
    [188] = 188,
    [189] = 189,
-   [190] = 1126,
+   [1126] = 190,
    [191] = 191,
-   [192] = 184,
-   [193] = 193,
+   [184] = 95,
+   [193] = 49,
    [194] = 194,
    [195] = 195,
    [196] = 196,
-   [197] = 157,
+   [157] = 197,
    [198] = 198,
    [199] = 199,
-   [200] = 268,
-   [201] = 201,
+   [268] = 51,
+   [201] = 56,
    [202] = 202,
    [203] = 203,
-   [204] = 282,
-   [205] = 205,
+   [282] = 57,
+   [205] = 37,
    [206] = 206,
-   [207] = 270,
+   [270] = 53,
    [208] = 208,
    [209] = 209,
-   [210] = 327,
-   [211] = 211,
+   [327] = 96,
+   [211] = 64,
    [212] = 212,
    [213] = 213,
    [214] = 214,
    [215] = 215,
-   [216] = 344,
-   [217] = 366,
-   [218] = 218,
+   [344] = 36,
+   [366] = 93,
+   [218] = 91,
    [219] = 219,
    [220] = 220,
-   [221] = 221,
+   [221] = 164,
    [222] = 222,
-   [223] = 223,
-   [224] = 185,
-   [225] = 225,
+   [223] = 52,
+   [185] = 224,
+   [225] = 176,
    [226] = 226,
    [227] = 227,
    [228] = 228,
-   [229] = 158,
+   [158] = 54,
    [230] = 230,
    [231] = 231,
-   [232] = 113,
-   [233] = 233,
+   [269] = 50,
+   [233] = 54,
    [234] = 234,
    [235] = 235,
-   [236] = 127,
-   [237] = 237,
+   [283] = 55,
+   [237] = 48,
    [238] = 238,
-   [239] = 271,
+   [271] = 52,
    [240] = 240,
    [241] = 241,
-   [242] = 328,
-   [243] = 243,
+   [328] = 43,
+   [243] = 33,
    [244] = 244,
    [245] = 245,
    [246] = 246,
    [247] = 247,
-   [248] = 189,
-   [249] = 367,
-   [250] = 250,
+   [345] = 35,
+   [367] = 125,
+   [250] = 123,
    [251] = 251,
    [252] = 252,
-   [253] = 253,
+   [253] = 59,
    [254] = 254,
    [255] = 255,
-   [232] = 269,
-   [248] = 345,
-   [236] = 283,
 }
-local map_unicode_to_1252 = {}
-for code1252, code in pairs(map_1252_to_unicode) do
-   map_unicode_to_1252[code] = code1252
-end
-
 function string.fromutf8(utf8str)
-   local pos, result_1252 = 1, {}
-   while pos <= string.len(utf8str) do
-      local code, size = utf8_to_unicode(utf8str, pos)
-	  pos = pos + size
-	  code = code < 128 and code or map_unicode_to_1252[code] or string.byte('?')
-      table_insert(result_1252, char(code))
-   end
-   return table_concat(result_1252)
-end
-
-function string.toutf8(str1252)
-   local result_utf8 = {}
-   for pos = 1, table.getn(str1252) do
-      local code = string.byte(str1252, pos)
-      table_insert(result_utf8, unicode_to_utf8(map_1252_to_unicode[code] or code))
-   end
-   return table_concat(result_utf8)
+	local pos, result_1252 = 1, {}
+	while pos <= string.len(utf8str) do
+		local code, size = utf8_to_unicode(utf8str, pos)
+		pos = pos + size
+		local kodPred = code
+		code = code < 128 and code or map_unicode_to_1252[code] or string.byte('?')
+		local kodPo = code
+		local znakPo = char(code)
+		-- Print(kodPred.."="..znakPo.."("..kodPo..")")
+		table_insert(result_1252, char(code))
+	end
+	return table_concat(result_1252)
 end
 
 IS = {
 	maxDelky = {
-		MSVlinkaOUT = 3,
+		MSVlinkaOUT = 2,
 		MSVlinkaIN = 16,
 		MSVcil1OUT = 16,
 		MSVcil1IN = 16,
@@ -427,56 +444,66 @@ IS = {
 	linkaID = 1,
 	casStart = 0,
 	casMenu = 0,
-	Zapis = function(self, kam, co, zleva)
+	Zapis = function(self, kam, co, zleva, center)
 		local maxDelka = IS.maxDelky[kam]
 		if maxDelka then
 			if string.len(co) > maxDelka then
-				string.sub(co,1,maxDelka)
+				co = string.sub(co,1,maxDelka)
 			end
-			while string.len(co) < maxDelka do
-				if not zleva then
-					co = co.." "
-				else
+			if not center then
+				while string.len(co) < maxDelka do
+					if not zleva then
+						co = co.." "
+					else
+						co = " "..co
+					end
+				end
+			else
+				local pocetMezerLeva = math.floor((maxDelka - string.len(co))/2)
+				Print(pocetMezerLeva)
+				local i = 0
+				while i < pocetMezerLeva do
 					co = " "..co
+					i = i + 1
+				end
+				while string.len(co) < maxDelka do
+					co = co.." "
 				end
 			end
 			Call(kam..":SetText",co,0)
 		end
 	end,
 	NastavLinku = function(self, ID, venku)
-		Print("Nastavuji linku "..ID)
 		if venku then
-			IS:Zapis("MSVlinkaOUT",IS.linkyOUT[ID],false)
+			IS:Zapis("MSVlinkaOUT",IS.linkyOUT[ID],false,false)
 		end
-		IS:Zapis("MSVlinkaIN",IS.linkyIN[ID],false)
+		IS:Zapis("MSVlinkaIN",IS.linkyIN[ID],false,false)
 	end,
 	NastavCil1 = function(self, ID, venku)
-		Print("Nastavuji cil1 "..ID)
 		if venku and IS.cileIsWhole[ID] == "false" then
-			IS:Zapis("MSVcil1OUT",IS.cile1OUT[ID],false)
-			IS:Zapis("MSVcilCelaPlochaOUT","",false)
+			IS:Zapis("MSVcil1OUT",IS.cile1OUT[ID],false,false)
+			IS:Zapis("MSVcilCelaPlochaOUT","",false,false)
 		elseif venku then
-			IS:Zapis("MSVcil1OUT","",false)
-			IS:Zapis("MSVcilCelaPlochaOUT",IS.cile1OUT[ID],false)
+			IS:Zapis("MSVcil1OUT","",false,false)
+			IS:Zapis("MSVcilCelaPlochaOUT",IS.cile1OUT[ID],false,true)
 		end
-		if IS.cileIsWhole[ID] == "true" then
-			IS:Zapis("MSVcil1IN","",false)
-			IS:Zapis("MSVcil2OUT","",false)
-			IS:Zapis("MSVcil2IN","",false)
-		else
-			IS:Zapis("MSVcil1IN",IS.cile1IN[ID],false)
+		if IS.cileIsWhole[ID] == "true" and venku then
+			IS:Zapis("MSVlinkaOUT","",false,false)
+			IS:Zapis("MSVlinkaIN","",false,false)
+			IS:Zapis("MSVcil2OUT","",false,false)
+			IS:Zapis("MSVcil2IN","",false,false)
 		end
+		IS:Zapis("MSVcil1IN",IS.cile1IN[ID],false,false)
 	end,
 	NastavCil2 = function(self, ID, venku)
-		Print("Nastavuji cil2 "..ID)
 		if venku then
-			IS:Zapis("MSVcil2OUT",IS.cile2OUT[ID],true)
+			IS:Zapis("MSVcil2OUT",IS.cile2OUT[ID],true,false)
 		end
-		IS:Zapis("MSVcil2IN",IS.cile2IN[ID],true)
+		IS:Zapis("MSVcil2IN",IS.cile2IN[ID],true,false)
 	end,
 	NastavCislo = function(self, ID)
 		Print("Nastavuji ID "..ID)
-		IS:Zapis("MSVid",tostring(ID-1),false)
+		IS:Zapis("MSVid",tostring(ID-1),false,false)
 	end,
 	SipkaNahoru = function(self)
 		IS.casMenu = 0
@@ -489,6 +516,7 @@ IS = {
 			end
 			IS:NastavCil1(IS.cil1ID,false)
 			IS:NastavCislo(IS.cil1ID)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
 			IS.cil2ID = IS.cil2ID + 1
 			if IS.cil2ID > table.getn(IS.cile2IN) then
@@ -496,6 +524,7 @@ IS = {
 			end
 			IS:NastavCil2(IS.cil2ID,false)
 			IS:NastavCislo(IS.cil2ID)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
 			IS.linkaID = IS.linkaID + 1
 			if IS.linkaID > table.getn(IS.linkyIN) then
@@ -503,6 +532,7 @@ IS = {
 			end
 			IS:NastavLinku(IS.linkaID,false)
 			IS:NastavCislo(IS.linkaID)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
 	end,
 	SipkaDolu = function(self)
@@ -516,6 +546,7 @@ IS = {
 			end
 			IS:NastavCil1(IS.cil1ID,false)
 			IS:NastavCislo(IS.cil1ID)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
 			IS.cil2ID = IS.cil2ID - 1
 			if IS.cil2ID <= 0 then
@@ -523,6 +554,7 @@ IS = {
 			end
 			IS:NastavCil2(IS.cil2ID,false)
 			IS:NastavCislo(IS.cil2ID)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
 			IS.linkaID = IS.linkaID - 1
 			if IS.linkaID <= 0 then
@@ -530,6 +562,7 @@ IS = {
 			end
 			IS:NastavLinku(IS.linkaID,false)
 			IS:NastavCislo(IS.linkaID)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
 	end,
 	Potvrzeni = function(self)
@@ -542,14 +575,17 @@ IS = {
 			if IS.cileIsWhole[IS.cil1ID] == "false" then
 				IS.stav = "cil2"
 			end
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis cile 1:", "Zapisuji ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
 			IS:NastavCil2(IS.cil2ID,true)
 			IS:NastavCislo(IS.linkaID)
 			IS.stav = "linka"
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis cile 2:", "Zapisuji ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
 			IS:NastavLinku(IS.linkaID,true)
 			IS:NastavCislo(IS.cil1ID)
 			IS.stav = "cil1"
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis linky:", "Zapisuji ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
 	end,
 	SipkaBok = function(self)
@@ -571,13 +607,14 @@ IS = {
 		end
 	end,
 	VymazVse = function(self)
-		IS:Zapis("MSVlinkaOUT","",false)
-		IS:Zapis("MSVlinkaIN","",false)
-		IS:Zapis("MSVcil1OUT","",false)
-		IS:Zapis("MSVcil1IN","",false)
-		IS:Zapis("MSVcil2OUT","",false)
-		IS:Zapis("MSVcil2IN","",false)
-		IS:Zapis("MSVid","",false)
+		IS:Zapis("MSVlinkaOUT","",false,false)
+		IS:Zapis("MSVlinkaIN","",false,false)
+		IS:Zapis("MSVcil1OUT","",false,false)
+		IS:Zapis("MSVcil1IN","",false,false)
+		IS:Zapis("MSVcil2OUT","",false,false)
+		IS:Zapis("MSVcil2IN","",false,false)
+		IS:Zapis("MSVcilCelaPlochaOUT","",false,false)
+		IS:Zapis("MSVid","",false,false)
 	end
 }
 function NactiIS()
@@ -587,9 +624,8 @@ function NactiIS()
 	if souborCile then
 		souborCile:close()
 		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/cile.ci4") do
-			radek = string.fromutf8(radek)
-			-- radek = string.upper(radek)
 			if not string.find(radek,"#") then
+				radek = string.fromutf8(radek)
 				local splitted = split(radek,"|")
 				local cilIN = splitted[1]
 				local cilOUT = splitted[2]
@@ -615,11 +651,12 @@ function NactiIS()
 	end
 	if souborLinky then
 		souborLinky:close()
-		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/linky.lin") do 
+		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/linky.lin") do
 			if not string.find(radek,"#") then
+				radek = string.fromutf8(radek)
 				local splitted = split(radek,"|")
-				local linkaIN = splitted[1]
-				local linkaOUT = splitted[2]
+				local linkaIN = string.upper(splitted[1])
+				local linkaOUT = string.upper(splitted[2])
 				IS.linkyIN[table.getn(IS.linkyIN)+1] = linkaIN
 				IS.linkyOUT[table.getn(IS.linkyOUT)+1] = linkaOUT
 			end
@@ -1953,7 +1990,9 @@ function Update (cas)
 
 						if IS.stav == "start" and Baterie == 1 then
 							IS.casStart = IS.casStart + cas
+							Call("MSVstart:ActivateNode","MSVstart",1)
 							if IS.casStart > 5 then
+								Call("MSVstart:ActivateNode","MSVstart",0)
 								Print("Start IS")
 								IS.stav = "sleep"
 								IS:NastavCil1(1,true)
@@ -1966,6 +2005,7 @@ function Update (cas)
 						if Baterie ~= 1 then
 							IS.stav = "start"
 							IS:VymazVse()
+							Call("MSVstart:ActivateNode","MSVstart",0)
 						end
 						if Baterie == 1 and IS.stav ~= "sleep" then
 							IS.casMenu = IS.casMenu + cas

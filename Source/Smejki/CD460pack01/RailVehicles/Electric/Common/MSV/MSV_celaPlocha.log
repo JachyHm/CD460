@@ -1,0 +1,831 @@
+
+ Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\IGS_ExpModFile.txt
+------  Materials:ShaderName  ------
+('shadow', 'StencilShadow.fx')
+('trdiff', 'TrainBasicObjectDiffuse.fx')
+('trglass', 'TrainGlass.fx')
+('trspec', 'TrainBasicObjectSpecular.fx')
+('trspecem', 'TrainSpecEnvMask.fx')
+('trbumpspec', 'TrainBumpSpec.fx')
+('trbumpspecem', 'TrainBumpSpecEnvMask.fx')
+('trglassweather', 'TrainGlassWeatherEffects.fx')
+('trlightmap', 'TrainLightMapWithDiffuse.fx')
+('trenv', 'TrainEnv.fx')
+('trflora', 'TrainFlora.fx')
+('trvfaceflora', 'TrainViewFacingFlora.fx')
+('trupvfaceflora', 'TrainUprightViewFacingFlora.fx')
+('lofttexdiff', 'LoftTexDiff.fx')
+('lofttexdifftr', 'LoftTexDiffTrans.fx')
+('skin', 'SkinDiffuse.fx')
+('water', 'WaterCubeMap.fx')
+('waterscenery', 'WaterScenery.fx')
+('sky', 'TrainSkyDome.fx')
+
+
+ >>>> INFO: File C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\MSV_celaPlocha_IGSExpModFile2.txt not found <<<<
+ >>>> INFO: Using file C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\IGSExpModFile2.txt <<<<
+
+ Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\MSV\IGSExpModFile2.txt
+------  Materials:AlphaTestMode  ------
+------  Materials:Ambient  ------
+------  Materials:ZBufferMode  ------
+('primarynumber_0', '3')
+('primarynumber_1', '3')
+('primarynumber_2', '3')
+('primarynumber_3', '3')
+('primarynumber_4', '3')
+('primarynumber_5', '3')
+('primarynumber_6', '3')
+('primarynumber_7', '3')
+('primarynumber_8', '3')
+('primarynumber_9', '3')
+('primarynumber_10', '3')
+('primarynumber_11', '3')
+('primarynumber_12', '3')
+('primarynumber_13', '3')
+('primarynumber_14', '3')
+('primarynumber_15', '3')
+------  Miscellaneous  ------
+('targettexturesdirectory', 'Textures')
+('mainobject', '1_1024_primarydigits_16')
+('hierarchy', 'unchanged')
+('centermainobject', '0,0,N')
+------  UVArguments  ------
+
+
+ MainObject to find = 1_1024_primarydigits_16
+ MainObject found = 1_1024_primarydigits_16
+
+ INFO: Using CenterMainObject (0,0,N), exported model moved by X=-0.000000 Y=-0.000000 Z=-0.000000 (Blender axis)
+
+
+ ------------------ Groups list -----------------
+ --- 1 groups ---
+
+--- Group --- 1_1024_primarydigits_16 (1 item)
+    LOD level 1 / LOD distance 1024 / keyword _primarydigits_16
+    Parent group: None
+    Group objects:
+                  1_1024_primarydigits_16
+
+ INFO: ZBufferMode for material primarynumber_0: 3
+ INFO: ZBufferMode for material primarynumber_1: 3
+ INFO: ZBufferMode for material primarynumber_2: 3
+ INFO: ZBufferMode for material primarynumber_3: 3
+ INFO: ZBufferMode for material primarynumber_4: 3
+ INFO: ZBufferMode for material primarynumber_5: 3
+ INFO: ZBufferMode for material primarynumber_6: 3
+ INFO: ZBufferMode for material primarynumber_7: 3
+ INFO: ZBufferMode for material primarynumber_8: 3
+ INFO: ZBufferMode for material primarynumber_9: 3
+ INFO: ZBufferMode for material primarynumber_10: 3
+ INFO: ZBufferMode for material primarynumber_11: 3
+ INFO: ZBufferMode for material primarynumber_12: 3
+ INFO: ZBufferMode for material primarynumber_13: 3
+ INFO: ZBufferMode for material primarynumber_14: 3
+ INFO: ZBufferMode for material primarynumber_15: 3
+================================================================================
+IG file header information (0)
+--------------------------------------------------------------------------------
+CommentField                  : 'Blender 2.78 (sub 0) - IGS exporter version 1.4.8'
+ObjectCount                   : 1
+MeshCount                     : 1
+MaterialCount                 : 16
+================================================================================
+Materials list (16 materials):
+--------------------------------------------------------------------------------
+         Name         |             Shader             |              First texture               / UVArguments
+ primarynumber_0      | TrainDecal.fx                  | Textures\decal_primarynumber_0           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_1      | TrainDecal.fx                  | Textures\decal_primarynumber_1           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_2      | TrainDecal.fx                  | Textures\decal_primarynumber_2           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_3      | TrainDecal.fx                  | Textures\decal_primarynumber_3           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_4      | TrainDecal.fx                  | Textures\decal_primarynumber_4           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_5      | TrainDecal.fx                  | Textures\decal_primarynumber_5           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_6      | TrainDecal.fx                  | Textures\decal_primarynumber_6           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_7      | TrainDecal.fx                  | Textures\decal_primarynumber_7           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_8      | TrainDecal.fx                  | Textures\decal_primarynumber_8           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_9      | TrainDecal.fx                  | Textures\decal_primarynumber_9           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_10     | TrainDecal.fx                  | Textures\decal_primarynumber_10          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_11     | TrainDecal.fx                  | Textures\decal_primarynumber_11          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_12     | TrainDecal.fx                  | Textures\decal_primarynumber_12          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_13     | TrainDecal.fx                  | Textures\decal_primarynumber_13          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_14     | TrainDecal.fx                  | Textures\decal_primarynumber_14          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ primarynumber_15     | TrainDecal.fx                  | Textures\decal_primarynumber_15          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+================================================================================
+--------------------------------------------------------------------------------
+Material main parameters [ 1 / 16 ] : 'primarynumber_0'
+------------------------------.
+Name                          : 'primarynumber_0'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 2 / 16 ] : 'primarynumber_1'
+------------------------------.
+Name                          : 'primarynumber_1'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 3 / 16 ] : 'primarynumber_2'
+------------------------------.
+Name                          : 'primarynumber_2'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 4 / 16 ] : 'primarynumber_3'
+------------------------------.
+Name                          : 'primarynumber_3'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 5 / 16 ] : 'primarynumber_4'
+------------------------------.
+Name                          : 'primarynumber_4'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 6 / 16 ] : 'primarynumber_5'
+------------------------------.
+Name                          : 'primarynumber_5'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 7 / 16 ] : 'primarynumber_6'
+------------------------------.
+Name                          : 'primarynumber_6'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 8 / 16 ] : 'primarynumber_7'
+------------------------------.
+Name                          : 'primarynumber_7'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 9 / 16 ] : 'primarynumber_8'
+------------------------------.
+Name                          : 'primarynumber_8'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 10 / 16 ] : 'primarynumber_9'
+------------------------------.
+Name                          : 'primarynumber_9'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 11 / 16 ] : 'primarynumber_10'
+------------------------------.
+Name                          : 'primarynumber_10'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 12 / 16 ] : 'primarynumber_11'
+------------------------------.
+Name                          : 'primarynumber_11'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 13 / 16 ] : 'primarynumber_12'
+------------------------------.
+Name                          : 'primarynumber_12'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 14 / 16 ] : 'primarynumber_13'
+------------------------------.
+Name                          : 'primarynumber_13'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 15 / 16 ] : 'primarynumber_14'
+------------------------------.
+Name                          : 'primarynumber_14'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 16 / 16 ] : 'primarynumber_15'
+------------------------------.
+Name                          : 'primarynumber_15'
+ShaderName                    : 'TrainDecal.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 3
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+================================================================================
+IGTextureNames               : [ 1 ]
+--------------------------------------------------------------------------------
+IGfTextureNames [ 1 / 1 ] (44)
+------------------------------.
+TextureNameListLength         : 502
+TextureNameCount              : 16
+--------------------------------------------------------------------------------
+TextureNameStartOffsetList -----.
+  TextureNameStartOffset[1]     : 0 (TextureName[1])
+  TextureNameStartOffset[2]     : 31 (TextureName[2])
+  TextureNameStartOffset[3]     : 62 (TextureName[3])
+  TextureNameStartOffset[4]     : 93 (TextureName[4])
+  TextureNameStartOffset[5]     : 124 (TextureName[5])
+  TextureNameStartOffset[6]     : 155 (TextureName[6])
+  TextureNameStartOffset[7]     : 186 (TextureName[7])
+  TextureNameStartOffset[8]     : 217 (TextureName[8])
+  TextureNameStartOffset[9]     : 248 (TextureName[9])
+  TextureNameStartOffset[10]     : 279 (TextureName[10])
+  TextureNameStartOffset[11]     : 310 (TextureName[11])
+  TextureNameStartOffset[12]     : 342 (TextureName[12])
+  TextureNameStartOffset[13]     : 374 (TextureName[13])
+  TextureNameStartOffset[14]     : 406 (TextureName[14])
+  TextureNameStartOffset[15]     : 438 (TextureName[15])
+  TextureNameStartOffset[16]     : 470 (TextureName[16])
+TextureNameList ----------------.
+  TextureName[1]                : 'Textures\decal_primarynumber_0'
+  TextureName[2]                : 'Textures\decal_primarynumber_1'
+  TextureName[3]                : 'Textures\decal_primarynumber_2'
+  TextureName[4]                : 'Textures\decal_primarynumber_3'
+  TextureName[5]                : 'Textures\decal_primarynumber_4'
+  TextureName[6]                : 'Textures\decal_primarynumber_5'
+  TextureName[7]                : 'Textures\decal_primarynumber_6'
+  TextureName[8]                : 'Textures\decal_primarynumber_7'
+  TextureName[9]                : 'Textures\decal_primarynumber_8'
+  TextureName[10]                : 'Textures\decal_primarynumber_9'
+  TextureName[11]                : 'Textures\decal_primarynumber_10'
+  TextureName[12]                : 'Textures\decal_primarynumber_11'
+  TextureName[13]                : 'Textures\decal_primarynumber_12'
+  TextureName[14]                : 'Textures\decal_primarynumber_13'
+  TextureName[15]                : 'Textures\decal_primarynumber_14'
+  TextureName[16]                : 'Textures\decal_primarynumber_15'
+
+
+IGS export time: 0.03
