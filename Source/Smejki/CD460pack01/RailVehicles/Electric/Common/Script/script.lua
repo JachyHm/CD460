@@ -1,23 +1,5 @@
---Aktuální verze k 29.8.2017
+--Aktuální verze k 16.4.2018
 --**********************skript lokomotivy 460**************************--
---zpravy
-	-- 460101 - kl?? na druh? kabin?
-	-- 460105 - dvereP
-	-- 460106 - osv?tlen? vozu
-	-- 460108 - zadost o otevreni dveri z nerizene HV
-	-- 460109 - dvereL
-	-- 460110 - ?iv?k v souprav?
-	-- 460111 - FastStart
-	-- 460112 - Nouzov? br?d?n?
-	-- 460114 - Ovladani DveriL
-	-- 460115 - Ovladani DveriP
-	-- 460116 - MGen priprava
-	-- 460117 - startujici MGen v souprave
-	-- 460118 - bezici MGEn v souprave
-	-- 460119 - brzda
-	-- 460997 - ID nabalovani
-	-- 460998 - zadost od ID
-	-- 460999 - DUMMY
 	-- SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 addon", "Baterie zapnute.",5,16,0,0)
 --os.execute('Assets\\CS_addon\\Smejki\\RailVehicles\\Electric\\460080\\ActualizationAutoRun\\runactualization.exe')
 INFO = 0
@@ -460,7 +442,6 @@ IS = {
 				end
 			else
 				local pocetMezerLeva = math.floor((maxDelka - string.len(co))/2)
-				Print(pocetMezerLeva)
 				local i = 0
 				while i < pocetMezerLeva do
 					co = " "..co
@@ -668,7 +649,7 @@ function NactiIS()
 		IS.linkyIN[1] = "NENÍ LINKA"
 		IS.linkyOUT[1] = " "
 	end
-	Print("Načteno "..table.getn(IS.cile1IN).." cílů a "..table.getn(IS.linkyIN).." linek do IS!")
+	Print("Nacteno "..table.getn(IS.cile1IN).." cilu a "..table.getn(IS.linkyIN).." linek do IS!")
 end
 
 NactiIS()
@@ -938,12 +919,117 @@ function Initialise ()
 	predMasinou = Call("SendConsistMessage",460999,"DUMMY",0)
 	zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
 end
+function GetIDs(numberToDecode)
+	i = 1
+	index = 0
+	tableOfIDs = {}
+	while numberToDecode > 0 do
+		while i <= numberToDecode do
+			lastID = i
+			i = i * 2
+			index = index + 1
+		end
+		tableOfIDs[index] = lastID
+		numberToDecode = numberToDecode - lastID
+		i = 1
+		index = 0
+	end
+	return tableOfIDs
+end
+function GetFreeID(tableOfUsedIDs)
+	lastID = table.getn(tableOfUsedIDs)
+	return lastID + 1
+end
+function tableContains(tableName, value)
+	for k,v in pairs(tableName) do
+		if v == value then
+			return true
+		end
+	end
+	return false
+end
+function ZpracujZpravuSID(zprava,argument,smer,nazevCV)
+	if Call("GetIsEngineWithKey") == 1 then
+		TF = string.sub( argument,0,string.find( argument,":")-1)
+		IDzpravy = tonumber(string.sub(argument,string.find(argument,":")+1))
+		hodnotaZpravy = 2^(IDzpravy-1)
+		hodnotaCV = Call("GetControlValue",nazevCV,0)
+		IDmasinAktiv = GetIDs(hodnotaCV)
+		if TF == "1" and IDmasinAktiv[IDzpravy] == nil then
+			Call("SetControlValue",nazevCV,0,tonumber(hodnotaCV+hodnotaZpravy))
+		elseif TF == "0" then
+			-- vrat = 0
+			-- for k,v in pairs(IDmasinAktiv) do
+			-- 	if k ~= IDzpravy then
+			-- 		vrat = vrat + v
+			-- 	end
+			-- end
+			--TEST ALTERNATIVY
+			hodnotaCV = hodnotaCV - 2^(IDzpravy-1)
+			Call("SetControlValue",nazevCV,0,hodnotaCV)--vrat misto hodnotaCV
+		end
+	else
+		Call("SendConsistMessage",zprava,argument,smer)
+	end
+end
+function NastavHodnotuSID(nazevCV,hodnota,cisloZpravy)
+	if hodnota == 1 then
+		hodnotaCV = Call("GetControlValue",nazevCV,0)
+		IDmasinAktiv = GetIDs(hodnotaCV)
+		if IDmasinAktiv[ID] == nil then
+			if Call("GetIsEngineWithKey") == 1 then
+				Call("SetControlValue",nazevCV,0,tonumber(hodnotaCV+2^(ID-1)))
+			else
+				Call("SendConsistMessage",cisloZpravy,"1:"..ID,1)
+				Call("SendConsistMessage",cisloZpravy,"1:"..ID,0)
+			end
+		end
+	elseif hodnota == 0 then
+		hodnotaCV = Call("GetControlValue",nazevCV,0)
+		IDmasinAktiv = GetIDs(hodnotaCV)
+		if IDmasinAktiv[ID] ~= nil then
+			if Call("GetIsEngineWithKey") == 1 then
+				-- vrat = 0
+				-- for k,v in pairs(IDmasinAktiv) do
+				-- 	if k ~= ID then
+				-- 		vrat = vrat + v
+				-- 	end
+				-- end
+				--TEST ALTERNATIVY
+				hodnotaCV = hodnotaCV - 2^(ID-1)
+				Call("SetControlValue",nazevCV,0,hodnotaCV)--vrat misto hodnotaCV
+			else
+				Call("SendConsistMessage",cisloZpravy,"0:"..ID,1)
+				Call("SendConsistMessage",cisloZpravy,"0:"..ID,0)
+			end
+		end
+	end
+end
+--zpravy
+	-- 460101 - kl?? na druh? kabin?
+	-- 460105 - dvereP
+	-- 460106 - osv?tlen? vozu
+	-- 460108 - zadost o otevreni dveri z nerizene HV
+	-- 460109 - dvereL
+	-- 460110 - ?iv?k v souprav?
+	-- 460111 - FastStart
+	-- 460112 - Nouzov? br?d?n?
+	-- 460114 - Ovladani DveriL
+	-- 460115 - Ovladani DveriP
+	-- 460116 - MGen priprava
+	-- 460117 - startujici MGen v souprave
+	-- 460118 - bezici MGEn v souprave
+	-- 460119 - brzda
+	-- 460997 - ID nabalovani
+	-- 460998 - zadost od ID
+	-- 460999 - DUMMY
 function OnConsistMessage(zprava,argument,smer)
-	if zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460108 then
+	if zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 then
 		stavPoslane = Call("SendConsistMessage",zprava,argument,smer)
 	end
 	if zprava ~= 460999 then
 		ZpravaDebug(tostring(zprava).." "..argument.." smer: "..smer)
+		-- Print(zprava..':"'..argument..'"')
 	end
 	if zprava == 460101 then
 		if argument == "1" then
@@ -1021,111 +1107,28 @@ function OnConsistMessage(zprava,argument,smer)
 		end
 	end
 	if zprava == 460114 then
-		if Call("GetIsEngineWithKey") == 1 then
-			TF = string.sub( argument,0,string.find( argument,":")-1)
-			IDzpravy = string.sub( argument,string.find( argument,":")+1 )
-			IDmasinDvereLeve = Call("GetControlValue","DvereLeveVSouprave",0)
-			if TF == "1" then
-				Call("SetControlValue","DvereLeveVSouprave",0,tonumber(IDmasinDvereLeve..IDzpravy))
-			elseif TF == "0" then
-				IDmasinDvereLeve = Call("GetControlValue","DvereLeveVSouprave",0)
-				obsahujeID = string.find(IDmasinDvereLeve, IDzpravy)
-				if obsahujeID ~= nil then
-					vrat = tonumber(string.sub(IDmasinDvereLeve,0,obsahujeID-1)..string.sub(IDmasinDvereLeve,obsahujeID+1))
-					if vrat == nil then vrat = 0 end
-					Call("SetControlValue","DvereLeveVSouprave",0,vrat)
-				end
-			end
-		else
-			stavPoslane = Call("SendConsistMessage",460114,argument,smer)
-		end
+		ZpracujZpravuSID(zprava,argument,smer,"DvereLeveVSouprave")
 	end
 	if zprava == 460115 then
-		if Call("GetIsEngineWithKey") == 1 then
-			TF = string.sub( argument,0,string.find( argument,":")-1)
-			IDzpravy = string.sub( argument,string.find( argument,":")+1 )
-			IDmasinDverePrave = Call("GetControlValue","DverePraveVSouprave",0)
-			if TF == "1" then
-				Call("SetControlValue","DverePraveVSouprave",0,tonumber(IDmasinDverePrave..IDzpravy))
-			elseif TF == "0" then
-				IDmasinDverePrave = Call("GetControlValue","DverePraveVSouprave",0)
-				obsahujeID = string.find(IDmasinDverePrave, IDzpravy)
-				if obsahujeID ~= nil then
-					vrat = tonumber(string.sub(IDmasinDverePrave,0,obsahujeID-1)..string.sub(IDmasinDverePrave,obsahujeID+1))
-					if vrat == nil then vrat = 0 end
-					Call("SetControlValue","DverePraveVSouprave",0,vrat)
-				end
-			end
-		else
-			stavPoslane = Call("SendConsistMessage",460115,argument,smer)
-		end
+		ZpracujZpravuSID(zprava,argument,smer,"DverePraveVSouprave")
 	end
 	if zprava == 460116 then
-		if Call("GetIsEngineWithKey") == 1 then
-			TF = string.sub( argument,0,string.find( argument,":")-1)
-			IDzpravy = string.sub( argument,string.find( argument,":")+1 )
-			IDmasinMG = Call("GetControlValue","mgPriprava",0)
-			if TF == "1" then
-				Call("SetControlValue","mgPriprava",0,tonumber(IDmasinMG..IDzpravy))
-			elseif TF == "0" then
-				IDmasinMG = Call("GetControlValue","mgPriprava",0)
-				obsahujeID = string.find(IDmasinMG, IDzpravy)
-				if obsahujeID ~= nil then
-					vrat = tonumber(string.sub(IDmasinMG,0,obsahujeID-1)..string.sub(IDmasinMG,obsahujeID+1))
-					if vrat == nil then vrat = 0 end
-					Call("SetControlValue","mgPriprava",0,vrat)
-				end
-			end
-		else
-			stavPoslane = Call("SendConsistMessage",460115,argument,smer)
-		end
+		ZpracujZpravuSID(zprava,argument,smer,"mgPriprava")
 	end
 	if zprava == 460117 then
-		if Call("GetIsEngineWithKey") == 1 then
-			TF = string.sub( argument,0,string.find( argument,":")-1)
-			IDzpravy = string.sub( argument,string.find( argument,":")+1 )
-			IDmasinMG = Call("GetControlValue","mgVS",0)
-			if TF == "1" then
-				Call("SetControlValue","mgVS",0,tonumber(IDmasinMG..IDzpravy))
-			elseif TF == "0" then
-				IDmasinMG = Call("GetControlValue","mgVS",0)
-				obsahujeID = string.find(IDmasinMG, IDzpravy)
-				if obsahujeID ~= nil then
-					vrat = tonumber(string.sub(IDmasinMG,0,obsahujeID-1)..string.sub(IDmasinMG,obsahujeID+1))
-					if vrat == nil then vrat = 0 end
-					Call("SetControlValue","mgVS",0,vrat)
-				end
-			end
-		end
+		ZpracujZpravuSID(zprava,argument,smer,"mgVS")
 	end
 	if zprava == 460118 then
-		if Call("GetIsEngineWithKey") == 1 then
-			TF = string.sub( argument,0,string.find( argument,":")-1)
-			IDzpravy = string.sub( argument,string.find( argument,":")+1 )
-			IDmasinMG = Call("GetControlValue","mg",0)
-			if TF == "1" then
-				Call("SetControlValue","mg",0,tonumber(IDmasinMG..IDzpravy))
-			elseif TF == "0" then
-				IDmasinMG = Call("GetControlValue","mg",0)
-				obsahujeID = string.find(IDmasinMG, IDzpravy)
-				if obsahujeID ~= nil then
-					vrat = tonumber(string.sub(IDmasinMG,0,obsahujeID-1)..string.sub(IDmasinMG,obsahujeID+1))
-					if vrat == nil then vrat = 0 end
-					Call("SetControlValue","mg",0,vrat)
-				end
-			end
-		end
+		ZpracujZpravuSID(zprava,argument,smer,"mg")
 	end
 	if zprava == 460997 then
-		i = 1
-		while string.find(argument,i) ~= nil do
-			i = i + 1 
-		end
-		ID = i
-		stavPoslane = Call("SendConsistMessage",460997,argument..i,smer)
+		ID = GetFreeID(GetIDs(tonumber(argument)))
+		i = 2^(ID-1)
+		stavPoslane = Call("SendConsistMessage",460997,tostring(tonumber(argument)+i),smer)
 		if stavPoslane == 0 then
-			ZpravaDebug("Razeni soupravy je: "..argument..i)
-			souprava = argument..i
+			ZpravaDebug("Soucet ID v souprave je: "..tostring(tonumber(argument)+i)..", pocet je tedy: "..ID)
+			SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 debug", "Soucet ID v souprave je: "..tostring(tonumber(argument)+i)..", pocet vozu je tedy: "..ID,5,16,0,0)
+			souprava = tonumber(argument)+i
 		end
 		Call("SetControlValue","ID",0,ID)
 	end
@@ -1384,16 +1387,16 @@ function Pozicka(ktera,barva,plati)
 	RozsvitSvetlo("Pozicka"..ktera..barva,plati)
 	AktivujNode("pozicka"..ktera..barva, plati)
 end
-function rozloz(cislo,misto)
-	misto = misto - 1
-	misto = 10^misto
-	cislo = cislo / misto
-	cislo = math.floor(cislo)
-	cislo = cislo / 10
-	_,cislo = math.modf(cislo)
-	cislo = cislo * 10
-	vysledek = math.floor(cislo)
-end
+-- function rozloz(cislo,misto)
+-- 	misto = misto - 1
+-- 	misto = 10^misto
+-- 	cislo = cislo / misto
+-- 	cislo = math.floor(cislo)
+-- 	cislo = cislo / 10
+-- 	_,cislo = math.modf(cislo)
+-- 	cislo = cislo * 10
+-- 	vysledek = math.floor(cislo)
+-- end
 function divMod(x,y)
     return math.floor(x / y), x - math.floor(x/y)*y
 end
@@ -1975,6 +1978,10 @@ function Update (cas)
 					else
 						RizenaRidici = "ridici"
 					end
+					RizenaRidiciJednaNula = 0
+					if RizenaRidici == "ridici" then
+						RizenaRidiciJednaNula = 1
+					end
 					----------------------------------------IS------------------------------------------------
 						MSVsipkaDoluLast = MSVsipkaDolu
 						MSVsipkaNahoruLast = MSVsipkaNahoru
@@ -1993,7 +2000,6 @@ function Update (cas)
 							Call("MSVstart:ActivateNode","MSVstart",1)
 							if IS.casStart > 5 then
 								Call("MSVstart:ActivateNode","MSVstart",0)
-								Print("Start IS")
 								IS.stav = "sleep"
 								IS:NastavCil1(1,true)
 								IS:NastavCil2(1,true)
@@ -2048,30 +2054,7 @@ function Update (cas)
 						auto_mgs = Call("GetControlValue","mgautostart",0)
 						mgPrip = Call("GetControlValue","mgPriprava",0)
 						
-						if mgp == 1 then
-							IDmasinMG = Call("GetControlValue","mgPriprava",0)
-							if string.find( IDmasinMG,ID) == nil then
-								if Call("GetIsEngineWithKey") == 1 then
-									Call("SetControlValue","mgPriprava",0,tonumber(IDmasinMG..ID))
-								else
-									Call("SendConsistMessage",460116,"1:"..ID,1)
-									Call("SendConsistMessage",460116,"1:"..ID,0)
-								end
-							end
-						elseif mgp == 0 then
-							IDmasinMG = Call("GetControlValue","mgPriprava",0)
-							obsahujeID = string.find(IDmasinMG, ID)
-							if obsahujeID ~= nil then
-								vrat = tonumber(string.sub(IDmasinMG,0,obsahujeID-1)..string.sub(IDmasinMG,obsahujeID+1))
-								if vrat == nil then vrat = 0 end
-								if Call("GetIsEngineWithKey") == 1 then
-									Call("SetControlValue","mgPriprava",0,vrat)
-								else
-									Call("SendConsistMessage",460116,"0:"..ID,1)
-									Call("SendConsistMessage",460116,"0:"..ID,0)
-								end
-							end
-						end
+						NastavHodnotuSID("mgPriprava",mgp,460116)
 
 						if mgPrip > 0 and PC == 3.75 then
 							if mgs == 1 or auto_mgs == 1 then
@@ -2079,7 +2062,7 @@ function Update (cas)
 									mg = 1
 									mgdocasny = 0
 									if RizenaRidiciJednaNula == 1 then
-										Call("SetControlValue","mgautostart",0,0)
+										Call("SetControlValue","mgautostart",0,1)
 									end
 								else
 									mgdocasny = 1
@@ -2095,54 +2078,8 @@ function Update (cas)
 							mgdocasny = 0
 						end
 						Call("SetControlValue","mgZvuk",0,math.max(mg,mgdocasny))
-						if math.max(mg,mgdocasny) == 1 then
-							IDmasinMG = Call("GetControlValue","mgVS",0)
-							if string.find( IDmasinMG,ID) == nil then
-								if Call("GetIsEngineWithKey") == 1 then
-									Call("SetControlValue","mgVS",0,tonumber(IDmasinMG..ID))
-								else
-									Call("SendConsistMessage",460117,"1:"..ID,1)
-									Call("SendConsistMessage",460117,"1:"..ID,0)
-								end
-							end
-						elseif math.max(mg,mgdocasny) == 0 then
-							IDmasinMG = Call("GetControlValue","mgVS",0)
-							obsahujeID = string.find(IDmasinMG, ID)
-							if obsahujeID ~= nil then
-								vrat = tonumber(string.sub(IDmasinMG,0,obsahujeID-1)..string.sub(IDmasinMG,obsahujeID+1))
-								if vrat == nil then vrat = 0 end
-								if Call("GetIsEngineWithKey") == 1 then
-									Call("SetControlValue","mgVS",0,vrat)
-								else
-									Call("SendConsistMessage",460117,"0:"..ID,1)
-									Call("SendConsistMessage",460117,"0:"..ID,0)
-								end
-							end
-						end
-						if mg == 1 then
-							IDmasinMG = Call("GetControlValue","mg",0)
-							if string.find( IDmasinMG,ID) == nil then
-								if Call("GetIsEngineWithKey") == 1 then
-									Call("SetControlValue","mg",0,tonumber(IDmasinMG..ID))
-								else
-									Call("SendConsistMessage",460118,"1:"..ID,1)
-									Call("SendConsistMessage",460118,"1:"..ID,0)
-								end
-							end
-						elseif mg == 0 then
-							IDmasinMG = Call("GetControlValue","mg",0)
-							obsahujeID = string.find(IDmasinMG, ID)
-							if obsahujeID ~= nil then
-								vrat = tonumber(string.sub(IDmasinMG,0,obsahujeID-1)..string.sub(IDmasinMG,obsahujeID+1))
-								if vrat == nil then vrat = 0 end
-								if Call("GetIsEngineWithKey") == 1 then
-									Call("SetControlValue","mg",0,vrat)
-								else
-									Call("SendConsistMessage",460118,"0:"..ID,1)
-									Call("SendConsistMessage",460118,"0:"..ID,0)
-								end
-							end
-						end
+						NastavHodnotuSID("mgVS",math.max(mg,mgdocasny),460117)
+						NastavHodnotuSID("mg",mg,460118)
 					----------------------------------------Vys?la?ka-----------------------------------------
 						if Baterie == 1 then
 							if vysilackaObrazovka ~= vysilackaObrazovkaStara then -- displej vys?la?ky
@@ -2790,7 +2727,6 @@ function Update (cas)
 
 								ZpravaDebug("Dvere leve blokovani: "..tostring(blokLeve))
 								ZpravaDebug("Dvere prave blokovani: "..tostring(blokPrave))
-								Print("")
 							end
 
 						
@@ -2798,105 +2734,29 @@ function Update (cas)
 							--leve
 							if math.floor(ID/2) ~= ID/2 then
 								if dvereLPskutecne ~= 0 or dvereLZskutecne ~= 0 then
-									IDmasinDvereLeve = Call("GetControlValue","DverePraveVSouprave",0)
-									if string.find( IDmasinDvereLeve,ID) == nil then
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DverePraveVSouprave",0,tonumber(IDmasinDvereLeve..ID))
-										else
-											Call("SendConsistMessage",460115,"1:"..ID,1)
-											Call("SendConsistMessage",460115,"1:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DverePraveVSouprave",1,460115)
 								elseif dvereLPskutecne == 0 and dvereLZskutecne == 0 then
-									IDmasinDvereLeve = Call("GetControlValue","DverePraveVSouprave",0)
-									obsahujeID = string.find(IDmasinDvereLeve, ID)
-									if obsahujeID ~= nil then
-										vrat = tonumber(string.sub(IDmasinDvereLeve,0,obsahujeID-1)..string.sub(IDmasinDvereLeve,obsahujeID+1))
-										if vrat == nil then vrat = 0 end
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DverePraveVSouprave",0,vrat)
-										else
-											Call("SendConsistMessage",460115,"0:"..ID,1)
-											Call("SendConsistMessage",460115,"0:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DverePraveVSouprave",0,460115)
 								end
 
 								--prave
 								if dverePPskutecne ~= 0 or dverePZskutecne ~= 0 then
-									IDmasinDverePrave = Call("GetControlValue","DvereLeveVSouprave",0)
-									if string.find( IDmasinDverePrave,ID) == nil then
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DvereLeveVSouprave",0,tonumber(IDmasinDverePrave..ID))
-										else
-											Call("SendConsistMessage",460114,"1:"..ID,1)
-											Call("SendConsistMessage",460114,"1:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DvereLeveVSouprave",1,460114)
 								elseif dverePPskutecne == 0 and dverePZskutecne == 0 then
-									IDmasinDverePrave = Call("GetControlValue","DvereLeveVSouprave",0)
-									obsahujeID = string.find(IDmasinDverePrave, ID)
-									if obsahujeID ~= nil then
-										vrat = tonumber(string.sub(IDmasinDverePrave,0,obsahujeID-1)..string.sub(IDmasinDverePrave,obsahujeID+1))
-										if vrat == nil then vrat = 0 end
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DvereLeveVSouprave",0,vrat)
-										else
-											Call("SendConsistMessage",460114,"0:"..ID,1)
-											Call("SendConsistMessage",460114,"0:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DvereLeveVSouprave",0,460114)
 								end
 							else
 								if dvereLPskutecne ~= 0 or dvereLZskutecne ~= 0 then
-									IDmasinDvereLeve = Call("GetControlValue","DvereLeveVSouprave",0)
-									if string.find( IDmasinDvereLeve,ID) == nil then
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DvereLeveVSouprave",0,tonumber(IDmasinDvereLeve..ID))
-										else
-											Call("SendConsistMessage",460114,"1:"..ID,1)
-											Call("SendConsistMessage",460114,"1:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DvereLeveVSouprave",1,460114)
 								elseif dvereLPskutecne == 0 and dvereLZskutecne == 0 then
-									IDmasinDvereLeve = Call("GetControlValue","DvereLeveVSouprave",0)
-									obsahujeID = string.find(IDmasinDvereLeve, ID)
-									if obsahujeID ~= nil then
-										vrat = tonumber(string.sub(IDmasinDvereLeve,0,obsahujeID-1)..string.sub(IDmasinDvereLeve,obsahujeID+1))
-										if vrat == nil then vrat = 0 end
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DvereLeveVSouprave",0,vrat)
-										else
-											Call("SendConsistMessage",460114,"0:"..ID,1)
-											Call("SendConsistMessage",460114,"0:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DvereLeveVSouprave",0,460114)
 								end
 
 								--prave
 								if dverePPskutecne ~= 0 or dverePZskutecne ~= 0 then
-									IDmasinDverePrave = Call("GetControlValue","DverePraveVSouprave",0)
-									if string.find( IDmasinDverePrave,ID) == nil then
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DverePraveVSouprave",0,tonumber(IDmasinDverePrave..ID))
-										else
-											Call("SendConsistMessage",460115,"1:"..ID,1)
-											Call("SendConsistMessage",460115,"1:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DverePraveVSouprave",1,460115)
 								elseif dverePPskutecne == 0 and dverePZskutecne == 0 then
-									IDmasinDverePrave = Call("GetControlValue","DverePraveVSouprave",0)
-									obsahujeID = string.find(IDmasinDverePrave, ID)
-									if obsahujeID ~= nil then
-										vrat = tonumber(string.sub(IDmasinDverePrave,0,obsahujeID-1)..string.sub(IDmasinDverePrave,obsahujeID+1))
-										if vrat == nil then vrat = 0 end
-										if Call("GetIsEngineWithKey") == 1 then
-											Call("SetControlValue","DverePraveVSouprave",0,vrat)
-										else
-											Call("SendConsistMessage",460115,"0:"..ID,1)
-											Call("SendConsistMessage",460115,"0:"..ID,0)
-										end
-									end
+									NastavHodnotuSID("DverePraveVSouprave",0,460115)
 								end
 							end
 						
@@ -2981,7 +2841,7 @@ function Update (cas)
 						Call("SetControlValue","PrasatkoDvereP",0,prasatkoHodnotaP)
 
 					----------------------------------------Pantografy----------------------------------------
-						if RizenaRidici == "ridici" and (Call("GetControlValue","povel_VirtualPantographControl",0) == 0 or Call("GetControlValue","povel_VirtualPantographControl",0) == 1) and Baterie == 1 and HlavniVypinac == 1 then
+						if RizenaRidici == "ridici" and (Call("GetControlValue","povel_VirtualPantographControl",0) >= 0 and Call("GetControlValue","povel_VirtualPantographControl",0) < 1.5) and Baterie == 1 and HlavniVypinac == 1 then
 							gZadniSmetak = 1
 							gPredniSmetak = 0
 						elseif RizenaRidici == "ridici" then
@@ -2989,7 +2849,7 @@ function Update (cas)
 							gPredniSmetak = 0
 						end
 
-						if RizenaRidici == "rizena" and (Call("GetControlValue","povel_VirtualPantographControl",0) == 1 or Call("GetControlValue","povel_VirtualPantographControl",0) == 2) and Baterie == 1 and HlavniVypinac == 1 then
+						if RizenaRidici == "rizena" and (Call("GetControlValue","povel_VirtualPantographControl",0) > 0.5 and Call("GetControlValue","povel_VirtualPantographControl",0) <= 2) and Baterie == 1 and HlavniVypinac == 1 then
 							if MaPredniPantograf == 1 then
 								gPredniSmetak = 1
 								gZadniSmetak = 0
@@ -3322,8 +3182,6 @@ function Update (cas)
 								Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
 								casstupnu = 0
 							end
-							Print(Call("GetControlValue","RadicNouzovy",0))
-							Print(vykon)
 						end
 						vykon = Call("GetControlValue","JizdniKontroler",0) 
 						if (vykon < 0.05 and vykon >= 0) or (vykon > -0.5 and vykon <= 0) then 
@@ -3602,7 +3460,7 @@ function Update (cas)
 							mgp = 1
 							Call("SetControlValue","mg",0,souprava)
 							Call("SetControlValue","mgVS",0,souprava)
-							Call("SetControlValue","mgPriprava",0,souprava)
+							Call("SetControlValue","mgPriprava",0,2^(ID-1))
 							Call("SetControlValue","mgZvuk",0,1)
 							mg = 1
 							napetiVS220 = 380 
@@ -3778,10 +3636,6 @@ function Update (cas)
 							podminkyDiag = true
 						end
 						local stridaveNap = ToBolAndBack(vnitrniSit220Vnouzova)
-						local RizenaRidiciJednaNula = 0
-						if RizenaRidici == "ridici" then
-							RizenaRidiciJednaNula = 1
-						end
 						--*******H6
 							if math.min(failmg, Baterie,RizenaRidiciJednaNula) == 1 then
 								diag220V = 1
@@ -3860,7 +3714,6 @@ function Update (cas)
 								if Call("GetControlValue","Diag_PU",0) == 0 and P01 == 1 then
 									Call ( "SetControlValue", "HlavniVypinac", 0, 0)
 									ZamekHLvyp = 1
-									Print("Podpeti")
 								end
 								if P01 ~= 1 then
 									resetujPUpoZvednuti = true
@@ -3886,7 +3739,6 @@ function Update (cas)
 								if wheelSlip > 2  and P01 == 1 then
 									Call ( "SetControlValue", "HlavniVypinac", 0, 0)
 									ZamekHLvyp = 1
-									Print("Skluzovka")
 								else
 									if casSkluz > 1 then
 										casSkluz = 0
@@ -3950,7 +3802,6 @@ function Update (cas)
 								if Call("GetControlValue","Diag_NI",0) == 0 and P01 == 1 then
 									Call ( "SetControlValue", "HlavniVypinac", 0, 0)
 									ZamekHLvyp = 1
-									Print("Nadproud")
 								end
 							elseif not podminkyDiag or (blokOchran == "NI" and Smer == 0) then 
 								niDiag = 0 
@@ -3965,9 +3816,6 @@ function Update (cas)
 						--*******H18
 							if podminkyDiag and blokOchran == false and vykon ~= 0 and math.abs(Ammeter) < 2 then
 								ojDiag = 1
-								Print(Call("GetControlValue","ThrottleAndBrake",0))
-								Print(Ammeter)
-								Print(vykon)
 							elseif not podminkyDiag or blokOchran ~= false or kontroler == 0 or math.abs(Ammeter) > 2 then
 								ojDiag = 0
 							end
@@ -4050,7 +3898,6 @@ function Update (cas)
 							if casShuntu > 6 then
 								Call("SetControlValue","HlavniVypinac",0,0)
 								ZamekHLvyp = 1
-								Print("Odshuntovani")
 							end
 				--##################################################################################--
 				------------------------------------KONEC gásti expert controls-----------------------
@@ -4636,7 +4483,6 @@ function OnControlValueChange ( name, index, value )
 			if levelNapovedy == 4 then
 				levelNapovedy = 0
 			end
-			Print(SysCall("ScenarioManager:FormatString",ZPRAVA_UROVEN_HELP,levelNapovedy))
 			SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, SysCall("ScenarioManager:FormatString",ZPRAVA_UROVEN_HELP,levelNapovedy),ALERT)
 		end
 		Call( "*:SetControlValue", name, index, value )
