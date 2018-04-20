@@ -920,21 +920,15 @@ function Initialise ()
 	zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
 end
 function GetIDs(numberToDecode)
-	i = 1
-	index = 0
-	tableOfIDs = {}
-	while numberToDecode > 0 do
-		while i <= numberToDecode do
-			lastID = i
-			i = i * 2
-			index = index + 1
-		end
-		tableOfIDs[index] = lastID
-		numberToDecode = numberToDecode - lastID
-		i = 1
-		index = 0
-	end
-	return tableOfIDs
+    local tableOfIDs,i,D={},1
+    while numberToDecode > 0 do
+        numberToDecode,D=math.floor(numberToDecode/2),math.mod(numberToDecode,2)
+        if D == 1 then
+          tableOfIDs[i] = true
+        end
+        i = i + 1
+    end
+    return tableOfIDs
 end
 function GetFreeID(tableOfUsedIDs)
 	lastID = table.getn(tableOfUsedIDs)
@@ -1126,8 +1120,6 @@ function OnConsistMessage(zprava,argument,smer)
 		i = 2^(ID-1)
 		stavPoslane = Call("SendConsistMessage",460997,tostring(tonumber(argument)+i),smer)
 		if stavPoslane == 0 then
-			ZpravaDebug("Soucet ID v souprave je: "..tostring(tonumber(argument)+i)..", pocet je tedy: "..ID)
-			SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 debug", "Soucet ID v souprave je: "..tostring(tonumber(argument)+i)..", pocet vozu je tedy: "..ID,5,16,0,0)
 			souprava = tonumber(argument)+i
 		end
 		Call("SetControlValue","ID",0,ID)
@@ -2374,7 +2366,23 @@ function Update (cas)
 							end
 						end
 
-						if not prebiti then
+						if NouzoveBrzdeni == 1 or matrosov then
+							nastavenaBrzda = 0
+							if BS2 < 0.21 or (BS2 > 0.23 and BS2 <= 0.82) then
+								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - ((math.sqrt(VirtualMainReservoirPressureBAR)/100)+0.01))
+								Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
+								ZpozdeniBrzdice(1)
+								Call("SetControlValue","zvukSyceniVZ",0,1)
+							else
+								Call("SetControlValue","zvukSyceniVZ",0,0)
+								ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
+							end
+						else
+							Call("SetControlValue","zvukSyceniVZ",0,0)
+							ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
+						end
+						
+						if not prebiti and NouzoveBrzdeni == 0 and not matrosov then
 							if nastavenaBrzda > plynulaBrzda then
 								plynulaBrzda = plynulaBrzda + math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/10
 							elseif plynulaBrzda > nastavenaBrzda then
@@ -2387,6 +2395,7 @@ function Update (cas)
 								plynulaBrzda = plynulaBrzda - math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/3
 							end
 						end
+
 						if nastavenaBrzda <= 5 then
 							prebiti = false
 						end
@@ -3091,11 +3100,8 @@ function Update (cas)
 						if JeNouzovyRadic == 1 and Call("GetControlValue","RadicNouzovy",0) < 0 then
 							Call("SetControlValue","RadicNouzovy",0,0)
 						end
-						if NouzoveBrzdeni == 1 or matrosov then
-							Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
-							if Rychlost <= 1 and ZivakReset == 1 then
-								NouzoveBrzdeni = 0
-							end
+						if Rychlost <= 1 and ZivakReset == 1 then
+							NouzoveBrzdeni = 0
 						end
 					----------------------------------------Automatika a kontroler----------------------------
 						casstupnu = casstupnu+cas

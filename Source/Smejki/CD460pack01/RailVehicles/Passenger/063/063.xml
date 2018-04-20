@@ -851,7 +851,7 @@
 							<Attribute name="BogieAudioControlName">
 								<cDeltaString>
 									<Element>
-										<Value />
+										<Value>Audio\RailVehicles\Passenger\063\Bogies\063_bogieSound.xml</Value>
 									</Element>
 								</cDeltaString>
 							</Attribute>
@@ -2625,7 +2625,161 @@
 							<Attribute name="Children">
 								<__Indexed__cEntityContainerBlueprint-sChild>
 									<Element>
-										<Value />
+										<Value>
+											<cEntityContainerBlueprint-sChild>
+												<Element>
+													<Value>
+														<Attribute name="ChildName">
+															<cDeltaString>
+																<Element>
+																	<Value>zvukZdrze</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="BlueprintID">
+															<iBlueprintLibrary-cAbsoluteBlueprintID>
+																<Element>
+																	<Value>
+																		<Attribute name="BlueprintSetID">
+																			<iBlueprintLibrary-cBlueprintSetID>
+																				<Element>
+																					<Value>
+																						<Attribute name="Provider">
+																							<cDeltaString>
+																								<Element>
+																									<Value>Smejki</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																						<Attribute name="Product">
+																							<cDeltaString>
+																								<Element>
+																									<Value>CD460pack01</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																					</Value>
+																				</Element>
+																			</iBlueprintLibrary-cBlueprintSetID>
+																		</Attribute>
+																		<Attribute name="BlueprintID">
+																			<cDeltaString>
+																				<Element>
+																					<Value>Audio\RailVehicles\Passenger\063\Bogies\063_zdrzeBP.xml</Value>
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</iBlueprintLibrary-cAbsoluteBlueprintID>
+														</Attribute>
+														<Attribute name="Matrix">
+															<cHcRMatrix4x4>
+																<Element>
+																	<Value>
+																		<Attribute name="Element">
+																			<__Indexed__sFloat32>
+																				<Element>
+																					<Value>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																					</Value>
+																				</Element>
+																			</__Indexed__sFloat32>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</cHcRMatrix4x4>
+														</Attribute>
+														<Attribute name="ParentNodeName">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</cEntityContainerBlueprint-sChild>
+										</Value>
 									</Element>
 								</__Indexed__cEntityContainerBlueprint-sChild>
 							</Attribute>

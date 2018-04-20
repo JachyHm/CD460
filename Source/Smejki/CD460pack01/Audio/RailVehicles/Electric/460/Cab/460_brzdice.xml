@@ -132,7 +132,7 @@
 										<Attribute name="IsLooped">
 											<bool>
 												<Element>
-													<Value>0</Value>
+													<Value>1</Value>
 												</Element>
 											</bool>
 										</Attribute>
@@ -146,7 +146,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>1</Value>
+													<Value>2</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -207,7 +207,7 @@
 														<Attribute name="Filename">
 															<cDeltaString>
 																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_rychlobrzda.wav</Value>
+																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DAKO_rychlobrzda_EX.wav</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -1023,7 +1023,7 @@
 										<Attribute name="IsLooped">
 											<bool>
 												<Element>
-													<Value>0</Value>
+													<Value>1</Value>
 												</Element>
 											</bool>
 										</Attribute>
@@ -1037,7 +1037,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>2</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1377,6 +1377,107 @@
 									</Value>
 								</Element>
 							</kLoud-cCurve>
+							<kLoud-cCurve>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>volumeVZvzduch</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="CurvePoint">
+											<__Indexed__kLoud-cRVector2>
+												<Element>
+													<Value>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>2</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>1</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>8</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>2</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>10</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>3</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+													</Value>
+												</Element>
+											</__Indexed__kLoud-cRVector2>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cCurve>
 						</Value>
 					</Element>
 				</__Indexed__kLoud-cCurve>
@@ -1424,6 +1525,62 @@
 																						<cDeltaString>
 																							<Element>
 																								<Value>VolumeBP</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cVolumeCurveModifier>
+													</Value>
+												</Element>
+											</__Indexed__kLoud-cModifier>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cModifierChain>
+							<kLoud-cModifierChain>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VZvzduch</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Modifier">
+											<__Indexed__kLoud-cModifier>
+												<Element>
+													<Value>
+														<kLoud-cVolumeCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>VirtualMainReservoirPressureBAR</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>volumeVZvzduch</Value>
 																							</Element>
 																						</cDeltaString>
 																					</Attribute>
@@ -1537,7 +1694,208 @@
 			<Attribute name="Loop">
 				<__Indexed__kLoud-cControlledLoop>
 					<Element>
-						<Value />
+						<Value>
+							<kLoud-cControlledLoop>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VZvzduch</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>Rychlobrzda IN</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VZvzduch</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>zvukSyceniVZ</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="LoopCondition">
+											<kLoud-cControlledLoop-eLoopCondition>
+												<Element>
+													<Value>ValueInRange</Value>
+												</Element>
+											</kLoud-cControlledLoop-eLoopCondition>
+										</Attribute>
+										<Attribute name="ActiveRangeStartValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ActiveRangeEndValue">
+											<sFloat32>
+												<Element>
+													<Value>1.1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cControlledLoop>
+							<kLoud-cControlledLoop>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>OUTSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VZvzduch</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>Rychlobrzda</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VZvzduch</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>zvukSyceniVZ</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="LoopCondition">
+											<kLoud-cControlledLoop-eLoopCondition>
+												<Element>
+													<Value>ValueInRange</Value>
+												</Element>
+											</kLoud-cControlledLoop-eLoopCondition>
+										</Attribute>
+										<Attribute name="ActiveRangeStartValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ActiveRangeEndValue">
+											<sFloat32>
+												<Element>
+													<Value>1.1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cControlledLoop>
+						</Value>
 					</Element>
 				</__Indexed__kLoud-cControlledLoop>
 			</Attribute>
