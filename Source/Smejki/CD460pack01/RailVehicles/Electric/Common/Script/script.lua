@@ -1007,7 +1007,6 @@ end
 	-- 460109 - dvereL
 	-- 460110 - ?iv?k v souprav?
 	-- 460111 - FastStart
-	-- 460112 - Nouzov? br?d?n?
 	-- 460114 - Ovladani DveriL
 	-- 460115 - Ovladani DveriP
 	-- 460116 - MGen priprava
@@ -1037,13 +1036,17 @@ function OnConsistMessage(zprava,argument,smer)
 		if argument == "00" then
 			dvereLeveZeSoupravy = false
 			dvereLevePridrznyStav = false
+			str = "zavreno"
 		elseif argument == "01" then
 			dvereLeveZeSoupravy = false
 			dvereLevePridrznyStav = true
+			str = "blokuj aktualni stav"
 		elseif argument == "11" then
 			dvereLeveZeSoupravy = true
 			dvereLevePridrznyStav = true
+			str = "otevrene"
 		end
+		SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, "Novy stav levych dveri na ID"..tostring(ID).." je "..str..".",ALERT)
 		Call("SendConsistMessage",460109,argument,smer)
 	end
 	if zprava == 460106 then
@@ -1061,13 +1064,17 @@ function OnConsistMessage(zprava,argument,smer)
 		if argument == "00" then
 			dverePraveZeSoupravy = false
 			dverePravePridrznyStav = false
+			str = "zavreno"
 		elseif argument == "01" then
 			dverePraveZeSoupravy = false
 			dverePravePridrznyStav = true
+			str = "blokuj aktualni stav"
 		elseif argument == "11" then
 			dverePraveZeSoupravy = true
 			dverePravePridrznyStav = true
+			str = "otevrene"
 		end
+		SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, "Novy stav pravych dveri na ID"..tostring(ID).." je "..str..".",ALERT)
 		Call("SendConsistMessage",460105,argument,smer)
 	end
 	if zprava == 460108 then
@@ -1075,6 +1082,7 @@ function OnConsistMessage(zprava,argument,smer)
 			argument = "prave"
 			if RizenaRidici == "ridici" then
 				Call("SetControlValue","DverePrepPravy",0,2)
+				Napoveda("Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji pravou klicku do polohy otevreno-prave!",1)
 			else
 				Call("SendConsistMessage",460108,argument,smer)
 			end
@@ -1082,6 +1090,7 @@ function OnConsistMessage(zprava,argument,smer)
 			argument = "leve"
 			if RizenaRidici == "ridici" then
 				Call("SetControlValue","DverePrepLevy",0,1)
+				Napoveda("Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji levou klicku do polohy otevreno!",1)
 			else
 				Call("SendConsistMessage",460108,argument,smer)
 			end
@@ -1092,13 +1101,6 @@ function OnConsistMessage(zprava,argument,smer)
 	end
 	if zprava == 460111 then
 		pozadavekNaFastStart = 2
-	end
-	if zprava == 460112 then
-		if argument == "1" then
-			NouzoveBrzdeni = 1
-		elseif argument == "0" then 
-			NouzoveBrzdeni = 0
-		end
 	end
 	if zprava == 460114 then
 		ZpracujZpravuSID(zprava,argument,smer,"DvereLeveVSouprave")
@@ -2793,7 +2795,7 @@ function Update (cas)
 							elseif DOPCL then
 								if RizenaRidici == "ridici" then
 									Call("SetControlValue","DverePrepLevy",0,1)
-									Napoveda(SysCall("ScenarioManager:FormatString","Nemůžeš nechat nastupovat cestující zavřenými dveřmi! Přestavuji levou kličku do polohy otevřeno!"),1)
+									Napoveda(SysCall("ScenarioManager:FormatString","Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji levou klicku do polohy otevreno!"),1)
 								else
 									Call("SendConsistMessage",460108,"leve",1)
 									Call("SendConsistMessage",460108,"leve",0)
@@ -2811,7 +2813,7 @@ function Update (cas)
 							elseif DOPCP then
 								if RizenaRidici == "ridici" then
 									Call("SetControlValue","DverePrepPravy",0,2)
-									Napoveda(SysCall("ScenarioManager:FormatString","Nemůžeš nechat nastupovat cestující zavřenými dveřmi! Přestavuji pravou kličku do polohy otevřeno-pravé!"),1)
+									Napoveda(SysCall("ScenarioManager:FormatString","Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji pravou klicku do polohy otevreno-prave!"),1)
 								else
 									Call("SendConsistMessage",460108,"prave",1)
 									Call("SendConsistMessage",460108,"prave",0)

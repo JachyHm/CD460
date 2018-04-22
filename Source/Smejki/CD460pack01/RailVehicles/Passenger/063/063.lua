@@ -1,20 +1,14 @@
 gDebug = false
 function GetIDs(numberToDecode)
-	i = 1
-	index = 0
-	tableOfIDs = {}
-	while numberToDecode > 0 do
-		while i <= numberToDecode do
-			lastID = i
-			i = i * 2
-			index = index + 1
-		end
-		tableOfIDs[index] = lastID
-		numberToDecode = numberToDecode - lastID
-		i = 1
-		index = 0
-	end
-	return tableOfIDs
+    local tableOfIDs,i,D={},1
+    while numberToDecode > 0 do
+        numberToDecode,D=math.floor(numberToDecode/2),math.mod(numberToDecode,2)
+        if D == 1 then
+          tableOfIDs[i] = true
+        end
+        i = i + 1
+    end
+    return tableOfIDs
 end
 function GetFreeID(tableOfUsedIDs)
 	lastID = table.getn(tableOfUsedIDs)
@@ -77,7 +71,7 @@ function OnConsistMessage(zprava,argument,smer)
 			dvereLeveZeSoupravy = true
 			dvereLevePridrznyStav = true
 		end
-		Call("SendConsistMessage",460109,argument,smer)
+		Call("SendConsistMessage",460105,argument,smer)
 	end
 	if zprava == 460106 then
 		if argument == "1" then
@@ -101,7 +95,7 @@ function OnConsistMessage(zprava,argument,smer)
 			dverePraveZeSoupravy = true
 			dverePravePridrznyStav = true
 		end
-		Call("SendConsistMessage",460105,argument,smer)
+		Call("SendConsistMessage",460109,argument,smer)
 	end
 	if zprava == 460997 then
 		ID = GetFreeID(GetIDs(tonumber(argument)))
