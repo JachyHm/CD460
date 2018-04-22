@@ -67,8 +67,6 @@ casShuntu = 0
 
 ojDiag = 0
 
-nastavenaBrzda = 0
-nastavenaBrzda_opozdene = 0
 nastaveneValce = 0
 doplnujBrzdu = false
 doplnujBrzdu_opozdene = false
@@ -110,7 +108,12 @@ beginZpozdeniBrzdic = nil
 plynuleValce = 0
 plynuleValce_bezBP = 0
 plynuleValceZobrazene = 0
-plynulaBrzda = 0
+plynulaBrzda = math.random(0,5)
+nastavenaBrzda = plynulaBrzda
+nastavenaBrzda_opozdene = nastavenaBrzda
+VirtualMainReservoirPressureBAR = math.random(0,10)
+Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
 plynulaBrzda_opozdene = 0
 plynulyVzduchojem = 0
 vysokotlakysvih = false
@@ -451,7 +454,12 @@ IS = {
 					co = co.." "
 				end
 			end
-			Call(kam..":SetText",co,0)
+			if kam ~= "MSVcil1IN" and kam ~= "MSVcil2IN" and kam ~= "MSVlinkaIN" and kam ~= "MSVid" then
+				Call(kam..":SetText",co,0)
+				Call(kam.."2:SetText",co,0)
+			else
+				Call(kam.."2:SetText",co,0)
+			end
 		end
 	end,
 	NastavLinku = function(self, ID, venku)
@@ -766,14 +774,6 @@ function DefinujPromene()
 	tlacitko6 = 0
 	tlacitko7 = 0
 	tlacitko9 = 0
-	pouzivasVzduchHry = false
-	brzdapotrubistare = 0
-	plynulaBrzda = 0
-	brzdavalcestare = 0
-	brzda_valce_loko = 0
-	brzda_valce_vlak = 0
-	brzdavzduchojemstare = 0
-	VirtualMainReservoirPressureBAR = 0
 	casbrzdy = 0
 	casbrzdy2 = 0
 	pomkomp = 0
@@ -846,6 +846,7 @@ function OverUzivatele()
 	return true
 end
 function Initialise ()
+	Napoveda("Inicializace",1)
 	Call ("KourP1L:SetEmitterActive",0 ) 
 	Call ("KourP2L:SetEmitterActive",0 ) 
 	Call ("KourP1P:SetEmitterActive",0 ) 
@@ -1036,17 +1037,13 @@ function OnConsistMessage(zprava,argument,smer)
 		if argument == "00" then
 			dvereLeveZeSoupravy = false
 			dvereLevePridrznyStav = false
-			str = "zavreno"
 		elseif argument == "01" then
 			dvereLeveZeSoupravy = false
 			dvereLevePridrznyStav = true
-			str = "blokuj aktualni stav"
 		elseif argument == "11" then
 			dvereLeveZeSoupravy = true
 			dvereLevePridrznyStav = true
-			str = "otevrene"
 		end
-		SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, "Novy stav levych dveri na ID"..tostring(ID).." je "..str..".",ALERT)
 		Call("SendConsistMessage",460109,argument,smer)
 	end
 	if zprava == 460106 then
@@ -1064,17 +1061,13 @@ function OnConsistMessage(zprava,argument,smer)
 		if argument == "00" then
 			dverePraveZeSoupravy = false
 			dverePravePridrznyStav = false
-			str = "zavreno"
 		elseif argument == "01" then
 			dverePraveZeSoupravy = false
 			dverePravePridrznyStav = true
-			str = "blokuj aktualni stav"
 		elseif argument == "11" then
 			dverePraveZeSoupravy = true
 			dverePravePridrznyStav = true
-			str = "otevrene"
 		end
-		SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, "Novy stav pravych dveri na ID"..tostring(ID).." je "..str..".",ALERT)
 		Call("SendConsistMessage",460105,argument,smer)
 	end
 	if zprava == 460108 then
@@ -1934,8 +1927,6 @@ function Update (cas)
 					pomkomp = Call("GetControlValue","pomkomp",0)
 					buttonPojezdVDepu = Call("GetControlValue","ButtonPojezdVDepu",0)
 					plynulaBrzda = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
-					brzda_valce_loko = Call("GetControlValue","LocoBrakeCylinderPressureBAR",0)
-					brzda_valce_vlak = Call("GetControlValue","TrainBrakeCylinderPressureBAR",0)
 					VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
 					plynuleValceZobrazene = Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0)
 					VirtualBrakeReservoirPressureBAR = Call("GetControlValue","VirtualBrakeReservoirPressureBAR",0)
@@ -1992,8 +1983,10 @@ function Update (cas)
 						if IS.stav == "start" and Baterie == 1 then
 							IS.casStart = IS.casStart + cas
 							Call("MSVstart:ActivateNode","MSVstart",1)
+							Call("MSVstart2:ActivateNode","MSVstart",1)
 							if IS.casStart > 5 then
 								Call("MSVstart:ActivateNode","MSVstart",0)
+								Call("MSVstart2:ActivateNode","MSVstart",0)
 								IS.stav = "sleep"
 								IS:NastavCil1(1,true)
 								IS:NastavCil2(1,true)
@@ -2006,6 +1999,7 @@ function Update (cas)
 							IS.stav = "start"
 							IS:VymazVse()
 							Call("MSVstart:ActivateNode","MSVstart",0)
+							Call("MSVstart2:ActivateNode","MSVstart",0)
 						end
 						if Baterie == 1 and IS.stav ~= "sleep" then
 							IS.casMenu = IS.casMenu + cas
@@ -2664,7 +2658,7 @@ function Update (cas)
 							if (prepPravy == 0 or prepLevy) and RizenaRidici == "ridici" then
 								dvereLevePovelLokalni = true
 								dvereLevePridrznyStav = true
-							elseif prepPravy == 1 and not prepLevy then
+							elseif prepPravy >= 1 and not prepLevy then
 								dvereLevePovelLokalni = false
 							end
 
@@ -2672,7 +2666,7 @@ function Update (cas)
 							if prepPravy == 2 and RizenaRidici == "ridici" then
 								dverePravePovelLokalni = true
 								dverePravePridrznyStav = true
-							elseif prepPravy == 1 then
+							elseif prepPravy <= 1 then
 								dverePravePovelLokalni = false
 							end
 
@@ -2944,21 +2938,25 @@ function Update (cas)
 							end
 						end
 					----------------------------------------Sn?h od kol v zim?--------------------------------
-						if Rychlost > 10 and RocniObdobi == 3 then
-							Call ("KourP1L:SetEmitterActive",1 ) 
-							Call ("KourP2L:SetEmitterActive",1 ) 
-							Call ("KourP1P:SetEmitterActive",1 ) 
-							Call ("KourP2P:SetEmitterActive",1 ) 
-							Call("KourP1L:SetEmitterRate",Rychlost)
-							Call("KourP1P:SetEmitterRate",Rychlost)
-							Call("KourP2P:SetEmitterRate",Rychlost)
-							Call("KourP2L:SetEmitterRate",Rychlost)
-						else
-							Call ("KourP1L:SetEmitterActive",0 ) 
-							Call ("KourP2L:SetEmitterActive",0 ) 
-							Call ("KourP1P:SetEmitterActive",0 ) 
-							Call ("KourP2P:SetEmitterActive",0 ) 
-						end
+						-- if math.abs(Rychlost) > 10 and RocniObdobi == 3 then
+						-- 	Call ("KourP1L:SetEmitterActive",1 ) 
+						-- 	Call ("KourP2L:SetEmitterActive",1 ) 
+						-- 	Call ("KourP1P:SetEmitterActive",1 ) 
+						-- 	Call ("KourP2P:SetEmitterActive",1 ) 
+						-- 	Call("KourP1L:SetEmitterRate",math.abs(1/Rychlost))
+						-- 	Call("KourP1L:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+						-- 	Call("KourP1P:SetEmitterRate",math.abs(1/Rychlost))
+						-- 	Call("KourP1P:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+						-- 	Call("KourP2P:SetEmitterRate",math.abs(1/Rychlost))
+						-- 	Call("KourP2P:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+						-- 	Call("KourP2L:SetEmitterRate",math.abs(1/Rychlost))
+						-- 	Call("KourP2L:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+						-- else
+						-- 	Call ("KourP1L:SetEmitterActive",0 ) 
+						-- 	Call ("KourP2L:SetEmitterActive",0 ) 
+						-- 	Call ("KourP1P:SetEmitterActive",0 ) 
+						-- 	Call ("KourP2P:SetEmitterActive",0 ) 
+						-- end
 					----------------------------------------Vedlej?? funkce-----------------------------------
 						if vykon ~= 0 and Baterie == 1 then
 							if vykon < 0.85 then
@@ -3447,8 +3445,6 @@ function Update (cas)
 							Call("SetControlValue","ZamekBS2",0,0)
 							Call("SetControlValue","ZamekBS2vs",0,1)
 							Call("SetControlValue","VirtualBrake",0,0.14)
-							plynulaBrzda = 5
-							plynuleValce = 0
 							VirtualMainReservoirPressureBAR = 10
 							VirtualBrakeReservoirPressureBAR = 5
 							gKlicTady = true
@@ -3487,7 +3483,6 @@ function Update (cas)
 							JeZivak1 = 1
 							LVZ(0,0,0,0)
 							klic = 1
-							pouzivasVzduchHry = true
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
 							Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
 							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
@@ -3502,6 +3497,7 @@ function Update (cas)
 							levaPozCerVPKC = false
 							pravaPozBilVPKC = true
 							pravaPozCerVPKC = false
+							PantoJimkaZKom = 3.11
 							Call("SetControlValue","mgautostart",0,1)
 						elseif pozadavekNaFastStart == 1 and jeMrtva then
 							SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
@@ -3527,8 +3523,6 @@ function Update (cas)
 							Call("OnControlValueChange","VolbaPozicKonecCelo",0,2)
 							klic = 0
 							Call("SendConsistMessage",460101,"0",1)
-							plynulaBrzda = 5
-							plynuleValce = 0
 							VirtualMainReservoirPressureBAR = 10
 							VirtualBrakeReservoirPressureBAR = 5
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
@@ -3536,12 +3530,12 @@ function Update (cas)
 							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
 							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR)
 							Call("SetControlValue","PantoJimka",0,3.11)
-							pouzivasVzduchHry = true
 							Call("SetControlValue","mgZvuk",0,1)
 							mg = 1
 							napetiVS220 = 380 
 							napetiVS220nouz = 380
 							pozadavekNaFastStart = 0
+							PantoJimkaZKom = 3.11
 							Call("SetControlValue","mgautostart",0,1)
 						elseif pozadavekNaFastStart == 2 and jeMrtva then
 							SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
@@ -3712,6 +3706,7 @@ function Update (cas)
 							end
 							if resetujNUpoZvednuti and stridaveNap then
 								diagNU = 0
+								blokKrokNU = false
 								resetujNUpoZvednuti = false
 							end
 							Call("SetControlValue","Diag_NU",0,diagNU) -- H11

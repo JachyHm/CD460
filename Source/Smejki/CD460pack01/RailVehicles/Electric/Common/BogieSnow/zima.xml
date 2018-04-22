@@ -194,7 +194,7 @@
 							<Attribute name="_iMaxParticles">
 								<sInt32>
 									<Element>
-										<Value>750</Value>
+										<Value>20000</Value>
 									</Element>
 								</sInt32>
 							</Attribute>
@@ -205,7 +205,7 @@
 											<Attribute name="_iParticlesToRelease">
 												<sInt32>
 													<Element>
-														<Value>1</Value>
+														<Value>10</Value>
 													</Element>
 												</sInt32>
 											</Attribute>
@@ -219,14 +219,14 @@
 											<Attribute name="_fTimeBeforeRestart">
 												<sFloat32>
 													<Element>
-														<Value>0</Value>
+														<Value>0.1</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
 											<Attribute name="_bRestartEmitting">
 												<eBoolean>
 													<Element>
-														<Value>eFalse</Value>
+														<Value>eTrue</Value>
 													</Element>
 												</eBoolean>
 											</Attribute>
@@ -251,7 +251,7 @@
 															<Attribute name="Z">
 																<sFloat32>
 																	<Element>
-																		<Value>0</Value>
+																		<Value>-1</Value>
 																	</Element>
 																</sFloat32>
 															</Attribute>
@@ -273,7 +273,7 @@
 															<Attribute name="Y">
 																<sFloat32>
 																	<Element>
-																		<Value>0</Value>
+																		<Value>-0.1</Value>
 																	</Element>
 																</sFloat32>
 															</Attribute>
@@ -320,7 +320,7 @@
 											<Attribute name="_fEmissionRate">
 												<sFloat32>
 													<Element>
-														<Value>0.01</Value>
+														<Value>0</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
@@ -341,7 +341,7 @@
 											<Attribute name="_bIntense">
 												<eBoolean>
 													<Element>
-														<Value>eTrue</Value>
+														<Value>eFalse</Value>
 													</Element>
 												</eBoolean>
 											</Attribute>
@@ -492,21 +492,21 @@
 											<Attribute name="_fSize">
 												<sFloat32>
 													<Element>
-														<Value>0.1</Value>
+														<Value>0.2</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
 											<Attribute name="_fFinalSize">
 												<sFloat32>
 													<Element>
-														<Value>0.4</Value>
+														<Value>0.2</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
 											<Attribute name="_fLifeCycle">
 												<sFloat32>
 													<Element>
-														<Value>3</Value>
+														<Value>20</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
@@ -552,7 +552,7 @@
 							<Attribute name="BoundingRadius">
 								<sFloat32>
 									<Element>
-										<Value>0</Value>
+										<Value>10</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
