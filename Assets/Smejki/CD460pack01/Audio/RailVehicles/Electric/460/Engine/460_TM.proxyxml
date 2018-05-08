@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="119178">
+				<kLoud-cSingleSampleSound d:id="91512">
 					<Name d:type="cDeltaString">TM25</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="119191">
+				<kLoud-cSingleSampleSound d:id="91525">
 					<Name d:type="cDeltaString">TM50</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="119204">
+				<kLoud-cSingleSampleSound d:id="91538">
 					<Name d:type="cDeltaString">TM70</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -56,7 +56,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="119217">
+				<kLoud-cSingleSampleSound d:id="91551">
 					<Name d:type="cDeltaString">TM90</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -75,355 +75,388 @@
 				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="119231">
+				<kLoud-cCurve d:id="91565">
 					<Name d:type="cDeltaString">TM25Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119234">
+						<kLoud-cRVector2 d:id="91568">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0.4</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119237">
+						<kLoud-cRVector2 d:id="91571">
 							<X d:type="sFloat32">35</X>
 							<Y d:type="sFloat32">1.15</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119240">
+				<kLoud-cCurve d:id="91574">
 					<Name d:type="cDeltaString">TM25Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119243">
+						<kLoud-cRVector2 d:id="91577">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119246">
+						<kLoud-cRVector2 d:id="91580">
 							<X d:type="sFloat32">10</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119249">
+						<kLoud-cRVector2 d:id="91583">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119252">
+						<kLoud-cRVector2 d:id="91586">
 							<X d:type="sFloat32">35</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119255">
+				<kLoud-cCurve d:id="91589">
 					<Name d:type="cDeltaString">TM50Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119258">
+						<kLoud-cRVector2 d:id="91592">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">0.7</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119261">
+						<kLoud-cRVector2 d:id="91595">
 							<X d:type="sFloat32">65</X>
 							<Y d:type="sFloat32">1.3</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119264">
+				<kLoud-cCurve d:id="91598">
 					<Name d:type="cDeltaString">TM50Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119267">
+						<kLoud-cRVector2 d:id="91601">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119270">
+						<kLoud-cRVector2 d:id="91604">
 							<X d:type="sFloat32">35</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119273">
+						<kLoud-cRVector2 d:id="91607">
 							<X d:type="sFloat32">55</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119276">
+						<kLoud-cRVector2 d:id="91610">
 							<X d:type="sFloat32">65</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119279">
+				<kLoud-cCurve d:id="91613">
 					<Name d:type="cDeltaString">TM70Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119282">
+						<kLoud-cRVector2 d:id="91616">
 							<X d:type="sFloat32">55</X>
 							<Y d:type="sFloat32">0.7</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119285">
+						<kLoud-cRVector2 d:id="91619">
 							<X d:type="sFloat32">85</X>
 							<Y d:type="sFloat32">1.2</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119288">
+				<kLoud-cCurve d:id="91622">
 					<Name d:type="cDeltaString">TM70Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119291">
+						<kLoud-cRVector2 d:id="91625">
 							<X d:type="sFloat32">55</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119294">
+						<kLoud-cRVector2 d:id="91628">
 							<X d:type="sFloat32">65</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119297">
+						<kLoud-cRVector2 d:id="91631">
 							<X d:type="sFloat32">75</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119300">
+						<kLoud-cRVector2 d:id="91634">
 							<X d:type="sFloat32">85</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119303">
+				<kLoud-cCurve d:id="91637">
 					<Name d:type="cDeltaString">TM Ampermetr</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119306">
+						<kLoud-cRVector2 d:id="91640">
 							<X d:type="sFloat32">-350</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119309">
+						<kLoud-cRVector2 d:id="91643">
 							<X d:type="sFloat32">-100</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119312">
+						<kLoud-cRVector2 d:id="91646">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119315">
+						<kLoud-cRVector2 d:id="91649">
 							<X d:type="sFloat32">100</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119318">
+						<kLoud-cRVector2 d:id="91652">
 							<X d:type="sFloat32">350</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119321">
+				<kLoud-cCurve d:id="91655">
 					<Name d:type="cDeltaString">AIpovol</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119324">
+						<kLoud-cRVector2 d:id="91658">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119327">
+						<kLoud-cRVector2 d:id="91661">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119330">
+				<kLoud-cCurve d:id="91664">
 					<Name d:type="cDeltaString">AIblok</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119333">
+						<kLoud-cRVector2 d:id="91667">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119336">
+						<kLoud-cRVector2 d:id="91670">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119339">
+				<kLoud-cCurve d:id="91673">
 					<Name d:type="cDeltaString">TM90Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119342">
+						<kLoud-cRVector2 d:id="91676">
 							<X d:type="sFloat32">75</X>
 							<Y d:type="sFloat32">0.7</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119345">
+						<kLoud-cRVector2 d:id="91679">
 							<X d:type="sFloat32">130</X>
 							<Y d:type="sFloat32">1.3</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="119348">
+				<kLoud-cCurve d:id="91682">
 					<Name d:type="cDeltaString">TM90Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="119351">
+						<kLoud-cRVector2 d:id="91685">
 							<X d:type="sFloat32">75</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="119354">
+						<kLoud-cRVector2 d:id="91688">
 							<X d:type="sFloat32">85</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
+				<kLoud-cCurve d:id="91691">
+					<Name d:type="cDeltaString">MuteSounds</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="91694">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="91697">
+							<X d:type="sFloat32">1</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="119358">
+				<kLoud-cModifierChain d:id="91701">
 					<Name d:type="cDeltaString">TM25</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119361">
+						<kLoud-cPitchCurveModifier d:id="91704">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119231</Curve>
+							<Curve d:type="ref">91565</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119365">
+						<kLoud-cVolumeCurveModifier d:id="91708">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119240</Curve>
+							<Curve d:type="ref">91574</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119369">
+						<kLoud-cVolumeCurveModifier d:id="91712">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">VirtualAmmeter</ControllerName>
-							<Curve d:type="ref">119303</Curve>
+							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
+							<Curve d:type="ref">91637</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="91716">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
+							<Curve d:type="ref">91691</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="119373">
+				<kLoud-cModifierChain d:id="91720">
 					<Name d:type="cDeltaString">TM50</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119376">
+						<kLoud-cPitchCurveModifier d:id="91723">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119255</Curve>
+							<Curve d:type="ref">91589</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119380">
+						<kLoud-cVolumeCurveModifier d:id="91727">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119264</Curve>
+							<Curve d:type="ref">91598</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119384">
+						<kLoud-cVolumeCurveModifier d:id="91731">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">VirtualAmmeter</ControllerName>
-							<Curve d:type="ref">119303</Curve>
+							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
+							<Curve d:type="ref">91637</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="91735">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
+							<Curve d:type="ref">91691</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="119388">
+				<kLoud-cModifierChain d:id="91739">
 					<Name d:type="cDeltaString">TM70</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119391">
+						<kLoud-cPitchCurveModifier d:id="91742">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119279</Curve>
+							<Curve d:type="ref">91613</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119395">
+						<kLoud-cVolumeCurveModifier d:id="91746">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119288</Curve>
+							<Curve d:type="ref">91622</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119399">
+						<kLoud-cVolumeCurveModifier d:id="91750">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">VirtualAmmeter</ControllerName>
-							<Curve d:type="ref">119303</Curve>
+							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
+							<Curve d:type="ref">91637</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="91754">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
+							<Curve d:type="ref">91691</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="119403">
+				<kLoud-cModifierChain d:id="91758">
 					<Name d:type="cDeltaString">AITM25</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119406">
+						<kLoud-cPitchCurveModifier d:id="91761">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119231</Curve>
+							<Curve d:type="ref">91565</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119410">
+						<kLoud-cVolumeCurveModifier d:id="91765">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119240</Curve>
+							<Curve d:type="ref">91574</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119414">
+						<kLoud-cVolumeCurveModifier d:id="91769">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">119321</Curve>
+							<Curve d:type="ref">91655</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="119418">
+				<kLoud-cModifierChain d:id="91773">
 					<Name d:type="cDeltaString">AITM50</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119421">
+						<kLoud-cPitchCurveModifier d:id="91776">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119255</Curve>
+							<Curve d:type="ref">91589</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119425">
+						<kLoud-cVolumeCurveModifier d:id="91780">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119264</Curve>
+							<Curve d:type="ref">91598</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119429">
+						<kLoud-cVolumeCurveModifier d:id="91784">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">119321</Curve>
+							<Curve d:type="ref">91655</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="119433">
+				<kLoud-cModifierChain d:id="91788">
 					<Name d:type="cDeltaString">AITM70</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119436">
+						<kLoud-cPitchCurveModifier d:id="91791">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119279</Curve>
+							<Curve d:type="ref">91613</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119440">
+						<kLoud-cVolumeCurveModifier d:id="91795">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119288</Curve>
+							<Curve d:type="ref">91622</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119444">
+						<kLoud-cVolumeCurveModifier d:id="91799">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">119321</Curve>
+							<Curve d:type="ref">91655</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="119448">
+				<kLoud-cModifierChain d:id="91803">
 					<Name d:type="cDeltaString">TM90</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119451">
+						<kLoud-cPitchCurveModifier d:id="91806">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119339</Curve>
+							<Curve d:type="ref">91673</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119455">
+						<kLoud-cVolumeCurveModifier d:id="91810">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119348</Curve>
+							<Curve d:type="ref">91682</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119459">
+						<kLoud-cVolumeCurveModifier d:id="91814">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">VirtualAmmeter</ControllerName>
-							<Curve d:type="ref">119303</Curve>
+							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
+							<Curve d:type="ref">91637</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="91818">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
+							<Curve d:type="ref">91691</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="119463">
+				<kLoud-cModifierChain d:id="91822">
 					<Name d:type="cDeltaString">AITM90</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="119466">
+						<kLoud-cPitchCurveModifier d:id="91825">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119339</Curve>
+							<Curve d:type="ref">91673</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119470">
+						<kLoud-cVolumeCurveModifier d:id="91829">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
-							<Curve d:type="ref">119348</Curve>
+							<Curve d:type="ref">91682</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="119474">
+						<kLoud-cVolumeCurveModifier d:id="91833">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">119321</Curve>
+							<Curve d:type="ref">91655</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
 			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="119480">
+				<kLoud-cControlledLoop d:id="91839">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM20</Name>
-					<Sound d:type="ref">119178</Sound>
-					<ModifierChain d:type="ref">119358</ModifierChain>
+					<Sound d:type="ref">91512</Sound>
+					<ModifierChain d:type="ref">91701</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
@@ -431,11 +464,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119491">
+				<kLoud-cControlledLoop d:id="91850">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM50</Name>
-					<Sound d:type="ref">119191</Sound>
-					<ModifierChain d:type="ref">119373</ModifierChain>
+					<Sound d:type="ref">91525</Sound>
+					<ModifierChain d:type="ref">91720</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">25</ActiveRangeStartValue>
@@ -443,11 +476,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119502">
+				<kLoud-cControlledLoop d:id="91861">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM70</Name>
-					<Sound d:type="ref">119204</Sound>
-					<ModifierChain d:type="ref">119388</ModifierChain>
+					<Sound d:type="ref">91538</Sound>
+					<ModifierChain d:type="ref">91739</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">55</ActiveRangeStartValue>
@@ -455,11 +488,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119513">
+				<kLoud-cControlledLoop d:id="91872">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM20</Name>
-					<Sound d:type="ref">119178</Sound>
-					<ModifierChain d:type="ref">119403</ModifierChain>
+					<Sound d:type="ref">91512</Sound>
+					<ModifierChain d:type="ref">91758</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
@@ -467,11 +500,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119524">
+				<kLoud-cControlledLoop d:id="91883">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM50</Name>
-					<Sound d:type="ref">119191</Sound>
-					<ModifierChain d:type="ref">119418</ModifierChain>
+					<Sound d:type="ref">91525</Sound>
+					<ModifierChain d:type="ref">91773</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">25</ActiveRangeStartValue>
@@ -479,11 +512,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119535">
+				<kLoud-cControlledLoop d:id="91894">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM70</Name>
-					<Sound d:type="ref">119204</Sound>
-					<ModifierChain d:type="ref">119433</ModifierChain>
+					<Sound d:type="ref">91538</Sound>
+					<ModifierChain d:type="ref">91788</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">55</ActiveRangeStartValue>
@@ -491,11 +524,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119546">
+				<kLoud-cControlledLoop d:id="91905">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM90</Name>
-					<Sound d:type="ref">119217</Sound>
-					<ModifierChain d:type="ref">119448</ModifierChain>
+					<Sound d:type="ref">91551</Sound>
+					<ModifierChain d:type="ref">91803</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">70</ActiveRangeStartValue>
@@ -503,11 +536,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119557">
+				<kLoud-cControlledLoop d:id="91916">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM90</Name>
-					<Sound d:type="ref">119217</Sound>
-					<ModifierChain d:type="ref">119463</ModifierChain>
+					<Sound d:type="ref">91551</Sound>
+					<ModifierChain d:type="ref">91822</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsolutniRychlomer</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">70</ActiveRangeStartValue>

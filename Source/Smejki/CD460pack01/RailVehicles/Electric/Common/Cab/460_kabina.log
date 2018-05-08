@@ -1,0 +1,3500 @@
+
+ Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\IGS_ExpModFile.txt
+------  Materials:ShaderName  ------
+('shadow', 'StencilShadow.fx')
+('trdiff', 'TrainBasicObjectDiffuse.fx')
+('trglass', 'TrainGlass.fx')
+('trspec', 'TrainBasicObjectSpecular.fx')
+('trspecem', 'TrainSpecEnvMask.fx')
+('trbumpspec', 'TrainBumpSpec.fx')
+('trbumpspecem', 'TrainBumpSpecEnvMask.fx')
+('trglassweather', 'TrainGlassWeatherEffects.fx')
+('trlightmap', 'TrainLightMapWithDiffuse.fx')
+('trenv', 'TrainEnv.fx')
+('trflora', 'TrainFlora.fx')
+('trvfaceflora', 'TrainViewFacingFlora.fx')
+('trupvfaceflora', 'TrainUprightViewFacingFlora.fx')
+('lofttexdiff', 'LoftTexDiff.fx')
+('lofttexdifftr', 'LoftTexDiffTrans.fx')
+('skin', 'SkinDiffuse.fx')
+('water', 'WaterCubeMap.fx')
+('waterscenery', 'WaterScenery.fx')
+('sky', 'TrainSkyDome.fx')
+
+
+
+ Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\460_kabina_IGSExpModFile2.txt
+------  Materials:AlphaTestMode  ------
+('okna', '0.5')
+------  Materials:Ambient  ------
+('ext01mat', '0.5')
+('ext02mat', '0.5')
+('weatherglass_1', '0.5')
+------  Miscellaneous  ------
+('targettexturesdirectory', 'Textures')
+('mainobject', '1_0000_cabin')
+('hierarchy', 'unchanged')
+('centermainobject', '0,0,N')
+------  UVArguments  ------
+('ext01mat', '32.0, 0.0, 0.0, 0.0, 0.0, 0.0')
+('weatherglass_1', '64.0, 0.0, 0.0, 0.0, 0.0, 0.0')
+('a', '16.0, 1.0, 1.0, 0.0, 0.0, 0.0')
+
+
+ MainObject to find = 1_0000_cabin
+ MainObject found = 1_0000_cabin
+
+ INFO: Using CenterMainObject (0,0,N), exported model moved by X=0.000000 Y=-0.000000 Z=-0.000000 (Blender axis)
+
+
+ ------------------ Groups list -----------------
+ --- 179 groups ---
+
+--- Group --- 1_0000_cabin (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_cabin
+
+--- Group --- 1_0000_dvereleve (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dvereleve
+
+--- Group --- 1_0000_PrasatkoL (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrasatkoL
+
+--- Group --- 1_0000_PrasatkoP (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrasatkoP
+
+--- Group --- 1_0000_sberaceJimka2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_sberaceJimka2
+
+--- Group --- 1_0000_prepinaceTlak (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_prepinaceTlak
+
+--- Group --- 1_0000_dvereTlak (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dvereTlak
+
+--- Group --- 1_0000_sberaceJimka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_sberaceJimka
+
+--- Group --- 1_0000_valce (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_valce
+
+--- Group --- 1_0000_sberaceTlak (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_sberaceTlak
+
+--- Group --- 1_0000_potrubi (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_potrubi
+
+--- Group --- 1_0000_vzduchojem (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vzduchojem
+
+--- Group --- 1_0000_prepinaceRam (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_prepinaceRam
+
+--- Group --- 1_0000_Reo (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Reo
+
+--- Group --- 1_0000_dlz1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dlz1
+
+--- Group --- 1_0000_dlc0 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dlc0
+
+--- Group --- 1_0000_dpc1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dpc1
+
+--- Group --- 1_0000_dpz0 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dpz0
+
+--- Group --- 1_0000_zachranabra (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zachranabra
+
+--- Group --- 1_0000_regulator_nouzovy (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_regulator_nouzovy
+
+--- Group --- 1_0000_hlvypinacanim (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_hlvypinacanim
+
+--- Group --- 1_0000_hlvypvloz (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_hlvypvloz
+
+--- Group --- 1_0000_klic (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_klic
+    Group children:
+                     1_0000_klickrouzek
+
+--- Group --- 1_0000_klickrouzek (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_klic
+    Group objects:
+                  1_0000_klickrouzek
+
+--- Group --- 1_0000_rozjezdovyproud (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_rozjezdovyproud
+
+--- Group --- 1_0000_Diag_JOB (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_JOB
+
+--- Group --- 1_0000_Diag_Pretaveni (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_Pretaveni
+
+--- Group --- 1_0000_Diag_AREL (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_AREL
+
+--- Group --- 1_0000_Diag_Ventilatory (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_Ventilatory
+
+--- Group --- 1_0000_Diag_HV (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_HV
+
+--- Group --- 1_0000_Diag_220V (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_220V
+
+--- Group --- 1_0000_Diag_Porucha (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_Porucha
+
+--- Group --- 1_0000_Diag_DOPM (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_DOPM
+
+--- Group --- 1_0000_Diag_DOTO (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_DOTO
+
+--- Group --- 1_0000_Diag_PU (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_PU
+
+--- Group --- 1_0000_Diag_NU (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_NU
+
+--- Group --- 1_0000_Diag_NI (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_NI
+
+--- Group --- 1_0000_Diag_RB (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_RB
+
+--- Group --- 1_0000_Diag_OJ (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_OJ
+
+--- Group --- 1_0000_Diag_Uzem (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_Uzem
+
+--- Group --- 1_0000_rucnibrzda (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_rucnibrzda
+    Group children:
+                     1_0000_madlo1
+                     1_0000_madlo2
+
+--- Group --- 1_0000_madlo1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_rucnibrzda
+    Group objects:
+                  1_0000_madlo1
+
+--- Group --- 1_0000_madlo2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_rucnibrzda
+    Group objects:
+                  1_0000_madlo2
+
+--- Group --- 1_0000_bdelostDvere (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_bdelostDvere
+
+--- Group --- 1_0000_bdelostRadic (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_bdelostRadic
+
+--- Group --- 1_0000_regulator (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_regulator
+
+--- Group --- 1_0000_kontrolkaodporz (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkaodporz
+
+--- Group --- 1_0000_kontrolkaodporr (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkaodporr
+
+--- Group --- 1_0000_kontrolkaodpor (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkaodpor
+
+--- Group --- 1_0000_kontrolkafailz (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkafailz
+
+--- Group --- 1_0000_kontrolkafail (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkafail
+
+--- Group --- 1_0000_kontrolkafailr (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkafailr
+
+--- Group --- 1_0000_kontrolkaskluzz (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkaskluzz
+
+--- Group --- 1_0000_kontrolkaskluzr (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkaskluzr
+
+--- Group --- 1_0000_primoci (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_primoci
+
+--- Group --- 1_0000_brzdicka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_brzdicka
+
+--- Group --- 1_0000_prub (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_prub
+
+--- Group --- 1_0000_DakoBS2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_DakoBS2
+
+--- Group --- 1_0000_klicBS2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_klicBS2
+
+--- Group --- 1_0000_VlozKlicBS2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_VlozKlicBS2
+
+--- Group --- 1_0000_LVZ (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_LVZ
+    Group children:
+                     1_0000_LVZ02
+                     1_0000_LVZKoule
+
+--- Group --- 1_0000_LVZ02 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_LVZ
+    Group objects:
+                  1_0000_LVZ02
+
+--- Group --- 1_0000_LVZKoule (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_LVZ
+    Group objects:
+                  1_0000_LVZKoule
+
+--- Group --- 1_0000_Diag_RozProud (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Diag_RozProud
+
+--- Group --- 1_0000_bdelostLeva (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_bdelostLeva
+
+--- Group --- 1_0000_bdelostPrava (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_bdelostPrava
+
+--- Group --- 1_0000_nouzakanim (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_nouzakanim
+
+--- Group --- 1_0000_PrepBaterie (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepBaterie
+
+--- Group --- 1_0000_PrepCeloKonec (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepCeloKonec
+
+--- Group --- 1_0000_PrepKompresor (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepKompresor
+
+--- Group --- 1_0000_PrepMotorgen (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepMotorgen
+
+--- Group --- 1_0000_PrepOsvetleni (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepOsvetleni
+
+--- Group --- 1_0000_PrepPomocnyKomp (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepPomocnyKomp
+
+--- Group --- 1_0000_PrepPozL (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepPozL
+
+--- Group --- 1_0000_PrepPozP (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepPozP
+
+--- Group --- 1_0000_PrepReflektor (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepReflektor
+
+--- Group --- 1_0000_PrepRozmrazovace (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepRozmrazovace
+
+--- Group --- 1_0000_PrepSberace (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepSberace
+
+--- Group --- 1_0000_PrepSberaceVolba (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepSberaceVolba
+
+--- Group --- 1_0000_PrepSnizenyVykon (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepSnizenyVykon
+
+--- Group --- 1_0000_PrepSterace (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepSterace
+
+--- Group --- 1_0000_PrepTopeni (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepTopeni
+
+--- Group --- 1_0000_PrepTopeniStan (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepTopeniStan
+
+--- Group --- 1_0000_PrepTopeniStup (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepTopeniStup
+
+--- Group --- 1_0000_PrepVentilatory (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepVentilatory
+
+--- Group --- 1_0000_PrepZarivka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_PrepZarivka
+
+--- Group --- 1_0000_TLHoukacka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_TLHoukacka
+
+--- Group --- 1_0000_TLMotorgenStart (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_TLMotorgenStart
+
+--- Group --- 1_0000_TLNic (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_TLNic
+
+--- Group --- 1_0000_TLOdvodneni (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_TLOdvodneni
+
+--- Group --- 1_0000_TLPojezd (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_TLPojezd
+
+--- Group --- 1_0000_RozjezdDvere (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_RozjezdDvere
+
+--- Group --- 1_0000_dverekab_p.003 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dverekab_p.003
+
+--- Group --- 1_0000_dverekab_p.001 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dverekab_p.001
+
+--- Group --- 1_0000_diagnostika (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_diagnostika
+
+--- Group --- 1_0000_podlaha (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_podlaha
+
+--- Group --- 1_0000_rameckyMeraky (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_rameckyMeraky
+
+--- Group --- 1_0000_manometry (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_manometry
+
+--- Group --- 1_0000_popisky (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_popisky
+
+--- Group --- 1_0000_desky (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_desky
+
+--- Group --- 1_0000_ses_spodek_l (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_ses_spodek_l
+    Group children:
+                     1_0000_ses_stred2_l
+                     1_0000_ses_stred_l
+
+--- Group --- 1_0000_ses_stred2_l (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_ses_spodek_l
+    Group objects:
+                  1_0000_ses_stred2_l
+
+--- Group --- 1_0000_ses_stred_l (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_ses_spodek_l
+    Group objects:
+                  1_0000_ses_stred_l
+    Group children:
+                     1_0000_ses_vrch_l
+
+--- Group --- 1_0000_ses_vrch_l (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_ses_stred_l
+    Group objects:
+                  1_0000_ses_vrch_l
+
+--- Group --- 1_0000_pedaly (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_pedaly
+
+--- Group --- 1_0000_telefon (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_telefon
+
+--- Group --- 1_0000_ramy (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_ramy
+
+--- Group --- 1_0000_zadek (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zadek
+
+--- Group --- 1_0000_zrcatka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zrcatka
+
+--- Group --- 1_0000_lemovani (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_lemovani
+
+--- Group --- 1_0000_vrsek (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vrsek
+
+--- Group --- 1_0000_dverekab_p (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dverekab_p
+
+--- Group --- 1_0000_zaclonikpravybok (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zaclonikpravybok
+    Group children:
+                     1_0000_zaclonkapravabok
+
+--- Group --- 1_0000_zaclonkapravabok (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_zaclonikpravybok
+    Group objects:
+                  1_0000_zaclonkapravabok
+
+--- Group --- 1_0000_zacloniklevybok (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zacloniklevybok
+    Group children:
+                     1_0000_zaclonkalevabok
+
+--- Group --- 1_0000_zaclonkalevabok (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_zacloniklevybok
+    Group objects:
+                  1_0000_zaclonkalevabok
+
+--- Group --- 1_0000_zacloniklevy (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zacloniklevy
+    Group children:
+                     1_0000_zaclonkaleva
+
+--- Group --- 1_0000_zaclonkaleva (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_zacloniklevy
+    Group objects:
+                  1_0000_zaclonkaleva
+
+--- Group --- 1_0000_zaclonikpravy (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zaclonikpravy
+    Group children:
+                     1_0000_zaclonkaprava
+
+--- Group --- 1_0000_zaclonkaprava (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_zaclonikpravy
+    Group objects:
+                  1_0000_zaclonkaprava
+
+--- Group --- 1_0000_skrinstin (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_skrinstin
+
+--- Group --- 1_0000_dpc0 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dpc0
+
+--- Group --- 1_0000_dpz1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dpz1
+
+--- Group --- 1_0000_dlz0 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dlz0
+
+--- Group --- 1_0000_dlc1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dlc1
+
+--- Group --- 1_0000_ampermetranim (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_ampermetranim
+
+--- Group --- 1_0000_voltmetranim (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_voltmetranim
+
+--- Group --- 1_0000_topenisklal (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_topenisklal
+
+--- Group --- 1_0000_vyszap (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vyszap
+
+--- Group --- 1_0000_vys6 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vys6
+
+--- Group --- 1_0000_vys5 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vys5
+
+--- Group --- 1_0000_vys4 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vys4
+
+--- Group --- 1_0000_vys3 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vys3
+
+--- Group --- 1_0000_vys1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vys1
+
+--- Group --- 1_0000_vys2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vys2
+
+--- Group --- 1_0000_vysilacka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_vysilacka
+    Group children:
+                     1_0000_vysilacka_0
+                     1_0000_vysilacka_d/n
+                     1_0000_vysilacka_delete
+                     1_0000_vysilacka_F1
+                     1_0000_vysilacka_power
+
+--- Group --- 1_0000_vysilacka_0 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka
+    Group objects:
+                  1_0000_vysilacka_0
+    Group children:
+                     1_0000_vysilacka_1
+                     1_0000_vysilacka_2
+                     1_0000_vysilacka_3
+                     1_0000_vysilacka_4
+                     1_0000_vysilacka_5
+                     1_0000_vysilacka_6
+                     1_0000_vysilacka_7
+                     1_0000_vysilacka_8
+                     1_0000_vysilacka_9
+
+--- Group --- 1_0000_vysilacka_1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_1
+
+--- Group --- 1_0000_vysilacka_2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_2
+
+--- Group --- 1_0000_vysilacka_3 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_3
+
+--- Group --- 1_0000_vysilacka_4 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_4
+
+--- Group --- 1_0000_vysilacka_5 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_5
+
+--- Group --- 1_0000_vysilacka_6 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_6
+
+--- Group --- 1_0000_vysilacka_7 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_7
+
+--- Group --- 1_0000_vysilacka_8 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_8
+
+--- Group --- 1_0000_vysilacka_9 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_0
+    Group objects:
+                  1_0000_vysilacka_9
+
+--- Group --- 1_0000_vysilacka_d/n (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka
+    Group objects:
+                  1_0000_vysilacka_d/n
+
+--- Group --- 1_0000_vysilacka_delete (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka
+    Group objects:
+                  1_0000_vysilacka_delete
+    Group children:
+                     1_0000_vysilacka_dole
+                     1_0000_vysilacka_enter
+                     1_0000_vysilacka_hore
+                     1_0000_vysilacka_levo
+                     1_0000_vysilacka_pravo
+
+--- Group --- 1_0000_vysilacka_dole (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_delete
+    Group objects:
+                  1_0000_vysilacka_dole
+
+--- Group --- 1_0000_vysilacka_enter (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_delete
+    Group objects:
+                  1_0000_vysilacka_enter
+
+--- Group --- 1_0000_vysilacka_hore (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_delete
+    Group objects:
+                  1_0000_vysilacka_hore
+
+--- Group --- 1_0000_vysilacka_levo (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_delete
+    Group objects:
+                  1_0000_vysilacka_levo
+
+--- Group --- 1_0000_vysilacka_pravo (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_delete
+    Group objects:
+                  1_0000_vysilacka_pravo
+
+--- Group --- 1_0000_vysilacka_F1 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka
+    Group objects:
+                  1_0000_vysilacka_F1
+    Group children:
+                     1_0000_vysilacka_F2
+                     1_0000_vysilacka_F3
+                     1_0000_vysilacka_F4
+                     1_0000_vysilacka_F5
+                     1_0000_vysilacka_F6
+
+--- Group --- 1_0000_vysilacka_F2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_F1
+    Group objects:
+                  1_0000_vysilacka_F2
+
+--- Group --- 1_0000_vysilacka_F3 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_F1
+    Group objects:
+                  1_0000_vysilacka_F3
+
+--- Group --- 1_0000_vysilacka_F4 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_F1
+    Group objects:
+                  1_0000_vysilacka_F4
+
+--- Group --- 1_0000_vysilacka_F5 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_F1
+    Group objects:
+                  1_0000_vysilacka_F5
+
+--- Group --- 1_0000_vysilacka_F6 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_F1
+    Group objects:
+                  1_0000_vysilacka_F6
+
+--- Group --- 1_0000_vysilacka_power (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka
+    Group objects:
+                  1_0000_vysilacka_power
+    Group children:
+                     1_0000_vysilacka_help
+                     1_0000_vysilacka_jas
+                     1_0000_vysilacka_lang
+                     1_0000_vysilacka_nast
+                     1_0000_vysilacka_sipky
+                     1_0000_vysilacka_sjr
+
+--- Group --- 1_0000_vysilacka_help (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_power
+    Group objects:
+                  1_0000_vysilacka_help
+
+--- Group --- 1_0000_vysilacka_jas (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_power
+    Group objects:
+                  1_0000_vysilacka_jas
+
+--- Group --- 1_0000_vysilacka_lang (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_power
+    Group objects:
+                  1_0000_vysilacka_lang
+
+--- Group --- 1_0000_vysilacka_nast (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_power
+    Group objects:
+                  1_0000_vysilacka_nast
+
+--- Group --- 1_0000_vysilacka_sipky (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_power
+    Group objects:
+                  1_0000_vysilacka_sipky
+
+--- Group --- 1_0000_vysilacka_sjr (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: 1_0000_vysilacka_power
+    Group objects:
+                  1_0000_vysilacka_sjr
+
+--- Group --- 1_0000_interier (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_interier
+
+--- Group --- 1_0000_pult (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_pult
+
+--- Group --- 1_0000_zachranabr (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_zachranabr
+
+--- Group --- 1_0000_smerovka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_smerovka
+
+--- Group --- 1_0000_prepinaczpanel (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_prepinaczpanel
+
+--- Group --- 1_0000_hlvypinac (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_hlvypinac
+
+--- Group --- 1_0000_hasler (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_hasler
+
+--- Group --- 1_0000_haslerrucka (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_haslerrucka
+
+--- Group --- 1_0000_dvereprave (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_dvereprave
+
+--- Group --- 1_0000_sesle_p (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_sesle_p
+
+--- Group --- 1_0000_wiperL (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_wiperL
+
+--- Group --- 1_0000_wiperP (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_wiperP
+
+--- Group --- 1_0000_kontrolkaskluz (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_kontrolkaskluz
+
+ INFO: For material Cab02Steny, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Cab01, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material cab06prepinace, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material KabinaPult, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Kontroler, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material klic, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material TlacitkoHribekCerna, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material DakoBS, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material DakoBS_madlo, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material KlicBS, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material TlacitkoHribekCervena, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Prepinac, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Tlacitko, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material TlacitkoZelene, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Cab05dvere, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Sklo, shader short name 'TrGlass' found in IGS_ExpModFile.txt and replaced by long shader name TrainGlass.fx
+ INFO: For material Podlaha, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material TlacitkoBdelostObjimka, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material PrepinacObjimka, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material TlacitkoObjimka, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Desky, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material RDST, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Cab03Zadek, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material SkrinMain, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material D, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material zadek, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material 460-4, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material 7451nahradit, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material weatherglass_1, shader short name 'TrGlassWeather' found in IGS_ExpModFile.txt and replaced by long shader name TrainGlassWeatherEffects.fx
+ INFO: Ambient for material weatherglass_1: 0.5 (for red, green and blue)
+ INFO: UVArguments for material weatherglass_1: 64.0 0.0 0.0 0.0 0.0 0.0
+ INFO: For material snazvem1, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Lemovani, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Vrsek, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Vysilacka, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Cab04spodek, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Pult, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Sterac, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+================================================================================
+IG file header information (0)
+--------------------------------------------------------------------------------
+CommentField                  : 'Blender 2.78 (sub 0) - IGS exporter version 1.4.8'
+ObjectCount                   : 179
+MeshCount                     : 179
+MaterialCount                 : 49
+================================================================================
+Materials list (49 materials):
+--------------------------------------------------------------------------------
+         Name         |             Shader             |              First texture               / UVArguments
+ Cab02Steny           | TrainBasicObjectDiffuse.fx     | Textures\460_Cab02Steny                  / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Cab01                | TrainBasicObjectDiffuse.fx     | Textures\460_cab01                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ cab06prepinace       | TrainBasicObjectDiffuse.fx     | Textures\460_cab06prepinace              / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ KontrolkyBarvy       | BlendATex                      | Textures\460_LVZ                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ KabinaPult           | TrainBasicObjectDiffuse.fx     | Textures\460_cab                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Kontroler            | TrainBasicObjectDiffuse.fx     | Textures\460_kontroler                   / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ klic                 | TrainBasicObjectDiffuse.fx     | Textures\texturaklic                     / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ MatInvisible         | invisible                      | Textures\invisible                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Ochrany              | BlendATex                      | Textures\460_ochrany                     / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ TlacitkoHribekCerna  | TrainBasicObjectDiffuse.fx     | Textures\TlacitkoBdelost                 / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ SignalkySvitici      | BlendATex                      | Textures\460_cab01                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ DakoBS               | TrainBasicObjectDiffuse.fx     | Textures\DakoBS                          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ DakoBS_madlo         | TrainBasicObjectDiffuse.fx     | Textures\DakoBS_madlo                    / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ KlicBS               | TrainBasicObjectDiffuse.fx     | Textures\klicBS2                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ TlacitkoHribekCervena | TrainBasicObjectDiffuse.fx     | Textures\TlacitkoNZ                      / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Prepinac             | TrainBasicObjectDiffuse.fx     | Textures\Prepinac                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Tlacitko             | TrainBasicObjectDiffuse.fx     | Textures\Tlacitko                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ TlacitkoZelene       | TrainBasicObjectDiffuse.fx     | Textures\TlacitkoZelene                  / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Cab05dvere           | TrainBasicObjectDiffuse.fx     | Textures\460_cab05dvere                  / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Sklo                 | TrainGlass.fx                  | Textures\sklo                            / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Podlaha              | TrainBasicObjectDiffuse.fx     | Textures\460_podlaha                     / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ TlacitkoBdelostObjimka | TrainBasicObjectDiffuse.fx     | Textures\TlacitkoBdelostObjimka          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ PrepinacObjimka      | TrainBasicObjectDiffuse.fx     | Textures\PrepinacObjimka                 / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ TlacitkoObjimka      | TrainBasicObjectDiffuse.fx     | Textures\TlacitkoObjimka                 / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Desky                | TrainBasicObjectDiffuse.fx     | Textures\460_desky                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RDST                 | TrainBasicObjectDiffuse.fx     | Textures\460_rdst                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Cab03Zadek           | TrainBasicObjectDiffuse.fx     | Textures\460_cab03zadek                  / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ SkrinMain            | TrainBasicObjectDiffuse.fx     | Textures\460-6                           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ D                    | TrainBasicObjectDiffuse.fx     | Textures\460021d                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ zrcatka              | WaterCubeMap.fx                | Textures\zrcatka                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ zadek                | TrainBasicObjectDiffuse.fx     | Textures\zadnistena                      / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ 460-4                | TrainBasicObjectDiffuse.fx     | Textures\460-4                           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ 7451nahradit         | TrainBasicObjectDiffuse.fx     | Textures\DSC_7451                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ weatherglass_1       | TrainGlassWeatherEffects.fx    | Textures\windiff_nm                      / [64.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ snazvem1             | TrainBasicObjectDiffuse.fx     | Textures\snazvem1                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Lemovani             | TrainBasicObjectDiffuse.fx     | Textures\Lemovani                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Vrsek                | TrainBasicObjectDiffuse.fx     | Textures\460_vrsek                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RS-ZAP               | BlendATex                      | Textures\RS-zap                          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RS-5                 | BlendATex                      | Textures\RS-5                            / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RS-4                 | BlendATex                      | Textures\RS-4                            / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RS-2                 | BlendATex                      | Textures\RS-2                            / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RS-1B                | BlendATex                      | Textures\RS-1b                           / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RS-1                 | BlendATex                      | Textures\RS-1                            / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ RS-0                 | BlendATex                      | Textures\RS-0                            / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Vysilacka            | TrainBasicObjectDiffuse.fx     | Textures\vysilacka                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ VysilackaDisplej     | BlendATex                      | Textures\vysilacka                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Cab04spodek          | TrainBasicObjectDiffuse.fx     | Textures\460_cab04spodek                 / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Pult                 | TrainBasicObjectDiffuse.fx     | Textures\460_pult                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Sterac               | TrainBasicObjectDiffuse.fx     | Textures\460_sterac                      / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+================================================================================
+--------------------------------------------------------------------------------
+Material main parameters [ 1 / 49 ] : 'Cab02Steny'
+------------------------------.
+Name                          : 'Cab02Steny'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 2 / 49 ] : 'Cab01'
+------------------------------.
+Name                          : 'Cab01'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 3 / 49 ] : 'cab06prepinace'
+------------------------------.
+Name                          : 'cab06prepinace'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 4 / 49 ] : 'KontrolkyBarvy'
+------------------------------.
+Name                          : 'KontrolkyBarvy'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 5 / 49 ] : 'KabinaPult'
+------------------------------.
+Name                          : 'KabinaPult'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 6 / 49 ] : 'Kontroler'
+------------------------------.
+Name                          : 'Kontroler'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 7 / 49 ] : 'klic'
+------------------------------.
+Name                          : 'klic'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 8 / 49 ] : 'MatInvisible'
+------------------------------.
+Name                          : 'MatInvisible'
+ShaderName                    : 'invisible'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 9 / 49 ] : 'Ochrany'
+------------------------------.
+Name                          : 'Ochrany'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 10 / 49 ] : 'TlacitkoHribekCerna'
+------------------------------.
+Name                          : 'TlacitkoHribekCerna'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.000000
+    Green                         : 0.000000
+    Blue                          : 0.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 16.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 11 / 49 ] : 'SignalkySvitici'
+------------------------------.
+Name                          : 'SignalkySvitici'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 12 / 49 ] : 'DakoBS'
+------------------------------.
+Name                          : 'DakoBS'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 13 / 49 ] : 'DakoBS_madlo'
+------------------------------.
+Name                          : 'DakoBS_madlo'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 14 / 49 ] : 'KlicBS'
+------------------------------.
+Name                          : 'KlicBS'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 15 / 49 ] : 'TlacitkoHribekCervena'
+------------------------------.
+Name                          : 'TlacitkoHribekCervena'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 0.000000
+    Blue                          : 0.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 32.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 16 / 49 ] : 'Prepinac'
+------------------------------.
+Name                          : 'Prepinac'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.023651
+    Green                         : 0.023651
+    Blue                          : 0.023651
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 17 / 49 ] : 'Tlacitko'
+------------------------------.
+Name                          : 'Tlacitko'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.033103
+    Green                         : 0.033103
+    Blue                          : 0.033103
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 18 / 49 ] : 'TlacitkoZelene'
+------------------------------.
+Name                          : 'TlacitkoZelene'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.000000
+    Green                         : 1.000000
+    Blue                          : 0.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 19 / 49 ] : 'Cab05dvere'
+------------------------------.
+Name                          : 'Cab05dvere'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 20 / 49 ] : 'Sklo'
+------------------------------.
+Name                          : 'Sklo'
+ShaderName                    : 'TrainGlass.fx'
+RenderStageCount              : 2
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+RenderStage1 -------------------.
+  UVChannelIndex                : 1
+  FilterMode                    : 3
+  MipLODBias                    : 0.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 21 / 49 ] : 'Podlaha'
+------------------------------.
+Name                          : 'Podlaha'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 22 / 49 ] : 'TlacitkoBdelostObjimka'
+------------------------------.
+Name                          : 'TlacitkoBdelostObjimka'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 50.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 23 / 49 ] : 'PrepinacObjimka'
+------------------------------.
+Name                          : 'PrepinacObjimka'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 50.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 24 / 49 ] : 'TlacitkoObjimka'
+------------------------------.
+Name                          : 'TlacitkoObjimka'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 50.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 25 / 49 ] : 'Desky'
+------------------------------.
+Name                          : 'Desky'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 26 / 49 ] : 'RDST'
+------------------------------.
+Name                          : 'RDST'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 27 / 49 ] : 'Cab03Zadek'
+------------------------------.
+Name                          : 'Cab03Zadek'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 28 / 49 ] : 'SkrinMain'
+------------------------------.
+Name                          : 'SkrinMain'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 29 / 49 ] : 'D'
+------------------------------.
+Name                          : 'D'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.921569
+    Green                         : 0.172549
+    Blue                          : 0.662745
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 0.921569
+    Green                         : 0.172549
+    Blue                          : 0.662745
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 30 / 49 ] : 'zrcatka'
+------------------------------.
+Name                          : 'zrcatka'
+ShaderName                    : 'WaterCubeMap.fx'
+RenderStageCount              : 2
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+RenderStage1 -------------------.
+  UVChannelIndex                : 1
+  FilterMode                    : 3
+  MipLODBias                    : 0.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.726609
+    Blue                          : 0.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 31 / 49 ] : 'zadek'
+------------------------------.
+Name                          : 'zadek'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 32 / 49 ] : '460-4'
+------------------------------.
+Name                          : '460-4'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 33 / 49 ] : '7451nahradit'
+------------------------------.
+Name                          : '7451nahradit'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 34 / 49 ] : 'weatherglass_1'
+------------------------------.
+Name                          : 'weatherglass_1'
+ShaderName                    : 'TrainGlassWeatherEffects.fx'
+RenderStageCount              : 4
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [64.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+RenderStage1 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -1.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+RenderStage2 -------------------.
+  UVChannelIndex                : 2
+  FilterMode                    : 3
+  MipLODBias                    : 0.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+RenderStage3 -------------------.
+  UVChannelIndex                : 3
+  FilterMode                    : 3
+  MipLODBias                    : 0.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 0.500000
+    Green                         : 0.500000
+    Blue                          : 0.500000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.726609
+    Blue                          : 0.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 35 / 49 ] : 'snazvem1'
+------------------------------.
+Name                          : 'snazvem1'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 36 / 49 ] : 'Lemovani'
+------------------------------.
+Name                          : 'Lemovani'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.310813
+    Green                         : 0.310813
+    Blue                          : 0.310813
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 0.000000
+    Green                         : 0.000000
+    Blue                          : 0.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 0.500000
+--------------------------------------------------------------------------------
+Material main parameters [ 37 / 49 ] : 'Vrsek'
+------------------------------.
+Name                          : 'Vrsek'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 38 / 49 ] : 'RS-ZAP'
+------------------------------.
+Name                          : 'RS-ZAP'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 39 / 49 ] : 'RS-5'
+------------------------------.
+Name                          : 'RS-5'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 40 / 49 ] : 'RS-4'
+------------------------------.
+Name                          : 'RS-4'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 41 / 49 ] : 'RS-2'
+------------------------------.
+Name                          : 'RS-2'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 42 / 49 ] : 'RS-1B'
+------------------------------.
+Name                          : 'RS-1B'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 43 / 49 ] : 'RS-1'
+------------------------------.
+Name                          : 'RS-1'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 44 / 49 ] : 'RS-0'
+------------------------------.
+Name                          : 'RS-0'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 45 / 49 ] : 'Vysilacka'
+------------------------------.
+Name                          : 'Vysilacka'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.640000
+    Green                         : 0.640000
+    Blue                          : 0.640000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 0.500000
+    Green                         : 0.500000
+    Blue                          : 0.500000
+    Alpha                         : 1.000000
+SpecularPower                 : 49.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 46 / 49 ] : 'VysilackaDisplej'
+------------------------------.
+Name                          : 'VysilackaDisplej'
+ShaderName                    : 'BlendATex'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 49.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 47 / 49 ] : 'Cab04spodek'
+------------------------------.
+Name                          : 'Cab04spodek'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 48 / 49 ] : 'Pult'
+------------------------------.
+Name                          : 'Pult'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 49 / 49 ] : 'Sterac'
+------------------------------.
+Name                          : 'Sterac'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+================================================================================
+IGTextureNames               : [ 1 ]
+--------------------------------------------------------------------------------
+IGfTextureNames [ 1 / 1 ] (44)
+------------------------------.
+TextureNameListLength         : 1047
+TextureNameCount              : 54
+--------------------------------------------------------------------------------
+TextureNameStartOffsetList -----.
+  TextureNameStartOffset[1]     : 0 (TextureName[1])
+  TextureNameStartOffset[2]     : 24 (TextureName[2])
+  TextureNameStartOffset[3]     : 43 (TextureName[3])
+  TextureNameStartOffset[4]     : 71 (TextureName[4])
+  TextureNameStartOffset[5]     : 88 (TextureName[5])
+  TextureNameStartOffset[6]     : 105 (TextureName[6])
+  TextureNameStartOffset[7]     : 128 (TextureName[7])
+  TextureNameStartOffset[8]     : 149 (TextureName[8])
+  TextureNameStartOffset[9]     : 168 (TextureName[9])
+  TextureNameStartOffset[10]     : 189 (TextureName[10])
+  TextureNameStartOffset[11]     : 214 (TextureName[11])
+  TextureNameStartOffset[12]     : 233 (TextureName[12])
+  TextureNameStartOffset[13]     : 249 (TextureName[13])
+  TextureNameStartOffset[14]     : 271 (TextureName[14])
+  TextureNameStartOffset[15]     : 288 (TextureName[15])
+  TextureNameStartOffset[16]     : 308 (TextureName[16])
+  TextureNameStartOffset[17]     : 326 (TextureName[17])
+  TextureNameStartOffset[18]     : 344 (TextureName[18])
+  TextureNameStartOffset[19]     : 368 (TextureName[19])
+  TextureNameStartOffset[20]     : 392 (TextureName[20])
+  TextureNameStartOffset[21]     : 406 (TextureName[21])
+  TextureNameStartOffset[22]     : 421 (TextureName[22])
+  TextureNameStartOffset[23]     : 442 (TextureName[23])
+  TextureNameStartOffset[24]     : 474 (TextureName[24])
+  TextureNameStartOffset[25]     : 499 (TextureName[25])
+  TextureNameStartOffset[26]     : 524 (TextureName[26])
+  TextureNameStartOffset[27]     : 543 (TextureName[27])
+  TextureNameStartOffset[28]     : 561 (TextureName[28])
+  TextureNameStartOffset[29]     : 585 (TextureName[29])
+  TextureNameStartOffset[30]     : 600 (TextureName[30])
+  TextureNameStartOffset[31]     : 617 (TextureName[31])
+  TextureNameStartOffset[32]     : 634 (TextureName[32])
+  TextureNameStartOffset[33]     : 654 (TextureName[33])
+  TextureNameStartOffset[34]     : 674 (TextureName[34])
+  TextureNameStartOffset[35]     : 689 (TextureName[35])
+  TextureNameStartOffset[36]     : 707 (TextureName[36])
+  TextureNameStartOffset[37]     : 727 (TextureName[37])
+  TextureNameStartOffset[38]     : 747 (TextureName[38])
+  TextureNameStartOffset[39]     : 767 (TextureName[39])
+  TextureNameStartOffset[40]     : 790 (TextureName[40])
+  TextureNameStartOffset[41]     : 808 (TextureName[41])
+  TextureNameStartOffset[42]     : 826 (TextureName[42])
+  TextureNameStartOffset[43]     : 845 (TextureName[43])
+  TextureNameStartOffset[44]     : 861 (TextureName[44])
+  TextureNameStartOffset[45]     : 875 (TextureName[45])
+  TextureNameStartOffset[46]     : 889 (TextureName[46])
+  TextureNameStartOffset[47]     : 903 (TextureName[47])
+  TextureNameStartOffset[48]     : 918 (TextureName[48])
+  TextureNameStartOffset[49]     : 932 (TextureName[49])
+  TextureNameStartOffset[50]     : 946 (TextureName[50])
+  TextureNameStartOffset[51]     : 965 (TextureName[51])
+  TextureNameStartOffset[52]     : 984 (TextureName[52])
+  TextureNameStartOffset[53]     : 1009 (TextureName[53])
+  TextureNameStartOffset[54]     : 1027 (TextureName[54])
+TextureNameList ----------------.
+  TextureName[1]                : 'Textures\460_Cab02Steny'
+  TextureName[2]                : 'Textures\460_cab01'
+  TextureName[3]                : 'Textures\460_cab06prepinace'
+  TextureName[4]                : 'Textures\460_LVZ'
+  TextureName[5]                : 'Textures\460_cab'
+  TextureName[6]                : 'Textures\460_kontroler'
+  TextureName[7]                : 'Textures\texturaklic'
+  TextureName[8]                : 'Textures\invisible'
+  TextureName[9]                : 'Textures\460_ochrany'
+  TextureName[10]                : 'Textures\TlacitkoBdelost'
+  TextureName[11]                : 'Textures\460_cab01'
+  TextureName[12]                : 'Textures\DakoBS'
+  TextureName[13]                : 'Textures\DakoBS_madlo'
+  TextureName[14]                : 'Textures\klicBS2'
+  TextureName[15]                : 'Textures\TlacitkoNZ'
+  TextureName[16]                : 'Textures\Prepinac'
+  TextureName[17]                : 'Textures\Tlacitko'
+  TextureName[18]                : 'Textures\TlacitkoZelene'
+  TextureName[19]                : 'Textures\460_cab05dvere'
+  TextureName[20]                : 'Textures\sklo'
+  TextureName[21]                : 'Textures\dummy'
+  TextureName[22]                : 'Textures\460_podlaha'
+  TextureName[23]                : 'Textures\TlacitkoBdelostObjimka'
+  TextureName[24]                : 'Textures\PrepinacObjimka'
+  TextureName[25]                : 'Textures\TlacitkoObjimka'
+  TextureName[26]                : 'Textures\460_desky'
+  TextureName[27]                : 'Textures\460_rdst'
+  TextureName[28]                : 'Textures\460_cab03zadek'
+  TextureName[29]                : 'Textures\460-6'
+  TextureName[30]                : 'Textures\460021d'
+  TextureName[31]                : 'Textures\zrcatka'
+  TextureName[32]                : 'Textures\winnorm_nm'
+  TextureName[33]                : 'Textures\zadnistena'
+  TextureName[34]                : 'Textures\460-4'
+  TextureName[35]                : 'Textures\DSC_7451'
+  TextureName[36]                : 'Textures\windiff_nm'
+  TextureName[37]                : 'Textures\windiff_nm'
+  TextureName[38]                : 'Textures\winnorm_nm'
+  TextureName[39]                : 'Textures\winwmotion_nm'
+  TextureName[40]                : 'Textures\snazvem1'
+  TextureName[41]                : 'Textures\Lemovani'
+  TextureName[42]                : 'Textures\460_vrsek'
+  TextureName[43]                : 'Textures\RS-zap'
+  TextureName[44]                : 'Textures\RS-5'
+  TextureName[45]                : 'Textures\RS-4'
+  TextureName[46]                : 'Textures\RS-2'
+  TextureName[47]                : 'Textures\RS-1b'
+  TextureName[48]                : 'Textures\RS-1'
+  TextureName[49]                : 'Textures\RS-0'
+  TextureName[50]                : 'Textures\vysilacka'
+  TextureName[51]                : 'Textures\vysilacka'
+  TextureName[52]                : 'Textures\460_cab04spodek'
+  TextureName[53]                : 'Textures\460_pult'
+  TextureName[54]                : 'Textures\460_sterac'
+
+
+IGS export time: 34.16
