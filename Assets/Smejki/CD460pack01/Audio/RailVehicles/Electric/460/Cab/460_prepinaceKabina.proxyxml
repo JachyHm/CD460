@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kLoud-cProxyControlLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<ProxyControl>
+		<cGenericAudioControl xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
+			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
+			<Sound>
+				<kLoud-cSingleSampleSound d:id="65785">
+					<Name d:type="cDeltaString">smerDoRizene</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.2</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">50</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">300</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\460_Smer_doRizene.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
+				<kLoud-cSingleSampleSound d:id="65798">
+					<Name d:type="cDeltaString">smerZRizene</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.2</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">50</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">300</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\460_Smer_zRizene.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
+			</Sound>
+			<Curve />
+			<ModifierChain />
+			<InstanceGroup />
+			<Loop />
+			<Oneshot>
+				<kLoud-cTriggeredOneshot d:id="65816">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">SmerovyPrepVpredRizena</Name>
+					<Sound d:type="ref">65785</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
+					<TriggerValue d:type="sFloat32">1.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="65826">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">SmerovyPrepRizenaVpred</Name>
+					<Sound d:type="ref">65798</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
+					<TriggerValue d:type="sFloat32">1.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="65836">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">SmerovyPrepNulaVpred</Name>
+					<Sound d:type="ref">65785</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
+					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="65846">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">SmerovyPrepVpredNula</Name>
+					<Sound d:type="ref">65798</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
+					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="65856">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">SmerovyPrepVzadNula</Name>
+					<Sound d:type="ref">65785</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
+					<TriggerValue d:type="sFloat32">-0.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="65866">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">SmerovyPrepNulaVzad</Name>
+					<Sound d:type="ref">65798</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
+					<TriggerValue d:type="sFloat32">-0.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+			</Oneshot>
+		</cGenericAudioControl>
+	</ProxyControl>
+</kLoud-cProxyControlLoader>

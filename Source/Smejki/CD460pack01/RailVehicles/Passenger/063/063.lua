@@ -1,4 +1,6 @@
 gDebug = false
+prvniZprava = false
+otocDvere = false
 function GetIDs(numberToDecode)
     local tableOfIDs,i,D={},1
     while numberToDecode > 0 do
@@ -59,6 +61,18 @@ end
 function OnConsistMessage(zprava,argument,smer)
 	if true then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
 		Call("SendConsistMessage",zprava,argument,smer)
+	end
+	if ID ~= nil then
+		if not prvniZprava then
+			prvniZprava = true
+			if smer == 1 then
+				otocDvere = false
+				-- SysCall("ScenarioManager:ShowInfoMessageExt", "DEBUG", "Vlozeny vuz je otoceny spravne.",5,16,0,0)
+			else
+				otocDvere = true
+				-- SysCall("ScenarioManager:ShowInfoMessageExt", "DEBUG", "Vlozeny vuz je otoceny opacne.",5,16,0,0)
+			end
+		end
 	end
 	if zprava == 460105 then
 		if argument == "00" then

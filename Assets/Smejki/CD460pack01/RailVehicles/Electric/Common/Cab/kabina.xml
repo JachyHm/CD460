@@ -10,9 +10,9 @@
 				<cCabCameraUpdateBlueprint>
 					<cameraOffset>
 						<cRVector3>
-							<X d:type="sFloat32">0.61369</X>
+							<X d:type="sFloat32">0.46369</X>
 							<Y d:type="sFloat32">2.6</Y>
-							<Z d:type="sFloat32">10.5</Z>
+							<Z d:type="sFloat32">10.4</Z>
 						</cRVector3>
 					</cameraOffset>
 					<cameraDirection>
@@ -39,18 +39,18 @@
 					</windowCameraDirection>
 					<verticalDirectionalFreedom d:type="sFloat32">6.28318548</verticalDirectionalFreedom>
 					<horizontalDirectionalFreedom d:type="sFloat32">6.28318548</horizontalDirectionalFreedom>
-					<MinFOV d:type="sFloat32">0.01</MinFOV>
-					<MaxFOV d:type="sFloat32">1</MaxFOV>
+					<MinFOV d:type="sFloat32">0.4</MinFOV>
+					<MaxFOV d:type="sFloat32">1.15</MaxFOV>
 					<WindowMinFOV d:type="sFloat32">0.4</WindowMinFOV>
-					<WindowMaxFOV d:type="sFloat32">1</WindowMaxFOV>
-					<SpringXCoefficient d:type="sFloat32">0.1</SpringXCoefficient>
-					<SpringYCoefficient d:type="sFloat32">0.6</SpringYCoefficient>
-					<SpringZCoefficient d:type="sFloat32">0.1</SpringZCoefficient>
-					<DampingXCoefficient d:type="sFloat32">1</DampingXCoefficient>
-					<DampingYCoefficient d:type="sFloat32">1</DampingYCoefficient>
-					<DampingZCoefficient d:type="sFloat32">1</DampingZCoefficient>
+					<WindowMaxFOV d:type="sFloat32">1.15</WindowMaxFOV>
+					<SpringXCoefficient d:type="sFloat32">0.05</SpringXCoefficient>
+					<SpringYCoefficient d:type="sFloat32">0.06</SpringYCoefficient>
+					<SpringZCoefficient d:type="sFloat32">0.03</SpringZCoefficient>
+					<DampingXCoefficient d:type="sFloat32">0.009</DampingXCoefficient>
+					<DampingYCoefficient d:type="sFloat32">0.075</DampingYCoefficient>
+					<DampingZCoefficient d:type="sFloat32">0.005</DampingZCoefficient>
 					<TimelineEntry>
-						<cCabCameraPosition d:id="116643">
+						<cCabCameraPosition d:id="66328">
 							<CameraOffset>
 								<cRVector3>
 									<X d:type="sFloat32">-0.62765</X>
@@ -72,7 +72,7 @@
 							<MinFOV d:type="sFloat32">0.4</MinFOV>
 							<MaxFOV d:type="sFloat32">1</MaxFOV>
 						</cCabCameraPosition>
-						<cCabCameraPosition d:id="116658">
+						<cCabCameraPosition d:id="66343">
 							<CameraOffset>
 								<cRVector3>
 									<X d:type="sFloat32">0.95</X>

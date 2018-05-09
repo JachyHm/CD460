@@ -36,6 +36,11 @@ volno = false
 mezikruzi = false
 vybaveni = false
 
+casNekodovani = 0
+nekodujCas = nil
+sumPoPrujezdu = 0
+sumPoPrujezduDelka = 0
+sumPoPrujezduDelkaUbehle = 0
 zmenaParametru = 0
 zmenaParametruLast = 0
 casChybyUbehly = 0
@@ -131,6 +136,7 @@ ZPRAVA_HLAVICKA_NAPOVEDA = SysCall("ScenarioManager:GetLocalisedString","5719ee7
 
 levelNapovedy = 0
 
+otocDvere = false
 dvereLeveZeSoupravy = false
 dvereLeveZeSoupravyPridrznyStav = false
 dvereLevePridrznyStav = false
@@ -172,6 +178,8 @@ MSVok = false
 zavedSnizenyVykon = false
 
 pojezdNeschopna = false
+
+prvnizprava = false
 
 function split(s, delimiter)
 	local result = { }
@@ -693,6 +701,7 @@ function DefinujPromene()
 	pravaPozBilVPKC = false
 	pravaPozCer = false
 	pravaPozCerVPKC = false
+	horniPozBilVKPC = false
 	NouzoveBrzdeni = 0
 	BlokovaniRadiceNZ = 0
 	MaxRozjezdProud = 0
@@ -810,8 +819,6 @@ function DefinujPromene()
 	StartupStaryPanto = 0
 	t1 = false
 	UzJm = PoleFCE {"JachymJH-PCx863a09","VojtaDESKTOP-91H4B8Qx865e03","DavidLenovo-Laptopx863708","DominikSuperUltraPCx863a09","Sa?aGabinkax862d07"}
-	prvnizprava = false
-	prvnizpravabet = false
 	predMasinou = false
 	zaMasinou = false
 	nezobrazujValce = false
@@ -862,7 +869,7 @@ function Initialise ()
 	Call ( "ActivateNode","dalkaclevy",0)
 	Call ( "ActivateNode","dalkacpravy",0)
 	Call ( "ActivateNode","reflektor_rozsviceny",0) 
-	Call ( "Reflektor:Activate", 0 )
+	Call ( "PozickaHorniBi:Activate", 0 )
 	Call ( "CabLight1:Activate", 0 )
 	Call ( "CabLight2:Activate", 0 )
 	Call ( "SvetloRychlomer:Activate", 0 )
@@ -887,7 +894,7 @@ function Initialise ()
 	RocniObdobi = SysCall("ScenarioManager:GetSeason")
 	DefinujPromene()
 	--OverUzivatele()
-	Call("Reflektor:SetRange",150)
+	Call("PozickaHorniBi:SetRange",12)
 	Call("PozickaLevaCr:SetRange",12)
 	Call("PozickaLevaBi:SetRange",12)
 	Call("PozickaPravaCr:SetRange",12)
@@ -920,6 +927,7 @@ function Initialise ()
 	MaPredniPantograf = Call("ControlExists","PantoPredni",0)
 	predMasinou = Call("SendConsistMessage",460999,"DUMMY",0)
 	zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
+	Call("SetControlValue","PantographControl",0,0)
 end
 function GetIDs(numberToDecode)
     local tableOfIDs,i,D={},1
@@ -1014,12 +1022,12 @@ end
 	-- 460116 - MGen priprava
 	-- 460117 - startujici MGen v souprave
 	-- 460118 - bezici MGEn v souprave
-	-- 460119 - brzda
+	-- 460119 - inverze dveri Leve/Prave na motorovych vozech - predpoklada vzdy cela od sebe
 	-- 460997 - ID nabalovani
-	-- 460998 - zadost od ID
+	-- 460998 - zadost o ID
 	-- 460999 - DUMMY
 function OnConsistMessage(zprava,argument,smer)
-	if zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 then
+	if zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
 		stavPoslane = Call("SendConsistMessage",zprava,argument,smer)
 	end
 	if zprava ~= 460999 then
@@ -1111,6 +1119,14 @@ function OnConsistMessage(zprava,argument,smer)
 	if zprava == 460118 then
 		ZpracujZpravuSID(zprava,argument,smer,"mg")
 	end
+	if zprava == 460119 then
+		if argument == "obrat" then
+			otocDvere = true
+			Call("SendConsistMessage",460119,"nech",smer)
+		else
+			Call("SendConsistMessage",460119,"obrat",smer)
+		end
+	end
 	if zprava == 460997 then
 		ID = GetFreeID(GetIDs(tonumber(argument)))
 		i = 2^(ID-1)
@@ -1123,6 +1139,8 @@ function OnConsistMessage(zprava,argument,smer)
 	if zprava == 460998 then
 		if stavPoslane == 0 then
 			Call("SendConsistMessage",460997,"1",ObratSmer(smer))
+			Call("SendConsistMessage",460119,"obrat",ObratSmer(smer))
+			otocDvere = false
 			ID = 1
 			Call("SetControlValue","ID",0,ID)
 		end
@@ -1186,7 +1204,7 @@ function VypniVse()
 	Call ( "ActivateNode","dalkaclevy",0)
 	Call ( "ActivateNode","dalkacpravy",0)
 	Call ( "ActivateNode","reflektor_rozsviceny",0) 
-	Call ( "Reflektor:Activate", 0 )
+	Call ( "PozickaHorniBi:Activate", 0 )
 	Call ( "CabLight1:Activate", 0 )
 	Call ( "CabLight2:Activate", 0 )
 	Call ( "SvetloRychlomer:Activate", 0 )
@@ -1234,7 +1252,6 @@ function DalkovaSvF(stupen,delkaUpd,baterie)
 	local pribytek = delkaUpd * 7
 	local dalkoveLeve = false
 	local dalkovePrave = false
-	local dalkoveHorni = false
 
 	local barvaDalkovaDolni = {0.7385892,1,1}
 	local barvaDalkovaHorni = {1,1,0.7}
@@ -1245,14 +1262,9 @@ function DalkovaSvF(stupen,delkaUpd,baterie)
 	if stupen == 0 or baterie ~= 1 then
 		AktivujNode("dalkaclevy",0)
 		AktivujNode("dalkacpravy",0)
-		AktivujNode("reflektor_rozsviceny",0)
 	elseif stupen == 1 then
 		dalkoveLeve = true
 		dalkovePrave = true
-	elseif stupen == 2 then
-		dalkoveLeve = true
-		dalkovePrave = true
-		dalkoveHorni = true
 	end
 
 	if dalkoveLeve and stavDalkoveLeve < 5 then
@@ -1267,12 +1279,6 @@ function DalkovaSvF(stupen,delkaUpd,baterie)
 		stavDalkovePrave = stavDalkovePrave - (math.sqrt(stavDalkovePrave)*pribytek/5)
 	end
 
-	if dalkoveHorni and stavDalkoveHorni < 5 then
-		stavDalkoveHorni = stavDalkoveHorni + (math.sqrt(5-stavDalkoveHorni)*pribytek/5)
-	elseif not dalkoveHorni and stavDalkoveHorni > 0 then
-		stavDalkoveHorni = stavDalkoveHorni - (math.sqrt(stavDalkoveHorni)*pribytek/5)
-	end
-
 	if stavDalkoveLeve >= 5 then
 		AktivujNode("dalkaclevy",1)
 	else
@@ -1285,15 +1291,8 @@ function DalkovaSvF(stupen,delkaUpd,baterie)
 		AktivujNode("dalkacpravy",0)
 	end
 
-	if stavDalkoveHorni >= 5 then
-		AktivujNode("reflektor_rozsviceny",1)
-	else
-		AktivujNode("reflektor_rozsviceny",0)
-	end
-
 	stavDalkoveLeveZapis = stavDalkoveLeve/3
 	stavDalkovePraveZapis = stavDalkovePrave/3
-	stavDalkoveHorniZapis = stavDalkoveHorni/3
 
 	if MaPredniPantograf == 1 then
 		Call("DalkoveLeve:SetColour",barvaDalkovaDolniZ[1]*stavDalkoveLeveZapis,barvaDalkovaDolniZ[2]*stavDalkoveLeveZapis,barvaDalkovaDolniZ[3]*stavDalkoveLeveZapis)
@@ -1310,14 +1309,6 @@ function DalkovaSvF(stupen,delkaUpd,baterie)
 		else 
 			Call("DalkovePrave:Activate",0)
 		end
-
-		Call("Reflektor:SetColour",barvaDalkovaHorniZ[1]*stavDalkoveHorniZapis,barvaDalkovaHorniZ[2]*stavDalkoveHorniZapis,barvaDalkovaHorniZ[3]*stavDalkoveHorniZapis)
-		Call("Reflektor:Activate",1)
-		if stavDalkoveHorniZapis > 0 then
-			Call("Reflektor:Activate",1)
-		else 
-			Call("Reflektor:Activate",0)
-		end
 	else
 		Call("DalkoveLeve:SetColour",barvaDalkovaDolni[1]*stavDalkoveLeveZapis,barvaDalkovaDolni[2]*stavDalkoveLeveZapis,barvaDalkovaDolni[3]*stavDalkoveLeveZapis)
 		Call("DalkoveLeve:Activate",1)
@@ -1333,14 +1324,6 @@ function DalkovaSvF(stupen,delkaUpd,baterie)
 			Call("DalkovePrave:Activate",1)
 		else 
 			Call("DalkovePrave:Activate",0)
-		end
-
-		Call("Reflektor:SetColour",barvaDalkovaHorni[1]*stavDalkoveHorniZapis,barvaDalkovaHorni[2]*stavDalkoveHorniZapis,barvaDalkovaHorni[3]*stavDalkoveHorniZapis)
-		Call("Reflektor:Activate",1)
-		if stavDalkoveHorniZapis > 0 then
-			Call("Reflektor:Activate",1)
-		else 
-			Call("Reflektor:Activate",0)
 		end
 	end
 end
@@ -1478,25 +1461,20 @@ function VratTCh(gRegulatorTrCh)
 			--vypoctenaTrCh = -1
 		end
 		vratRegulator = -(vypoctenaTrCh/gAbsolutniMax_kN)
+		if pojezdNeschopna then
+			vratRegulator = vratRegulator / 2
+		end
 		--vratRegulator = vypoctenaTrCh
 		if vratRegulator > 0 then vratRegulator = 0 end
 	elseif pojezdVDepu then
 		vratRegulator = (1 / (20+math.exp(speed*3.6)))
-	end
-	if pojezdNeschopna then
-		vratRegulator = vratRegulator/2
 	end
 	return(vratRegulator)
 end
 function VratProud(gTaznaSila,gZarazenyStupen)
 	local shunt = (gZarazenyStupen - 0.8) *20
 	local speed = Call("GetSpeed")
-	local kN
-	if not pojezdNeschopna then
-		kN = math.abs(gTaznaSila*130)
-	else
-		kN = math.abs(gTaznaSila*130)*2
-	end
+	local kN = math.abs(gTaznaSila*130)
 	--local kN = (2000*(math.exp(-0.25*(speed-2))))+7
 	local k = 1.3
 	local a = 106
@@ -1506,6 +1484,9 @@ function VratProud(gTaznaSila,gZarazenyStupen)
 		vratProud = -vratProud*2.5
 		if gZarazenyStupen == -1 then
 			vratProud = vratProud * 1.5
+		end
+		if pojezdNeschopna then
+			vratProud = vratProud * 2
 		end
 	end
 	if shunt > 0 and shunt < 1.5 then
@@ -1632,23 +1613,34 @@ function SvetloDimm(dimValue)
 end
 function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 	local pribytek = delkaUpd * 30
+	local signalCode = 0
 
 	if jeZivak == 1 then
 		signalCode = LVZznak
 		if prujezdKolemNavestidla then
-			if not vyberZnak then
-				signalCode = math.floor(math.random(0,4.9))
-				casNaZmenu = math.random(1,2)
-				vyberZnak = true
+			prujezdKolemNavestidla = false
+			nekodujCas = math.random(0,2) + math.random()
+			casNekodovani = 0
+		end
+
+		casNekodovani = casNekodovani + delkaUpd
+
+		if nekodujCas ~= nil then
+			if casNekodovani > nekodujCas then
+				nekodujCas = nil
+				sumPoPrujezdu = math.random(1,4)
+
+				sumPoPrujezduDelka = math.random()
+				sumPoPrujezduDelkaUbehle = 0
+			else
+				signalCode = 0
 			end
-			kodNavesti = signalCode
-			casZmenyUbehly = casZmenyUbehly + delkaUpd
-			if casZmenyUbehly > casNaZmenu then
-				vyberZnak = nil
-				prujezdKolemNavestidla = false
-			end
-		else
-			casZmenyUbehly = 0
+		end
+
+		sumPoPrujezduDelkaUbehle = sumPoPrujezduDelkaUbehle + delkaUpd
+
+		if sumPoPrujezduDelka > sumPoPrujezduDelkaUbehle then
+			signalCode = sumPoPrujezdu
 		end
 
 		-- zmenaParametruLast = zmenaParametru
@@ -1677,12 +1669,12 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 		-- end
 
 		local zhasleLVZ = false
-		if math.random(0,10000) > 9999.99 and Call("GetSpeed") > 1 then
+		if math.random(0,10000) > 9990 and Call("GetSpeed") > 1 then
 			zhasleLVZ = true
 		end
 
 		if zhasleLVZ and casZhasle == nil then
-			casZhasle = math.random(0.5,2)
+			casZhasle = math.random(0,2) + math.random()
 		end
 
 		if casZhasle ~= nil then
@@ -1695,8 +1687,6 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 		else
 			casZhasleUbehly = 0
 		end
-	else
-		signalCode = 0
 	end
 
 	vystraha = false
@@ -1896,7 +1886,7 @@ function Update (cas)
 						Call ( "ActivateNode","dalkaclevy",0)
 						Call ( "ActivateNode","dalkacpravy",0)
 						Call ( "ActivateNode","reflektor_rozsviceny",0) 
-						Call ( "Reflektor:Activate", 0 )
+						Call ( "PozickaHorniBi:Activate", 0 )
 						Call ( "PozickaLevaBi:Activate", 0 )
 						Call ( "PozickaLevaCr:Activate", 0 )
 						Call ( "PozickaPravaBi:Activate", 0 )
@@ -2050,6 +2040,8 @@ function Update (cas)
 							Call("SetControlValue","povel_Reverser",0,0)
 							Call("SetControlValue","povel_RidiciKontroler",0,0)
 							Call("SetControlValue","povel_NouzovyKontroler",0,0)
+							Call("SetControlValue","SnizenyVykon",0,0)
+							snizenyVykonTady = false
 						end
 						RizenaRidiciLast = RizenaRidici
 					----------------------------------------Motorgener?tor------------------------------------
@@ -2582,7 +2574,7 @@ function Update (cas)
 						end
 					----------------------------------------Dvere---------------------------------------------
 						--dvere ze soupravy
-							if math.floor(ID/2) ~= ID/2 then
+							if otocDvere then
 								dverePraveVSouprave = Call("GetControlValue","DvereLeveVSouprave",0)
 								dvereLeveVSouprave = Call("GetControlValue","DverePraveVSouprave",0)
 							else
@@ -2753,7 +2745,7 @@ function Update (cas)
 						
 						--prenos stavu dveri do dalsiho vozu
 							--leve
-							if math.floor(ID/2) ~= ID/2 then
+							if otocDvere then
 								if dvereLPskutecne ~= 0 or dvereLZskutecne ~= 0 then
 									NastavHodnotuSID("DverePraveVSouprave",1,460115)
 								elseif dvereLPskutecne == 0 and dvereLZskutecne == 0 then
@@ -3092,6 +3084,11 @@ function Update (cas)
 							else
 								Pozicka("Prava","Cr",0)
 							end
+							if horniPozBilVKPC then
+								Pozicka("Horni","Bi",1)
+							else
+								Pozicka("Horni","Bi",0)
+							end
 						end
 						if DalkovaSv <= 0.5 then
 							DalkovaSvF(0,cas,Baterie)
@@ -3137,8 +3134,8 @@ function Update (cas)
 						if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
 						if TlakovyBlokJizdy and Call("GetControlValue","VirtualBrakePipePressureBAR",0) >= 4.7 then TlakovyBlokJizdy = false end
 						if JeNouzovyRadic == 0 and Call("GetControlValue","PrepinaceTlak",0) > 3.5 and Baterie == 1 and not pojezdVDepu then
-							caskroku = (math.random(8,12)/40)
-							caszkroku = (math.random(3,7)/40)
+							caskroku = (math.random(8,12)/20)
+							caszkroku = (math.random(3,7)/20)
 							if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and plynuleValce > 1.2 and plynulaBrzda > 3.5) or not blokLeve or not blokPrave or zavedSnizenyVykon then 
 								if kontroler == 0 then
 									blokEDB = false
@@ -3221,15 +3218,19 @@ function Update (cas)
 						end
 						pojezdNeschopna = false
 						if (PC == 3.75 and HlavniVypinac == 1 and Baterie == 1 and Call("GetControlValue","Ventilatory",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0) or pojezdVDepu then -- kontrola podmínek pro jízdu
+							if vykon == 0 or not pojezdNeschopna then
+								Call("SetControlValue","MuteSounds",0,0)
+							end
 							Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
-							Call("SetControlValue","MuteSounds",0,0)
 						elseif (kontroler ~= 0 or vykon ~= 0) and Call("GetControlValue","mgVS",0) > 0 and Baterie == 1 and not (SnizenyVykonVozu and vykon > 0) then
 							Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
 							pojezdNeschopna = true
 							Call("SetControlValue","MuteSounds",0,1)
 						else
+							if vykon == 0 or not pojezdNeschopna then
+								Call("SetControlValue","MuteSounds",0,0)
+							end
 							Call("SetControlValue","VykonPredTrCh",0,0)
-							Call("SetControlValue","MuteSounds",0,0)
 						end
 						if JeNouzovyRadic == 0 then
 							if Call("GetControlValue","VirtualThrottleAndBrake",0) > 1 then
@@ -3412,14 +3413,13 @@ function Update (cas)
 						else
 							HVvyp = 0
 						end
-						Call("SetControlValue","PantographControl",0,1)
 						if (vykon > 0 or JOB > 0) and Call("GetControlValue","VirtualBrakePipePressureBAR",0) < 3.2 then
 							Call ( "SetControlValue", "HlavniVypinac", 0, 0)
 							ZamekHLvyp = 1
 						end
 
 					----------------------------------------Sn??en? v?kon-------------------------------------
-						if Call("GetControlValue","snizenyvykonanim",0) == 1 then
+						if Call("GetControlValue","snizenyvykonanim",0) == 1 and RizenaRidici == "ridici" then
 							Call("SetControlValue","SnizenyVykon",0,1)
 							snizenyVykonTady = true
 						elseif snizenyVykonTady then
@@ -3587,6 +3587,13 @@ function Update (cas)
 						elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatory == 0 or Baterie == 0 or ((TlakovyBlokJizdy and not PrvniEDBorVzduch == "vzduch") and plynulaBrzda <= 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or ojDiag == 1 then
 							Call("SetControlValue","JOB",0,0)
 						end
+
+						if (Call("GetControlValue","JOB",0) ~= 0 or pojezdVDepu) and not SnizenyVykonVozu then
+							Call("SetControlValue","PantographControl",0,1)
+						else
+							Call("SetControlValue","PantographControl",0,0)
+						end
+
 						if Ammeter > 600 and JOB == 0 and JOBold ~= 0 then
 							VypniHVaVynutRestart()
 						end
@@ -3944,7 +3951,7 @@ function Update (cas)
 			-- 		Call ( "ActivateNode","dalkaclevy",0)
 			-- 		Call ( "ActivateNode","dalkacpravy",0)
 			-- 		Call ( "ActivateNode","reflektor_rozsviceny",0) 
-			-- 		Call ( "Reflektor:Activate", 0 )
+			-- 		Call ( "PozickaHorniBi:Activate", 0 )
 			-- 		Call ( "PozickaLevaBi:Activate", 0 )
 			-- 		Call ( "PozickaLevaCr:Activate", 0 )
 			-- 		Call ( "PozickaPravaBi:Activate", 0 )
@@ -4097,7 +4104,7 @@ function Update (cas)
 					Call ( "ActivateNode","dalkaclevy",0)
 					Call ( "ActivateNode","dalkacpravy",0)
 					Call ( "ActivateNode","reflektor_rozsviceny",0) 
-					Call ( "Reflektor:Activate", 0 )
+					Call ( "PozickaHorniBi:Activate", 0 )
 					Call ( "PozickaLevaBi:Activate", 0 )
 					Call ( "PozickaLevaCr:Activate", 1 )
 					Call ( "PozickaPravaBi:Activate", 0 )
@@ -4114,7 +4121,7 @@ function Update (cas)
 							Call ( "ActivateNode","dalkaclevy",1)
 							Call ( "ActivateNode","dalkacpravy",1)
 							Call ( "ActivateNode","reflektor_rozsviceny",1) 
-							Call ( "Reflektor:Activate", 1 )
+							Call ( "PozickaHorniBi:Activate", 1 )
 							Call ( "PozickaLevaBi:Activate", 1 )
 							Call ( "PozickaLevaCr:Activate", 0 )
 							Call ( "PozickaPravaBi:Activate", 1 )
@@ -4129,7 +4136,7 @@ function Update (cas)
 							Call ( "ActivateNode","dalkaclevy",0)
 							Call ( "ActivateNode","dalkacpravy",0)
 							Call ( "ActivateNode","reflektor_rozsviceny",0) 
-							Call ( "Reflektor:Activate", 0 )
+							Call ( "PozickaHorniBi:Activate", 1 )
 							Call ( "PozickaLevaBi:Activate", 1 )
 							Call ( "PozickaLevaCr:Activate", 0 )
 							Call ( "PozickaPravaBi:Activate", 1 )
@@ -4146,7 +4153,7 @@ function Update (cas)
 							Call ( "ActivateNode","dalkaclevy",1)
 							Call ( "ActivateNode","dalkacpravy",1)
 							Call ( "ActivateNode","reflektor_rozsviceny",1) 
-							Call ( "Reflektor:Activate", 1 )
+							Call ( "PozickaHorniBi:Activate", 1 )
 							Call ( "PozickaLevaBi:Activate", 1 )
 							Call ( "PozickaLevaCr:Activate", 0 )
 							Call ( "PozickaPravaBi:Activate", 1 )
@@ -4161,7 +4168,7 @@ function Update (cas)
 							Call ( "ActivateNode","dalkaclevy",0)
 							Call ( "ActivateNode","dalkacpravy",0)
 							Call ( "ActivateNode","reflektor_rozsviceny",0) 
-							Call ( "Reflektor:Activate", 0 )
+							Call ( "PozickaHorniBi:Activate", 1 )
 							Call ( "PozickaLevaBi:Activate", 1 )
 							Call ( "PozickaLevaCr:Activate", 0 )
 							Call ( "PozickaPravaBi:Activate", 1 )
@@ -4178,7 +4185,7 @@ function Update (cas)
 					Call ( "ActivateNode","dalkaclevy",0)
 					Call ( "ActivateNode","dalkacpravy",0)
 					Call ( "ActivateNode","reflektor_rozsviceny",0) 
-					Call ( "Reflektor:Activate", 0 )
+					Call ( "PozickaHorniBi:Activate", 0 )
 					Call ( "PozickaLevaBi:Activate", 0 )
 					Call ( "PozickaLevaCr:Activate", 0 )
 					Call ( "PozickaPravaBi:Activate", 1 )
@@ -4194,7 +4201,7 @@ function Update (cas)
 				Call ( "ActivateNode","dalkaclevy",0)
 				Call ( "ActivateNode","dalkacpravy",0)
 				Call ( "ActivateNode","reflektor_rozsviceny",0) 
-				Call ( "Reflektor:Activate", 0 )
+				Call ( "PozickaHorniBi:Activate", 0 )
 				Call ( "PozickaLevaBi:Activate", 0 )
 				Call ( "PozickaLevaCr:Activate", 0 )
 				Call ( "PozickaPravaBi:Activate", 0 )
@@ -4219,10 +4226,6 @@ function Update (cas)
 			Call ( "SvetloBudik2:Activate", 0 )
 			Call ( "SvetloBudik3:Activate", 0 )
 			Call ( "SvetloBudik4:Activate", 0 )
-			Call ("KourP1L:SetEmitterActive",0 ) 
-			Call ("KourP2L:SetEmitterActive",0 ) 
-			Call ("KourP1P:SetEmitterActive",0 ) 
-			Call ("KourP2P:SetEmitterActive",0 )
 			Call("ZimniJiskra:Activate",0)
 			Call("ZimniJiskra1:Activate",0)
 			Call("ZimniJiskra2:Activate",0)
@@ -4465,18 +4468,21 @@ function OnControlValueChange ( name, index, value )
 				levaPozCerVPKC = false
 				pravaPozBilVPKC = false
 				pravaPozCerVPKC = false
+				horniPozBilVKPC = false
 			end
 			if value > 1.75 then
 				levaPozBilVPKC = false
 				levaPozCerVPKC = true
 				pravaPozBilVPKC = false
 				pravaPozCerVPKC = true
+				horniPozBilVKPC = false
 			end
 			if value < 0.25 then
 				levaPozBilVPKC = true
 				levaPozCerVPKC = false
 				pravaPozBilVPKC = true
 				pravaPozCerVPKC = false
+				horniPozBilVKPC = true
 			end
 		end
 		if name == "LevaPoz" then

@@ -27,7 +27,7 @@
 											<Attribute name="X">
 												<sFloat32>
 													<Element>
-														<Value>0.61369</Value>
+														<Value>0.46369</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
@@ -41,7 +41,7 @@
 											<Attribute name="Z">
 												<sFloat32>
 													<Element>
-														<Value>10.5</Value>
+														<Value>10.4</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
@@ -160,14 +160,14 @@
 							<Attribute name="MinFOV">
 								<sFloat32>
 									<Element>
-										<Value>0.01</Value>
+										<Value>0.4</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
 							<Attribute name="MaxFOV">
 								<sFloat32>
 									<Element>
-										<Value>1</Value>
+										<Value>1.15</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
@@ -181,49 +181,49 @@
 							<Attribute name="WindowMaxFOV">
 								<sFloat32>
 									<Element>
-										<Value>1</Value>
+										<Value>1.15</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
 							<Attribute name="SpringXCoefficient">
 								<sFloat32>
 									<Element>
-										<Value>0.1</Value>
+										<Value>0.05</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
 							<Attribute name="SpringYCoefficient">
 								<sFloat32>
 									<Element>
-										<Value>0.6</Value>
+										<Value>0.06</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
 							<Attribute name="SpringZCoefficient">
 								<sFloat32>
 									<Element>
-										<Value>0.1</Value>
+										<Value>0.03</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
 							<Attribute name="DampingXCoefficient">
 								<sFloat32>
 									<Element>
-										<Value>1</Value>
+										<Value>0.009</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
 							<Attribute name="DampingYCoefficient">
 								<sFloat32>
 									<Element>
-										<Value>1</Value>
+										<Value>0.075</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
 							<Attribute name="DampingZCoefficient">
 								<sFloat32>
 									<Element>
-										<Value>1</Value>
+										<Value>0.005</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
