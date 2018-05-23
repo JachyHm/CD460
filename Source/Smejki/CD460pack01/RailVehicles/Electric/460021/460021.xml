@@ -6915,7 +6915,7 @@
 														<Attribute name="MinimumValue">
 															<sFloat32>
 																<Element>
-																	<Value>-1</Value>
+																	<Value>0</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
@@ -7036,6 +7036,108 @@
 															<__Indexed__cControlContainerBlueprint-cElement>
 																<Element>
 																	<Value>
+																		<cControlContainerBlueprint-cExteriorAnimation>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Wipers</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationID">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Wipers</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="AnimStyle">
+																						<cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
+																							<Element>
+																								<Value>BackAndForthContinuous</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cExteriorAnimation>
+																		<cControlContainerBlueprint-cInteriorGeometrySlaveOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Wipers</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_steracL.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometrySlaveOutput>
+																		<cControlContainerBlueprint-cInteriorGeometrySlaveOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Wipers</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_steracP.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometrySlaveOutput>
 																		<cControlContainerBlueprint-cInteriorNotchedLever>
 																			<Element>
 																				<Value>
@@ -7112,74 +7214,6 @@
 																				</Value>
 																			</Element>
 																		</cControlContainerBlueprint-cInteriorNotchedLever>
-																		<cControlContainerBlueprint-cExteriorAnimation>
-																			<Element>
-																				<Value>
-																					<Attribute name="ElementName">
-																						<cDeltaString>
-																							<Element>
-																								<Value>Wipers</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="DifficultyType">
-																						<cControlContainerBlueprint-cElement-eDifficultyType>
-																							<Element>
-																								<Value>StopGo</Value>
-																							</Element>
-																						</cControlContainerBlueprint-cElement-eDifficultyType>
-																					</Attribute>
-																					<Attribute name="AnimationID">
-																						<cDeltaString>
-																							<Element>
-																								<Value>Wipers</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="AnimStyle">
-																						<cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
-																							<Element>
-																								<Value>BackAndForthContinuous</Value>
-																							</Element>
-																						</cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</cControlContainerBlueprint-cExteriorAnimation>
-																		<cControlContainerBlueprint-cInteriorGeometrySlaveOutput>
-																			<Element>
-																				<Value>
-																					<Attribute name="ElementName">
-																						<cDeltaString>
-																							<Element>
-																								<Value>Wipers</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="DifficultyType">
-																						<cControlContainerBlueprint-cElement-eDifficultyType>
-																							<Element>
-																								<Value>StopGo</Value>
-																							</Element>
-																						</cControlContainerBlueprint-cElement-eDifficultyType>
-																					</Attribute>
-																					<Attribute name="AnimationName">
-																						<cDeltaString>
-																							<Element>
-																								<Value>RailVehicles\Electric\Common\Animations\kabina_sterace.ia</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="OutputInterface">
-																						<cControlContainerBlueprint-eInterfaceType>
-																							<Element>
-																								<Value>eCab</Value>
-																							</Element>
-																						</cControlContainerBlueprint-eInterfaceType>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</cControlContainerBlueprint-cInteriorGeometrySlaveOutput>
 																	</Value>
 																</Element>
 															</__Indexed__cControlContainerBlueprint-cElement>
@@ -45418,14 +45452,14 @@
 														<Attribute name="SlaveToAnimationA">
 															<cDeltaString>
 																<Element>
-																	<Value>Wipers</Value>
+																	<Value />
 																</Element>
 															</cDeltaString>
 														</Attribute>
 														<Attribute name="SlaveToAnimationB">
 															<cDeltaString>
 																<Element>
-																	<Value>Wipers</Value>
+																	<Value />
 																</Element>
 															</cDeltaString>
 														</Attribute>
