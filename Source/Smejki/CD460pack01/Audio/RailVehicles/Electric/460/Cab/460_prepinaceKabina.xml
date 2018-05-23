@@ -218,6 +218,105 @@
 									</Value>
 								</Element>
 							</kLoud-cSingleSampleSound>
+							<kLoud-cSingleSampleSound>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>prepinac</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="IsLooped">
+											<bool>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</bool>
+										</Attribute>
+										<Attribute name="Priority">
+											<sUInt32>
+												<Element>
+													<Value>100</Value>
+												</Element>
+											</sUInt32>
+										</Attribute>
+										<Attribute name="BaseVolume">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="VolumeVariation">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="BasePitchShift">
+											<sFloat32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="PitchShiftVariation">
+											<sFloat32>
+												<Element>
+													<Value>0.2</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="AttenuationStartDist">
+											<sFloat32>
+												<Element>
+													<Value>50</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="NoFutherAttenuationDist">
+											<sFloat32>
+												<Element>
+													<Value>300</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+										<Attribute name="Sample">
+											<kLoud-cSampleID>
+												<Element>
+													<Value>
+														<Attribute name="Filename">
+															<cDeltaString>
+																<Element>
+																	<Value>Audio\RailVehicles\Electric\460\Cab\460_prep.wav</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSampleID>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cSingleSampleSound>
 						</Value>
 					</Element>
 				</__Indexed__kLoud-cSound>
@@ -784,6 +883,3261 @@
 											<sFloat32>
 												<Element>
 													<Value>-0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VirtualStartup</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VirtualStartup</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>50</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>Headlights</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>Headlights</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>Wipers</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>Wipers</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>RidiciKontrolerOkno</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>RidiciKontrolerOkno</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPozicKonecCelo</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPozicKonecCelo</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPozicKonecCelo</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPozicKonecCelo</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>1.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>LevaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>LevaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>LevaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>LevaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>1.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>PravaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>PravaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>PravaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>PravaPoz</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>1.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>OsvetleniKabiny</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>OsvetleniKabiny</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>OsvetleniKabiny</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>OsvetleniKabiny</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>Picka</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>Picka</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>Baterie</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>Baterie</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>Baterie</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>Baterie</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>1.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VirtualPantographControl</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VirtualPantographControl</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.125</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.375</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.625</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>RozProud</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.875</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPanto</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPanto</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPanto</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VolbaPanto</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>1.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>DverePrepPravy</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>DverePrepPravy</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>DverePrepPravy</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>DverePrepPravy</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>1.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>DverePrepLevy</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>DverePrepLevy</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>HlKompPrep</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>HlKompPrep</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>HlKompPrep</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>HlKompPrep</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>-0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>pomkomp</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>pomkomp</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>pomkomp</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>pomkomp</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>-0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>mgp</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>mgp</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>snizenyvykonanim</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>snizenyvykonanim</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>LVZhv</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>LVZhv</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>LVZrezim</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>LVZrezim</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.25</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>LVZrezim</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>LVZrezim</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.75</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>LVZstan</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>prepinac</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>LVZstan</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueMovesPast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>

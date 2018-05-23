@@ -1,5 +1,5 @@
 
- Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\IGS_ExpModFile.txt
+ Configuration file:  S:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\IGS_ExpModFile.txt
 ------  Materials:ShaderName  ------
 ('shadow', 'StencilShadow.fx')
 ('trdiff', 'TrainBasicObjectDiffuse.fx')
@@ -23,7 +23,7 @@
 
 
 
- Configuration file:  C:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\460_kabina_IGSExpModFile2.txt
+ Configuration file:  S:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\460_kabina_IGSExpModFile2.txt
 ------  Materials:AlphaTestMode  ------
 ('okna', '0.5')
 ------  Materials:Ambient  ------
@@ -48,13 +48,85 @@
 
 
  ------------------ Groups list -----------------
- --- 179 groups ---
+ --- 191 groups ---
 
 --- Group --- 1_0000_cabin (1 item)
     LOD level 1 / LOD distance 0000 / keyword None
     Parent group: None
     Group objects:
                   1_0000_cabin
+
+--- Group --- 1_0000_LVZtlacStart (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_LVZtlacStart
+
+--- Group --- 1_0000_MSVtlac_nahoru (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_MSVtlac_nahoru
+
+--- Group --- 1_0000_MSVtlac_vlevo (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_MSVtlac_vlevo
+
+--- Group --- 1_0000_MSVtlac_ok (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_MSVtlac_ok
+
+--- Group --- 1_0000_MSVtlac_dolu (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_MSVtlac_dolu
+
+--- Group --- 1_0000_MSV (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_MSV
+
+--- Group --- 1_0000_MSVtlac_vpravo (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_MSVtlac_vpravo
+
+--- Group --- 1_0000_LVZvoltmetr (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_LVZvoltmetr
+
+--- Group --- 1_0000_LVZprepStan (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_LVZprepStan
+
+--- Group --- 1_0000_LVZprepHlavVyp (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_LVZprepHlavVyp
+
+--- Group --- 1_0000_LVZkrabice (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_LVZkrabice
+
+--- Group --- 1_0000_LVZprepVolVyp (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_LVZprepVolVyp
 
 --- Group --- 1_0000_dvereleve (1 item)
     LOD level 1 / LOD distance 0000 / keyword None
@@ -390,18 +462,6 @@
     Parent group: None
     Group objects:
                   1_0000_brzdicka
-
---- Group --- 1_0000_prub (1 item)
-    LOD level 1 / LOD distance 0000 / keyword None
-    Parent group: None
-    Group objects:
-                  1_0000_prub
-
---- Group --- 1_0000_DakoBS2 (1 item)
-    LOD level 1 / LOD distance 0000 / keyword None
-    Parent group: None
-    Group objects:
-                  1_0000_DakoBS2
 
 --- Group --- 1_0000_klicBS2 (1 item)
     LOD level 1 / LOD distance 0000 / keyword None
@@ -1180,15 +1240,27 @@
     Group objects:
                   1_0000_kontrolkaskluz
 
+--- Group --- 1_0000_DakoBS2 (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_DakoBS2
+
+--- Group --- 1_0000_Odb (1 item)
+    LOD level 1 / LOD distance 0000 / keyword None
+    Parent group: None
+    Group objects:
+                  1_0000_Odb
+
  INFO: For material Cab02Steny, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material VZtko, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material MSV, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material Cab01, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material cab06prepinace, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material KabinaPult, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material Kontroler, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material klic, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material TlacitkoHribekCerna, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
- INFO: For material DakoBS, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
- INFO: For material DakoBS_madlo, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material KlicBS, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material TlacitkoHribekCervena, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material Prepinac, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
@@ -1218,18 +1290,22 @@
  INFO: For material Cab04spodek, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material Pult, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
  INFO: For material Sterac, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material BS2, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
+ INFO: For material Cab01.003, shader short name 'TrDiff' found in IGS_ExpModFile.txt and replaced by long shader name TrainBasicObjectDiffuse.fx
 ================================================================================
 IG file header information (0)
 --------------------------------------------------------------------------------
 CommentField                  : 'Blender 2.78 (sub 0) - IGS exporter version 1.4.8'
-ObjectCount                   : 179
-MeshCount                     : 179
-MaterialCount                 : 49
+ObjectCount                   : 191
+MeshCount                     : 191
+MaterialCount                 : 51
 ================================================================================
-Materials list (49 materials):
+Materials list (51 materials):
 --------------------------------------------------------------------------------
          Name         |             Shader             |              First texture               / UVArguments
  Cab02Steny           | TrainBasicObjectDiffuse.fx     | Textures\460_Cab02Steny                  / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ VZtko                | TrainBasicObjectDiffuse.fx     | Textures\460_VZtko                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ MSV                  | TrainBasicObjectDiffuse.fx     | Textures\460_MSV                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  Cab01                | TrainBasicObjectDiffuse.fx     | Textures\460_cab01                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  cab06prepinace       | TrainBasicObjectDiffuse.fx     | Textures\460_cab06prepinace              / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  KontrolkyBarvy       | BlendATex                      | Textures\460_LVZ                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
@@ -1240,8 +1316,6 @@ Materials list (49 materials):
  Ochrany              | BlendATex                      | Textures\460_ochrany                     / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  TlacitkoHribekCerna  | TrainBasicObjectDiffuse.fx     | Textures\TlacitkoBdelost                 / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  SignalkySvitici      | BlendATex                      | Textures\460_cab01                       / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
- DakoBS               | TrainBasicObjectDiffuse.fx     | Textures\DakoBS                          / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
- DakoBS_madlo         | TrainBasicObjectDiffuse.fx     | Textures\DakoBS_madlo                    / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  KlicBS               | TrainBasicObjectDiffuse.fx     | Textures\klicBS2                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  TlacitkoHribekCervena | TrainBasicObjectDiffuse.fx     | Textures\TlacitkoNZ                      / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  Prepinac             | TrainBasicObjectDiffuse.fx     | Textures\Prepinac                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
@@ -1278,9 +1352,11 @@ Materials list (49 materials):
  Cab04spodek          | TrainBasicObjectDiffuse.fx     | Textures\460_cab04spodek                 / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  Pult                 | TrainBasicObjectDiffuse.fx     | Textures\460_pult                        / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
  Sterac               | TrainBasicObjectDiffuse.fx     | Textures\460_sterac                      / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ BS2                  | TrainBasicObjectDiffuse.fx     | Textures\460_BS2                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ Cab01.003            | TrainBasicObjectDiffuse.fx     | Textures\460_BS2                         / [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
 ================================================================================
 --------------------------------------------------------------------------------
-Material main parameters [ 1 / 49 ] : 'Cab02Steny'
+Material main parameters [ 1 / 51 ] : 'Cab02Steny'
 ------------------------------.
 Name                          : 'Cab02Steny'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1322,7 +1398,91 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 2 / 49 ] : 'Cab01'
+Material main parameters [ 2 / 51 ] : 'VZtko'
+------------------------------.
+Name                          : 'VZtko'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 3 / 51 ] : 'MSV'
+------------------------------.
+Name                          : 'MSV'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 4 / 51 ] : 'Cab01'
 ------------------------------.
 Name                          : 'Cab01'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1364,7 +1524,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 3 / 49 ] : 'cab06prepinace'
+Material main parameters [ 5 / 51 ] : 'cab06prepinace'
 ------------------------------.
 Name                          : 'cab06prepinace'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1406,7 +1566,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 4 / 49 ] : 'KontrolkyBarvy'
+Material main parameters [ 6 / 51 ] : 'KontrolkyBarvy'
 ------------------------------.
 Name                          : 'KontrolkyBarvy'
 ShaderName                    : 'BlendATex'
@@ -1448,7 +1608,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 5 / 49 ] : 'KabinaPult'
+Material main parameters [ 7 / 51 ] : 'KabinaPult'
 ------------------------------.
 Name                          : 'KabinaPult'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1490,7 +1650,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 6 / 49 ] : 'Kontroler'
+Material main parameters [ 8 / 51 ] : 'Kontroler'
 ------------------------------.
 Name                          : 'Kontroler'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1532,7 +1692,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 7 / 49 ] : 'klic'
+Material main parameters [ 9 / 51 ] : 'klic'
 ------------------------------.
 Name                          : 'klic'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1574,7 +1734,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 8 / 49 ] : 'MatInvisible'
+Material main parameters [ 10 / 51 ] : 'MatInvisible'
 ------------------------------.
 Name                          : 'MatInvisible'
 ShaderName                    : 'invisible'
@@ -1616,7 +1776,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 9 / 49 ] : 'Ochrany'
+Material main parameters [ 11 / 51 ] : 'Ochrany'
 ------------------------------.
 Name                          : 'Ochrany'
 ShaderName                    : 'BlendATex'
@@ -1658,7 +1818,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 10 / 49 ] : 'TlacitkoHribekCerna'
+Material main parameters [ 12 / 51 ] : 'TlacitkoHribekCerna'
 ------------------------------.
 Name                          : 'TlacitkoHribekCerna'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1700,7 +1860,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 16.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 11 / 49 ] : 'SignalkySvitici'
+Material main parameters [ 13 / 51 ] : 'SignalkySvitici'
 ------------------------------.
 Name                          : 'SignalkySvitici'
 ShaderName                    : 'BlendATex'
@@ -1742,91 +1902,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 12 / 49 ] : 'DakoBS'
-------------------------------.
-Name                          : 'DakoBS'
-ShaderName                    : 'TrainBasicObjectDiffuse.fx'
-RenderStageCount              : 1
-RenderStage0 -------------------.
-  UVChannelIndex                : 0
-  FilterMode                    : 3
-  MipLODBias                    : -2.000000
-  AnimateUVs                    : 0
-  NumFrames                     : 0
-  FPS                           : 24
-  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
-ZBias                         : 0
-AlphaTestMode                 : 0
-ZBufferMode                   : 1
-BackfaceCull                  : 0
-TwoSided                      : 0
-ViewFacing                  : 0
-AmbientColor -------------------.
-    Red                           : 1.000000
-    Green                         : 1.000000
-    Blue                          : 1.000000
-    Alpha                         : 1.000000
-DiffuseColor -------------------.
-    Red                           : 0.800000
-    Green                         : 0.800000
-    Blue                          : 0.800000
-    Alpha                         : 1.000000
-EmissiveColor -------------------.
-    Red                           : 1.000000
-    Green                         : 1.000000
-    Blue                          : 1.000000
-    Alpha                         : 1.000000
-EmissiveStrength              :  0.000000
-SpecularColor ------------------.
-    Red                           : 1.000000
-    Green                         : 1.000000
-    Blue                          : 1.000000
-    Alpha                         : 1.000000
-SpecularPower                 : 25.000000
---------------------------------------------------------------------------------
-Material main parameters [ 13 / 49 ] : 'DakoBS_madlo'
-------------------------------.
-Name                          : 'DakoBS_madlo'
-ShaderName                    : 'TrainBasicObjectDiffuse.fx'
-RenderStageCount              : 1
-RenderStage0 -------------------.
-  UVChannelIndex                : 0
-  FilterMode                    : 3
-  MipLODBias                    : -2.000000
-  AnimateUVs                    : 0
-  NumFrames                     : 0
-  FPS                           : 24
-  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
-ZBias                         : 0
-AlphaTestMode                 : 0
-ZBufferMode                   : 1
-BackfaceCull                  : 0
-TwoSided                      : 0
-ViewFacing                  : 0
-AmbientColor -------------------.
-    Red                           : 1.000000
-    Green                         : 1.000000
-    Blue                          : 1.000000
-    Alpha                         : 1.000000
-DiffuseColor -------------------.
-    Red                           : 1.000000
-    Green                         : 1.000000
-    Blue                          : 1.000000
-    Alpha                         : 1.000000
-EmissiveColor -------------------.
-    Red                           : 1.000000
-    Green                         : 1.000000
-    Blue                          : 1.000000
-    Alpha                         : 1.000000
-EmissiveStrength              :  0.000000
-SpecularColor ------------------.
-    Red                           : 1.000000
-    Green                         : 1.000000
-    Blue                          : 1.000000
-    Alpha                         : 1.000000
-SpecularPower                 : 25.000000
---------------------------------------------------------------------------------
-Material main parameters [ 14 / 49 ] : 'KlicBS'
+Material main parameters [ 14 / 51 ] : 'KlicBS'
 ------------------------------.
 Name                          : 'KlicBS'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1868,7 +1944,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 15 / 49 ] : 'TlacitkoHribekCervena'
+Material main parameters [ 15 / 51 ] : 'TlacitkoHribekCervena'
 ------------------------------.
 Name                          : 'TlacitkoHribekCervena'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1910,7 +1986,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 32.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 16 / 49 ] : 'Prepinac'
+Material main parameters [ 16 / 51 ] : 'Prepinac'
 ------------------------------.
 Name                          : 'Prepinac'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1952,7 +2028,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 17 / 49 ] : 'Tlacitko'
+Material main parameters [ 17 / 51 ] : 'Tlacitko'
 ------------------------------.
 Name                          : 'Tlacitko'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -1994,7 +2070,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 18 / 49 ] : 'TlacitkoZelene'
+Material main parameters [ 18 / 51 ] : 'TlacitkoZelene'
 ------------------------------.
 Name                          : 'TlacitkoZelene'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2036,7 +2112,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 19 / 49 ] : 'Cab05dvere'
+Material main parameters [ 19 / 51 ] : 'Cab05dvere'
 ------------------------------.
 Name                          : 'Cab05dvere'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2078,7 +2154,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 20 / 49 ] : 'Sklo'
+Material main parameters [ 20 / 51 ] : 'Sklo'
 ------------------------------.
 Name                          : 'Sklo'
 ShaderName                    : 'TrainGlass.fx'
@@ -2128,7 +2204,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 21 / 49 ] : 'Podlaha'
+Material main parameters [ 21 / 51 ] : 'Podlaha'
 ------------------------------.
 Name                          : 'Podlaha'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2170,7 +2246,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 22 / 49 ] : 'TlacitkoBdelostObjimka'
+Material main parameters [ 22 / 51 ] : 'TlacitkoBdelostObjimka'
 ------------------------------.
 Name                          : 'TlacitkoBdelostObjimka'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2212,7 +2288,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 50.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 23 / 49 ] : 'PrepinacObjimka'
+Material main parameters [ 23 / 51 ] : 'PrepinacObjimka'
 ------------------------------.
 Name                          : 'PrepinacObjimka'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2254,7 +2330,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 50.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 24 / 49 ] : 'TlacitkoObjimka'
+Material main parameters [ 24 / 51 ] : 'TlacitkoObjimka'
 ------------------------------.
 Name                          : 'TlacitkoObjimka'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2296,7 +2372,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 50.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 25 / 49 ] : 'Desky'
+Material main parameters [ 25 / 51 ] : 'Desky'
 ------------------------------.
 Name                          : 'Desky'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2338,7 +2414,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 26 / 49 ] : 'RDST'
+Material main parameters [ 26 / 51 ] : 'RDST'
 ------------------------------.
 Name                          : 'RDST'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2380,7 +2456,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 27 / 49 ] : 'Cab03Zadek'
+Material main parameters [ 27 / 51 ] : 'Cab03Zadek'
 ------------------------------.
 Name                          : 'Cab03Zadek'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2422,7 +2498,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 28 / 49 ] : 'SkrinMain'
+Material main parameters [ 28 / 51 ] : 'SkrinMain'
 ------------------------------.
 Name                          : 'SkrinMain'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2464,7 +2540,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 29 / 49 ] : 'D'
+Material main parameters [ 29 / 51 ] : 'D'
 ------------------------------.
 Name                          : 'D'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2506,7 +2582,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 30 / 49 ] : 'zrcatka'
+Material main parameters [ 30 / 51 ] : 'zrcatka'
 ------------------------------.
 Name                          : 'zrcatka'
 ShaderName                    : 'WaterCubeMap.fx'
@@ -2556,7 +2632,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 31 / 49 ] : 'zadek'
+Material main parameters [ 31 / 51 ] : 'zadek'
 ------------------------------.
 Name                          : 'zadek'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2598,7 +2674,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 32 / 49 ] : '460-4'
+Material main parameters [ 32 / 51 ] : '460-4'
 ------------------------------.
 Name                          : '460-4'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2640,7 +2716,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 33 / 49 ] : '7451nahradit'
+Material main parameters [ 33 / 51 ] : '7451nahradit'
 ------------------------------.
 Name                          : '7451nahradit'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2682,7 +2758,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 34 / 49 ] : 'weatherglass_1'
+Material main parameters [ 34 / 51 ] : 'weatherglass_1'
 ------------------------------.
 Name                          : 'weatherglass_1'
 ShaderName                    : 'TrainGlassWeatherEffects.fx'
@@ -2748,7 +2824,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 35 / 49 ] : 'snazvem1'
+Material main parameters [ 35 / 51 ] : 'snazvem1'
 ------------------------------.
 Name                          : 'snazvem1'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2790,7 +2866,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 36 / 49 ] : 'Lemovani'
+Material main parameters [ 36 / 51 ] : 'Lemovani'
 ------------------------------.
 Name                          : 'Lemovani'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2832,7 +2908,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 0.500000
 --------------------------------------------------------------------------------
-Material main parameters [ 37 / 49 ] : 'Vrsek'
+Material main parameters [ 37 / 51 ] : 'Vrsek'
 ------------------------------.
 Name                          : 'Vrsek'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -2874,7 +2950,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 38 / 49 ] : 'RS-ZAP'
+Material main parameters [ 38 / 51 ] : 'RS-ZAP'
 ------------------------------.
 Name                          : 'RS-ZAP'
 ShaderName                    : 'BlendATex'
@@ -2916,7 +2992,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 39 / 49 ] : 'RS-5'
+Material main parameters [ 39 / 51 ] : 'RS-5'
 ------------------------------.
 Name                          : 'RS-5'
 ShaderName                    : 'BlendATex'
@@ -2958,7 +3034,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 40 / 49 ] : 'RS-4'
+Material main parameters [ 40 / 51 ] : 'RS-4'
 ------------------------------.
 Name                          : 'RS-4'
 ShaderName                    : 'BlendATex'
@@ -3000,7 +3076,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 41 / 49 ] : 'RS-2'
+Material main parameters [ 41 / 51 ] : 'RS-2'
 ------------------------------.
 Name                          : 'RS-2'
 ShaderName                    : 'BlendATex'
@@ -3042,7 +3118,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 42 / 49 ] : 'RS-1B'
+Material main parameters [ 42 / 51 ] : 'RS-1B'
 ------------------------------.
 Name                          : 'RS-1B'
 ShaderName                    : 'BlendATex'
@@ -3084,7 +3160,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 43 / 49 ] : 'RS-1'
+Material main parameters [ 43 / 51 ] : 'RS-1'
 ------------------------------.
 Name                          : 'RS-1'
 ShaderName                    : 'BlendATex'
@@ -3126,7 +3202,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 44 / 49 ] : 'RS-0'
+Material main parameters [ 44 / 51 ] : 'RS-0'
 ------------------------------.
 Name                          : 'RS-0'
 ShaderName                    : 'BlendATex'
@@ -3168,7 +3244,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 45 / 49 ] : 'Vysilacka'
+Material main parameters [ 45 / 51 ] : 'Vysilacka'
 ------------------------------.
 Name                          : 'Vysilacka'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -3210,7 +3286,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 49.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 46 / 49 ] : 'VysilackaDisplej'
+Material main parameters [ 46 / 51 ] : 'VysilackaDisplej'
 ------------------------------.
 Name                          : 'VysilackaDisplej'
 ShaderName                    : 'BlendATex'
@@ -3252,7 +3328,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 49.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 47 / 49 ] : 'Cab04spodek'
+Material main parameters [ 47 / 51 ] : 'Cab04spodek'
 ------------------------------.
 Name                          : 'Cab04spodek'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -3294,7 +3370,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 48 / 49 ] : 'Pult'
+Material main parameters [ 48 / 51 ] : 'Pult'
 ------------------------------.
 Name                          : 'Pult'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -3336,7 +3412,7 @@ SpecularColor ------------------.
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
 --------------------------------------------------------------------------------
-Material main parameters [ 49 / 49 ] : 'Sterac'
+Material main parameters [ 49 / 51 ] : 'Sterac'
 ------------------------------.
 Name                          : 'Sterac'
 ShaderName                    : 'TrainBasicObjectDiffuse.fx'
@@ -3377,83 +3453,169 @@ SpecularColor ------------------.
     Blue                          : 1.000000
     Alpha                         : 1.000000
 SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 50 / 51 ] : 'BS2'
+------------------------------.
+Name                          : 'BS2'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 0.800000
+    Green                         : 0.800000
+    Blue                          : 0.800000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
+--------------------------------------------------------------------------------
+Material main parameters [ 51 / 51 ] : 'Cab01.003'
+------------------------------.
+Name                          : 'Cab01.003'
+ShaderName                    : 'TrainBasicObjectDiffuse.fx'
+RenderStageCount              : 1
+RenderStage0 -------------------.
+  UVChannelIndex                : 0
+  FilterMode                    : 3
+  MipLODBias                    : -2.000000
+  AnimateUVs                    : 0
+  NumFrames                     : 0
+  FPS                           : 24
+  UVArguments                   : [0.000000,0.000000,0.000000,0.000000,0.000000,0.000000]
+ZBias                         : 0
+AlphaTestMode                 : 0
+ZBufferMode                   : 1
+BackfaceCull                  : 0
+TwoSided                      : 0
+ViewFacing                  : 0
+AmbientColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+DiffuseColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveColor -------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+EmissiveStrength              :  0.000000
+SpecularColor ------------------.
+    Red                           : 1.000000
+    Green                         : 1.000000
+    Blue                          : 1.000000
+    Alpha                         : 1.000000
+SpecularPower                 : 25.000000
 ================================================================================
 IGTextureNames               : [ 1 ]
 --------------------------------------------------------------------------------
 IGfTextureNames [ 1 / 1 ] (44)
 ------------------------------.
-TextureNameListLength         : 1047
-TextureNameCount              : 54
+TextureNameListLength         : 1079
+TextureNameCount              : 56
 --------------------------------------------------------------------------------
 TextureNameStartOffsetList -----.
   TextureNameStartOffset[1]     : 0 (TextureName[1])
   TextureNameStartOffset[2]     : 24 (TextureName[2])
   TextureNameStartOffset[3]     : 43 (TextureName[3])
-  TextureNameStartOffset[4]     : 71 (TextureName[4])
-  TextureNameStartOffset[5]     : 88 (TextureName[5])
-  TextureNameStartOffset[6]     : 105 (TextureName[6])
-  TextureNameStartOffset[7]     : 128 (TextureName[7])
-  TextureNameStartOffset[8]     : 149 (TextureName[8])
-  TextureNameStartOffset[9]     : 168 (TextureName[9])
-  TextureNameStartOffset[10]     : 189 (TextureName[10])
-  TextureNameStartOffset[11]     : 214 (TextureName[11])
-  TextureNameStartOffset[12]     : 233 (TextureName[12])
-  TextureNameStartOffset[13]     : 249 (TextureName[13])
-  TextureNameStartOffset[14]     : 271 (TextureName[14])
-  TextureNameStartOffset[15]     : 288 (TextureName[15])
-  TextureNameStartOffset[16]     : 308 (TextureName[16])
-  TextureNameStartOffset[17]     : 326 (TextureName[17])
-  TextureNameStartOffset[18]     : 344 (TextureName[18])
-  TextureNameStartOffset[19]     : 368 (TextureName[19])
-  TextureNameStartOffset[20]     : 392 (TextureName[20])
-  TextureNameStartOffset[21]     : 406 (TextureName[21])
-  TextureNameStartOffset[22]     : 421 (TextureName[22])
-  TextureNameStartOffset[23]     : 442 (TextureName[23])
-  TextureNameStartOffset[24]     : 474 (TextureName[24])
-  TextureNameStartOffset[25]     : 499 (TextureName[25])
-  TextureNameStartOffset[26]     : 524 (TextureName[26])
-  TextureNameStartOffset[27]     : 543 (TextureName[27])
-  TextureNameStartOffset[28]     : 561 (TextureName[28])
-  TextureNameStartOffset[29]     : 585 (TextureName[29])
-  TextureNameStartOffset[30]     : 600 (TextureName[30])
-  TextureNameStartOffset[31]     : 617 (TextureName[31])
-  TextureNameStartOffset[32]     : 634 (TextureName[32])
-  TextureNameStartOffset[33]     : 654 (TextureName[33])
-  TextureNameStartOffset[34]     : 674 (TextureName[34])
-  TextureNameStartOffset[35]     : 689 (TextureName[35])
-  TextureNameStartOffset[36]     : 707 (TextureName[36])
-  TextureNameStartOffset[37]     : 727 (TextureName[37])
-  TextureNameStartOffset[38]     : 747 (TextureName[38])
-  TextureNameStartOffset[39]     : 767 (TextureName[39])
-  TextureNameStartOffset[40]     : 790 (TextureName[40])
-  TextureNameStartOffset[41]     : 808 (TextureName[41])
-  TextureNameStartOffset[42]     : 826 (TextureName[42])
-  TextureNameStartOffset[43]     : 845 (TextureName[43])
-  TextureNameStartOffset[44]     : 861 (TextureName[44])
-  TextureNameStartOffset[45]     : 875 (TextureName[45])
-  TextureNameStartOffset[46]     : 889 (TextureName[46])
-  TextureNameStartOffset[47]     : 903 (TextureName[47])
-  TextureNameStartOffset[48]     : 918 (TextureName[48])
-  TextureNameStartOffset[49]     : 932 (TextureName[49])
-  TextureNameStartOffset[50]     : 946 (TextureName[50])
-  TextureNameStartOffset[51]     : 965 (TextureName[51])
-  TextureNameStartOffset[52]     : 984 (TextureName[52])
-  TextureNameStartOffset[53]     : 1009 (TextureName[53])
-  TextureNameStartOffset[54]     : 1027 (TextureName[54])
+  TextureNameStartOffset[4]     : 60 (TextureName[4])
+  TextureNameStartOffset[5]     : 79 (TextureName[5])
+  TextureNameStartOffset[6]     : 107 (TextureName[6])
+  TextureNameStartOffset[7]     : 124 (TextureName[7])
+  TextureNameStartOffset[8]     : 141 (TextureName[8])
+  TextureNameStartOffset[9]     : 164 (TextureName[9])
+  TextureNameStartOffset[10]     : 185 (TextureName[10])
+  TextureNameStartOffset[11]     : 204 (TextureName[11])
+  TextureNameStartOffset[12]     : 225 (TextureName[12])
+  TextureNameStartOffset[13]     : 250 (TextureName[13])
+  TextureNameStartOffset[14]     : 269 (TextureName[14])
+  TextureNameStartOffset[15]     : 286 (TextureName[15])
+  TextureNameStartOffset[16]     : 306 (TextureName[16])
+  TextureNameStartOffset[17]     : 324 (TextureName[17])
+  TextureNameStartOffset[18]     : 342 (TextureName[18])
+  TextureNameStartOffset[19]     : 366 (TextureName[19])
+  TextureNameStartOffset[20]     : 390 (TextureName[20])
+  TextureNameStartOffset[21]     : 404 (TextureName[21])
+  TextureNameStartOffset[22]     : 419 (TextureName[22])
+  TextureNameStartOffset[23]     : 440 (TextureName[23])
+  TextureNameStartOffset[24]     : 472 (TextureName[24])
+  TextureNameStartOffset[25]     : 497 (TextureName[25])
+  TextureNameStartOffset[26]     : 522 (TextureName[26])
+  TextureNameStartOffset[27]     : 541 (TextureName[27])
+  TextureNameStartOffset[28]     : 559 (TextureName[28])
+  TextureNameStartOffset[29]     : 583 (TextureName[29])
+  TextureNameStartOffset[30]     : 598 (TextureName[30])
+  TextureNameStartOffset[31]     : 615 (TextureName[31])
+  TextureNameStartOffset[32]     : 632 (TextureName[32])
+  TextureNameStartOffset[33]     : 652 (TextureName[33])
+  TextureNameStartOffset[34]     : 672 (TextureName[34])
+  TextureNameStartOffset[35]     : 687 (TextureName[35])
+  TextureNameStartOffset[36]     : 705 (TextureName[36])
+  TextureNameStartOffset[37]     : 725 (TextureName[37])
+  TextureNameStartOffset[38]     : 745 (TextureName[38])
+  TextureNameStartOffset[39]     : 765 (TextureName[39])
+  TextureNameStartOffset[40]     : 788 (TextureName[40])
+  TextureNameStartOffset[41]     : 806 (TextureName[41])
+  TextureNameStartOffset[42]     : 824 (TextureName[42])
+  TextureNameStartOffset[43]     : 843 (TextureName[43])
+  TextureNameStartOffset[44]     : 859 (TextureName[44])
+  TextureNameStartOffset[45]     : 873 (TextureName[45])
+  TextureNameStartOffset[46]     : 887 (TextureName[46])
+  TextureNameStartOffset[47]     : 901 (TextureName[47])
+  TextureNameStartOffset[48]     : 916 (TextureName[48])
+  TextureNameStartOffset[49]     : 930 (TextureName[49])
+  TextureNameStartOffset[50]     : 944 (TextureName[50])
+  TextureNameStartOffset[51]     : 963 (TextureName[51])
+  TextureNameStartOffset[52]     : 982 (TextureName[52])
+  TextureNameStartOffset[53]     : 1007 (TextureName[53])
+  TextureNameStartOffset[54]     : 1025 (TextureName[54])
+  TextureNameStartOffset[55]     : 1045 (TextureName[55])
+  TextureNameStartOffset[56]     : 1062 (TextureName[56])
 TextureNameList ----------------.
   TextureName[1]                : 'Textures\460_Cab02Steny'
-  TextureName[2]                : 'Textures\460_cab01'
-  TextureName[3]                : 'Textures\460_cab06prepinace'
-  TextureName[4]                : 'Textures\460_LVZ'
-  TextureName[5]                : 'Textures\460_cab'
-  TextureName[6]                : 'Textures\460_kontroler'
-  TextureName[7]                : 'Textures\texturaklic'
-  TextureName[8]                : 'Textures\invisible'
-  TextureName[9]                : 'Textures\460_ochrany'
-  TextureName[10]                : 'Textures\TlacitkoBdelost'
-  TextureName[11]                : 'Textures\460_cab01'
-  TextureName[12]                : 'Textures\DakoBS'
-  TextureName[13]                : 'Textures\DakoBS_madlo'
+  TextureName[2]                : 'Textures\460_VZtko'
+  TextureName[3]                : 'Textures\460_MSV'
+  TextureName[4]                : 'Textures\460_cab01'
+  TextureName[5]                : 'Textures\460_cab06prepinace'
+  TextureName[6]                : 'Textures\460_LVZ'
+  TextureName[7]                : 'Textures\460_cab'
+  TextureName[8]                : 'Textures\460_kontroler'
+  TextureName[9]                : 'Textures\texturaklic'
+  TextureName[10]                : 'Textures\invisible'
+  TextureName[11]                : 'Textures\460_ochrany'
+  TextureName[12]                : 'Textures\TlacitkoBdelost'
+  TextureName[13]                : 'Textures\460_cab01'
   TextureName[14]                : 'Textures\klicBS2'
   TextureName[15]                : 'Textures\TlacitkoNZ'
   TextureName[16]                : 'Textures\Prepinac'
@@ -3495,6 +3657,8 @@ TextureNameList ----------------.
   TextureName[52]                : 'Textures\460_cab04spodek'
   TextureName[53]                : 'Textures\460_pult'
   TextureName[54]                : 'Textures\460_sterac'
+  TextureName[55]                : 'Textures\460_BS2'
+  TextureName[56]                : 'Textures\460_BS2'
 
 
-IGS export time: 34.16
+IGS export time: 31.38

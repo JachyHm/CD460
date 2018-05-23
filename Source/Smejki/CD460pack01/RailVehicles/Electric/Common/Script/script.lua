@@ -10,7 +10,7 @@ gMax_kN = {17.5,30,40,55,69,90,105,145,215,286.5,420,500,710,800,2000,2000,2350,
 gKoeficient = {-0.097,-0.071,-0.077,-0.087,-0.094,-0.091,-0.0896,-0.112,-0.13,-0.14,-0.16,-0.162,-0.173,-0.173,-0.23,-0.25,-0.25,-0.25,-0.25,-0.22} 
 gOffsetX = {0,0,0,0,0,0,0,0,0,0,0.26,0,0,0,0000,-2,-2,-2,-2,-3}
 gOffsetY = {0,0,0,0,0,0,0,0,0,0,4.00,2,1,1,5.75,07,09,11,14,15}
-gZvetseni ={0,0,0,0,0,0,0,0,0,0,0.00,0,0,0,0000,00,00,00,00,00}
+gZvetseni ={0,0,0,0,0,0,0,0,0,0,0.00,0,0,0,0.00,00,00,00,00,00}
 
 gProbihaA = false
 gHODNOTA_LASTa = 0
@@ -180,6 +180,10 @@ zavedSnizenyVykon = false
 pojezdNeschopna = false
 
 prvnizprava = false
+
+byloZhaveni = false
+LVZvypinacOld = false
+JeZivak1Last = 0
 
 function split(s, delimiter)
 	local result = { }
@@ -730,7 +734,6 @@ function DefinujPromene()
 	LDstare = 1
 	JeNouzovyRadic = 0
 	ventilatory = 0
-	NouzoveBrzdeni = 0
 	HVvyp = 0
 	vypinacstare = 1
 	LDkontrolka = 0
@@ -1785,12 +1788,15 @@ function Napoveda (zprava, level)
 		SysCall("ScenarioManager:ShowInfoMessageExt", ZPRAVA_HLAVICKA_NAPOVEDA, zprava,5,16,0,0)
 	end
 end
-function Update (cas)
+function Update (casHry)
 	if ToBolAndBack (Call("GetIsNearCamera")) then
 		MaPredniPantograf = Call("ControlExists","PantoPredni",0)
 		casMinuly = casProcesor
 		casProcesor = os.clock()
 		cas = math.abs(casProcesor - casMinuly)
+		if math.abs(cas - casHry) > 2 then
+			cas = 0
+		end
 		Call("ZimniJiskra:Activate",0)
 		Call("ZimniJiskra1:Activate",0)
 		Call("ZimniJiskra2:Activate",0)
@@ -1970,6 +1976,126 @@ function Update (cas)
 					if RizenaRidici == "ridici" then
 						RizenaRidiciJednaNula = 1
 					end
+					----------------------------------------LVZ-----------------------------------------------
+						local LVZnapeti = Call("GetControlValue", "LVZnapeti", 0)
+						local LVZrezim = Call("GetControlValue", "LVZrezim", 0)
+						local LVZstanoviste = Call("GetControlValue", "LVZstan", 0)
+						local LVZvypinac = ToBolAndBack(Call("GetControlValue", "LVZhv", 0))
+						local LVZstart = ToBolAndBack(Call("GetControlValue", "LVZstart", 0))
+
+						if Baterie == 1 then
+							if LVZnapeti < 1 then
+								LVZnapeti = LVZnapeti + cas
+								Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
+							end
+							if LVZvypinac and LVZrezim < 0.25 and byloZhaveni and NouzoveBrzdeni == 0 then
+								Call("SetControlValue", "JeZivakZap", 0, 1)
+							elseif LVZvypinac and LVZrezim == 0 then
+								byloZhaveni = false
+								Call("SetControlValue", "JeZivakZap", 0, 0)
+								NouzoveBrzdeni = 1
+							end
+							if LVZstart and LVZrezim > 0.75 then
+								byloZhaveni = true
+							end
+							if LVZvypinac and LVZstanoviste > 0.5 then
+								byloZhaveni = false
+								Call("SetControlValue", "JeZivakZap", 0, 0)
+								NouzoveBrzdeni = 1
+							end
+							if LVZrezim > 0.75 then
+								Call("SetControlValue", "JeZivakZap", 0, 0)
+							end
+							if not LVZvypinac and LVZvypinacOld and LVZrezim < 0.25 then
+								byloZhaveni = false
+								Call("SetControlValue", "JeZivakZap", 0, 0)
+								NouzoveBrzdeni = 1
+							end
+							if not LVZvypinac then
+								byloZhaveni = false
+								Call("SetControlValue", "JeZivakZap", 0, 0)
+								NouzoveBrzdeni = 0
+							end
+						elseif LVZnapeti > 0 then
+							LVZnapeti = LVZnapeti - cas*2
+							Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
+							byloZhaveni = false
+							NouzoveBrzdeni = 0
+						end
+						if Baterie == 0 then
+							byloZhaveni = false
+							NouzoveBrzdeni = 0
+							Call("SetControlValue", "JeZivakZap", 0, 0)
+						end
+
+						LVZ(Call("GetControlValue","Mirel",0),Call("GetControlValue","LVZzivak",0),cas,JeZivak1)
+
+						if JeZivak1 == 1 and Baterie == 1 then ------- zivak
+							CasZivak = CasZivak+cas
+							if ZivakReset >= 0.25 and ZivakStary == 0 and NouzoveBrzdeni == 0 then
+								if CasZivak > 7 then
+									CasZivak = 0
+								end
+								ZivakStary = 1
+							end
+							if Call("GetControlValue","EngineBrakeControl",0) >= 0.2 or kodNavesti == 2 and NouzoveBrzdeni == 0 then
+								CasZivak = 0
+							end
+							if CasZivak <= 7 then
+								Call ("SetControlValue", "LVZzivak", 0, 1)
+								if ZivakReset > 0.25 then
+									Call ("SetControlValue", "ZivakPip", 0, 1)
+									nadbytecnaObsluha = true
+								else
+									Call ("SetControlValue", "ZivakPip", 0, 0)
+									nadbytecnaObsluha = false
+								end
+							end
+							if CasZivak > 7 and CasZivak <= 15 then
+								Call ("SetControlValue", "LVZzivak", 0, 0)
+								if ZivakReset > 0.25 and nadbytecnaObsluha then
+									Call ("SetControlValue", "ZivakPip", 0, 1)
+								else
+									Call ("SetControlValue", "ZivakPip", 0, 0)
+								end
+							end
+							if CasZivak > 15 and CasZivak <= 19 then
+								Call ("SetControlValue", "LVZzivak", 0, 0)
+								Call ("SetControlValue", "ZivakPip", 0, 1)
+							end
+							if CasZivak > 19 then
+								Call ("SetControlValue", "ZivakPip", 0, 0)
+								if ZivakReset > 0.25 and nadbytecnaObsluha then
+									Call ("SetControlValue", "ZivakPip", 0, 1)
+								end
+								NouzoveBrzdeni = 1
+							end
+							if zivaknadruhem == 1 then
+								Call ("SetControlValue", "ZivakPip", 0, 1)
+								Call ("SetControlValue", "LVZzivak", 0, 0)
+								NouzoveBrzdeni = 1
+								JeZivak1 = 0
+							end
+						else
+							Call ("SetControlValue", "LVZzivak", 0, 0)
+							Call ("SetControlValue", "ZivakPip", 0, 0)
+						end
+
+						if Call("GetControlValue", "JeZivakZap", 0) == 1 and JeZivak1Last ~= 1 then
+							JeZivak1 = 1
+							Call("SendConsistMessage",460110,"1",1)
+							Call("SendConsistMessage",460110,"1",0)
+							JeZivak1Last = JeZivak1
+						elseif Call("GetControlValue", "JeZivakZap", 0) == 0 and JeZivak1Last ~= 0 then
+							JeZivak1 = 0
+							Call ("SetControlValue", "LVZzivak", 0, 0)
+							CasZivak = 0
+							Call("SendConsistMessage",460110,"0",0)
+							Call("SendConsistMessage",460110,"0",1)
+							JeZivak1Last = JeZivak1
+						end
+
+
 					----------------------------------------IS------------------------------------------------
 						MSVsipkaDoluLast = MSVsipkaDolu
 						MSVsipkaNahoruLast = MSVsipkaNahoru
@@ -2418,7 +2544,7 @@ function Update (cas)
 							elseif BS2_opozdene < 0.23 then
 								doplnujBrzdu_opozdene = false
 							elseif BS2_opozdene <= 0.82 then
-								nastavenaBrzda_opozdene = 4.7 - ((BS2_opozdene - 0.26)*2.14)
+								nastavenaBrzda_opozdene = 4.7 - ((BS2_opozdene - 0.26)*3.0357)
 								doplnujBrzdu_opozdene = true
 							elseif BS2_opozdene < 0.93 then
 								doplnujBrzdu_opozdene = false
@@ -2976,58 +3102,6 @@ function Update (cas)
 							Call("SetControlValue","odporstup",0,0)
 							casfail = 0
 						end
-						LVZ(Call("GetControlValue","Mirel",0),Call("GetControlValue","LVZzivak",0),cas,JeZivak1)
-						if JeZivak1 == 1 and Baterie == 1 then ------- zivak
-							CasZivak = CasZivak+cas
-							if ZivakReset >= 0.25 and ZivakStary == 0 and NouzoveBrzdeni == 0 then
-								if CasZivak > 7 then
-									CasZivak = 0
-								end
-								ZivakStary = 1
-							end
-							if Call("GetControlValue","EngineBrakeControl",0) >= 0.2 or kodNavesti == 2 and NouzoveBrzdeni == 0 then
-								CasZivak = 0
-							end
-							if CasZivak <= 7 then
-								Call ("SetControlValue", "LVZzivak", 0, 1)
-								if ZivakReset > 0.25 then
-									Call ("SetControlValue", "ZivakPip", 0, 1)
-									nadbytecnaObsluha = true
-								else
-									Call ("SetControlValue", "ZivakPip", 0, 0)
-									nadbytecnaObsluha = false
-								end
-							end
-							if CasZivak > 7 and CasZivak <= 15 then
-								Call ("SetControlValue", "LVZzivak", 0, 0)
-								if ZivakReset > 0.25 and nadbytecnaObsluha then
-									Call ("SetControlValue", "ZivakPip", 0, 1)
-								else
-									Call ("SetControlValue", "ZivakPip", 0, 0)
-								end
-							end
-							if CasZivak > 15 and CasZivak <= 19 then
-								Call ("SetControlValue", "LVZzivak", 0, 0)
-								Call ("SetControlValue", "ZivakPip", 0, 1)
-							end
-							if CasZivak > 19 then
-								Call ("SetControlValue", "ZivakPip", 0, 0)
-								if ZivakReset > 0.25 and nadbytecnaObsluha then
-									Call ("SetControlValue", "ZivakPip", 0, 1)
-								end
-								NouzoveBrzdeni = 1
-							end
-							if zivaknadruhem == 1 then
-								Call ("SetControlValue", "ZivakPip", 0, 1)
-								Call ("SetControlValue", "LVZzivak", 0, 0)
-								NouzoveBrzdeni = 1
-								JeZivak1 = 0
-							end
-						else
-							Call ("SetControlValue", "LVZzivak", 0, 0)
-							Call ("SetControlValue", "ZivakPip", 0, 0)
-							NouzoveBrzdeni = 0
-						end	
 						if PosledniBaterie ~= Baterie then
 							if Baterie == 0 then
 								VypniVse()
@@ -3112,9 +3186,6 @@ function Update (cas)
 
 						if JeNouzovyRadic == 1 and Call("GetControlValue","RadicNouzovy",0) < 0 then
 							Call("SetControlValue","RadicNouzovy",0,0)
-						end
-						if Rychlost <= 1 and ZivakReset == 1 then
-							NouzoveBrzdeni = 0
 						end
 					----------------------------------------Automatika a kontroler----------------------------
 						casstupnu = casstupnu+cas
@@ -3503,13 +3574,11 @@ function Update (cas)
 							Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
 							Call("SetControlValue","VolbaPozicKonecCelo",0,0)
 							Call("SetControlValue","HlKompPrep",0,1)
-							Call("SetControlValue","JeZivakZap",0,1)
 							LDkontrolka = 0
 							Call("SetControlValue","DvereLeveSignal",0,0)
 							PDkontrolka = 0
 							Call("SetControlValue","DverePraveSignal",0,0)
 							Call("OnControlValueChange","VolbaPozicKonecCelo",0,0)
-							JeZivak1 = 1
 							LVZ(0,0,0,0)
 							klic = 1
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
@@ -4304,20 +4373,6 @@ function Update (cas)
 end
 function OnControlValueChange ( name, index, value )
 	if Call( "*:ControlExists", name, index ) then
-		if name == "JeZivakZap" then
-			if value == 1 then
-				JeZivak1 = 1
-				Call("SendConsistMessage",460110,"1",1)
-				Call("SendConsistMessage",460110,"1",0)
-			end
-			if value == 0 then
-				JeZivak1 = 0
-				Call ("SetControlValue", "LVZzivak", 0, 0)
-				CasZivak = 0
-				Call("SendConsistMessage",460110,"0",0)
-				Call("SendConsistMessage",460110,"0",1)
-			end
-		end
 		if name == "VirtualStartup" then
 			if value <= 50 and value > 10 then
 				pozadavekNaZapisKlice = true
