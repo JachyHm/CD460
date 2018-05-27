@@ -50,11 +50,6 @@ signalCode = 0
 
 blokEDB = false
 
-casDummy = 100
-
-predMasinouOld = 0
-zaMasinouOld = 1
-
 vnitrniSit220V = 0
 vnitrniSit220Vnouzova = 0
 napetiVS220 = 0
@@ -184,6 +179,25 @@ prvnizprava = false
 byloZhaveni = false
 LVZvypinacOld = false
 JeZivak1Last = 0
+
+steracLevyOut = 0
+steracPravyOut = 0
+steracLevy = 0
+steracPravy = 0
+steracePrep = false
+
+ojThrottleAndBrakeLast = 0
+
+rychlostEDB = math.random(25, 40)
+
+predMasinouTornado = nil
+zaMasinouTornado = nil
+predMasinouTornadoCas = nil
+zaMasinouTornadoCas = nil
+maxVzdalenost = 25000
+
+delkaVlakuLast = 0
+delkaVlaku = 0
 
 function split(s, delimiter)
 	local result = { }
@@ -728,7 +742,6 @@ function DefinujPromene()
 	casstupnu = 0
 	PickaStare = 1
 	gNejblizsiNavestidlo = -1			-- vzdalenost k nejblizsimu navestidlu s prenosem kodu (max 1250m)
-	kodNavesti = 0
 	Smer = 0
 	PDstare = 1
 	LDstare = 1
@@ -827,7 +840,7 @@ function DefinujPromene()
 	nezobrazujValce = false
 	matrosov = false
 	casOJ = 0
-	gDebug = false
+	gDebug = true
 	gTimeVentilatory = 0
 	gKlicTady = false
 	gBlokLeve = true
@@ -1026,13 +1039,15 @@ end
 	-- 460117 - startujici MGen v souprave
 	-- 460118 - bezici MGEn v souprave
 	-- 460119 - inverze dveri Leve/Prave na motorovych vozech - predpoklada vzdy cela od sebe
+	-- 460995 - poloha sousedniho tornada
 	-- 460997 - ID nabalovani
 	-- 460998 - zadost o ID
 	-- 460999 - DUMMY
 function OnConsistMessage(zprava,argument,smer)
-	if zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
+	if zprava ~= 460995 and zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
 		stavPoslane = Call("SendConsistMessage",zprava,argument,smer)
 	end
+	-- ZpravaDebug("Prijata message: "..zprava.." s argumentem: "..argument.." ze smeru: "..smer)
 	if zprava ~= 460999 then
 		ZpravaDebug(tostring(zprava).." "..argument.." smer: "..smer)
 		-- Print(zprava..':"'..argument..'"')
@@ -1130,22 +1145,40 @@ function OnConsistMessage(zprava,argument,smer)
 			Call("SendConsistMessage",460119,"obrat",smer)
 		end
 	end
+	if zprava == 460995 then
+		local xZS = string.sub(argument, 1, 5)/10
+		local yZS = string.sub(argument, 6, 10)/10
+		x, _, y = Call("*:getNearPosition")
+		local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
+		if vzdalenost < maxVzdalenost then
+			if smer == 1 then
+				predMasinouTornado = true
+			else
+				zaMasinouTornado = true
+			end
+		end
+		Print(predMasinouTornado)
+		Print(zaMasinouTornado)
+	end
 	if zprava == 460997 then
 		ID = GetFreeID(GetIDs(tonumber(argument)))
 		i = 2^(ID-1)
-		stavPoslane = Call("SendConsistMessage",460997,tostring(tonumber(argument)+i),smer)
-		if stavPoslane == 0 then
+		if (smer == 0 and not predMasinouTornado) or (smer == 1 and not zaMasinouTornado) then
 			souprava = tonumber(argument)+i
+		else
+			Call("SendConsistMessage",460997,tostring(tonumber(argument)+i),smer)
 		end
 		Call("SetControlValue","ID",0,ID)
+		ZpravaDebug("Posilam zpravu 460997! ve smeru "..smer)
 	end
 	if zprava == 460998 then
-		if stavPoslane == 0 then
+		if (smer == 0 and not predMasinouTornado) or (smer == 1 and not zaMasinouTornado) then
 			Call("SendConsistMessage",460997,"1",ObratSmer(smer))
 			Call("SendConsistMessage",460119,"obrat",ObratSmer(smer))
 			otocDvere = false
 			ID = 1
 			Call("SetControlValue","ID",0,ID)
+			ZpravaDebug("Prisla 460998 a jsem koncovy vuz! Posilam 460997 ve smeru "..ObratSmer(smer))
 		end
 	end
 end
@@ -1163,7 +1196,6 @@ function OnCustomSignalMessage ( Parameter )
 	vzdalenost = tonumber(string.sub(Parameter, 3))
 	if NO == -1 or Baterie ~= 1 or JeZivak1 ~= 1 then
 		gNejblizsiNavestidlo = -1
-		kodNavesti = 0
 		Call("SetControlValue","Mirel",0,0)
 	end
 	if vzdalenost > 0 then
@@ -1173,19 +1205,14 @@ function OnCustomSignalMessage ( Parameter )
 	end
 	if gNejblizsiNavestidlo == vzdalenost and Baterie == 1 and JeZivak1 == 1 then
 		if NO == 15 then			-- Stuj
-			kodNavesti = 3
 			Call("SetControlValue","Mirel",0,3)
 		elseif NO == 17 then		-- Vystraha
-			kodNavesti = 1
 			Call("SetControlValue","Mirel",0,4)
 		elseif NO == 16 then		-- Volno
-			kodNavesti = 2
 			Call("SetControlValue","Mirel",0,2)
 		elseif NO >= 19 and NO <= 24 or NO == 30 then		-- omezene rychlosti
-			kodNavesti = 1
 			Call("SetControlValue","Mirel",0,1)
 		else												-- nekodovane navesti
-			kodNavesti = 0
 			Call("SetControlValue","Mirel",0,0)
 		end
 	end
@@ -1765,6 +1792,8 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 
 	Call("LVZvybaveni:SetColour",0,0,stavVybaveni)
 	Call("LVZvybaveni:Activate",1)
+
+	return(signalCode)
 end
 function ZpozdeniBrzdice(hodnota)
 	if not vysokotlakysvih and not bylaZachrana and not bylZaver then
@@ -1791,17 +1820,18 @@ end
 function Update (casHry)
 	if ToBolAndBack (Call("GetIsNearCamera")) then
 		MaPredniPantograf = Call("ControlExists","PantoPredni",0)
+		delkaVlaku = Call("GetConsistLength")
 		casMinuly = casProcesor
 		casProcesor = os.clock()
 		cas = math.abs(casProcesor - casMinuly)
 		if math.abs(cas - casHry) > 2 then
 			cas = 0
 		end
-		Call("ZimniJiskra:Activate",0)
-		Call("ZimniJiskra1:Activate",0)
-		Call("ZimniJiskra2:Activate",0)
-		Call("ZimniJiskra3:Activate",0)
-		Call("ZimniJiskra4:Activate",0)
+		-- Call("ZimniJiskra:Activate",0)
+		-- Call("ZimniJiskra1:Activate",0)
+		-- Call("ZimniJiskra2:Activate",0)
+		-- Call("ZimniJiskra3:Activate",0)
+		-- Call("ZimniJiskra4:Activate",0)
 		Call("SetControlValue","ZimniJiskraPrehrajZvuka",0,0)
 		hh, necojakomm = divMod(SysCall("ScenarioManager:GetTimeOfDay"),3600)
 		jeMrtva = ToBolAndBack(Call("GetIsDeadEngine"))
@@ -1816,2315 +1846,2385 @@ function Update (casHry)
 		ss = tonumber(ss)
 		gCommonTimer = gCommonTimer + cas
 		if Call("GetIsPlayer") == 1 then
-			if casDummy >= 1 then
-				predMasinou = Call("SendConsistMessage",460999,"DUMMY",0)
-				zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
-				casDummy = 0
-			end
-			casDummy = casDummy + cas
-			if predMasinou ~= predMasinouOld or zaMasinou ~= zaMasinouOld then
+			if delkaVlakuLast ~= delkaVlaku then
 				Call("SetControlValue","IsMasterInConsist",0,0)
 				Call("SetControlValue","mg",0,0)
 				Call("SetControlValue","mgZvuk",0,0)
 				Call("SetControlValue","mgVS",0,0)
-				predMasinouOld = predMasinou
-				zaMasinouOld = zaMasinou
+				x, _, y = Call("*:getNearPosition")
+				predMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),0)
+				if predMasinou == 0 then
+					predMasinouTornado = false
+				else
+					predMasinouTornadoCas = os.clock()
+				end
+				zaMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),1)
+				if zaMasinou == 0 then
+					zaMasinouTornado = false
+				else
+					zaMasinouTornadoCas = os.clock()
+				end
 				Call("SetControlValue","PredMasinou",0,predMasinou)
 				Call("SetControlValue","ZaMasinou",0,zaMasinou)
+				delkaVlakuLast = delkaVlaku
 			end
-			if not ToBolAndBack(Call("GetControlValue","IsMasterInConsist",0)) and Call("GetIsEngineWithKey") == 1 then
-				Call("SetControlValue","IsMasterInConsist",0,1)
-				if Call("SendConsistMessage",460998,"1",1) == 0 then 
-					Call("SendConsistMessage",460997,"1",0)
-					ID = 1
-					Call("SetControlValue","ID",0,ID)
+			if predMasinouTornadoCas ~= nil and predMasinouTornado == nil then
+				if predMasinouTornadoCas + 0.5 < os.clock() then
+					predMasinouTornado = false
 				end
 			end
-			if ID ~= nil then
+			if zaMasinouTornadoCas ~= nil and zaMasinouTornado == nil then
+				if zaMasinouTornadoCas + 0.5 < os.clock() then
+					zaMasinouTornado = false
+				end
+			end
+			if predMasinouTornado ~= nil and zaMasinouTornado ~= nil then
+				if not ToBolAndBack(Call("GetControlValue","IsMasterInConsist",0)) and Call("GetIsEngineWithKey") == 1 then
+					Call("SetControlValue","IsMasterInConsist",0,1)
+					if Call("SendConsistMessage",460998,"1",1) == 0 then 
+						if Call("SendConsistMessage",460997,"1",0) == 0 then
+							souprava = 1
+						end
+						ID = 1
+						Call("SetControlValue","ID",0,ID)
+					end
+				end
 				--##################################################################################--
 				------------------------------------ČOST expert controls------------------------------
 				--##################################################################################--
-					HlavniVypinac = Call ("GetControlValue", "HlavniVypinac", 0)
-					Call("SetControlValue","AI",0,0)
-					Ammeter = Call("GetControlValue","Ampermetr",0)
-					RocniObdobi = SysCall("ScenarioManager:GetSeason")
-					SvetloDimm(Call("GetControlValue","StmivacOsvetleni",0))
-					mgp = Call("GetControlValue","mgp",0)
-					Rychlost = math.abs(Call("GetSpeed")) * 3.6
-					if RizenaRidici == "ridici" then
-						Call("SetControlValue","AbsolutniRychlomer",0,math.abs(Call("GetControlValue","SpeedometerKPH",0)))
-						Call("SetControlValue","hlkomp",0,KompresorPrep)
-						if Call("GetControlValue","VirtualPantographControl",0) == 1 then
-							Call("SetControlValue","povel_VirtualPantographControl",0,Call("GetControlValue","VolbaPanto",0))
-						else
-							Call("SetControlValue","povel_VirtualPantographControl",0,3)
+					if ID ~= nil then
+						HlavniVypinac = Call ("GetControlValue", "HlavniVypinac", 0)
+						Call("SetControlValue","AI",0,0)
+						Ammeter = Call("GetControlValue","Ampermetr",0)
+						RocniObdobi = SysCall("ScenarioManager:GetSeason")
+						SvetloDimm(Call("GetControlValue","StmivacOsvetleni",0))
+						mgp = Call("GetControlValue","mgp",0)
+						Rychlost = math.abs(Call("GetSpeed")) * 3.6
+						if RizenaRidici == "ridici" then
+							Call("SetControlValue","AbsolutniRychlomer",0,math.abs(Call("GetControlValue","SpeedometerKPH",0)))
+							Call("SetControlValue","hlkomp",0,KompresorPrep)
+							if Call("GetControlValue","VirtualPantographControl",0) == 1 then
+								Call("SetControlValue","povel_VirtualPantographControl",0,Call("GetControlValue","VolbaPanto",0))
+							else
+								Call("SetControlValue","povel_VirtualPantographControl",0,3)
+							end
+							if MaPredniPantograf == 1 then PP = Call ("GetControlValue", "PantoPredni", 0) else PP = 0 end
+							ZP = Call ("GetControlValue", "PantoZadni", 0)
+							PC=math.max(PP,ZP)
 						end
-						if MaPredniPantograf == 1 then PP = Call ("GetControlValue", "PantoPredni", 0) else PP = 0 end
-						ZP = Call ("GetControlValue", "PantoZadni", 0)
-						PC=math.max(PP,ZP)
-					end
-					if RocniObdobi == 3 and not pojezdNeschopna then
-						nahoda = math.random(1,1000)
-						if nahoda > 100 and nahoda < math.abs(Ammeter) then
-							if math.floor(math.random(0,5)) == 1 then
-								Call("SetControlValue","Voltmeter",0,PIDcntrlVolt(math.random(425,950),Call("GetControlValue","Voltmeter",0)))
-								Call("SetControlValue","Napeti",0,math.random(425,950))
-								VyberJiskry = math.random(0,5)
-								Call("SetControlValue","ZimniJiskraPrehrajZvuka",0,1)
-								if math.floor(VyberJiskry) == 0 then
-									Call("ZimniJiskra:Activate",1)
-								elseif math.floor(VyberJiskry) == 1 then
-									Call("ZimniJiskra1:Activate",1)
-								elseif math.floor(VyberJiskry) == 2 then
-									Call("ZimniJiskra2:Activate",1)
-								elseif math.floor(VyberJiskry) == 3 then
-									Call("ZimniJiskra3:Activate",1)
-								elseif math.floor(VyberJiskry) == 4 then
-									Call("ZimniJiskra4:Activate",1)
+						if RocniObdobi == 3 and not pojezdNeschopna then
+							nahoda = math.random(1,1000)
+							if nahoda > 100 and nahoda < math.abs(Ammeter) then
+								if math.floor(math.random(0,5)) == 1 then
+									Call("SetControlValue","Voltmeter",0,PIDcntrlVolt(math.random(425,950),Call("GetControlValue","Voltmeter",0)))
+									Call("SetControlValue","Napeti",0,math.random(425,950))
+									VyberJiskry = math.random(0,5)
+									Call("SetControlValue","ZimniJiskraPrehrajZvuka",0,1)
+									if math.floor(VyberJiskry) == 0 then
+										Call("ZimniJiskra:Activate",1)
+									elseif math.floor(VyberJiskry) == 1 then
+										Call("ZimniJiskra1:Activate",1)
+									elseif math.floor(VyberJiskry) == 2 then
+										Call("ZimniJiskra2:Activate",1)
+									elseif math.floor(VyberJiskry) == 3 then
+										Call("ZimniJiskra3:Activate",1)
+									elseif math.floor(VyberJiskry) == 4 then
+										Call("ZimniJiskra4:Activate",1)
+									end
 								end
 							end
 						end
-					end
-					if UzJsiZjistovalPanto == false then
-						UzJsiZjistovalPanto = true
-						Call ( "DalkovePrave:Activate", 0 )
-						Call ( "DalkoveLeve:Activate", 0 )
-						Call ( "ActivateNode","dalkaclevy",0)
-						Call ( "ActivateNode","dalkacpravy",0)
-						Call ( "ActivateNode","reflektor_rozsviceny",0) 
-						Call ( "PozickaHorniBi:Activate", 0 )
-						Call ( "PozickaLevaBi:Activate", 0 )
-						Call ( "PozickaLevaCr:Activate", 0 )
-						Call ( "PozickaPravaBi:Activate", 0 )
-						Call ( "PozickaPravaCr:Activate", 0 )
-						Call ( "ActivateNode", "pozickalevaBi", 0 ) 
-						Call ( "ActivateNode", "pozickalevaCr", 0 ) 
-						Call ( "ActivateNode", "pozickapravaBi", 0 ) 
-						Call ( "ActivateNode", "pozickapravaCr", 0 ) 
-						NouzoveBrzdeni = 0
-						if MaPredniPantograf == 1 then
-							Call ("SetTime","PredniSberac",0)
-							Call ("SetTime","ZadniSberac",0)
-						else
-							Call ("SetTime","ZadniSberac",0)
+						if UzJsiZjistovalPanto == false then
+							UzJsiZjistovalPanto = true
+							Call ( "DalkovePrave:Activate", 0 )
+							Call ( "DalkoveLeve:Activate", 0 )
+							Call ( "ActivateNode","dalkaclevy",0)
+							Call ( "ActivateNode","dalkacpravy",0)
+							Call ( "ActivateNode","reflektor_rozsviceny",0) 
+							Call ( "PozickaHorniBi:Activate", 0 )
+							Call ( "PozickaLevaBi:Activate", 0 )
+							Call ( "PozickaLevaCr:Activate", 0 )
+							Call ( "PozickaPravaBi:Activate", 0 )
+							Call ( "PozickaPravaCr:Activate", 0 )
+							Call ( "ActivateNode", "pozickalevaBi", 0 ) 
+							Call ( "ActivateNode", "pozickalevaCr", 0 ) 
+							Call ( "ActivateNode", "pozickapravaBi", 0 ) 
+							Call ( "ActivateNode", "pozickapravaCr", 0 ) 
+							NouzoveBrzdeni = 0
+							if MaPredniPantograf == 1 then
+								Call ("SetTime","PredniSberac",0)
+								Call ("SetTime","ZadniSberac",0)
+							else
+								Call ("SetTime","ZadniSberac",0)
+							end
+							Call("SetControlValue","vysilacka_displeje",0,0)
+							Call("SetControlValue","HlavniVypinac",0,0)
+							Call("SetControlValue","VirtualStartup",0,0)
 						end
-						Call("SetControlValue","vysilacka_displeje",0,0)
-						Call("SetControlValue","HlavniVypinac",0,0)
-						Call("SetControlValue","VirtualStartup",0,0)
-					end
-					if NouzoveBrzdeni == 0 and not matrosov and Call("GetControlValue","ZamekBS2",0) == 0 and Call("GetIsEngineWithKey") == 1 and not (math.floor(Call("GetControlValue","VirtualBrake",0)*100) == 86 and math.floor(Call("GetControlValue","ZpozdenyVirtualBrake",0)*100) == 86) then
-						Call("SetControlValue","ZpozdenyVirtualBrake",0,ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0)))
-					end
-					if math.floor(Call("GetControlValue","VirtualBrake",0)*100) == 86 then
-						Call("SetControlValue","ZpozdenyVirtualBrake",0,Call("GetControlValue","BrzdaZpozdenaVS",0))
-					elseif Call("GetIsEngineWithKey") == 1 then
-						Call("SetControlValue","BrzdaZpozdenaVS",0,Call("GetControlValue","ZpozdenyVirtualBrake",0))
-						Call("SetControlValue","BrzdaVS",0,Call("GetControlValue","VirtualBrake",0))
-					end
-					if MaPredniPantograf == 1 then PredniPanto = Call("GetControlValue", "PantoPredni", 0) else PredniPanto = 0 end
-					KompresorPrep = Call("GetControlValue","HlKompPrep",0)
-					ZadniPanto = Call("GetControlValue", "PantoZadni", 0)
-					if RizenaRidici == "ridici" then
-						JeNouzovyRadic = Call("GetControlValue","JeNouzovyRadic",0)
-					else
-						JeNouzovyRadic = Call("GetControlValue","povel_NouzovyKontroler",0)
-					end
-					vykon = Call("GetControlValue","JizdniKontroler",0)
-					centrala = Call("GetControlValue","Centrala",0)
-					JOBold = JOB
-					JOB = Call("GetControlValue","JOB",0)
-					pomkomp = Call("GetControlValue","pomkomp",0)
-					buttonPojezdVDepu = Call("GetControlValue","ButtonPojezdVDepu",0)
-					plynulaBrzda = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
-					VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
-					plynuleValceZobrazene = Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0)
-					VirtualBrakeReservoirPressureBAR = Call("GetControlValue","VirtualBrakeReservoirPressureBAR",0)
-					if ZivakReset < 0.25 then ZivakStary = 0 end
-					ZivakReset = math.max(Call("GetControlValue","ZivakReset",0),Call("GetControlValue","ZivakReset2",0),Call("GetControlValue","ZivakReset3",0))
-					casproud = casproud + cas
-					if Call("GetControlValue","Wheelslip",0) ~= 1 then
-						skluzWheelSlip = 1
-					else
-						skluzWheelSlip = 0
-					end
-					wheelSlip = Call("GetControlValue","Wheelslip",0)
-					CasHasler = CasHasler + cas
-					casfail = casfail + cas
-					casfail2 = casfail2 + cas
-					hlkomp = Call("GetControlValue","hlkomp",0)
-					Smer = Call("GetControlValue","UserVirtualReverser",0)
+						if NouzoveBrzdeni == 0 and not matrosov and Call("GetControlValue","ZamekBS2",0) == 0 and Call("GetIsEngineWithKey") == 1 and not (math.floor(Call("GetControlValue","VirtualBrake",0)*100) == 86 and math.floor(Call("GetControlValue","ZpozdenyVirtualBrake",0)*100) == 86) then
+							Call("SetControlValue","ZpozdenyVirtualBrake",0,ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0)))
+						end
+						if math.floor(Call("GetControlValue","VirtualBrake",0)*100) == 86 then
+							Call("SetControlValue","ZpozdenyVirtualBrake",0,Call("GetControlValue","BrzdaZpozdenaVS",0))
+						elseif Call("GetIsEngineWithKey") == 1 then
+							Call("SetControlValue","BrzdaZpozdenaVS",0,Call("GetControlValue","ZpozdenyVirtualBrake",0))
+							Call("SetControlValue","BrzdaVS",0,Call("GetControlValue","VirtualBrake",0))
+						end
+						if MaPredniPantograf == 1 then PredniPanto = Call("GetControlValue", "PantoPredni", 0) else PredniPanto = 0 end
+						KompresorPrep = Call("GetControlValue","HlKompPrep",0)
+						ZadniPanto = Call("GetControlValue", "PantoZadni", 0)
+						if RizenaRidici == "ridici" then
+							JeNouzovyRadic = Call("GetControlValue","JeNouzovyRadic",0)
+						else
+							JeNouzovyRadic = Call("GetControlValue","povel_NouzovyKontroler",0)
+						end
+						vykon = Call("GetControlValue","JizdniKontroler",0)
+						centrala = Call("GetControlValue","Centrala",0)
+						JOBold = JOB
+						JOB = Call("GetControlValue","JOB",0)
+						pomkomp = Call("GetControlValue","pomkomp",0)
+						buttonPojezdVDepu = Call("GetControlValue","ButtonPojezdVDepu",0)
+						plynulaBrzda = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
+						VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
+						plynuleValceZobrazene = Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0)
+						VirtualBrakeReservoirPressureBAR = Call("GetControlValue","VirtualBrakeReservoirPressureBAR",0)
+						if ZivakReset < 0.25 then ZivakStary = 0 end
+						ZivakReset = math.max(Call("GetControlValue","ZivakReset",0),Call("GetControlValue","ZivakReset2",0),Call("GetControlValue","ZivakReset3",0))
+						casproud = casproud + cas
+						if Call("GetControlValue","Wheelslip",0) ~= 1 then
+							skluzWheelSlip = 1
+						else
+							skluzWheelSlip = 0
+						end
+						wheelSlip = Call("GetControlValue","Wheelslip",0)
+						CasHasler = CasHasler + cas
+						casfail = casfail + cas
+						casfail2 = casfail2 + cas
+						hlkomp = Call("GetControlValue","hlkomp",0)
+						Smer = Call("GetControlValue","UserVirtualReverser",0)
 
-					if Smer == 0 then
-						Call ( "SetControlValue", "povel_Reverser", 0, 0)
-					elseif Smer ~= 2 then
-						Call ( "SetControlValue", "povel_Reverser", 0, Smer)
-					end
-
-					if Baterie == 1 then
-						Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
-					else
-						Call ( "SetControlValue", "Reverser", 0, 0)
-					end
-
-
-					if Smer > 1.8 then
-						RizenaRidici = "rizena"
-					else
-						RizenaRidici = "ridici"
-					end
-					RizenaRidiciJednaNula = 0
-					if RizenaRidici == "ridici" then
-						RizenaRidiciJednaNula = 1
-					end
-					----------------------------------------LVZ-----------------------------------------------
-						local LVZnapeti = Call("GetControlValue", "LVZnapeti", 0)
-						local LVZrezim = Call("GetControlValue", "LVZrezim", 0)
-						local LVZstanoviste = Call("GetControlValue", "LVZstan", 0)
-						local LVZvypinac = ToBolAndBack(Call("GetControlValue", "LVZhv", 0))
-						local LVZstart = ToBolAndBack(Call("GetControlValue", "LVZstart", 0))
+						if Smer == 0 then
+							Call ( "SetControlValue", "povel_Reverser", 0, 0)
+						elseif Smer ~= 2 then
+							Call ( "SetControlValue", "povel_Reverser", 0, Smer)
+						end
 
 						if Baterie == 1 then
-							if LVZnapeti < 1 then
-								LVZnapeti = LVZnapeti + cas
+							Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
+						else
+							Call ( "SetControlValue", "Reverser", 0, 0)
+						end
+
+
+						if Smer > 1.8 then
+							RizenaRidici = "rizena"
+						else
+							RizenaRidici = "ridici"
+						end
+						RizenaRidiciJednaNula = 0
+						if RizenaRidici == "ridici" then
+							RizenaRidiciJednaNula = 1
+						end
+						----------------------------------------LVZ-----------------------------------------------
+							local LVZnapeti = Call("GetControlValue", "LVZnapeti", 0)
+							local LVZrezim = Call("GetControlValue", "LVZrezim", 0)
+							local LVZstanoviste = Call("GetControlValue", "LVZstan", 0)
+							local LVZvypinac = ToBolAndBack(Call("GetControlValue", "LVZhv", 0))
+							local LVZstart = ToBolAndBack(Call("GetControlValue", "LVZstart", 0))
+
+							if Baterie == 1 then
+								if LVZnapeti < 1 then
+									LVZnapeti = LVZnapeti + cas
+									Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
+								end
+								if LVZvypinac and LVZrezim < 0.25 and byloZhaveni and NouzoveBrzdeni == 0 then
+									Call("SetControlValue", "JeZivakZap", 0, 1)
+								elseif LVZvypinac and LVZrezim == 0 then
+									byloZhaveni = false
+									Call("SetControlValue", "JeZivakZap", 0, 0)
+									NouzoveBrzdeni = 1
+								end
+								if LVZstart and LVZrezim > 0.75 and Rychlost < 1 and valcePrimocinne > 1 then
+									byloZhaveni = true
+								end
+								if LVZvypinac and LVZstanoviste > 0.5 then
+									byloZhaveni = false
+									Call("SetControlValue", "JeZivakZap", 0, 0)
+									NouzoveBrzdeni = 1
+								end
+								if LVZrezim > 0.75 then
+									Call("SetControlValue", "JeZivakZap", 0, 0)
+								end
+								if not LVZvypinac and LVZvypinacOld and LVZrezim < 0.25 then
+									byloZhaveni = false
+									Call("SetControlValue", "JeZivakZap", 0, 0)
+									NouzoveBrzdeni = 1
+								end
+								if not LVZvypinac then
+									byloZhaveni = false
+									Call("SetControlValue", "JeZivakZap", 0, 0)
+									NouzoveBrzdeni = 0
+								end
+							elseif LVZnapeti > 0 then
+								LVZnapeti = LVZnapeti - cas*2
 								Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
-							end
-							if LVZvypinac and LVZrezim < 0.25 and byloZhaveni and NouzoveBrzdeni == 0 then
-								Call("SetControlValue", "JeZivakZap", 0, 1)
-							elseif LVZvypinac and LVZrezim == 0 then
 								byloZhaveni = false
-								Call("SetControlValue", "JeZivakZap", 0, 0)
-								NouzoveBrzdeni = 1
-							end
-							if LVZstart and LVZrezim > 0.75 then
-								byloZhaveni = true
-							end
-							if LVZvypinac and LVZstanoviste > 0.5 then
-								byloZhaveni = false
-								Call("SetControlValue", "JeZivakZap", 0, 0)
-								NouzoveBrzdeni = 1
-							end
-							if LVZrezim > 0.75 then
-								Call("SetControlValue", "JeZivakZap", 0, 0)
-							end
-							if not LVZvypinac and LVZvypinacOld and LVZrezim < 0.25 then
-								byloZhaveni = false
-								Call("SetControlValue", "JeZivakZap", 0, 0)
-								NouzoveBrzdeni = 1
-							end
-							if not LVZvypinac then
-								byloZhaveni = false
-								Call("SetControlValue", "JeZivakZap", 0, 0)
 								NouzoveBrzdeni = 0
 							end
-						elseif LVZnapeti > 0 then
-							LVZnapeti = LVZnapeti - cas*2
-							Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
-							byloZhaveni = false
-							NouzoveBrzdeni = 0
-						end
-						if Baterie == 0 then
-							byloZhaveni = false
-							NouzoveBrzdeni = 0
-							Call("SetControlValue", "JeZivakZap", 0, 0)
-						end
+							if Baterie == 0 then
+								byloZhaveni = false
+								NouzoveBrzdeni = 0
+								Call("SetControlValue", "JeZivakZap", 0, 0)
+							end
 
-						LVZ(Call("GetControlValue","Mirel",0),Call("GetControlValue","LVZzivak",0),cas,JeZivak1)
+							local kodNavesti = LVZ(Call("GetControlValue","Mirel",0),Call("GetControlValue","LVZzivak",0),cas,JeZivak1)
 
-						if JeZivak1 == 1 and Baterie == 1 then ------- zivak
-							CasZivak = CasZivak+cas
-							if ZivakReset >= 0.25 and ZivakStary == 0 and NouzoveBrzdeni == 0 then
-								if CasZivak > 7 then
+							if JeZivak1 == 1 and Baterie == 1 then ------- zivak
+								CasZivak = CasZivak+cas
+								if ZivakReset >= 0.25 and ZivakStary == 0 and NouzoveBrzdeni == 0 then
+									if CasZivak > 7 then
+										CasZivak = 0
+									end
+									ZivakStary = 1
+								end
+								if Call("GetControlValue","EngineBrakeControl",0) >= 0.2 or kodNavesti == 2 or NouzoveBrzdeni == 1 then
 									CasZivak = 0
 								end
-								ZivakStary = 1
-							end
-							if Call("GetControlValue","EngineBrakeControl",0) >= 0.2 or kodNavesti == 2 and NouzoveBrzdeni == 0 then
-								CasZivak = 0
-							end
-							if CasZivak <= 7 then
-								Call ("SetControlValue", "LVZzivak", 0, 1)
-								if ZivakReset > 0.25 then
-									Call ("SetControlValue", "ZivakPip", 0, 1)
-									nadbytecnaObsluha = true
-								else
-									Call ("SetControlValue", "ZivakPip", 0, 0)
-									nadbytecnaObsluha = false
+								if CasZivak <= 7 then
+									Call ("SetControlValue", "LVZzivak", 0, 1)
+									if ZivakReset > 0.25 then
+										Call ("SetControlValue", "ZivakPip", 0, 1)
+										nadbytecnaObsluha = true
+									else
+										Call ("SetControlValue", "ZivakPip", 0, 0)
+										nadbytecnaObsluha = false
+									end
 								end
-							end
-							if CasZivak > 7 and CasZivak <= 15 then
-								Call ("SetControlValue", "LVZzivak", 0, 0)
-								if ZivakReset > 0.25 and nadbytecnaObsluha then
-									Call ("SetControlValue", "ZivakPip", 0, 1)
-								else
-									Call ("SetControlValue", "ZivakPip", 0, 0)
+								if CasZivak > 7 and CasZivak <= 15 then
+									Call ("SetControlValue", "LVZzivak", 0, 0)
+									if ZivakReset > 0.25 and nadbytecnaObsluha then
+										Call ("SetControlValue", "ZivakPip", 0, 1)
+									else
+										Call ("SetControlValue", "ZivakPip", 0, 0)
+									end
 								end
-							end
-							if CasZivak > 15 and CasZivak <= 19 then
+								if CasZivak > 15 and CasZivak <= 19 then
+									Call ("SetControlValue", "LVZzivak", 0, 0)
+									Call ("SetControlValue", "ZivakPip", 0, 1)
+								end
+								if CasZivak > 19 then
+									Call ("SetControlValue", "ZivakPip", 0, 0)
+									if ZivakReset > 0.25 and nadbytecnaObsluha then
+										Call ("SetControlValue", "ZivakPip", 0, 1)
+									end
+									NouzoveBrzdeni = 1
+								end
+								if zivaknadruhem == 1 then
+									Call ("SetControlValue", "ZivakPip", 0, 1)
+									Call ("SetControlValue", "LVZzivak", 0, 0)
+									NouzoveBrzdeni = 1
+									JeZivak1 = 0
+								end
+							else
 								Call ("SetControlValue", "LVZzivak", 0, 0)
-								Call ("SetControlValue", "ZivakPip", 0, 1)
-							end
-							if CasZivak > 19 then
 								Call ("SetControlValue", "ZivakPip", 0, 0)
-								if ZivakReset > 0.25 and nadbytecnaObsluha then
-									Call ("SetControlValue", "ZivakPip", 0, 1)
-								end
-								NouzoveBrzdeni = 1
 							end
-							if zivaknadruhem == 1 then
-								Call ("SetControlValue", "ZivakPip", 0, 1)
-								Call ("SetControlValue", "LVZzivak", 0, 0)
-								NouzoveBrzdeni = 1
+
+							if Call("GetControlValue", "JeZivakZap", 0) == 1 and JeZivak1Last ~= 1 then
+								JeZivak1 = 1
+								Call("SendConsistMessage",460110,"1",1)
+								Call("SendConsistMessage",460110,"1",0)
+								JeZivak1Last = JeZivak1
+							elseif Call("GetControlValue", "JeZivakZap", 0) == 0 and JeZivak1Last ~= 0 then
 								JeZivak1 = 0
+								Call ("SetControlValue", "LVZzivak", 0, 0)
+								CasZivak = 0
+								Call("SendConsistMessage",460110,"0",0)
+								Call("SendConsistMessage",460110,"0",1)
+								JeZivak1Last = JeZivak1
 							end
-						else
-							Call ("SetControlValue", "LVZzivak", 0, 0)
-							Call ("SetControlValue", "ZivakPip", 0, 0)
-						end
 
-						if Call("GetControlValue", "JeZivakZap", 0) == 1 and JeZivak1Last ~= 1 then
-							JeZivak1 = 1
-							Call("SendConsistMessage",460110,"1",1)
-							Call("SendConsistMessage",460110,"1",0)
-							JeZivak1Last = JeZivak1
-						elseif Call("GetControlValue", "JeZivakZap", 0) == 0 and JeZivak1Last ~= 0 then
-							JeZivak1 = 0
-							Call ("SetControlValue", "LVZzivak", 0, 0)
-							CasZivak = 0
-							Call("SendConsistMessage",460110,"0",0)
-							Call("SendConsistMessage",460110,"0",1)
-							JeZivak1Last = JeZivak1
-						end
+						----------------------------------------Sterace-------------------------------------------
+							steracePrep = ToBolAndBack(math.abs(Call("GetControlValue","steracePrep",0)))
 
+							if steracePrep and Baterie == 1 then
+								steracLevy = Call("GetControlValue","steracLevy",0)
+								steracPravy = Call("GetControlValue","steracPravy",0)
 
-					----------------------------------------IS------------------------------------------------
-						MSVsipkaDoluLast = MSVsipkaDolu
-						MSVsipkaNahoruLast = MSVsipkaNahoru
-						MSVsipkaLevaLast = MSVsipkaLeva
-						MSVsipkaPravaLast = MSVsipkaPrava
-						MSVokLast = MSVok
+								steracLevy = steracLevy+cas*0.525
+								steracPravy = steracPravy+cas/2
 
-						MSVsipkaDolu = ToBolAndBack(Call("GetControlValue","MSVdolu",0))
-						MSVsipkaNahoru = ToBolAndBack(Call("GetControlValue","MSVnahoru",0))
-						MSVsipkaLeva = ToBolAndBack(Call("GetControlValue","MSVleva",0))
-						MSVsipkaPrava = ToBolAndBack(Call("GetControlValue","MSVprava",0))
-						MSVok = ToBolAndBack(Call("GetControlValue","MSVok",0))
+								if steracLevy >= 1 then
+									steracLevy = 0
+								end
+								if steracPravy >= 1 then
+									steracPravy = 0
+								end
 
-						if IS.stav == "start" and Baterie == 1 then
-							IS.casStart = IS.casStart + cas
-							Call("MSVstart:ActivateNode","MSVstart",1)
-							Call("MSVstart2:ActivateNode","MSVstart",1)
-							if IS.casStart > 5 then
+								if steracLevy >= 0.5 then
+									Call("SetControlValue","steracLevyZvuk",0,1)
+								else
+									Call("SetControlValue","steracLevyZvuk",0,0)
+								end
+								if steracPravy >= 0.5 then
+									Call("SetControlValue","steracPravyZvuk",0,1)
+								else
+									Call("SetControlValue","steracPravyZvuk",0,0)
+								end
+
+								Call("SetControlValue","steracLevy",0,steracLevy)
+								Call("SetControlValue","steracPravy",0,steracPravy)
+
+								if steracLevy < 0.5 then
+									steracLevyOut = steracLevy * 2
+								else
+									steracLevyOut = 1/steracLevy - 1
+								end
+
+								if steracPravy < 0.5 then
+									steracPravyOut = steracPravy * 2
+								else
+									steracPravyOut = 1/steracPravy - 1
+								end
+
+								-- Call("SetTime", "steracLOut", steracLevyOut * 2.125)
+								-- Call("SetTime", "steracPOut", steracPravyOut * 2.125)
+								Call("SetTime", "Wipers", steracPravyOut * 3.7917)
+							end
+								
+						----------------------------------------IS------------------------------------------------
+							MSVsipkaDoluLast = MSVsipkaDolu
+							MSVsipkaNahoruLast = MSVsipkaNahoru
+							MSVsipkaLevaLast = MSVsipkaLeva
+							MSVsipkaPravaLast = MSVsipkaPrava
+							MSVokLast = MSVok
+
+							MSVsipkaDolu = ToBolAndBack(Call("GetControlValue","MSVdolu",0))
+							MSVsipkaNahoru = ToBolAndBack(Call("GetControlValue","MSVnahoru",0))
+							MSVsipkaLeva = ToBolAndBack(Call("GetControlValue","MSVleva",0))
+							MSVsipkaPrava = ToBolAndBack(Call("GetControlValue","MSVprava",0))
+							MSVok = ToBolAndBack(Call("GetControlValue","MSVok",0))
+
+							if IS.stav == "start" and Baterie == 1 then
+								IS.casStart = IS.casStart + cas
+								Call("MSVstart:ActivateNode","MSVstart",1)
+								Call("MSVstart2:ActivateNode","MSVstart",1)
+								if IS.casStart > 5 then
+									Call("MSVstart:ActivateNode","MSVstart",0)
+									Call("MSVstart2:ActivateNode","MSVstart",0)
+									IS.stav = "sleep"
+									IS:NastavCil1(1,true)
+									IS:NastavCil2(1,true)
+									IS:NastavLinku(1,true)
+								end
+							else
+								IS.casStart = 0
+							end
+							if Baterie ~= 1 then
+								IS.stav = "start"
+								IS:VymazVse()
 								Call("MSVstart:ActivateNode","MSVstart",0)
 								Call("MSVstart2:ActivateNode","MSVstart",0)
-								IS.stav = "sleep"
-								IS:NastavCil1(1,true)
-								IS:NastavCil2(1,true)
-								IS:NastavLinku(1,true)
 							end
-						else
-							IS.casStart = 0
-						end
-						if Baterie ~= 1 then
-							IS.stav = "start"
-							IS:VymazVse()
-							Call("MSVstart:ActivateNode","MSVstart",0)
-							Call("MSVstart2:ActivateNode","MSVstart",0)
-						end
-						if Baterie == 1 and IS.stav ~= "sleep" then
-							IS.casMenu = IS.casMenu + cas
-							if IS.casMenu > 20 then
-								IS.stav = "sleep"
+							if Baterie == 1 and IS.stav ~= "sleep" then
+								IS.casMenu = IS.casMenu + cas
+								if IS.casMenu > 20 then
+									IS.stav = "sleep"
+								end
 							end
-						end
 
-						if MSVsipkaDolu and not MSVsipkaDoluLast then
-							IS:SipkaDolu()
-							Print("dolu")
-						end
-						if MSVsipkaNahoru and not MSVsipkaNahoruLast then
-							IS:SipkaNahoru()
-							Print("nahoru")
-						end
-						if MSVsipkaLeva and not MSVsipkaLevaLast then
-							IS:SipkaBok()
-							Print("leva")
-						end
-						if MSVsipkaPrava and not MSVsipkaPravaLast then
-							IS:SipkaBok()
-							Print("prava")
-						end
-						if MSVok and not MSVokLast then
-							IS:Potvrzeni()
-							Print("OK")
-						end
+							if MSVsipkaDolu and not MSVsipkaDoluLast then
+								IS:SipkaDolu()
+								Print("dolu")
+							end
+							if MSVsipkaNahoru and not MSVsipkaNahoruLast then
+								IS:SipkaNahoru()
+								Print("nahoru")
+							end
+							if MSVsipkaLeva and not MSVsipkaLevaLast then
+								IS:SipkaBok()
+								Print("leva")
+							end
+							if MSVsipkaPrava and not MSVsipkaPravaLast then
+								IS:SipkaBok()
+								Print("prava")
+							end
+							if MSVok and not MSVokLast then
+								IS:Potvrzeni()
+								Print("OK")
+							end
 
-					----------------------------------------Prechod z RI do RA--------------------------------
-						if RizenaRidici == "rizena" and RizenaRidiciLast == "ridici" then
-							--komplet vypnuti
-							Call("SetControlValue","povel_VirtualPantographControl",0,0)
-							Call("SetControlValue","povel_HlavniVypinac",0,0)
-							Call("SetControlValue","povel_Reverser",0,0)
-							Call("SetControlValue","povel_RidiciKontroler",0,0)
-							Call("SetControlValue","povel_NouzovyKontroler",0,0)
-							Call("SetControlValue","SnizenyVykon",0,0)
-							snizenyVykonTady = false
-						end
-						RizenaRidiciLast = RizenaRidici
-					----------------------------------------Motorgener?tor------------------------------------
-						mgs = Call("GetControlValue","mgstart",0)
-						auto_mgs = Call("GetControlValue","mgautostart",0)
-						mgPrip = Call("GetControlValue","mgPriprava",0)
-						
-						NastavHodnotuSID("mgPriprava",mgp,460116)
+						----------------------------------------Prechod z RI do RA--------------------------------
+							if RizenaRidici == "rizena" and RizenaRidiciLast == "ridici" then
+								--komplet vypnuti
+								Call("SetControlValue","povel_VirtualPantographControl",0,0)
+								Call("SetControlValue","povel_HlavniVypinac",0,0)
+								Call("SetControlValue","povel_Reverser",0,0)
+								Call("SetControlValue","povel_RidiciKontroler",0,0)
+								Call("SetControlValue","povel_NouzovyKontroler",0,0)
+								Call("SetControlValue","SnizenyVykon",0,0)
+								snizenyVykonTady = false
+							end
+							RizenaRidiciLast = RizenaRidici
+						----------------------------------------Motorgener?tor------------------------------------
+							mgs = Call("GetControlValue","mgstart",0)
+							auto_mgs = Call("GetControlValue","mgautostart",0)
+							mgPrip = Call("GetControlValue","mgPriprava",0)
+							
+							NastavHodnotuSID("mgPriprava",mgp,460116)
 
-						if mgPrip > 0 and PC == 3.75 then
-							if mgs == 1 or auto_mgs == 1 then
-								if napetiVS220 >= 380 then
-									mg = 1
-									mgdocasny = 0
-									if RizenaRidiciJednaNula == 1 then
-										Call("SetControlValue","mgautostart",0,1)
+							if mgPrip > 0 and PC == 3.75 then
+								if mgs == 1 or auto_mgs == 1 then
+									if napetiVS220 >= 380 then
+										mg = 1
+										mgdocasny = 0
+										if RizenaRidiciJednaNula == 1 then
+											Call("SetControlValue","mgautostart",0,1)
+										end
+									else
+										mgdocasny = 1
 									end
 								else
-									mgdocasny = 1
+									mgdocasny = 0
 								end
 							else
+								if mgPrip < 1 and RizenaRidiciJednaNula == 1 then
+									Call("SetControlValue","mgautostart",0,0)
+								end
+								mg = 0
 								mgdocasny = 0
 							end
-						else
-							if mgPrip < 1 and RizenaRidiciJednaNula == 1 then
-								Call("SetControlValue","mgautostart",0,0)
-							end
-							mg = 0
-							mgdocasny = 0
-						end
-						Call("SetControlValue","mgZvuk",0,math.max(mg,mgdocasny))
-						NastavHodnotuSID("mgVS",math.max(mg,mgdocasny),460117)
-						NastavHodnotuSID("mg",mg,460118)
-					----------------------------------------Vys?la?ka-----------------------------------------
-						if Baterie == 1 then
-							if vysilackaObrazovka ~= vysilackaObrazovkaStara then -- displej vys?la?ky
-								Call("SetControlValue","vysilacka_displeje",0,vysilackaObrazovka)
-								Call("SetControlValue","VysilackaStartSound",0,0)
-								vysilackaObrazovkaStara = vysilackaObrazovka
-							end
-							if vysilackaObrazovka == 1 then -- start vys?la?ky
-								vysilackaboot = vysilackaboot + cas
-								if vysilackaboot > 15 then
-									vysilackaObrazovka = 8
-									vysilackaboot = 0
+							Call("SetControlValue","mgZvuk",0,math.max(mg,mgdocasny))
+							NastavHodnotuSID("mgVS",math.max(mg,mgdocasny),460117)
+							NastavHodnotuSID("mg",mg,460118)
+						----------------------------------------Vys?la?ka-----------------------------------------
+							if Baterie == 1 then
+								if vysilackaObrazovka ~= vysilackaObrazovkaStara then -- displej vys?la?ky
+									Call("SetControlValue","vysilacka_displeje",0,vysilackaObrazovka)
+									Call("SetControlValue","VysilackaStartSound",0,0)
+									vysilackaObrazovkaStara = vysilackaObrazovka
 								end
-							end
-							if vysilackaObrazovka ~= 1 and vysilackaObrazovka ~= 0 then -- zobrazen? ??sla vlaku a hodin a? po zapnut?
-								if vysilackaprihlasena ~= 1 then -- blik?n? odhl??en? vys?la?ky
-									vysilackablikani = vysilackablikani + cas
-									if vysilackablikani >= 1 then
-										if cislovzhasnute == 1 then
-											Call("vysilackacislov:SetText","xxxxxx",0)
-											cislovzhasnute = 0
-											vysilackablikani = 0
-										else
-											Call("vysilackacislov:SetText",tostring(cislovlaku),0)
-											cislovzhasnute = 1
-											vysilackablikani = 0
-										end
+								if vysilackaObrazovka == 1 then -- start vys?la?ky
+									vysilackaboot = vysilackaboot + cas
+									if vysilackaboot > 15 then
+										vysilackaObrazovka = 8
+										vysilackaboot = 0
 									end
-								else
-									Call("vysilackacislov:SetText",cislovlaku,0)
-									vysilackablikani = 0
 								end
-								if vysilackaObrazovka == 4 or vysilackaObrazovka == 5 then
-									Call("vysilackacislovdolni:SetText",tostring(cislovlakubuffzobraz),0)
-									if cislovlakubuff < 10 then cislovlakubuffzobraz = "xxxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100 and cislovlakubuff >= 10 then cislovlakubuffzobraz = "xxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000 and cislovlakubuff >= 100 then cislovlakubuffzobraz = "xxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 10000 and cislovlakubuff >= 1000 then cislovlakubuffzobraz = "xx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100000 and cislovlakubuff >= 10000 then cislovlakubuffzobraz = "x"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000000 and cislovlakubuff >= 100000 then cislovlakubuffzobraz = tostring(cislovlakubuff) end
-									Call("vysilackacislovdolni:SetText",tostring(cislovlakubuffzobraz),0)
+								if vysilackaObrazovka ~= 1 and vysilackaObrazovka ~= 0 then -- zobrazen? ??sla vlaku a hodin a? po zapnut?
+									if vysilackaprihlasena ~= 1 then -- blik?n? odhl??en? vys?la?ky
+										vysilackablikani = vysilackablikani + cas
+										if vysilackablikani >= 1 then
+											if cislovzhasnute == 1 then
+												Call("vysilackacislov:SetText","xxxxxx",0)
+												cislovzhasnute = 0
+												vysilackablikani = 0
+											else
+												Call("vysilackacislov:SetText",tostring(cislovlaku),0)
+												cislovzhasnute = 1
+												vysilackablikani = 0
+											end
+										end
+									else
+										Call("vysilackacislov:SetText",cislovlaku,0)
+										vysilackablikani = 0
+									end
+									if vysilackaObrazovka == 4 or vysilackaObrazovka == 5 then
+										Call("vysilackacislovdolni:SetText",tostring(cislovlakubuffzobraz),0)
+										if cislovlakubuff < 10 then cislovlakubuffzobraz = "xxxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100 and cislovlakubuff >= 10 then cislovlakubuffzobraz = "xxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000 and cislovlakubuff >= 100 then cislovlakubuffzobraz = "xxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 10000 and cislovlakubuff >= 1000 then cislovlakubuffzobraz = "xx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100000 and cislovlakubuff >= 10000 then cislovlakubuffzobraz = "x"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000000 and cislovlakubuff >= 100000 then cislovlakubuffzobraz = tostring(cislovlakubuff) end
+										Call("vysilackacislovdolni:SetText",tostring(cislovlakubuffzobraz),0)
+									else
+										Call("vysilackacislovdolni:SetText","xxxxxx",0)
+									end
+									Call("SetControlValue","vysilackaReg",0,vysilackaprihlasena)
 								else
 									Call("vysilackacislovdolni:SetText","xxxxxx",0)
+									Call("vysilackacislov:SetText","xxxxxx",0)
 								end
-								Call("SetControlValue","vysilackaReg",0,vysilackaprihlasena)
-							else
-								Call("vysilackacislovdolni:SetText","xxxxxx",0)
-								Call("vysilackacislov:SetText","xxxxxx",0)
-							end
-							if vysilackaObrazovka == 8 then -- hlavn? obrazovka
-								if tlacitko8 == 1 then
-									tlacitko8 = 0
-									if vysilackaprihlasena == 0 then
-										vysilackaObrazovka = 7
-									else
-										vysilackaObrazovka = 6
+								if vysilackaObrazovka == 8 then -- hlavn? obrazovka
+									if tlacitko8 == 1 then
+										tlacitko8 = 0
+										if vysilackaprihlasena == 0 then
+											vysilackaObrazovka = 7
+										else
+											vysilackaObrazovka = 6
+										end
 									end
 								end
-							end
-							if vysilackaObrazovka == 6 or vysilackaObrazovka == 7 then -- menu data
-								if tlacitko1 == 1 then
-									tlacitko1 = 0
-									vysilackaObrazovka = 5
-								end
-								if menupozice == 1 and tlacitkoEnter == 1 then
-									tlacitkoEnter = 0
-									menupozice = 1
-									vysilackaObrazovka = 5
-								end
-								if vysilackaObrazovka == 7 then
-									if tlacitko0 == 1 then
-										tlacitko0 = 0
-										if cislovlaku ~= "xxxxxx" then 
-											vysilackaprihlasena = 1
+								if vysilackaObrazovka == 6 or vysilackaObrazovka == 7 then -- menu data
+									if tlacitko1 == 1 then
+										tlacitko1 = 0
+										vysilackaObrazovka = 5
+									end
+									if menupozice == 1 and tlacitkoEnter == 1 then
+										tlacitkoEnter = 0
+										menupozice = 1
+										vysilackaObrazovka = 5
+									end
+									if vysilackaObrazovka == 7 then
+										if tlacitko0 == 1 then
+											tlacitko0 = 0
+											if cislovlaku ~= "xxxxxx" then 
+												vysilackaprihlasena = 1
+												vysilackaObrazovka = 8
+											end
+										end
+									else
+										if tlacitko0 == 1 then
+											tlacitko0 = 0
+											vysilackaprihlasena = 0
 											vysilackaObrazovka = 8
 										end
 									end
-								else
-									if tlacitko0 == 1 then
-										tlacitko0 = 0
-										vysilackaprihlasena = 0
+									if tlacitkoDelete == 1 then
+										tlacitkoDelete = 0
 										vysilackaObrazovka = 8
 									end
 								end
-								if tlacitkoDelete == 1 then
-									tlacitkoDelete = 0
-									vysilackaObrazovka = 8
-								end
-							end
-							if vysilackaObrazovka == 5 or vysilackaObrazovka == 4 then -- zad?n? ??sla vlaku bez potvrzen?
-								if cislovlakubuff ~= 0 then
-									vysilackaObrazovka = 4
-								else
-									vysilackaObrazovka = 5
-								end
-								if tlacitko1 == 1 and cislovlakubuff < 1000000 then
-									tlacitko1 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 1 else cislovlakubuff = (cislovlakubuff * 10) + 1 end
-								end
-								if tlacitko8 == 1 and cislovlakubuff < 1000000 then
-									tlacitko8 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 8 else cislovlakubuff = (cislovlakubuff * 10) + 8 end
-								end
-								if tlacitko0 == 1 and cislovlakubuff < 1000000 then
-									tlacitko0 = 0
-									if cislovlakubuff ~= 0 then cislovlakubuff = (cislovlakubuff * 10) end
-								end
-								if tlacitko2 == 1 and cislovlakubuff < 1000000 then
-									tlacitko2 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 2 else cislovlakubuff = (cislovlakubuff * 10) + 2 end
-								end
-								if tlacitko3 == 1 and cislovlakubuff < 1000000 then
-									tlacitko3 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 3 else cislovlakubuff = (cislovlakubuff * 10) + 3 end
-								end
-								if tlacitko4 == 1 and cislovlakubuff < 1000000 then
-									tlacitko4 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 4 else cislovlakubuff = (cislovlakubuff * 10) + 4 end
-								end
-								if tlacitko5 == 1 and cislovlakubuff < 1000000 then
-									tlacitko5 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 5 else cislovlakubuff = (cislovlakubuff * 10) + 5 end
-								end
-								if tlacitko6 == 1 and cislovlakubuff < 1000000 then
-									tlacitko6 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 6 else cislovlakubuff = (cislovlakubuff * 10) + 6 end
-								end
-								if tlacitko7 == 1 and cislovlakubuff < 1000000 then
-									tlacitko7 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 7 else cislovlakubuff = (cislovlakubuff * 10) + 7 end
-								end
-								if tlacitko9 == 1 and cislovlakubuff < 1000000 then
-									tlacitko9 = 0
-									if cislovlakubuff == 0 then cislovlakubuff = 9 else cislovlakubuff = (cislovlakubuff * 10) + 9 end
-								end
-								if tlacitkoDelete == 1 then
-									tlacitkoDelete = 0
-									if cislovlakubuff ~= 0 then cislovlakubuff = math.floor(cislovlakubuff/10) end
-								end
-								if tlacitkoEnter == 1 then
-									tlacitkoEnter = 0
-									if cislovlakubuff < 10 then cislovlaku = "xxxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100 and cislovlakubuff >= 10 then cislovlaku = "xxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000 and cislovlakubuff >= 100 then cislovlaku = "xxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 10000 and cislovlakubuff >= 1000 then cislovlaku = "xx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100000 and cislovlakubuff >= 10000 then cislovlaku = "x"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000000 and cislovlakubuff >= 100000 then cislovlaku = tostring(cislovlakubuff) end
-									vysilackaObrazovka = 3
-								end
-							end
-							if vysilackaObrazovka == 3 then -- pracovn? pozice
-								if tlacitkoEnter == 1 then
-									tlacitkoEnter = 0
-									vysilackaObrazovka = 8
-								end
-								if tlacitkoDelete == 1 then
-									tlacitkoDelete = 0
-									vysilackaObrazovka = 8
-								end
-							end
-						else
-							Call("SetControlValue","vysilacka_displeje",0,0)
-							cislovlaku="xxxxxx"
-							vysilackaObrazovka = 0
-							vysilackaObrazovkaStara = 1
-							vysilackaboot = 0
-							vysilackablikani = 0
-							vysilackaprihlasena = 0
-							cislovzhasnute = 0
-							tlacitko8 = 0
-							menupozice=1
-							tlacitko1 = 0
-							tlacitkoEnter = 0
-							cislovlakubuff = 0
-							tlacitkoDelete = 0
-							tlacitko0 = 0
-							Call("vysilackacislovdolni:SetText","xxxxxx",0)
-							Call("vysilackacislov:SetText","xxxxxx",0)
-						end
-					----------------------------------------Brzdy p?i EDB m?n? ne? 300A-----------------------
-						--------Prvn? bylo EDB, nebo vzduch?-------------------------------------
-							if Call("GetControlValue","ZpozdenyVirtualBrake",0) > 0.22 and PrvniEDBorVzduch == "nichts" then 
-								PrvniEDBorVzduch = "vzduch"
-							elseif Call("GetControlValue","ZpozdenyVirtualBrake",0) <= 0.22 and PrvniEDBorVzduch == "vzduch" then
-								PrvniEDBorVzduch = "nichts"
-							end
-							if vykon < 0 and PrvniEDBorVzduch == "nichts" then
-								PrvniEDBorVzduch = "EDB"
-							elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" then
-								PrvniEDBorVzduch = "nichts"
-							end
-							if (Ammeter <= -300 or plynulaBrzda < 3.5) and PrvniEDBorVzduch == "EDB" then
-								Call("SetBrakeFailureValue","BRAKE_FADE",1)
-								nezobrazujValce = true
-							else
-								Call("SetBrakeFailureValue","BRAKE_FADE",0)
-								nezobrazujValce = false
-							end
-					----------------------------------------U?ivatelsk? vzduchotechnika-----------------------
-						Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-(((VirtualMainReservoirPressureBAR/500)^2)*5*cas))
-						nastavenaBrzda = nastavenaBrzda-(((nastavenaBrzda/500)^2)*3*cas)
-						nastavenaBrzda_opozdene = nastavenaBrzda_opozdene-(((nastavenaBrzda_opozdene/500)^2)*3*cas)
-						Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR-(((VirtualBrakeReservoirPressureBAR/500)^2)*3*cas))
-						nastaveneValce = nastaveneValce-(((nastaveneValce/500)^2)*10*cas)
-						if VirtualMainReservoirPressureBAR > 9.8 then
-							autoKompresor = false
-						elseif VirtualMainReservoirPressureBAR < 8.8 then
-							autoKompresor = true
-						end
-						if Baterie == 1 then
-							if math.abs(pomkomp) == 1 and Call("GetControlValue","PantoJimka",0) <= 4 then
-								casbrzdy = casbrzdy + cas
-								if casbrzdy >= 0.0125 then
-									PantoJimkaZKom=PantoJimkaZKom+0.0005
-									casbrzdy = 0
-								end
-								if Call("GetControlValue","PantoJimka",0) >= 3.11 then
-									Call("SetControlValue","pojistak",0,1)
-									pojistak = true
-								else
-									Call("SetControlValue","pojistak",0,0)
-									pojistak = false
-								end
-							end
-							if vnitrniSit220V == 1 then
-								if hlkomp == -1 and PC == 3.75 and bylpojistovak ~= 1 and Call("GetControlValue","VirtualMainReservoirPressureBAR",0) <= 10 then
-									casbrzdy2 = casbrzdy2 + cas
-									if casbrzdy2 >= 0.0125 then
-										Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+0.0025)
-										casbrzdy2 = 0
+								if vysilackaObrazovka == 5 or vysilackaObrazovka == 4 then -- zad?n? ??sla vlaku bez potvrzen?
+									if cislovlakubuff ~= 0 then
+										vysilackaObrazovka = 4
+									else
+										vysilackaObrazovka = 5
 									end
-								elseif hlkomp == 1 and PC == 3.75 and bylpojistovak ~= 1 and autoKompresor then
-									casbrzdy2 = casbrzdy2 + cas
-									if casbrzdy2 >= 0.0125 then
-										Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+0.0025)
-										casbrzdy2 = 0
+									if tlacitko1 == 1 and cislovlakubuff < 1000000 then
+										tlacitko1 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 1 else cislovlakubuff = (cislovlakubuff * 10) + 1 end
+									end
+									if tlacitko8 == 1 and cislovlakubuff < 1000000 then
+										tlacitko8 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 8 else cislovlakubuff = (cislovlakubuff * 10) + 8 end
+									end
+									if tlacitko0 == 1 and cislovlakubuff < 1000000 then
+										tlacitko0 = 0
+										if cislovlakubuff ~= 0 then cislovlakubuff = (cislovlakubuff * 10) end
+									end
+									if tlacitko2 == 1 and cislovlakubuff < 1000000 then
+										tlacitko2 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 2 else cislovlakubuff = (cislovlakubuff * 10) + 2 end
+									end
+									if tlacitko3 == 1 and cislovlakubuff < 1000000 then
+										tlacitko3 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 3 else cislovlakubuff = (cislovlakubuff * 10) + 3 end
+									end
+									if tlacitko4 == 1 and cislovlakubuff < 1000000 then
+										tlacitko4 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 4 else cislovlakubuff = (cislovlakubuff * 10) + 4 end
+									end
+									if tlacitko5 == 1 and cislovlakubuff < 1000000 then
+										tlacitko5 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 5 else cislovlakubuff = (cislovlakubuff * 10) + 5 end
+									end
+									if tlacitko6 == 1 and cislovlakubuff < 1000000 then
+										tlacitko6 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 6 else cislovlakubuff = (cislovlakubuff * 10) + 6 end
+									end
+									if tlacitko7 == 1 and cislovlakubuff < 1000000 then
+										tlacitko7 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 7 else cislovlakubuff = (cislovlakubuff * 10) + 7 end
+									end
+									if tlacitko9 == 1 and cislovlakubuff < 1000000 then
+										tlacitko9 = 0
+										if cislovlakubuff == 0 then cislovlakubuff = 9 else cislovlakubuff = (cislovlakubuff * 10) + 9 end
+									end
+									if tlacitkoDelete == 1 then
+										tlacitkoDelete = 0
+										if cislovlakubuff ~= 0 then cislovlakubuff = math.floor(cislovlakubuff/10) end
+									end
+									if tlacitkoEnter == 1 then
+										tlacitkoEnter = 0
+										if cislovlakubuff < 10 then cislovlaku = "xxxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100 and cislovlakubuff >= 10 then cislovlaku = "xxxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000 and cislovlakubuff >= 100 then cislovlaku = "xxx"..tostring(cislovlakubuff) elseif cislovlakubuff < 10000 and cislovlakubuff >= 1000 then cislovlaku = "xx"..tostring(cislovlakubuff) elseif cislovlakubuff < 100000 and cislovlakubuff >= 10000 then cislovlaku = "x"..tostring(cislovlakubuff) elseif cislovlakubuff < 1000000 and cislovlakubuff >= 100000 then cislovlaku = tostring(cislovlakubuff) end
+										vysilackaObrazovka = 3
+									end
+								end
+								if vysilackaObrazovka == 3 then -- pracovn? pozice
+									if tlacitkoEnter == 1 then
+										tlacitkoEnter = 0
+										vysilackaObrazovka = 8
+									end
+									if tlacitkoDelete == 1 then
+										tlacitkoDelete = 0
+										vysilackaObrazovka = 8
+									end
+								end
+							else
+								Call("SetControlValue","vysilacka_displeje",0,0)
+								cislovlaku="xxxxxx"
+								vysilackaObrazovka = 0
+								vysilackaObrazovkaStara = 1
+								vysilackaboot = 0
+								vysilackablikani = 0
+								vysilackaprihlasena = 0
+								cislovzhasnute = 0
+								tlacitko8 = 0
+								menupozice=1
+								tlacitko1 = 0
+								tlacitkoEnter = 0
+								cislovlakubuff = 0
+								tlacitkoDelete = 0
+								tlacitko0 = 0
+								Call("vysilackacislovdolni:SetText","xxxxxx",0)
+								Call("vysilackacislov:SetText","xxxxxx",0)
+							end
+						----------------------------------------Brzdy p?i EDB m?n? ne? 300A-----------------------
+							--------Prvn? bylo EDB, nebo vzduch?-------------------------------------
+								if Call("GetControlValue","ZpozdenyVirtualBrake",0) > 0.22 and PrvniEDBorVzduch == "nichts" then 
+									PrvniEDBorVzduch = "vzduch"
+								elseif Call("GetControlValue","ZpozdenyVirtualBrake",0) <= 0.22 and PrvniEDBorVzduch == "vzduch" then
+									PrvniEDBorVzduch = "nichts"
+								end
+								if vykon < 0 and PrvniEDBorVzduch == "nichts" then
+									PrvniEDBorVzduch = "EDB"
+								elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" then
+									PrvniEDBorVzduch = "nichts"
+								end
+								if (Ammeter <= -300 or plynulaBrzda < 3.5) and PrvniEDBorVzduch == "EDB" then
+									Call("SetBrakeFailureValue","BRAKE_FADE",1)
+									nezobrazujValce = true
+								else
+									Call("SetBrakeFailureValue","BRAKE_FADE",0)
+									nezobrazujValce = false
+								end
+						----------------------------------------U?ivatelsk? vzduchotechnika-----------------------
+							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-(((VirtualMainReservoirPressureBAR/500)^2)*5*cas))
+							nastavenaBrzda = nastavenaBrzda-(((nastavenaBrzda/500)^2)*3*cas)
+							nastavenaBrzda_opozdene = nastavenaBrzda_opozdene-(((nastavenaBrzda_opozdene/500)^2)*3*cas)
+							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR-(((VirtualBrakeReservoirPressureBAR/500)^2)*3*cas))
+							nastaveneValce = nastaveneValce-(((nastaveneValce/500)^2)*10*cas)
+							if VirtualMainReservoirPressureBAR > 9.8 then
+								autoKompresor = false
+							elseif VirtualMainReservoirPressureBAR < 8.8 then
+								autoKompresor = true
+							end
+							if Baterie == 1 then
+								if math.abs(pomkomp) == 1 and Call("GetControlValue","PantoJimka",0) <= 4 then
+									casbrzdy = casbrzdy + cas
+									if casbrzdy >= 0.0125 then
+										PantoJimkaZKom=PantoJimkaZKom+0.0005
+										casbrzdy = 0
+									end
+									if Call("GetControlValue","PantoJimka",0) >= 3.11 then
+										Call("SetControlValue","pojistak",0,1)
+										pojistak = true
+									else
+										Call("SetControlValue","pojistak",0,0)
+										pojistak = false
+									end
+								end
+								if vnitrniSit220V == 1 then
+									if hlkomp == -1 and PC == 3.75 and bylpojistovak ~= 1 and Call("GetControlValue","VirtualMainReservoirPressureBAR",0) <= 10 then
+										casbrzdy2 = casbrzdy2 + cas
+										if casbrzdy2 >= 0.0125 then
+											Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+0.0025)
+											casbrzdy2 = 0
+										end
+									elseif hlkomp == 1 and PC == 3.75 and bylpojistovak ~= 1 and autoKompresor then
+										casbrzdy2 = casbrzdy2 + cas
+										if casbrzdy2 >= 0.0125 then
+											Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+0.0025)
+											casbrzdy2 = 0
+										end
 									end
 								end
 							end
-						end
-						VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
-						if VirtualBrakeReservoirPressureBAR < 5 and VirtualBrakeReservoirPressureBAR < VirtualMainReservoirPressureBAR - 0.5 then
-							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,math.min(VirtualMainReservoirPressureBAR,VirtualBrakeReservoirPressureBAR+0.02))
-							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-0.02)
-							VirtualBrakeReservoirPressureBAR = math.min(VirtualMainReservoirPressureBAR,VirtualBrakeReservoirPressureBAR+0.02)
-							VirtualMainReservoirPressureBAR = VirtualMainReservoirPressureBAR - 0.02
-						end
-						if VirtualMainReservoirPressureBAR > 10 then
-							bylpojistovak = 1
-						end
-						if bylpojistovak == 1 then
-							casbrzdy2 = casbrzdy2 + cas
-							if VirtualMainReservoirPressureBAR >= 9 then
-								if casbrzdy2 >= 0.0125 then
-									Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)-0.005)
-									casbrzdy2 = 0
+							VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
+							if VirtualBrakeReservoirPressureBAR < 5 and VirtualBrakeReservoirPressureBAR < VirtualMainReservoirPressureBAR - 0.5 then
+								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,math.min(VirtualMainReservoirPressureBAR,VirtualBrakeReservoirPressureBAR+0.02))
+								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-0.02)
+								VirtualBrakeReservoirPressureBAR = math.min(VirtualMainReservoirPressureBAR,VirtualBrakeReservoirPressureBAR+0.02)
+								VirtualMainReservoirPressureBAR = VirtualMainReservoirPressureBAR - 0.02
+							end
+							if VirtualMainReservoirPressureBAR > 10 then
+								bylpojistovak = 1
+							end
+							if bylpojistovak == 1 then
+								casbrzdy2 = casbrzdy2 + cas
+								if VirtualMainReservoirPressureBAR >= 9 then
+									if casbrzdy2 >= 0.0125 then
+										Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)-0.005)
+										casbrzdy2 = 0
+									end
+								else
+									bylpojistovak = 0
 								end
-							else
-								bylpojistovak = 0
 							end
-						end
-						if pojistak then
-							Call("SetControlValue","PantoJimka",0,math.max(PantoJimkaZKom,PantoJimkaZHJ)-0.00125)
-						end
-
-						if Call("GetControlValue","BrzdaVS",0) == 0 then
-							vysokotlakysvih = true
-						elseif plynulaBrzda <= 5 then
-							vysokotlakysvih = false
-						end
-
-						if Call("GetControlValue","BrzdaVS",0) > 0.84 or Call("GetControlValue","BrzdaVS",0) == 0.22 then
-							bylZaver = true
-							if Call("GetControlValue","BrzdaVS",0) > 0.95 then	
-								bylaZachrana = true
+							if pojistak then
+								Call("SetControlValue","PantoJimka",0,math.max(PantoJimkaZKom,PantoJimkaZHJ)-0.00125)
 							end
-						elseif math.abs(PipeOld - plynulaBrzda) < 0.1 then
-							bylaZachrana = false
-							bylZaver = false
-						end
 
-						BS2old = BS2
-						BS2 = Call("GetControlValue","BrzdaVS",0)
-						if BS2 ~= BS2old or doplnujBrzdu then
-							if BS2 < 0.06 then
-								prebiti = true
-								nastavenaBrzda = VirtualMainReservoirPressureBAR
-								doplnujBrzdu = true
-							elseif BS2 < 0.21 then
-								nastavenaBrzda = 5.0
-								doplnujBrzdu = true
-							elseif BS2 < 0.23 then
-								doplnujBrzdu = false
-							elseif BS2 <= 0.82 then
-								nastavenaBrzda = 4.7 - ((BS2 - 0.26)*2.14)
-								doplnujBrzdu = true
-							elseif BS2 < 0.93 then
-								doplnujBrzdu = false
-							else
+							if Call("GetControlValue","BrzdaVS",0) == 0 then
+								vysokotlakysvih = true
+							elseif plynulaBrzda <= 5 then
+								vysokotlakysvih = false
+							end
+
+							if Call("GetControlValue","BrzdaVS",0) > 0.84 or Call("GetControlValue","BrzdaVS",0) == 0.22 then
+								bylZaver = true
+								if Call("GetControlValue","BrzdaVS",0) > 0.95 then	
+									bylaZachrana = true
+								end
+							elseif math.abs(PipeOld - plynulaBrzda) < 0.1 then
+								bylaZachrana = false
+								bylZaver = false
+							end
+
+							BS2old = BS2
+							BS2 = Call("GetControlValue","BrzdaVS",0)
+							if BS2 ~= BS2old or doplnujBrzdu then
+								if BS2 < 0.06 then
+									prebiti = true
+									nastavenaBrzda = VirtualMainReservoirPressureBAR
+									doplnujBrzdu = true
+								elseif BS2 < 0.21 then
+									nastavenaBrzda = 5.0
+									doplnujBrzdu = true
+								elseif BS2 < 0.23 then
+									doplnujBrzdu = false
+								elseif BS2 <= 0.82 then
+									nastavenaBrzda = 4.7 - ((BS2 - 0.26)*2.14)
+									doplnujBrzdu = true
+								elseif BS2 < 0.93 then
+									doplnujBrzdu = false
+								else
+									nastavenaBrzda = 0
+									doplnujBrzdu = true
+								end
+							end
+
+							if NouzoveBrzdeni == 1 or matrosov then
 								nastavenaBrzda = 0
-								doplnujBrzdu = true
-							end
-						end
-
-						if NouzoveBrzdeni == 1 or matrosov then
-							nastavenaBrzda = 0
-							if BS2 < 0.21 or (BS2 > 0.23 and BS2 <= 0.82) then
-								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - ((math.sqrt(VirtualMainReservoirPressureBAR)/100)+0.01))
-								Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
-								ZpozdeniBrzdice(1)
-								Call("SetControlValue","zvukSyceniVZ",0,1)
+								if BS2 < 0.21 or (BS2 > 0.23 and BS2 <= 0.82) then
+									Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - ((math.sqrt(VirtualMainReservoirPressureBAR)/100)+0.01))
+									Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
+									ZpozdeniBrzdice(1)
+									Call("SetControlValue","zvukSyceniVZ",0,1)
+								else
+									Call("SetControlValue","zvukSyceniVZ",0,0)
+									ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
+								end
 							else
 								Call("SetControlValue","zvukSyceniVZ",0,0)
 								ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
 							end
-						else
-							Call("SetControlValue","zvukSyceniVZ",0,0)
-							ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
-						end
-						
-						if not prebiti and NouzoveBrzdeni == 0 and not matrosov then
-							if nastavenaBrzda > plynulaBrzda then
-								plynulaBrzda = plynulaBrzda + math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/10
-							elseif plynulaBrzda > nastavenaBrzda then
-								plynulaBrzda = plynulaBrzda - math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/10
-							end
-						else
-							if nastavenaBrzda > plynulaBrzda then
-								plynulaBrzda = plynulaBrzda + math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/3
-							elseif plynulaBrzda > nastavenaBrzda then
-								plynulaBrzda = plynulaBrzda - math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/3
-							end
-						end
-
-						if nastavenaBrzda <= 5 then
-							prebiti = false
-						end
-
-						plynulaBrzda = math.min(plynulaBrzda,VirtualMainReservoirPressureBAR)
-
-						BS2old_opozdene = BS2_opozdene
-						BS2_opozdene = Call("GetControlValue","ZpozdenyVirtualBrake",0)
-						if BS2_opozdene ~= BS2old_opozdene or doplnujBrzdu_opozdene then
-							if BS2_opozdene < 0.06 then
-								prebiti_opozdene = true
-								nastavenaBrzda_opozdene = VirtualMainReservoirPressureBAR
-								doplnujBrzdu_opozdene = true
-							elseif BS2_opozdene < 0.21 then
-								nastavenaBrzda_opozdene = 5.0
-								doplnujBrzdu_opozdene = true
-							elseif BS2_opozdene < 0.23 then
-								doplnujBrzdu_opozdene = false
-							elseif BS2_opozdene <= 0.82 then
-								nastavenaBrzda_opozdene = 4.7 - ((BS2_opozdene - 0.26)*3.0357)
-								doplnujBrzdu_opozdene = true
-							elseif BS2_opozdene < 0.93 then
-								doplnujBrzdu_opozdene = false
+							
+							if not prebiti and NouzoveBrzdeni == 0 and not matrosov then
+								if nastavenaBrzda > plynulaBrzda then
+									plynulaBrzda = plynulaBrzda + math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/10
+								elseif plynulaBrzda > nastavenaBrzda then
+									plynulaBrzda = plynulaBrzda - math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/10
+								end
 							else
-								nastavenaBrzda_opozdene = 0
-								doplnujBrzdu_opozdene = true
-							end
-						end
-
-						if not prebiti_opozdene then
-							if nastavenaBrzda_opozdene > plynulaBrzda_opozdene then
-								plynulaBrzda_opozdene = plynulaBrzda_opozdene + math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/10
-							elseif plynulaBrzda_opozdene > nastavenaBrzda_opozdene then
-								plynulaBrzda_opozdene = plynulaBrzda_opozdene - math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/10
-							end
-						else
-							if nastavenaBrzda_opozdene > plynulaBrzda_opozdene then
-								plynulaBrzda_opozdene = plynulaBrzda_opozdene + math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/3
-							elseif plynulaBrzda_opozdene > nastavenaBrzda_opozdene then
-								plynulaBrzda_opozdene = plynulaBrzda_opozdene - math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/3
-							end
-						end
-						if nastavenaBrzda_opozdene <= 5 then
-							prebiti_opozdene = false
-						end
-
-						plynulaBrzda_opozdene = math.min(plynulaBrzda_opozdene,VirtualMainReservoirPressureBAR)
-
-						--VirtualBrakePipePressureBAR,gProbihaPipe,gHranicePipe,gHODNOTA_LAST_Pipe = PIDcntrlCommon(math.min(plynulaBrzda,VirtualMainReservoirPressureBAR - 1)*1000,VirtualBrakePipePressureBAR*1000,gProbihaPipe,gHranicePipe,gHODNOTA_LAST_Pipe,10000)
-						Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
-
-						if plynulaBrzda > PipeOld then
-							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - (plynulaBrzda - PipeOld)*0.1)
-						end
-						PipeOld = plynulaBrzda
-						
-						nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,(5-plynulaBrzda_opozdene)*2.53)
-						ValceOld = VirtualTrainBrakeCylinderPressureBAR
-
-						valcePrimocinne = math.min(Call("GetControlValue","EngineBrakeControl",0)*3.8,VirtualMainReservoirPressureBAR)
-						nastaveneValce_bezBP = nastaveneValce
-						nastaveneValce = math.min(math.max(nastaveneValce,valcePrimocinne),3.8)
-
-						if nastaveneValce > plynuleValce then
-							plynuleValce = plynuleValce + math.sqrt(math.abs(nastaveneValce-plynuleValce))/10
-						elseif plynuleValce > nastaveneValce then
-							plynuleValce = plynuleValce - math.sqrt(math.abs(nastaveneValce-plynuleValce))/10
-						end
-
-						if nastaveneValce_bezBP > plynuleValce_bezBP then
-							plynuleValce_bezBP = plynuleValce_bezBP + math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/10
-						elseif plynuleValce_bezBP > nastaveneValce_bezBP then
-							plynuleValce_bezBP = plynuleValce_bezBP - math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/10
-						end
-
-						--VirtualTrainBrakeCylinderPressureBAR,gProbihaValce,gHraniceValce,gHODNOTA_LAST_Valce = PIDcntrlCommon(plynuleValce*1000,VirtualTrainBrakeCylinderPressureBAR*1000,gProbihaValce,gHraniceValce,gHODNOTA_LAST_Valce,10000)
-						if nezobrazujValce then
-							nastaveneValce = math.min(valcePrimocinne,3.8)
-						else
-							if nastaveneValce > plynuleValceZobrazene then
-								plynuleValceZobrazene = plynuleValceZobrazene + math.sqrt(math.abs(nastaveneValce-plynuleValceZobrazene))/10
-							elseif plynuleValceZobrazene > nastaveneValce then
-								plynuleValceZobrazene = plynuleValceZobrazene - math.sqrt(math.abs(nastaveneValce-plynuleValceZobrazene))/10
-							end
-						end
-						Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,plynuleValceZobrazene)
-						
-						if plynuleValce_bezBP == 0 then
-							Call("SetControlValue","TrainBrakeControl",0,0)
-						elseif plynuleValce_bezBP >= 2.2 and bylaZachrana then
-							Call("SetControlValue","TrainBrakeControl",0,1)
-						else
-							Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
-						end
-
-						if Baterie == 1 and vnitrniSit220V == 1 and PC == 3.75 and (hlkomp == -1 or (hlkomp == 1 and autoKompresor)) then
-							Call("SetControlValue","kompresor_zvk",0,1)
-						else
-							Call("SetControlValue","kompresor_zvk",0,0)
-						end
-						Call("SetControlValue","kompom_zvk",0,math.min(math.abs(pomkomp),Baterie))
-						Call("SetControlValue","pojistovak",0,math.abs(bylpojistovak))
-						PantoJimkaZHJ=math.min(Call("GetControlValue","VirtualMainReservoirPressureBAR",0),3.11)
-						Call("SetControlValue","PantoJimka",0,math.max(PantoJimkaZKom,PantoJimkaZHJ))
-						Call("SetControlValue","SberaceJimka",0,math.max(PantoJimkaZHJ,PantoJimkaZKom))
-						if PP > 0 then
-							sberac1TlakPozadovany = math.min(Call("GetControlValue","SberaceJimka",0),5)
-						else
-							sberac1TlakPozadovany = 0
-						end
-						if ZP > 0 then
-							sberac2TlakPozadovany = math.min(Call("GetControlValue","SberaceJimka",0),5)
-						else
-							sberac2TlakPozadovany = 0
-						end
-						sberac1Tlak = Call("GetControlValue","Sberac1Tlak",0)
-						sberac2Tlak = Call("GetControlValue","Sberac2Tlak",0)
-						if sberac1Tlak < sberac1TlakPozadovany then
-							Call("SetControlValue","Sberac1Tlak",0,sberac1Tlak+0.05)
-						elseif sberac1Tlak > sberac1TlakPozadovany then
-							Call("SetControlValue","Sberac1Tlak",0,sberac1Tlak-0.05)
-						end
-						if sberac2Tlak < sberac2TlakPozadovany then
-							Call("SetControlValue","Sberac2Tlak",0,sberac2Tlak+0.05)
-						elseif sberac2Tlak > sberac2TlakPozadovany then
-							Call("SetControlValue","Sberac2Tlak",0,sberac2Tlak-0.05)
-						end
-						Call("SetControlValue","DvereTlak",0,math.min(VirtualMainReservoirPressureBAR,7))
-						Call("SetControlValue","PrepinaceTlak",0,math.min(VirtualMainReservoirPressureBAR,5))
-
-					----------------------------------------Ovladani HV---------------------------------------
-						PolohaKlice = Call ("GetControlValue", "VirtualStartup", 0)
-						if PolohaKlice == 25 then klic = 1 end
-						if (PolohaKlice < 50 or Baterie ~= 1) and RizenaRidici == "ridici" then
-							Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
-						elseif ZamekHLvyp == 0 and PolohaKlice > 50 and Baterie == 1 and RizenaRidici == "ridici" then
-							Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
-						end
-
-						if Baterie ~= 1 or Call("GetControlValue", "povel_HlavniVypinac", 0) == 0 then
-							Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-						elseif ZamekHLvyp == 0 and Baterie == 1 and Call("GetControlValue", "povel_HlavniVypinac", 0) == 1 then
-							Call ( "SetControlValue", "HlavniVypinac", 0, 1)
-						end
-
-						-- if klic == 1 and PolohaKlice < 75 and PolohaKlice > 50 and Call("GetControlValue","DrziKlicek",0) == 0 then
-						-- 	Call("SetControlValue","VirtualStartup",0,75)
-						-- end
-						-- if klic == 1 and PolohaKlice < 50 and PolohaKlice > 25 and Call("GetControlValue","DrziKlicek",0) == 0 then
-						-- 	Call("SetControlValue","VirtualStartup",0,25)
-						-- end
-
-						if PolohaKlice < 50 and math.max(diagPU,skluzDiag,niDiag) == 0 then
-							ZamekHLvyp = 0
-						end
-					----------------------------------------Cvakani HASLERa-----------------------------------
-						if Rychlost >= 0.1 then if CasHasler >= 1 then
-								HaslerChylka = math.random(-1,1)
-								Call("SetControlValue","HaslerRucka",0,(Rychlost+HaslerChylka))
-								CasHasler = 0
+								if nastavenaBrzda > plynulaBrzda then
+									plynulaBrzda = plynulaBrzda + math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/3
+								elseif plynulaBrzda > nastavenaBrzda then
+									plynulaBrzda = plynulaBrzda - math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/3
 								end
-						elseif Rychlost < 0.1 then
-							Call("SetControlValue","HaslerRucka",0,0)
-						end
-						if Rychlost <= 1 then
-							if zvukhasler ~= 1 then
-								Call("SetControlValue","ZvukHasler",0,1)
-								zvukhasler = 1
 							end
-						elseif zvukhasler ~= 2 then
-							Call("SetControlValue","ZvukHasler",0,2)
-							zvukhasler = 2
-						end
-					----------------------------------------Dvere---------------------------------------------
-						--dvere ze soupravy
-							if otocDvere then
-								dverePraveVSouprave = Call("GetControlValue","DvereLeveVSouprave",0)
-								dvereLeveVSouprave = Call("GetControlValue","DverePraveVSouprave",0)
+
+							if nastavenaBrzda <= 5 then
+								prebiti = false
+							end
+
+							plynulaBrzda = math.min(plynulaBrzda,VirtualMainReservoirPressureBAR)
+
+							BS2old_opozdene = BS2_opozdene
+							BS2_opozdene = Call("GetControlValue","ZpozdenyVirtualBrake",0)
+							if BS2_opozdene ~= BS2old_opozdene or doplnujBrzdu_opozdene then
+								if BS2_opozdene < 0.06 then
+									prebiti_opozdene = true
+									nastavenaBrzda_opozdene = VirtualMainReservoirPressureBAR
+									doplnujBrzdu_opozdene = true
+								elseif BS2_opozdene < 0.21 then
+									nastavenaBrzda_opozdene = 5.0
+									doplnujBrzdu_opozdene = true
+								elseif BS2_opozdene < 0.23 then
+									doplnujBrzdu_opozdene = false
+								elseif BS2_opozdene <= 0.82 then
+									nastavenaBrzda_opozdene = 4.7 - ((BS2_opozdene - 0.26)*3.0357)
+									doplnujBrzdu_opozdene = true
+								elseif BS2_opozdene < 0.93 then
+									doplnujBrzdu_opozdene = false
+								else
+									nastavenaBrzda_opozdene = 0
+									doplnujBrzdu_opozdene = true
+								end
+							end
+
+							if not prebiti_opozdene then
+								if nastavenaBrzda_opozdene > plynulaBrzda_opozdene then
+									plynulaBrzda_opozdene = plynulaBrzda_opozdene + math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/10
+								elseif plynulaBrzda_opozdene > nastavenaBrzda_opozdene then
+									plynulaBrzda_opozdene = plynulaBrzda_opozdene - math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/10
+								end
 							else
-								dvereLeveVSouprave = Call("GetControlValue","DvereLeveVSouprave",0)
-								dverePraveVSouprave = Call("GetControlValue","DverePraveVSouprave",0)
-							end
-
-						--kridla dveri
-							local LP = Call("GetControlValue","DvereLP",0)
-							local LZ = Call("GetControlValue","DvereLZ",0)
-							local PP = Call("GetControlValue","DverePP",0)
-							local PZ = Call("GetControlValue","DverePZ",0)
-
-							if LP ~= dvereLPskutecne then
-								if LP > dvereLPskutecne then
-									dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveri)
-								elseif LP < dvereLPskutecne then
-									dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveri)
-								end
-								if dvereLPskutecne < 0 then
-									dvereLPskutecne = 0
+								if nastavenaBrzda_opozdene > plynulaBrzda_opozdene then
+									plynulaBrzda_opozdene = plynulaBrzda_opozdene + math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/3
+								elseif plynulaBrzda_opozdene > nastavenaBrzda_opozdene then
+									plynulaBrzda_opozdene = plynulaBrzda_opozdene - math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/3
 								end
 							end
-							Call("SetTime", "Dvere1L", dvereLPskutecne * 2.125)
+							if nastavenaBrzda_opozdene <= 5 then
+								prebiti_opozdene = false
+							end
 
-							if LZ ~= dvereLZskutecne then
-								if LZ > dvereLZskutecne then
-									dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveri)
-								elseif LZ < dvereLZskutecne then
-									dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveri)
+							plynulaBrzda_opozdene = math.min(plynulaBrzda_opozdene,VirtualMainReservoirPressureBAR)
+
+							--VirtualBrakePipePressureBAR,gProbihaPipe,gHranicePipe,gHODNOTA_LAST_Pipe = PIDcntrlCommon(math.min(plynulaBrzda,VirtualMainReservoirPressureBAR - 1)*1000,VirtualBrakePipePressureBAR*1000,gProbihaPipe,gHranicePipe,gHODNOTA_LAST_Pipe,10000)
+							Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+
+							if plynulaBrzda > PipeOld then
+								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - (plynulaBrzda - PipeOld)*0.1)
+							end
+							PipeOld = plynulaBrzda
+							
+							nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,(5-plynulaBrzda_opozdene)*2.53)
+							ValceOld = VirtualTrainBrakeCylinderPressureBAR
+
+							valcePrimocinne = math.min(Call("GetControlValue","EngineBrakeControl",0)*3.8,VirtualMainReservoirPressureBAR)
+							nastaveneValce_bezBP = nastaveneValce
+							nastaveneValce = math.min(math.max(nastaveneValce,valcePrimocinne),3.8)
+
+							if nastaveneValce > plynuleValce then
+								plynuleValce = plynuleValce + math.sqrt(math.abs(nastaveneValce-plynuleValce))/20
+							elseif plynuleValce > nastaveneValce then
+								plynuleValce = plynuleValce - math.sqrt(math.abs(nastaveneValce-plynuleValce))/40
+							end
+
+							if nastaveneValce_bezBP > plynuleValce_bezBP then
+								plynuleValce_bezBP = plynuleValce_bezBP + math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/20
+							elseif plynuleValce_bezBP > nastaveneValce_bezBP then
+								plynuleValce_bezBP = plynuleValce_bezBP - math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/40
+							end
+
+							--VirtualTrainBrakeCylinderPressureBAR,gProbihaValce,gHraniceValce,gHODNOTA_LAST_Valce = PIDcntrlCommon(plynuleValce*1000,VirtualTrainBrakeCylinderPressureBAR*1000,gProbihaValce,gHraniceValce,gHODNOTA_LAST_Valce,10000)
+							if nezobrazujValce then
+								nastaveneValce = math.min(valcePrimocinne,3.8)
+							else
+								if nastaveneValce > plynuleValceZobrazene then
+									plynuleValceZobrazene = plynuleValceZobrazene + math.sqrt(math.abs(nastaveneValce-plynuleValceZobrazene))/20
+								elseif plynuleValceZobrazene > nastaveneValce then
+									plynuleValceZobrazene = plynuleValceZobrazene - math.sqrt(math.abs(nastaveneValce-plynuleValceZobrazene))/40
 								end
-								if dvereLZskutecne < 0 then
-									dvereLZskutecne = 0
+							end
+							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,plynuleValceZobrazene)
+							
+							if plynuleValce_bezBP == 0 then
+								Call("SetControlValue","TrainBrakeControl",0,0)
+							elseif plynuleValce_bezBP >= 2.2 and bylaZachrana then
+								Call("SetControlValue","TrainBrakeControl",0,1)
+							else
+								Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
+							end
+
+							if Baterie == 1 and vnitrniSit220V == 1 and PC == 3.75 and (hlkomp == -1 or (hlkomp == 1 and autoKompresor)) then
+								Call("SetControlValue","kompresor_zvk",0,1)
+							else
+								Call("SetControlValue","kompresor_zvk",0,0)
+							end
+							Call("SetControlValue","kompom_zvk",0,math.min(math.abs(pomkomp),Baterie))
+							Call("SetControlValue","pojistovak",0,math.abs(bylpojistovak))
+							PantoJimkaZHJ=math.min(Call("GetControlValue","VirtualMainReservoirPressureBAR",0),3.11)
+							Call("SetControlValue","PantoJimka",0,math.max(PantoJimkaZKom,PantoJimkaZHJ))
+							Call("SetControlValue","SberaceJimka",0,math.max(PantoJimkaZHJ,PantoJimkaZKom))
+							if PP > 0 then
+								sberac1TlakPozadovany = math.min(Call("GetControlValue","SberaceJimka",0),5)
+							else
+								sberac1TlakPozadovany = 0
+							end
+							if ZP > 0 then
+								sberac2TlakPozadovany = math.min(Call("GetControlValue","SberaceJimka",0),5)
+							else
+								sberac2TlakPozadovany = 0
+							end
+							sberac1Tlak = Call("GetControlValue","Sberac1Tlak",0)
+							sberac2Tlak = Call("GetControlValue","Sberac2Tlak",0)
+							if sberac1Tlak < sberac1TlakPozadovany then
+								Call("SetControlValue","Sberac1Tlak",0,sberac1Tlak+0.05)
+							elseif sberac1Tlak > sberac1TlakPozadovany then
+								Call("SetControlValue","Sberac1Tlak",0,sberac1Tlak-0.05)
+							end
+							if sberac2Tlak < sberac2TlakPozadovany then
+								Call("SetControlValue","Sberac2Tlak",0,sberac2Tlak+0.05)
+							elseif sberac2Tlak > sberac2TlakPozadovany then
+								Call("SetControlValue","Sberac2Tlak",0,sberac2Tlak-0.05)
+							end
+							Call("SetControlValue","DvereTlak",0,math.min(VirtualMainReservoirPressureBAR,7))
+							Call("SetControlValue","PrepinaceTlak",0,math.min(VirtualMainReservoirPressureBAR,5))
+
+						----------------------------------------Ovladani HV---------------------------------------
+							PolohaKlice = Call ("GetControlValue", "VirtualStartup", 0)
+							if PolohaKlice == 25 then klic = 1 end
+							if (PolohaKlice < 50 or Baterie ~= 1) and RizenaRidici == "ridici" then
+								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
+							elseif ZamekHLvyp == 0 and PolohaKlice > 50 and Baterie == 1 and RizenaRidici == "ridici" then
+								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
+							end
+
+							if Baterie ~= 1 or Call("GetControlValue", "povel_HlavniVypinac", 0) == 0 then
+								Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+							elseif ZamekHLvyp == 0 and Baterie == 1 and Call("GetControlValue", "povel_HlavniVypinac", 0) == 1 then
+								Call ( "SetControlValue", "HlavniVypinac", 0, 1)
+							end
+
+							-- if klic == 1 and PolohaKlice < 75 and PolohaKlice > 50 and Call("GetControlValue","DrziKlicek",0) == 0 then
+							-- 	Call("SetControlValue","VirtualStartup",0,75)
+							-- end
+							-- if klic == 1 and PolohaKlice < 50 and PolohaKlice > 25 and Call("GetControlValue","DrziKlicek",0) == 0 then
+							-- 	Call("SetControlValue","VirtualStartup",0,25)
+							-- end
+
+							if PolohaKlice < 50 and math.max(diagPU,skluzDiag,niDiag) == 0 then
+								ZamekHLvyp = 0
+							end
+						----------------------------------------Cvakani HASLERa-----------------------------------
+							if Rychlost >= 0.1 then if CasHasler >= 1 then
+									HaslerChylka = math.random(-1,1)
+									Call("SetControlValue","HaslerRucka",0,(Rychlost+HaslerChylka))
+									CasHasler = 0
+									end
+							elseif Rychlost < 0.1 then
+								Call("SetControlValue","HaslerRucka",0,0)
+							end
+							if Rychlost <= 1 then
+								if zvukhasler ~= 1 then
+									Call("SetControlValue","ZvukHasler",0,1)
+									zvukhasler = 1
 								end
+							elseif zvukhasler ~= 2 then
+								Call("SetControlValue","ZvukHasler",0,2)
+								zvukhasler = 2
 							end
-							Call("SetTime", "Dvere2L", dvereLZskutecne * 2.125)
-
-							if PP ~= dverePPskutecne then
-								if PP > dverePPskutecne then
-									dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveri)
-								elseif PP < dverePPskutecne then
-									dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveri)
+						----------------------------------------Dvere---------------------------------------------
+							--dvere ze soupravy
+								if otocDvere then
+									dverePraveVSouprave = Call("GetControlValue","DvereLeveVSouprave",0)
+									dvereLeveVSouprave = Call("GetControlValue","DverePraveVSouprave",0)
+								else
+									dvereLeveVSouprave = Call("GetControlValue","DvereLeveVSouprave",0)
+									dverePraveVSouprave = Call("GetControlValue","DverePraveVSouprave",0)
 								end
-								if dverePPskutecne < 0 then
-									dverePPskutecne = 0
+
+							--kridla dveri
+								local LP = Call("GetControlValue","DvereLP",0)
+								local LZ = Call("GetControlValue","DvereLZ",0)
+								local PP = Call("GetControlValue","DverePP",0)
+								local PZ = Call("GetControlValue","DverePZ",0)
+
+								if LP ~= dvereLPskutecne then
+									if LP > dvereLPskutecne then
+										dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveri)
+									elseif LP < dvereLPskutecne then
+										dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveri)
+									end
+									if dvereLPskutecne < 0 then
+										dvereLPskutecne = 0
+									end
 								end
-							end
-							Call("SetTime", "Dvere1P", dverePPskutecne * 2.125)
+								Call("SetTime", "Dvere1L", dvereLPskutecne * 2.125)
 
-							if PZ ~= dverePZskutecne then
-								if PZ > dverePZskutecne then
-									dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveri)
-								elseif PZ < dverePZskutecne then
-									dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveri)
+								if LZ ~= dvereLZskutecne then
+									if LZ > dvereLZskutecne then
+										dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveri)
+									elseif LZ < dvereLZskutecne then
+										dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveri)
+									end
+									if dvereLZskutecne < 0 then
+										dvereLZskutecne = 0
+									end
 								end
-								if dverePZskutecne < 0 then
-									dverePZskutecne = 0
+								Call("SetTime", "Dvere2L", dvereLZskutecne * 2.125)
+
+								if PP ~= dverePPskutecne then
+									if PP > dverePPskutecne then
+										dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveri)
+									elseif PP < dverePPskutecne then
+										dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveri)
+									end
+									if dverePPskutecne < 0 then
+										dverePPskutecne = 0
+									end
 								end
-							end
-							Call("SetTime", "Dvere2P", dverePZskutecne * 2.125)
+								Call("SetTime", "Dvere1P", dverePPskutecne * 2.125)
 
-						--blokovani dveri
-							--true - dvere zablokovane
-							--false - dvere odblokovane
-							blokLeve = ToBolAndBack(Call("GetControlValue","DvereLeveBlok",0))
-							blokPrave = ToBolAndBack(Call("GetControlValue","DverePraveBlok",0))
+								if PZ ~= dverePZskutecne then
+									if PZ > dverePZskutecne then
+										dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveri)
+									elseif PZ < dverePZskutecne then
+										dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveri)
+									end
+									if dverePZskutecne < 0 then
+										dverePZskutecne = 0
+									end
+								end
+								Call("SetTime", "Dvere2P", dverePZskutecne * 2.125)
 
-						--koncove spinace dveri HV
-							--true - dvere zavrene
-							--false - dvere otevrene
-							koncakLeve = false
-							koncakPrave = false
-							if dvereLPskutecne == 0 and dvereLZskutecne == 0 then
-								koncakLeve = true
-							end
-							if dverePPskutecne == 0 and dverePZskutecne == 0 then
-								koncakPrave = true
-							end
+							--blokovani dveri
+								--true - dvere zablokovane
+								--false - dvere odblokovane
+								blokLeve = ToBolAndBack(Call("GetControlValue","DvereLeveBlok",0))
+								blokPrave = ToBolAndBack(Call("GetControlValue","DverePraveBlok",0))
 
-						--prepinace dveri
-							--pravy - 0 leve dvere
-								   -- 1 zavrene
-								   -- 2 prave dvere
-							local prepPravy = Call("GetControlValue","DverePrepPravy",0)
-							--levy - otevrit = true, zavrit = false
-							local prepLevy = ToBolAndBack(Call("GetControlValue","DverePrepLevy",0))
+							--koncove spinace dveri HV
+								--true - dvere zavrene
+								--false - dvere otevrene
+								koncakLeve = false
+								koncakPrave = false
+								if dvereLPskutecne == 0 and dvereLZskutecne == 0 then
+									koncakLeve = true
+								end
+								if dverePPskutecne == 0 and dverePZskutecne == 0 then
+									koncakPrave = true
+								end
 
-							--leve dvere lokalni
-							if (prepPravy == 0 or prepLevy) and RizenaRidici == "ridici" then
-								dvereLevePovelLokalni = true
-								dvereLevePridrznyStav = true
-							elseif prepPravy >= 1 and not prepLevy then
-								dvereLevePovelLokalni = false
-							end
+							--prepinace dveri
+								--pravy - 0 leve dvere
+									-- 1 zavrene
+									-- 2 prave dvere
+								local prepPravy = Call("GetControlValue","DverePrepPravy",0)
+								--levy - otevrit = true, zavrit = false
+								local prepLevy = ToBolAndBack(Call("GetControlValue","DverePrepLevy",0))
 
-							--prave dvere lokalni
-							if prepPravy == 2 and RizenaRidici == "ridici" then
-								dverePravePovelLokalni = true
-								dverePravePridrznyStav = true
-							elseif prepPravy <= 1 then
-								dverePravePovelLokalni = false
-							end
+								--leve dvere lokalni
+								if (prepPravy == 0 or prepLevy) and RizenaRidici == "ridici" then
+									dvereLevePovelLokalni = true
+									dvereLevePridrznyStav = true
+								elseif prepPravy >= 1 and not prepLevy then
+									dvereLevePovelLokalni = false
+								end
 
-						--pridrzny obvod dveri
-							if RizenaRidici == "ridici" then
-								if dvereStavLast ~= tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni) or RizenaRidici ~= RizenaRidiciLast_dvere then
+								--prave dvere lokalni
+								if prepPravy == 2 and RizenaRidici == "ridici" then
+									dverePravePovelLokalni = true
+									dverePravePridrznyStav = true
+								elseif prepPravy <= 1 then
+									dverePravePovelLokalni = false
+								end
+
+							--pridrzny obvod dveri
+								if RizenaRidici == "ridici" then
+									if dvereStavLast ~= tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni) or RizenaRidici ~= RizenaRidiciLast_dvere then
+										dvereStavLast = tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni)
+										RizenaRidiciLast_dvere = RizenaRidici
+										if dvereLevePovelLokalni then
+											Call("SendConsistMessage",460109,"11",0)
+											Call("SendConsistMessage",460109,"11",1)
+										else
+											Call("SendConsistMessage",460109,"00",0)
+											Call("SendConsistMessage",460109,"00",1)
+											dvereLevePridrznyStav = false
+										end
+										if dverePravePovelLokalni then
+											Call("SendConsistMessage",460105,"11",0)
+											Call("SendConsistMessage",460105,"11",1)
+										else
+											Call("SendConsistMessage",460105,"00",0)
+											Call("SendConsistMessage",460105,"00",1)
+											dverePravePridrznyStav = false
+										end
+									end
+								elseif dvereStavLast ~= tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni) or RizenaRidici ~= RizenaRidiciLast_dvere then
 									dvereStavLast = tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni)
 									RizenaRidiciLast_dvere = RizenaRidici
-									if dvereLevePovelLokalni then
-										Call("SendConsistMessage",460109,"11",0)
-										Call("SendConsistMessage",460109,"11",1)
-									else
-										Call("SendConsistMessage",460109,"00",0)
-										Call("SendConsistMessage",460109,"00",1)
-										dvereLevePridrznyStav = false
+									if not dvereLevePovelLokalni and dvereLevePridrznyStav then
+										Call("SendConsistMessage",460109,"01",0)
+										Call("SendConsistMessage",460109,"01",1)
 									end
-									if dverePravePovelLokalni then
-										Call("SendConsistMessage",460105,"11",0)
-										Call("SendConsistMessage",460105,"11",1)
-									else
-										Call("SendConsistMessage",460105,"00",0)
-										Call("SendConsistMessage",460105,"00",1)
-										dverePravePridrznyStav = false
+									if not dverePravePovelLokalni and dverePravePridrznyStav then
+										Call("SendConsistMessage",460105,"01",0)
+										Call("SendConsistMessage",460105,"01",1)
 									end
 								end
-							elseif dvereStavLast ~= tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni) or RizenaRidici ~= RizenaRidiciLast_dvere then
-								dvereStavLast = tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni)
-								RizenaRidiciLast_dvere = RizenaRidici
-								if not dvereLevePovelLokalni and dvereLevePridrznyStav then
-									Call("SendConsistMessage",460109,"01",0)
-									Call("SendConsistMessage",460109,"01",1)
+
+							--blokovaniDveri
+								--leve dvere
+								if (dvereLevePridrznyStav or dvereLevePovelLokalni or dvereLeveZeSoupravy) and Call("GetSpeed") < 0.1 then
+									blokLeve = false
+								elseif dvereLeveVSouprave == 0 then
+									blokLeve = true
 								end
-								if not dverePravePovelLokalni and dverePravePridrznyStav then
-									Call("SendConsistMessage",460105,"01",0)
-									Call("SendConsistMessage",460105,"01",1)
+
+								--prave dvere
+								if (dverePravePridrznyStav or dverePravePovelLokalni or dverePraveZeSoupravy) and Call("GetSpeed") < 0.1 then
+									blokPrave = false
+								elseif dverePraveVSouprave == 0 then
+									blokPrave = true
 								end
-							end
 
-						--blokovaniDveri
-							--leve dvere
-							if (dvereLevePridrznyStav or dvereLevePovelLokalni or dvereLeveZeSoupravy) and Call("GetSpeed") < 0.1 then
-								blokLeve = false
-							elseif dvereLeveVSouprave == 0 then
-								blokLeve = true
-							end
+								if tostring(dvereLevePridrznyStav)..tostring(dvereLevePovelLokalni)..tostring(dvereLeveZeSoupravy)..tostring(dverePravePridrznyStav)..tostring(dverePravePovelLokalni)..tostring(dverePraveZeSoupravy)..tostring(blokLeve)..tostring(blokPrave) ~= dvereVypisLast then
+									dvereVypisLast = tostring(dvereLevePridrznyStav)..tostring(dvereLevePovelLokalni)..tostring(dvereLeveZeSoupravy)..tostring(dverePravePridrznyStav)..tostring(dverePravePovelLokalni)..tostring(dverePraveZeSoupravy)..tostring(blokLeve)..tostring(blokPrave)
+									ZpravaDebug("Dvere leve pridrzny stav: "..tostring(dvereLevePridrznyStav))
+									ZpravaDebug("Dvere leve lokalni povel: "..tostring(dvereLevePovelLokalni))
+									ZpravaDebug("Dvere leve povel ze soupravy: "..tostring(dvereLeveZeSoupravy))
 
-							--prave dvere
-							if (dverePravePridrznyStav or dverePravePovelLokalni or dverePraveZeSoupravy) and Call("GetSpeed") < 0.1 then
-								blokPrave = false
-							elseif dverePraveVSouprave == 0 then
-								blokPrave = true
-							end
+									ZpravaDebug("Dvere prave pridrzny stav: "..tostring(dverePravePridrznyStav))
+									ZpravaDebug("Dvere prave lokalni povel: "..tostring(dverePravePovelLokalni))
+									ZpravaDebug("Dvere prave povel ze soupravy: "..tostring(dverePraveZeSoupravy))
 
-							if tostring(dvereLevePridrznyStav)..tostring(dvereLevePovelLokalni)..tostring(dvereLeveZeSoupravy)..tostring(dverePravePridrznyStav)..tostring(dverePravePovelLokalni)..tostring(dverePraveZeSoupravy)..tostring(blokLeve)..tostring(blokPrave) ~= dvereVypisLast then
-								dvereVypisLast = tostring(dvereLevePridrznyStav)..tostring(dvereLevePovelLokalni)..tostring(dvereLeveZeSoupravy)..tostring(dverePravePridrznyStav)..tostring(dverePravePovelLokalni)..tostring(dverePraveZeSoupravy)..tostring(blokLeve)..tostring(blokPrave)
-								ZpravaDebug("Dvere leve pridrzny stav: "..tostring(dvereLevePridrznyStav))
-								ZpravaDebug("Dvere leve lokalni povel: "..tostring(dvereLevePovelLokalni))
-								ZpravaDebug("Dvere leve povel ze soupravy: "..tostring(dvereLeveZeSoupravy))
+									ZpravaDebug("Dvere leve blokovani: "..tostring(blokLeve))
+									ZpravaDebug("Dvere prave blokovani: "..tostring(blokPrave))
+								end
 
-								ZpravaDebug("Dvere prave pridrzny stav: "..tostring(dverePravePridrznyStav))
-								ZpravaDebug("Dvere prave lokalni povel: "..tostring(dverePravePovelLokalni))
-								ZpravaDebug("Dvere prave povel ze soupravy: "..tostring(dverePraveZeSoupravy))
+							
+							--prenos stavu dveri do dalsiho vozu
+								--leve
+								if otocDvere then
+									if dvereLPskutecne ~= 0 or dvereLZskutecne ~= 0 then
+										NastavHodnotuSID("DverePraveVSouprave",1,460115)
+									elseif dvereLPskutecne == 0 and dvereLZskutecne == 0 then
+										NastavHodnotuSID("DverePraveVSouprave",0,460115)
+									end
 
-								ZpravaDebug("Dvere leve blokovani: "..tostring(blokLeve))
-								ZpravaDebug("Dvere prave blokovani: "..tostring(blokPrave))
-							end
+									--prave
+									if dverePPskutecne ~= 0 or dverePZskutecne ~= 0 then
+										NastavHodnotuSID("DvereLeveVSouprave",1,460114)
+									elseif dverePPskutecne == 0 and dverePZskutecne == 0 then
+										NastavHodnotuSID("DvereLeveVSouprave",0,460114)
+									end
+								else
+									if dvereLPskutecne ~= 0 or dvereLZskutecne ~= 0 then
+										NastavHodnotuSID("DvereLeveVSouprave",1,460114)
+									elseif dvereLPskutecne == 0 and dvereLZskutecne == 0 then
+										NastavHodnotuSID("DvereLeveVSouprave",0,460114)
+									end
 
-						
-						--prenos stavu dveri do dalsiho vozu
-							--leve
-							if otocDvere then
-								if dvereLPskutecne ~= 0 or dvereLZskutecne ~= 0 then
-									NastavHodnotuSID("DverePraveVSouprave",1,460115)
-								elseif dvereLPskutecne == 0 and dvereLZskutecne == 0 then
-									NastavHodnotuSID("DverePraveVSouprave",0,460115)
+									--prave
+									if dverePPskutecne ~= 0 or dverePZskutecne ~= 0 then
+										NastavHodnotuSID("DverePraveVSouprave",1,460115)
+									elseif dverePPskutecne == 0 and dverePZskutecne == 0 then
+										NastavHodnotuSID("DverePraveVSouprave",0,460115)
+									end
+								end
+							
+							--signalizace otevrenych dveri
+								if dvereLeveVSouprave ~= 0 then
+									kontrolkaKoncakLeve = false
+								else
+									kontrolkaKoncakLeve = true
+								end
+
+								if dverePraveVSouprave ~= 0 then
+									kontrolkaKoncakPrave = false
+								else
+									kontrolkaKoncakPrave = true
+								end
+
+							--rizeni dveri
+								DOPCL = ToBolAndBack(Call("GetControlValue","DoorsOpenCloseLeft", 0))
+								DOPCP = ToBolAndBack(Call("GetControlValue","DoorsOpenCloseRight", 0))
+
+								--leve
+								if DOPCL and not blokLeve then
+									Call("SetControlValue","DvereLP",0,1)
+									Call("SetControlValue","DvereLZ",0,1)
+								elseif DOPCL then
+									if RizenaRidici == "ridici" then
+										Call("SetControlValue","DverePrepLevy",0,1)
+										Napoveda(SysCall("ScenarioManager:FormatString","Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji levou klicku do polohy otevreno!"),1)
+									else
+										Call("SendConsistMessage",460108,"leve",1)
+										Call("SendConsistMessage",460108,"leve",0)
+									end
+								end
+								if not dvereLevePridrznyStav and not dvereLevePovelLokalni and not dvereLeveZeSoupravy then
+									Call("SetControlValue","DvereLP",0,0)
+									Call("SetControlValue","DvereLZ",0,0)
 								end
 
 								--prave
-								if dverePPskutecne ~= 0 or dverePZskutecne ~= 0 then
-									NastavHodnotuSID("DvereLeveVSouprave",1,460114)
-								elseif dverePPskutecne == 0 and dverePZskutecne == 0 then
-									NastavHodnotuSID("DvereLeveVSouprave",0,460114)
+								if DOPCP and not blokPrave then
+									Call("SetControlValue","DverePP",0,1)
+									Call("SetControlValue","DverePZ",0,1)
+								elseif DOPCP then
+									if RizenaRidici == "ridici" then
+										Call("SetControlValue","DverePrepPravy",0,2)
+										Napoveda(SysCall("ScenarioManager:FormatString","Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji pravou klicku do polohy otevreno-prave!"),1)
+									else
+										Call("SendConsistMessage",460108,"prave",1)
+										Call("SendConsistMessage",460108,"prave",0)
+									end
 								end
-							else
-								if dvereLPskutecne ~= 0 or dvereLZskutecne ~= 0 then
-									NastavHodnotuSID("DvereLeveVSouprave",1,460114)
-								elseif dvereLPskutecne == 0 and dvereLZskutecne == 0 then
-									NastavHodnotuSID("DvereLeveVSouprave",0,460114)
+								if not dverePravePridrznyStav and not dverePravePovelLokalni and not dverePraveZeSoupravy then
+									Call("SetControlValue","DverePP",0,0)
+									Call("SetControlValue","DverePZ",0,0)
 								end
-
-								--prave
-								if dverePPskutecne ~= 0 or dverePZskutecne ~= 0 then
-									NastavHodnotuSID("DverePraveVSouprave",1,460115)
-								elseif dverePPskutecne == 0 and dverePZskutecne == 0 then
-									NastavHodnotuSID("DverePraveVSouprave",0,460115)
-								end
-							end
-						
-						--signalizace otevrenych dveri
-							if dvereLeveVSouprave ~= 0 then
-								kontrolkaKoncakLeve = false
-							else
-								kontrolkaKoncakLeve = true
-							end
-
-							if dverePraveVSouprave ~= 0 then
-								kontrolkaKoncakPrave = false
-							else
-								kontrolkaKoncakPrave = true
-							end
-
-						--rizeni dveri
-							DOPCL = ToBolAndBack(Call("GetControlValue","DoorsOpenCloseLeft", 0))
-							DOPCP = ToBolAndBack(Call("GetControlValue","DoorsOpenCloseRight", 0))
-
-							--leve
-							if DOPCL and not blokLeve then
-								Call("SetControlValue","DvereLP",0,1)
-								Call("SetControlValue","DvereLZ",0,1)
-							elseif DOPCL then
-								if RizenaRidici == "ridici" then
-									Call("SetControlValue","DverePrepLevy",0,1)
-									Napoveda(SysCall("ScenarioManager:FormatString","Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji levou klicku do polohy otevreno!"),1)
+							
+							--zapis kontrolek
+								if Baterie == 1 then
+									Call("SetControlValue","DvereLeveBlok",0, ToBolAndBack(blokLeve))
+									Call("SetControlValue","DverePraveBlok",0, ToBolAndBack(blokPrave))
+									Call("SetControlValue","DvereLeveKoncak",0, ToBolAndBack(kontrolkaKoncakLeve))
+									Call("SetControlValue","DverePraveKoncak",0, ToBolAndBack(kontrolkaKoncakPrave))
 								else
-									Call("SendConsistMessage",460108,"leve",1)
-									Call("SendConsistMessage",460108,"leve",0)
+									Call("SetControlValue","DvereLeveBlok",0, 1)
+									Call("SetControlValue","DverePraveBlok",0, 1)
+									Call("SetControlValue","DvereLeveKoncak",0, 1)
+									Call("SetControlValue","DverePraveKoncak",0, 1)
 								end
-							end
-							if not dvereLevePridrznyStav and not dvereLevePovelLokalni and not dvereLeveZeSoupravy then
-								Call("SetControlValue","DvereLP",0,0)
-								Call("SetControlValue","DvereLZ",0,0)
-							end
 
-							--prave
-							if DOPCP and not blokPrave then
-								Call("SetControlValue","DverePP",0,1)
-								Call("SetControlValue","DverePZ",0,1)
-							elseif DOPCP then
-								if RizenaRidici == "ridici" then
-									Call("SetControlValue","DverePrepPravy",0,2)
-									Napoveda(SysCall("ScenarioManager:FormatString","Nemuzes nechat nastupovat cestujici zavrenymi dvermi! Prestavuji pravou klicku do polohy otevreno-prave!"),1)
-								else
-									Call("SendConsistMessage",460108,"prave",1)
-									Call("SendConsistMessage",460108,"prave",0)
-								end
-							end
-							if not dverePravePridrznyStav and not dverePravePovelLokalni and not dverePraveZeSoupravy then
-								Call("SetControlValue","DverePP",0,0)
-								Call("SetControlValue","DverePZ",0,0)
-							end
-						
-						--zapis kontrolek
-							if Baterie == 1 then
-								Call("SetControlValue","DvereLeveBlok",0, ToBolAndBack(blokLeve))
-								Call("SetControlValue","DverePraveBlok",0, ToBolAndBack(blokPrave))
-								Call("SetControlValue","DvereLeveKoncak",0, ToBolAndBack(kontrolkaKoncakLeve))
-								Call("SetControlValue","DverePraveKoncak",0, ToBolAndBack(kontrolkaKoncakPrave))
+							if kontrolkaKoncakLeve then
+								prasatkoHodnotaL, gProbihaPrasatkoL, gHranicePrasatkoL, gHODNOTA_LAST_PrasatkoL = PIDcntrlCommon(1200,Call("GetControlValue","PrasatkoDvereL",0)*1000,gProbihaPrasatkoL,gHranicePrasatkoL,gHODNOTA_LAST_PrasatkoL,3000)
 							else
-								Call("SetControlValue","DvereLeveBlok",0, 1)
-								Call("SetControlValue","DverePraveBlok",0, 1)
-								Call("SetControlValue","DvereLeveKoncak",0, 1)
-								Call("SetControlValue","DverePraveKoncak",0, 1)
+								prasatkoHodnotaL, gProbihaPrasatkoL, gHranicePrasatkoL, gHODNOTA_LAST_PrasatkoL = PIDcntrlCommon(1800,Call("GetControlValue","PrasatkoDvereL",0)*1000,gProbihaPrasatkoL,gHranicePrasatkoL,gHODNOTA_LAST_PrasatkoL,3000)
 							end
-
-						if kontrolkaKoncakLeve then
-							prasatkoHodnotaL, gProbihaPrasatkoL, gHranicePrasatkoL, gHODNOTA_LAST_PrasatkoL = PIDcntrlCommon(1200,Call("GetControlValue","PrasatkoDvereL",0)*1000,gProbihaPrasatkoL,gHranicePrasatkoL,gHODNOTA_LAST_PrasatkoL,3000)
-						else
-							prasatkoHodnotaL, gProbihaPrasatkoL, gHranicePrasatkoL, gHODNOTA_LAST_PrasatkoL = PIDcntrlCommon(1800,Call("GetControlValue","PrasatkoDvereL",0)*1000,gProbihaPrasatkoL,gHranicePrasatkoL,gHODNOTA_LAST_PrasatkoL,3000)
-						end
-						Call("SetControlValue","PrasatkoDvereL",0,prasatkoHodnotaL)
-						
-						if kontrolkaKoncakPrave then
-							prasatkoHodnotaP, gProbihaPrasatkoP, gHranicePrasatkoP, gHODNOTA_LAST_PrasatkoP = PIDcntrlCommon(1200,Call("GetControlValue","PrasatkoDvereP",0)*1000,gProbihaPrasatkoP,gHranicePrasatkoP,gHODNOTA_LAST_PrasatkoP,3000)
-						else
-							prasatkoHodnotaP, gProbihaPrasatkoP, gHranicePrasatkoP, gHODNOTA_LAST_PrasatkoP = PIDcntrlCommon(1800,Call("GetControlValue","PrasatkoDvereP",0)*1000,gProbihaPrasatkoP,gHranicePrasatkoP,gHODNOTA_LAST_PrasatkoP,3000)
-						end
-						Call("SetControlValue","PrasatkoDvereP",0,prasatkoHodnotaP)
-
-					----------------------------------------Pantografy----------------------------------------
-						if RizenaRidici == "ridici" and (Call("GetControlValue","povel_VirtualPantographControl",0) >= 0 and Call("GetControlValue","povel_VirtualPantographControl",0) < 1.5) and Baterie == 1 and HlavniVypinac == 1 then
-							gZadniSmetak = 1
-							gPredniSmetak = 0
-						elseif RizenaRidici == "ridici" then
-							gZadniSmetak = 0
-							gPredniSmetak = 0
-						end
-
-						if RizenaRidici == "rizena" and (Call("GetControlValue","povel_VirtualPantographControl",0) > 0.5 and Call("GetControlValue","povel_VirtualPantographControl",0) <= 2) and Baterie == 1 and HlavniVypinac == 1 then
-							if MaPredniPantograf == 1 then
-								gPredniSmetak = 1
-								gZadniSmetak = 0
+							Call("SetControlValue","PrasatkoDvereL",0,prasatkoHodnotaL)
+							
+							if kontrolkaKoncakPrave then
+								prasatkoHodnotaP, gProbihaPrasatkoP, gHranicePrasatkoP, gHODNOTA_LAST_PrasatkoP = PIDcntrlCommon(1200,Call("GetControlValue","PrasatkoDvereP",0)*1000,gProbihaPrasatkoP,gHranicePrasatkoP,gHODNOTA_LAST_PrasatkoP,3000)
 							else
-								gPredniSmetak = 0
+								prasatkoHodnotaP, gProbihaPrasatkoP, gHranicePrasatkoP, gHODNOTA_LAST_PrasatkoP = PIDcntrlCommon(1800,Call("GetControlValue","PrasatkoDvereP",0)*1000,gProbihaPrasatkoP,gHranicePrasatkoP,gHODNOTA_LAST_PrasatkoP,3000)
+							end
+							Call("SetControlValue","PrasatkoDvereP",0,prasatkoHodnotaP)
+
+						----------------------------------------Pantografy----------------------------------------
+							if RizenaRidici == "ridici" and (Call("GetControlValue","povel_VirtualPantographControl",0) >= 0 and Call("GetControlValue","povel_VirtualPantographControl",0) < 1.5) and Baterie == 1 and HlavniVypinac == 1 then
 								gZadniSmetak = 1
+								gPredniSmetak = 0
+							elseif RizenaRidici == "ridici" then
+								gZadniSmetak = 0
+								gPredniSmetak = 0
 							end
-						elseif RizenaRidici == "rizena" then
-							gZadniSmetak = 0
-							gPredniSmetak = 0
-						end
 
-						if gCommonTimer >= 0.0125 then
-							if gPredniSmetak == 1 then -- predni zberac
-								if PredniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
-									gPredniSberacControl = gPredniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
-									Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
+							if RizenaRidici == "rizena" and (Call("GetControlValue","povel_VirtualPantographControl",0) > 0.5 and Call("GetControlValue","povel_VirtualPantographControl",0) <= 2) and Baterie == 1 and HlavniVypinac == 1 then
+								if MaPredniPantograf == 1 then
+									gPredniSmetak = 1
+									gZadniSmetak = 0
+								else
+									gPredniSmetak = 0
+									gZadniSmetak = 1
 								end
-							elseif gPredniSmetak == 0 then
-								if PredniPanto > 0 then
-									gPredniSberacControl = gPredniSberacControl - 0.075
-									Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
-								end
+							elseif RizenaRidici == "rizena" then
+								gZadniSmetak = 0
+								gPredniSmetak = 0
 							end
-							if MaPredniPantograf == 1 then
-								if gPredniSberacOld ~= Call("GetControlValue", "PantoPredni", 0) then
-									Call("AddTime", "PredniSberac", Call("GetControlValue", "PantoPredni", 0) - gPredniSberacOld)
+
+							if gCommonTimer >= 0.0125 then
+								if gPredniSmetak == 1 then -- predni zberac
+									if PredniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
+										gPredniSberacControl = gPredniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
+										Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
+									end
+								elseif gPredniSmetak == 0 then
+									if PredniPanto > 0 then
+										gPredniSberacControl = gPredniSberacControl - 0.075
+										Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
+									end
 								end
-								gPredniSberacOld = Call("GetControlValue", "PantoPredni", 0)
-								if gPredniSberacControl > 3.75 then gPredniSberacControl = 3.75 end
-								if gPredniSberacControl < 0 then gPredniSberacControl = 0 end
-							end
-							if gZadniSmetak == 1 then -- zadni zberac
-								if ZadniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
-									ZpravaDebug("Sberac"..gZadniSberacControl)
-									gZadniSberacControl = gZadniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
-									Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
+								if MaPredniPantograf == 1 then
+									if gPredniSberacOld ~= Call("GetControlValue", "PantoPredni", 0) then
+										Call("AddTime", "PredniSberac", Call("GetControlValue", "PantoPredni", 0) - gPredniSberacOld)
+									end
+									gPredniSberacOld = Call("GetControlValue", "PantoPredni", 0)
+									if gPredniSberacControl > 3.75 then gPredniSberacControl = 3.75 end
+									if gPredniSberacControl < 0 then gPredniSberacControl = 0 end
 								end
-							elseif gZadniSmetak == 0 then
-								if ZadniPanto > 0 then
-									gZadniSberacControl = gZadniSberacControl - 0.075
-									Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
+								if gZadniSmetak == 1 then -- zadni zberac
+									if ZadniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
+										ZpravaDebug("Sberac"..gZadniSberacControl)
+										gZadniSberacControl = gZadniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
+										Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
+									end
+								elseif gZadniSmetak == 0 then
+									if ZadniPanto > 0 then
+										gZadniSberacControl = gZadniSberacControl - 0.075
+										Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
+									end
 								end
+								if gZadniSberacOld ~= Call("GetControlValue", "PantoZadni", 0) then
+									Call("AddTime", "ZadniSberac", Call("GetControlValue", "PantoZadni", 0) - gZadniSberacOld)
+								end
+								gZadniSberacOld = Call("GetControlValue", "PantoZadni", 0)
+								if gZadniSberacControl > 3.75 then gZadniSberacControl = 3.75 end
+								if gZadniSberacControl < 0 then gZadniSberacControl = 0 end
+								gCommonTimer = 0
 							end
-							if gZadniSberacOld ~= Call("GetControlValue", "PantoZadni", 0) then
-								Call("AddTime", "ZadniSberac", Call("GetControlValue", "PantoZadni", 0) - gZadniSberacOld)
-							end
-							gZadniSberacOld = Call("GetControlValue", "PantoZadni", 0)
-							if gZadniSberacControl > 3.75 then gZadniSberacControl = 3.75 end
-							if gZadniSberacControl < 0 then gZadniSberacControl = 0 end
-							gCommonTimer = 0
-						end
-						if MaPredniPantograf == 1 then PP = Call ("GetControlValue", "PantoPredni", 0) else PP = 0 end
-						ZP = Call ("GetControlValue", "PantoZadni", 0)
-						if MaPredniPantograf == 1 then PC=math.max(PP,ZP) else PC = ZP end
-						if PC == 3.75 then
-							P01 = 1
-						else
-							P01 = 0
-						end
-						if PP > 3.70 and PP ~= 3.75 then 
-							Call("SetControlValue","PantoPredni",0,3.75)
-						end
-						if ZP > 3.70 and ZP ~= 3.75 then 
-							Call("SetControlValue","PantoZadni",0,3.75)
-						end
-					----------------------------------------Rozjezdov? proud konvert na ??slo-----------------
-						if Call("GetControlValue","RozProud",0) == 0 then
-							proud = 270
-						elseif Call("GetControlValue","RozProud",0) == 0.25 then
-							proud = 350
-						elseif Call("GetControlValue","RozProud",0) == 0.5 then
-							proud = 420
-						elseif Call("GetControlValue","RozProud",0) == 0.75 then
-							proud = 480
-						elseif Call("GetControlValue","RozProud",0) == 1 then
-							if stupenKontroleru < 8 then
-								proud = 420
+							if MaPredniPantograf == 1 then PP = Call ("GetControlValue", "PantoPredni", 0) else PP = 0 end
+							ZP = Call ("GetControlValue", "PantoZadni", 0)
+							if MaPredniPantograf == 1 then PC=math.max(PP,ZP) else PC = ZP end
+							if PC == 3.75 then
+								P01 = 1
 							else
-								proud = 570
+								P01 = 0
 							end
-						end
-					----------------------------------------Sn?h od kol v zim?--------------------------------
-						-- if math.abs(Rychlost) > 10 and RocniObdobi == 3 then
-						-- 	Call ("KourP1L:SetEmitterActive",1 ) 
-						-- 	Call ("KourP2L:SetEmitterActive",1 ) 
-						-- 	Call ("KourP1P:SetEmitterActive",1 ) 
-						-- 	Call ("KourP2P:SetEmitterActive",1 ) 
-						-- 	Call("KourP1L:SetEmitterRate",math.abs(1/Rychlost))
-						-- 	Call("KourP1L:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
-						-- 	Call("KourP1P:SetEmitterRate",math.abs(1/Rychlost))
-						-- 	Call("KourP1P:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
-						-- 	Call("KourP2P:SetEmitterRate",math.abs(1/Rychlost))
-						-- 	Call("KourP2P:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
-						-- 	Call("KourP2L:SetEmitterRate",math.abs(1/Rychlost))
-						-- 	Call("KourP2L:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
-						-- else
-						-- 	Call ("KourP1L:SetEmitterActive",0 ) 
-						-- 	Call ("KourP2L:SetEmitterActive",0 ) 
-						-- 	Call ("KourP1P:SetEmitterActive",0 ) 
-						-- 	Call ("KourP2P:SetEmitterActive",0 ) 
-						-- end
-					----------------------------------------Vedlej?? funkce-----------------------------------
-						if vykon ~= 0 and Baterie == 1 then
-							if vykon < 0.85 then
-								Call("SetControlValue","odporstup",0,1)
+							if PP > 3.70 and PP ~= 3.75 then 
+								Call("SetControlValue","PantoPredni",0,3.75)
+							end
+							if ZP > 3.70 and ZP ~= 3.75 then 
+								Call("SetControlValue","PantoZadni",0,3.75)
+							end
+						----------------------------------------Rozjezdov? proud konvert na ??slo-----------------
+							if Call("GetControlValue","RozProud",0) == 0 then
+								proud = 270
+							elseif Call("GetControlValue","RozProud",0) == 0.25 then
+								proud = 350
+							elseif Call("GetControlValue","RozProud",0) == 0.5 then
+								proud = 420
+							elseif Call("GetControlValue","RozProud",0) == 0.75 then
+								proud = 480
+							elseif Call("GetControlValue","RozProud",0) == 1 then
+								if stupenKontroleru < 8 then
+									proud = 420
+								else
+									proud = 570
+								end
+							end
+						----------------------------------------Sn?h od kol v zim?--------------------------------
+							-- if math.abs(Rychlost) > 10 and RocniObdobi == 3 then
+							-- 	Call ("KourP1L:SetEmitterActive",1 ) 
+							-- 	Call ("KourP2L:SetEmitterActive",1 ) 
+							-- 	Call ("KourP1P:SetEmitterActive",1 ) 
+							-- 	Call ("KourP2P:SetEmitterActive",1 ) 
+							-- 	Call("KourP1L:SetEmitterRate",math.abs(1/Rychlost))
+							-- 	Call("KourP1L:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+							-- 	Call("KourP1P:SetEmitterRate",math.abs(1/Rychlost))
+							-- 	Call("KourP1P:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+							-- 	Call("KourP2P:SetEmitterRate",math.abs(1/Rychlost))
+							-- 	Call("KourP2P:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+							-- 	Call("KourP2L:SetEmitterRate",math.abs(1/Rychlost))
+							-- 	Call("KourP2L:SetInitialVelocityMultiplier",math.abs(Rychlost/3.6))
+							-- else
+							-- 	Call ("KourP1L:SetEmitterActive",0 ) 
+							-- 	Call ("KourP2L:SetEmitterActive",0 ) 
+							-- 	Call ("KourP1P:SetEmitterActive",0 ) 
+							-- 	Call ("KourP2P:SetEmitterActive",0 ) 
+							-- end
+						----------------------------------------Vedlej?? funkce-----------------------------------
+							if vykon ~= 0 and Baterie == 1 then
+								if vykon < 0.85 then
+									Call("SetControlValue","odporstup",0,1)
+								else
+									Call("SetControlValue","odporstup",0,0)
+								end
 							else
 								Call("SetControlValue","odporstup",0,0)
+								casfail = 0
 							end
-						else
-							Call("SetControlValue","odporstup",0,0)
-							casfail = 0
-						end
-						if PosledniBaterie ~= Baterie then
-							if Baterie == 0 then
-								VypniVse()
+							if PosledniBaterie ~= Baterie then
+								if Baterie == 0 then
+									VypniVse()
+								end
 							end
-						end
-					----------------------------------------Zaclonky------------------------------------------
-						Call("SetTime", "ZaclonkaLB", Call("GetControlValue", "zaclonkaLB", 0))
-						Call("SetTime", "ZaclonkaLP", Call("GetControlValue", "zaclonkaLP", 0))
-						Call("SetTime", "ZaclonkaPP", Call("GetControlValue", "zaclonkaPP", 0))
-						Call("SetTime", "ZaclonkaPB", Call("GetControlValue", "zaclonkaPB", 0))
-					----------------------------------------Baterie-------------------------------------------
-						if Baterie == 1 then
-							if OsvetleniVozu <= 0.5 then
-								OsvetleniVozuF(0)
-							elseif OsvetleniVozu <= 1.5 then
-								OsvetleniVozuF(1)
-							elseif vnitrniSit220Vnouzova == 1 then
-								OsvetleniVozuF(2)
-							elseif vnitrniSit220Vnouzova ~= 1 then
-								OsvetleniVozuF(1)
+						----------------------------------------Zaclonky------------------------------------------
+							Call("SetTime", "ZaclonkaLB", Call("GetControlValue", "zaclonkaLB", 0))
+							Call("SetTime", "ZaclonkaLP", Call("GetControlValue", "zaclonkaLP", 0))
+							Call("SetTime", "ZaclonkaPP", Call("GetControlValue", "zaclonkaPP", 0))
+							Call("SetTime", "ZaclonkaPB", Call("GetControlValue", "zaclonkaPB", 0))
+						----------------------------------------Baterie-------------------------------------------
+							if Baterie == 1 then
+								if OsvetleniVozu <= 0.5 then
+									OsvetleniVozuF(0)
+								elseif OsvetleniVozu <= 1.5 then
+									OsvetleniVozuF(1)
+								elseif vnitrniSit220Vnouzova == 1 then
+									OsvetleniVozuF(2)
+								elseif vnitrniSit220Vnouzova ~= 1 then
+									OsvetleniVozuF(1)
+								end
+								if KabinaPrist == 1 then
+									KabinaPristF(1)
+								end
+								if KabinaPrist == 2 then
+									KabinaPristF(2)
+								end
+								if KabinaPrist == 0 then
+									KabinaPristF(0)
+								end
+								if Picka == 0 then
+									RozsvitSvetlo("CabLight2",0)
+								end
+								if Picka == 1 then
+									RozsvitSvetlo("CabLight2",1)
+								end
+								if levaPozBil or levaPozBilVPKC then
+									Pozicka("Leva","Bi",1)
+								else
+									Pozicka("Leva","Bi",0)
+								end
+								if levaPozCer or levaPozCerVPKC then
+									Pozicka("Leva","Cr",1)
+								else
+									Pozicka("Leva","Cr",0)
+								end
+								if pravaPozBil or pravaPozBilVPKC then
+									Pozicka("Prava","Bi",1)
+								else
+									Pozicka("Prava","Bi",0)
+								end
+								if pravaPozCer or pravaPozCerVPKC then
+									Pozicka("Prava","Cr",1)
+								else
+									Pozicka("Prava","Cr",0)
+								end
+								if horniPozBilVKPC then
+									Pozicka("Horni","Bi",1)
+								else
+									Pozicka("Horni","Bi",0)
+								end
 							end
-							if KabinaPrist == 1 then
-								KabinaPristF(1)
-							end
-							if KabinaPrist == 2 then
-								KabinaPristF(2)
-							end
-							if KabinaPrist == 0 then
-								KabinaPristF(0)
-							end
-							if Picka == 0 then
-								RozsvitSvetlo("CabLight2",0)
-							end
-							if Picka == 1 then
-								RozsvitSvetlo("CabLight2",1)
-							end
-							if levaPozBil or levaPozBilVPKC then
-								Pozicka("Leva","Bi",1)
+							if DalkovaSv <= 0.5 then
+								DalkovaSvF(0,cas,Baterie)
+							elseif DalkovaSv <= 1.5 then
+								DalkovaSvF(1,cas,Baterie)
 							else
-								Pozicka("Leva","Bi",0)
+								DalkovaSvF(2,cas,Baterie)
 							end
-							if levaPozCer or levaPozCerVPKC then
-								Pozicka("Leva","Cr",1)
-							else
-								Pozicka("Leva","Cr",0)
+							if klic == 1 then -- Jenom pokud je klic ve zdirce
+								if PolohaKlice < 25 then -- blokovani dolni schovane
+									Call ("SetControlValue", "VirtualStartup", 0, 25)
+								end
+								if PolohaKlice > 75 then -- blokovani horni schovane
+									Call ("SetControlValue", "VirtualStartup", 0, 75)
+								end
 							end
-							if pravaPozBil or pravaPozBilVPKC then
-								Pozicka("Prava","Bi",1)
-							else
-								Pozicka("Prava","Bi",0)
+							if pozadavekNaZapisKlice then
+								Call ("SetControlValue", "VirtualStartup", 0, PolohaKlice)
+								pozadavekNaZapisKlice = false
 							end
-							if pravaPozCer or pravaPozCerVPKC then
-								Pozicka("Prava","Cr",1)
-							else
-								Pozicka("Prava","Cr",0)
-							end
-							if horniPozBilVKPC then
-								Pozicka("Horni","Bi",1)
-							else
-								Pozicka("Horni","Bi",0)
-							end
-						end
-						if DalkovaSv <= 0.5 then
-							DalkovaSvF(0,cas,Baterie)
-						elseif DalkovaSv <= 1.5 then
-							DalkovaSvF(1,cas,Baterie)
-						else
-							DalkovaSvF(2,cas,Baterie)
-						end
-						if klic == 1 then -- Jenom pokud je klic ve zdirce
-							if PolohaKlice < 25 then -- blokovani dolni schovane
-								Call ("SetControlValue", "VirtualStartup", 0, 25)
-							end
-							if PolohaKlice > 75 then -- blokovani horni schovane
-								Call ("SetControlValue", "VirtualStartup", 0, 75)
-							end
-						end
-						if pozadavekNaZapisKlice then
-							Call ("SetControlValue", "VirtualStartup", 0, PolohaKlice)
-							pozadavekNaZapisKlice = false
-						end
 
-						if JeNouzovyRadic == 1 and Call("GetControlValue","RadicNouzovy",0) < 0 then
-							Call("SetControlValue","RadicNouzovy",0,0)
-						end
-					----------------------------------------Automatika a kontroler----------------------------
-						casstupnu = casstupnu+cas
-						if Call("GetControlValue","RidiciKontrolerOkno",0) > 1 and ridiciKontrolerOknoOCVC == Call("GetControlValue","RidiciKontrolerOkno",0) then
-							Call("SetControlValue","RidiciKontrolerOkno",0,1)
-						end
-						if RizenaRidici == "ridici" then
-							if JeNouzovyRadic == 0 then
-								Call("SetControlValue","povel_RidiciKontroler",0,VratRadic(Call("GetControlValue","VirtualThrottleAndBrake",0),Call("GetControlValue","RidiciKontrolerOkno",0)))
-								Call("SetControlValue","povel_NouzovyKontroler",0,0)
-							else
-								Call("SetControlValue","povel_RidiciKontroler",0,Call("GetControlValue","RadicNouzovy",0))
-								Call("SetControlValue","povel_NouzovyKontroler",0,1)
+							if JeNouzovyRadic == 1 and Call("GetControlValue","RadicNouzovy",0) < 0 then
+								Call("SetControlValue","RadicNouzovy",0,0)
 							end
-						end
-						kontroler = Call("GetControlValue","povel_RidiciKontroler",0)
-						if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
-						if TlakovyBlokJizdy and Call("GetControlValue","VirtualBrakePipePressureBAR",0) >= 4.7 then TlakovyBlokJizdy = false end
-						if JeNouzovyRadic == 0 and Call("GetControlValue","PrepinaceTlak",0) > 3.5 and Baterie == 1 and not pojezdVDepu then
-							caskroku = (math.random(8,12)/20)
-							caszkroku = (math.random(3,7)/20)
-							if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and plynuleValce > 1.2 and plynulaBrzda > 3.5) or not blokLeve or not blokPrave or zavedSnizenyVykon then 
-								if kontroler == 0 then
-									blokEDB = false
+						----------------------------------------Automatika a kontroler----------------------------
+							casstupnu = casstupnu+cas
+							if Call("GetControlValue","RidiciKontrolerOkno",0) > 1 and ridiciKontrolerOknoOCVC == Call("GetControlValue","RidiciKontrolerOkno",0) then
+								Call("SetControlValue","RidiciKontrolerOkno",0,1)
+							end
+							if RizenaRidici == "ridici" then
+								if JeNouzovyRadic == 0 then
+									Call("SetControlValue","povel_RidiciKontroler",0,VratRadic(Call("GetControlValue","VirtualThrottleAndBrake",0),Call("GetControlValue","RidiciKontrolerOkno",0)))
+									Call("SetControlValue","povel_NouzovyKontroler",0,0)
+								else
+									Call("SetControlValue","povel_RidiciKontroler",0,Call("GetControlValue","RadicNouzovy",0))
+									Call("SetControlValue","povel_NouzovyKontroler",0,1)
 								end
-								if vykon > 0 and casstupnu >= caszkroku then
-									if vykon - 0.05 > 0 then
-										uberstupen = vykon - 0.05
-									else
-										uberstupen = 0
+							end
+							kontroler = Call("GetControlValue","povel_RidiciKontroler",0)
+							if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
+							if TlakovyBlokJizdy and Call("GetControlValue","VirtualBrakePipePressureBAR",0) >= 4.7 then TlakovyBlokJizdy = false end
+							if JeNouzovyRadic == 0 and Call("GetControlValue","PrepinaceTlak",0) > 3.5 and Baterie == 1 and not pojezdVDepu then
+								caskroku = (math.random(8,12)/20)
+								caszkroku = (math.random(3,7)/20)
+								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and plynuleValce > 1.2 and plynulaBrzda > 3.5) or not blokLeve or not blokPrave or zavedSnizenyVykon then 
+									if kontroler == 0 then
+										blokEDB = false
 									end
-									Call("SetControlValue","JizdniKontroler",0,uberstupen)
-									casstupnu = 0
-								elseif vykon < 0 and casstupnu >= caskroku then
-									if vykon + 0.5 < 0 then
-										pridejstupen = vykon + 0.5
-									else
-										pridejstupen = 0
+									if vykon > 0 and casstupnu >= caszkroku then
+										if vykon - 0.05 > 0 then
+											uberstupen = vykon - 0.05
+										else
+											uberstupen = 0
+										end
+										Call("SetControlValue","JizdniKontroler",0,uberstupen)
+										casstupnu = 0
+									elseif vykon < 0 and casstupnu >= caskroku then
+										if vykon + 0.5 < 0 then
+											pridejstupen = vykon + 0.5
+										else
+											pridejstupen = 0
+										end
+										Call("SetControlValue","JizdniKontroler",0,pridejstupen)
+										casstupnu = 0
 									end
-									Call("SetControlValue","JizdniKontroler",0,pridejstupen)
-									casstupnu = 0
-								end
-							elseif kontroler == 0.5 and not blokKrokDOTO and not SnizenyVykonVozu then
-								if vykon < 0 and casstupnu >= caszkroku then
-									Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
-									casstupnu = 0
-								elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or pojezdNeschopna) then	
-									Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
-									casstupnu = 0
-								end
-							elseif kontroler == 1 and not blokKrokDOTO and ojDiag == 0 and not SnizenyVykonVozu then
-								if vykon >= 0 and vykon < 1 and casstupnu >= caskroku and (JOB == 1 or pojezdNeschopna) then
-									if Ammeter < proud then
+								elseif kontroler == 0.5 and not blokKrokDOTO and not SnizenyVykonVozu then
+									if vykon < 0 and casstupnu >= caszkroku then
+										Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
+										casstupnu = 0
+									elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or pojezdNeschopna) then	
 										Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
 										casstupnu = 0
 									end
-								elseif vykon < 0 and casstupnu >= caszkroku and (JOB == -1  or pojezdNeschopna) then
-									Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
-									casstupnu = 0
-								end
-							elseif kontroler == -0.5 and not blokKrokDOTO and Rychlost > 25 and not blokEDB then
-								if vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or pojezdNeschopna) then
-									Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
-									casstupnu = 0
-								elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) then	
-									Call("SetControlValue","JizdniKontroler",0,vykon-0.5)
-									casstupnu = 0
-								elseif vykon < -0.5 and casstupnu >= caszkroku and (JOB == -1 or pojezdNeschopna) then
-									Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
-									casstupnu = 0
-								end
-							elseif kontroler == -1 and not blokKrokDOTO and not blokKrokNU and Rychlost > 25 and not blokEDB and ojDiag == 0 then 
-								if vykon <= 0 and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) then
-									if Ammeter >= -350 then
-										Call("SetControlValue","JizdniKontroler",0,vykon-0.5)
+								elseif kontroler == 1 and not blokKrokDOTO and ojDiag == 0 and not SnizenyVykonVozu then
+									if vykon >= 0 and vykon < 1 and casstupnu >= caskroku and (JOB == 1 or pojezdNeschopna) then
+										if Ammeter < proud then
+											Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
+											casstupnu = 0
+										end
+									elseif vykon < 0 and casstupnu >= caszkroku and (JOB == -1  or pojezdNeschopna) then
+										Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
 										casstupnu = 0
 									end
-								elseif vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or pojezdNeschopna) then
+								elseif Rychlost < rychlostEDB and vykon <= -0.5 then
+									blokEDB = true
+									Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
+								elseif kontroler == -0.5 then
+									if vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or pojezdNeschopna) then
+										Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
+										casstupnu = 0
+									elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokDOTO and not blokEDB then	
+										Call("SetControlValue","JizdniKontroler",0,vykon-0.5)
+										casstupnu = 0
+									elseif vykon < -0.5 and casstupnu >= caszkroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokDOTO and not blokEDB then
+										Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
+										casstupnu = 0
+									end
+								elseif kontroler == -1 then 
+									if vykon <= 0 and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokDOTO and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB and ojDiag == 0 then
+										if Ammeter >= -350 then
+											Call("SetControlValue","JizdniKontroler",0,vykon-0.5)
+											casstupnu = 0
+										end
+									elseif vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or pojezdNeschopna) then
+										Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
+										casstupnu = 0
+									end
+								end
+							elseif JeNouzovyRadic == 1 and Call("GetControlValue","PrepinaceTlak",0) > 3.5 and Baterie == 1 and not pojezdVDepu then
+								caskroku = (math.random(8,12)/20)
+								caszkroku = (math.random(3,7)/20)
+								if kontroler - vykon > 0.03 and casstupnu >= caskroku and JOB == 1 and Smer ~= 0 and ventilatory == 1 then
+									Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
+									casstupnu = 0
+								elseif kontroler - vykon < -0.03 and vykon > 0 and casstupnu >= caszkroku or JOB ~= 1 then
 									Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
 									casstupnu = 0
 								end
-							elseif Rychlost < 20 and vykon <= -0.5 then
-								blokEDB = true
-								Call("SetControlValue","JizdniKontroler",0,vykon+0.5)
 							end
-						elseif JeNouzovyRadic == 1 and Call("GetControlValue","PrepinaceTlak",0) > 3.5 and Baterie == 1 and not pojezdVDepu then
-							caskroku = (math.random(8,12)/20)
-							caszkroku = (math.random(3,7)/20)
-							if kontroler - vykon > 0.03 and casstupnu >= caskroku and JOB == 1 and Smer ~= 0 and ventilatory == 1 then
-								Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
-								casstupnu = 0
-							elseif kontroler - vykon < -0.03 and vykon > 0 and casstupnu >= caszkroku or JOB ~= 1 then
-								Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
-								casstupnu = 0
+							vykon = Call("GetControlValue","JizdniKontroler",0) 
+							if (vykon < 0.05 and vykon >= 0) or (vykon > -0.5 and vykon <= 0) then 
+								Call("SetControlValue","JizdniKontroler",0,0) 
+								vykon = 0 
 							end
-						end
-						vykon = Call("GetControlValue","JizdniKontroler",0) 
-						if (vykon < 0.05 and vykon >= 0) or (vykon > -0.5 and vykon <= 0) then 
-							Call("SetControlValue","JizdniKontroler",0,0) 
-							vykon = 0 
-						end
-						pojezdNeschopna = false
-						if (PC == 3.75 and HlavniVypinac == 1 and Baterie == 1 and Call("GetControlValue","Ventilatory",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0) or pojezdVDepu then -- kontrola podmínek pro jízdu
-							if vykon == 0 or not pojezdNeschopna then
-								Call("SetControlValue","MuteSounds",0,0)
-							end
-							Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
-						elseif (kontroler ~= 0 or vykon ~= 0) and Call("GetControlValue","mgVS",0) > 0 and Baterie == 1 and not (SnizenyVykonVozu and vykon > 0) then
-							Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
-							pojezdNeschopna = true
-							Call("SetControlValue","MuteSounds",0,1)
-						else
-							if vykon == 0 or not pojezdNeschopna then
-								Call("SetControlValue","MuteSounds",0,0)
-							end
-							Call("SetControlValue","VykonPredTrCh",0,0)
-						end
-						if JeNouzovyRadic == 0 then
-							if Call("GetControlValue","VirtualThrottleAndBrake",0) > 1 then
-								Call("SetControlValue","VirtualThrottleAndBrake",0,1)
-							end
-						end
-						if JeNouzovyRadic == 1 and Call("GetControlValue","RadicNouzovy",0) > 0.85 then
-							Call("SetControlValue","RadicNouzovy",0,0.85)
-						end
-						stupenKontroleruOld = stupenKontroleru
-						if vykon > 0 then
-							stupenKontroleru = vykon/0.05
-							cele, zbytek = divMod(stupenKontroleru,1) 
-							if zbytek ~= 0 then
-								if zbytek > 0.5 then
-									stupenKontroleru = cele + 1
-								else 
-									stupenKontroleru = cele
+							pojezdNeschopna = false
+							if (PC == 3.75 and HlavniVypinac == 1 and Baterie == 1 and Call("GetControlValue","Ventilatory",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0) or pojezdVDepu then -- kontrola podmínek pro jízdu
+								if vykon == 0 or not pojezdNeschopna then
+									Call("SetControlValue","MuteSounds",0,0)
 								end
-							end
-						end
-						if vykon < 0 then
-							stupenKontroleru = vykon/0.5
-							cele, zbytek = divMod(stupenKontroleru,1)
-							if zbytek ~= 0 then
-								if zbytek < -0.5 then
-									stupenKontroleru = cele - 1
-								else
-									stupenKontroleru = cele
+								Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
+							elseif (kontroler ~= 0 or vykon ~= 0) and Call("GetControlValue","mgVS",0) > 0 and Baterie == 1 and not (SnizenyVykonVozu and vykon > 0) then
+								Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
+								pojezdNeschopna = true
+								Call("SetControlValue","MuteSounds",0,1)
+							else
+								if vykon == 0 or not pojezdNeschopna then
+									Call("SetControlValue","MuteSounds",0,0)
 								end
+								Call("SetControlValue","VykonPredTrCh",0,0)
 							end
-						end
-
-						local blokujJK = false
-						local blokujSmer = false
-						if Smer == 0 or Smer == 2 then
-							blokujJK = true
-						end
-						if vykon ~= 0 or (Call("GetControlValue","VirtualThrottleAndBrake",0) ~= 0 and Call("GetControlValue","VirtualThrottleAndBrake",0) ~= 2) or (Call("GetControlValue","RadicNouzovy",0) ~= 0 and Call("GetControlValue","RadicNouzovy",0) ~= 2) then
-							blokujSmer = true
-						end
-
-						if blokujSmer then
-							if smerBlokovany == nil then
-								cele, zbytek = divMod(Smer,1)
-								smerBlokovany = cele
-								if zbytek > 0.5 then
-									smerBlokovany = smerBlokovany + 1
-								end
-							end
-							Call("SetControlValue","UserVirtualReverser",0,smerBlokovany)
-						else
-							smerBlokovany = nil
-						end
-						
-						if blokujJK then
 							if JeNouzovyRadic == 0 then
-								if JKBlokovany == nil then
-									cele, zbytek = divMod(Call("GetControlValue","VirtualThrottleAndBrake",0),1)
-									JKBlokovany = cele
+								if Call("GetControlValue","VirtualThrottleAndBrake",0) > 1 then
+									Call("SetControlValue","VirtualThrottleAndBrake",0,1)
+								end
+							end
+							if JeNouzovyRadic == 1 and Call("GetControlValue","RadicNouzovy",0) > 0.85 then
+								Call("SetControlValue","RadicNouzovy",0,0.85)
+							end
+							stupenKontroleruOld = stupenKontroleru
+							if vykon > 0 then
+								stupenKontroleru = vykon/0.05
+								cele, zbytek = divMod(stupenKontroleru,1) 
+								if zbytek ~= 0 then
 									if zbytek > 0.5 then
-										JKBlokovany = JKBlokovany + 1
+										stupenKontroleru = cele + 1
+									else 
+										stupenKontroleru = cele
 									end
 								end
-								Call("SetControlValue","VirtualThrottleAndBrake",0,JKBlokovany)
-							else
-								Call("SetControlValue","RadicNouzovy",0,0)
 							end
-						else
-							JKBlokovany = nil
-						end
-						
-						if JeNouzovyRadic == 1 then
-							Call("SetControlValue","VirtualThrottleAndBrake",0,2)
-							if math.abs(Call("GetControlValue","RadicNouzovy",0)) < 0.025 then
-								Call("LockControl","JeNouzovyRadic",0,0)
-							end
-						else
-							Call("SetControlValue","RadicNouzovy",0,2)
-							if math.abs(Call("GetControlValue","VirtualThrottleAndBrake",0)) < 0.05 then
-								Call("LockControl","JeNouzovyRadic",0,0)
-							end
-						end
-
-						if math.abs(Call("GetControlValue","VirtualThrottleAndBrake",0)) > 0.05 and math.abs(2-Call("GetControlValue","VirtualThrottleAndBrake",0)) > 0.05 then
-							Call("SetControlValue","JeNouzovyRadic",0,0)
-							Call("LockControl","JeNouzovyRadic",0,1)
-						end
-
-						if math.abs(Call("GetControlValue","RadicNouzovy",0)) > 0.025 and math.abs(2-Call("GetControlValue","RadicNouzovy",0)) > 0.025 then
-							Call("SetControlValue","JeNouzovyRadic",0,1)
-							Call("LockControl","JeNouzovyRadic",0,1)
-						end
-
-					----------------------------------------Ventil?tory---------------------------------------
-						if HlavniVypinac == 1 and PC == 3.75 and Baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 then
-							Call("SetControlValue","Ventilatory",0,1)
-							ventilatory = 1
-						elseif HlavniVypinac ~= 1 or PC ~= 3.75 or Baterie ~= 1 or Call("GetControlValue","Reverser",0) == 0 or vnitrniSit220V ~= 1 then
-							Call("SetControlValue","Ventilatory",0,0)
-							ventilatory = 0
-						end
-
-						if ventilatory == 0 and JOB ~= 0 then
-							Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-							ZamekHLvyp = 1
-						end
-
-						local nabehVentilatoru = 5.333
-						local dobehVentilatoru = 9.130
-						local delkaLoop = 2.008
-
-						local poleNabehy = {0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9}
-
-						local poleDobehy = {1,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1}
-
-						if ventilatoryOtacky == 1 then
-							blokujNabeh = false
-						end
-						if ventilatoryOtacky == 0 then
-							blokujDobeh = false
-						end
-
-						local a, b = divMod(ventilatoryOtacky,0.05)
-
-						local i = 1
-						while i <= 10 do
-							Call("SetControlValue","VentilatoryNabeh"..i,0,0)
-							Call("SetControlValue","VentilatoryDobeh"..i,0,0)
-							i = i + 1
-						end
-
-						if ventilatory == 0 then
-							blokujNabeh = false
-						else
-							blokujDobeh = false
-						end
-
-						if ventilatory == 1 and b < 0.01 and not blokujNabeh and ventilatoryOtacky <= 0.91 then
-							local i = 1
-							while i <= 10 do
-								if math.abs(ventilatoryOtacky - poleNabehy[i]) < 0.01 then
-									Call("SetControlValue","VentilatoryNabeh"..i,0,1)
-									blokujNabeh = true
-									blokujDobeh = false
-									break 
-								end
-								i = i + 1
-							end
-						elseif ventilatory == 0 and b < 0.01 and not blokujDobeh and ventilatoryOtacky >= 0.09 then
-							local i = 1
-							while i <= 10 do
-								if math.abs(ventilatoryOtacky - poleDobehy[i]) < 0.01 then
-									Call("SetControlValue","VentilatoryDobeh"..i,0,1)
-									blokujDobeh = true
-									blokujNabeh = false
-									break 
-								end
-								i = i + 1
-							end
-						end
-
-						if ventilatory == 1 and ventilatoryOtacky < 1 then
-							ventilatoryOtacky = ventilatoryOtacky + cas/nabehVentilatoru
-						elseif ventilatory == 0 and ventilatoryOtacky > 0 then
-							ventilatoryOtacky = ventilatoryOtacky - cas/dobehVentilatoru
-						end
-
-						Call("SetControlValue","VentilatoryOtacky",0,ventilatoryOtacky)
-
-						if ventilatoryOtacky < 0 then
-							ventilatoryOtacky = 0
-						elseif ventilatoryOtacky > 1 then
-							ventilatoryOtacky = 1
-						end
-
-					----------------------------------------Vypnut? HV p?i nespln?n? (Baterie+Zdroj+Panto)----
-						if HlavniVypinac == 1 and Baterie == 1 and vykon ~= 0 and JOB ~= 0 then
-							HVvyp = 1
-						else
-							HVvyp = 0
-						end
-						if (vykon > 0 or JOB > 0) and Call("GetControlValue","VirtualBrakePipePressureBAR",0) < 3.2 then
-							Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-							ZamekHLvyp = 1
-						end
-
-					----------------------------------------Sn??en? v?kon-------------------------------------
-						if Call("GetControlValue","snizenyvykonanim",0) == 1 and RizenaRidici == "ridici" then
-							Call("SetControlValue","SnizenyVykon",0,1)
-							snizenyVykonTady = true
-						elseif snizenyVykonTady then
-							snizenyVykonTady = false
-							Call("SetControlValue","SnizenyVykon",0,0)
-						end
-						zavedSnizenyVykon = false
-						if Call("GetControlValue","snizenyvykonanim",0) == 0 and Call("GetControlValue","SnizenyVykon",0) == 1 then
-							if Call("GetControlValue","VykonPredTrCh",0) <= 0 then
-								SnizenyVykonVozu = true
-							else
-								zavedSnizenyVykon = true
-							end
-						else
-							SnizenyVykonVozu = false
-						end
-					----------------------------------------Brzdi? z?mek--------------------------------------
-						if (Call("GetControlValue","ZamekBS2vs",0) ~= 1 or gKlicTady) and Call("GetControlValue","VirtualBrake",0) > 0.85 and Call("GetControlValue","VirtualBrake",0) < 0.87 then
-							Call("LockControl","ZamekBS2",0,0)
-						else
-							Call("LockControl","ZamekBS2",0,1)
-						end
-						if Call("GetControlValue","ZamekBS2",0) == 0 then
-							Call("SetControlValue","ZamekBS2vs",0,1)
-							Call("LockControl","VirtualBrake",0,0)
-							gKlicTady = true
-						elseif Call("GetControlValue","ZamekBS2",0) == 1 and gKlicTady then
-							Call("SetControlValue","ZamekBS2vs",0,0)
-							gKlicTady = false
-						end
-						if Call("GetControlValue","ZamekBS2",0) ~= 0 then
-							Call("LockControl","VirtualBrake",0,1)
-						end
-					----------------------------------------Nouzové vypnutí všech HV--------------------------
-						if Call("GetControlValue","NZvyp",0) >= 0.5 then
-							Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-							Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
-							ZamekHLvyp = 1
-						end
-					----------------------------------------Matrosov------------------------------------------
-						if Call("GetControlValue","Matrosov",0) >= 0.5 then
-							matrosov = true
-						else
-							matrosov = false
-						end
-					----------------------------------------Rychlý start--------------------------------------
-						if pozadavekNaFastStart == 1 and not jeMrtva then
-							nastavenaBrzda = 5.0
-							plynulaBrzda = 5.0
-							nastaveneValce = 0
-							plynuleValce = 0
-							Call("SetControlValue","ZamekBS2",0,0)
-							Call("SetControlValue","ZamekBS2vs",0,1)
-							Call("SetControlValue","VirtualBrake",0,0.14)
-							VirtualMainReservoirPressureBAR = 10
-							VirtualBrakeReservoirPressureBAR = 5
-							gKlicTady = true
-							RizenaRidici = "ridici"
-							Call("SetControlValue","Baterie",0,1)
-							Baterie = 1
-							Call("SetControlValue","VirtualPantographControl",0,1)
-							Call ("SetControlValue", "PantoZadni", 0,3.75) 
-							gZadniSberacControl = 3.75
-							PC = 3.75
-							Call("SendConsistMessage",460101,"1",1)
-							Call("SendConsistMessage",460111,"Z",1)
-							Call("SetControlValue","UserVirtualReverser",0,0)
-							Smer = 0
-							Call("SetControlValue","Reverser",0,0)
-							Call("SetControlValue","mgp",0,1)
-							mgp = 1
-							Call("SetControlValue","mg",0,souprava)
-							Call("SetControlValue","mgVS",0,souprava)
-							Call("SetControlValue","mgPriprava",0,2^(ID-1))
-							Call("SetControlValue","mgZvuk",0,1)
-							mg = 1
-							napetiVS220 = 380 
-							napetiVS220nouz = 380
-							Call("SetControlValue","VirtualStartup",0,75)
-							Call ( "SetControlValue", "HlavniVypinac", 0, 1)
-							Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
-							Call("SetControlValue","VolbaPozicKonecCelo",0,0)
-							Call("SetControlValue","HlKompPrep",0,1)
-							LDkontrolka = 0
-							Call("SetControlValue","DvereLeveSignal",0,0)
-							PDkontrolka = 0
-							Call("SetControlValue","DverePraveSignal",0,0)
-							Call("OnControlValueChange","VolbaPozicKonecCelo",0,0)
-							LVZ(0,0,0,0)
-							klic = 1
-							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
-							Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
-							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
-							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR)
-							Call("SetControlValue","PantoJimka",0,3.11)
-							Call("SetControlValue","EngineBrakeControl",0,0)
-							Call("SetControlValue","HandBrake",0,0);
-							SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_FAST_START,ALERT)
-							Call("SetControlValue","FastStart",0,0)
-							pozadavekNaFastStart = 0
-							levaPozBilVPKC = true
-							levaPozCerVPKC = false
-							pravaPozBilVPKC = true
-							pravaPozCerVPKC = false
-							PantoJimkaZKom = 3.11
-							Call("SetControlValue","mgautostart",0,1)
-						elseif pozadavekNaFastStart == 1 and jeMrtva then
-							SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
-							pozadavekNaFastStart = 0
-						elseif pozadavekNaFastStart == 2 and not jeMrtva then
-							levaPozBilVPKC = false
-							levaPozCerVPKC = true
-							pravaPozBilVPKC = false
-							pravaPozCerVPKC = true
-							nastavenaBrzda = 5.0
-							plynulaBrzda = 5.0
-							nastaveneValce = 0
-							plynuleValce = 0
-							Call("SetControlValue","Baterie",0,1)
-							Baterie = 1
-							Call("SetControlValue","VirtualPantographControl",0,1)
-							if MaPredniPantograf == 1 then Call ("SetControlValue", "PantoPredni", 0,3.75) gPredniSberacControl = 3.75 else Call ("SetControlValue", "PantoZadni", 0,3.75) gZadniSberacControl = 3.75 end
-							PC = 3.75
-							Call("SetControlValue","EngineBrakeControl",0,0)
-							Call("SetControlValue","HandBrake",0,0)
-							Call("SetControlValue","VirtualStartup",0,0)
-							Call("SetControlValue","VolbaPozicKonecCelo",0,2)
-							Call("OnControlValueChange","VolbaPozicKonecCelo",0,2)
-							klic = 0
-							Call("SendConsistMessage",460101,"0",1)
-							VirtualMainReservoirPressureBAR = 10
-							VirtualBrakeReservoirPressureBAR = 5
-							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
-							Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
-							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
-							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR)
-							Call("SetControlValue","PantoJimka",0,3.11)
-							Call("SetControlValue","mgZvuk",0,1)
-							mg = 1
-							napetiVS220 = 380 
-							napetiVS220nouz = 380
-							pozadavekNaFastStart = 0
-							PantoJimkaZKom = 3.11
-							Call("SetControlValue","mgautostart",0,1)
-						elseif pozadavekNaFastStart == 2 and jeMrtva then
-							SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
-							pozadavekNaFastStart = 0
-						end
-					----------------------------------------JOB-----------------------------------------------
-						if RizenaRidici == "ridici" then
-							if kontroler > 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 then
-								Call("SetControlValue","JOBpovel",0,1)
-							elseif kontroler < 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 then
-								Call("SetControlValue","JOBpovel",0,-1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or Baterie == 0 then
-								Call("SetControlValue","JOBpovel",0,0)
-							end
-						end
-						if Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 and ventilatory == 1 and not TlakovyBlokJizdy and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 and ojDiag == 0 then
-							Call("SetControlValue","JOB",0,1)
-						elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 and ventilatory == 1 and (not TlakovyBlokJizdy or (TlakovyBlokJizdy and PrvniEDBorVzduch ~= "vzduch") or plynulaBrzda <= 3.5) and Call("GetControlValue","JOBpovel",0) == -1 and ojDiag == 0 then
-							Call("SetControlValue","JOB",0,-1)
-						elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatory == 0 or Baterie == 0 or ((TlakovyBlokJizdy and not PrvniEDBorVzduch == "vzduch") and plynulaBrzda <= 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or ojDiag == 1 then
-							Call("SetControlValue","JOB",0,0)
-						end
-
-						if (Call("GetControlValue","JOB",0) ~= 0 or pojezdVDepu) and not SnizenyVykonVozu then
-							Call("SetControlValue","PantographControl",0,1)
-						else
-							Call("SetControlValue","PantographControl",0,0)
-						end
-
-						if Ammeter > 600 and JOB == 0 and JOBold ~= 0 then
-							VypniHVaVynutRestart()
-						end
-					----------------------------------------Pojezd v depu-------------------------------------
-						if PC == 0 and Baterie == 1 and centrala == 1 and JOB == 0 and buttonPojezdVDepu > 0.75 then
-							pojezdVDepu = true
-							Call("SetControlValue","VykonPredTrCh",0,0.01)
-							Call("SetControlValue","StykacPojezd",0,1)
-						else
-							pojezdVDepu = false
-							Call("SetControlValue","StykacPojezd",0,0)
-						end
-					----------------------------------------Okenka--------------------------------------------
-						-- okno = Call("GetControlValue","OknoL",0)
-						-- if okno ~= oknoStare then
-							-- occlusion = (-1200-(okno*600))
-							-- lfRatio = (0.15+(okno*0.51))
-							-- roomRatio = (1 - (okno*0.34))
-							-- Call("*:SetParameter","Occlusion",occlusion)
-							-- Call("SetControlValue","Occlusion",0,occlusion)
-							-- Call("*:SetParameter","OcclusionLFratio",lfRatio)
-							-- Call("SetControlValue","OcclusionLFratio",0,lfRatio)
-							-- Call("*:SetParameter","OcclusionRoomRatio",roomRatio)
-							-- Call("SetControlValue","OcclusionRoomRatio",0,roomRatio)
-							-- oknoStare = okno
-						-- end
-					----------------------------------------Vnitrni sit---------------------------------------
-						mgZvuk = Call("GetControlValue","mgZvuk",0)
-						if mgZvuk == 1 and napetiVS220 < 380 then
-							napetiVS220 = napetiVS220 + cas * 100
-						elseif mgZvuk == 0 and napetiVS220 > 0 then
-							napetiVS220 = napetiVS220 - cas * 10
-						end
-						if napetiVS220 > 300 and mgs == 0 and mgdocasny == 0 then
-							vnitrniSit220V = 1
-						else
-							vnitrniSit220V = 0
-						end
-						Call("SetControlValue","VnitrniSit",0,napetiVS220)
-
-						if Call("GetControlValue","mgVS",0) > 1 and napetiVS220nouz < 380 then
-							napetiVS220nouz = napetiVS220nouz + cas * 100
-						elseif Call("GetControlValue","mgVS",0) == 0 and napetiVS220nouz > 0 then
-							napetiVS220nouz = napetiVS220nouz - cas * 10
-						end
-						if math.max(napetiVS220nouz,napetiVS220) > 300 and mgs == 0 and mgdocasny == 0 then
-							vnitrniSit220Vnouzova = 1
-						else
-							vnitrniSit220Vnouzova = 0
-						end
-						Call("SetControlValue","VnitrniSitNouzova",0,math.max(napetiVS220nouz,napetiVS220))
-					
-					----------------------------------------Custom TrCh---------------------------------------
-						Call("SetControlValue","ThrottleAndBrake",0,VratTCh(Call("GetControlValue","VykonPredTrCh",0)))
-						vykon = Call("GetControlValue","VykonPredTrCh",0)
-					----------------------------------------Custom Ampermetr----------------------------------
-						Call("SetControlValue","Ampermetr",0,VratProud(Call("GetControlValue","ThrottleAndBrake",0),Call("GetControlValue","VykonPredTrCh",0)))
-						Ammeter = Call("GetControlValue","Ampermetr",0)
-						if not pojezdNeschopna then
-							Call("SetControlValue","VirtualAmmeter",0,PIDcntrlAmp(Call("GetControlValue","Ampermetr",0),Call("GetControlValue","VirtualAmmeter",0)))
-						else
-							Call("SetControlValue","VirtualAmmeter",0,0)
-						end
-						
-					----------------------------------------VOLTMETR------------------------------------------
-						local tvrdostNapeti = math.sqrt(math.sqrt(math.floor(((math.floor(os.time()/100)/100) - math.floor(math.floor(os.time()/100)/100))*100)+mm))
-						if not pojezdNeschopna then
-							napeti = ((3000 - (200 * Ammeter / 700)) - ((tvrdostNapeti-2.5) * 300)) / 3.896
-						else
-							napeti = (3000 - ((tvrdostNapeti-2.5) * 300)) / 3.896
-						end
-						if Ammeter < 0 then
-							napeti = (3000 - ((tvrdostNapeti-2.5) * 300)) / 3.896
-						end
-						if P01 == 1 and not pojezdVDepu then
-							Call("SetControlValue","Napeti",0,napeti)
-							Call("SetControlValue","Voltmeter",0,PIDcntrlVolt(napeti,Call("GetControlValue","Voltmeter",0)))
-						else
-							Call("SetControlValue","Voltmeter",0,PIDcntrlVolt(0,Call("GetControlValue","Voltmeter",0)))
-							Call("SetControlValue","Napeti",0,0)
-						end
-						
-					----------------------------------------Diagnostický panel a ochrany----------------------
-						local stridaveNap = ToBolAndBack(vnitrniSit220Vnouzova)
-						if stridaveNap and Baterie == 1 then
-							--*******H6 SIT220V
-								Call("SetControlValue","Diag_220V",0,0) -- H6
-								
-							--*******H7 vypHV
-								local diagHV = 0
-								if ZamekHLvyp == 1 then
-									diagHV = 1
-								end
-								Call("SetControlValue","Diag_HV",0,diagHV) -- H7
-							
-							--*******H8 VENTILATORY
-								local diagVentilatoryBeh = 0
-								if ventilatory == 1 then
-									if casVentilatory == nil then
-										casVentilatory = math.random(3,6)
-									end
-									gTimeVentilatory = gTimeVentilatory + cas
-									if gTimeVentilatory > casVentilatory then
-										diagVentilatoryBeh = 0
+							if vykon < 0 then
+								stupenKontroleru = vykon/0.5
+								cele, zbytek = divMod(stupenKontroleru,1)
+								if zbytek ~= 0 then
+									if zbytek < -0.5 then
+										stupenKontroleru = cele - 1
 									else
-										diagVentilatoryBeh = 1
+										stupenKontroleru = cele
 									end
-								else
-									gTimeVentilatory = 0
-									casVentilatory = nil
 								end
-								Call("SetControlValue","Diag_Ventilatory",0,diagVentilatoryBeh) -- H8
+							end
+
+							local blokujJK = false
+							local blokujSmer = false
+							if Smer == 0 or Smer == 2 then
+								blokujJK = true
+							end
+							if vykon ~= 0 or (Call("GetControlValue","VirtualThrottleAndBrake",0) ~= 0 and Call("GetControlValue","VirtualThrottleAndBrake",0) ~= 2) or (Call("GetControlValue","RadicNouzovy",0) ~= 0 and Call("GetControlValue","RadicNouzovy",0) ~= 2) then
+								blokujSmer = true
+							end
+
+							if blokujSmer then
+								if smerBlokovany == nil then
+									cele, zbytek = divMod(Smer,1)
+									smerBlokovany = cele
+									if zbytek > 0.5 then
+										smerBlokovany = smerBlokovany + 1
+									end
+								end
+								Call("SetControlValue","UserVirtualReverser",0,smerBlokovany)
+							else
+								smerBlokovany = nil
+							end
 							
-							--*******H9 AREL
-								local diagArel = 0
-								Call("SetControlValue","Diag_AREL",0,diagArel) -- H9
-							
-							--*******H10 USMERNOVAC
-								local diagPretaveni = 0
-								Call("SetControlValue","Diag_Pretaveni",0,diagPretaveni) -- H10
-							
-							--*******H11 NU
-								if Rychlost > 85 and vykon < -0.5 then
-									diagNU = 1
-									if Call("GetControlValue","Diag_NU",0) == 0 then
-										-- Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-										-- ZamekHLvyp = 1
-										blokKrokNU = true
-										if vykon == -1 then
-											Call("SetControlValue","JizdniKontroler",0,-0.5)
+							if blokujJK then
+								if JeNouzovyRadic == 0 then
+									if JKBlokovany == nil then
+										cele, zbytek = divMod(Call("GetControlValue","VirtualThrottleAndBrake",0),1)
+										JKBlokovany = cele
+										if zbytek > 0.5 then
+											JKBlokovany = JKBlokovany + 1
 										end
 									end
-								elseif Smer == 0 then
-									diagNU = 0
-									blokKrokNU = false
+									Call("SetControlValue","VirtualThrottleAndBrake",0,JKBlokovany)
+								else
+									Call("SetControlValue","RadicNouzovy",0,0)
 								end
-								Call("SetControlValue","Diag_NU",0,diagNU) -- H11
+							else
+								JKBlokovany = nil
+							end
 							
-							--*******H12 PU
-								if Smer ~= 0 and (Call("GetControlValue","Napeti",0) < 500 and P01 == 1) then
-									diagPU = 1
-									if Call("GetControlValue","Diag_PU",0) == 0 and P01 == 1 then
-										Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-										ZamekHLvyp = 1
+							if JeNouzovyRadic == 1 then
+								Call("SetControlValue","VirtualThrottleAndBrake",0,2)
+								if math.abs(Call("GetControlValue","RadicNouzovy",0)) < 0.025 then
+									Call("LockControl","JeNouzovyRadic",0,0)
+								end
+							else
+								Call("SetControlValue","RadicNouzovy",0,2)
+								if math.abs(Call("GetControlValue","VirtualThrottleAndBrake",0)) < 0.05 then
+									Call("LockControl","JeNouzovyRadic",0,0)
+								end
+							end
+
+							if math.abs(Call("GetControlValue","VirtualThrottleAndBrake",0)) > 0.05 and math.abs(2-Call("GetControlValue","VirtualThrottleAndBrake",0)) > 0.05 then
+								Call("SetControlValue","JeNouzovyRadic",0,0)
+								Call("LockControl","JeNouzovyRadic",0,1)
+							end
+
+							if math.abs(Call("GetControlValue","RadicNouzovy",0)) > 0.025 and math.abs(2-Call("GetControlValue","RadicNouzovy",0)) > 0.025 then
+								Call("SetControlValue","JeNouzovyRadic",0,1)
+								Call("LockControl","JeNouzovyRadic",0,1)
+							end
+
+						----------------------------------------Ventil?tory---------------------------------------
+							if HlavniVypinac == 1 and PC == 3.75 and Baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 then
+								Call("SetControlValue","Ventilatory",0,1)
+								ventilatory = 1
+							elseif HlavniVypinac ~= 1 or PC ~= 3.75 or Baterie ~= 1 or Call("GetControlValue","Reverser",0) == 0 or vnitrniSit220V ~= 1 then
+								Call("SetControlValue","Ventilatory",0,0)
+								ventilatory = 0
+							end
+
+							if ventilatory == 0 and JOB ~= 0 then
+								Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+								ZamekHLvyp = 1
+							end
+
+							local nabehVentilatoru = 5.333
+							local dobehVentilatoru = 9.130
+							local delkaLoop = 2.008
+
+							local poleNabehy = {0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9}
+
+							local poleDobehy = {1,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1}
+
+							if ventilatoryOtacky == 1 then
+								blokujNabeh = false
+							end
+							if ventilatoryOtacky == 0 then
+								blokujDobeh = false
+							end
+
+							local a, b = divMod(ventilatoryOtacky,0.05)
+
+							local i = 1
+							while i <= 10 do
+								Call("SetControlValue","VentilatoryNabeh"..i,0,0)
+								Call("SetControlValue","VentilatoryDobeh"..i,0,0)
+								i = i + 1
+							end
+
+							if ventilatory == 0 then
+								blokujNabeh = false
+							else
+								blokujDobeh = false
+							end
+
+							if ventilatory == 1 and b < 0.01 and not blokujNabeh and ventilatoryOtacky <= 0.91 then
+								local i = 1
+								while i <= 10 do
+									if math.abs(ventilatoryOtacky - poleNabehy[i]) < 0.01 then
+										Call("SetControlValue","VentilatoryNabeh"..i,0,1)
+										blokujNabeh = true
+										blokujDobeh = false
+										break 
 									end
-								elseif Smer == 0 then
-									diagPU = 0
+									i = i + 1
 								end
-								Call("SetControlValue","Diag_PU",0,diagPU) -- H12
+							elseif ventilatory == 0 and b < 0.01 and not blokujDobeh and ventilatoryOtacky >= 0.09 then
+								local i = 1
+								while i <= 10 do
+									if math.abs(ventilatoryOtacky - poleDobehy[i]) < 0.01 then
+										Call("SetControlValue","VentilatoryDobeh"..i,0,1)
+										blokujDobeh = true
+										blokujNabeh = false
+										break 
+									end
+									i = i + 1
+								end
+							end
+
+							if ventilatory == 1 and ventilatoryOtacky < 1 then
+								ventilatoryOtacky = ventilatoryOtacky + cas/nabehVentilatoru
+							elseif ventilatory == 0 and ventilatoryOtacky > 0 then
+								ventilatoryOtacky = ventilatoryOtacky - cas/dobehVentilatoru
+							end
+
+							Call("SetControlValue","VentilatoryOtacky",0,ventilatoryOtacky)
+
+							if ventilatoryOtacky < 0 then
+								ventilatoryOtacky = 0
+							elseif ventilatoryOtacky > 1 then
+								ventilatoryOtacky = 1
+							end
+
+						----------------------------------------Vypnut? HV p?i nespln?n? (Baterie+Zdroj+Panto)----
+							if HlavniVypinac == 1 and Baterie == 1 and vykon ~= 0 and JOB ~= 0 then
+								HVvyp = 1
+							else
+								HVvyp = 0
+							end
+							if (vykon > 0 or JOB > 0) and Call("GetControlValue","VirtualBrakePipePressureBAR",0) < 3.2 then
+								Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+								ZamekHLvyp = 1
+							end
+
+						----------------------------------------Sn??en? v?kon-------------------------------------
+							if Call("GetControlValue","snizenyvykonanim",0) == 1 and RizenaRidici == "ridici" then
+								Call("SetControlValue","SnizenyVykon",0,1)
+								snizenyVykonTady = true
+							elseif snizenyVykonTady then
+								snizenyVykonTady = false
+								Call("SetControlValue","SnizenyVykon",0,0)
+							end
+							zavedSnizenyVykon = false
+							if Call("GetControlValue","snizenyvykonanim",0) == 0 and Call("GetControlValue","SnizenyVykon",0) == 1 then
+								if Call("GetControlValue","VykonPredTrCh",0) <= 0 then
+									SnizenyVykonVozu = true
+								else
+									zavedSnizenyVykon = true
+								end
+							else
+								SnizenyVykonVozu = false
+							end
+						----------------------------------------Brzdi? z?mek--------------------------------------
+							if (Call("GetControlValue","ZamekBS2vs",0) ~= 1 or gKlicTady) and Call("GetControlValue","VirtualBrake",0) > 0.85 and Call("GetControlValue","VirtualBrake",0) < 0.87 then
+								Call("LockControl","ZamekBS2",0,0)
+							else
+								Call("LockControl","ZamekBS2",0,1)
+							end
+							if Call("GetControlValue","ZamekBS2",0) == 0 then
+								Call("SetControlValue","ZamekBS2vs",0,1)
+								Call("LockControl","VirtualBrake",0,0)
+								gKlicTady = true
+							elseif Call("GetControlValue","ZamekBS2",0) == 1 and gKlicTady then
+								Call("SetControlValue","ZamekBS2vs",0,0)
+								gKlicTady = false
+							end
+							if Call("GetControlValue","ZamekBS2",0) ~= 0 then
+								Call("LockControl","VirtualBrake",0,1)
+							end
+						----------------------------------------Nouzové vypnutí všech HV--------------------------
+							if Call("GetControlValue","NZvyp",0) >= 0.5 then
+								Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
+								ZamekHLvyp = 1
+							end
+						----------------------------------------Matrosov------------------------------------------
+							if Call("GetControlValue","Matrosov",0) >= 0.5 then
+								matrosov = true
+							else
+								matrosov = false
+							end
+						----------------------------------------Rychlý start--------------------------------------
+							if pozadavekNaFastStart == 1 and not jeMrtva then
+								nastavenaBrzda = 5.0
+								plynulaBrzda = 5.0
+								nastaveneValce = 0
+								plynuleValce = 0
+								Call("SetControlValue","ZamekBS2",0,0)
+								Call("SetControlValue","ZamekBS2vs",0,1)
+								Call("SetControlValue","VirtualBrake",0,0.14)
+								VirtualMainReservoirPressureBAR = 10
+								VirtualBrakeReservoirPressureBAR = 5
+								gKlicTady = true
+								RizenaRidici = "ridici"
+								Call("SetControlValue","Baterie",0,1)
+								Baterie = 1
+								Call("SetControlValue","VirtualPantographControl",0,1)
+								Call ("SetControlValue", "PantoZadni", 0,3.75) 
+								gZadniSberacControl = 3.75
+								PC = 3.75
+								Call("SendConsistMessage",460101,"1",1)
+								Call("SendConsistMessage",460111,"Z",1)
+								Call("SetControlValue","UserVirtualReverser",0,0)
+								Smer = 0
+								Call("SetControlValue","Reverser",0,0)
+								Call("SetControlValue","mgp",0,1)
+								mgp = 1
+								Call("SetControlValue","mg",0,souprava)
+								Call("SetControlValue","mgVS",0,souprava)
+								Call("SetControlValue","mgPriprava",0,2^(ID-1))
+								Call("SetControlValue","mgZvuk",0,1)
+								mg = 1
+								napetiVS220 = 380 
+								napetiVS220nouz = 380
+								Call("SetControlValue","VirtualStartup",0,75)
+								Call ( "SetControlValue", "HlavniVypinac", 0, 1)
+								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
+								Call("SetControlValue","VolbaPozicKonecCelo",0,0)
+								Call("SetControlValue","HlKompPrep",0,1)
+								LDkontrolka = 0
+								Call("SetControlValue","DvereLeveSignal",0,0)
+								PDkontrolka = 0
+								Call("SetControlValue","DverePraveSignal",0,0)
+								Call("OnControlValueChange","VolbaPozicKonecCelo",0,0)
+								LVZ(0,0,0,0)
+								klic = 1
+								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
+								Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+								Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
+								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR)
+								Call("SetControlValue","PantoJimka",0,3.11)
+								Call("SetControlValue","EngineBrakeControl",0,0)
+								Call("SetControlValue","HandBrake",0,0);
+								SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_FAST_START,ALERT)
+								Call("SetControlValue","FastStart",0,0)
+								pozadavekNaFastStart = 0
+								levaPozBilVPKC = true
+								levaPozCerVPKC = false
+								pravaPozBilVPKC = true
+								pravaPozCerVPKC = false
+								PantoJimkaZKom = 3.11
+								Call("SetControlValue","mgautostart",0,1)
+							elseif pozadavekNaFastStart == 1 and jeMrtva then
+								SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
+								pozadavekNaFastStart = 0
+							elseif pozadavekNaFastStart == 2 and not jeMrtva then
+								levaPozBilVPKC = false
+								levaPozCerVPKC = true
+								pravaPozBilVPKC = false
+								pravaPozCerVPKC = true
+								nastavenaBrzda = 5.0
+								plynulaBrzda = 5.0
+								nastaveneValce = 0
+								plynuleValce = 0
+								Call("SetControlValue","Baterie",0,1)
+								Baterie = 1
+								Call("SetControlValue","VirtualPantographControl",0,1)
+								if MaPredniPantograf == 1 then Call ("SetControlValue", "PantoPredni", 0,3.75) gPredniSberacControl = 3.75 else Call ("SetControlValue", "PantoZadni", 0,3.75) gZadniSberacControl = 3.75 end
+								PC = 3.75
+								Call("SetControlValue","EngineBrakeControl",0,0)
+								Call("SetControlValue","HandBrake",0,0)
+								Call("SetControlValue","VirtualStartup",0,0)
+								Call("SetControlValue","VolbaPozicKonecCelo",0,2)
+								Call("OnControlValueChange","VolbaPozicKonecCelo",0,2)
+								klic = 0
+								Call("SendConsistMessage",460101,"0",1)
+								VirtualMainReservoirPressureBAR = 10
+								VirtualBrakeReservoirPressureBAR = 5
+								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
+								Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+								Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
+								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR)
+								Call("SetControlValue","PantoJimka",0,3.11)
+								Call("SetControlValue","mgZvuk",0,1)
+								mg = 1
+								napetiVS220 = 380 
+								napetiVS220nouz = 380
+								pozadavekNaFastStart = 0
+								PantoJimkaZKom = 3.11
+								Call("SetControlValue","mgautostart",0,1)
+							elseif pozadavekNaFastStart == 2 and jeMrtva then
+								SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
+								pozadavekNaFastStart = 0
+							end
+						----------------------------------------JOB-----------------------------------------------
+							if RizenaRidici == "ridici" then
+								if kontroler > 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 then
+									Call("SetControlValue","JOBpovel",0,1)
+								elseif kontroler < 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 then
+									Call("SetControlValue","JOBpovel",0,-1)
+								elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or Baterie == 0 then
+									Call("SetControlValue","JOBpovel",0,0)
+								end
+							end
+							if Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 and ventilatory == 1 and not TlakovyBlokJizdy and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 and ojDiag == 0 then
+								Call("SetControlValue","JOB",0,1)
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and Baterie == 1 and ventilatory == 1 and (not TlakovyBlokJizdy or (TlakovyBlokJizdy and PrvniEDBorVzduch ~= "vzduch") or plynulaBrzda <= 3.5) and Call("GetControlValue","JOBpovel",0) == -1 and ojDiag == 0 then
+								Call("SetControlValue","JOB",0,-1)
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatory == 0 or Baterie == 0 or ((TlakovyBlokJizdy and not PrvniEDBorVzduch == "vzduch") and plynulaBrzda <= 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or ojDiag == 1 then
+								Call("SetControlValue","JOB",0,0)
+							end
+
+							if (Call("GetControlValue","JOB",0) ~= 0 or pojezdVDepu) and not SnizenyVykonVozu then
+								Call("SetControlValue","PantographControl",0,1)
+							else
+								Call("SetControlValue","PantographControl",0,0)
+							end
+
+							if Ammeter > 600 and JOB == 0 and JOBold ~= 0 then
+								VypniHVaVynutRestart()
+							end
+						----------------------------------------Pojezd v depu-------------------------------------
+							if PC == 0 and Baterie == 1 and centrala == 1 and JOB == 0 and buttonPojezdVDepu > 0.75 then
+								pojezdVDepu = true
+								Call("SetControlValue","VykonPredTrCh",0,0.01)
+								Call("SetControlValue","StykacPojezd",0,1)
+							else
+								pojezdVDepu = false
+								Call("SetControlValue","StykacPojezd",0,0)
+							end
+						----------------------------------------Okenka--------------------------------------------
+							-- okno = Call("GetControlValue","OknoL",0)
+							-- if okno ~= oknoStare then
+								-- occlusion = (-1200-(okno*600))
+								-- lfRatio = (0.15+(okno*0.51))
+								-- roomRatio = (1 - (okno*0.34))
+								-- Call("*:SetParameter","Occlusion",occlusion)
+								-- Call("SetControlValue","Occlusion",0,occlusion)
+								-- Call("*:SetParameter","OcclusionLFratio",lfRatio)
+								-- Call("SetControlValue","OcclusionLFratio",0,lfRatio)
+								-- Call("*:SetParameter","OcclusionRoomRatio",roomRatio)
+								-- Call("SetControlValue","OcclusionRoomRatio",0,roomRatio)
+								-- oknoStare = okno
+							-- end
+						----------------------------------------Vnitrni sit---------------------------------------
+							mgZvuk = Call("GetControlValue","mgZvuk",0)
+							if mgZvuk == 1 and napetiVS220 < 380 then
+								napetiVS220 = napetiVS220 + cas * 100
+							elseif mgZvuk == 0 and napetiVS220 > 0 then
+								napetiVS220 = napetiVS220 - cas * 10
+							end
+							if napetiVS220 > 300 and mgs == 0 and mgdocasny == 0 then
+								vnitrniSit220V = 1
+							else
+								vnitrniSit220V = 0
+							end
+							Call("SetControlValue","VnitrniSit",0,napetiVS220)
+
+							if Call("GetControlValue","mgVS",0) > 1 and napetiVS220nouz < 380 then
+								napetiVS220nouz = napetiVS220nouz + cas * 100
+							elseif Call("GetControlValue","mgVS",0) == 0 and napetiVS220nouz > 0 then
+								napetiVS220nouz = napetiVS220nouz - cas * 10
+							end
+							if math.max(napetiVS220nouz,napetiVS220) > 300 and mgs == 0 and mgdocasny == 0 then
+								vnitrniSit220Vnouzova = 1
+							else
+								vnitrniSit220Vnouzova = 0
+							end
+							Call("SetControlValue","VnitrniSitNouzova",0,math.max(napetiVS220nouz,napetiVS220))
+						
+						----------------------------------------Custom TrCh---------------------------------------
+							Call("SetControlValue","ThrottleAndBrake",0,VratTCh(Call("GetControlValue","VykonPredTrCh",0)))
+							vykon = Call("GetControlValue","VykonPredTrCh",0)
+						----------------------------------------Custom Ampermetr----------------------------------
+							Call("SetControlValue","Ampermetr",0,VratProud(Call("GetControlValue","ThrottleAndBrake",0),Call("GetControlValue","VykonPredTrCh",0)))
+							Ammeter = Call("GetControlValue","Ampermetr",0)
+							if not pojezdNeschopna then
+								Call("SetControlValue","VirtualAmmeter",0,PIDcntrlAmp(Call("GetControlValue","Ampermetr",0),Call("GetControlValue","VirtualAmmeter",0)))
+							else
+								Call("SetControlValue","VirtualAmmeter",0,0)
+							end
 							
-							--*******H13 DOTO
-								if skluzWheelSlip == 1 then
-									casSkluz = casSkluz + cas
-									if wheelSlip > 2  and P01 == 1 then
-										Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-										ZamekHLvyp = 1
+						----------------------------------------VOLTMETR------------------------------------------
+							local tvrdostNapeti = math.sqrt(math.sqrt(math.floor(((math.floor(os.time()/100)/100) - math.floor(math.floor(os.time()/100)/100))*100)+mm))
+							if not pojezdNeschopna then
+								napeti = ((3000 - (200 * Ammeter / 700)) - ((tvrdostNapeti-2.5) * 300)) / 3.896
+							else
+								napeti = (3000 - ((tvrdostNapeti-2.5) * 300)) / 3.896
+							end
+							if Ammeter < 0 then
+								napeti = (3000 - ((tvrdostNapeti-2.5) * 300)) / 3.896
+							end
+							if P01 == 1 and not pojezdVDepu then
+								Call("SetControlValue","Napeti",0,napeti)
+								Call("SetControlValue","Voltmeter",0,PIDcntrlVolt(napeti,Call("GetControlValue","Voltmeter",0)))
+							else
+								Call("SetControlValue","Voltmeter",0,PIDcntrlVolt(0,Call("GetControlValue","Voltmeter",0)))
+								Call("SetControlValue","Napeti",0,0)
+							end
+							
+						----------------------------------------Diagnostický panel a ochrany----------------------
+							local stridaveNap = ToBolAndBack(vnitrniSit220Vnouzova)
+							if stridaveNap and Baterie == 1 then
+								--*******H6 SIT220V
+									Call("SetControlValue","Diag_220V",0,0) -- H6
+									
+								--*******H7 vypHV
+									local diagHV = 0
+									if ZamekHLvyp == 1 then
+										diagHV = 1
+									end
+									Call("SetControlValue","Diag_HV",0,diagHV) -- H7
+								
+								--*******H8 VENTILATORY
+									local diagVentilatoryBeh = 0
+									if ventilatory == 1 then
+										if casVentilatory == nil then
+											casVentilatory = math.random(3,6)
+										end
+										gTimeVentilatory = gTimeVentilatory + cas
+										if gTimeVentilatory > casVentilatory then
+											diagVentilatoryBeh = 0
+										else
+											diagVentilatoryBeh = 1
+										end
 									else
-										if casSkluz > 0.225 or prvniKrok then
-											casSkluz = 0
-											prvniKrok = false
-											if vykon > 0 then
-												Call("SetControlValue","JizdniKontroler",0,vykon - 0.05)
-											elseif vykon < 0 then
-												Call("SetControlValue","JizdniKontroler",0,vykon + 0.5)
+										gTimeVentilatory = 0
+										casVentilatory = nil
+									end
+									Call("SetControlValue","Diag_Ventilatory",0,diagVentilatoryBeh) -- H8
+								
+								--*******H9 AREL
+									local diagArel = 0
+									Call("SetControlValue","Diag_AREL",0,diagArel) -- H9
+								
+								--*******H10 USMERNOVAC
+									local diagPretaveni = 0
+									Call("SetControlValue","Diag_Pretaveni",0,diagPretaveni) -- H10
+								
+								--*******H11 NU
+									if Rychlost > 85 and vykon < -0.5 then
+										diagNU = 1
+										if Call("GetControlValue","Diag_NU",0) == 0 then
+											-- Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+											-- ZamekHLvyp = 1
+											blokKrokNU = true
+											if vykon == -1 then
+												Call("SetControlValue","JizdniKontroler",0,-0.5)
 											end
 										end
+									elseif Smer == 0 then
+										diagNU = 0
+										blokKrokNU = false
 									end
-									skluzDiag = 1
-									blokKrokDOTO = true
-								end
-								if kontroler <= 0.5 and kontroler >= -0.5 then --predelat na tlacitko az bude
-									--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
-									blokKrokDOTO = false
-									skluzDiag = 0
-									casSkluz = 0
-									prvniKrok = true
-								end
-								Call("SetControlValue","Diag_DOTO",0,skluzDiag) -- H13
-							
-							--*******H14 DOPM
-								local mgDiag = 0
-								if false then
-									mgDiag = 1
-									--Call("GetControlValue","ResetDOPM",0) > 0.75
-								else
-									mgDiag = 0 
-								end
-								Call("SetControlValue","Diag_DOPM",0,mgDiag) -- H14
-							
-							--*******H15 NI
-								if Ammeter > 800 then
-									niDiag = 1 
-									if Call("GetControlValue","Diag_NI",0) == 0 and P01 == 1 then
-										Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+									Call("SetControlValue","Diag_NU",0,diagNU) -- H11
+								
+								--*******H12 PU
+									if Smer ~= 0 and (Call("GetControlValue","Napeti",0) < 500 and P01 == 1) then
+										diagPU = 1
+										if Call("GetControlValue","Diag_PU",0) == 0 and P01 == 1 then
+											Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+											ZamekHLvyp = 1
+										end
+									elseif Smer == 0 then
+										diagPU = 0
+									end
+									Call("SetControlValue","Diag_PU",0,diagPU) -- H12
+								
+								--*******H13 DOTO
+									if skluzWheelSlip == 1 then
+										casSkluz = casSkluz + cas
+										if wheelSlip > 2  and P01 == 1 then
+											Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+											ZamekHLvyp = 1
+										else
+											if casSkluz > 0.225 or prvniKrok then
+												casSkluz = 0
+												prvniKrok = false
+												if vykon > 0 then
+													Call("SetControlValue","JizdniKontroler",0,vykon - 0.05)
+												elseif vykon < 0 then
+													Call("SetControlValue","JizdniKontroler",0,vykon + 0.5)
+												end
+											end
+										end
+										skluzDiag = 1
+										blokKrokDOTO = true
+									end
+									if kontroler <= 0.5 and kontroler >= -0.5 then --predelat na tlacitko az bude
+										--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
+										blokKrokDOTO = false
+										skluzDiag = 0
+										casSkluz = 0
+										prvniKrok = true
+									end
+									Call("SetControlValue","Diag_DOTO",0,skluzDiag) -- H13
+								
+								--*******H14 DOPM
+									local mgDiag = 0
+									if false then
+										mgDiag = 1
+										--Call("GetControlValue","ResetDOPM",0) > 0.75
+									else
+										mgDiag = 0 
+									end
+									Call("SetControlValue","Diag_DOPM",0,mgDiag) -- H14
+								
+								--*******H15 NI
+									if Ammeter > 800 then
+										niDiag = 1 
+										if Call("GetControlValue","Diag_NI",0) == 0 and P01 == 1 then
+											Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+											ZamekHLvyp = 1
+										end
+									elseif smer == 0 then
+										niDiag = 0
+									end
+									Call("SetControlValue","Diag_NI",0,niDiag) -- H15
+								
+								--*******H18 OJ
+									if (vykon ~= 0 and math.abs(Ammeter) < 0.5) then --or (Call("GetControlValue", "Current", 0) == 0 and (Call("GetControlValue","JOB",0) ~= 0 or pojezdVDepu) and not SnizenyVykonVozu) 
+										ojDiag = 1
+									elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Current", 0) ~= 0 then
+										ojDiag = 0
+									end
+									-- Call("SetControlValue","Diag_OJ",0,ojDiag) -- H18
+									-- if vykon ~= 0 and Call("GetControlValue", "Current", 0) == 0 then
+									-- 	SysCall("ScenarioManager:ShowMessage", "460 Debug", "Proud je nula, ale vykon neni nula!", ALERT)
+									-- end
+
+								--*******H19 SOUCINOST BRZD
+									local rbDiag = 0
+									if Ammeter < -300 and PrvniEDBorVzduch == "EDB" then
+										rbDiag = 1
+									end
+									Call("SetControlValue","Diag_RB",0,rbDiag) -- H19
+								
+								--*******H20 UZEMNENI
+									local uzemneniDiag = 0
+									Call("SetControlValue","Diag_Uzem",0,uzemneniDiag) -- H20
+								
+								--*******H22 POZICE JOB
+									local jobDiag = 0
+									if (Call("GetControlValue","VykonPredTrCh",0) > 0 and JOB ~= 1) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) < 0 and JOB ~= -1) then
+										jobDiag = 1
+									end
+									Call("SetControlValue","Diag_JOB",0,jobDiag) -- H22
+								
+								--*******H24 ROZ PROUD
+									local rozProudDiag = 0
+									if Ammeter > proud then
+										rozProudDiag = 1
+									end
+									Call("SetControlValue","Diag_RozProud",0,rozProudDiag) -- H24
+
+								--*******ObecnaPorucha a Skluz
+									if Call("GetControlValue","JOB",0) ~= 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 then
+										failvykon = 1 
+									else
+										failvykon = 0
+									end
+									if stridaveNap then
+										skluzmg = 0
+									else
+										skluzmg = 1
+									end
+									if vnitrniSit220V ~= 1 then
+										failmg = 1
+									else
+										failmg = 0
+									end
+									if Call("GetControlValue","SnizenyVykon",0) == 1 and Call("GetControlValue","snizenyvykonanim",0) == 1 and Call("GetControlValue","JizdniKontroler",0) ~= 0 and kontroler > 0 then
+										desynchronizaceHK = 1
+									elseif Call("GetControlValue","JizdniKontroler",0) == 0 or kontroler <= 0 then
+										desynchronizaceHK = 0
+									end
+									Call("SetControlValue","fail",0,math.max(failmg,failvykon,desynchronizaceHK,diagHV,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,mgDiag,niDiag,ojDiag,uzemneniDiag,jobDiag))
+									Call("SetControlValue","skluz",0,math.max(skluzmg,skluzWheelSlip))
+								--*******H5 OBECNA POR NA VLASTNIM
+									local PoruchaNap = 0
+									Call("SetControlValue","Diag_Porucha",0,math.max(failmg,failvykon,PoruchaNap,diagHV,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,mgDiag,niDiag,ojDiag,uzemneniDiag,jobDiag)) -- H5
+									
+								--*******Odshuntovani az do odporu
+									if stupenKontroleru > 17 then
+										shunty = true
+									else
+										shunty = false
+									end
+									if shunty and stupenKontroleru < stupenKontroleruOld then
+										pocitejCasShuntu = true
+									end
+									if not shunty then
+										pocitejCasShuntu = false
+									end 
+									if pocitejCasShuntu then
+										casShuntu = casShuntu + cas
+									else
+										casShuntu = 0
+									end
+									if casShuntu > 6 then
+										Call("SetControlValue","HlavniVypinac",0,0)
 										ZamekHLvyp = 1
 									end
-								elseif smer == 0 then
-									niDiag = 0
+							elseif Baterie == 1 then
+								Call("SetControlValue","fail",0,1)
+								Call("SetControlValue","skluz",0,1)
+								Call("SetControlValue","Diag_Porucha",0,1) -- H5
+								Call("SetControlValue","Diag_220V",0,1) -- H6
+								Call("SetControlValue","Diag_HV",0,1) -- H7
+								Call("SetControlValue","Diag_RozProud",0,1) -- H24
+								if ZamekHLvyp == 0 then
+									Call("SetControlValue","Diag_NU",0,1) -- H11
+									Call("SetControlValue","Diag_PU",0,1) -- H12
+									Call("SetControlValue","Diag_DOTO",0,1) -- H13
+									Call("SetControlValue","Diag_DOPM",0,1) -- H14
+									Call("SetControlValue","Diag_NI",0,1) -- H15
+									Call("SetControlValue","Diag_OJ",0,1) -- H18
+								elseif diagPU == 1 then
+									Call("SetControlValue","Diag_PU",0,1) -- H12
+									if smer == 0 then
+										diagPU = 0
+									end
+								elseif skluzDiag == 1 then
+									Call("SetControlValue","Diag_DOTO",0,1) -- H12
+									if kontroler <= 0.5 and kontroler >= -0.5 then --predelat na tlacitko az bude
+										--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
+										blokKrokDOTO = false
+										skluzDiag = 0
+										casSkluz = 0
+										prvniKrok = true
+									end
+								elseif niDiag == 1 then
+									Call("SetControlValue","Diag_NI",0,1) -- H15
+									if smer == 0 then
+										niDiag = 0
+									end
 								end
+							else
+								ZamekHLvyp = 0
+								diagNU = 0
+								diagPU = 0
+								skluzDiag = 0
+								niDiag = 0
+								ojDiag = 0
+								Call("SetControlValue","Diag_220V",0,0) -- H6
+								Call("SetControlValue","Diag_HV",0,0) -- H7
+								Call("SetControlValue","Diag_Ventilatory",0,0) -- H8
+								Call("SetControlValue","Diag_AREL",0,0) -- H9
+								Call("SetControlValue","Diag_Pretaveni",0,0) -- H10
+								Call("SetControlValue","Diag_NU",0,diagNU) -- H11
+								Call("SetControlValue","Diag_PU",0,diagPU) -- H12
+								Call("SetControlValue","Diag_DOTO",0,skluzDiag) -- H13
+								Call("SetControlValue","Diag_DOPM",0,0) -- H14
 								Call("SetControlValue","Diag_NI",0,niDiag) -- H15
-							
-							--*******H18 OJ
-								if vykon ~= 0 and math.abs(Ammeter) < 2 then
-									ojDiag = 1
-								elseif kontroler == 0 or math.abs(Ammeter) > 2 then
-									ojDiag = 0
-								end
 								Call("SetControlValue","Diag_OJ",0,ojDiag) -- H18
-
-							--*******H19 SOUCINOST BRZD
-								local rbDiag = 0
-								if Ammeter < -300 and PrvniEDBorVzduch == "EDB" then
-									rbDiag = 1
-								end
-								Call("SetControlValue","Diag_RB",0,rbDiag) -- H19
-							
-							--*******H20 UZEMNENI
-								local uzemneniDiag = 0
-								Call("SetControlValue","Diag_Uzem",0,uzemneniDiag) -- H20
-							
-							--*******H22 POZICE JOB
-								local jobDiag = 0
-								if (Call("GetControlValue","VykonPredTrCh",0) > 0 and JOB ~= 1) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) < 0 and JOB ~= -1) then
-									jobDiag = 1
-								end
-								Call("SetControlValue","Diag_JOB",0,jobDiag) -- H22
-							
-							--*******H24 ROZ PROUD
-								local rozProudDiag = 0
-								if Ammeter > proud then
-									rozProudDiag = 1
-								end
-								Call("SetControlValue","Diag_RozProud",0,rozProudDiag) -- H24
-
-							--*******ObecnaPorucha a Skluz
-								if Call("GetControlValue","JOB",0) ~= 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 then
-									failvykon = 1 
-								else
-									failvykon = 0
-								end
-								if stridaveNap then
-									skluzmg = 0
-								else
-									skluzmg = 1
-								end
-								if vnitrniSit220V ~= 1 then
-									failmg = 1
-								else
-									failmg = 0
-								end
-								if Call("GetControlValue","SnizenyVykon",0) == 1 and Call("GetControlValue","snizenyvykonanim",0) == 1 and Call("GetControlValue","JizdniKontroler",0) ~= 0 and kontroler > 0 then
-									desynchronizaceHK = 1
-								elseif Call("GetControlValue","JizdniKontroler",0) == 0 or kontroler <= 0 then
-									desynchronizaceHK = 0
-								end
-								Call("SetControlValue","fail",0,math.max(failmg,failvykon,desynchronizaceHK,diagHV,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,mgDiag,niDiag,ojDiag,uzemneniDiag,jobDiag))
-								Call("SetControlValue","skluz",0,math.max(skluzmg,skluzWheelSlip))
-							--*******H5 OBECNA POR NA VLASTNIM
-								local PoruchaNap = 0
-								Call("SetControlValue","Diag_Porucha",0,math.max(failmg,failvykon,PoruchaNap,diagHV,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,mgDiag,niDiag,ojDiag,uzemneniDiag,jobDiag)) -- H5
-								
-							--*******Odshuntovani az do odporu
-								if stupenKontroleru > 17 then
-									shunty = true
-								else
-									shunty = false
-								end
-								if shunty and stupenKontroleru < stupenKontroleruOld then
-									pocitejCasShuntu = true
-								end
-								if not shunty then
-									pocitejCasShuntu = false
-								end 
-								if pocitejCasShuntu then
-									casShuntu = casShuntu + cas
-								else
-									casShuntu = 0
-								end
-								if casShuntu > 6 then
-									Call("SetControlValue","HlavniVypinac",0,0)
-									ZamekHLvyp = 1
-								end
-						elseif Baterie == 1 then
-							Call("SetControlValue","fail",0,1)
-							Call("SetControlValue","skluz",0,1)
-							Call("SetControlValue","Diag_Porucha",0,1) -- H5
-							Call("SetControlValue","Diag_220V",0,1) -- H6
-							Call("SetControlValue","Diag_HV",0,1) -- H7
-							Call("SetControlValue","Diag_RozProud",0,1) -- H24
-							if ZamekHLvyp == 0 then
-								Call("SetControlValue","Diag_NU",0,1) -- H11
-								Call("SetControlValue","Diag_PU",0,1) -- H12
-								Call("SetControlValue","Diag_DOTO",0,1) -- H13
-								Call("SetControlValue","Diag_DOPM",0,1) -- H14
-								Call("SetControlValue","Diag_NI",0,1) -- H15
-								Call("SetControlValue","Diag_OJ",0,1) -- H18
-							elseif diagPU == 1 then
-								Call("SetControlValue","Diag_PU",0,1) -- H12
-								if smer == 0 then
-									diagPU = 0
-								end
-							elseif skluzDiag == 1 then
-								Call("SetControlValue","Diag_DOTO",0,1) -- H12
-								if kontroler <= 0.5 and kontroler >= -0.5 then --predelat na tlacitko az bude
-									--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
-									blokKrokDOTO = false
-									skluzDiag = 0
-									casSkluz = 0
-									prvniKrok = true
-								end
-							elseif niDiag == 1 then
-								Call("SetControlValue","Diag_NI",0,1) -- H15
-								if smer == 0 then
-									niDiag = 0
-								end
+								Call("SetControlValue","Diag_RB",0,0) -- H19
+								Call("SetControlValue","Diag_Uzem",0,0) -- H20
+								Call("SetControlValue","Diag_JOB",0,0) -- H22
+								Call("SetControlValue","Diag_RozProud",0,0) -- H24
+								Call("SetControlValue","fail",0,0)
+								Call("SetControlValue","skluz",0,0)
+								Call("SetControlValue","Diag_Porucha",0,0) -- H5
 							end
-						else
-							ZamekHLvyp = 0
-							diagNU = 0
-							diagPU = 0
-							skluzDiag = 0
-							niDiag = 0
-							ojDiag = 0
-							Call("SetControlValue","Diag_220V",0,0) -- H6
-							Call("SetControlValue","Diag_HV",0,0) -- H7
-							Call("SetControlValue","Diag_Ventilatory",0,0) -- H8
-							Call("SetControlValue","Diag_AREL",0,0) -- H9
-							Call("SetControlValue","Diag_Pretaveni",0,0) -- H10
-							Call("SetControlValue","Diag_NU",0,diagNU) -- H11
-							Call("SetControlValue","Diag_PU",0,diagPU) -- H12
-							Call("SetControlValue","Diag_DOTO",0,skluzDiag) -- H13
-							Call("SetControlValue","Diag_DOPM",0,0) -- H14
-							Call("SetControlValue","Diag_NI",0,niDiag) -- H15
-							Call("SetControlValue","Diag_OJ",0,ojDiag) -- H18
-							Call("SetControlValue","Diag_RB",0,0) -- H19
-							Call("SetControlValue","Diag_Uzem",0,0) -- H20
-							Call("SetControlValue","Diag_JOB",0,0) -- H22
-							Call("SetControlValue","Diag_RozProud",0,0) -- H24
-							Call("SetControlValue","fail",0,0)
-							Call("SetControlValue","skluz",0,0)
-							Call("SetControlValue","Diag_Porucha",0,0) -- H5
-						end
+					end
 				--##################################################################################--
 				------------------------------------KONEC gásti expert controls-----------------------
 				--##################################################################################--
-			-- else
-			-- 	--##################################################################################--
-			-- 	------------------------------------ČOST simple controls------------------------------
-			-- 	--##################################################################################--
-			-- 	if UzJsiZjistovalPanto == false then
-			-- 		MaPredniPantograf = Call("ControlExists","PantoPredni",0)
-			-- 		UzJsiZjistovalPanto = true
-			-- 		Call ( "DalkovePrave:Activate", 0 )
-			-- 		Call ( "DalkoveLeve:Activate", 0 )
-			-- 		Call ( "ActivateNode","dalkaclevy",0)
-			-- 		Call ( "ActivateNode","dalkacpravy",0)
-			-- 		Call ( "ActivateNode","reflektor_rozsviceny",0) 
-			-- 		Call ( "PozickaHorniBi:Activate", 0 )
-			-- 		Call ( "PozickaLevaBi:Activate", 0 )
-			-- 		Call ( "PozickaLevaCr:Activate", 0 )
-			-- 		Call ( "PozickaPravaBi:Activate", 0 )
-			-- 		Call ( "PozickaPravaCr:Activate", 0 )
-			-- 		Call ( "ActivateNode", "pozickalevaBi", 0 ) 
-			-- 		Call ( "ActivateNode", "pozickalevaCr", 0 ) 
-			-- 		Call ( "ActivateNode", "pozickapravaBi", 0 ) 
-			-- 		Call ( "ActivateNode", "pozickapravaCr", 0 ) 
-			-- 		NouzoveBrzdeni = 0
-			-- 		if PolohaKlice == 25 then klic = 1 end
-			-- 		if MaPredniPantograf == 1 then
-			-- 			Call ("SetTime","PredniSberac",0)
-			-- 			Call ("SetTime","ZadniSberac",0)
-			-- 		else
-			-- 			Call ("SetTime","ZadniSberac",0)
-			-- 		end
-			-- 		Call("SetControlValue","vysilacka_displeje",0,0)
-			-- 		Call("SetControlValue","HlavniVypinac",0,0)
-			-- 		Call("SetControlValue","VirtualStartup",0,0)
-			-- 		Call("SetControlValue","PantoJimka",0,3.11)
-			-- 	end
-			-- 	if MaPredniPantograf == 1 then PredniPanto = Call("GetControlValue", "PantoPredni", 0) else PredniPanto = 0 end
-			-- 	ZadniPanto = Call("GetControlValue", "PantoZadni", 0)
+				-- else
+				-- 	--##################################################################################--
+				-- 	------------------------------------ČOST simple controls------------------------------
+				-- 	--##################################################################################--
+				-- 	if UzJsiZjistovalPanto == false then
+				-- 		MaPredniPantograf = Call("ControlExists","PantoPredni",0)
+				-- 		UzJsiZjistovalPanto = true
+				-- 		Call ( "DalkovePrave:Activate", 0 )
+				-- 		Call ( "DalkoveLeve:Activate", 0 )
+				-- 		Call ( "ActivateNode","dalkaclevy",0)
+				-- 		Call ( "ActivateNode","dalkacpravy",0)
+				-- 		Call ( "ActivateNode","reflektor_rozsviceny",0) 
+				-- 		Call ( "PozickaHorniBi:Activate", 0 )
+				-- 		Call ( "PozickaLevaBi:Activate", 0 )
+				-- 		Call ( "PozickaLevaCr:Activate", 0 )
+				-- 		Call ( "PozickaPravaBi:Activate", 0 )
+				-- 		Call ( "PozickaPravaCr:Activate", 0 )
+				-- 		Call ( "ActivateNode", "pozickalevaBi", 0 ) 
+				-- 		Call ( "ActivateNode", "pozickalevaCr", 0 ) 
+				-- 		Call ( "ActivateNode", "pozickapravaBi", 0 ) 
+				-- 		Call ( "ActivateNode", "pozickapravaCr", 0 ) 
+				-- 		NouzoveBrzdeni = 0
+				-- 		if PolohaKlice == 25 then klic = 1 end
+				-- 		if MaPredniPantograf == 1 then
+				-- 			Call ("SetTime","PredniSberac",0)
+				-- 			Call ("SetTime","ZadniSberac",0)
+				-- 		else
+				-- 			Call ("SetTime","ZadniSberac",0)
+				-- 		end
+				-- 		Call("SetControlValue","vysilacka_displeje",0,0)
+				-- 		Call("SetControlValue","HlavniVypinac",0,0)
+				-- 		Call("SetControlValue","VirtualStartup",0,0)
+				-- 		Call("SetControlValue","PantoJimka",0,3.11)
+				-- 	end
+				-- 	if MaPredniPantograf == 1 then PredniPanto = Call("GetControlValue", "PantoPredni", 0) else PredniPanto = 0 end
+				-- 	ZadniPanto = Call("GetControlValue", "PantoZadni", 0)
 
-			-- 	----------------------------------------Pantografy----------------------------------------
-			-- 	sberaceSimple = Call("GetControlValue","VirtualPantographControl",0)
-			-- 	smerSimple = 1
-			-- 	if Call("GetSpeed") > 1 then
-			-- 		smerSimple = 1
-			-- 	elseif Call("GetSpeed") < -1 then
-			-- 		smerSimple = -1
-			-- 	end
-			-- 	if sberaceSimple == 1 then
-			-- 		if smerSimple == 1 then
-			-- 			gPredniSmetak = 0
-			-- 			gZadniSmetak = 1
-			-- 		elseif smerSimple == 2 then
-			-- 			gPredniSmetak = 1
-			-- 			gZadniSmetak = 0
-			-- 		end
-			-- 	else
-			-- 		gPredniSmetak = 0
-			-- 		gZadniSmetak = 0
-			-- 	end
-					
-			-- 	if gCommonTimer >= 0.0125 then
-			-- 		if gPredniSmetak == 1 then -- predni zberac
-			-- 			if PredniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
-			-- 				gPredniSberacControl = gPredniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
-			-- 				Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
-			-- 			end
-			-- 		elseif gPredniSmetak == 0 then
-			-- 			if PredniPanto > 0 then
-			-- 				gPredniSberacControl = gPredniSberacControl - 0.075
-			-- 				Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
-			-- 			end
-			-- 		end
-			-- 		if MaPredniPantograf == 1 then
-			-- 			if gPredniSberacOld ~= Call("GetControlValue", "PantoPredni", 0) then
-			-- 				Call("AddTime", "PredniSberac", Call("GetControlValue", "PantoPredni", 0) - gPredniSberacOld)
-			-- 			end
-			-- 			gPredniSberacOld = Call("GetControlValue", "PantoPredni", 0)
-			-- 			if gPredniSberacControl > 3.75 then gPredniSberacControl = 3.75 end
-			-- 			if gPredniSberacControl < 0 then gPredniSberacControl = 0 end
-			-- 		end
-			-- 		if gZadniSmetak == 1 then -- zadni zberac
-			-- 			if ZadniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
-			-- 				ZpravaDebug("Sberac"..gZadniSberacControl)
-			-- 				gZadniSberacControl = gZadniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
-			-- 				Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
-			-- 			end
-			-- 		elseif gZadniSmetak == 0 then
-			-- 			if ZadniPanto > 0 then
-			-- 				gZadniSberacControl = gZadniSberacControl - 0.075
-			-- 				Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
-			-- 			end
-			-- 		end
-			-- 		if gZadniSberacOld ~= Call("GetControlValue", "PantoZadni", 0) then
-			-- 			Call("AddTime", "ZadniSberac", Call("GetControlValue", "PantoZadni", 0) - gZadniSberacOld)
-			-- 		end
-			-- 		gZadniSberacOld = Call("GetControlValue", "PantoZadni", 0)
-			-- 		if gZadniSberacControl > 3.75 then gZadniSberacControl = 3.75 end
-			-- 		if gZadniSberacControl < 0 then gZadniSberacControl = 0 end
-			-- 		gCommonTimer = 0
-			-- 	end
-			-- 	if MaPredniPantograf == 1 then PP = Call ("GetControlValue", "PantoPredni", 0) else PP = 0 end
-			-- 	ZP = Call ("GetControlValue", "PantoZadni", 0)
-			-- 	if MaPredniPantograf == 1 then PC=math.max(PP,ZP) else PC = ZP end
-			-- 	if PC == 3.75 then
-			-- 		P01 = 1
-			-- 	else
-			-- 		P01 = 0
-			-- 	end
-			-- 	if PP > 3.70 and PP ~= 3.75 then 
-			-- 		Call("SetControlValue","PantoPredni",0,3.75)
-			-- 	end
-			-- 	if ZP > 3.70 and ZP ~= 3.75 then 
-			-- 		Call("SetControlValue","PantoZadni",0,3.75)
-			-- 	end
+				-- 	----------------------------------------Pantografy----------------------------------------
+				-- 	sberaceSimple = Call("GetControlValue","VirtualPantographControl",0)
+				-- 	smerSimple = 1
+				-- 	if Call("GetSpeed") > 1 then
+				-- 		smerSimple = 1
+				-- 	elseif Call("GetSpeed") < -1 then
+				-- 		smerSimple = -1
+				-- 	end
+				-- 	if sberaceSimple == 1 then
+				-- 		if smerSimple == 1 then
+				-- 			gPredniSmetak = 0
+				-- 			gZadniSmetak = 1
+				-- 		elseif smerSimple == 2 then
+				-- 			gPredniSmetak = 1
+				-- 			gZadniSmetak = 0
+				-- 		end
+				-- 	else
+				-- 		gPredniSmetak = 0
+				-- 		gZadniSmetak = 0
+				-- 	end
+						
+				-- 	if gCommonTimer >= 0.0125 then
+				-- 		if gPredniSmetak == 1 then -- predni zberac
+				-- 			if PredniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
+				-- 				gPredniSberacControl = gPredniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
+				-- 				Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
+				-- 			end
+				-- 		elseif gPredniSmetak == 0 then
+				-- 			if PredniPanto > 0 then
+				-- 				gPredniSberacControl = gPredniSberacControl - 0.075
+				-- 				Call("SetControlValue", "PantoPredni", 0, gPredniSberacControl)
+				-- 			end
+				-- 		end
+				-- 		if MaPredniPantograf == 1 then
+				-- 			if gPredniSberacOld ~= Call("GetControlValue", "PantoPredni", 0) then
+				-- 				Call("AddTime", "PredniSberac", Call("GetControlValue", "PantoPredni", 0) - gPredniSberacOld)
+				-- 			end
+				-- 			gPredniSberacOld = Call("GetControlValue", "PantoPredni", 0)
+				-- 			if gPredniSberacControl > 3.75 then gPredniSberacControl = 3.75 end
+				-- 			if gPredniSberacControl < 0 then gPredniSberacControl = 0 end
+				-- 		end
+				-- 		if gZadniSmetak == 1 then -- zadni zberac
+				-- 			if ZadniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
+				-- 				ZpravaDebug("Sberac"..gZadniSberacControl)
+				-- 				gZadniSberacControl = gZadniSberacControl + (((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2)
+				-- 				Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
+				-- 			end
+				-- 		elseif gZadniSmetak == 0 then
+				-- 			if ZadniPanto > 0 then
+				-- 				gZadniSberacControl = gZadniSberacControl - 0.075
+				-- 				Call("SetControlValue", "PantoZadni", 0, gZadniSberacControl)
+				-- 			end
+				-- 		end
+				-- 		if gZadniSberacOld ~= Call("GetControlValue", "PantoZadni", 0) then
+				-- 			Call("AddTime", "ZadniSberac", Call("GetControlValue", "PantoZadni", 0) - gZadniSberacOld)
+				-- 		end
+				-- 		gZadniSberacOld = Call("GetControlValue", "PantoZadni", 0)
+				-- 		if gZadniSberacControl > 3.75 then gZadniSberacControl = 3.75 end
+				-- 		if gZadniSberacControl < 0 then gZadniSberacControl = 0 end
+				-- 		gCommonTimer = 0
+				-- 	end
+				-- 	if MaPredniPantograf == 1 then PP = Call ("GetControlValue", "PantoPredni", 0) else PP = 0 end
+				-- 	ZP = Call ("GetControlValue", "PantoZadni", 0)
+				-- 	if MaPredniPantograf == 1 then PC=math.max(PP,ZP) else PC = ZP end
+				-- 	if PC == 3.75 then
+				-- 		P01 = 1
+				-- 	else
+				-- 		P01 = 0
+				-- 	end
+				-- 	if PP > 3.70 and PP ~= 3.75 then 
+				-- 		Call("SetControlValue","PantoPredni",0,3.75)
+				-- 	end
+				-- 	if ZP > 3.70 and ZP ~= 3.75 then 
+				-- 		Call("SetControlValue","PantoZadni",0,3.75)
+				-- 	end
 			end
 		--######################################################################################--
 		----------------------------------------KONEC gásti řízené userem-------------------------
 		--######################################################################################--
-		else
+		elseif not UzJsiZjistovalPanto then
 			Call("SetControlValue","AI",0,1)
 			Call("SetControlValue","HandBrake",0,0)
 			Call("SetControlValue","AbsolutniRychlomer",0,math.abs(Call("GetSpeed")*3.6))

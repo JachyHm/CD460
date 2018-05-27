@@ -7,20 +7,20 @@
   </UserOptions>
   <Wipers>
     <WiperDefinition Enabled="true">
-      <ArmLength>0.46</ArmLength>
+      <ArmWidth>0.005</ArmWidth>
       <ArmPivot>-0.37</ArmPivot>
       <KeyFrameRotations>
         <ArrayOfDictionaryEntry>
           <DictionaryEntry>
             <Key>0</Key>
             <Value>
-              <ClockwiseRotation>-37</ClockwiseRotation>
+              <ClockwiseRotation>-43</ClockwiseRotation>
             </Value>
           </DictionaryEntry>
           <DictionaryEntry>
             <Key>49</Key>
             <Value>
-              <ClockwiseRotation>53</ClockwiseRotation>
+              <ClockwiseRotation>48</ClockwiseRotation>
             </Value>
           </DictionaryEntry>
         </ArrayOfDictionaryEntry>
@@ -30,7 +30,7 @@
           <DictionaryEntry>
             <Key>0</Key>
             <Value>
-              <Location X="0.5097656" Y="0.103515625" />
+              <Location X="0.244140625" Y="0.35" />
               <RelativePointBefore X="-0.1" Y="-0" />
               <RelativePointAfter X="0.1" Y="0" />
               <SmoothBezier>true</SmoothBezier>
@@ -39,18 +39,31 @@
         </ArrayOfDictionaryEntry>
       </KeyFrameBezierPoints>
     </WiperDefinition>
-    <WiperDefinition>
-      <ArmLength>0.5</ArmLength>
-      <ArmPivot>-0.17</ArmPivot>
+    <WiperDefinition Enabled="true">
+      <ArmWidth>0.005</ArmWidth>
+      <ArmPivot>-0.37</ArmPivot>
       <KeyFrameRotations>
-        <ArrayOfDictionaryEntry />
+        <ArrayOfDictionaryEntry>
+          <DictionaryEntry>
+            <Key>0</Key>
+            <Value>
+              <ClockwiseRotation>43</ClockwiseRotation>
+            </Value>
+          </DictionaryEntry>
+          <DictionaryEntry>
+            <Key>49</Key>
+            <Value>
+              <ClockwiseRotation>-48</ClockwiseRotation>
+            </Value>
+          </DictionaryEntry>
+        </ArrayOfDictionaryEntry>
       </KeyFrameRotations>
       <KeyFrameBezierPoints>
         <ArrayOfDictionaryEntry>
           <DictionaryEntry>
             <Key>0</Key>
             <Value>
-              <Location X="0.5" Y="0.5" />
+              <Location X="0.76171875" Y="0.34765625" />
               <RelativePointBefore X="-0.1" Y="0" />
               <RelativePointAfter X="0.1" Y="0" />
               <SmoothBezier>false</SmoothBezier>
@@ -60,6 +73,7 @@
       </KeyFrameBezierPoints>
     </WiperDefinition>
   </Wipers>
+  <CurrentFrameLerp>47.0366936</CurrentFrameLerp>
   <CurrentWiperIndex>0</CurrentWiperIndex>
-  <SurfaceBackgroundFileName>S:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\sterace.PNG</SurfaceBackgroundFileName>
+  <SurfaceBackgroundFileName>S:\Games\Train Simulator 2017\Source\Smejki\CD460pack01\RailVehicles\Electric\Common\Cab\Textures\pozadiSterace.tga</SurfaceBackgroundFileName>
 </Globals>

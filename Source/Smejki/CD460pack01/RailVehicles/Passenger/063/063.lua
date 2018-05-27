@@ -1,6 +1,17 @@
-gDebug = false
+gDebug = true
+
 prvniZprava = false
 otocDvere = false
+
+predMasinouTornado = nil
+zaMasinouTornado = nil
+predMasinouTornadoCas = nil
+zaMasinouTornadoCas = nil
+maxVzdalenost = 25000
+
+delkaVlakuLast = 0
+delkaVlaku = 0
+
 function GetIDs(numberToDecode)
     local tableOfIDs,i,D={},1
     while numberToDecode > 0 do
@@ -58,8 +69,12 @@ function NastavHodnotuSID(nazevCV,hodnota,cisloZpravy)
 		end
 	end
 end
+function Initialise()
+	predMasinou = Call("SendConsistMessage",460999,"DUMMY",0)
+	zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
+end
 function OnConsistMessage(zprava,argument,smer)
-	if true then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
+	if zprava ~= 460995 and zprava ~= 460997 then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
 		Call("SendConsistMessage",zprava,argument,smer)
 	end
 	if ID ~= nil then
@@ -111,6 +126,19 @@ function OnConsistMessage(zprava,argument,smer)
 		end
 		Call("SendConsistMessage",460109,argument,smer)
 	end
+	if zprava == 460995 then
+		local xZS = string.sub(argument, 1, 5)/10
+		local yZS = string.sub(argument, 6, 10)/10
+		x, _, y = Call("*:getNearPosition")
+		local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
+		if vzdalenost < maxVzdalenost then
+			if smer == 1 then
+				predMasinouTornado = true
+			else
+				zaMasinouTornado = true
+			end
+		end
+	end
 	if zprava == 460997 then
 		ID = GetFreeID(GetIDs(tonumber(argument)))
 		i = 2^(ID-1)
@@ -120,25 +148,70 @@ function OnConsistMessage(zprava,argument,smer)
 			SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 debug", "Soucet ID v souprave je: "..tostring(tonumber(argument)+i)..", pocet vozu je tedy: "..ID,5,16,0,0)
 			souprava = tonumber(argument)+i
 		end
+		ZpravaDebug("Posilam zpravu 460997! ve smeru "..smer)
 		Call("SetControlValue","ID",0,ID)
 	end
-	if zprava == 460998 then
-		if stavPoslane == 0 then
-			Call("SendConsistMessage",460997,"1",ObratSmer(smer))
-			ID = 1
-			Call("SetControlValue","ID",0,ID)
+end
+function ToBolAndBack (hodnota,hranice)
+	if hodnota == true then return(1) elseif hodnota == false then return(0) else
+		if hranice ~= nil then
+			if hodnota > hranice then
+				return(true) 
+			else
+				return(false)
+			end
+		else
+			if hodnota > 0.5 then
+				return(true)
+			else
+				return(false)
+			end
 		end
 	end
 end
 function Update(time)
-	if GetIDs(Call("GetControlValue","mgVS",0))[ID] ~= nil then
-		NastavHodnotuSID("mgVS",0,460117)
-	end
-	if GetIDs(Call("GetControlValue","mg",0))[ID] ~= nil then
-		NastavHodnotuSID("mg",0,460118)
-	end
-	if GetIDs(Call("GetControlValue","mgPriprava",0))[ID] ~= nil then
-		NastavHodnotuSID("mgPriprava",0,460116)
+	if ToBolAndBack (Call("GetIsNearCamera")) then
+		if Call("GetIsPlayer") == 1 then
+			delkaVlakuLast = delkaVlaku
+			delkaVlaku = Call("GetConsistLength")
+			
+			if delkaVlakuLast ~= delkaVlaku then
+				x, _, y = Call("*:getNearPosition")
+				predMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),1)
+				if predMasinou == 0 then
+					predMasinouTornado = false
+				else
+					predMasinouTornadoCas = os.clock()
+				end
+				zaMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),0)
+				if zaMasinou == 0 then
+					zaMasinouTornado = false
+				else
+					zaMasinouTornadoCas = os.clock()
+				end
+			end
+
+			if predMasinouTornadoCas ~= nil and predMasinouTornado == nil then
+				if predMasinouTornadoCas + 0.5 < os.clock() then
+					predMasinouTornado = false
+				end
+			end
+			if zaMasinouTornadoCas ~= nil and zaMasinouTornado == nil then
+				if zaMasinouTornadoCas + 0.5 < os.clock() then
+					zaMasinouTornado = false
+				end
+			end
+
+			if GetIDs(Call("GetControlValue","mgVS",0))[ID] ~= nil then
+				NastavHodnotuSID("mgVS",0,460117)
+			end
+			if GetIDs(Call("GetControlValue","mg",0))[ID] ~= nil then
+				NastavHodnotuSID("mg",0,460118)
+			end
+			if GetIDs(Call("GetControlValue","mgPriprava",0))[ID] ~= nil then
+				NastavHodnotuSID("mgPriprava",0,460116)
+			end
+		end
 	end
 end
 function Initialise()
