@@ -1,4 +1,4 @@
-gDebug = true
+gDebug = false
 
 prvniZprava = false
 otocDvere = false
@@ -6,11 +6,17 @@ otocDvere = false
 predMasinouTornado = nil
 zaMasinouTornado = nil
 predMasinouTornadoCas = nil
+predMasinouTornadoPosledniZpravaCas = 0
 zaMasinouTornadoCas = nil
+zaMasinouTornadoPosledniZpravaCas = 0
 maxVzdalenost = 25000
+poleKOdeslani = {}
 
 delkaVlakuLast = 0
 delkaVlaku = 0
+
+casMinuly = 0
+casProcesor = 0
 
 function GetIDs(numberToDecode)
     local tableOfIDs,i,D={},1
@@ -33,9 +39,12 @@ function ZpravaDebug(zprava)
 		if printID == nil then
 			printID = Call("GetRVNumber")
 		end
-		Print("CD460 - ID"..printID)
-		Print("Rizena: "..tostring(ToBolAndBack(Call("GetIsEngineWithKey"))))
+		Print("CD063 - ID"..printID)
+		Print("Rizena: "..tostring(ToBolAndBack(Call("GetIsEngineWithKey") or 0)))
 		Print("Zprava: "..zprava.."\n")
+		f = assert(io.open("063.log", "a"))
+		f:write("CD063 - ID: "..printID.." :: Rizena: "..tostring(ToBolAndBack(Call("GetIsEngineWithKey") or 0)).." :: Zprava: "..zprava.."\n")
+		f:close()
 	end
 end
 function NastavHodnotuSID(nazevCV,hodnota,cisloZpravy)
@@ -43,7 +52,7 @@ function NastavHodnotuSID(nazevCV,hodnota,cisloZpravy)
 		hodnotaCV = Call("GetControlValue",nazevCV,0)
 		IDmasinAktiv = GetIDs(hodnotaCV)
 		if IDmasinAktiv[ID] == nil then
-			if Call("GetIsEngineWithKey") == 1 then
+			if Call("GetIsEngineWithKey") or 0 == 1 then
 				Call("SetControlValue",nazevCV,0,tonumber(hodnotaCV+2^(ID-1)))
 			else
 				Call("SendConsistMessage",cisloZpravy,"1:"..ID,1)
@@ -54,7 +63,7 @@ function NastavHodnotuSID(nazevCV,hodnota,cisloZpravy)
 		hodnotaCV = Call("GetControlValue",nazevCV,0)
 		IDmasinAktiv = GetIDs(hodnotaCV)
 		if IDmasinAktiv[ID] ~= nil then
-			if Call("GetIsEngineWithKey") == 1 then
+			if Call("GetIsEngineWithKey") or 0 == 1 then
 				vrat = 0
 				for k,v in pairs(IDmasinAktiv) do
 					if k ~= ID then
@@ -74,8 +83,18 @@ function Initialise()
 	zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
 end
 function OnConsistMessage(zprava,argument,smer)
+	ZpravaDebug("Prijata message: "..zprava.." s argumentem: "..argument.." ve smeru: "..smer)
 	if zprava ~= 460995 and zprava ~= 460997 then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
-		Call("SendConsistMessage",zprava,argument,smer)
+		if smer == 1 and zaMasinouTornado then
+			stavPoslane = Call("SendConsistMessage",zprava,argument,1)
+			ZpravaDebug("Preposilam zpravu: "..zprava.." s argumentem: "..argument.." ve smeru: "..smer)
+		elseif smer == 0 and predMasinouTornado then
+			stavPoslane = Call("SendConsistMessage",zprava,argument,0)
+			ZpravaDebug("Preposilam zpravu: "..zprava.." s argumentem: "..argument.." ve smeru: "..smer)
+		elseif predMasinouTornado == nil or zaMasinouTornado == nil then
+			table.insert(poleKOdeslani, {zprava, argument, smer})
+		end
+		-- stavPoslane = Call("SendConsistMessage",zprava,argument,smer)
 	end
 	if ID ~= nil then
 		if not prvniZprava then
@@ -131,11 +150,26 @@ function OnConsistMessage(zprava,argument,smer)
 		local yZS = string.sub(argument, 6, 10)/10
 		x, _, y = Call("*:getNearPosition")
 		local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
+		ZpravaDebug(vzdalenost)
 		if vzdalenost < maxVzdalenost then
 			if smer == 1 then
 				predMasinouTornado = true
+				predMasinouTornadoCas = nil
+				predMasinouTornadoPosledniZpravaCas = os.clock()
 			else
 				zaMasinouTornado = true
+                zaMasinouTornadoCas = nil
+				zaMasinouTornadoPosledniZpravaCas = os.clock()
+			end
+		else
+			if smer == 1 then
+				predMasinouTornado = false
+				predMasinouTornadoCas = nil
+				predMasinouTornadoPosledniZpravaCas = os.clock()
+			else
+				zaMasinouTornado = false
+                zaMasinouTornadoCas = nil
+				zaMasinouTornadoPosledniZpravaCas = os.clock()
 			end
 		end
 	end
@@ -172,44 +206,60 @@ end
 function Update(time)
 	if ToBolAndBack (Call("GetIsNearCamera")) then
 		if Call("GetIsPlayer") == 1 then
+			casMinuly = casProcesor
+			casProcesor = os.clock()
+			cas = math.abs(casProcesor - casMinuly)
+
 			delkaVlakuLast = delkaVlaku
 			delkaVlaku = Call("GetConsistLength")
 			
 			if delkaVlakuLast ~= delkaVlaku then
 				x, _, y = Call("*:getNearPosition")
-				predMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),1)
+				predMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),0)
+				ZpravaDebug("Poslana pozice dopredu: "..predMasinou)
 				if predMasinou == 0 then
 					predMasinouTornado = false
-				else
+				elseif predMasinouTornadoPosledniZpravaCas + (cas * 5) < os.clock() then
 					predMasinouTornadoCas = os.clock()
 				end
-				zaMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),0)
+				zaMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),1)
+				ZpravaDebug("Poslana pozice dozadu: "..zaMasinou)
 				if zaMasinou == 0 then
 					zaMasinouTornado = false
-				else
+				elseif zaMasinouTornadoPosledniZpravaCas + (cas * 5) < os.clock() then
 					zaMasinouTornadoCas = os.clock()
 				end
 			end
 
-			if predMasinouTornadoCas ~= nil and predMasinouTornado == nil then
-				if predMasinouTornadoCas + 0.5 < os.clock() then
+			if predMasinouTornadoCas ~= nil then
+				if predMasinouTornadoCas + (cas*5) < os.clock() then
 					predMasinouTornado = false
+					ZpravaDebug("Prekroceni casu dopredu!")
 				end
 			end
-			if zaMasinouTornadoCas ~= nil and zaMasinouTornado == nil then
-				if zaMasinouTornadoCas + 0.5 < os.clock() then
+			if zaMasinouTornadoCas ~= nil then
+				if zaMasinouTornadoCas + (cas*5) < os.clock() then
 					zaMasinouTornado = false
+					ZpravaDebug("Prekroceni casu dozadu!")
 				end
 			end
 
-			if GetIDs(Call("GetControlValue","mgVS",0))[ID] ~= nil then
-				NastavHodnotuSID("mgVS",0,460117)
-			end
-			if GetIDs(Call("GetControlValue","mg",0))[ID] ~= nil then
-				NastavHodnotuSID("mg",0,460118)
-			end
-			if GetIDs(Call("GetControlValue","mgPriprava",0))[ID] ~= nil then
-				NastavHodnotuSID("mgPriprava",0,460116)
+			if predMasinouTornado ~= nil and zaMasinouTornado ~= nil then
+				for _, v in pairs(poleKOdeslani) do
+					Call("SendConsistMessage", v[1], v[2], v[3])
+				end
+				poleKOdeslani = {}
+				if ID ~= nil then
+					if GetIDs(Call("GetControlValue","mgVS",0))[ID] ~= nil then
+						NastavHodnotuSID("mgVS",0,460117)
+					end
+					if GetIDs(Call("GetControlValue","mg",0))[ID] ~= nil then
+						NastavHodnotuSID("mg",0,460118)
+					end
+					if GetIDs(Call("GetControlValue","mgPriprava",0))[ID] ~= nil then
+						NastavHodnotuSID("mgPriprava",0,460116)
+					end
+				end
 			end
 		end
 	end

@@ -1765,7 +1765,7 @@
 										<Attribute name="Button">
 											<iInputMapper-eButton>
 												<Element>
-													<Value>Key_X</Value>
+													<Value>Key_V</Value>
 												</Element>
 											</iInputMapper-eButton>
 										</Attribute>
@@ -1793,7 +1793,7 @@
 										<Attribute name="Parameter">
 											<cDeltaString>
 												<Element>
-													<Value>Sander</Value>
+													<Value>steracePrep</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -1834,7 +1834,7 @@
 										<Attribute name="Button">
 											<iInputMapper-eButton>
 												<Element>
-													<Value>Key_X</Value>
+													<Value>Key_V</Value>
 												</Element>
 											</iInputMapper-eButton>
 										</Attribute>
@@ -1855,14 +1855,14 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>DecreaseControlStart</Value>
+													<Value>IncreaseControlStop</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
 										<Attribute name="Parameter">
 											<cDeltaString>
 												<Element>
-													<Value>Sander</Value>
+													<Value>steracePrep</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -1910,7 +1910,7 @@
 										<Attribute name="ShiftButton">
 											<iInputMapper-eShift>
 												<Element>
-													<Value>NoShift</Value>
+													<Value>Shift</Value>
 												</Element>
 											</iInputMapper-eShift>
 										</Attribute>
@@ -1924,14 +1924,83 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>ToggleControl</Value>
+													<Value>DecreaseControlStart</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
 										<Attribute name="Parameter">
 											<cDeltaString>
 												<Element>
-													<Value>Wipers</Value>
+													<Value>steracePrep</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="NewState">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+									</Value>
+								</Element>
+							</iInputMapper-cInputMapEntry>
+							<iInputMapper-cInputMapEntry>
+								<Element>
+									<Value>
+										<Attribute name="State">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+										<Attribute name="Device">
+											<iInputMapper-eDevice>
+												<Element>
+													<Value>Keyboard</Value>
+												</Element>
+											</iInputMapper-eDevice>
+										</Attribute>
+										<Attribute name="ButtonState">
+											<iInputMapper-eButtonState>
+												<Element>
+													<Value>ButtonUp</Value>
+												</Element>
+											</iInputMapper-eButtonState>
+										</Attribute>
+										<Attribute name="Button">
+											<iInputMapper-eButton>
+												<Element>
+													<Value>Key_V</Value>
+												</Element>
+											</iInputMapper-eButton>
+										</Attribute>
+										<Attribute name="ShiftButton">
+											<iInputMapper-eShift>
+												<Element>
+													<Value>Shift</Value>
+												</Element>
+											</iInputMapper-eShift>
+										</Attribute>
+										<Attribute name="Axis">
+											<iInputMapper-eAxis>
+												<Element>
+													<Value>NoAxis</Value>
+												</Element>
+											</iInputMapper-eAxis>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>DecreaseControlStop</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Parameter">
+											<cDeltaString>
+												<Element>
+													<Value>steracePrep</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3704,6 +3773,144 @@
 										<Attribute name="ShiftButton">
 											<iInputMapper-eShift>
 												<Element>
+													<Value>Control</Value>
+												</Element>
+											</iInputMapper-eShift>
+										</Attribute>
+										<Attribute name="Axis">
+											<iInputMapper-eAxis>
+												<Element>
+													<Value>NoAxis</Value>
+												</Element>
+											</iInputMapper-eAxis>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>IncreaseControlStart</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Parameter">
+											<cDeltaString>
+												<Element>
+													<Value>Baterie</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="NewState">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+									</Value>
+								</Element>
+							</iInputMapper-cInputMapEntry>
+							<iInputMapper-cInputMapEntry>
+								<Element>
+									<Value>
+										<Attribute name="State">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+										<Attribute name="Device">
+											<iInputMapper-eDevice>
+												<Element>
+													<Value>Keyboard</Value>
+												</Element>
+											</iInputMapper-eDevice>
+										</Attribute>
+										<Attribute name="ButtonState">
+											<iInputMapper-eButtonState>
+												<Element>
+													<Value>ButtonDown</Value>
+												</Element>
+											</iInputMapper-eButtonState>
+										</Attribute>
+										<Attribute name="Button">
+											<iInputMapper-eButton>
+												<Element>
+													<Value>Key_B</Value>
+												</Element>
+											</iInputMapper-eButton>
+										</Attribute>
+										<Attribute name="ShiftButton">
+											<iInputMapper-eShift>
+												<Element>
+													<Value>Control</Value>
+												</Element>
+											</iInputMapper-eShift>
+										</Attribute>
+										<Attribute name="Axis">
+											<iInputMapper-eAxis>
+												<Element>
+													<Value>NoAxis</Value>
+												</Element>
+											</iInputMapper-eAxis>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>IncreaseControlStop</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Parameter">
+											<cDeltaString>
+												<Element>
+													<Value>Baterie</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="NewState">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+									</Value>
+								</Element>
+							</iInputMapper-cInputMapEntry>
+							<iInputMapper-cInputMapEntry>
+								<Element>
+									<Value>
+										<Attribute name="State">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+										<Attribute name="Device">
+											<iInputMapper-eDevice>
+												<Element>
+													<Value>Keyboard</Value>
+												</Element>
+											</iInputMapper-eDevice>
+										</Attribute>
+										<Attribute name="ButtonState">
+											<iInputMapper-eButtonState>
+												<Element>
+													<Value>ButtonDown</Value>
+												</Element>
+											</iInputMapper-eButtonState>
+										</Attribute>
+										<Attribute name="Button">
+											<iInputMapper-eButton>
+												<Element>
+													<Value>Key_B</Value>
+												</Element>
+											</iInputMapper-eButton>
+										</Attribute>
+										<Attribute name="ShiftButton">
+											<iInputMapper-eShift>
+												<Element>
 													<Value>Shift_Control</Value>
 												</Element>
 											</iInputMapper-eShift>
@@ -3718,7 +3925,76 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>ToggleControl</Value>
+													<Value>DecreaseControlStart</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Parameter">
+											<cDeltaString>
+												<Element>
+													<Value>Baterie</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="NewState">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+									</Value>
+								</Element>
+							</iInputMapper-cInputMapEntry>
+							<iInputMapper-cInputMapEntry>
+								<Element>
+									<Value>
+										<Attribute name="State">
+											<sInt32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sInt32>
+										</Attribute>
+										<Attribute name="Device">
+											<iInputMapper-eDevice>
+												<Element>
+													<Value>Keyboard</Value>
+												</Element>
+											</iInputMapper-eDevice>
+										</Attribute>
+										<Attribute name="ButtonState">
+											<iInputMapper-eButtonState>
+												<Element>
+													<Value>ButtonUp</Value>
+												</Element>
+											</iInputMapper-eButtonState>
+										</Attribute>
+										<Attribute name="Button">
+											<iInputMapper-eButton>
+												<Element>
+													<Value>Key_B</Value>
+												</Element>
+											</iInputMapper-eButton>
+										</Attribute>
+										<Attribute name="ShiftButton">
+											<iInputMapper-eShift>
+												<Element>
+													<Value>Shift_Control</Value>
+												</Element>
+											</iInputMapper-eShift>
+										</Attribute>
+										<Attribute name="Axis">
+											<iInputMapper-eAxis>
+												<Element>
+													<Value>NoAxis</Value>
+												</Element>
+											</iInputMapper-eAxis>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>DecreaseControlStop</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4173,7 +4449,7 @@
 										<Attribute name="ButtonState">
 											<iInputMapper-eButtonState>
 												<Element>
-													<Value>ButtonDown</Value>
+													<Value>ButtonUp</Value>
 												</Element>
 											</iInputMapper-eButtonState>
 										</Attribute>
@@ -4187,7 +4463,7 @@
 										<Attribute name="ShiftButton">
 											<iInputMapper-eShift>
 												<Element>
-													<Value>NoShift</Value>
+													<Value>Shift</Value>
 												</Element>
 											</iInputMapper-eShift>
 										</Attribute>
@@ -4387,7 +4663,7 @@
 										<Attribute name="Button">
 											<iInputMapper-eButton>
 												<Element>
-													<Value>Key_E</Value>
+													<Value>Key_PageUp</Value>
 												</Element>
 											</iInputMapper-eButton>
 										</Attribute>
@@ -4456,7 +4732,7 @@
 										<Attribute name="Button">
 											<iInputMapper-eButton>
 												<Element>
-													<Value>Key_E</Value>
+													<Value>Key_PageUp</Value>
 												</Element>
 											</iInputMapper-eButton>
 										</Attribute>
@@ -4525,14 +4801,14 @@
 										<Attribute name="Button">
 											<iInputMapper-eButton>
 												<Element>
-													<Value>Key_E</Value>
+													<Value>Key_PageDown</Value>
 												</Element>
 											</iInputMapper-eButton>
 										</Attribute>
 										<Attribute name="ShiftButton">
 											<iInputMapper-eShift>
 												<Element>
-													<Value>Shift</Value>
+													<Value>NoShift</Value>
 												</Element>
 											</iInputMapper-eShift>
 										</Attribute>
@@ -4594,7 +4870,7 @@
 										<Attribute name="Button">
 											<iInputMapper-eButton>
 												<Element>
-													<Value>Key_E</Value>
+													<Value>Key_PageDown</Value>
 												</Element>
 											</iInputMapper-eButton>
 										</Attribute>
@@ -4863,7 +5139,7 @@
 										<Attribute name="ButtonState">
 											<iInputMapper-eButtonState>
 												<Element>
-													<Value>ButtonDown</Value>
+													<Value>ButtonUp</Value>
 												</Element>
 											</iInputMapper-eButtonState>
 										</Attribute>
@@ -5037,282 +5313,6 @@
 											<cDeltaString>
 												<Element>
 													<Value>ButtonPojezdVDepu</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="NewState">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-									</Value>
-								</Element>
-							</iInputMapper-cInputMapEntry>
-							<iInputMapper-cInputMapEntry>
-								<Element>
-									<Value>
-										<Attribute name="State">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-										<Attribute name="Device">
-											<iInputMapper-eDevice>
-												<Element>
-													<Value>Keyboard</Value>
-												</Element>
-											</iInputMapper-eDevice>
-										</Attribute>
-										<Attribute name="ButtonState">
-											<iInputMapper-eButtonState>
-												<Element>
-													<Value>ButtonDown</Value>
-												</Element>
-											</iInputMapper-eButtonState>
-										</Attribute>
-										<Attribute name="Button">
-											<iInputMapper-eButton>
-												<Element>
-													<Value>Key_PageUp</Value>
-												</Element>
-											</iInputMapper-eButton>
-										</Attribute>
-										<Attribute name="ShiftButton">
-											<iInputMapper-eShift>
-												<Element>
-													<Value>NoShift</Value>
-												</Element>
-											</iInputMapper-eShift>
-										</Attribute>
-										<Attribute name="Axis">
-											<iInputMapper-eAxis>
-												<Element>
-													<Value>NoAxis</Value>
-												</Element>
-											</iInputMapper-eAxis>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>IncreaseControlStart</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Parameter">
-											<cDeltaString>
-												<Element>
-													<Value>OknoL</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="NewState">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-									</Value>
-								</Element>
-							</iInputMapper-cInputMapEntry>
-							<iInputMapper-cInputMapEntry>
-								<Element>
-									<Value>
-										<Attribute name="State">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-										<Attribute name="Device">
-											<iInputMapper-eDevice>
-												<Element>
-													<Value>Keyboard</Value>
-												</Element>
-											</iInputMapper-eDevice>
-										</Attribute>
-										<Attribute name="ButtonState">
-											<iInputMapper-eButtonState>
-												<Element>
-													<Value>ButtonUp</Value>
-												</Element>
-											</iInputMapper-eButtonState>
-										</Attribute>
-										<Attribute name="Button">
-											<iInputMapper-eButton>
-												<Element>
-													<Value>Key_PageUp</Value>
-												</Element>
-											</iInputMapper-eButton>
-										</Attribute>
-										<Attribute name="ShiftButton">
-											<iInputMapper-eShift>
-												<Element>
-													<Value>NoShift</Value>
-												</Element>
-											</iInputMapper-eShift>
-										</Attribute>
-										<Attribute name="Axis">
-											<iInputMapper-eAxis>
-												<Element>
-													<Value>NoAxis</Value>
-												</Element>
-											</iInputMapper-eAxis>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>IncreaseControlStop</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Parameter">
-											<cDeltaString>
-												<Element>
-													<Value>OknoL</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="NewState">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-									</Value>
-								</Element>
-							</iInputMapper-cInputMapEntry>
-							<iInputMapper-cInputMapEntry>
-								<Element>
-									<Value>
-										<Attribute name="State">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-										<Attribute name="Device">
-											<iInputMapper-eDevice>
-												<Element>
-													<Value>Keyboard</Value>
-												</Element>
-											</iInputMapper-eDevice>
-										</Attribute>
-										<Attribute name="ButtonState">
-											<iInputMapper-eButtonState>
-												<Element>
-													<Value>ButtonDown</Value>
-												</Element>
-											</iInputMapper-eButtonState>
-										</Attribute>
-										<Attribute name="Button">
-											<iInputMapper-eButton>
-												<Element>
-													<Value>Key_PageDown</Value>
-												</Element>
-											</iInputMapper-eButton>
-										</Attribute>
-										<Attribute name="ShiftButton">
-											<iInputMapper-eShift>
-												<Element>
-													<Value>NoShift</Value>
-												</Element>
-											</iInputMapper-eShift>
-										</Attribute>
-										<Attribute name="Axis">
-											<iInputMapper-eAxis>
-												<Element>
-													<Value>NoAxis</Value>
-												</Element>
-											</iInputMapper-eAxis>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>DecreaseControlStart</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Parameter">
-											<cDeltaString>
-												<Element>
-													<Value>OknoL</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="NewState">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-									</Value>
-								</Element>
-							</iInputMapper-cInputMapEntry>
-							<iInputMapper-cInputMapEntry>
-								<Element>
-									<Value>
-										<Attribute name="State">
-											<sInt32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sInt32>
-										</Attribute>
-										<Attribute name="Device">
-											<iInputMapper-eDevice>
-												<Element>
-													<Value>Keyboard</Value>
-												</Element>
-											</iInputMapper-eDevice>
-										</Attribute>
-										<Attribute name="ButtonState">
-											<iInputMapper-eButtonState>
-												<Element>
-													<Value>ButtonUp</Value>
-												</Element>
-											</iInputMapper-eButtonState>
-										</Attribute>
-										<Attribute name="Button">
-											<iInputMapper-eButton>
-												<Element>
-													<Value>Key_PageDown</Value>
-												</Element>
-											</iInputMapper-eButton>
-										</Attribute>
-										<Attribute name="ShiftButton">
-											<iInputMapper-eShift>
-												<Element>
-													<Value>NoShift</Value>
-												</Element>
-											</iInputMapper-eShift>
-										</Attribute>
-										<Attribute name="Axis">
-											<iInputMapper-eAxis>
-												<Element>
-													<Value>NoAxis</Value>
-												</Element>
-											</iInputMapper-eAxis>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>DecreaseControlStop</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Parameter">
-											<cDeltaString>
-												<Element>
-													<Value>OknoL</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
