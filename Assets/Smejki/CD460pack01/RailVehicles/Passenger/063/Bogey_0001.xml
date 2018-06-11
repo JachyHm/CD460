@@ -4,19 +4,19 @@
 		<cBogeyBlueprint xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
 			<WheelRadius d:type="sFloat32">0.500999868</WheelRadius>
 			<WheelGauge d:type="sFloat32">1.435</WheelGauge>
-			<Geometry d:type="cDeltaString">bo02</Geometry>
+			<Geometry d:type="cDeltaString">bo01</Geometry>
 			<Animation d:type="cDeltaString"></Animation>
 			<Powered d:type="cDeltaString">eFalse</Powered>
 			<SuspensionStiffness d:type="sFloat32">8E+09</SuspensionStiffness>
 			<SuspensionDamping d:type="sFloat32">6E+07</SuspensionDamping>
 			<Axle>
-				<cBogeyBlueprint-tag_sAxle d:id="116974">
+				<cBogeyBlueprint-tag_sAxle d:id="125">
 					<Radius d:type="sFloat32">0.5</Radius>
 					<HorizontalOffset d:type="sFloat32">1.295</HorizontalOffset>
 					<NodeId d:type="cDeltaString">bo02wh01</NodeId>
 					<AnimationId d:type="cDeltaString"></AnimationId>
 				</cBogeyBlueprint-tag_sAxle>
-				<cBogeyBlueprint-tag_sAxle d:id="116979">
+				<cBogeyBlueprint-tag_sAxle d:id="130">
 					<Radius d:type="sFloat32">0.5</Radius>
 					<HorizontalOffset d:type="sFloat32">-1.295</HorizontalOffset>
 					<NodeId d:type="cDeltaString">bo02wh02</NodeId>
@@ -24,7 +24,7 @@
 				</cBogeyBlueprint-tag_sAxle>
 			</Axle>
 			<PivotOffset>
-				<cBogeyBlueprint-tag_sPivotOffset d:id="116985">
+				<cBogeyBlueprint-tag_sPivotOffset d:id="136">
 					<HorizontalOffset d:type="sFloat32">0</HorizontalOffset>
 					<VerticalOffset d:type="sFloat32">0</VerticalOffset>
 				</cBogeyBlueprint-tag_sPivotOffset>

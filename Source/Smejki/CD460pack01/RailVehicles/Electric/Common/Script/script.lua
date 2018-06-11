@@ -106,12 +106,10 @@ beginZpozdeniBrzdic = nil
 plynuleValce = 0
 plynuleValce_bezBP = 0
 plynuleValceZobrazene = 0
-plynulaBrzda = math.random(0,5)
+plynulaBrzda = 0
 nastavenaBrzda = plynulaBrzda
 nastavenaBrzda_opozdene = nastavenaBrzda
 VirtualMainReservoirPressureBAR = math.random(0,10)
-Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
-Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
 plynulaBrzda_opozdene = 0
 plynulyVzduchojem = 0
 vysokotlakysvih = false
@@ -175,6 +173,7 @@ pojezdNeschopna = false
 prvnizprava = false
 
 byloZhaveni = false
+nadbytecnaObsluha = false
 
 steracLevyOut = 0
 steracPravyOut = 0
@@ -194,14 +193,27 @@ zaMasinouTornadoCas = nil
 zaMasinouTornadoPosledniZpravaCas = 0
 maxVzdalenost = 25000
 poleKOdeslani = {}
+prijateZpravy = {{},{}}
 
 delkaVlakuLast = 0
 delkaVlaku = 0
 
 pocetMG = 0
 
-dolniMezKompresoru = math.random(7.5,8.5)
-horniMezKompresoru = math.random(9.1,9.7)
+dolniMezKompresoru = 8.2
+horniMezKompresoru = 9.7
+
+mgUnitValueLast = 0
+
+dvereTlak = 0
+prepinaceTlak = 0
+
+ujeteMetryAI = 0
+casPlayerReflektor = 0
+vzdalenostAI = 0
+vzdalenostAIlast = 0
+
+provedPrijetiVUpdate = false
 
 function ZpravaDebug(zprava)
 	if gDebug then
@@ -577,7 +589,7 @@ IS = {
 			if IS.cil1ID <= 0 then
 				IS.cil1ID = table.getn(IS.cile1IN)
 			end
-			IS:NastavCil1(IS.cil1ID,false)
+			IS:NastavCil1(IS.cil1ID,true)
 			IS:NastavCislo(IS.cil1ID)
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
@@ -585,7 +597,7 @@ IS = {
 			if IS.cil2ID <= 0 then
 				IS.cil2ID = table.getn(IS.cile2IN)
 			end
-			IS:NastavCil2(IS.cil2ID,false)
+			IS:NastavCil2(IS.cil2ID,true)
 			IS:NastavCislo(IS.cil2ID)
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
@@ -593,7 +605,7 @@ IS = {
 			if IS.linkaID <= 0 then
 				IS.linkaID = table.getn(IS.IS.linkyIN)
 			end
-			IS:NastavLinku(IS.linkaID,false)
+			IS:NastavLinku(IS.linkaID,true)
 			IS:NastavCislo(IS.linkaID)
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
@@ -603,19 +615,16 @@ IS = {
 		if IS.stav == "sleep" then
 			IS.stav = "cil1"
 		elseif IS.stav == "cil1" then
-			IS:NastavCil1(IS.cil1ID,true)
 			IS:NastavCislo(IS.cil2ID)
 			if IS.cileIsWhole[IS.cil1ID] == "false" then
 				IS.stav = "cil2"
 			end
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis cile 1:", "Zapisuji ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
-			IS:NastavCil2(IS.cil2ID,true)
 			IS:NastavCislo(IS.linkaID)
 			IS.stav = "linka"
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis cile 2:", "Zapisuji ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
-			IS:NastavLinku(IS.linkaID,true)
 			IS:NastavCislo(IS.cil1ID)
 			IS.stav = "cil1"
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis linky:", "Zapisuji ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
@@ -815,8 +824,6 @@ function DefinujPromene()
 	tlacitko6 = 0
 	tlacitko7 = 0
 	tlacitko9 = 0
-	casbrzdy = 0
-	casbrzdy2 = 0
 	pomkomp = 0
 	hlkomp = 0
 	bylpojistovak = 0
@@ -856,7 +863,7 @@ function DefinujPromene()
 	nezobrazujValce = false
 	matrosov = false
 	casOJ = 0
-	gDebug = false
+	gDebug = true
 	gTimeVentilatory = 0
 	gKlicTady = false
 	gBlokLeve = true
@@ -960,6 +967,7 @@ function Initialise ()
 	predMasinou = Call("SendConsistMessage",460999,"DUMMY",0)
 	zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
 	Call("SetControlValue","PantographControl",0,0)
+	Call("SetControlValue","BrzdaVS",0,0.86)
 end
 function GetIDs(numberToDecode)
     local tableOfIDs,i,D={},1
@@ -1060,7 +1068,7 @@ end
 	-- 460998 - zadost o ID
 	-- 460999 - DUMMY
 function OnConsistMessage(zprava,argument,smer)
-	if zprava ~= 460995 and zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
+	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
 		if smer == 1 and zaMasinouTornado then
 			stavPoslane = Call("SendConsistMessage",zprava,argument,1)
 		elseif smer == 0 and predMasinouTornado then
@@ -1151,7 +1159,6 @@ function OnConsistMessage(zprava,argument,smer)
 	end
 	if zprava == 460118 then
 		ZpracujZpravuSID(zprava,argument,smer,"mg")
-		pocetMG = decToBitsCount(Call("GetControlValue","mg",0))
 	end
 	if zprava == 460119 then
 		if argument == "obrat" then
@@ -1164,31 +1171,42 @@ function OnConsistMessage(zprava,argument,smer)
 	if zprava == 460120 then
 		ZpracujZpravuSID(zprava,argument,smer,"poruchaVeVlaku")
 	end
+	if zprava == 460994 then
+		prijateZpravy[smer+1]["x"] = argument
+		xZS = argument
+	end
 	if zprava == 460995 then
-		local xZS = string.sub(argument, 1, 5)/10
-		local yZS = string.sub(argument, 6, 10)/10
-		x, _, y = Call("*:getNearPosition")
-		local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
-		if vzdalenost < maxVzdalenost then
-			if smer == 1 then
-				predMasinouTornado = true
-                predMasinouTornadoCas = nil
-				predMasinouTornadoPosledniZpravaCas = os.clock()
+		if prijateZpravy[smer+1]["x"] ~= nil then
+			local yZS = argument
+			x, _, y = Call("*:getNearPosition")
+			ZpravaDebug("yZS: "..yZS)
+			ZpravaDebug("xZS: "..xZS)
+			ZpravaDebug("y: "..y)
+			ZpravaDebug("x: "..x)
+			local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
+			if vzdalenost < maxVzdalenost then
+				if smer == 1 then
+					predMasinouTornado = true
+					predMasinouTornadoCas = nil
+					predMasinouTornadoPosledniZpravaCas = os.clock()
+				else
+					zaMasinouTornado = true
+					zaMasinouTornadoCas = nil
+					zaMasinouTornadoPosledniZpravaCas = os.clock()
+				end
 			else
-				zaMasinouTornado = true
-                zaMasinouTornadoCas = nil
-				zaMasinouTornadoPosledniZpravaCas = os.clock()
+				if smer == 1 then
+					predMasinouTornado = false
+					predMasinouTornadoCas = nil
+					predMasinouTornadoPosledniZpravaCas = os.clock()
+				else
+					zaMasinouTornado = false
+					zaMasinouTornadoCas = nil
+					zaMasinouTornadoPosledniZpravaCas = os.clock()
+				end
 			end
 		else
-			if smer == 1 then
-				predMasinouTornado = false
-				predMasinouTornadoCas = nil
-				predMasinouTornadoPosledniZpravaCas = os.clock()
-			else
-				zaMasinouTornado = false
-                zaMasinouTornadoCas = nil
-				zaMasinouTornadoPosledniZpravaCas = os.clock()
-			end
+			prijateZpravy[smer+1]["y"] = argument
 		end
 	end
 	if zprava == 460997 then
@@ -1225,25 +1243,25 @@ function OnCustomSignalMessage ( Parameter )
 	local vzdalenost
 	NO = tonumber(string.sub(Parameter, 1, 2))
 	vzdalenost = tonumber(string.sub(Parameter, 3))
-	if NO == -1 or Baterie ~= 1 or JeZivak1 ~= 1 then
+	if NO == -1 then
 		gNejblizsiNavestidlo = -1
 		Call("SetControlValue","Mirel",0,0)
 	end
 	if vzdalenost > 0 then
-		if (vzdalenost < gNejblizsiNavestidlo) or (math.abs(gNejblizsiNavestidlo - vzdalenost) > 2) or (gNejblizsiNavestidlo < 0) then
+		if (vzdalenost < gNejblizsiNavestidlo) or (math.abs(gNejblizsiNavestidlo - vzdalenost) < 2) or (gNejblizsiNavestidlo < 0) then
 			gNejblizsiNavestidlo = vzdalenost
 		end
 	end
-	if gNejblizsiNavestidlo == vzdalenost and Baterie == 1 and JeZivak1 == 1 then
-		if NO == 15 then			-- Stuj
+	if gNejblizsiNavestidlo == vzdalenost then
+		if NO == 15 or NO == 30 then					-- Stuj
 			Call("SetControlValue","Mirel",0,3)
-		elseif NO == 17 then		-- Vystraha
+		elseif NO == 17 then							-- Vystraha
 			Call("SetControlValue","Mirel",0,4)
-		elseif NO == 16 then		-- Volno
+		elseif NO == 16 then							-- Volno
 			Call("SetControlValue","Mirel",0,2)
-		elseif NO >= 19 and NO <= 24 or NO == 30 then		-- omezene rychlosti
+		elseif NO >= 19 and NO <= 24 then				-- omezene rychlosti
 			Call("SetControlValue","Mirel",0,1)
-		else												-- nekodovane navesti
+		else											-- nekodovane navesti
 			Call("SetControlValue","Mirel",0,0)
 		end
 	end
@@ -1517,7 +1535,7 @@ function VratTCh(gRegulatorTrCh)
 		end
 	elseif stupenTrCh < 0 and not pojezdVDepu then
 		if stupenTrCh == -1 then
-			vypoctenaTrCh = (-250+(-1*speed))/((1*speed)+2)+27
+			vypoctenaTrCh = (-250-speed)/(speed+2)+27
 			--vypoctenaTrCh = -0.5
 		elseif stupenTrCh <= -2 then
 			vypoctenaTrCh = (-250+(-1*speed))/((0.2*speed)+2)+74
@@ -1860,6 +1878,7 @@ function Update (casHry)
 		if math.abs(cas - casHry) > 2 then
 			cas = 0
 		end
+		-- cas = casHry
 		-- Call("ZimniJiskra:Activate",0)
 		-- Call("ZimniJiskra1:Activate",0)
 		-- Call("ZimniJiskra2:Activate",0)
@@ -1878,7 +1897,7 @@ function Update (casHry)
 		mm = tonumber(mm)
 		ss = tonumber(ss)
 		gCommonTimer = gCommonTimer + cas
-		if Call("GetIsPlayer") == 1 then
+		if Call("GetIsPlayer") == 1 or UzJsiZjistovalPanto then
 			if delkaVlakuLast ~= delkaVlaku then
 				Call("SetControlValue","IsMasterInConsist",0,0)
 				Call("SetControlValue","mg",0,0)
@@ -1886,16 +1905,18 @@ function Update (casHry)
 				Call("SetControlValue","mgVS",0,0)
 				Call("SetControlValue","poruchaVeVlaku",0,0)
 				x, _, y = Call("*:getNearPosition")
-				predMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),0)
+				Call("SendConsistMessage",460994,string.sub(x, 1, 10),0)
+				predMasinou = Call("SendConsistMessage",460995,string.sub(y, 1, 10),0)
 				if predMasinou == 0 then
 					predMasinouTornado = false
-				elseif predMasinouTornadoPosledniZpravaCas + (cas * 5) < os.clock() then
+				else
 					predMasinouTornadoCas = os.clock()
 				end
-				zaMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),1)
+				Call("SendConsistMessage",460994,string.sub(x, 1, 10),1)
+				zaMasinou = Call("SendConsistMessage",460995,string.sub(y, 1, 10),1)
 				if zaMasinou == 0 then
 					zaMasinouTornado = false
-				elseif zaMasinouTornadoPosledniZpravaCas + (cas * 5) < os.clock() then
+				else
 					zaMasinouTornadoCas = os.clock()
 				end
 				Call("SetControlValue","PredMasinou",0,predMasinou)
@@ -1912,6 +1933,41 @@ function Update (casHry)
 				if zaMasinouTornadoCas + (cas*5) < os.clock() then
 					zaMasinouTornado = false
 					zaMasinouTornadoCas = nil
+				end
+			end
+			if table.getn(prijateZpravy) > 0 then
+				for i in prijateZpravy do
+					if prijateZpravy[i]["x"] ~= nil and prijateZpravy[i]["y"] ~= nil then
+						prijateZpravy[i] = nil
+						local xZS, yZS = prijateZpravy[i]["x"], prijateZpravy[i]["y"]
+						x, _, y = Call("*:getNearPosition")
+						ZpravaDebug("yZS: "..yZS)
+						ZpravaDebug("xZS: "..xZS)
+						ZpravaDebug("y: "..y)
+						ZpravaDebug("x: "..x)
+						local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
+						if vzdalenost < maxVzdalenost then
+							if smer == 1 then
+								predMasinouTornado = true
+								predMasinouTornadoCas = nil
+								predMasinouTornadoPosledniZpravaCas = os.clock()
+							else
+								zaMasinouTornado = true
+								zaMasinouTornadoCas = nil
+								zaMasinouTornadoPosledniZpravaCas = os.clock()
+							end
+						else
+							if smer == 1 then
+								predMasinouTornado = false
+								predMasinouTornadoCas = nil
+								predMasinouTornadoPosledniZpravaCas = os.clock()
+							else
+								zaMasinouTornado = false
+								zaMasinouTornadoCas = nil
+								zaMasinouTornadoPosledniZpravaCas = os.clock()
+							end
+						end
+					end
 				end
 			end
 			if predMasinouTornado ~= nil and zaMasinouTornado ~= nil then
@@ -1941,6 +1997,11 @@ function Update (casHry)
 						SvetloDimm(Call("GetControlValue","StmivacOsvetleni",0))
 						mgp = Call("GetControlValue","mgp",0)
 						Rychlost = math.abs(Call("GetSpeed")) * 3.6
+						mgUnitValue = Call("GetControlValue", "mg", 0)
+						if mgUnitValueLast ~= mgUnitValue then
+							mgUnitValueLast = mgUnitValue
+							pocetMG = decToBitsCount(mgUnitValue)
+						end
 						if RizenaRidici == "ridici" then
 							Call("SetControlValue","AbsolutniRychlomer",0,math.abs(Call("GetControlValue","SpeedometerKPH",0)))
 							Call("SetControlValue","hlkomp",0,KompresorPrep)
@@ -1977,6 +2038,10 @@ function Update (casHry)
 						end
 						if UzJsiZjistovalPanto == false then
 							UzJsiZjistovalPanto = true
+							Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
+							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,math.min(VirtualMainReservoirPressureBAR, 3.8))
+							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,math.min(VirtualMainReservoirPressureBAR,5))
 							Call ( "DalkovePrave:Activate", 0 )
 							Call ( "DalkoveLeve:Activate", 0 )
 							Call ( "ActivateNode","dalkaclevy",0)
@@ -2081,12 +2146,12 @@ function Update (casHry)
 								end
 								if LVZvypinac and LVZrezim < 0.25 and byloZhaveni and NouzoveBrzdeni == 0 then
 									Call("SetControlValue", "JeZivakZap", 0, 1)
-								elseif LVZvypinac and LVZrezim == 0 then
+								elseif LVZvypinac and LVZrezim < 0.25 then
 									byloZhaveni = false
 									Call("SetControlValue", "JeZivakZap", 0, 0)
 									NouzoveBrzdeni = 1
 								end
-								if LVZvypinac and byloZhaveni and LVZrezim > 0.25 and LVZrezim < 0.75 then
+								if LVZvypinac and byloZhaveni and LVZrezim > 0.25 and LVZrezim < 0.75 and NouzoveBrzdeni == 0 then
 									Call("SetControlValue", "JeZivakZap", 0, 1)
 									LVZzkouseni = true
 								end
@@ -2104,11 +2169,6 @@ function Update (casHry)
 										NouzoveBrzdeni = 0
 									end
 								end
-								if not LVZvypinac and LVZrezim < 0.25 then
-									byloZhaveni = false
-									Call("SetControlValue", "JeZivakZap", 0, 0)
-									NouzoveBrzdeni = 1
-								end
 								if not LVZvypinac then
 									byloZhaveni = false
 									Call("SetControlValue", "JeZivakZap", 0, 0)
@@ -2119,8 +2179,6 @@ function Update (casHry)
 							elseif LVZnapeti > 0 then
 								LVZnapeti = LVZnapeti - cas*2
 								Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
-								byloZhaveni = false
-								NouzoveBrzdeni = 0
 							end
 							if Baterie == 0 then
 								byloZhaveni = false
@@ -2138,27 +2196,43 @@ function Update (casHry)
 
 							local kodNavesti = LVZ(Call("GetControlValue","Mirel",0),Call("GetControlValue","LVZzivak",0),cas,JeZivak1)
 
-							if JeZivak1 == 1 and Baterie == 1 then ------- zivak
+							if JeZivak1 == 1 and Baterie == 1 and NouzoveBrzdeni == 0 then ------- zivak
 								CasZivak = CasZivak + cas
-								if ZivakReset <= 0.25 and ZivakStary == 1 and NouzoveBrzdeni == 0 then
+								if ZivakReset <= 0.25 and ZivakStary == 1 then
 									if CasZivak > 7 then
 										CasZivak = 0
 									end
 									ZivakStary = 0
 								end
-								if (Call("GetControlValue","EngineBrakeControl",0) >= 0.2 or kodNavesti == 2 or NouzoveBrzdeni == 1) and not LVZzkouseni then
+								if (Call("GetControlValue","EngineBrakeControl",0) >= 0.2) and not LVZzkouseni then
 									CasZivak = 0
+								end
+								if kodNavesti == 2 or kodNavesti == 4 then
+									if ZivakReset >= 0.25 then
+										nadbytecnaObsluha = true
+										Call ("SetControlValue", "ZivakPip", 0, 1)
+									end
+									if CasZivak > 10 then
+										CasZivak = 10
+									end
+								end
+								if ZivakReset <= 0.25 then
+									nadbytecnaObsluha = false
 								end
 								if CasZivak <= 7 then
 									Call ("SetControlValue", "LVZzivak", 0, 1)
-									Call ("SetControlValue", "ZivakPip", 0, 0)
+									if not nadbytecnaObsluha then
+										Call ("SetControlValue", "ZivakPip", 0, 0)
+									end
 								elseif CasZivak <= 15 then
 									if ZivakReset >= 0.25 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
 									else
 										Call ("SetControlValue", "LVZzivak", 0, 0)
 									end
-									Call ("SetControlValue", "ZivakPip", 0, 0)
+									if not nadbytecnaObsluha then
+										Call ("SetControlValue", "ZivakPip", 0, 0)
+									end
 								elseif CasZivak <= 19 then
 									if ZivakReset >= 0.25 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
@@ -2510,9 +2584,9 @@ function Update (casHry)
 								elseif Call("GetControlValue","ZpozdenyVirtualBrake",0) <= 0.22 and PrvniEDBorVzduch == "vzduch" then
 									PrvniEDBorVzduch = "nichts"
 								end
-								if vykon < 0 and PrvniEDBorVzduch == "nichts" then
+								if vykon < 0 and PC == 3.75 and PrvniEDBorVzduch == "nichts" then
 									PrvniEDBorVzduch = "EDB"
-								elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" then
+								elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" and PC == 3.75 then
 									PrvniEDBorVzduch = "nichts"
 								end
 								if (Ammeter <= -300 or plynulaBrzda < 3.5) and PrvniEDBorVzduch == "EDB" then
@@ -2528,6 +2602,10 @@ function Update (casHry)
 							nastavenaBrzda_opozdene = nastavenaBrzda_opozdene-(((nastavenaBrzda_opozdene/500)^2)*3*cas)
 							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR-(((VirtualBrakeReservoirPressureBAR/500)^2)*3*cas))
 							nastaveneValce = nastaveneValce-(((nastaveneValce/500)^2)*10*cas)
+							PantoJimkaZKom = PantoJimkaZKom-(((PantoJimkaZKom/790)^2)*10*cas)
+							prepinaceTlak = prepinaceTlak-(((prepinaceTlak/600)^2)*10*cas)
+							dvereTlak = dvereTlak-(((dvereTlak/400)^2)*10*cas)
+
 							if VirtualMainReservoirPressureBAR > horniMezKompresoru then
 								autoKompresor = false
 							elseif VirtualMainReservoirPressureBAR < dolniMezKompresoru then
@@ -2535,34 +2613,22 @@ function Update (casHry)
 							end
 							if Baterie == 1 then
 								if math.abs(pomkomp) == 1 and Call("GetControlValue","PantoJimka",0) <= 4 then
-									casbrzdy = casbrzdy + cas
-									if casbrzdy >= 0.0125 then
-										PantoJimkaZKom=PantoJimkaZKom+0.0005
-										casbrzdy = 0
-									end
-									if Call("GetControlValue","PantoJimka",0) >= 3.11 then
-										Call("SetControlValue","pojistak",0,1)
-										pojistak = true
-									else
-										Call("SetControlValue","pojistak",0,0)
-										pojistak = false
-									end
+									PantoJimkaZKom=PantoJimkaZKom+0.1*cas
 								end
 								if vnitrniSit220Vnouzova == 1 then
 									if hlkomp == -1 and bylpojistovak ~= 1 and Call("GetControlValue","VirtualMainReservoirPressureBAR",0) <= 10 then
-										casbrzdy2 = casbrzdy2 + cas
-										if casbrzdy2 >= 0.0125 then
-											Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+0.00125*pocetMG)
-											casbrzdy2 = 0
-										end
+										Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+(0.0725*cas*pocetMG))
 									elseif hlkomp == 1 and bylpojistovak ~= 1 and autoKompresor then
-										casbrzdy2 = casbrzdy2 + cas
-										if casbrzdy2 >= 0.0125 then
-											Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+0.00125*pocetMG)
-											casbrzdy2 = 0
-										end
+										Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)+(0.0725*pocetMG*cas))
 									end
 								end
+							end
+							if Call("GetControlValue","PantoJimka",0) >= 3.11 then
+								Call("SetControlValue","pojistak",0,1)
+								pojistak = true
+							else
+								Call("SetControlValue","pojistak",0,0)
+								pojistak = false
 							end
 							VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
 							if VirtualBrakeReservoirPressureBAR < 5 and VirtualBrakeReservoirPressureBAR < VirtualMainReservoirPressureBAR - 0.5 then
@@ -2575,12 +2641,8 @@ function Update (casHry)
 								bylpojistovak = 1
 							end
 							if bylpojistovak == 1 then
-								casbrzdy2 = casbrzdy2 + cas
-								if VirtualMainReservoirPressureBAR >= 9 then
-									if casbrzdy2 >= 0.0125 then
-										Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)-0.005)
-										casbrzdy2 = 0
-									end
+								if VirtualMainReservoirPressureBAR >= horniMezKompresoru - 0.5 then
+									Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)-1*cas)
 								else
 									bylpojistovak = 0
 								end
@@ -2747,7 +2809,7 @@ function Update (casHry)
 							
 							if plynuleValce_bezBP == 0 then
 								Call("SetControlValue","TrainBrakeControl",0,0)
-							elseif plynuleValce_bezBP >= 2.2 and bylaZachrana then
+							elseif plynuleValce_bezBP >= 0.1 and bylaZachrana then
 								Call("SetControlValue","TrainBrakeControl",0,1)
 							else
 								Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
@@ -2762,6 +2824,7 @@ function Update (casHry)
 							Call("SetControlValue","pojistovak",0,math.abs(bylpojistovak))
 							PantoJimkaZHJ=math.min(Call("GetControlValue","VirtualMainReservoirPressureBAR",0),3.11)
 							Call("SetControlValue","PantoJimka",0,math.max(PantoJimkaZKom,PantoJimkaZHJ))
+							PantoJimkaZKom = Call("GetControlValue","PantoJimka",0)
 							Call("SetControlValue","SberaceJimka",0,math.max(PantoJimkaZHJ,PantoJimkaZKom))
 							if PP > 0 then
 								sberac1TlakPozadovany = math.min(Call("GetControlValue","SberaceJimka",0),5)
@@ -2785,8 +2848,10 @@ function Update (casHry)
 							elseif sberac2Tlak > sberac2TlakPozadovany then
 								Call("SetControlValue","Sberac2Tlak",0,sberac2Tlak-0.05)
 							end
-							Call("SetControlValue","DvereTlak",0,math.min(VirtualMainReservoirPressureBAR,7))
-							Call("SetControlValue","PrepinaceTlak",0,math.min(VirtualMainReservoirPressureBAR,5))
+							Call("SetControlValue","DvereTlak",0,math.max(math.min(VirtualMainReservoirPressureBAR,7),dvereTlak))
+							dvereTlak = Call("GetControlValue","DvereTlak",0)
+							Call("SetControlValue","PrepinaceTlak",0,math.max(math.min(VirtualMainReservoirPressureBAR,5),prepinaceTlak))
+							prepinaceTlak = Call("GetControlValue","PrepinaceTlak",0)
 
 						----------------------------------------Ovladani HV---------------------------------------
 							PolohaKlice = Call ("GetControlValue", "VirtualStartup", 0)
@@ -3301,10 +3366,8 @@ function Update (casHry)
 							end
 							if DalkovaSv <= 0.5 then
 								DalkovaSvF(0,cas,Baterie)
-							elseif DalkovaSv <= 1.5 then
-								DalkovaSvF(1,cas,Baterie)
 							else
-								DalkovaSvF(2,cas,Baterie)
+								DalkovaSvF(1,cas,Baterie)
 							end
 							if klic == 1 then -- Jenom pokud je klic ve zdirce
 								if PolohaKlice < 0.25 then -- blokovani dolni schovane
@@ -3735,11 +3798,14 @@ function Update (casHry)
 							elseif pozadavekNaFastStart == 1 and jeMrtva then
 								SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
 								pozadavekNaFastStart = 0
+								Call("SetControlValue","FastStart",0,0)
 							elseif pozadavekNaFastStart == 2 and not jeMrtva then
 								levaPozBilVPKC = false
-								levaPozCerVPKC = true
 								pravaPozBilVPKC = false
-								pravaPozCerVPKC = true
+								if not predMasinou then
+									levaPozCerVPKC = true
+									pravaPozCerVPKC = true
+								end
 								nastavenaBrzda = 5.0
 								plynulaBrzda = 5.0
 								nastaveneValce = 0
@@ -3771,9 +3837,11 @@ function Update (casHry)
 								pozadavekNaFastStart = 0
 								PantoJimkaZKom = 3.11
 								Call("SetControlValue","mgautostart",0,1)
+								Call("SetControlValue","FastStart",0,0)
 							elseif pozadavekNaFastStart == 2 and jeMrtva then
 								SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_NEUSPESNY_FAST_START,ALERT)
 								pozadavekNaFastStart = 0
+								Call("SetControlValue","FastStart",0,0)
 							end
 						----------------------------------------JOB-----------------------------------------------
 							if RizenaRidici == "ridici" then
@@ -4006,7 +4074,7 @@ function Update (casHry)
 									elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Current", 0) ~= 0 then
 										ojDiag = 0
 									end
-									-- Call("SetControlValue","Diag_OJ",0,ojDiag) -- H18
+									Call("SetControlValue","Diag_OJ",0,ojDiag) -- H18
 									-- if vykon ~= 0 and Call("GetControlValue", "Current", 0) == 0 then
 									-- 	SysCall("ScenarioManager:ShowMessage", "460 Debug", "Proud je nula, ale vykon neni nula!", ALERT)
 									-- end
@@ -4261,27 +4329,28 @@ function Update (casHry)
 		--######################################################################################--
 		elseif not UzJsiZjistovalPanto then
 			Call("SetControlValue","AI",0,1)
-			Call("SetControlValue","HandBrake",0,0)
 			Call("SetControlValue","AbsolutniRychlomer",0,math.abs(Call("GetSpeed")*3.6))
 			deltaSpeedMinula = deltaSpeed
 			deltaSpeed = Call("GetSpeed")
-			Call("SetControlValue","DeltaSpeed",0,deltaSpeed - deltaSpeedMinula)
-			if deltaSpeed > 0.1 then
+			local reflektorAI = false
+			Call("SetControlValue", "DeltaSpeed", 0, math.abs(deltaSpeed) - math.abs(deltaSpeedMinula))
+			if deltaSpeed > 0.01 then
 				SmerAI = 1
 				if predMasinou == 0 and not jeMrtva then
 					SvetlaAI = 1
 				else
 					SvetlaAI = 0
 				end
-			elseif deltaSpeed < -0.1 then
+			elseif deltaSpeed < -0.01 then
 				SmerAI = -1
-				if zaMasinou == 0 and not jeMrtva then
+				if predMasinou == 0 and not jeMrtva then
 					SvetlaAI = 1
 				else
 					SvetlaAI = 0
 				end
 			elseif not jeMrtva then
 				SvetlaAI = 1
+				reflektorAI = false
 			else
 				SvetlaAI = 0
 			end
@@ -4301,7 +4370,37 @@ function Update (casHry)
 					Call ("SetTime","PredniSberac",0)
 				end
 			end
+			-- ZpravaDebug(Call("PlayerEngine:GetControlValue", "Headlights", 0))
 			if SvetlaAI == 1 then
+				if math.abs(deltaSpeed) > 0 then
+					ujeteMetryAI = ujeteMetryAI + (math.abs(deltaSpeed)*cas)
+					if ujeteMetryAI > 100 then
+						reflektorAI = true
+					end
+					pX, _, pY = SysCall("PlayerEngine:getNearPosition") or 0,0,0
+					x, _, y = Call("*:getNearPosition")
+					vzdalenostAIlast = vzdalenostAI
+					vzdalenostAI = math.sqrt((pX-x)^2+(pY-y)^2)
+					if vzdalenostAI < 300 then
+						reflektorAI = false
+						if 0 >= 0.5 then --Call("PlayerEngine:GetControlValue", "Headlights", 0) or
+							casPlayerReflektor = casPlayerReflektor + cas
+							if (casPlayerReflektor > 4 and casPlayerReflektor < 5) or casPlayerReflektor > 8 then
+								reflektorAI = true
+							end
+						else
+							casPlayerReflektor = 0
+						end
+					else
+						casPlayerReflektor = 0
+					end
+					if vzdalenostAIlast < vzdalenostAI and vzdalenostAI > 100 then
+						reflektorAI = true
+					end
+				else
+					ujeteMetryAI = 0
+					casPlayerReflektor = 0
+				end
 				if SmerAI == -1 then
 					Call ( "DalkovePrave:Activate", 0 )
 					Call ( "DalkoveLeve:Activate", 0 )
@@ -4318,12 +4417,21 @@ function Update (casHry)
 					Call ( "ActivateNode", "pozickapravaBi", 0 ) 
 					Call ( "ActivateNode", "pozickapravaCr", 1 ) 
 				elseif SmerAI == 1 then
+					SysCall("ScenarioManager:ShowMessage", "460 DEBUG", vzdalenostAI, ALERT)
+					ZpravaDebug(vzdalenostAI)
 					if SysCall("ScenarioManager:GetSeason") ~= 3 then
 						if dennicas < 063000 or dennicas > 220000 then
-							Call ( "DalkovePrave:Activate", 1 )
-							Call ( "DalkoveLeve:Activate", 1 )
-							Call ( "ActivateNode","dalkaclevy",1)
-							Call ( "ActivateNode","dalkacpravy",1)
+							if reflektorAI then
+								Call ( "DalkovePrave:Activate", 1 )
+								Call ( "DalkoveLeve:Activate", 1 )
+								Call ( "ActivateNode","dalkaclevy",1)
+								Call ( "ActivateNode","dalkacpravy",1)
+							else
+								Call ( "DalkovePrave:Activate", 0 )
+								Call ( "DalkoveLeve:Activate", 0 )
+								Call ( "ActivateNode","dalkaclevy",0)
+								Call ( "ActivateNode","dalkacpravy",0)
+							end
 							Call ( "ActivateNode","reflektor_rozsviceny",1) 
 							Call ( "PozickaHorniBi:Activate", 1 )
 							Call ( "PozickaLevaBi:Activate", 1 )
@@ -4352,10 +4460,17 @@ function Update (casHry)
 						end
 					else
 						if dennicas < 080000 or dennicas > 163000 then
-							Call ( "DalkovePrave:Activate", 1 )
-							Call ( "DalkoveLeve:Activate", 1 )
-							Call ( "ActivateNode","dalkaclevy",1)
-							Call ( "ActivateNode","dalkacpravy",1)
+							if reflektorAI then
+								Call ( "DalkovePrave:Activate", 1 )
+								Call ( "DalkoveLeve:Activate", 1 )
+								Call ( "ActivateNode","dalkaclevy",1)
+								Call ( "ActivateNode","dalkacpravy",1)
+							else
+								Call ( "DalkovePrave:Activate", 0 )
+								Call ( "DalkoveLeve:Activate", 0 )
+								Call ( "ActivateNode","dalkaclevy",0)
+								Call ( "ActivateNode","dalkacpravy",0)
+							end
 							Call ( "ActivateNode","reflektor_rozsviceny",1) 
 							Call ( "PozickaHorniBi:Activate", 1 )
 							Call ( "PozickaLevaBi:Activate", 1 )
@@ -4618,15 +4733,8 @@ function OnControlValueChange ( name, index, value )
 		if name == "Headlights" then
 			if value <= 0.5 then
 				DalkovaSv = 0
-			end
-			if value >= 0.75 and value <= 1.25 then
+			else
 				DalkovaSv = 1
-			end
-			if value > 1.25 and value < 1.75 then
-				DalkovaSv = 0
-			end
-			if value >= 1.75 then
-				DalkovaSv = 2
 			end
 		end
 		if name == "OsvetleniKabiny" then

@@ -11,6 +11,7 @@ zaMasinouTornadoCas = nil
 zaMasinouTornadoPosledniZpravaCas = 0
 maxVzdalenost = 25000
 poleKOdeslani = {}
+prijateZpravy = {{}, {}}
 
 delkaVlakuLast = 0
 delkaVlaku = 0
@@ -84,7 +85,7 @@ function Initialise()
 end
 function OnConsistMessage(zprava,argument,smer)
 	ZpravaDebug("Prijata message: "..zprava.." s argumentem: "..argument.." ve smeru: "..smer)
-	if zprava ~= 460995 and zprava ~= 460997 then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
+	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460997 then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
 		if smer == 1 and zaMasinouTornado then
 			stavPoslane = Call("SendConsistMessage",zprava,argument,1)
 			ZpravaDebug("Preposilam zpravu: "..zprava.." s argumentem: "..argument.." ve smeru: "..smer)
@@ -145,32 +146,42 @@ function OnConsistMessage(zprava,argument,smer)
 		end
 		Call("SendConsistMessage",460109,argument,smer)
 	end
+	if zprava == 460994 then
+		prijateZpravy[smer+1]["x"] = argument
+		xZS = argument
+	end
 	if zprava == 460995 then
-		local xZS = string.sub(argument, 1, 5)/10
-		local yZS = string.sub(argument, 6, 10)/10
-		x, _, y = Call("*:getNearPosition")
-		local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
-		ZpravaDebug(vzdalenost)
-		if vzdalenost < maxVzdalenost then
-			if smer == 1 then
-				predMasinouTornado = true
-				predMasinouTornadoCas = nil
-				predMasinouTornadoPosledniZpravaCas = os.clock()
+		if prijateZpravy[smer+1]["x"] ~= nil then
+			local yZS = argument
+			x, _, y = Call("*:getNearPosition")
+			ZpravaDebug("yZS: "..yZS)
+			ZpravaDebug("xZS: "..xZS)
+			ZpravaDebug("y: "..y)
+			ZpravaDebug("x: "..x)
+			local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
+			if vzdalenost < maxVzdalenost then
+				if smer == 1 then
+					predMasinouTornado = true
+					predMasinouTornadoCas = nil
+					predMasinouTornadoPosledniZpravaCas = os.clock()
+				else
+					zaMasinouTornado = true
+					zaMasinouTornadoCas = nil
+					zaMasinouTornadoPosledniZpravaCas = os.clock()
+				end
 			else
-				zaMasinouTornado = true
-                zaMasinouTornadoCas = nil
-				zaMasinouTornadoPosledniZpravaCas = os.clock()
+				if smer == 1 then
+					predMasinouTornado = false
+					predMasinouTornadoCas = nil
+					predMasinouTornadoPosledniZpravaCas = os.clock()
+				else
+					zaMasinouTornado = false
+					zaMasinouTornadoCas = nil
+					zaMasinouTornadoPosledniZpravaCas = os.clock()
+				end
 			end
 		else
-			if smer == 1 then
-				predMasinouTornado = false
-				predMasinouTornadoCas = nil
-				predMasinouTornadoPosledniZpravaCas = os.clock()
-			else
-				zaMasinouTornado = false
-                zaMasinouTornadoCas = nil
-				zaMasinouTornadoPosledniZpravaCas = os.clock()
-			end
+			prijateZpravy[smer+1]["y"] = argument
 		end
 	end
 	if zprava == 460997 then
@@ -215,19 +226,57 @@ function Update(time)
 			
 			if delkaVlakuLast ~= delkaVlaku then
 				x, _, y = Call("*:getNearPosition")
-				predMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),0)
+				Call("SendConsistMessage",460994,string.sub(x, 1, 10),0)
+				predMasinou = Call("SendConsistMessage",460995, string.sub(y, 1, 10),0)
 				ZpravaDebug("Poslana pozice dopredu: "..predMasinou)
 				if predMasinou == 0 then
 					predMasinouTornado = false
 				elseif predMasinouTornadoPosledniZpravaCas + (cas * 5) < os.clock() then
 					predMasinouTornadoCas = os.clock()
 				end
-				zaMasinou = Call("SendConsistMessage",460995,string.sub(x*10, 1, 5)..string.sub(y*10, 1, 5),1)
+				Call("SendConsistMessage",460994,string.sub(x, 1, 10),1)
+				zaMasinou = Call("SendConsistMessage",460995,string.sub(y, 1, 10),1)
 				ZpravaDebug("Poslana pozice dozadu: "..zaMasinou)
 				if zaMasinou == 0 then
 					zaMasinouTornado = false
 				elseif zaMasinouTornadoPosledniZpravaCas + (cas * 5) < os.clock() then
 					zaMasinouTornadoCas = os.clock()
+				end
+			end
+
+			if table.getn(prijateZpravy) > 0 then
+				for i in prijateZpravy do
+					if prijateZpravy[i]["x"] ~= nil and prijateZpravy[i]["y"] ~= nil then
+						prijateZpravy[i] = nil
+						local xZS, yZS = prijateZpravy[i]["x"], prijateZpravy[i]["y"]
+						x, _, y = Call("*:getNearPosition")
+						ZpravaDebug("yZS: "..yZS)
+						ZpravaDebug("xZS: "..xZS)
+						ZpravaDebug("y: "..y)
+						ZpravaDebug("x: "..x)
+						local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
+						if vzdalenost < maxVzdalenost then
+							if smer == 1 then
+								predMasinouTornado = true
+								predMasinouTornadoCas = nil
+								predMasinouTornadoPosledniZpravaCas = os.clock()
+							else
+								zaMasinouTornado = true
+								zaMasinouTornadoCas = nil
+								zaMasinouTornadoPosledniZpravaCas = os.clock()
+							end
+						else
+							if smer == 1 then
+								predMasinouTornado = false
+								predMasinouTornadoCas = nil
+								predMasinouTornadoPosledniZpravaCas = os.clock()
+							else
+								zaMasinouTornado = false
+								zaMasinouTornadoCas = nil
+								zaMasinouTornadoPosledniZpravaCas = os.clock()
+							end
+						end
+					end
 				end
 			end
 
