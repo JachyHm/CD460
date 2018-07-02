@@ -40,16 +40,16 @@
 			<EngineSimComponent>
 				<cEngineSimComponentBlueprint>
 					<SubSystem>
-						<EngineSimulation-cElectricSubSystemBlueprint d:id="2498">
+						<EngineSimulation-cElectricSubSystemBlueprint d:id="956">
 							<Name d:type="cDeltaString">pantak</Name>
 							<LocoBrakeAssembly>
-								<EngineSimulation-cLocoOnlyAirBrakeBlueprint d:id="2501">
+								<EngineSimulation-cLocoOnlyAirBrakeBlueprint d:id="959">
 									<BrakeType>
-										<EngineSimulation-cLocoOnlyAirBrakeDataBlueprint d:id="2503">
+										<EngineSimulation-cLocoOnlyAirBrakeDataBlueprint d:id="961">
 											<EquipmentType d:type="cDeltaString">eAir</EquipmentType>
 											<MaxForcePercentOfVehicleWeight d:type="sFloat32">110</MaxForcePercentOfVehicleWeight>
 											<Control>
-												<EngineSimulation-cBrakeControlBlueprint d:id="2507">
+												<EngineSimulation-cBrakeControlBlueprint d:id="965">
 													<CabControlName d:type="cDeltaString">EngineBrakeControl</CabControlName>
 													<MaxQuickReleaseRate d:type="sFloat32">10</MaxQuickReleaseRate>
 													<EmergencyApplicationRate d:type="sFloat32">0</EmergencyApplicationRate>
@@ -59,7 +59,11 @@
 													<MinContinuousServiceReleaseRate d:type="sFloat32">0</MinContinuousServiceReleaseRate>
 												</EngineSimulation-cBrakeControlBlueprint>
 											</Control>
-											<Handbrake />
+											<Handbrake>
+												<EngineSimulation-cHandbrake d:id="974">
+													<MaxForce d:type="sFloat32">20232</MaxForce>
+												</EngineSimulation-cHandbrake>
+											</Handbrake>
 											<GraduatedRelease d:type="cDeltaString">eTrue</GraduatedRelease>
 											<ProportionalBrake d:type="cDeltaString">eTrue</ProportionalBrake>
 											<MaxReleaseRate d:type="sFloat32">15</MaxReleaseRate>
@@ -73,13 +77,13 @@
 								</EngineSimulation-cLocoOnlyAirBrakeBlueprint>
 							</LocoBrakeAssembly>
 							<TrainBrakeAssembly>
-								<EngineSimulation-cTrainAirBrakeBlueprint d:id="2525">
+								<EngineSimulation-cTrainAirBrakeBlueprint d:id="985">
 									<BrakeType>
-										<EngineSimulation-cTrainAirBrakeDataBlueprint d:id="2527">
+										<EngineSimulation-cTrainAirBrakeDataBlueprint d:id="987">
 											<EquipmentType d:type="cDeltaString">eAirSinglePipe</EquipmentType>
 											<MaxForcePercentOfVehicleWeight d:type="sFloat32">110</MaxForcePercentOfVehicleWeight>
 											<Control>
-												<EngineSimulation-cBrakeControlBlueprint d:id="2531">
+												<EngineSimulation-cBrakeControlBlueprint d:id="991">
 													<CabControlName d:type="cDeltaString">TrainBrakeControl</CabControlName>
 													<MaxQuickReleaseRate d:type="sFloat32">1E+07</MaxQuickReleaseRate>
 													<EmergencyApplicationRate d:type="sFloat32">1E+07</EmergencyApplicationRate>
@@ -89,11 +93,7 @@
 													<MinContinuousServiceReleaseRate d:type="sFloat32">1E+07</MinContinuousServiceReleaseRate>
 												</EngineSimulation-cBrakeControlBlueprint>
 											</Control>
-											<Handbrake>
-												<EngineSimulation-cHandbrake d:id="2540">
-													<MaxForce d:type="sFloat32">20232</MaxForce>
-												</EngineSimulation-cHandbrake>
-											</Handbrake>
+											<Handbrake />
 											<GraduatedRelease d:type="cDeltaString">eTrue</GraduatedRelease>
 											<ProportionalBrake d:type="cDeltaString">eTrue</ProportionalBrake>
 											<MaxReleaseRate d:type="sFloat32">1E+07</MaxReleaseRate>
@@ -103,7 +103,7 @@
 											<MaxSystemPressure d:type="sFloat32">73</MaxSystemPressure>
 											<MinSystemPressure d:type="sFloat32">50.7632</MinSystemPressure>
 											<Distributor>
-												<EngineSimulation-cBrakeDistributorBlueprint d:id="2551">
+												<EngineSimulation-cBrakeDistributorBlueprint d:id="1009">
 													<NormalFullReleasePressure d:type="sFloat32">72.5</NormalFullReleasePressure>
 													<FullServicePressure d:type="sFloat32">55.1</FullServicePressure>
 													<TrainPipeControlRatio d:type="sFloat32">2.53</TrainPipeControlRatio>
@@ -113,7 +113,7 @@
 												</EngineSimulation-cBrakeDistributorBlueprint>
 											</Distributor>
 											<EmergencyBraking>
-												<EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking d:id="2559">
+												<EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking d:id="1017">
 													<TriggerRate d:type="sFloat32">10</TriggerRate>
 													<ReservoirPressure d:type="sFloat32">78.5</ReservoirPressure>
 													<ReservoirCapacity d:type="sFloat32">8</ReservoirCapacity>
@@ -123,7 +123,7 @@
 												</EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking>
 											</EmergencyBraking>
 											<AuxiliaryBraking>
-												<EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking d:id="2567">
+												<EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking d:id="1025">
 													<MaxChargingRate d:type="sFloat32">10</MaxChargingRate>
 													<MaxReservoirPressure d:type="sFloat32">72.5</MaxReservoirPressure>
 												</EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking>
@@ -155,7 +155,7 @@
 									<CsvFile d:type="cDeltaString">Smejki\CD460pack01\RailVehicles\Electric\Common\Simulation\regulator</CsvFile>
 								</cCSVContainer>
 							</TractiveEffortVThrottle>
-							<AntiSlipBrakeCylinderPressure d:type="sFloat32">20</AntiSlipBrakeCylinderPressure>
+							<AntiSlipBrakeCylinderPressure d:type="sFloat32">0</AntiSlipBrakeCylinderPressure>
 							<HasThyristorControl d:type="cDeltaString">eFalse</HasThyristorControl>
 							<QuickPowerOffAtZeroThrottle d:type="cDeltaString">eFalse</QuickPowerOffAtZeroThrottle>
 							<SlowSpeedFittedPresent d:type="cDeltaString">eFalse</SlowSpeedFittedPresent>
@@ -171,7 +171,7 @@
 									<ReservoirVolume d:type="sFloat32">35</ReservoirVolume>
 									<MainResMaxAirPressure d:type="sFloat32">142.14</MainResMaxAirPressure>
 									<Compressor>
-										<EngineSimulation-cCompressorBlueprint d:id="2602">
+										<EngineSimulation-cCompressorBlueprint d:id="1060">
 											<Type d:type="cDeltaString">eElectric</Type>
 											<PowerRating d:type="sFloat32">0.8</PowerRating>
 										</EngineSimulation-cCompressorBlueprint>
@@ -180,9 +180,9 @@
 								</EngineSimulation-cBrakeAirSystemBlueprint>
 							</AirSystem>
 							<DynamicBrakesSystem>
-								<EngineSimulation-cDynamicBrakeBlueprint d:id="2607">
+								<EngineSimulation-cDynamicBrakeBlueprint d:id="1065">
 									<DelayBeforeEngaging d:type="sFloat32">0</DelayBeforeEngaging>
-									<MaxEffectiveSpeed d:type="sFloat32">100</MaxEffectiveSpeed>
+									<MaxEffectiveSpeed d:type="sFloat32">24.8</MaxEffectiveSpeed>
 									<AutomaticCutInSpeed d:type="sFloat32">100</AutomaticCutInSpeed>
 									<MinimumUsableSpeed d:type="sFloat32">0</MinimumUsableSpeed>
 									<MaxForce d:type="sFloat32">29.2</MaxForce>
