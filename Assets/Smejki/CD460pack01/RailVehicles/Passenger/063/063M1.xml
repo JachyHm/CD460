@@ -158,7 +158,7 @@
 					<SnowFriction d:type="sFloat32">0.15</SnowFriction>
 					<SandFrictionMultiplier d:type="sFloat32">1.3</SandFrictionMultiplier>
 					<Bogey>
-						<cRailVehicleComponentBlueprint-tag_sBogey d:id="2939">
+						<cRailVehicleComponentBlueprint-tag_sBogey d:id="98007">
 							<BogeyPivotX d:type="sFloat32">8.646</BogeyPivotX>
 							<BogeyPivotY d:type="sFloat32">0.91</BogeyPivotY>
 							<BogeyBlueprint>
@@ -173,7 +173,7 @@
 								</iBlueprintLibrary-cAbsoluteBlueprintID>
 							</BogeyBlueprint>
 						</cRailVehicleComponentBlueprint-tag_sBogey>
-						<cRailVehicleComponentBlueprint-tag_sBogey d:id="2947">
+						<cRailVehicleComponentBlueprint-tag_sBogey d:id="98015">
 							<BogeyPivotX d:type="sFloat32">-8.82</BogeyPivotX>
 							<BogeyPivotY d:type="sFloat32">0.91</BogeyPivotY>
 							<BogeyBlueprint>
@@ -197,9 +197,9 @@
 					<AnimatedBodyNodeName d:type="cDeltaString"></AnimatedBodyNodeName>
 					<MaxComfortableAcceleration d:type="sFloat32">100</MaxComfortableAcceleration>
 					<TrainBrakeAssembly>
-						<EngineSimulation-cTrainAirBrakeBlueprint d:id="2963">
+						<EngineSimulation-cTrainAirBrakeBlueprint d:id="98031">
 							<BrakeType>
-								<EngineSimulation-cTrainAirBrakeDataBlueprint d:id="2965">
+								<EngineSimulation-cTrainAirBrakeDataBlueprint d:id="98033">
 									<EquipmentType d:type="cDeltaString">eAirSinglePipe</EquipmentType>
 									<MaxForcePercentOfVehicleWeight d:type="sFloat32">80</MaxForcePercentOfVehicleWeight>
 									<Control />
@@ -339,7 +339,7 @@
 					<MinimalHUDControlsPath d:type="cDeltaString"></MinimalHUDControlsPath>
 					<HUDControlsTexturePath d:type="cDeltaString"></HUDControlsTexturePath>
 					<ControlValues>
-						<cControlContainerBlueprint-cControlValue d:id="3048">
+						<cControlContainerBlueprint-cControlValue d:id="98116">
 							<ControlName d:type="cDeltaString">DoorsOpenCloseRight</ControlName>
 							<DefaultValue d:type="sFloat32">0</DefaultValue>
 							<MinimumValue d:type="sFloat32">0</MinimumValue>
@@ -362,9 +362,16 @@
 							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
 							<ApplyToConsist d:type="cDeltaString">eFalse</ApplyToConsist>
 							<HUDControlID d:type="sUInt32">0</HUDControlID>
-							<InterfaceElements />
+							<InterfaceElements>
+								<cControlContainerBlueprint-cExteriorAnimation d:id="98137">
+									<ElementName d:type="cDeltaString">Untitled</ElementName>
+									<DifficultyType d:type="cDeltaString">StopGo</DifficultyType>
+									<AnimationID d:type="cDeltaString"></AnimationID>
+									<AnimStyle d:type="cDeltaString">Once</AnimStyle>
+								</cControlContainerBlueprint-cExteriorAnimation>
+							</InterfaceElements>
 						</cControlContainerBlueprint-cControlValue>
-						<cControlContainerBlueprint-cControlValue d:id="3069">
+						<cControlContainerBlueprint-cControlValue d:id="98142">
 							<ControlName d:type="cDeltaString">DoorsOpenCloseLeft</ControlName>
 							<DefaultValue d:type="sFloat32">0</DefaultValue>
 							<MinimumValue d:type="sFloat32">0</MinimumValue>
@@ -387,6 +394,88 @@
 							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
 							<ApplyToConsist d:type="cDeltaString">eFalse</ApplyToConsist>
 							<HUDControlID d:type="sUInt32">0</HUDControlID>
+							<InterfaceElements>
+								<cControlContainerBlueprint-cExteriorAnimation d:id="98163">
+									<ElementName d:type="cDeltaString">Untitled</ElementName>
+									<DifficultyType d:type="cDeltaString">StopGo</DifficultyType>
+									<AnimationID d:type="cDeltaString"></AnimationID>
+									<AnimStyle d:type="cDeltaString">Once</AnimStyle>
+								</cControlContainerBlueprint-cExteriorAnimation>
+							</InterfaceElements>
+						</cControlContainerBlueprint-cControlValue>
+						<cControlContainerBlueprint-cControlValue d:id="98168">
+							<ControlName d:type="cDeltaString">mgVS</ControlName>
+							<DefaultValue d:type="sFloat32">0</DefaultValue>
+							<MinimumValue d:type="sFloat32">0</MinimumValue>
+							<MaximumValue d:type="sFloat32">1.12589991E+15</MaximumValue>
+							<BriefDescription d:type="cDeltaString"></BriefDescription>
+							<LocalisedControlName>
+								<Localisation-cUserLocalisedString>
+									<English d:type="cDeltaString"></English>
+									<French d:type="cDeltaString"></French>
+									<Italian d:type="cDeltaString"></Italian>
+									<German d:type="cDeltaString"></German>
+									<Spanish d:type="cDeltaString"></Spanish>
+									<Dutch d:type="cDeltaString"></Dutch>
+									<Polish d:type="cDeltaString"></Polish>
+									<Russian d:type="cDeltaString"></Russian>
+									<Other />
+									<Key d:type="cDeltaString"></Key>
+								</Localisation-cUserLocalisedString>
+							</LocalisedControlName>
+							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
+							<ApplyToConsist d:type="cDeltaString">eTrue</ApplyToConsist>
+							<HUDControlID d:type="sUInt32">0</HUDControlID>
+							<InterfaceElements />
+						</cControlContainerBlueprint-cControlValue>
+						<cControlContainerBlueprint-cControlValue d:id="98189">
+							<ControlName d:type="cDeltaString">mg</ControlName>
+							<DefaultValue d:type="sFloat32">0</DefaultValue>
+							<MinimumValue d:type="sFloat32">0</MinimumValue>
+							<MaximumValue d:type="sFloat32">1.12589991E+15</MaximumValue>
+							<BriefDescription d:type="cDeltaString"></BriefDescription>
+							<LocalisedControlName>
+								<Localisation-cUserLocalisedString>
+									<English d:type="cDeltaString"></English>
+									<French d:type="cDeltaString"></French>
+									<Italian d:type="cDeltaString"></Italian>
+									<German d:type="cDeltaString"></German>
+									<Spanish d:type="cDeltaString"></Spanish>
+									<Dutch d:type="cDeltaString"></Dutch>
+									<Polish d:type="cDeltaString"></Polish>
+									<Russian d:type="cDeltaString"></Russian>
+									<Other />
+									<Key d:type="cDeltaString"></Key>
+								</Localisation-cUserLocalisedString>
+							</LocalisedControlName>
+							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
+							<ApplyToConsist d:type="cDeltaString">eTrue</ApplyToConsist>
+							<HUDControlID d:type="sUInt32">0</HUDControlID>
+							<InterfaceElements />
+						</cControlContainerBlueprint-cControlValue>
+						<cControlContainerBlueprint-cControlValue d:id="98210">
+							<ControlName d:type="cDeltaString">mgPriprava</ControlName>
+							<DefaultValue d:type="sFloat32">0</DefaultValue>
+							<MinimumValue d:type="sFloat32">0</MinimumValue>
+							<MaximumValue d:type="sFloat32">1.12589991E+15</MaximumValue>
+							<BriefDescription d:type="cDeltaString"></BriefDescription>
+							<LocalisedControlName>
+								<Localisation-cUserLocalisedString>
+									<English d:type="cDeltaString"></English>
+									<French d:type="cDeltaString"></French>
+									<Italian d:type="cDeltaString"></Italian>
+									<German d:type="cDeltaString"></German>
+									<Spanish d:type="cDeltaString"></Spanish>
+									<Dutch d:type="cDeltaString"></Dutch>
+									<Polish d:type="cDeltaString"></Polish>
+									<Russian d:type="cDeltaString"></Russian>
+									<Other />
+									<Key d:type="cDeltaString"></Key>
+								</Localisation-cUserLocalisedString>
+							</LocalisedControlName>
+							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
+							<ApplyToConsist d:type="cDeltaString">eTrue</ApplyToConsist>
+							<HUDControlID d:type="sUInt32">0</HUDControlID>
 							<InterfaceElements />
 						</cControlContainerBlueprint-cControlValue>
 					</ControlValues>
@@ -395,7 +484,50 @@
 			</ControlContainerComponent>
 			<CargoComponent>
 				<cCargoComponentBlueprint>
-					<CargoDef />
+					<CargoDef>
+						<cPassengerDoorwayDef d:id="98234">
+							<Name d:type="cDeltaString">DvereLevePredni</Name>
+							<DoorSide d:type="cDeltaString">LHS</DoorSide>
+							<OffsetX d:type="sFloat32">-1.42751</OffsetX>
+							<OffsetZ d:type="sFloat32">11.23446</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="98240">
+							<Name d:type="cDeltaString">DvereLeveProstredni</Name>
+							<DoorSide d:type="cDeltaString">LHS</DoorSide>
+							<OffsetX d:type="sFloat32">-1.3356</OffsetX>
+							<OffsetZ d:type="sFloat32">0.0414</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="98246">
+							<Name d:type="cDeltaString">DvereLeveZadni</Name>
+							<DoorSide d:type="cDeltaString">LHS</DoorSide>
+							<OffsetX d:type="sFloat32">-1.42845</OffsetX>
+							<OffsetZ d:type="sFloat32">-11.13657</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="98252">
+							<Name d:type="cDeltaString">DverePravePredni</Name>
+							<DoorSide d:type="cDeltaString">RHS</DoorSide>
+							<OffsetX d:type="sFloat32">1.43393</OffsetX>
+							<OffsetZ d:type="sFloat32">11.28886</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="98258">
+							<Name d:type="cDeltaString">DverePraveProstredni</Name>
+							<DoorSide d:type="cDeltaString">RHS</DoorSide>
+							<OffsetX d:type="sFloat32">1.34658</OffsetX>
+							<OffsetZ d:type="sFloat32">0.0414</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+						<cPassengerDoorwayDef d:id="98264">
+							<Name d:type="cDeltaString">DverePraveZadni</Name>
+							<DoorSide d:type="cDeltaString">RHS</DoorSide>
+							<OffsetX d:type="sFloat32">1.43641</OffsetX>
+							<OffsetZ d:type="sFloat32">-11.12439</OffsetZ>
+							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
+						</cPassengerDoorwayDef>
+					</CargoDef>
 					<CargoBlueprintID>
 						<iBlueprintLibrary-cAbsoluteBlueprintID>
 							<BlueprintSetID>
