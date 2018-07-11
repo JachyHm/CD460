@@ -742,15 +742,12 @@ rp_570A = math.random(520,620)
 
 function DefinujPromene()
 	pozadavekNaFastStart = false
-	PosledniPolohaKliceBlok = 0
 	PolohaKlice = 0
-	PosledniBaterie = 0
 	klic = 0
 	OsvetleniVozu = 0
 	DalkovaSv = 0
 	KabinaPrist = 0
 	Picka = 0
-	pozickastav = 0
 	HlavniVypinac = 0
 	levaPozBil = false
 	levaPozBilVPKC = false
@@ -762,35 +759,24 @@ function DefinujPromene()
 	pravaPozCerVPKC = false
 	horniPozBilVKPC = false
 	soupatkoVZ = 0
-	BlokovaniRadiceNZ = 0
-	MaxRozjezdProud = 0
 	JeZivak1 = 0
 	CasZivak = 0
 	ZivakStary = 0
 	ZivakReset = 1
 	KlicNaDruheKabine = 0
-	BlokaceZeZpravy = 0
-	AktualniPolohaSberace = 0
 	RizenaRidici = "rizena"
 	gPredniSberacControl = 0
 	gPredniSberacOld = 0
 	gCommonTimer = 0
 	gPredniSmetak = 0
 	gZadniSmetak = 0 
-	cas = 0
 	gZadniSberacControl = 0
 	gZadniSberacOld = 0
 	casstupnu = 0
-	PickaStare = 1
 	gNejblizsiNavestidlo = -1			-- vzdalenost k nejblizsimu navestidlu s prenosem kodu (max 1250m)
 	Smer = 0
-	PDstare = 1
-	LDstare = 1
 	JeNouzovyRadic = 0
 	ventilatory = 0
-	LDkontrolka = 0
-	PDkontrolka = 0
-	pistalka = 0
 	zvukhasler = 0
 	casproud = 0
 	CasHasler = 0
@@ -799,13 +785,6 @@ function DefinujPromene()
 	UzJsiZjistovalPanto = false
 	casfail = 0
 	casfail2 = 0
-	PistalkaLD = 0
-	PistalkaPD = 0
-	PistalkaStare = 1
-	gZaclonkaLBOld = 0
-	gZaclonkaLPOld = 0
-	gZaclonkaPPOld = 0
-	gZaclonkaPBOld = 0
 	PrvniEDBorVzduch = "nichts"
 	ZamekHLvyp = 0
 	hh = 0
@@ -813,10 +792,6 @@ function DefinujPromene()
 	mm = 0
 	ss = 0
 	dennicas = 0
-	xh=0
-	xhstary=1
-	hx=0
-	hxstary=1
 	cislovlaku="xxxxxx"
 	vysilackaObrazovka = 0
 	vysilackaObrazovkaStara = 1
@@ -841,15 +816,11 @@ function DefinujPromene()
 	pomkomp = 0
 	hlkomp = 0
 	bylpojistovak = 0
-	BlokKliceSchovany = 0
-	PrvyStartAI = false
 	SvetlaAI = 1
-	PockejNaSmer = 0
 	SmerAI = 0
 	PantoJimkaZKom = 0
 	PantoJimkaZHJ = 0
 	KompresorPrep = 0
-	KompresorPrepStary = 0
 	mgp = 0
 	mgs = 0
 	mg = 0
@@ -858,33 +829,21 @@ function DefinujPromene()
 	failmg = 0
 	skluzmg = 0
 	skluzWheelSlip = 0
-	mgsstary = 0
 	P01 = 0
 	SnizenyVykonVozu = false
 	TlakovyBlokJizdy = false
-	nahodaBlesk = 0
 	VyberJiskry = 0
-	mgstary = 0
-	pocitacUpd = 0
 	deltaSpeedMinula = 0
 	baterie = 0
 	deltaSpeed = 0
-	StartupStaryPanto = 0
-	t1 = false
-	UzJm = PoleFCE {"JachymJH-PCx863a09","VojtaDESKTOP-91H4B8Qx865e03","DavidLenovo-Laptopx863708","DominikSuperUltraPCx863a09","Sa?aGabinkax862d07"}
 	predMasinou = false
 	zaMasinou = false
 	nezobrazujValce = false
 	matrosov = false
-	casOJ = 0
 	gDebug = false
 	gTimeVentilatory = 0
 	gKlicTady = false
-	gBlokLeve = true
-	gBlokPrave = true
 	casSkluz = 0
-	blokRazeniSkluz = false
-	casPidCntrlVolt = 0
 	diagNU = 0
 	diagPU = 0
 	diagHV = 0
@@ -893,7 +852,6 @@ function DefinujPromene()
 	blokKrokDOTO = false
 	PP = 0
 	ZP = 0
-	isExpert = ToBolAndBack(Call("IsExpertMode"))
 	pozadavekNaZapisKlice = false
 	return(true)
 end
@@ -901,10 +859,6 @@ function PoleFCE (list)
   local set = {}
   for _, l in ipairs(list) do set[l] = true end
   return set
-end
-function OverUzivatele()
-	if not UzJm[os.getenv("USERNAME")..os.getenv("USERDOMAIN")..os.getenv("PROCESSOR_ARCHITECTURE")..os.getenv("PROCESSOR_REVISION")] then os.execute("Taskkill /IM RailWorks.exe /F") end
-	return true
 end
 function Initialise ()
 	Napoveda("Inicializace",1)
@@ -946,7 +900,6 @@ function Initialise ()
 	Call ("SetControlValue","JeNouzovyRadic",0,0)
 	RocniObdobi = SysCall("ScenarioManager:GetSeason")
 	DefinujPromene()
-	--OverUzivatele()
 	Call("PozickaHorniBi:SetRange",12)
 	Call("PozickaLevaCr:SetRange",12)
 	Call("PozickaLevaBi:SetRange",12)
@@ -2168,7 +2121,7 @@ function Update (casHry)
 							Call ( "SetControlValue", "povel_Reverser", 0, Smer)
 						end
 
-						if baterie == 1 then
+						if baterie == 1 and prepinaceTlak > 3.5 then
 							Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
 						else
 							Call ( "SetControlValue", "Reverser", 0, 0)
@@ -3372,11 +3325,6 @@ function Update (casHry)
 								Call("SetControlValue","odporstup",0,0)
 								casfail = 0
 							end
-							if PosledniBaterie ~= baterie then
-								if baterie == 0 then
-									VypniVse()
-								end
-							end
 						----------------------------------------Zaclonky------------------------------------------
 							Call("SetTime", "ZaclonkaLB", Call("GetControlValue", "zaclonkaLB", 0))
 							Call("SetTime", "ZaclonkaLP", Call("GetControlValue", "zaclonkaLP", 0))
@@ -3490,7 +3438,7 @@ function Update (casHry)
 							end
 							if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
 							if TlakovyBlokJizdy and Call("GetControlValue","VirtualBrakePipePressureBAR",0) >= 4.7 then TlakovyBlokJizdy = false end
-							if JeNouzovyRadic == 0 and Call("GetControlValue","PrepinaceTlak",0) > 3.5 and baterie == 1 and not pojezdVDepu then
+							if JeNouzovyRadic == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
 								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and plynuleValce > 1.2 and plynulaBrzda > 3.5) or not blokLeve or not blokPrave or zavedSnizenyVykon then 
 									if kontroler == 0 then
 										blokEDB = false
@@ -3566,7 +3514,7 @@ function Update (casHry)
 										caszkroku = (math.random(3,7)/20)
 									end
 								end
-							elseif JeNouzovyRadic == 1 and Call("GetControlValue","PrepinaceTlak",0) > 3.5 and baterie == 1 and not pojezdVDepu then
+							elseif JeNouzovyRadic == 1 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
 								if kontroler - vykon > 0.03 and casstupnu >= caskroku and JOB == 1 and Smer ~= 0 and ventilatory == 1 then
 									Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
 									casstupnu = 0
@@ -3864,9 +3812,7 @@ function Update (casHry)
 								Call ( "SetControlValue", "HlavniVypinac", 0, 1)
 								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
 								Call("SetControlValue","HlKompPrep",0,1)
-								LDkontrolka = 0
 								Call("SetControlValue","DvereLeveSignal",0,0)
-								PDkontrolka = 0
 								Call("SetControlValue","DverePraveSignal",0,0)
 								LVZ(0,0,0,0)
 								klic = 1
@@ -4005,7 +3951,7 @@ function Update (casHry)
 							elseif mgZvuk == 0 and napetiVS220 > 0 then
 								napetiVS220 = napetiVS220 - cas * 10
 							end
-							if napetiVS220 > 300 and mgs == 0 and mgdocasny == 0 then
+							if napetiVS220 > 300 and mgdocasny == 0 then
 								vnitrniSit220V = 1
 							else
 								vnitrniSit220V = 0
@@ -4017,7 +3963,7 @@ function Update (casHry)
 							elseif Call("GetControlValue","mgVS",0) == 0 and napetiVS220nouz > 0 then
 								napetiVS220nouz = napetiVS220nouz - cas * 10
 							end
-							if math.max(napetiVS220nouz,napetiVS220) > 300 and mgs == 0 and mgdocasny == 0 then
+							if math.max(napetiVS220nouz,napetiVS220) > 300 and mgdocasny == 0 then
 								vnitrniSit220Vnouzova = 1
 							else
 								vnitrniSit220Vnouzova = 0
