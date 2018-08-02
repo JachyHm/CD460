@@ -3,18 +3,18 @@
 	<ProxyControl>
 		<cGenericAudioControl xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
-			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
+			<ActivationDistance d:type="sFloat32">700</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="200169">
+				<kLoud-cSingleSampleSound d:id="9490">
 					<Name d:type="cDeltaString">ZdrzeJizda</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
-					<BaseVolume d:type="sFloat32">0.4</BaseVolume>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
 					<AttenuationStartDist d:type="sFloat32">2</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<NoFutherAttenuationDist d:type="sFloat32">700</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -22,16 +22,16 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="200182">
+				<kLoud-cSingleSampleSound d:id="9503">
 					<Name d:type="cDeltaString">ZdrzeSkripani</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
-					<BaseVolume d:type="sFloat32">0.6</BaseVolume>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0.05</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
 					<AttenuationStartDist d:type="sFloat32">2</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<NoFutherAttenuationDist d:type="sFloat32">700</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -39,19 +39,19 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cRandomSampleSound d:id="200195">
+				<kLoud-cRandomSampleSound d:id="9516">
 					<Name d:type="cDeltaString">Dobrzdeni</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
-					<BaseVolume d:type="sFloat32">0.75</BaseVolume>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">50</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">2</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">700</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="200207">
+						<kLoud-cSampleWithLikelihood d:id="9528">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -59,7 +59,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="200211">
+						<kLoud-cSampleWithLikelihood d:id="9532">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -67,7 +67,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="200215">
+						<kLoud-cSampleWithLikelihood d:id="9536">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -79,100 +79,100 @@
 				</kLoud-cRandomSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="200220">
+				<kLoud-cCurve d:id="9541">
 					<Name d:type="cDeltaString">Zdrze hlasitost brzda_valce</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="200223">
+						<kLoud-cRVector2 d:id="9544">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200226">
-							<X d:type="sFloat32">1</X>
+						<kLoud-cRVector2 d:id="9547">
+							<X d:type="sFloat32">0.3</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="200229">
+				<kLoud-cCurve d:id="9550">
 					<Name d:type="cDeltaString">Zdrze jizda hlasitost Speed</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="200232">
+						<kLoud-cRVector2 d:id="9553">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200235">
+						<kLoud-cRVector2 d:id="9556">
 							<X d:type="sFloat32">8</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="200238">
+				<kLoud-cCurve d:id="9559">
 					<Name d:type="cDeltaString">Zdrze jizda pitch Speed</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="200241">
+						<kLoud-cRVector2 d:id="9562">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0.7</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200244">
+						<kLoud-cRVector2 d:id="9565">
 							<X d:type="sFloat32">45</X>
 							<Y d:type="sFloat32">1.3</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="200247">
+				<kLoud-cCurve d:id="9568">
 					<Name d:type="cDeltaString">Zdrze skripani hlasitost Speed</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="200250">
+						<kLoud-cRVector2 d:id="9571">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200253">
+						<kLoud-cRVector2 d:id="9574">
 							<X d:type="sFloat32">0.5</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200256">
-							<X d:type="sFloat32">4</X>
+						<kLoud-cRVector2 d:id="9577">
+							<X d:type="sFloat32">12</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200259">
-							<X d:type="sFloat32">9</X>
+						<kLoud-cRVector2 d:id="9580">
+							<X d:type="sFloat32">15</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="200262">
+				<kLoud-cCurve d:id="9583">
 					<Name d:type="cDeltaString">DobrzdeniTrainBrakeAmount</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="200265">
+						<kLoud-cRVector2 d:id="9586">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200268">
+						<kLoud-cRVector2 d:id="9589">
 							<X d:type="sFloat32">0.0001</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="200271">
+				<kLoud-cCurve d:id="9592">
 					<Name d:type="cDeltaString">AIblok</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="200274">
+						<kLoud-cRVector2 d:id="9595">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200277">
+						<kLoud-cRVector2 d:id="9598">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="200280">
+				<kLoud-cCurve d:id="9601">
 					<Name d:type="cDeltaString">AIpovol</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="200283">
+						<kLoud-cRVector2 d:id="9604">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="200286">
+						<kLoud-cRVector2 d:id="9607">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
@@ -180,131 +180,131 @@
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="200290">
+				<kLoud-cModifierChain d:id="9611">
 					<Name d:type="cDeltaString">Zdrze jizda</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="200293">
+						<kLoud-cVolumeCurveModifier d:id="9614">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
-							<Curve d:type="ref">200220</Curve>
+							<Curve d:type="ref">9541</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="200297">
+						<kLoud-cVolumeCurveModifier d:id="9618">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">200229</Curve>
+							<Curve d:type="ref">9550</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cPitchCurveModifier d:id="200301">
+						<kLoud-cPitchCurveModifier d:id="9622">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">200238</Curve>
+							<Curve d:type="ref">9559</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="200305">
+						<kLoud-cVolumeCurveModifier d:id="9626">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">200271</Curve>
+							<Curve d:type="ref">9592</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="200309">
+				<kLoud-cModifierChain d:id="9630">
 					<Name d:type="cDeltaString">Zdrze skripot</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="200312">
+						<kLoud-cVolumeCurveModifier d:id="9633">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
-							<Curve d:type="ref">200220</Curve>
+							<Curve d:type="ref">9541</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="200316">
+						<kLoud-cVolumeCurveModifier d:id="9637">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">200247</Curve>
+							<Curve d:type="ref">9568</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="200320">
+						<kLoud-cVolumeCurveModifier d:id="9641">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">200271</Curve>
+							<Curve d:type="ref">9592</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="200324">
+				<kLoud-cModifierChain d:id="9645">
 					<Name d:type="cDeltaString">DobrzdeniTrainBrakeAmountChain</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="200327">
+						<kLoud-cVolumeCurveModifier d:id="9648">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
-							<Curve d:type="ref">200262</Curve>
+							<Curve d:type="ref">9583</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="200331">
+						<kLoud-cVolumeCurveModifier d:id="9652">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">200271</Curve>
+							<Curve d:type="ref">9592</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="200335">
+				<kLoud-cModifierChain d:id="9656">
 					<Name d:type="cDeltaString">AI povol</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="200338">
+						<kLoud-cVolumeCurveModifier d:id="9659">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">200280</Curve>
+							<Curve d:type="ref">9601</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="200342">
+				<kLoud-cModifierChain d:id="9663">
 					<Name d:type="cDeltaString">Zdrze jizda AI</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="200345">
+						<kLoud-cVolumeCurveModifier d:id="9666">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">200229</Curve>
+							<Curve d:type="ref">9550</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cPitchCurveModifier d:id="200349">
+						<kLoud-cPitchCurveModifier d:id="9670">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">200238</Curve>
+							<Curve d:type="ref">9559</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="200353">
+						<kLoud-cVolumeCurveModifier d:id="9674">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">200280</Curve>
+							<Curve d:type="ref">9601</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="200357">
+				<kLoud-cModifierChain d:id="9678">
 					<Name d:type="cDeltaString">Zdrze skripot AI</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="200360">
+						<kLoud-cVolumeCurveModifier d:id="9681">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">200247</Curve>
+							<Curve d:type="ref">9568</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="200364">
+						<kLoud-cVolumeCurveModifier d:id="9685">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">200280</Curve>
+							<Curve d:type="ref">9601</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
 			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="200370">
+				<kLoud-cControlledLoop d:id="9691">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Zdrze jizda</Name>
-					<Sound d:type="ref">200169</Sound>
-					<ModifierChain d:type="ref">200290</ModifierChain>
+					<Sound d:type="ref">9490</Sound>
+					<ModifierChain d:type="ref">9611</ModifierChain>
 					<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
-					<ActiveRangeStartValue d:type="sFloat32">0.2</ActiveRangeStartValue>
+					<ActiveRangeStartValue d:type="sFloat32">0.01</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">200</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="200381">
+				<kLoud-cControlledLoop d:id="9702">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Zdrze skripani</Name>
-					<Sound d:type="ref">200182</Sound>
-					<ModifierChain d:type="ref">200309</ModifierChain>
+					<Sound d:type="ref">9503</Sound>
+					<ModifierChain d:type="ref">9630</ModifierChain>
 					<ControllerName d:type="cDeltaString">BrakeAmount</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.2</ActiveRangeStartValue>
@@ -312,11 +312,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="200392">
+				<kLoud-cControlledLoop d:id="9713">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Zdrze jizda AI</Name>
-					<Sound d:type="ref">200169</Sound>
-					<ModifierChain d:type="ref">200342</ModifierChain>
+					<Sound d:type="ref">9490</Sound>
+					<ModifierChain d:type="ref">9663</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingDown</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
@@ -324,11 +324,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0.5</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="200403">
+				<kLoud-cControlledLoop d:id="9724">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Zdrze skripani AI</Name>
-					<Sound d:type="ref">200182</Sound>
-					<ModifierChain d:type="ref">200357</ModifierChain>
+					<Sound d:type="ref">9503</Sound>
+					<ModifierChain d:type="ref">9678</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingDown</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
@@ -338,25 +338,22 @@
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot>
-				<cRadiusOneshot d:id="200415">
+				<kLoud-cTriggeredOneshot d:id="9736">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Zdrze konec</Name>
-					<Sound d:type="ref">200195</Sound>
-					<ModifierChain d:type="ref">200324</ModifierChain>
+					<Sound d:type="ref">9516</Sound>
+					<ModifierChain d:type="ref">9645</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.6</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
-					<Category d:type="cDeltaString">eUncategorised</Category>
-					<MinRadius d:type="sFloat32">0</MinRadius>
-					<MaxRadius d:type="sFloat32">0</MaxRadius>
-				</cRadiusOneshot>
-				<kLoud-cTriggeredOneshot d:id="200428">
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="9746">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Zdrze konec AI</Name>
-					<Sound d:type="ref">200195</Sound>
-					<ModifierChain d:type="ref">200335</ModifierChain>
+					<Sound d:type="ref">9516</Sound>
+					<ModifierChain d:type="ref">9656</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.6</TriggerValue>

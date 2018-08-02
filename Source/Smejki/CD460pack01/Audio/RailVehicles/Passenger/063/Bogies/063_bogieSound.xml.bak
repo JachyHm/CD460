@@ -1693,7 +1693,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.8</Value>
+													<Value>0.3</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1841,7 +1841,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.8</Value>
+													<Value>0.3</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1989,7 +1989,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>1</Value>
+													<Value>0.4</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -2088,7 +2088,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>1</Value>
+													<Value>0.4</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -2317,248 +2317,6 @@
 																		<sFloat32>
 																			<Element>
 																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cRVector2>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cCurve>
-							<kLoud-cCurve>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukVelkePolomeryLoopRychlost</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="CurvePoint">
-											<__Indexed__kLoud-cRVector2>
-												<Element>
-													<Value>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>4</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>5</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.3</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>6</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>11</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>12</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cRVector2>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cCurve>
-							<kLoud-cCurve>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukVelkePolomeryLoopPolomer</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="CurvePoint">
-											<__Indexed__kLoud-cRVector2>
-												<Element>
-													<Value>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.0005</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.005</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.006</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3265,228 +3023,6 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>obloukVelkePolomeryRychlost</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="CurvePoint">
-											<__Indexed__kLoud-cRVector2>
-												<Element>
-													<Value>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.3</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.6</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>7</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>8</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cRVector2>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cCurve>
-							<kLoud-cCurve>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukVelkePolomeryPolomer</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="CurvePoint">
-											<__Indexed__kLoud-cRVector2>
-												<Element>
-													<Value>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.0005</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.005</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>1</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.006</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cRVector2>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cCurve>
-							<kLoud-cCurve>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
 													<Value>styk1Int</Value>
 												</Element>
 											</cDeltaString>
@@ -3804,7 +3340,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>4</Value>
+																				<Value>0</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3824,7 +3360,27 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>5</Value>
+																				<Value>11</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>11.1</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3844,7 +3400,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>16</Value>
+																				<Value>20</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3864,7 +3420,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>17</Value>
+																				<Value>21</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3905,7 +3461,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>16</Value>
+																				<Value>20</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3925,7 +3481,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>17</Value>
+																				<Value>21</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3945,7 +3501,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>225</Value>
+																				<Value>30</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -3965,7 +3521,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>226</Value>
+																				<Value>31</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -4026,7 +3582,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>16</Value>
+																				<Value>11</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -4046,7 +3602,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>17</Value>
+																				<Value>11.1</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -4884,223 +4440,6 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>obloukVelkePolomeryLoop</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Modifier">
-											<__Indexed__kLoud-cModifier>
-												<Element>
-													<Value>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>AbsoluteSpeed</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryLoopRychlost</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>Curvature</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryLoopPolomer</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cModifier>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cModifierChain>
-							<kLoud-cModifierChain>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukVelkePolomeryLoopInt</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Modifier">
-											<__Indexed__kLoud-cModifier>
-												<Element>
-													<Value>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>AbsoluteSpeed</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryLoopRychlost</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>Curvature</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryLoopPolomer</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>ListenerDistanceSquared</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>stykHlasitostInt</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cModifier>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cModifierChain>
-							<kLoud-cModifierChain>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
 													<Value>oblouk</Value>
 												</Element>
 											</cDeltaString>
@@ -5260,223 +4599,6 @@
 																						<cDeltaString>
 																							<Element>
 																								<Value>obloukPolomer</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>ListenerDistanceSquared</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>stykHlasitostInt</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cModifier>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cModifierChain>
-							<kLoud-cModifierChain>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukVelkePolomery</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Modifier">
-											<__Indexed__kLoud-cModifier>
-												<Element>
-													<Value>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>AbsoluteSpeed</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryRychlost</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>Curvature</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryPolomer</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-													</Value>
-												</Element>
-											</__Indexed__kLoud-cModifier>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cModifierChain>
-							<kLoud-cModifierChain>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukVelkePolomeryInt</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Modifier">
-											<__Indexed__kLoud-cModifier>
-												<Element>
-													<Value>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>AbsoluteSpeed</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryRychlost</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>Curvature</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>obloukVelkePolomeryPolomer</Value>
 																							</Element>
 																						</cDeltaString>
 																					</Attribute>
@@ -5739,7 +4861,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>obloukLoop</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -5839,7 +4961,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>obloukLoopInt</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -5891,206 +5013,6 @@
 											<sFloat32>
 												<Element>
 													<Value>0.001</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ActiveRangeEndValue">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cControlledLoop>
-							<kLoud-cControlledLoop>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>OUTSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukLoop</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>obloukLoop</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>obloukVelkePolomeryLoop</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>Curvature</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="LoopCondition">
-											<kLoud-cControlledLoop-eLoopCondition>
-												<Element>
-													<Value>ValueInRange</Value>
-												</Element>
-											</kLoud-cControlledLoop-eLoopCondition>
-										</Attribute>
-										<Attribute name="ActiveRangeStartValue">
-											<sFloat32>
-												<Element>
-													<Value>0.0001</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ActiveRangeEndValue">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cControlledLoop>
-							<kLoud-cControlledLoop>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukLoopInt</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>obloukLoopInt</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>obloukVelkePolomeryLoopInt</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>Curvature</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="LoopCondition">
-											<kLoud-cControlledLoop-eLoopCondition>
-												<Element>
-													<Value>ValueInRange</Value>
-												</Element>
-											</kLoud-cControlledLoop-eLoopCondition>
-										</Attribute>
-										<Attribute name="ActiveRangeStartValue">
-											<sFloat32>
-												<Element>
-													<Value>0.0001</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -6147,7 +5069,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>styk1</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6240,7 +5162,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>styk2</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6333,7 +5255,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>styk3</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6426,7 +5348,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>styk4</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6453,192 +5375,6 @@
 															<cDeltaString>
 																<Element>
 																	<Value>styk4</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>JointCount</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIsChanging</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>styk1Int</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>styk1Int</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>styk1Int</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>JointCount</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIsChanging</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>styk2Int</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>styk2Int</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>styk2Int</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -6705,7 +5441,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>obloukOnce</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6791,14 +5527,14 @@
 										<Attribute name="PlayState">
 											<ePlayState>
 												<Element>
-													<Value>OUTSIDE</Value>
+													<Value>INSIDE</Value>
 												</Element>
 											</ePlayState>
 										</Attribute>
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>obloukOnce</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6809,7 +5545,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>obloukRandom</Value>
+																	<Value>styk1Int</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -6824,7 +5560,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>obloukVelkePolomery</Value>
+																	<Value>styk1Int</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -6835,7 +5571,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>Curvature</Value>
+													<Value>JointCount</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6856,7 +5592,7 @@
 										<Attribute name="ValueIsChangingGateTime">
 											<sFloat32>
 												<Element>
-													<Value>3</Value>
+													<Value>0</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -6891,7 +5627,100 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>styk1Blizko</Value>
+													<Value />
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>styk2Int</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>styk2Int</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>JointCount</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIsChanging</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6984,7 +5813,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>styk2Blizko</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -7077,7 +5906,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>obloukOnceInt</Value>
+													<Value />
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -7104,99 +5933,6 @@
 															<cDeltaString>
 																<Element>
 																	<Value>obloukInt</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>Curvature</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIsChanging</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>3</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>obloukOnceInt</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>obloukRandomInt</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>obloukVelkePolomeryInt</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>

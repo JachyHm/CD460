@@ -8,17 +8,17 @@
 			</RenderComponent>
 			<UpdateComponent>
 				<cHeadOutCameraUpdateBlueprint>
-					<PrimarySide d:type="cDeltaString">Left</PrimarySide>
+					<PrimarySide d:type="cDeltaString">Right</PrimarySide>
 					<CameraLeftOffset>
 						<cRVector3>
-							<X d:type="sFloat32">-2</X>
+							<X d:type="sFloat32">-1.8</X>
 							<Y d:type="sFloat32">2.9</Y>
 							<Z d:type="sFloat32">10.3</Z>
 						</cRVector3>
 					</CameraLeftOffset>
 					<CameraRightOffset>
 						<cRVector3>
-							<X d:type="sFloat32">2</X>
+							<X d:type="sFloat32">1.8</X>
 							<Y d:type="sFloat32">2.9</Y>
 							<Z d:type="sFloat32">10.3</Z>
 						</cRVector3>

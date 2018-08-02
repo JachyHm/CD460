@@ -12,7 +12,7 @@
 			<Attribute name="ActivationDistance">
 				<sFloat32>
 					<Element>
-						<Value>400</Value>
+						<Value>700</Value>
 					</Element>
 				</sFloat32>
 			</Attribute>
@@ -47,7 +47,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.4</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -82,7 +82,7 @@
 										<Attribute name="NoFutherAttenuationDist">
 											<sFloat32>
 												<Element>
-													<Value>100</Value>
+													<Value>700</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -146,7 +146,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.6</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -181,7 +181,7 @@
 										<Attribute name="NoFutherAttenuationDist">
 											<sFloat32>
 												<Element>
-													<Value>100</Value>
+													<Value>700</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -245,7 +245,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.75</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -273,14 +273,14 @@
 										<Attribute name="AttenuationStartDist">
 											<sFloat32>
 												<Element>
-													<Value>15</Value>
+													<Value>2</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
 										<Attribute name="NoFutherAttenuationDist">
 											<sFloat32>
 												<Element>
-													<Value>50</Value>
+													<Value>700</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -442,7 +442,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>1</Value>
+																				<Value>0.3</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -645,7 +645,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>4</Value>
+																				<Value>12</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -665,7 +665,7 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>9</Value>
+																				<Value>15</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -1607,7 +1607,7 @@
 										<Attribute name="ActiveRangeStartValue">
 											<sFloat32>
 												<Element>
-													<Value>0.2</Value>
+													<Value>0.01</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1951,7 +1951,7 @@
 				<__Indexed__kLoud-cTriggeredOneshot>
 					<Element>
 						<Value>
-							<cRadiusOneshot>
+							<kLoud-cTriggeredOneshot>
 								<Element>
 									<Value>
 										<Attribute name="PlayState">
@@ -2041,30 +2041,9 @@
 												</Element>
 											</kLoud-cInstanceGroup>
 										</Attribute>
-										<Attribute name="Category">
-											<iBrowseableBlueprint-eBrowseableCategory>
-												<Element>
-													<Value>eUncategorised</Value>
-												</Element>
-											</iBrowseableBlueprint-eBrowseableCategory>
-										</Attribute>
-										<Attribute name="MinRadius">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="MaxRadius">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
 									</Value>
 								</Element>
-							</cRadiusOneshot>
+							</kLoud-cTriggeredOneshot>
 							<kLoud-cTriggeredOneshot>
 								<Element>
 									<Value>
