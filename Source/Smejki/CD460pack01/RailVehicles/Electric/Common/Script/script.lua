@@ -1,7 +1,7 @@
 --Aktuální verze k 16.4.2018
 --**********************skript lokomotivy 460**************************--
 	-- SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 addon", "Baterie zapnute.",5,16,0,0)
---os.execute('Assets\\CS_addon\\Smejki\\RailVehicles\\Electric\\460080\\ActualizationAutoRun\\runactualization.exe')
+--os.execute('Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\ActualizationAutoRun\\runactualization.exe')
 INFO = 0
 ALERT = 1
 
@@ -219,7 +219,245 @@ vzdalenostAIlast = 0
 
 provedPrijetiVUpdate = false
 
+ksOK = false
+casKS = 0
 
+function genChckSum(fileObject)
+	fileObject = assert(fileObject, "Soubor nebyl nalezeny!")
+	chckSum = 0
+	char = fileObject:read(1)
+	while char do
+		chckSum = chckSum + string.byte(char)
+    	char = fileObject:read(1)
+	end
+	chckSum = math.mod(chckSum, 256)
+	chckSum = 256 - chckSum
+	fileObject:close()
+	return chckSum
+end
+
+function overKS()
+	Call("SetControlValue", "ScriptVersion", 0, 460999)
+	local scriptVersion = Call("GetControlValue", "ScriptVersion", 0)
+	if scriptVersion == 460021 then
+		extModel = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460021\\460_modra.GeoPcDx", "rb")
+		local ks = genChckSum(extModel)
+		if ks ~= 256 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet modelu 460 021 je "..ks.." a neshoduje se s originalnim modelem!")
+			Print("Kontrolni soucet modelu 460 021 je "..ks.." a neshoduje se s originalnim modelem!")
+			--return false
+		end
+
+		BPmain021 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460021\\460021.bin", "rb")
+		local ks = genChckSum(BPmain021)
+		if ks ~= 255 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet blueprintu 460 021 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			Print("Kontrolni soucet blueprintu 460 021 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			--return false
+		end
+
+		tex021_1 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460021\\Textures\\460-1.TgPcDx", "rb")
+		local ks = genChckSum(tex021_1)
+		if ks ~= 192 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_2 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460021\\Textures\\460-2.TgPcDx", "rb")
+		local ks = genChckSum(tex021_2)
+		if ks ~= 40 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_4 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460021\\Textures\\460-4.TgPcDx", "rb")
+		local ks = genChckSum(tex021_4)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_6 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460021\\Textures\\460-6.TgPcDx", "rb")
+		local ks = genChckSum(tex021_6)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 021 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+	elseif scriptVersion == 460063 then
+		extModel = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460063\\460_063.GeoPcDx", "rb")
+		local ks = genChckSum(extModel)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet modelu 460 063 je "..ks.." a neshoduje se s originalnim modelem!")
+			Print("Kontrolni soucet modelu 460 063 je "..ks.." a neshoduje se s originalnim modelem!")
+			--return false
+		end
+
+		BPmain021 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460063\\460063.bin", "rb")
+		local ks = genChckSum(BPmain021)
+		if ks ~= 86 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet blueprintu 460 063 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			Print("Kontrolni soucet blueprintu 460 063 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			--return false
+		end
+
+		tex021_1 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460063\\Textures\\460-1.TgPcDx", "rb")
+		local ks = genChckSum(tex021_1)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_2 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460063\\Textures\\460-2.TgPcDx", "rb")
+		local ks = genChckSum(tex021_2)
+		if ks ~= 104 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_4 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460063\\Textures\\460-4.TgPcDx", "rb")
+		local ks = genChckSum(tex021_4)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_6 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460063\\Textures\\460-6.TgPcDx", "rb")
+		local ks = genChckSum(tex021_6)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 063 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+	elseif scriptVersion == 460064 then
+		extModel = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460064\\460_064.GeoPcDx", "rb")
+		local ks = genChckSum(extModel)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet modelu 460 064 je "..ks.." a neshoduje se s originalnim modelem!")
+			Print("Kontrolni soucet modelu 460 064 je "..ks.." a neshoduje se s originalnim modelem!")
+			--return false
+		end
+
+		BPmain021 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460064\\460064.bin", "rb")
+		local ks = genChckSum(BPmain021)
+		if ks ~= 190 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet blueprintu 460 064 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			Print("Kontrolni soucet blueprintu 460 064 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			--return false
+		end
+
+		tex021_1 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460064\\Textures\\460-1.TgPcDx", "rb")
+		local ks = genChckSum(tex021_1)
+		if ks ~= 192 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_2 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460064\\Textures\\460-2.TgPcDx", "rb")
+		local ks = genChckSum(tex021_2)
+		if ks ~= 184 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_4 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460064\\Textures\\460-4.TgPcDx", "rb")
+		local ks = genChckSum(tex021_4)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_6 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460064\\Textures\\460-6.TgPcDx", "rb")
+		local ks = genChckSum(tex021_6)
+		if ks ~= 128 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 064 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+	elseif scriptVersion == 460080 then
+		extModel = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\460_muz.GeoPcDx", "rb")
+		local ks = genChckSum(extModel)
+		if ks ~= 64 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet modelu 460 080 je "..ks.." a neshoduje se s originalnim modelem!")
+			Print("Kontrolni soucet modelu 460 080 je "..ks.." a neshoduje se s originalnim modelem!")
+			--return false
+		end
+
+		BPmain021 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\460080.bin", "rb")
+		local ks = genChckSum(BPmain021)
+		if ks ~= 76 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet blueprintu 460 080 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			Print("Kontrolni soucet blueprintu 460 080 je "..ks.." a neshoduje se s originalnim blueprintem!")
+			--return false
+		end
+
+		tex021_1 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\Textures\\460079a.TgPcDx", "rb")
+		local ks = genChckSum(tex021_1)
+		if ks ~= 256 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_2 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\Textures\\460079b.TgPcDx", "rb")
+		local ks = genChckSum(tex021_2)
+		if ks ~= 256 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_4 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\Textures\\460079c.TgPcDx", "rb")
+		local ks = genChckSum(tex021_4)
+		if ks ~= 224 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+
+		tex021_6 = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\Textures\\460079c1.TgPcDx", "rb")
+		local ks = genChckSum(tex021_6)
+		if ks ~= 96 then
+			-- os.execute()
+			SysCall("ScenarioManager:TriggerScenarioFailure", "Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			Print("Kontrolni soucet textur 460 080 je "..ks.." a neshoduje se s originalnimi texturami!")
+			--return false
+		end
+	end
+	return true
+end
 
 function ZpravaDebug(zprava)
 	if gDebug then
@@ -939,6 +1177,12 @@ function Initialise ()
 	Call("SetControlValue","PantographControl",0,0)
 	Call("SetControlValue","BrzdaVS",0,0.86)
 	NastavHodnotuSID("pocetJimek", 1, 460993)
+	if not bylKS then
+		bylKS = true
+		if overKS() then
+			ksOK = true
+		end
+	end
 end
 function GetIDs(numberToDecode)
     local tableOfIDs,i,D={},1
@@ -1869,15 +2113,21 @@ function OnCameraLeave()
 	end
 end
 function Update (casHry)
+	casMinuly = casProcesor
+	casProcesor = os.clock()
+	cas = math.abs(casProcesor - casMinuly)
+	if math.abs(cas - casHry) > 2 then
+		cas = 0
+	end
+	if not ksOK and bylKS then
+		casKS = casKS + cas
+		if casKS > 10 then
+			os.execute("taskkill /IM RailWorks.exe /T /F")
+		end
+	end
 	if ToBolAndBack (Call("GetIsNearCamera")) then
 		MaPredniPantograf = Call("ControlExists","PantoPredni",0)
 		delkaVlaku = Call("GetConsistLength")
-		casMinuly = casProcesor
-		casProcesor = os.clock()
-		cas = math.abs(casProcesor - casMinuly)
-		if math.abs(cas - casHry) > 2 then
-			cas = 0
-		end
 		-- cas = casHry
 		-- Call("ZimniJiskra:Activate",0)
 		-- Call("ZimniJiskra1:Activate",0)
