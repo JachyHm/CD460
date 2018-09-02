@@ -39,7 +39,9 @@ vybaveni = false
 
 casNekodovani = 0
 nekodujCas = nil
-sumPoPrujezdu = 0
+sumPoPrujezdu = false
+pocetSumuPoPrujezdu = 0
+sumPoPrujezduKod = 0
 sumPoPrujezduDelka = 0
 sumPoPrujezduDelkaUbehle = 0
 zmenaParametru = 0
@@ -48,6 +50,7 @@ casChybyUbehly = 0
 casZhasleUbehly = 0
 casZmenyUbehly = 0
 signalCode = 0
+lastSignalCode = 0
 
 blokEDB = false
 
@@ -90,13 +93,14 @@ stavDalkoveHorni = 0
 
 ridiciKontrolerOknoOCVC = 1
 
-ventilatoryOtacky = 0
+ventilatory_tm_otacky = 0
+ventilatory_strecha_otacky = 0
 
 instanceGroupNabeh = false
 instanceGroupDobeh = false
 
-blokujNabeh = false
-blokujDobeh = false
+blokuj_nabeh_TM = false
+blokuj_dobeh_TM = false
 
 casMinuly = 0
 casProcesor = os.clock()
@@ -865,15 +869,15 @@ IS = {
 			if IS.cileIsWhole[IS.cil1ID] == "false" then
 				IS.stav = "cil2"
 			end
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis cile 1:", "Zapisuji ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "Zapisuji ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
 			IS:NastavCislo(IS.linkaID)
 			IS.stav = "linka"
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis cile 2:", "Zapisuji ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "Zapisuji ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
 			IS:NastavCislo(IS.cil1ID)
 			IS.stav = "cil1"
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS zapis linky:", "Zapisuji ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
+			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "Zapisuji ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
 	end,
 	SipkaBok = function(self)
@@ -1019,7 +1023,8 @@ function DefinujPromene()
 	gNejblizsiNavestidlo = -1			-- vzdalenost k nejblizsimu navestidlu s prenosem kodu (max 1250m)
 	Smer = 0
 	JeNouzovyRadic = 0
-	ventilatory = 0
+	ventilatoryTM = 0
+	ventilatoryStrecha = 0
 	zvukhasler = 0
 	casproud = 0
 	CasHasler = 0
@@ -1480,6 +1485,7 @@ end
 function OnCustomSignalMessage ( Parameter )
 	local NO
 	local vzdalenost
+	lastSignalCode = Call("GetControlValue", "SkutecnyKod", 0)
 	NO = tonumber(string.sub(Parameter, 1, 2))
 	vzdalenost = tonumber(string.sub(Parameter, 3))
 	if NO == -1 then
@@ -1804,7 +1810,8 @@ function VratProud(gTaznaSila,gZarazenyStupen)
 	local vratProud = (a*k)*(math.sqrt((((kN+(b*k))^2)/((b*k)^2))-1))
 	if gZarazenyStupen < 0 then
 		kN = (kN/pocetMG)*10
-		vratProud = -math.sqrt(kN*10)*math.log(10*speed*3.6)
+		-- vratProud = -math.sqrt(kN*10)*math.log(10*speed*3.6)
+		vratProud = -kN*speed*3.6/math.sqrt(kN)*0.7
 	end
 	if shunt > 0 and shunt < 1.5 then
 		vratProud = 1.18 * vratProud
@@ -1936,8 +1943,14 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 		signalCode = LVZznak
 		if prujezdKolemNavestidla then
 			prujezdKolemNavestidla = false
-			nekodujCas = math.random(0,2) + math.random()
 			casNekodovani = 0
+			if lastSignalCode == 1 then
+				nekodujCas = math.random(0,14) + math.random()
+				pocetSumuPoPrujezdu = math.random(1,20)
+			else
+				nekodujCas = math.random(0,2) + math.random()
+				pocetSumuPoPrujezdu = math.random(0,1)
+			end
 		end
 
 		casNekodovani = casNekodovani + delkaUpd
@@ -1945,9 +1958,8 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 		if nekodujCas ~= nil then
 			if casNekodovani > nekodujCas then
 				nekodujCas = nil
-				sumPoPrujezdu = math.random(1,4)
-
-				sumPoPrujezduDelka = math.random()
+				sumPoPrujezduKod = math.random(1,4)
+				sumPoPrujezduDelka = math.random(5,10)/10
 				sumPoPrujezduDelkaUbehle = 0
 			else
 				signalCode = 0
@@ -1957,7 +1969,12 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 		sumPoPrujezduDelkaUbehle = sumPoPrujezduDelkaUbehle + delkaUpd
 
 		if sumPoPrujezduDelka > sumPoPrujezduDelkaUbehle then
-			signalCode = sumPoPrujezdu
+			signalCode = sumPoPrujezduKod
+		elseif pocetSumuPoPrujezdu > 0 then
+			pocetSumuPoPrujezdu = pocetSumuPoPrujezdu - 1
+			sumPoPrujezduKod = math.random(1,4)
+			sumPoPrujezduDelka = math.random(5,10)/10
+			sumPoPrujezduDelkaUbehle = 0
 		end
 
 		-- zmenaParametruLast = zmenaParametru
@@ -3777,7 +3794,7 @@ function Update (casHry)
 									end
 								end
 							elseif JeNouzovyRadic == 1 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-								if kontroler - vykon > 0.03 and casstupnu >= caskroku and JOB == 1 and Smer ~= 0 and ventilatory == 1 then
+								if kontroler - vykon > 0.03 and casstupnu >= caskroku and JOB == 1 and Smer ~= 0 and ventilatoryTM == 1 then
 									Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
 									casstupnu = 0
 									caskroku = (math.random(8,12)/20)
@@ -3793,7 +3810,7 @@ function Update (casHry)
 								vykon = 0 
 							end
 							pojezdNeschopna = false
-							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and Call("GetControlValue","Ventilatory",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0) or pojezdVDepu then -- kontrola podmínek pro jízdu
+							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and Call("GetControlValue","VentilatoryTM",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0) or pojezdVDepu then -- kontrola podmínek pro jízdu
 								if vykon == 0 or not pojezdNeschopna then
 									Call("SetControlValue","MuteSounds",0,0)
 								end
@@ -3903,85 +3920,160 @@ function Update (casHry)
 
 						----------------------------------------Ventil?tory---------------------------------------
 							if HlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 then
-								Call("SetControlValue","Ventilatory",0,1)
-								ventilatory = 1
+								Call("SetControlValue","VentilatoryTM",0,1)
+								ventilatoryTM = 1
+								if math.abs(Call("GetControlValue", "prerusovanyChodVentilatoru", 0)) > 0.5 then
+									if Call("GetControlValue","odporstup",0) == 1 and ventilatory_tm_otacky == 1 then
+										Call("SetControlValue","VentilatoryStrecha",0,1)
+										ventilatoryStrecha = 1
+									else
+										Call("SetControlValue","VentilatoryStrecha",0,0)
+										ventilatoryStrecha = 0
+									end
+								elseif ventilatory_tm_otacky == 1 then
+									Call("SetControlValue","VentilatoryStrecha",0,1)
+									ventilatoryStrecha = 1
+								end
 							elseif HlavniVypinac ~= 1 or PC ~= 3.75 or baterie ~= 1 or Call("GetControlValue","Reverser",0) == 0 or vnitrniSit220V ~= 1 then
-								Call("SetControlValue","Ventilatory",0,0)
-								ventilatory = 0
+								Call("SetControlValue","VentilatoryTM",0,0)
+								ventilatoryTM = 0
+								Call("SetControlValue","VentilatoryStrecha",0,0)
+								ventilatoryStrecha = 0
 							end
 
-							if ventilatory == 0 and JOB ~= 0 then
+							if ventilatoryTM == 0 and JOB ~= 0 then
 								Call ( "SetControlValue", "HlavniVypinac", 0, 0)
 								ZamekHLvyp = 1
 							end
 
-							local nabehVentilatoru = 5.333
-							local dobehVentilatoru = 9.130
-							local delkaLoop = 2.008
+							local nabehVentilatoru = 5.852
+							local dobehVentilatoru = 20.6
 
 							local poleNabehy = {0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9}
 
 							local poleDobehy = {1,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1}
 
-							if ventilatoryOtacky == 1 then
-								blokujNabeh = false
-							end
-							if ventilatoryOtacky == 0 then
-								blokujDobeh = false
-							end
+							--TM
+								if ventilatory_tm_otacky == 1 then
+									blokuj_nabeh_TM = false
+								end
+								if ventilatory_tm_otacky == 0 then
+									blokuj_dobeh_TM = false
+								end
 
-							local a, b = divMod(ventilatoryOtacky,0.05)
+								local a, b = divMod(ventilatory_tm_otacky,0.05)
 
-							local i = 1
-							while i <= 10 do
-								Call("SetControlValue","VentilatoryNabeh"..i,0,0)
-								Call("SetControlValue","VentilatoryDobeh"..i,0,0)
-								i = i + 1
-							end
-
-							if ventilatory == 0 then
-								blokujNabeh = false
-							else
-								blokujDobeh = false
-							end
-
-							if ventilatory == 1 and b < 0.01 and not blokujNabeh and ventilatoryOtacky <= 0.91 then
 								local i = 1
 								while i <= 10 do
-									if math.abs(ventilatoryOtacky - poleNabehy[i]) < 0.01 then
-										Call("SetControlValue","VentilatoryNabeh"..i,0,1)
-										blokujNabeh = true
-										blokujDobeh = false
-										break 
-									end
+									Call("SetControlValue","VentilatoryTMnabeh"..i,0,0)
+									Call("SetControlValue","VentilatoryTMdobeh"..i,0,0)
 									i = i + 1
 								end
-							elseif ventilatory == 0 and b < 0.01 and not blokujDobeh and ventilatoryOtacky >= 0.09 then
+
+								if ventilatoryTM == 0 then
+									blokuj_nabeh_TM = false
+								else
+									blokuj_dobeh_TM = false
+								end
+
+								if ventilatoryTM == 1 and b < 0.01 and not blokuj_nabeh_TM and ventilatory_tm_otacky <= 0.91 then
+									local i = 1
+									while i <= 10 do
+										if math.abs(ventilatory_tm_otacky - poleNabehy[i]) < 0.01 then
+											Call("SetControlValue","VentilatoryTMnabeh"..i,0,1)
+											blokuj_nabeh_TM = true
+											blokuj_dobeh_TM = false
+											break 
+										end
+										i = i + 1
+									end
+								elseif ventilatoryTM == 0 and b < 0.01 and not blokuj_dobeh_TM and ventilatory_tm_otacky >= 0.09 then
+									local i = 1
+									while i <= 10 do
+										if math.abs(ventilatory_tm_otacky - poleDobehy[i]) < 0.01 then
+											Call("SetControlValue","VentilatoryTMdobeh"..i,0,1)
+											blokuj_dobeh_TM = true
+											blokuj_nabeh_TM = false
+											break 
+										end
+										i = i + 1
+									end
+								end
+
+								if ventilatoryTM == 1 and ventilatory_tm_otacky < 1 then
+									ventilatory_tm_otacky = ventilatory_tm_otacky + cas/nabehVentilatoru
+								elseif ventilatoryTM == 0 and ventilatory_tm_otacky > 0 then
+									ventilatory_tm_otacky = ventilatory_tm_otacky - cas/dobehVentilatoru
+								end
+
+								Call("SetControlValue","VentilatoryTMotacky",0,ventilatory_tm_otacky)
+
+								if ventilatory_tm_otacky < 0 then
+									ventilatory_tm_otacky = 0
+								elseif ventilatory_tm_otacky > 1 then
+									ventilatory_tm_otacky = 1
+								end
+
+							--Strecha
+								if ventilatory_strecha_otacky == 1 then
+									blokuj_nabeh_strecha = false
+								end
+								if ventilatory_strecha_otacky == 0 then
+									blokuj_dobeh_strecha = false
+								end
+
+								local a, b = divMod(ventilatory_strecha_otacky,0.05)
+
 								local i = 1
 								while i <= 10 do
-									if math.abs(ventilatoryOtacky - poleDobehy[i]) < 0.01 then
-										Call("SetControlValue","VentilatoryDobeh"..i,0,1)
-										blokujDobeh = true
-										blokujNabeh = false
-										break 
-									end
+									Call("SetControlValue","VentilatoryStrechaNabeh"..i,0,0)
+									Call("SetControlValue","VentilatoryStrechaDobeh"..i,0,0)
 									i = i + 1
 								end
-							end
 
-							if ventilatory == 1 and ventilatoryOtacky < 1 then
-								ventilatoryOtacky = ventilatoryOtacky + cas/nabehVentilatoru
-							elseif ventilatory == 0 and ventilatoryOtacky > 0 then
-								ventilatoryOtacky = ventilatoryOtacky - cas/dobehVentilatoru
-							end
+								if ventilatoryStrecha == 0 then
+									blokuj_nabeh_strecha = false
+								else
+									blokuj_dobeh_strecha = false
+								end
 
-							Call("SetControlValue","VentilatoryOtacky",0,ventilatoryOtacky)
+								if ventilatoryStrecha == 1 and b < 0.01 and not blokuj_nabeh_strecha and ventilatory_strecha_otacky <= 0.91 then
+									local i = 1
+									while i <= 10 do
+										if math.abs(ventilatory_strecha_otacky - poleNabehy[i]) < 0.01 then
+											Call("SetControlValue","VentilatoryStrechaNabeh"..i,0,1)
+											blokuj_nabeh_strecha = true
+											blokuj_dobeh_strecha = false
+											break 
+										end
+										i = i + 1
+									end
+								elseif ventilatoryStrecha == 0 and b < 0.01 and not blokuj_dobeh_strecha and ventilatory_strecha_otacky >= 0.09 then
+									local i = 1
+									while i <= 10 do
+										if math.abs(ventilatory_strecha_otacky - poleDobehy[i]) < 0.01 then
+											Call("SetControlValue","VentilatoryStrechaDobeh"..i,0,1)
+											blokuj_dobeh_strecha = true
+											blokuj_nabeh_strecha = false
+											break 
+										end
+										i = i + 1
+									end
+								end
 
-							if ventilatoryOtacky < 0 then
-								ventilatoryOtacky = 0
-							elseif ventilatoryOtacky > 1 then
-								ventilatoryOtacky = 1
-							end
+								if ventilatoryStrecha == 1 and ventilatory_strecha_otacky < 1 then
+									ventilatory_strecha_otacky = ventilatory_strecha_otacky + cas/nabehVentilatoru
+								elseif ventilatoryStrecha == 0 and ventilatory_strecha_otacky > 0 then
+									ventilatory_strecha_otacky = ventilatory_strecha_otacky - cas/dobehVentilatoru
+								end
+
+								Call("SetControlValue","VentilatoryStrechaOtacky",0,ventilatory_strecha_otacky)
+
+								if ventilatory_strecha_otacky < 0 then
+									ventilatory_strecha_otacky = 0
+								elseif ventilatory_strecha_otacky > 1 then
+									ventilatory_strecha_otacky = 1
+								end
 
 						----------------------------------------Vypnuti HV v jizde pri tlaku----------------------
 							if JOB > 0 and Call("GetControlValue","VirtualBrakePipePressureBAR",0) < 3.2 then
@@ -4166,11 +4258,11 @@ function Update (casHry)
 									Call("SetControlValue","JOBpovel",0,0)
 								end
 							end
-							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatory == 1 and not TlakovyBlokJizdy and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 then
+							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and not TlakovyBlokJizdy and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 then
 								Call("SetControlValue","JOB",0,1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatory == 1 and (not TlakovyBlokJizdy or (TlakovyBlokJizdy and PrvniEDBorVzduch ~= "vzduch") or plynulaBrzda <= 3.5) and Call("GetControlValue","JOBpovel",0) == -1 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and (not TlakovyBlokJizdy or (TlakovyBlokJizdy and PrvniEDBorVzduch ~= "vzduch") or plynulaBrzda <= 3.5) and Call("GetControlValue","JOBpovel",0) == -1 then
 								Call("SetControlValue","JOB",0,-1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatory == 0 or baterie == 0 or ((TlakovyBlokJizdy and not PrvniEDBorVzduch == "vzduch") and plynulaBrzda <= 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0 or ((TlakovyBlokJizdy and not PrvniEDBorVzduch == "vzduch") and plynulaBrzda <= 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 then
 								Call("SetControlValue","JOB",0,0)
 							end
 
@@ -4278,7 +4370,7 @@ function Update (casHry)
 								
 								--*******H8 VENTILATORY
 									local diagVentilatoryBeh = 0
-									if ventilatory == 1 then
+									if ventilatoryTM == 1 then
 										if casVentilatory == nil then
 											casVentilatory = math.random(3,6)
 										end
@@ -4642,6 +4734,12 @@ function Update (casHry)
 		----------------------------------------KONEC gásti řízené userem-------------------------
 		--######################################################################################--
 		elseif not UzJsiZjistovalPanto then
+			Call("MSVstart:ActivateNode","MSVstart",0)
+			Call("MSVstart2:ActivateNode","MSVstart",0)
+			IS.stav = "sleep"
+			IS:NastavCil1(1,true)
+			IS:NastavCil2(1,true)
+			IS:NastavLinku(1,true)
 			Call("SetControlValue","AI",0,1)
 			Call("SetControlValue","AbsolutniRychlomer",0,math.abs(Call("GetSpeed")*3.6))
 			deltaSpeedMinula = deltaSpeed

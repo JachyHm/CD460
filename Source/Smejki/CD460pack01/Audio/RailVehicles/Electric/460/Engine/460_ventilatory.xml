@@ -47,7 +47,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -146,7 +146,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1136,7 +1136,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -2113,7 +2113,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>Ventilatory</Value>
+													<Value>VentilatoryPitchProud</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2127,14 +2127,14 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>-40</Value>
+																				<Value>-1000</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
 																	<Attribute name="Y">
 																		<sFloat32>
 																			<Element>
-																				<Value>0.8</Value>
+																				<Value>0.9</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -2167,14 +2167,14 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>40</Value>
+																				<Value>1000</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
 																	<Attribute name="Y">
 																		<sFloat32>
 																			<Element>
-																				<Value>0.8</Value>
+																				<Value>0.9</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -2194,7 +2194,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryPitch</Value>
+													<Value>VentilatoryPitchStrecha</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2202,26 +2202,6 @@
 											<__Indexed__kLoud-cRVector2>
 												<Element>
 													<Value>
-														<kLoud-cRVector2>
-															<Element>
-																<Value>
-																	<Attribute name="X">
-																		<sFloat32>
-																			<Element>
-																				<Value>-0.3</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																	<Attribute name="Y">
-																		<sFloat32>
-																			<Element>
-																				<Value>0.98</Value>
-																			</Element>
-																		</sFloat32>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cRVector2>
 														<kLoud-cRVector2>
 															<Element>
 																<Value>
@@ -2248,7 +2228,68 @@
 																	<Attribute name="X">
 																		<sFloat32>
 																			<Element>
-																				<Value>0.3</Value>
+																				<Value>0.01</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.98</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+													</Value>
+												</Element>
+											</__Indexed__kLoud-cRVector2>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cCurve>
+							<kLoud-cCurve>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryPitchKompresor</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="CurvePoint">
+											<__Indexed__kLoud-cRVector2>
+												<Element>
+													<Value>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>1</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.01</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -2405,7 +2446,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>Ventilatory</Value>
+													<Value>VentilatoryTM</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2413,41 +2454,6 @@
 											<__Indexed__kLoud-cModifier>
 												<Element>
 													<Value>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
-																				<Value>AbsoluteSpeed</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value>Ventilatory</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
 														<kLoud-cPitchCurveModifier>
 															<Element>
 																<Value>
@@ -2461,7 +2467,7 @@
 																	<Attribute name="ControllerName">
 																		<cDeltaString>
 																			<Element>
-																				<Value>AbsoluteSpeed</Value>
+																				<Value>VirtualAmmeter</Value>
 																			</Element>
 																		</cDeltaString>
 																	</Attribute>
@@ -2472,7 +2478,77 @@
 																					<Attribute name="Name">
 																						<cDeltaString>
 																							<Element>
-																								<Value>VentilatoryPitch</Value>
+																								<Value>VentilatoryPitchProud</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cPitchCurveModifier>
+														<kLoud-cPitchCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>VentilatoryStrecha</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VentilatoryPitchStrecha</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cPitchCurveModifier>
+														<kLoud-cPitchCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>kompresor_zvk</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VentilatoryPitchKompresor</Value>
 																							</Element>
 																						</cDeltaString>
 																					</Attribute>
@@ -2496,7 +2572,7 @@
 																	<Attribute name="ControllerName">
 																		<cDeltaString>
 																			<Element>
-																				<Value>VentilatoryOtacky</Value>
+																				<Value>VentilatoryTMOtacky</Value>
 																			</Element>
 																		</cDeltaString>
 																	</Attribute>
@@ -2531,7 +2607,168 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>NabehyDobehyMod</Value>
+													<Value>VentilatoryStrecha</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Modifier">
+											<__Indexed__kLoud-cModifier>
+												<Element>
+													<Value>
+														<kLoud-cPitchCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>VirtualAmmeter</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VentilatoryPitchProud</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cPitchCurveModifier>
+														<kLoud-cPitchCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>VentilatoryStrecha</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VentilatoryPitchStrecha</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cPitchCurveModifier>
+														<kLoud-cPitchCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>kompresor_zvk</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VentilatoryPitchKompresor</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cPitchCurveModifier>
+														<kLoud-cVolumeCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>VentilatoryStrechaOtacky</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VentilatoryLoop</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cVolumeCurveModifier>
+													</Value>
+												</Element>
+											</__Indexed__kLoud-cModifier>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cModifierChain>
+							<kLoud-cModifierChain>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>NabehyDobehyTMMod</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2552,7 +2789,63 @@
 																	<Attribute name="ControllerName">
 																		<cDeltaString>
 																			<Element>
-																				<Value>VentilatoryOtacky</Value>
+																				<Value>VentilatoryTMOtacky</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>NabehyDobehyCurve</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cVolumeCurveModifier>
+													</Value>
+												</Element>
+											</__Indexed__kLoud-cModifier>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cModifierChain>
+							<kLoud-cModifierChain>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>NabehyDobehyStrechaMod</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Modifier">
+											<__Indexed__kLoud-cModifier>
+												<Element>
+													<Value>
+														<kLoud-cVolumeCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>VentilatoryStrechaOtacky</Value>
 																			</Element>
 																		</cDeltaString>
 																	</Attribute>
@@ -2595,7 +2888,34 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>NabehyDobehy</Value>
+													<Value>NabehyDobehyTM</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="MaximumNumberOfInstances">
+											<sUInt32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sUInt32>
+										</Attribute>
+										<Attribute name="InstanceExceededAction">
+											<kLoud-eInstanceExceededAction>
+												<Element>
+													<Value>StopOldest</Value>
+												</Element>
+											</kLoud-eInstanceExceededAction>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cInstanceGroup>
+							<kLoud-cInstanceGroup>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>NabehyDobehyStrecha</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2637,7 +2957,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>Ventilatory</Value>
+													<Value>VentilatoryTM</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2663,7 +2983,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>Ventilatory</Value>
+																	<Value>VentilatoryTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2674,7 +2994,107 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryOtacky</Value>
+													<Value>VentilatoryTMotacky</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="LoopCondition">
+											<kLoud-cControlledLoop-eLoopCondition>
+												<Element>
+													<Value>ValueInRange</Value>
+												</Element>
+											</kLoud-cControlledLoop-eLoopCondition>
+										</Attribute>
+										<Attribute name="ActiveRangeStartValue">
+											<sFloat32>
+												<Element>
+													<Value>0.99</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ActiveRangeEndValue">
+											<sFloat32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cControlledLoop>
+							<kLoud-cControlledLoop>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrecha</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>Ventilatory</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaOtacky</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2745,7 +3165,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh1</Value>
+													<Value>VentilatoryTMnabeh1</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2771,7 +3191,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2782,7 +3202,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh1</Value>
+													<Value>VentilatoryTMnabeh1</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2814,7 +3234,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2838,7 +3258,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh2</Value>
+													<Value>VentilatoryTMnabeh2</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2864,7 +3284,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2875,7 +3295,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh2</Value>
+													<Value>VentilatoryTMnabeh2</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2907,7 +3327,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2931,7 +3351,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh3</Value>
+													<Value>VentilatoryTMnabeh3</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -2957,7 +3377,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2968,7 +3388,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh3</Value>
+													<Value>VentilatoryTMnabeh3</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3000,7 +3420,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3024,7 +3444,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh4</Value>
+													<Value>VentilatoryTMnabeh4</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3050,7 +3470,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3061,7 +3481,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh4</Value>
+													<Value>VentilatoryTMnabeh4</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3093,7 +3513,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3117,7 +3537,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh5</Value>
+													<Value>VentilatoryTMnabeh5</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3143,7 +3563,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3154,7 +3574,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh5</Value>
+													<Value>VentilatoryTMnabeh5</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3186,7 +3606,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3210,7 +3630,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh6</Value>
+													<Value>VentilatoryTMnabeh6</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3236,7 +3656,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3247,7 +3667,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh6</Value>
+													<Value>VentilatoryTMnabeh6</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3279,7 +3699,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3303,7 +3723,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh7</Value>
+													<Value>VentilatoryTMnabeh7</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3329,7 +3749,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3340,7 +3760,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh7</Value>
+													<Value>VentilatoryTMnabeh7</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3372,7 +3792,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3396,7 +3816,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh8</Value>
+													<Value>VentilatoryTMnabeh8</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3422,7 +3842,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3433,7 +3853,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh8</Value>
+													<Value>VentilatoryTMnabeh8</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3465,7 +3885,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3489,7 +3909,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh9</Value>
+													<Value>VentilatoryTMnabeh9</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3515,7 +3935,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3526,7 +3946,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh9</Value>
+													<Value>VentilatoryTMnabeh9</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3558,7 +3978,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3582,7 +4002,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh10</Value>
+													<Value>VentilatoryTMnabeh10</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3608,7 +4028,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3619,7 +4039,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryNabeh10</Value>
+													<Value>VentilatoryTMnabeh10</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3651,7 +4071,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3675,7 +4095,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh1</Value>
+													<Value>VentilatoryTMdobeh1</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3701,7 +4121,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3712,7 +4132,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh1</Value>
+													<Value>VentilatoryTMdobeh1</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3744,7 +4164,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3768,7 +4188,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh2</Value>
+													<Value>VentilatoryTMdobeh2</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3794,7 +4214,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3805,7 +4225,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh2</Value>
+													<Value>VentilatoryTMdobeh2</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3837,7 +4257,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3861,7 +4281,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh3</Value>
+													<Value>VentilatoryTMdobeh3</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3887,7 +4307,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3898,7 +4318,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh3</Value>
+													<Value>VentilatoryTMdobeh3</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3930,7 +4350,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3954,7 +4374,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh4</Value>
+													<Value>VentilatoryTMdobeh4</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -3980,7 +4400,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3991,7 +4411,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh4</Value>
+													<Value>VentilatoryTMdobeh4</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4023,7 +4443,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4047,7 +4467,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh5</Value>
+													<Value>VentilatoryTMdobeh5</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4073,7 +4493,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4084,7 +4504,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh5</Value>
+													<Value>VentilatoryTMdobeh5</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4116,7 +4536,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4140,7 +4560,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh6</Value>
+													<Value>VentilatoryTMdobeh6</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4166,7 +4586,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4177,7 +4597,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh6</Value>
+													<Value>VentilatoryTMdobeh6</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4209,7 +4629,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4233,7 +4653,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh7</Value>
+													<Value>VentilatoryTMdobeh7</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4259,7 +4679,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4270,7 +4690,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh7</Value>
+													<Value>VentilatoryTMdobeh7</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4302,7 +4722,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4326,7 +4746,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh8</Value>
+													<Value>VentilatoryTMdobeh8</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4352,7 +4772,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4363,7 +4783,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh8</Value>
+													<Value>VentilatoryTMdobeh8</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4395,7 +4815,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4419,7 +4839,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh9</Value>
+													<Value>VentilatoryTMdobeh9</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4445,7 +4865,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4456,7 +4876,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh9</Value>
+													<Value>VentilatoryTMdobeh9</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4488,7 +4908,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4512,7 +4932,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh10</Value>
+													<Value>VentilatoryTMdobeh10</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4538,7 +4958,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehyMod</Value>
+																	<Value>NabehyDobehyTMMod</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4549,7 +4969,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>VentilatoryDobeh10</Value>
+													<Value>VentilatoryTMdobeh10</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4581,7 +5001,1867 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>NabehyDobehy</Value>
+																	<Value>NabehyDobehyTM</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh1</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh1</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh1</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh2</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh2</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh2</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh3</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh3</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh3</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh4</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh4</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh4</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh5</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh5</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh5</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh6</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh6</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh6</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh7</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh7</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh7</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh8</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh8</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh8</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh9</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh9</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh9</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh10</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryNabeh10</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaNabeh10</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh1</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh1</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh1</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh2</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh2</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh2</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh3</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh3</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh3</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh4</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh4</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh4</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh5</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh5</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh5</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh6</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh6</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh6</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh7</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh7</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh7</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh8</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh8</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh8</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh9</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh9</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh9</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh10</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>VentilatoryDobeh10</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrechaMod</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>VentilatoryStrechaDobeh10</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>NabehyDobehyStrecha</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
