@@ -4405,20 +4405,20 @@ function Update (casHry)
 												Call("SetControlValue","JizdniKontroler",0,-0.5)
 											end
 										end
-									elseif Smer == 0 then
+									elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
 										diagNU = 0
 										blokKrokNU = false
 									end
 									Call("SetControlValue","Diag_NU",0,diagNU) -- H11
 								
 								--*******H12 PU
-									if Smer ~= 0 and (Call("GetControlValue","Napeti",0) < 500 and P01 == 1) then
+									if Call("GetControlValue", "povel_Reverser", 0) ~= 0 and (Call("GetControlValue","Napeti",0) < 500 and P01 == 1) then
 										diagPU = 1
 										if Call("GetControlValue","Diag_PU",0) == 0 and P01 == 1 then
 											Call ( "SetControlValue", "HlavniVypinac", 0, 0)
 											ZamekHLvyp = 1
 										end
-									elseif Smer == 0 then
+									elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
 										diagPU = 0
 									end
 									Call("SetControlValue","Diag_PU",0,diagPU) -- H12
@@ -4469,7 +4469,7 @@ function Update (casHry)
 											Call ( "SetControlValue", "HlavniVypinac", 0, 0)
 											ZamekHLvyp = 1
 										end
-									elseif Smer == 0 then
+									elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
 										niDiag = 0
 									end
 									Call("SetControlValue","Diag_NI",0,niDiag) -- H15
@@ -4569,12 +4569,12 @@ function Update (casHry)
 									Call("SetControlValue","Diag_OJ",0,1) -- H18
 								elseif diagPU == 1 then
 									Call("SetControlValue","Diag_PU",0,1) -- H12
-									if Smer == 0 then
+									if Call("GetControlValue", "povel_Reverser", 0) == 0 then
 										diagPU = 0
 									end
 								elseif skluzDiag == 1 then
 									Call("SetControlValue","Diag_DOTO",0,1) -- H12
-									if Smer == 0 then --predelat na tlacitko az bude
+									if Call("GetControlValue", "povel_Reverser", 0) == 0 then --predelat na tlacitko az bude
 										--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
 										blokKrokDOTO = false
 										skluzDiag = 0
@@ -4583,7 +4583,7 @@ function Update (casHry)
 									end
 								elseif niDiag == 1 then
 									Call("SetControlValue","Diag_NI",0,1) -- H15
-									if Smer == 0 then
+									if Call("GetControlValue", "povel_Reverser", 0) == 0 then
 										niDiag = 0
 									end
 								end
