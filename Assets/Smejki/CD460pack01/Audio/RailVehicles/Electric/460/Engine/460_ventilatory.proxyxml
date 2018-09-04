@@ -3,18 +3,18 @@
 	<ProxyControl>
 		<cGenericAudioControl xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
-			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
+			<ActivationDistance d:type="sFloat32">1000</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="438586">
+				<kLoud-cSingleSampleSound d:id="174268">
 					<Name d:type="cDeltaString">Ventilatory</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
-					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -22,16 +22,16 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438599">
+				<kLoud-cSingleSampleSound d:id="174281">
 					<Name d:type="cDeltaString">VentilatoryNabeh1</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
-					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438612">
+				<kLoud-cSingleSampleSound d:id="174294">
 					<Name d:type="cDeltaString">VentilatoryNabeh2</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -47,8 +47,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -56,7 +56,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438625">
+				<kLoud-cSingleSampleSound d:id="174307">
 					<Name d:type="cDeltaString">VentilatoryNabeh3</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -64,8 +64,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -73,7 +73,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438638">
+				<kLoud-cSingleSampleSound d:id="174320">
 					<Name d:type="cDeltaString">VentilatoryNabeh4</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -81,8 +81,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -90,7 +90,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438651">
+				<kLoud-cSingleSampleSound d:id="174333">
 					<Name d:type="cDeltaString">VentilatoryNabeh5</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -98,8 +98,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -107,7 +107,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438664">
+				<kLoud-cSingleSampleSound d:id="174346">
 					<Name d:type="cDeltaString">VentilatoryNabeh6</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -115,8 +115,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -124,7 +124,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438677">
+				<kLoud-cSingleSampleSound d:id="174359">
 					<Name d:type="cDeltaString">VentilatoryNabeh7</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -132,16 +132,16 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
-							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_ventilator_nabeh6.dav</Filename>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_ventilator_nabeh7.dav</Filename>
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438690">
+				<kLoud-cSingleSampleSound d:id="174372">
 					<Name d:type="cDeltaString">VentilatoryNabeh8</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -149,16 +149,16 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
-							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_ventilator_nabeh6.dav</Filename>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_ventilator_nabeh8.dav</Filename>
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438703">
+				<kLoud-cSingleSampleSound d:id="174385">
 					<Name d:type="cDeltaString">VentilatoryNabeh9</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -166,16 +166,16 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
-							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_ventilator_nabeh6.dav</Filename>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_ventilator_nabeh9.dav</Filename>
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438716">
+				<kLoud-cSingleSampleSound d:id="174398">
 					<Name d:type="cDeltaString">VentilatoryNabeh10</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -183,8 +183,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -192,16 +192,16 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438729">
+				<kLoud-cSingleSampleSound d:id="174411">
 					<Name d:type="cDeltaString">VentilatoryDobeh1</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
-					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -209,7 +209,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438742">
+				<kLoud-cSingleSampleSound d:id="174424">
 					<Name d:type="cDeltaString">VentilatoryDobeh2</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -217,8 +217,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -226,7 +226,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438755">
+				<kLoud-cSingleSampleSound d:id="174437">
 					<Name d:type="cDeltaString">VentilatoryDobeh3</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -234,8 +234,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -243,7 +243,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438768">
+				<kLoud-cSingleSampleSound d:id="174450">
 					<Name d:type="cDeltaString">VentilatoryDobeh4</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -251,8 +251,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -260,7 +260,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438781">
+				<kLoud-cSingleSampleSound d:id="174463">
 					<Name d:type="cDeltaString">VentilatoryDobeh5</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -268,8 +268,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -277,7 +277,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438794">
+				<kLoud-cSingleSampleSound d:id="174476">
 					<Name d:type="cDeltaString">VentilatoryDobeh6</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -285,8 +285,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -294,7 +294,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438807">
+				<kLoud-cSingleSampleSound d:id="174489">
 					<Name d:type="cDeltaString">VentilatoryDobeh7</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -302,8 +302,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -311,7 +311,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438820">
+				<kLoud-cSingleSampleSound d:id="174502">
 					<Name d:type="cDeltaString">VentilatoryDobeh8</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -319,8 +319,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -328,7 +328,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438833">
+				<kLoud-cSingleSampleSound d:id="174515">
 					<Name d:type="cDeltaString">VentilatoryDobeh9</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -336,8 +336,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -345,7 +345,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="438846">
+				<kLoud-cSingleSampleSound d:id="174528">
 					<Name d:type="cDeltaString">VentilatoryDobeh10</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -353,8 +353,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -362,168 +362,287 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
+				<kLoud-cSingleSampleSound d:id="174541">
+					<Name d:type="cDeltaString">AIventilatory</Name>
+					<IsLooped d:type="bool">1</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_ventilatorAI.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="438860">
+				<kLoud-cCurve d:id="174555">
 					<Name d:type="cDeltaString">VentilatoryPitchProud</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="438863">
+						<kLoud-cRVector2 d:id="174558">
 							<X d:type="sFloat32">-1000</X>
 							<Y d:type="sFloat32">0.9</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="438866">
+						<kLoud-cRVector2 d:id="174561">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="438869">
+						<kLoud-cRVector2 d:id="174564">
 							<X d:type="sFloat32">1000</X>
 							<Y d:type="sFloat32">0.9</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="438872">
+				<kLoud-cCurve d:id="174567">
 					<Name d:type="cDeltaString">VentilatoryPitchStrecha</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="438875">
+						<kLoud-cRVector2 d:id="174570">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="438878">
+						<kLoud-cRVector2 d:id="174573">
 							<X d:type="sFloat32">0.01</X>
 							<Y d:type="sFloat32">0.98</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="438881">
+				<kLoud-cCurve d:id="174576">
 					<Name d:type="cDeltaString">VentilatoryPitchKompresor</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="438884">
+						<kLoud-cRVector2 d:id="174579">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="438887">
+						<kLoud-cRVector2 d:id="174582">
 							<X d:type="sFloat32">0.01</X>
 							<Y d:type="sFloat32">0.98</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="438890">
+				<kLoud-cCurve d:id="174585">
 					<Name d:type="cDeltaString">VentilatoryLoop</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="438893">
+						<kLoud-cRVector2 d:id="174588">
 							<X d:type="sFloat32">0.9999999</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="438896">
+						<kLoud-cRVector2 d:id="174591">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="438899">
+				<kLoud-cCurve d:id="174594">
 					<Name d:type="cDeltaString">NabehyDobehyCurve</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="438902">
+						<kLoud-cRVector2 d:id="174597">
 							<X d:type="sFloat32">0.999999</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="438905">
+						<kLoud-cRVector2 d:id="174600">
 							<X d:type="sFloat32">1</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="174603">
+					<Name d:type="cDeltaString">AIpovol</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="174606">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174609">
+							<X d:type="sFloat32">1</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="174612">
+					<Name d:type="cDeltaString">Distance Volume Curve</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="174615">
+							<X d:type="sFloat32">25</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174618">
+							<X d:type="sFloat32">100</X>
+							<Y d:type="sFloat32">0.8</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174621">
+							<X d:type="sFloat32">400</X>
+							<Y d:type="sFloat32">0.6</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174624">
+							<X d:type="sFloat32">1600</X>
+							<Y d:type="sFloat32">0.2</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174627">
+							<X d:type="sFloat32">6400</X>
+							<Y d:type="sFloat32">0.1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174630">
+							<X d:type="sFloat32">25600</X>
+							<Y d:type="sFloat32">0.03125</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174633">
+							<X d:type="sFloat32">102400</X>
+							<Y d:type="sFloat32">0.015625</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174636">
+							<X d:type="sFloat32">409600</X>
+							<Y d:type="sFloat32">0.007813</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174639">
+							<X d:type="sFloat32">1638400</X>
+							<Y d:type="sFloat32">0.003906</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174642">
+							<X d:type="sFloat32">6553600</X>
+							<Y d:type="sFloat32">0.001953</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="174645">
+							<X d:type="sFloat32">1.024E+07</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="438909">
+				<kLoud-cModifierChain d:id="174649">
 					<Name d:type="cDeltaString">VentilatoryTM</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="438912">
+						<kLoud-cPitchCurveModifier d:id="174652">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VirtualAmmeter</ControllerName>
-							<Curve d:type="ref">438860</Curve>
+							<Curve d:type="ref">174555</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cPitchCurveModifier d:id="438916">
+						<kLoud-cPitchCurveModifier d:id="174656">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VentilatoryStrecha</ControllerName>
-							<Curve d:type="ref">438872</Curve>
+							<Curve d:type="ref">174567</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cPitchCurveModifier d:id="438920">
+						<kLoud-cPitchCurveModifier d:id="174660">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">kompresor_zvk</ControllerName>
-							<Curve d:type="ref">438881</Curve>
+							<Curve d:type="ref">174576</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="438924">
+						<kLoud-cVolumeCurveModifier d:id="174664">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VentilatoryTMOtacky</ControllerName>
-							<Curve d:type="ref">438890</Curve>
+							<Curve d:type="ref">174585</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="174668">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">174612</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="438928">
+				<kLoud-cModifierChain d:id="174672">
 					<Name d:type="cDeltaString">VentilatoryStrecha</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="438931">
+						<kLoud-cPitchCurveModifier d:id="174675">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VirtualAmmeter</ControllerName>
-							<Curve d:type="ref">438860</Curve>
+							<Curve d:type="ref">174555</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cPitchCurveModifier d:id="438935">
+						<kLoud-cPitchCurveModifier d:id="174679">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VentilatoryStrecha</ControllerName>
-							<Curve d:type="ref">438872</Curve>
+							<Curve d:type="ref">174567</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cPitchCurveModifier d:id="438939">
+						<kLoud-cPitchCurveModifier d:id="174683">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">kompresor_zvk</ControllerName>
-							<Curve d:type="ref">438881</Curve>
+							<Curve d:type="ref">174576</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="438943">
+						<kLoud-cVolumeCurveModifier d:id="174687">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VentilatoryStrechaOtacky</ControllerName>
-							<Curve d:type="ref">438890</Curve>
+							<Curve d:type="ref">174585</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="174691">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">174612</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="438947">
+				<kLoud-cModifierChain d:id="174695">
 					<Name d:type="cDeltaString">NabehyDobehyTMMod</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="438950">
+						<kLoud-cVolumeCurveModifier d:id="174698">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VentilatoryTMOtacky</ControllerName>
-							<Curve d:type="ref">438899</Curve>
+							<Curve d:type="ref">174594</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="174702">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">174612</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="438954">
+				<kLoud-cModifierChain d:id="174706">
 					<Name d:type="cDeltaString">NabehyDobehyStrechaMod</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="438957">
+						<kLoud-cVolumeCurveModifier d:id="174709">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VentilatoryStrechaOtacky</ControllerName>
-							<Curve d:type="ref">438899</Curve>
+							<Curve d:type="ref">174594</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="174713">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">174612</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="174717">
+					<Name d:type="cDeltaString">AIpovol</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="174720">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AI</ControllerName>
+							<Curve d:type="ref">174603</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="174724">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">174612</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="438962">
+				<kLoud-cInstanceGroup d:id="174729">
 					<Name d:type="cDeltaString">NabehyDobehyTM</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">StopOldest</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="438966">
+				<kLoud-cInstanceGroup d:id="174733">
 					<Name d:type="cDeltaString">NabehyDobehyStrecha</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">StopOldest</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
+				<kLoud-cInstanceGroup d:id="174737">
+					<Name d:type="cDeltaString">AIvents</Name>
+					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
+					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
+				</kLoud-cInstanceGroup>
 			</InstanceGroup>
 			<Loop>
-				<kLoud-cControlledLoop d:id="438971">
+				<kLoud-cControlledLoop d:id="174742">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTM</Name>
-					<Sound d:type="ref">438586</Sound>
-					<ModifierChain d:type="ref">438909</ModifierChain>
+					<Sound d:type="ref">174268</Sound>
+					<ModifierChain d:type="ref">174649</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMotacky</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.99</ActiveRangeStartValue>
@@ -531,11 +650,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="438982">
+				<kLoud-cControlledLoop d:id="174753">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrecha</Name>
-					<Sound d:type="ref">438586</Sound>
-					<ModifierChain d:type="ref">438928</ModifierChain>
+					<Sound d:type="ref">174268</Sound>
+					<ModifierChain d:type="ref">174672</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaOtacky</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.99</ActiveRangeStartValue>
@@ -543,447 +662,459 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
+				<kLoud-cControlledLoop d:id="174764">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">AIVentilatory</Name>
+					<Sound d:type="ref">174541</Sound>
+					<ModifierChain d:type="ref">174717</ModifierChain>
+					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
+					<ActiveRangeStartValue d:type="sFloat32">0.1</ActiveRangeStartValue>
+					<ActiveRangeEndValue d:type="sFloat32">1000</ActiveRangeEndValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">174737</InstanceGroup>
+				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="438994">
+				<kLoud-cTriggeredOneshot d:id="174776">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh1</Name>
-					<Sound d:type="ref">438599</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174281</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh1</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439004">
+				<kLoud-cTriggeredOneshot d:id="174786">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh2</Name>
-					<Sound d:type="ref">438612</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174294</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh2</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439014">
+				<kLoud-cTriggeredOneshot d:id="174796">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh3</Name>
-					<Sound d:type="ref">438625</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174307</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh3</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439024">
+				<kLoud-cTriggeredOneshot d:id="174806">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh4</Name>
-					<Sound d:type="ref">438638</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174320</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh4</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439034">
+				<kLoud-cTriggeredOneshot d:id="174816">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh5</Name>
-					<Sound d:type="ref">438651</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174333</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh5</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439044">
+				<kLoud-cTriggeredOneshot d:id="174826">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh6</Name>
-					<Sound d:type="ref">438664</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174346</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh6</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439054">
+				<kLoud-cTriggeredOneshot d:id="174836">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh7</Name>
-					<Sound d:type="ref">438677</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174359</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh7</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439064">
+				<kLoud-cTriggeredOneshot d:id="174846">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh8</Name>
-					<Sound d:type="ref">438690</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174372</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh8</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439074">
+				<kLoud-cTriggeredOneshot d:id="174856">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh9</Name>
-					<Sound d:type="ref">438703</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174385</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh9</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439084">
+				<kLoud-cTriggeredOneshot d:id="174866">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMnabeh10</Name>
-					<Sound d:type="ref">438716</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174398</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMnabeh10</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439094">
+				<kLoud-cTriggeredOneshot d:id="174876">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh1</Name>
-					<Sound d:type="ref">438729</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174411</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh1</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439104">
+				<kLoud-cTriggeredOneshot d:id="174886">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh2</Name>
-					<Sound d:type="ref">438742</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174424</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh2</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439114">
+				<kLoud-cTriggeredOneshot d:id="174896">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh3</Name>
-					<Sound d:type="ref">438755</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174437</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh3</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439124">
+				<kLoud-cTriggeredOneshot d:id="174906">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh4</Name>
-					<Sound d:type="ref">438768</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174450</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh4</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439134">
+				<kLoud-cTriggeredOneshot d:id="174916">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh5</Name>
-					<Sound d:type="ref">438781</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174463</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh5</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439144">
+				<kLoud-cTriggeredOneshot d:id="174926">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh6</Name>
-					<Sound d:type="ref">438794</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174476</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh6</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439154">
+				<kLoud-cTriggeredOneshot d:id="174936">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh7</Name>
-					<Sound d:type="ref">438807</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174489</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh7</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439164">
+				<kLoud-cTriggeredOneshot d:id="174946">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh8</Name>
-					<Sound d:type="ref">438820</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174502</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh8</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439174">
+				<kLoud-cTriggeredOneshot d:id="174956">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh9</Name>
-					<Sound d:type="ref">438833</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174515</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh9</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439184">
+				<kLoud-cTriggeredOneshot d:id="174966">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryTMdobeh10</Name>
-					<Sound d:type="ref">438846</Sound>
-					<ModifierChain d:type="ref">438947</ModifierChain>
+					<Sound d:type="ref">174528</Sound>
+					<ModifierChain d:type="ref">174695</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryTMdobeh10</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438962</InstanceGroup>
+					<InstanceGroup d:type="ref">174729</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439194">
+				<kLoud-cTriggeredOneshot d:id="174976">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh1</Name>
-					<Sound d:type="ref">438599</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174281</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh1</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439204">
+				<kLoud-cTriggeredOneshot d:id="174986">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh2</Name>
-					<Sound d:type="ref">438612</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174294</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh2</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439214">
+				<kLoud-cTriggeredOneshot d:id="174996">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh3</Name>
-					<Sound d:type="ref">438625</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174307</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh3</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439224">
+				<kLoud-cTriggeredOneshot d:id="175006">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh4</Name>
-					<Sound d:type="ref">438638</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174320</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh4</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439234">
+				<kLoud-cTriggeredOneshot d:id="175016">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh5</Name>
-					<Sound d:type="ref">438651</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174333</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh5</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439244">
+				<kLoud-cTriggeredOneshot d:id="175026">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh6</Name>
-					<Sound d:type="ref">438664</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174346</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh6</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439254">
+				<kLoud-cTriggeredOneshot d:id="175036">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh7</Name>
-					<Sound d:type="ref">438677</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174359</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh7</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439264">
+				<kLoud-cTriggeredOneshot d:id="175046">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh8</Name>
-					<Sound d:type="ref">438690</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174372</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh8</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439274">
+				<kLoud-cTriggeredOneshot d:id="175056">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh9</Name>
-					<Sound d:type="ref">438703</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174385</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh9</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439284">
+				<kLoud-cTriggeredOneshot d:id="175066">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaNabeh10</Name>
-					<Sound d:type="ref">438716</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174398</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaNabeh10</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439294">
+				<kLoud-cTriggeredOneshot d:id="175076">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh1</Name>
-					<Sound d:type="ref">438729</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174411</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh1</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439304">
+				<kLoud-cTriggeredOneshot d:id="175086">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh2</Name>
-					<Sound d:type="ref">438742</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174424</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh2</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439314">
+				<kLoud-cTriggeredOneshot d:id="175096">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh3</Name>
-					<Sound d:type="ref">438755</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174437</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh3</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439324">
+				<kLoud-cTriggeredOneshot d:id="175106">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh4</Name>
-					<Sound d:type="ref">438768</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174450</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh4</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439334">
+				<kLoud-cTriggeredOneshot d:id="175116">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh5</Name>
-					<Sound d:type="ref">438781</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174463</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh5</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439344">
+				<kLoud-cTriggeredOneshot d:id="175126">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh6</Name>
-					<Sound d:type="ref">438794</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174476</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh6</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439354">
+				<kLoud-cTriggeredOneshot d:id="175136">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh7</Name>
-					<Sound d:type="ref">438807</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174489</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh7</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439364">
+				<kLoud-cTriggeredOneshot d:id="175146">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh8</Name>
-					<Sound d:type="ref">438820</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174502</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh8</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439374">
+				<kLoud-cTriggeredOneshot d:id="175156">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh9</Name>
-					<Sound d:type="ref">438833</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174515</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh9</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="439384">
+				<kLoud-cTriggeredOneshot d:id="175166">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">VentilatoryStrechaDobeh10</Name>
-					<Sound d:type="ref">438846</Sound>
-					<ModifierChain d:type="ref">438954</ModifierChain>
+					<Sound d:type="ref">174528</Sound>
+					<ModifierChain d:type="ref">174706</ModifierChain>
 					<ControllerName d:type="cDeltaString">VentilatoryStrechaDobeh10</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">438966</InstanceGroup>
+					<InstanceGroup d:type="ref">174733</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
 			</Oneshot>
 		</cGenericAudioControl>
