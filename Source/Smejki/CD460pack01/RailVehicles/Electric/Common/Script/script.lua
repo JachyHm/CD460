@@ -2872,7 +2872,7 @@ function Update (casHry)
 								end
 								if vykon < 0 and PC == 3.75 and PrvniEDBorVzduch == "nichts" then
 									PrvniEDBorVzduch = "EDB"
-								elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" and PC == 3.75 then
+								elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" or PC ~= 3.75 then
 									PrvniEDBorVzduch = "nichts"
 								end
 								if Ammeter <= -300  and PrvniEDBorVzduch == "EDB" and plynulaBrzda > 3.5 then
@@ -2990,10 +2990,18 @@ function Update (casHry)
 									Call("SetControlValue","zvukSyceniVZ",0,1)
 								else
 									Call("SetControlValue","zvukSyceniVZ",0,0)
-									ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
+									if plynulaBrzda > 3.5 then
+										ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
+									else
+										Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
+										ZpozdeniBrzdice(1)
+									end
 								end
-							else
+							elseif plynulaBrzda > 3.5 then
 								ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
+							else
+								Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
+								ZpozdeniBrzdice(1)
 							end
 							
 							if diraDoPotrubi == 0 and not matrosov then
@@ -3109,7 +3117,7 @@ function Update (casHry)
 							
 							if plynuleValce_bezBP == 0 then
 								Call("SetControlValue","TrainBrakeControl",0,0)
-							elseif plynuleValce_bezBP >= 0.1 and bylaZachrana then
+							elseif (plynuleValce_bezBP >= 0.1 and bylaZachrana) or plynulaBrzda < 3.5 then
 								Call("SetControlValue","TrainBrakeControl",0,1)
 							else
 								Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
@@ -4472,9 +4480,9 @@ function Update (casHry)
 									Call("SetControlValue","Diag_NI",0,niDiag) -- H15
 								
 								--*******H18 OJ
-									if (vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and not SnizenyVykonVozu and Call("GetIsEngineWithKey") == 1) then
+									if (vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and not SnizenyVykonVozu and Call("GetIsEngineWithKey") == 1) and not pojezdNeschopna then
 										ojDiag = 1
-									elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 then
+									elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or pojezdNeschopna then
 										ojDiag = 0
 									end
 									Call("SetControlValue","Diag_OJ",0,ojDiag) -- H18
@@ -4502,7 +4510,7 @@ function Update (casHry)
 								
 								--*******H24 ROZ PROUD
 									local rozProudDiag = 0
-									if Ammeter > proud then
+									if Ammeter > proud and not pojezdNeschopna then
 										rozProudDiag = 1
 									end
 									Call("SetControlValue","Diag_RozProud",0,rozProudDiag) -- H24
