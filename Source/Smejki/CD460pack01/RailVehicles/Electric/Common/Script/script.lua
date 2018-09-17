@@ -2661,6 +2661,7 @@ function Update (casHry)
 								Call("SetControlValue","povel_RidiciKontroler",0,0)
 								Call("SetControlValue","povel_NouzovyKontroler",0,0)
 								Call("SetControlValue","SnizenyVykon",0,0)
+								Call("SetControlValue","mgautostart",0,0)
 								snizenyVykonTady = false
 							end
 							RizenaRidiciLast = RizenaRidici
@@ -2672,7 +2673,7 @@ function Update (casHry)
 							NastavHodnotuSID("mgPriprava",mgp,460116)
 
 							if mgPrip > 0 and PC == 3.75 then
-								if mgs == 1 or auto_mgs == 1 then
+								if mgs == 1 then --or auto_mgs == 1 
 									if napetiVS220 >= 380 then
 										mg = 1
 										mgdocasny = 0
@@ -3164,9 +3165,9 @@ function Update (casHry)
 						----------------------------------------Ovladani HV---------------------------------------
 							PolohaKlice = Call ("GetControlValue", "VirtualStartup", 0)
 							if PolohaKlice == 0.25 then klic = 1 end
-							if (PolohaKlice < 0.5 or baterie ~= 1) and RizenaRidici == "ridici" then
+							if (PolohaKlice < 0.5 or baterie ~= 1 or (mgPrip > 0 and (PC ~= 3.75 or not auto_mgs))) and RizenaRidici == "ridici" then
 								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
-							elseif ZamekHLvyp == 0 and PolohaKlice > 0.5 and baterie == 1 and RizenaRidici == "ridici" then
+							elseif ZamekHLvyp == 0 and PolohaKlice > 0.5 and baterie == 1 and RizenaRidici == "ridici" and (mgPrip < 0 or PC == 3.75 or auto_mgs) then
 								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
 							end
 
@@ -3349,14 +3350,14 @@ function Update (casHry)
 
 							--blokovaniDveri
 								--leve dvere
-								if (dvereLevePridrznyStav or dvereLevePovelLokalni or dvereLeveZeSoupravy) and Call("GetSpeed") < 0.1 then
+								if dvereLevePridrznyStav or dvereLevePovelLokalni or dvereLeveZeSoupravy then
 									blokLeve = false
 								elseif dvereLeveVSouprave == 0 then
 									blokLeve = true
 								end
 
 								--prave dvere
-								if (dverePravePridrznyStav or dverePravePovelLokalni or dverePraveZeSoupravy) and Call("GetSpeed") < 0.1 then
+								if dverePravePridrznyStav or dverePravePovelLokalni or dverePraveZeSoupravy then
 									blokPrave = false
 								elseif dverePraveVSouprave == 0 then
 									blokPrave = true
@@ -3723,7 +3724,7 @@ function Update (casHry)
 							if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
 							if TlakovyBlokJizdy and Call("GetControlValue","VirtualBrakePipePressureBAR",0) >= 4.7 then TlakovyBlokJizdy = false end
 							if JeNouzovyRadic == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and plynuleValce > 1.2 and plynulaBrzda > 3.5) or not blokLeve or not blokPrave or zavedSnizenyVykon then 
+								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and plynuleValce > 1.2 and plynulaBrzda > 3.5) or zavedSnizenyVykon then 
 									if kontroler == 0 then
 										blokEDB = false
 									end
@@ -4400,7 +4401,7 @@ function Update (casHry)
 									Call("SetControlValue","Diag_Pretaveni",0,diagPretaveni) -- H10
 								
 								--*******H11 NU
-									if Rychlost > 85 and vykon < -0.5 then
+									if Rychlost > 100 and vykon < -0.5 then
 										diagNU = 1
 										if Call("GetControlValue","Diag_NU",0) == 0 then
 											-- Call ( "SetControlValue", "HlavniVypinac", 0, 0)
