@@ -73,7 +73,7 @@ ojDiag = 0
 
 nastaveneValce = 0
 doplnujBrzdu = false
-doplnujBrzdu_opozdene = false
+-- doplnujBrzdu_opozdene = false
 gProbihaPipe = false
 gHranicePipe = 0
 gHODNOTA_LAST_Pipe = 0
@@ -81,7 +81,7 @@ gProbihaValce = false
 gHraniceValce = 0
 gHODNOTA_LAST_Valce = 0
 BS2 = 0
-BS2_opozdene = 0
+-- BS2_opozdene = 0
 
 snizenyVykonTady = false
 
@@ -111,20 +111,20 @@ beginZpozdeniBrzdic = nil
 plynuleValce = 0
 plynuleValce_bezBP = 0
 plynuleValceZobrazene = 0
-plynulaBrzda = 0
-nastavenaBrzda = plynulaBrzda
-nastavenaBrzda_opozdene = nastavenaBrzda
+tlak_HP = 0
+navoleny_tlak = 0
+tlak_ridiciho_ustroji = 0
+odtrh_ridiciho_ustroji = false
+-- tlak_ridiciho_ustroji_opozdene = tlak_ridiciho_ustroji
 VirtualMainReservoirPressureBAR = math.random(0,10)
-plynulaBrzda_opozdene = 0
+-- tlak_HP_opozdene = 0
 plynulyVzduchojem = 0
 vysokotlakysvih = false
-vysokotlakysvih_opozdene = false
+-- vysokotlakysvih_opozdene = false
 pribrzdiSvih = false
 vychoziTlakSystemu = 5
-vychoziTlakSystemu_opozdene = 5
+-- vychoziTlakSystemu_opozdene = 5
 PipeOld = 0
-bylaZachrana = false
-bylZaver = false
 
 ZPRAVA_FAST_START = SysCall("ScenarioManager:GetLocalisedString","d628e082-95e2-4d62-84bd-be5186025d2c")
 ZPRAVA_HLAVICKA = SysCall("ScenarioManager:GetLocalisedString","297fd3ee-8b43-11e7-bb31-be2e44b06b34")
@@ -1807,9 +1807,19 @@ function VratProud(gTaznaSila,gZarazenyStupen)
 	local b = 25
 	local vratProud = (a*k)*(math.sqrt((((kN+(b*k))^2)/((b*k)^2))-1))
 	if gZarazenyStupen < 0 then
-		kN = (kN/pocetMG)*10
+		-- kN = (kN/pocetMG)*gAbsolutniMax_kN_EDB
+		vratProud = -math.log(1000*speed*3.6)^2*2.69
+		if gZarazenyStupen < -1.5 then
+			vratProud = vratProud * 1.03
+			if gZarazenyStupen < -2.5 then
+				vratProud = vratProud * 1.05
+				if gZarazenyStupen < -3.5 then
+					vratProud = vratProud * 1.05
+				end
+			end
+		end
 		-- vratProud = -math.sqrt(kN*10)*math.log(10*speed*3.6)
-		vratProud = -kN*speed*3.6/math.sqrt(kN)*0.7
+		-- vratProud = -kN*speed*3.6/math.sqrt(kN)*0.7
 	end
 	if shunt > 0 and shunt < 1.5 then
 		vratProud = 1.18 * vratProud
@@ -2097,23 +2107,6 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 
 	return(signalCode)
 end
-function ZpozdeniBrzdice(hodnota)
-	if not vysokotlakysvih and not bylaZachrana and not bylZaver then
-		local rozdil = math.abs(hodnota - vystupBrzdic)
-		if rozdil > 0.01 and beginZpozdeniBrzdic == nil then
-			beginZpozdeniBrzdic = os.clock()
-		end
-		if beginZpozdeniBrzdic ~= nil then
-			if math.abs(os.clock()-beginZpozdeniBrzdic) > (0.2+rozdil)/rozdil then
-				vystupBrzdic = hodnota
-				beginZpozdeniBrzdic = nil
-			end
-		end
-		return(vystupBrzdic)
-	else
-		return(hodnota)
-	end
-end
 function Napoveda (zprava, level)
 	if level == levelNapovedy then
 		SysCall("ScenarioManager:ShowInfoMessageExt", ZPRAVA_HLAVICKA_NAPOVEDA, zprava,5,16,0,0)
@@ -2305,7 +2298,7 @@ function Update (casHry)
 						end
 						if UzJsiZjistovalPanto == false then
 							UzJsiZjistovalPanto = true
-							Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+							Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
 							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,math.min(VirtualMainReservoirPressureBAR, 3.8))
 							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,math.min(VirtualMainReservoirPressureBAR,5))
@@ -2335,13 +2328,7 @@ function Update (casHry)
 							Call("SetControlValue","VirtualStartup",0,0)
 						end
 						diraDoPotrubi = Call("GetControlValue", "diraDoPotrubi", 0)
-						if diraDoPotrubi == 0 and Call("GetControlValue","ZamekBS2",0) == 0 and Call("GetIsEngineWithKey") == 1 and not (math.floor(Call("GetControlValue","VirtualBrake",0)*100) == 86 and math.floor(Call("GetControlValue","ZpozdenyVirtualBrake",0)*100) == 86) then
-							Call("SetControlValue","ZpozdenyVirtualBrake",0,ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0)))
-						end
-						if math.floor(Call("GetControlValue","VirtualBrake",0)*100) == 86 then
-							Call("SetControlValue","ZpozdenyVirtualBrake",0,Call("GetControlValue","BrzdaZpozdenaVS",0))
-						elseif Call("GetIsEngineWithKey") == 1 then
-							Call("SetControlValue","BrzdaZpozdenaVS",0,Call("GetControlValue","ZpozdenyVirtualBrake",0))
+						if Call("GetControlValue","VirtualBrake",0) < 0.82 or Call("GetControlValue","VirtualBrake",0) > 0.93 then
 							Call("SetControlValue","BrzdaVS",0,Call("GetControlValue","VirtualBrake",0))
 						end
 						if MaPredniPantograf == 1 then PredniPanto = Call("GetControlValue", "PantoPredni", 0) else PredniPanto = 0 end
@@ -2371,7 +2358,9 @@ function Update (casHry)
 						end
 
 						buttonPojezdVDepu = Call("GetControlValue","ButtonPojezdVDepu",0)
-						plynulaBrzda = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
+						tlak_HP = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
+						navoleny_tlak = Call("GetControlValue","VirtualBrakeSettedPressureBAR",0)
+						tlak_ridiciho_ustroji = Call("GetControlValue","VirtualBrakeControlSystemPressureBAR",0)
 						VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
 						plynuleValceZobrazene = Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0)
 						VirtualBrakeReservoirPressureBAR = Call("GetControlValue","VirtualBrakeReservoirPressureBAR",0)
@@ -2866,9 +2855,9 @@ function Update (casHry)
 							end
 						----------------------------------------Brzdy p?i EDB m?n? ne? 300A-----------------------
 							--------Prvn? bylo EDB, nebo vzduch?-------------------------------------
-								if plynulaBrzda < 5 and PrvniEDBorVzduch == "nichts" then 
+								if tlak_HP < 5 and PrvniEDBorVzduch == "nichts" then 
 									PrvniEDBorVzduch = "vzduch"
-								elseif plynulaBrzda >= 5 and PrvniEDBorVzduch == "vzduch" then
+								elseif tlak_HP >= 5 and PrvniEDBorVzduch == "vzduch" then
 									PrvniEDBorVzduch = "nichts"
 								end
 								if vykon < 0 and PC == 3.75 and PrvniEDBorVzduch == "nichts" then
@@ -2876,7 +2865,7 @@ function Update (casHry)
 								elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" or PC ~= 3.75 then
 									PrvniEDBorVzduch = "nichts"
 								end
-								if Ammeter <= -300  and PrvniEDBorVzduch == "EDB" and plynulaBrzda > 3.5 then
+								if Ammeter <= -300  and PrvniEDBorVzduch == "EDB" and tlak_HP > 3.5 then
 									Call("*:SetBrakeFailureValue","BRAKE_FADE",1)
 									nezobrazujValce = true
 								else
@@ -2885,15 +2874,13 @@ function Update (casHry)
 								end
 						----------------------------------------U?ivatelsk? vzduchotechnika-----------------------
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-(((VirtualMainReservoirPressureBAR/500)^2)*5*cas))
-							nastavenaBrzda = nastavenaBrzda-(((nastavenaBrzda/500)^2)*3*cas)
-							nastavenaBrzda_opozdene = nastavenaBrzda_opozdene-(((nastavenaBrzda_opozdene/500)^2)*3*cas)
+							tlak_ridiciho_ustroji = tlak_ridiciho_ustroji-(((tlak_ridiciho_ustroji/500)^2)*3*cas)
 							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR-(((VirtualBrakeReservoirPressureBAR/500)^2)*3*cas))
 							nastaveneValce = nastaveneValce-(((nastaveneValce/500)^2)*10*cas)
 							PantoJimkaZKom = PantoJimkaZKom-(((PantoJimkaZKom/790)^2)*10*cas)
 							prepinaceTlak = prepinaceTlak-(((prepinaceTlak/600)^2)*10*cas)
 							dvereTlak = dvereTlak-(((dvereTlak/400)^2)*10*cas)
 							vychoziTlakSystemu = math.max(vychoziTlakSystemu-0.00333*cas,5)
-							vychoziTlakSystemu_opozdene = math.max(vychoziTlakSystemu_opozdene-0.00333*cas,5)
 
 							if VirtualMainReservoirPressureBAR > horniMezKompresoru then
 								autoKompresor = false
@@ -2940,41 +2927,42 @@ function Update (casHry)
 								Call("SetControlValue","PantoJimka",0,math.max(PantoJimkaZKom,PantoJimkaZHJ)-0.00125)
 							end
 
-
-							if Call("GetControlValue","BrzdaVS",0) > 0.84 or Call("GetControlValue","BrzdaVS",0) == 0.22 then
-								bylZaver = true
-								if Call("GetControlValue","BrzdaVS",0) > 0.95 then
-									bylaZachrana = true
-								end
-							elseif math.abs(PipeOld - plynulaBrzda) < 0.1 then
-								bylaZachrana = false
-								bylZaver = false
-							end
-
 							BS2old = BS2
 							BS2 = Call("GetControlValue","BrzdaVS",0)
 							if BS2 ~= BS2old or doplnujBrzdu then
 								if BS2 < 0.06 then
 									vysokotlakysvih = true
-									nastavenaBrzda = VirtualMainReservoirPressureBAR
+									navoleny_tlak = VirtualMainReservoirPressureBAR
 									doplnujBrzdu = true
 								elseif BS2 < 0.21 then
-									nastavenaBrzda = vychoziTlakSystemu
+									navoleny_tlak = vychoziTlakSystemu
 									doplnujBrzdu = true
 								elseif BS2 < 0.23 then
 									doplnujBrzdu = false
 								elseif BS2 <= 0.82 then
-									nastavenaBrzda = vychoziTlakSystemu - 0.3 - ((BS2 - 0.26)*3.0357)
+									navoleny_tlak = vychoziTlakSystemu - 0.3 - ((BS2 - 0.26)*3.0357)
 									doplnujBrzdu = true
 								elseif BS2 < 0.93 then
 									doplnujBrzdu = false
-								else
-									nastavenaBrzda = 0
-									doplnujBrzdu = true
 								end
 							end
 
-							if soupatkoVZ == 1 or matrosov then
+							local zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(navoleny_tlak-tlak_ridiciho_ustroji))/50
+							if navoleny_tlak - tlak_ridiciho_ustroji > zmena_tlaku_ridiciho_ustroji then
+								tlak_ridiciho_ustroji = tlak_ridiciho_ustroji + zmena_tlaku_ridiciho_ustroji
+							elseif tlak_ridiciho_ustroji - navoleny_tlak > zmena_tlaku_ridiciho_ustroji then
+								tlak_ridiciho_ustroji = tlak_ridiciho_ustroji - zmena_tlaku_ridiciho_ustroji
+							else
+								tlak_ridiciho_ustroji = navoleny_tlak
+							end
+
+							if math.abs(tlak_ridiciho_ustroji - tlak_HP) > 0.3 then
+								odtrh_ridiciho_ustroji = true
+							elseif math.abs(tlak_ridiciho_ustroji - tlak_HP) < math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength")) then
+								odtrh_ridiciho_ustroji = false
+							end
+
+							if soupatkoVZ == 1 or matrosov or BS2 > 0.93 then
 								NastavHodnotuSID("diraDoPotrubi", 1, 460991)
 							else
 								NastavHodnotuSID("diraDoPotrubi", 0, 460991)
@@ -2982,105 +2970,49 @@ function Update (casHry)
 							end
 
 							if Call("GetControlValue", "diraDoPotrubi", 0) > 0 then
-								bylaZachrana = true
-								nastavenaBrzda = 0
 								if BS2 < 0.21 or (BS2 > 0.23 and BS2 <= 0.82) then
 									Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - ((math.sqrt(VirtualMainReservoirPressureBAR)/100)+0.01))
-									Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
-									ZpozdeniBrzdice(1)
 									Call("SetControlValue","zvukSyceniVZ",0,1)
 								else
 									Call("SetControlValue","zvukSyceniVZ",0,0)
-									if plynulaBrzda > 3.5 then
-										ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
-									else
-										Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
-										ZpozdeniBrzdice(1)
-									end
 								end
-							elseif plynulaBrzda > 3.5 then
-								ZpozdeniBrzdice(Call("GetControlValue","VirtualBrake",0))
-							else
-								Call("SetControlValue","ZpozdenyVirtualBrake",0,1)
-								ZpozdeniBrzdice(1)
 							end
 							
-							if diraDoPotrubi == 0 and not matrosov then
-								if nastavenaBrzda > plynulaBrzda and plynulaBrzda < VirtualMainReservoirPressureBAR then
-									plynulaBrzda = plynulaBrzda + math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/10
-								elseif plynulaBrzda > nastavenaBrzda then
-									plynulaBrzda = plynulaBrzda - math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/10
+							if diraDoPotrubi == 0 and not matrosov and odtrh_ridiciho_ustroji and doplnujBrzdu then
+								local prirustek_brzdeni = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength")/3)
+								local prirustek_odbrzdeni = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength"))
+								if tlak_ridiciho_ustroji - tlak_HP > prirustek_odbrzdeni and tlak_HP < VirtualMainReservoirPressureBAR then
+									tlak_HP = tlak_HP + prirustek_odbrzdeni
+								elseif tlak_HP - tlak_ridiciho_ustroji > prirustek_brzdeni then
+									tlak_HP = tlak_HP - prirustek_brzdeni
 								end
-							else
-								if nastavenaBrzda > plynulaBrzda and plynulaBrzda < VirtualMainReservoirPressureBAR then
-									plynulaBrzda = plynulaBrzda + math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/3
-								elseif plynulaBrzda > nastavenaBrzda or (plynulaBrzda > VirtualMainReservoirPressureBAR and BS2 < 0.06) then
-									plynulaBrzda = plynulaBrzda - math.sqrt(math.abs(nastavenaBrzda-plynulaBrzda))/3
-								end
-							end
-
-							if BS2 < 0.06 and plynulaBrzda > vychoziTlakSystemu then
-								vychoziTlakSystemu = vychoziTlakSystemu + cas * 0.15
-							end
-
-							BS2old_opozdene = BS2_opozdene
-							BS2_opozdene = Call("GetControlValue","ZpozdenyVirtualBrake",0)
-							if BS2_opozdene ~= BS2old_opozdene or doplnujBrzdu_opozdene then
-								if BS2_opozdene < 0.06 then
-									nastavenaBrzda_opozdene = VirtualMainReservoirPressureBAR
-									doplnujBrzdu_opozdene = true
-									vysokotlakysvih_opozdene = true
-								elseif BS2_opozdene < 0.21 then
-									nastavenaBrzda_opozdene = vychoziTlakSystemu_opozdene
-									doplnujBrzdu_opozdene = true
-								elseif BS2_opozdene < 0.23 then
-									doplnujBrzdu_opozdene = false
-								elseif BS2_opozdene <= 0.82 then
-									nastavenaBrzda_opozdene = vychoziTlakSystemu_opozdene - 0.3 - ((BS2_opozdene - 0.26)*3.0357)
-									doplnujBrzdu_opozdene = true
-								elseif BS2_opozdene < 0.93 then
-									doplnujBrzdu_opozdene = false
+							elseif diraDoPotrubi > 0 or matrosov then
+								local prirustek_brzdeni = math.sqrt(math.abs(tlak_HP))/(Call("GetConsistLength")/50)
+								if tlak_HP > 0 then
+									tlak_HP = tlak_HP - prirustek_brzdeni
 								else
-									nastavenaBrzda_opozdene = 0
-									doplnujBrzdu_opozdene = true
+									tlak_HP = 0
 								end
 							end
 
-							if diraDoPotrubi == 0 and not matrosov then
-								if nastavenaBrzda_opozdene > plynulaBrzda_opozdene then
-									plynulaBrzda_opozdene = plynulaBrzda_opozdene + math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/10
-								elseif plynulaBrzda_opozdene > nastavenaBrzda_opozdene then
-									plynulaBrzda_opozdene = plynulaBrzda_opozdene - math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/10
-								end
-							else
-								if nastavenaBrzda_opozdene > plynulaBrzda_opozdene then
-									plynulaBrzda_opozdene = plynulaBrzda_opozdene + math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/3
-								elseif plynulaBrzda_opozdene > nastavenaBrzda_opozdene then
-									plynulaBrzda_opozdene = plynulaBrzda_opozdene - math.sqrt(math.abs(nastavenaBrzda_opozdene-plynulaBrzda_opozdene))/3
-								end
-							end
+							Call("SetControlValue","VirtualBrakeSettedPressureBAR",0,navoleny_tlak)
+							Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,tlak_ridiciho_ustroji)
+							Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
 
-							plynulaBrzda_opozdene = math.min(plynulaBrzda_opozdene,VirtualMainReservoirPressureBAR)
-							if BS2 < 0.06 and plynulaBrzda_opozdene > vychoziTlakSystemu_opozdene then
-								vychoziTlakSystemu_opozdene = vychoziTlakSystemu_opozdene + cas * 0.15
+							if BS2 < 0.06 and tlak_HP > vychoziTlakSystemu then
+								vychoziTlakSystemu = vychoziTlakSystemu + cas * 0.15
 							end
 							if vychoziTlakSystemu <= 5 then
 								vysokotlakysvih = false
 							end
-							if vychoziTlakSystemu_opozdene <= 5 then
-								vysokotlakysvih_opozdene = false
-							end
 
-							--VirtualBrakePipePressureBAR,gProbihaPipe,gHranicePipe,gHODNOTA_LAST_Pipe = PIDcntrlCommon(math.min(plynulaBrzda,VirtualMainReservoirPressureBAR - 1)*1000,VirtualBrakePipePressureBAR*1000,gProbihaPipe,gHranicePipe,gHODNOTA_LAST_Pipe,10000)
-							Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
-
-							if plynulaBrzda > PipeOld then
-								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - (plynulaBrzda - PipeOld)*Call("GetConsistLength")/(240*pocetJimek))
+							if tlak_HP > PipeOld then
+								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - (tlak_HP - PipeOld)*Call("GetConsistLength")/(240*pocetJimek))
 							end
-							PipeOld = plynulaBrzda
+							PipeOld = tlak_HP
 							
-							if vychoziTlakSystemu_opozdene - plynulaBrzda_opozdene > 0.3 then
-								nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,(vychoziTlakSystemu_opozdene-plynulaBrzda_opozdene)*2.53)
+							if vychoziTlakSystemu - tlak_HP > 0.3 then
+								nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,(vychoziTlakSystemu-tlak_HP)*2.53)
 							else
 								nastaveneValce = 0
 							end
@@ -3104,7 +3036,6 @@ function Update (casHry)
 								plynuleValce_bezBP = plynuleValce_bezBP - math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/40
 							end
 
-							--VirtualTrainBrakeCylinderPressureBAR,gProbihaValce,gHraniceValce,gHODNOTA_LAST_Valce = PIDcntrlCommon(plynuleValce*1000,VirtualTrainBrakeCylinderPressureBAR*1000,gProbihaValce,gHraniceValce,gHODNOTA_LAST_Valce,10000)
 							if nezobrazujValce then
 								nastaveneValce = math.min(valcePrimocinne,3.8)
 							else
@@ -3118,7 +3049,7 @@ function Update (casHry)
 							
 							if plynuleValce_bezBP == 0 then
 								Call("SetControlValue","TrainBrakeControl",0,0)
-							elseif (plynuleValce_bezBP >= 0.1 and bylaZachrana) or plynulaBrzda < 3.5 then
+							elseif (plynuleValce_bezBP >= 0.1 and BS2 > 0.93) or tlak_HP < 3.5 then
 								Call("SetControlValue","TrainBrakeControl",0,1)
 							else
 								Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
@@ -3721,10 +3652,10 @@ function Update (casHry)
 							else
 								NastavHodnotuSID("synchronizacniRele", 1, 460992)
 							end
-							if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
 							if TlakovyBlokJizdy and Call("GetControlValue","VirtualBrakePipePressureBAR",0) >= 4.7 then TlakovyBlokJizdy = false end
+							if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
 							if JeNouzovyRadic == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and plynuleValce > 1.2 and plynulaBrzda > 3.5) or zavedSnizenyVykon then 
+								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5 and plynuleValce > 1.2) or zavedSnizenyVykon then 
 									if kontroler == 0 then
 										blokEDB = false
 									end
@@ -4136,8 +4067,9 @@ function Update (casHry)
 							end
 						----------------------------------------Rychlý start--------------------------------------
 							if pozadavekNaFastStart == 1 and not jeMrtva then
-								nastavenaBrzda = 5.0
-								plynulaBrzda = 5.0
+								tlak_ridiciho_ustroji = 5.0
+								tlak_HP = 5.0
+								navoleny_tlak = 5.0
 								nastaveneValce = 0
 								plynuleValce = 0
 								Call("SetControlValue","ZamekBS2",0,0)
@@ -4163,9 +4095,10 @@ function Update (casHry)
 								pocetMG = decToBitsCount(souprava)
 								Call("SetControlValue","mg",0,souprava)
 								Call("SetControlValue","mgVS",0,souprava)
-								Call("SetControlValue","mgPriprava",0,2^(ID-1))
+								NastavHodnotuSID("mgPriprava",1,460116)
 								Call("SetControlValue","mgZvuk",0,1)
 								mg = 1
+								NastavHodnotuSID("mg",1,460118)
 								napetiVS220 = 380 
 								napetiVS220nouz = 380
 								Call("SetControlValue","VirtualStartup",0,0.75)
@@ -4177,7 +4110,9 @@ function Update (casHry)
 								LVZ(0,0,0,0)
 								klic = 1
 								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
-								Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+								Call("SetControlValue","VirtualBrakeSettedPressureBAR",0,navoleny_tlak)
+								Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,tlak_ridiciho_ustroji)
+								Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
 								Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
 								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR)
 								Call("SetControlValue","PantoJimka",0,3.11)
@@ -4219,8 +4154,9 @@ function Update (casHry)
 									Call("SetControlValue","VolbaPozicKonecCelo",0,2)
 									Call("OnControlValueChange","VolbaPozicKonecCelo",0,2)
 								end
-								nastavenaBrzda = 5.0
-								plynulaBrzda = 5.0
+								tlak_ridiciho_ustroji = 5.0
+								tlak_HP = 5.0
+								navoleny_tlak = 5.0
 								nastaveneValce = 0
 								plynuleValce = 0
 								Call("SetControlValue","prepinacBat",0,1)
@@ -4237,12 +4173,15 @@ function Update (casHry)
 								VirtualMainReservoirPressureBAR = 10
 								VirtualBrakeReservoirPressureBAR = 5
 								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
-								Call("SetControlValue","VirtualBrakePipePressureBAR",0,plynulaBrzda)
+								Call("SetControlValue","VirtualBrakeSettedPressureBAR",0,navoleny_tlak)
+								Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,tlak_ridiciho_ustroji)
+								Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
 								Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,VirtualTrainBrakeCylinderPressureBAR)
 								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR)
 								Call("SetControlValue","PantoJimka",0,3.11)
 								Call("SetControlValue","mgZvuk",0,1)
 								mg = 1
+								NastavHodnotuSID("mg",1,460118)
 								napetiVS220 = 380 
 								napetiVS220nouz = 380
 								pozadavekNaFastStart = 0
@@ -4266,9 +4205,9 @@ function Update (casHry)
 							end
 							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and not TlakovyBlokJizdy and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 then
 								Call("SetControlValue","JOB",0,1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and (not TlakovyBlokJizdy or (TlakovyBlokJizdy and PrvniEDBorVzduch == "EDB") or plynulaBrzda <= 3.5) and Call("GetControlValue","JOBpovel",0) == -1 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and (not TlakovyBlokJizdy or (TlakovyBlokJizdy and PrvniEDBorVzduch == "EDB") or tlak_HP <= 3.5) and Call("GetControlValue","JOBpovel",0) == -1 then
 								Call("SetControlValue","JOB",0,-1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0  or (TlakovyBlokJizdy and PrvniEDBorVzduch ~= "EDB" and plynulaBrzda > 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0  or (TlakovyBlokJizdy and PrvniEDBorVzduch ~= "EDB" and tlak_HP > 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 then
 								Call("SetControlValue","JOB",0,0)
 							end
 
@@ -4442,7 +4381,7 @@ function Update (casHry)
 												if vykon > 0 then
 													Call("SetControlValue","JizdniKontroler",0,vykon - 0.05)
 												elseif vykon < 0 then
-													Call("SetControlValue","JizdniKontroler",0,vykon + 0.5)
+													Call("SetControlValue","JizdniKontroler",0,vykon + 0.25)
 												end
 											end
 										end
@@ -4481,7 +4420,7 @@ function Update (casHry)
 									Call("SetControlValue","Diag_NI",0,niDiag) -- H15
 								
 								--*******H18 OJ
-									if (vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and not SnizenyVykonVozu and Call("GetIsEngineWithKey") == 1) and not pojezdNeschopna then
+									if (vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) and not pojezdNeschopna then
 										ojDiag = 1
 									elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or pojezdNeschopna then
 										ojDiag = 0
