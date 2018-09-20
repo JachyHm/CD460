@@ -110,7 +110,6 @@ beginZpozdeniBrzdic = nil
 
 plynuleValce = 0
 plynuleValce_bezBP = 0
-plynuleValceZobrazene = 0
 tlak_HP = 0
 navoleny_tlak = 0
 tlak_ridiciho_ustroji = 0
@@ -1078,7 +1077,7 @@ function DefinujPromene()
 	skluzWheelSlip = 0
 	P01 = 0
 	SnizenyVykonVozu = false
-	TlakovyBlokJizdy = false
+	-- TlakovyBlokJizdy = false
 	VyberJiskry = 0
 	deltaSpeedMinula = 0
 	baterie = 0
@@ -1817,11 +1816,11 @@ function VratProud(gTaznaSila,gZarazenyStupen)
 	if gZarazenyStupen < 0 then
 		-- kN = (kN/pocetMG)*gAbsolutniMax_kN_EDB
 		vratProud = -math.log(1000*math.abs(speed)*3.6)^2*2.69
-		if gZarazenyStupen < -1.5 then
+		if gZarazenyStupen < -0.25 then
 			vratProud = vratProud * 1.03
-			if gZarazenyStupen < -2.5 then
+			if gZarazenyStupen < -0.5 then
 				vratProud = vratProud * 1.05
-				if gZarazenyStupen < -3.5 then
+				if gZarazenyStupen < -0.75 then
 					vratProud = vratProud * 1.05
 				end
 			end
@@ -2389,7 +2388,7 @@ function Update (casHry)
 						navoleny_tlak = Call("GetControlValue","VirtualBrakeSettedPressureBAR",0)
 						tlak_ridiciho_ustroji = Call("GetControlValue","VirtualBrakeControlSystemPressureBAR",0)
 						VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
-						plynuleValceZobrazene = Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0)
+						plynuleValce = Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0)
 						VirtualBrakeReservoirPressureBAR = Call("GetControlValue","VirtualBrakeReservoirPressureBAR",0)
 						if ZivakReset > 0.25 then ZivakStary = 1 end
 						ZivakReset = math.max(Call("GetControlValue","ZivakReset",0),Call("GetControlValue","ZivakReset2",0),Call("GetControlValue","ZivakReset3",0))
@@ -2882,14 +2881,14 @@ function Update (casHry)
 							end
 						----------------------------------------Brzdy p?i EDB m?n? ne? 300A-----------------------
 							--------Prvn? bylo EDB, nebo vzduch?-------------------------------------
-								if tlak_HP < 5 and PrvniEDBorVzduch == "nichts" then 
+								if plynuleValce > 1.2 and PrvniEDBorVzduch == "nichts" then 
 									PrvniEDBorVzduch = "vzduch"
-								elseif tlak_HP >= 5 and PrvniEDBorVzduch == "vzduch" then
+								elseif plynuleValce < 0.5 and PrvniEDBorVzduch == "vzduch" then
 									PrvniEDBorVzduch = "nichts"
 								end
 								if vykon < 0 and PC == 3.75 and PrvniEDBorVzduch == "nichts" then
 									PrvniEDBorVzduch = "EDB"
-								elseif vykon >= 0 and PrvniEDBorVzduch == "EDB" or PC ~= 3.75 then
+								elseif (vykon >= 0 or PC ~= 3.75) and PrvniEDBorVzduch == "EDB" then
 									PrvniEDBorVzduch = "nichts"
 								end
 								if Ammeter <= -300  and PrvniEDBorVzduch == "EDB" and tlak_HP > 3.5 then
@@ -3049,7 +3048,19 @@ function Update (casHry)
 
 							valcePrimocinne = math.min(Call("GetControlValue","EngineBrakeControl",0)*3.8,VirtualMainReservoirPressureBAR)
 							nastaveneValce_bezBP = nastaveneValce
-							nastaveneValce = math.min(math.max(nastaveneValce,valcePrimocinne),3.8)
+							if nezobrazujValce then
+								nastaveneValce = math.min(valcePrimocinne,3.8)
+							else
+								nastaveneValce = math.min(math.max(nastaveneValce,valcePrimocinne),3.8)
+							end
+
+							
+
+							if nastaveneValce_bezBP > plynuleValce_bezBP then
+								plynuleValce_bezBP = plynuleValce_bezBP + math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/20
+							elseif plynuleValce_bezBP > nastaveneValce_bezBP then
+								plynuleValce_bezBP = plynuleValce_bezBP - math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/40
+							end
 
 							if nastaveneValce > plynuleValce then
 								if valcePrimocinne - plynuleValce > 0.1 then
@@ -3059,23 +3070,7 @@ function Update (casHry)
 							elseif plynuleValce > nastaveneValce then
 								plynuleValce = plynuleValce - math.sqrt(math.abs(nastaveneValce-plynuleValce))/40
 							end
-
-							if nastaveneValce_bezBP > plynuleValce_bezBP then
-								plynuleValce_bezBP = plynuleValce_bezBP + math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/20
-							elseif plynuleValce_bezBP > nastaveneValce_bezBP then
-								plynuleValce_bezBP = plynuleValce_bezBP - math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/40
-							end
-
-							if nezobrazujValce then
-								nastaveneValce = math.min(valcePrimocinne,3.8)
-							else
-								if nastaveneValce > plynuleValceZobrazene then
-									plynuleValceZobrazene = plynuleValceZobrazene + math.sqrt(math.abs(nastaveneValce-plynuleValceZobrazene))/20
-								elseif plynuleValceZobrazene > nastaveneValce then
-									plynuleValceZobrazene = plynuleValceZobrazene - math.sqrt(math.abs(nastaveneValce-plynuleValceZobrazene))/40
-								end
-							end
-							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,plynuleValceZobrazene)
+							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,plynuleValce)
 							
 							if plynuleValce_bezBP == 0 then
 								Call("SetControlValue","TrainBrakeControl",0,0)
@@ -3682,10 +3677,10 @@ function Update (casHry)
 							else
 								NastavHodnotuSID("synchronizacniRele", 1, 460992)
 							end
-							if TlakovyBlokJizdy and Call("GetControlValue","VirtualBrakePipePressureBAR",0) >= 4.7 then TlakovyBlokJizdy = false end
-							if Call("GetControlValue","VirtualTrainBrakeCylinderPressureBAR",0) > 1.2 then TlakovyBlokJizdy = true end
+							-- if TlakovyBlokJizdy and tlak_HP >= 4.7 then TlakovyBlokJizdy = false end
+							-- if plynuleValce > 1.2 then TlakovyBlokJizdy = true end
 							if JeNouzovyRadic == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5 and plynuleValce > 1.2) or zavedSnizenyVykon then 
+								if kontroler == 0 or (JOB == 0 and not pojezdNeschopna) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5 and vykon < 0) or zavedSnizenyVykon then 
 									if kontroler == 0 then
 										blokEDB = false
 									end
@@ -3734,7 +3729,7 @@ function Update (casHry)
 										Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
 										casstupnu = 0
 										caszkroku = (math.random(3,7)/20)
-									elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokSkluz and not blokEDB then
+									elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokSkluz and not blokEDB and not (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5) then
 										Call("SetControlValue","JizdniKontroler",0,vykon-0.25)
 										casstupnu = 0
 										caskroku = (math.random(8,12)/20)
@@ -3744,7 +3739,7 @@ function Update (casHry)
 									-- 	caszkroku = (math.random(3,7)/20)
 									end
 								elseif kontroler == -1 then 
-									if vykon <= -0.25 and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokSkluz and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB and ojDiag == 0 then
+									if vykon <= -0.25 and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokSkluz and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB and ojDiag == 0 and not (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5) then
 										if Ammeter >= -350 then
 											Call("SetControlValue","JizdniKontroler",0,vykon-0.25)
 											casstupnu = 0
@@ -3754,7 +3749,7 @@ function Update (casHry)
 										Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
 										casstupnu = 0
 										caszkroku = (math.random(3,7)/20)
-									elseif vykon > -0.25 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokSkluz and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB then
+									elseif vykon > -0.25 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokSkluz and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB and not (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5) then
 										Call("SetControlValue","JizdniKontroler",0,-0.25)
 										casstupnu = 0
 										caskroku = (math.random(8,12)/20)
@@ -4233,11 +4228,11 @@ function Update (casHry)
 									Call("SetControlValue","JOBpovel",0,0)
 								end
 							end
-							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and not TlakovyBlokJizdy and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 then
+							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 then
 								Call("SetControlValue","JOB",0,1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and (not TlakovyBlokJizdy or (TlakovyBlokJizdy and PrvniEDBorVzduch == "EDB") or tlak_HP <= 3.5) and Call("GetControlValue","JOBpovel",0) == -1 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and Call("GetControlValue","JOBpovel",0) == -1 then
 								Call("SetControlValue","JOB",0,-1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0  or (TlakovyBlokJizdy and PrvniEDBorVzduch ~= "EDB" and tlak_HP > 3.5) or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0 or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 then
 								Call("SetControlValue","JOB",0,0)
 							end
 

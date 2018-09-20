@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="40591">
+				<kLoud-cSingleSampleSound d:id="8635">
 					<Name d:type="cDeltaString">zapadka_zap</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="40604">
+				<kLoud-cSingleSampleSound d:id="8648">
 					<Name d:type="cDeltaString">zapadka_vyp</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="40617">
+				<kLoud-cSingleSampleSound d:id="8661">
 					<Name d:type="cDeltaString">rele_porucha</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -58,14 +58,14 @@
 				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="40631">
+				<kLoud-cCurve d:id="8675">
 					<Name d:type="cDeltaString">MuteSounds</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="40634">
+						<kLoud-cRVector2 d:id="8678">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="40637">
+						<kLoud-cRVector2 d:id="8681">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
@@ -73,13 +73,13 @@
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="40641">
+				<kLoud-cModifierChain d:id="8685">
 					<Name d:type="cDeltaString">MuteSounds</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="40644">
+						<kLoud-cVolumeCurveModifier d:id="8688">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
-							<Curve d:type="ref">40631</Curve>
+							<Curve d:type="ref">8675</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
@@ -87,54 +87,54 @@
 			<InstanceGroup />
 			<Loop />
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="40651">
+				<kLoud-cTriggeredOneshot d:id="8695">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">BlokaceSmer_vykon</Name>
-					<Sound d:type="ref">40591</Sound>
-					<ModifierChain d:type="ref">40641</ModifierChain>
+					<Sound d:type="ref">8635</Sound>
+					<ModifierChain d:type="ref">8685</ModifierChain>
 					<ControllerName d:type="cDeltaString">VykonPredTrCh</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.001</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="40661">
+				<kLoud-cTriggeredOneshot d:id="8705">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">OdblokaceSmer_vykon</Name>
-					<Sound d:type="ref">40604</Sound>
-					<ModifierChain d:type="ref">40641</ModifierChain>
+					<Sound d:type="ref">8648</Sound>
+					<ModifierChain d:type="ref">8685</ModifierChain>
 					<ControllerName d:type="cDeltaString">VykonPredTrCh</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.001</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="40671">
+				<kLoud-cTriggeredOneshot d:id="8715">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">BlokaceSmer_vykonEDB</Name>
-					<Sound d:type="ref">40591</Sound>
-					<ModifierChain d:type="ref">40641</ModifierChain>
+					<Sound d:type="ref">8635</Sound>
+					<ModifierChain d:type="ref">8685</ModifierChain>
 					<ControllerName d:type="cDeltaString">VykonPredTrCh</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">-0.001</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="40681">
+				<kLoud-cTriggeredOneshot d:id="8725">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">OdblokaceSmer_vykonEDB</Name>
-					<Sound d:type="ref">40604</Sound>
-					<ModifierChain d:type="ref">40641</ModifierChain>
+					<Sound d:type="ref">8648</Sound>
+					<ModifierChain d:type="ref">8685</ModifierChain>
 					<ControllerName d:type="cDeltaString">VykonPredTrCh</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">-0.001</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="40691">
+				<kLoud-cTriggeredOneshot d:id="8735">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RelePorucha</Name>
-					<Sound d:type="ref">40617</Sound>
+					<Sound d:type="ref">8661</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">fail</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -142,21 +142,21 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="40701">
+				<kLoud-cTriggeredOneshot d:id="8745">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">ReleOdporStup</Name>
-					<Sound d:type="ref">40617</Sound>
-					<ModifierChain d:type="ref">40641</ModifierChain>
+					<Sound d:type="ref">8661</Sound>
+					<ModifierChain d:type="ref">8685</ModifierChain>
 					<ControllerName d:type="cDeltaString">odporstup</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="40711">
+				<kLoud-cTriggeredOneshot d:id="8755">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">BlokaceSmer_baterie</Name>
-					<Sound d:type="ref">40591</Sound>
+					<Sound d:type="ref">8635</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">Baterie</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -164,10 +164,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="40721">
+				<kLoud-cTriggeredOneshot d:id="8765">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">OdblokaceSmer_baterie</Name>
-					<Sound d:type="ref">40604</Sound>
+					<Sound d:type="ref">8648</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">Baterie</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>

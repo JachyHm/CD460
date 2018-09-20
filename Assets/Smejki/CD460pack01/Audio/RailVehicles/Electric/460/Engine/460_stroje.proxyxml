@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">1000</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="182820">
+				<kLoud-cSingleSampleSound d:id="11939">
 					<Name d:type="cDeltaString">Kompresor</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">70</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="182833">
+				<kLoud-cSingleSampleSound d:id="11952">
 					<Name d:type="cDeltaString">KompresorDobeh</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">70</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="182846">
+				<kLoud-cSingleSampleSound d:id="11965">
 					<Name d:type="cDeltaString">Kontroler</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -56,7 +56,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="182859">
+				<kLoud-cSingleSampleSound d:id="11978">
 					<Name d:type="cDeltaString">Motorgenerator</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -73,7 +73,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="182872">
+				<kLoud-cSingleSampleSound d:id="11991">
 					<Name d:type="cDeltaString">HVzap</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -90,7 +90,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="182885">
+				<kLoud-cSingleSampleSound d:id="12004">
 					<Name d:type="cDeltaString">HVvyp</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -109,76 +109,76 @@
 				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="182899">
+				<kLoud-cCurve d:id="12018">
 					<Name d:type="cDeltaString">KompresorLoop</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="182902">
+						<kLoud-cRVector2 d:id="12021">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182905">
+						<kLoud-cRVector2 d:id="12024">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="182908">
+				<kLoud-cCurve d:id="12027">
 					<Name d:type="cDeltaString">MuteSounds</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="182911">
+						<kLoud-cRVector2 d:id="12030">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182914">
+						<kLoud-cRVector2 d:id="12033">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="182917">
+				<kLoud-cCurve d:id="12036">
 					<Name d:type="cDeltaString">Distance Volume Curve</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="182920">
+						<kLoud-cRVector2 d:id="12039">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182923">
+						<kLoud-cRVector2 d:id="12042">
 							<X d:type="sFloat32">100</X>
 							<Y d:type="sFloat32">0.8</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182926">
+						<kLoud-cRVector2 d:id="12045">
 							<X d:type="sFloat32">400</X>
 							<Y d:type="sFloat32">0.6</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182929">
+						<kLoud-cRVector2 d:id="12048">
 							<X d:type="sFloat32">1600</X>
 							<Y d:type="sFloat32">0.2</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182932">
+						<kLoud-cRVector2 d:id="12051">
 							<X d:type="sFloat32">6400</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182935">
+						<kLoud-cRVector2 d:id="12054">
 							<X d:type="sFloat32">25600</X>
 							<Y d:type="sFloat32">0.03125</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182938">
+						<kLoud-cRVector2 d:id="12057">
 							<X d:type="sFloat32">102400</X>
 							<Y d:type="sFloat32">0.015625</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182941">
+						<kLoud-cRVector2 d:id="12060">
 							<X d:type="sFloat32">409600</X>
 							<Y d:type="sFloat32">0.007813</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182944">
+						<kLoud-cRVector2 d:id="12063">
 							<X d:type="sFloat32">1638400</X>
 							<Y d:type="sFloat32">0.003906</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182947">
+						<kLoud-cRVector2 d:id="12066">
 							<X d:type="sFloat32">6553600</X>
 							<Y d:type="sFloat32">0.001953</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="182950">
+						<kLoud-cRVector2 d:id="12069">
 							<X d:type="sFloat32">1.024E+07</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
@@ -186,60 +186,60 @@
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="182954">
+				<kLoud-cModifierChain d:id="12073">
 					<Name d:type="cDeltaString">KompresorLoopMod</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="182957">
+						<kLoud-cVolumeCurveModifier d:id="12076">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">kompresor_zvk</ControllerName>
-							<Curve d:type="ref">182899</Curve>
+							<Curve d:type="ref">12018</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="182961">
+						<kLoud-cVolumeCurveModifier d:id="12080">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">182917</Curve>
+							<Curve d:type="ref">12036</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="182965">
+				<kLoud-cModifierChain d:id="12084">
 					<Name d:type="cDeltaString">MuteSounds</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="182968">
+						<kLoud-cVolumeCurveModifier d:id="12087">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
-							<Curve d:type="ref">182908</Curve>
+							<Curve d:type="ref">12027</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="182972">
+						<kLoud-cVolumeCurveModifier d:id="12091">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">182917</Curve>
+							<Curve d:type="ref">12036</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="182976">
+				<kLoud-cModifierChain d:id="12095">
 					<Name d:type="cDeltaString">DistanceVolume</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="182979">
+						<kLoud-cVolumeCurveModifier d:id="12098">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">182917</Curve>
+							<Curve d:type="ref">12036</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="182984">
+				<kLoud-cInstanceGroup d:id="12103">
 					<Name d:type="cDeltaString">Motorgen</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">StopOldest</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
 			</InstanceGroup>
 			<Loop>
-				<kLoud-cControlledLoop d:id="182989">
+				<kLoud-cControlledLoop d:id="12108">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Kompresor</Name>
-					<Sound d:type="ref">182820</Sound>
-					<ModifierChain d:type="ref">182954</ModifierChain>
+					<Sound d:type="ref">11939</Sound>
+					<ModifierChain d:type="ref">12073</ModifierChain>
 					<ControllerName d:type="cDeltaString">kompresor_zvk</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.5</ActiveRangeStartValue>
@@ -247,58 +247,58 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="183000">
+				<kLoud-cControlledLoop d:id="12119">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Motorgenerator</Name>
-					<Sound d:type="ref">182859</Sound>
-					<ModifierChain d:type="ref">182976</ModifierChain>
+					<Sound d:type="ref">11978</Sound>
+					<ModifierChain d:type="ref">12095</ModifierChain>
 					<ControllerName d:type="cDeltaString">mgZvuk</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.5</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">1.1</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0.5</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">182984</InstanceGroup>
+					<InstanceGroup d:type="ref">12103</InstanceGroup>
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="183012">
+				<kLoud-cTriggeredOneshot d:id="12131">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Kontroler</Name>
-					<Sound d:type="ref">182846</Sound>
-					<ModifierChain d:type="ref">182965</ModifierChain>
+					<Sound d:type="ref">11965</Sound>
+					<ModifierChain d:type="ref">12084</ModifierChain>
 					<ControllerName d:type="cDeltaString">JizdniKontroler</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="183022">
+				<kLoud-cTriggeredOneshot d:id="12141">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">StykacPojezd</Name>
-					<Sound d:type="ref">182872</Sound>
-					<ModifierChain d:type="ref">182976</ModifierChain>
+					<Sound d:type="ref">11991</Sound>
+					<ModifierChain d:type="ref">12095</ModifierChain>
 					<ControllerName d:type="cDeltaString">StykacPojezd</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.1</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="183032">
+				<kLoud-cTriggeredOneshot d:id="12151">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">StykacPojezd</Name>
-					<Sound d:type="ref">182885</Sound>
-					<ModifierChain d:type="ref">182976</ModifierChain>
+					<Sound d:type="ref">12004</Sound>
+					<ModifierChain d:type="ref">12095</ModifierChain>
 					<ControllerName d:type="cDeltaString">StykacPojezd</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.1</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="183042">
+				<kLoud-cTriggeredOneshot d:id="12161">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">kompresor_zvk_dobeh</Name>
-					<Sound d:type="ref">182833</Sound>
-					<ModifierChain d:type="ref">182976</ModifierChain>
+					<Sound d:type="ref">11952</Sound>
+					<ModifierChain d:type="ref">12095</ModifierChain>
 					<ControllerName d:type="cDeltaString">kompresor_zvk</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.99</TriggerValue>

@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="858">
+				<kLoud-cSingleSampleSound d:id="6440">
 					<Name d:type="cDeltaString">Zivak</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -27,10 +27,10 @@
 			<ModifierChain />
 			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="875">
+				<kLoud-cControlledLoop d:id="6457">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Zivak</Name>
-					<Sound d:type="ref">858</Sound>
+					<Sound d:type="ref">6440</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakPip</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>

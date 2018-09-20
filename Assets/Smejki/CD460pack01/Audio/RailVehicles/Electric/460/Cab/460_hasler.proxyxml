@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="119573">
+				<kLoud-cSingleSampleSound d:id="6218">
 					<Name d:type="cDeltaString">HaslerVyp</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">10</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="119586">
+				<kLoud-cSingleSampleSound d:id="6231">
 					<Name d:type="cDeltaString">HaslerJizda</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
@@ -43,36 +43,36 @@
 			<Curve />
 			<ModifierChain />
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="119602">
+				<kLoud-cInstanceGroup d:id="6247">
 					<Name d:type="cDeltaString">Hasler</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
 			</InstanceGroup>
 			<Loop>
-				<kLoud-cControlledLoop d:id="119607">
+				<kLoud-cControlledLoop d:id="6252">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Hasler</Name>
-					<Sound d:type="ref">119573</Sound>
+					<Sound d:type="ref">6218</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZvukHasler</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">1.1</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">119602</InstanceGroup>
+					<InstanceGroup d:type="ref">6247</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="119618">
+				<kLoud-cControlledLoop d:id="6263">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">HaslerJizda</Name>
-					<Sound d:type="ref">119586</Sound>
+					<Sound d:type="ref">6231</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZvukHasler</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">1.9</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">2.1</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">119602</InstanceGroup>
+					<InstanceGroup d:type="ref">6247</InstanceGroup>
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot />

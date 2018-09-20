@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="197">
+				<kLoud-cSingleSampleSound d:id="15593">
 					<Name d:type="cDeltaString">Houkacka</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="210">
+				<kLoud-cSingleSampleSound d:id="15606">
 					<Name d:type="cDeltaString">Pistala</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -41,34 +41,34 @@
 				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="224">
+				<kLoud-cCurve d:id="15620">
 					<Name d:type="cDeltaString">VolumeBP</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="227">
+						<kLoud-cRVector2 d:id="15623">
 							<X d:type="sFloat32">-3</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="230">
+						<kLoud-cRVector2 d:id="15626">
 							<X d:type="sFloat32">-2</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233">
+						<kLoud-cRVector2 d:id="15629">
 							<X d:type="sFloat32">-1</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="236">
+						<kLoud-cRVector2 d:id="15632">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="239">
+						<kLoud-cRVector2 d:id="15635">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="242">
+						<kLoud-cRVector2 d:id="15638">
 							<X d:type="sFloat32">2</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="245">
+						<kLoud-cRVector2 d:id="15641">
 							<X d:type="sFloat32">3</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
@@ -76,53 +76,53 @@
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="249">
+				<kLoud-cModifierChain d:id="15645">
 					<Name d:type="cDeltaString">VolumeBP</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="252">
+						<kLoud-cVolumeCurveModifier d:id="15648">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VirtualMainReservoirPressureBAR</ControllerName>
-							<Curve d:type="ref">224</Curve>
+							<Curve d:type="ref">15620</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="257">
+				<kLoud-cInstanceGroup d:id="15653">
 					<Name d:type="cDeltaString">Houkacka</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="261">
+				<kLoud-cInstanceGroup d:id="15657">
 					<Name d:type="cDeltaString">Pistala</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
 			</InstanceGroup>
 			<Loop>
-				<kLoud-cControlledLoop d:id="266">
+				<kLoud-cControlledLoop d:id="15662">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Houkacka</Name>
-					<Sound d:type="ref">197</Sound>
-					<ModifierChain d:type="ref">249</ModifierChain>
+					<Sound d:type="ref">15593</Sound>
+					<ModifierChain d:type="ref">15645</ModifierChain>
 					<ControllerName d:type="cDeltaString">Horn</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.01</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">1</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">257</InstanceGroup>
+					<InstanceGroup d:type="ref">15653</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="277">
+				<kLoud-cControlledLoop d:id="15673">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Pistala</Name>
-					<Sound d:type="ref">210</Sound>
-					<ModifierChain d:type="ref">249</ModifierChain>
+					<Sound d:type="ref">15606</Sound>
+					<ModifierChain d:type="ref">15645</ModifierChain>
 					<ControllerName d:type="cDeltaString">Bell</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.01</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">1</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">261</InstanceGroup>
+					<InstanceGroup d:type="ref">15657</InstanceGroup>
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot />

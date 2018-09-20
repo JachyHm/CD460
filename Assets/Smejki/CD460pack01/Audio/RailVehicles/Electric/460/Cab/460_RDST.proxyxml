@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="120328">
+				<kLoud-cSingleSampleSound d:id="7875">
 					<Name d:type="cDeltaString">VysilackaStart</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="120341">
+				<kLoud-cSingleSampleSound d:id="7888">
 					<Name d:type="cDeltaString">Prihlaska</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="120354">
+				<kLoud-cSingleSampleSound d:id="7901">
 					<Name d:type="cDeltaString">RDSTklik</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -60,17 +60,17 @@
 			<Curve />
 			<ModifierChain />
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="120370">
+				<kLoud-cInstanceGroup d:id="7917">
 					<Name d:type="cDeltaString">WinStart</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="120374">
+				<kLoud-cInstanceGroup d:id="7921">
 					<Name d:type="cDeltaString">PrihlOdhl</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="120378">
+				<kLoud-cInstanceGroup d:id="7925">
 					<Name d:type="cDeltaString">RDSTklik</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
@@ -78,170 +78,170 @@
 			</InstanceGroup>
 			<Loop />
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="120384">
+				<kLoud-cTriggeredOneshot d:id="7931">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">WinStartSound</Name>
-					<Sound d:type="ref">120328</Sound>
+					<Sound d:type="ref">7875</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VysilackaStartSound</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120370</InstanceGroup>
+					<InstanceGroup d:type="ref">7917</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120394">
+				<kLoud-cTriggeredOneshot d:id="7941">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Prihl</Name>
-					<Sound d:type="ref">120341</Sound>
+					<Sound d:type="ref">7888</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilackaReg</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120374</InstanceGroup>
+					<InstanceGroup d:type="ref">7921</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120404">
+				<kLoud-cTriggeredOneshot d:id="7951">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik0</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka0</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120414">
+				<kLoud-cTriggeredOneshot d:id="7961">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik3</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka3</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120424">
+				<kLoud-cTriggeredOneshot d:id="7971">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik4</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka4</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120434">
+				<kLoud-cTriggeredOneshot d:id="7981">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik5</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka5</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120444">
+				<kLoud-cTriggeredOneshot d:id="7991">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik6</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka6</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120454">
+				<kLoud-cTriggeredOneshot d:id="8001">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik7</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka7</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120464">
+				<kLoud-cTriggeredOneshot d:id="8011">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik9</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka9</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120474">
+				<kLoud-cTriggeredOneshot d:id="8021">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik1</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka1</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120484">
+				<kLoud-cTriggeredOneshot d:id="8031">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik2</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka2</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120494">
+				<kLoud-cTriggeredOneshot d:id="8041">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klik8</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilacka8</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120504">
+				<kLoud-cTriggeredOneshot d:id="8051">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klikEnter</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilackaEnter</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120514">
+				<kLoud-cTriggeredOneshot d:id="8061">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">klikDelete</Name>
-					<Sound d:type="ref">120354</Sound>
+					<Sound d:type="ref">7901</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilackaDelete</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120378</InstanceGroup>
+					<InstanceGroup d:type="ref">7925</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="120524">
+				<kLoud-cTriggeredOneshot d:id="8071">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Odhl</Name>
-					<Sound d:type="ref">120341</Sound>
+					<Sound d:type="ref">7888</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vysilackaReg</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">120374</InstanceGroup>
+					<InstanceGroup d:type="ref">7921</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
 			</Oneshot>
 		</cGenericAudioControl>

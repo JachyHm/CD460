@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="157780">
+				<kLoud-cSingleSampleSound d:id="11458">
 					<Name d:type="cDeltaString">Sberac_D</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="157793">
+				<kLoud-cSingleSampleSound d:id="11471">
 					<Name d:type="cDeltaString">Sberac_N</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cRandomSampleSound d:id="157806">
+				<kLoud-cRandomSampleSound d:id="11484">
 					<Name d:type="cDeltaString">Jiskreni</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -51,7 +51,7 @@
 					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="157818">
+						<kLoud-cSampleWithLikelihood d:id="11496">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -59,7 +59,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="157822">
+						<kLoud-cSampleWithLikelihood d:id="11500">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -67,7 +67,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="157826">
+						<kLoud-cSampleWithLikelihood d:id="11504">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -81,12 +81,12 @@
 			<Curve />
 			<ModifierChain />
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="157833">
+				<kLoud-cInstanceGroup d:id="11511">
 					<Name d:type="cDeltaString">ChDown</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="157837">
+				<kLoud-cInstanceGroup d:id="11515">
 					<Name d:type="cDeltaString">ChUp</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
@@ -94,54 +94,54 @@
 			</InstanceGroup>
 			<Loop />
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="157843">
+				<kLoud-cTriggeredOneshot d:id="11521">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">PantoPredniNahoru</Name>
-					<Sound d:type="ref">157793</Sound>
+					<Sound d:type="ref">11471</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">PantoPredni</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">157837</InstanceGroup>
+					<InstanceGroup d:type="ref">11515</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="157853">
+				<kLoud-cTriggeredOneshot d:id="11531">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">PantoZadniNahoru</Name>
-					<Sound d:type="ref">157793</Sound>
+					<Sound d:type="ref">11471</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">PantoZadni</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">157837</InstanceGroup>
+					<InstanceGroup d:type="ref">11515</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="157863">
+				<kLoud-cTriggeredOneshot d:id="11541">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">PantoPredniDolu</Name>
-					<Sound d:type="ref">157780</Sound>
+					<Sound d:type="ref">11458</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">PantoPredni</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">157833</InstanceGroup>
+					<InstanceGroup d:type="ref">11511</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="157873">
+				<kLoud-cTriggeredOneshot d:id="11551">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">PantoZadniDolu</Name>
-					<Sound d:type="ref">157780</Sound>
+					<Sound d:type="ref">11458</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">PantoZadni</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">157833</InstanceGroup>
+					<InstanceGroup d:type="ref">11511</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="157883">
+				<kLoud-cTriggeredOneshot d:id="11561">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Jiskreni</Name>
-					<Sound d:type="ref">157806</Sound>
+					<Sound d:type="ref">11484</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZimniJiskraPrehrajZvuka</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>

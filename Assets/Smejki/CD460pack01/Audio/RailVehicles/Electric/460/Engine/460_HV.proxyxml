@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="140363">
+				<kLoud-cSingleSampleSound d:id="11154">
 					<Name d:type="cDeltaString">HVzap</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="140376">
+				<kLoud-cSingleSampleSound d:id="11167">
 					<Name d:type="cDeltaString">HVvyp</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -43,7 +43,7 @@
 			<Curve />
 			<ModifierChain />
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="140392">
+				<kLoud-cInstanceGroup d:id="11183">
 					<Name d:type="cDeltaString">HV</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">StopOldest</InstanceExceededAction>
@@ -51,27 +51,27 @@
 			</InstanceGroup>
 			<Loop />
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="140398">
+				<kLoud-cTriggeredOneshot d:id="11189">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">HVzap</Name>
-					<Sound d:type="ref">140363</Sound>
+					<Sound d:type="ref">11154</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">HlavniVypinac</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">140392</InstanceGroup>
+					<InstanceGroup d:type="ref">11183</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="140408">
+				<kLoud-cTriggeredOneshot d:id="11199">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">HVvyp</Name>
-					<Sound d:type="ref">140376</Sound>
+					<Sound d:type="ref">11167</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">HlavniVypinac</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">140392</InstanceGroup>
+					<InstanceGroup d:type="ref">11183</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
 			</Oneshot>
 		</cGenericAudioControl>
