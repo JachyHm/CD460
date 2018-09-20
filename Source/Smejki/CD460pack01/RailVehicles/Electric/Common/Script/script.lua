@@ -5,7 +5,7 @@
 INFO = 0
 ALERT = 1
 
-gAbsolutniMax_kN = 130
+gAbsolutniMax_kN = 1300
 gAbsolutniMax_kN_EDB = 1300
 gMax_kN = {17.5,30,40,55,69,90,105,145,215,286.5,420,500,710,800,2000,2000,2350,2740,3350,2025} 
 gKoeficient = {-0.097,-0.071,-0.077,-0.087,-0.094,-0.091,-0.0896,-0.112,-0.13,-0.14,-0.16,-0.162,-0.173,-0.173,-0.23,-0.25,-0.25,-0.25,-0.25,-0.22} 
@@ -1096,7 +1096,7 @@ function DefinujPromene()
 	diagHV = 0
 	skluzDiag = 0
 	niDiag = 0
-	blokKrokDOTO = false
+	blokKrokSkluz = false
 	PP = 0
 	ZP = 0
 	pozadavekNaZapisKlice = false
@@ -1273,6 +1273,7 @@ function NastavHodnotuSID(nazevCV,hodnota,cisloZpravy)
 end
 --zpravy
 	-- 460101 - kl?? na druh? kabin?
+	-- 460102 - vypnutí HV při nadproudu při nesprávném směru
 	-- 460105 - dvereP
 	-- 460106 - osv?tlen? vozu
 	-- 460108 - zadost o otevreni dveri z nerizene HV
@@ -1314,6 +1315,12 @@ function OnConsistMessage(zprava,argument,smer)
 			KlicNaDruheKabine = 0
 		end
 	end
+	if zprava == 460102 then
+		if vykon ~= 0 then
+			Call ("SetControlValue", "HlavniVypinac", 0, 0)
+			ZamekHLvyp = 1
+		end
+	end
 	if zprava == 460105 then
 		if argument == "00" then
 			dvereLeveZeSoupravy = false
@@ -1338,19 +1345,6 @@ function OnConsistMessage(zprava,argument,smer)
 			OsvetleniVozu = 0
 		end
 	end
-	if zprava == 460109 then
-		if argument == "00" then
-			dverePraveZeSoupravy = false
-			dverePravePridrznyStav = false
-		elseif argument == "01" then
-			dverePraveZeSoupravy = false
-			dverePravePridrznyStav = true
-		elseif argument == "11" then
-			dverePraveZeSoupravy = true
-			dverePravePridrznyStav = true
-		end
-		Call("SendConsistMessage",460105,argument,smer)
-	end
 	if zprava == 460108 then
 		if argument == "leve" then
 			argument = "prave"
@@ -1369,6 +1363,19 @@ function OnConsistMessage(zprava,argument,smer)
 				Call("SendConsistMessage",460108,argument,smer)
 			end
 		end
+	end
+	if zprava == 460109 then
+		if argument == "00" then
+			dverePraveZeSoupravy = false
+			dverePravePridrznyStav = false
+		elseif argument == "01" then
+			dverePraveZeSoupravy = false
+			dverePravePridrznyStav = true
+		elseif argument == "11" then
+			dverePraveZeSoupravy = true
+			dverePravePridrznyStav = true
+		end
+		Call("SendConsistMessage",460105,argument,smer)
 	end
 	if zprava == 460111 then
 		pozadavekNaFastStart = 2
@@ -1704,9 +1711,9 @@ function decToBitsCount(cislo)
 	return pocet --, vysledek
 end
 function VypniHVaVynutRestart()
-	Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-	Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
+	Call ("SetControlValue", "HlavniVypinac", 0, 0)
 	ZamekHLvyp = 1
+	Call ("SetControlValue", "povel_HlavniVypinac", 0, 0)
 end
 function VratRadic(radicMain,radicOkno)
 	if radicMain >= 0 then
@@ -1800,7 +1807,8 @@ end
 function VratProud(gTaznaSila,gZarazenyStupen)
 	local shunt = (gZarazenyStupen - 0.8) *20
 	local speed = Call("GetSpeed")
-	local kN = math.abs(gTaznaSila*130)
+	local smer = Call("GetControlValue","Reverser",0)
+	local kN = math.abs(gTaznaSila*1300)
 	--local kN = (2000*(math.exp(-0.25*(speed-2))))+7
 	local k = 1.3
 	local a = 106
@@ -1808,7 +1816,7 @@ function VratProud(gTaznaSila,gZarazenyStupen)
 	local vratProud = (a*k)*(math.sqrt((((kN+(b*k))^2)/((b*k)^2))-1))
 	if gZarazenyStupen < 0 then
 		-- kN = (kN/pocetMG)*gAbsolutniMax_kN_EDB
-		vratProud = -math.log(1000*speed*3.6)^2*2.69
+		vratProud = -math.log(1000*math.abs(speed)*3.6)^2*2.69
 		if gZarazenyStupen < -1.5 then
 			vratProud = vratProud * 1.03
 			if gZarazenyStupen < -2.5 then
@@ -1829,6 +1837,25 @@ function VratProud(gTaznaSila,gZarazenyStupen)
 		vratProud = 1.39 * vratProud
 	elseif shunt > 3.5 then
 		vratProud = 1.48 * vratProud
+	end
+	if smer > 0 and speed < 0 and Call("GetIsEngineWithKey") == 1 then
+		vratProud = vratProud * math.max((math.abs(speed)/1.5),1)
+		if vratProud > 800 or (math.abs(speed) > 5.55 and vratProud ~= 0) then
+			Call ("SetControlValue", "HlavniVypinac", 0, 0)
+			ZamekHLvyp = 1
+			Call("SendConsistMessage",460102,"",0)
+			Call("SendConsistMessage",460102,"",1)
+			niDiag = 1
+		end
+	elseif smer < 0 and speed > 0 and Call("GetIsEngineWithKey") == 1 then
+		vratProud = vratProud * math.max((math.abs(speed)/1.5),1)
+		if vratProud > 800 or (math.abs(speed) > 5.55 and vratProud ~= 0) then
+			Call ("SetControlValue", "HlavniVypinac", 0, 0)
+			ZamekHLvyp = 1
+			Call("SendConsistMessage",460102,"",0)
+			Call("SendConsistMessage",460102,"",1)
+			niDiag = 1
+		end
 	end
 	return (vratProud)
 end
@@ -2386,7 +2413,7 @@ function Update (casHry)
 						if baterie == 1 and prepinaceTlak > 3.5 then
 							Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
 						else
-							Call ( "SetControlValue", "Reverser", 0, 0)
+							Call("SetControlValue", "Reverser", 0, 0)
 						end
 
 						-- if Rychlost >= 100 then
@@ -2981,7 +3008,10 @@ function Update (casHry)
 							if diraDoPotrubi == 0 and not matrosov and odtrh_ridiciho_ustroji and doplnujBrzdu then
 								local prirustek_brzdeni = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength")/3)
 								local prirustek_odbrzdeni = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength"))
-								if tlak_ridiciho_ustroji - tlak_HP > prirustek_odbrzdeni and tlak_HP < VirtualMainReservoirPressureBAR then
+								local prirustek_svih = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength")/10)
+								if BS2 < 0.06 and tlak_ridiciho_ustroji - tlak_HP > prirustek_svih and tlak_HP < VirtualMainReservoirPressureBAR then
+									tlak_HP = tlak_HP + prirustek_svih
+								elseif tlak_ridiciho_ustroji - tlak_HP > prirustek_odbrzdeni and tlak_HP < VirtualMainReservoirPressureBAR then
 									tlak_HP = tlak_HP + prirustek_odbrzdeni
 								elseif tlak_HP - tlak_ridiciho_ustroji > prirustek_brzdeni then
 									tlak_HP = tlak_HP - prirustek_brzdeni
@@ -3096,9 +3126,9 @@ function Update (casHry)
 						----------------------------------------Ovladani HV---------------------------------------
 							PolohaKlice = Call ("GetControlValue", "VirtualStartup", 0)
 							if PolohaKlice == 0.25 then klic = 1 end
-							if (PolohaKlice < 0.5 or baterie ~= 1 or (mgPrip > 0 and (PC ~= 3.75 or not auto_mgs))) and RizenaRidici == "ridici" then
+							if (PolohaKlice < 0.5 or baterie ~= 1) and RizenaRidici == "ridici" then
 								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
-							elseif ZamekHLvyp == 0 and PolohaKlice > 0.5 and baterie == 1 and RizenaRidici == "ridici" and (mgPrip < 0 or PC == 3.75 or auto_mgs) then
+							elseif ZamekHLvyp == 0 and PolohaKlice > 0.5 and baterie == 1 and RizenaRidici == "ridici" then
 								Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
 							end
 
@@ -3668,7 +3698,7 @@ function Update (casHry)
 										casstupnu = 0
 										caszkroku = (math.random(8,12)/20)
 									end
-								elseif kontroler == 0.5 and not blokKrokDOTO and not SnizenyVykonVozu then
+								elseif kontroler == 0.5 and not blokKrokSkluz and not SnizenyVykonVozu then
 									if vykon < 0 and casstupnu >= caszkroku then
 										Call("SetControlValue","JizdniKontroler",0,vykon+0.25)
 										casstupnu = 0
@@ -3678,7 +3708,7 @@ function Update (casHry)
 										casstupnu = 0
 										caskroku = (math.random(8,12)/20)
 									end
-								elseif kontroler == 1 and not blokKrokDOTO and not SnizenyVykonVozu then
+								elseif kontroler == 1 and not blokKrokSkluz and not SnizenyVykonVozu then
 									if vykon >= 0.05 and vykon < 1 and casstupnu >= caskroku and (JOB == 1 or pojezdNeschopna) and ojDiag == 0 then
 										if Call("GetControlValue", "synchronizacniRele", 0) < 1 then
 											Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
@@ -3704,17 +3734,17 @@ function Update (casHry)
 										Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
 										casstupnu = 0
 										caszkroku = (math.random(3,7)/20)
-									elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokDOTO and not blokEDB then
+									elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokSkluz and not blokEDB then
 										Call("SetControlValue","JizdniKontroler",0,vykon-0.25)
 										casstupnu = 0
 										caskroku = (math.random(8,12)/20)
-									-- elseif vykon < -0.25 and casstupnu >= caszkroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokDOTO and not blokEDB then
+									-- elseif vykon < -0.25 and casstupnu >= caszkroku and (JOB == -1 or pojezdNeschopna) and Rychlost > rychlostEDB and not blokKrokSkluz and not blokEDB then
 									-- 	Call("SetControlValue","JizdniKontroler",0,vykon+0.25)
 									-- 	casstupnu = 0
 									-- 	caszkroku = (math.random(3,7)/20)
 									end
 								elseif kontroler == -1 then 
-									if vykon <= -0.25 and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokDOTO and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB and ojDiag == 0 then
+									if vykon <= -0.25 and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokSkluz and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB and ojDiag == 0 then
 										if Ammeter >= -350 then
 											Call("SetControlValue","JizdniKontroler",0,vykon-0.25)
 											casstupnu = 0
@@ -3724,7 +3754,7 @@ function Update (casHry)
 										Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
 										casstupnu = 0
 										caszkroku = (math.random(3,7)/20)
-									elseif vykon > -0.25 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokDOTO and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB then
+									elseif vykon > -0.25 and casstupnu >= caskroku and (JOB == -1 or pojezdNeschopna) and not blokKrokSkluz and not blokKrokNU and Rychlost > rychlostEDB and not blokEDB then
 										Call("SetControlValue","JizdniKontroler",0,-0.25)
 										casstupnu = 0
 										caskroku = (math.random(8,12)/20)
@@ -4277,7 +4307,7 @@ function Update (casHry)
 							Ammeter = Call("GetControlValue","Ampermetr",0)
 							if not pojezdNeschopna and Call("GetControlValue", "Ammeter", 0) ~= 0 then
 								-- Call("SetControlTargetValue","VirtualAmmeter",0,Call("GetControlValue","Ampermetr",0))
-								Call("SetControlValue","VirtualAmmeter",0,PIDcntrlAmp(Call("GetControlValue","Ampermetr",0),Call("GetControlValue","VirtualAmmeter",0)))
+									Call("SetControlValue","VirtualAmmeter",0,PIDcntrlAmp(Call("GetControlValue", "Reverser", 0)*Call("GetControlValue","Ampermetr",0),Call("GetControlValue","VirtualAmmeter",0)))
 							else
 								Call("SetControlValue","VirtualAmmeter",0,PIDcntrlAmp(0,Call("GetControlValue","VirtualAmmeter",0)))
 							end
@@ -4369,33 +4399,13 @@ function Update (casHry)
 									Call("SetControlValue","Diag_PU",0,diagPU) -- H12
 								
 								--*******H13 DOTO
-									if skluzWheelSlip == 1 then
-										casSkluz = casSkluz + cas
-										if wheelSlip > 2  and P01 == 1 then
-											Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-											ZamekHLvyp = 1
-										else
-											if casSkluz > 0.225 or prvniKrok then
-												casSkluz = 0
-												prvniKrok = false
-												if vykon > 0 then
-													Call("SetControlValue","JizdniKontroler",0,vykon - 0.05)
-												elseif vykon < 0 then
-													Call("SetControlValue","JizdniKontroler",0,vykon + 0.25)
-												end
-											end
-										end
-										skluzDiag = 1
-										blokKrokDOTO = true
+									local dotoDiag = 0
+									if false then
+										dotoDiag = 1
+									else
+										dotoDiag = 0
 									end
-									if kontroler <= 0.5 and kontroler >= -0.5 then --predelat na tlacitko az bude
-										--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
-										blokKrokDOTO = false
-										skluzDiag = 0
-										casSkluz = 0
-										prvniKrok = true
-									end
-									Call("SetControlValue","Diag_DOTO",0,skluzDiag) -- H13
+									Call("SetControlValue","Diag_DOTO",0,dotoDiag) -- H13
 								
 								--*******H14 DOPM
 									local mgDiag = 0
@@ -4471,8 +4481,36 @@ function Update (casHry)
 									else
 										failmg = 0
 									end
+									
+									if skluzWheelSlip == 1 then
+										casSkluz = casSkluz + cas
+										if wheelSlip > 2 and P01 == 1 then
+											Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+											ZamekHLvyp = 1
+										else
+											if casSkluz > 0.225 or prvniKrok then
+												casSkluz = 0
+												prvniKrok = false
+												if vykon > 0 then
+													Call("SetControlValue","JizdniKontroler",0,vykon - 0.05)
+												elseif vykon < 0 then
+													Call("SetControlValue","JizdniKontroler",0,vykon + 0.25)
+												end
+											end
+										end
+										skluzDiag = 1
+										blokKrokSkluz = true
+									end
+									if kontroler <= 0.5 and kontroler >= -0.5 then --predelat na tlacitko az bude
+										--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
+										blokKrokSkluz = false
+										skluzDiag = 0
+										casSkluz = 0
+										prvniKrok = true
+									end
+
 									Call("SetControlValue","fail",0,math.max(math.min(Call("GetControlValue","poruchaVeVlaku",0),1),failmg,failvykon,diagHV,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,mgDiag,niDiag,ojDiag,uzemneniDiag,jobDiag))
-									Call("SetControlValue","skluz",0,math.max(skluzmg,skluzWheelSlip))
+									Call("SetControlValue","skluz",0,math.max(skluzDiag,skluzWheelSlip))
 								--*******H5 OBECNA POR NA VLASTNIM
 									local PoruchaNap = 0
 									Call("SetControlValue","Diag_Porucha",0,math.max(failmg,failvykon,PoruchaNap,diagHV,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,mgDiag,niDiag,ojDiag,uzemneniDiag,jobDiag)) -- H5
@@ -4521,7 +4559,7 @@ function Update (casHry)
 									Call("SetControlValue","Diag_DOTO",0,1) -- H12
 									if Call("GetControlValue", "povel_Reverser", 0) == 0 then --predelat na tlacitko az bude
 										--if Call("GetControlValue","ResetDOTO",0) > 0.75 then
-										blokKrokDOTO = false
+										blokKrokSkluz = false
 										skluzDiag = 0
 										casSkluz = 0
 										prvniKrok = true
