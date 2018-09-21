@@ -26,105 +26,6 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>DakoBS2 zub</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="IsLooped">
-											<bool>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</bool>
-										</Attribute>
-										<Attribute name="Priority">
-											<sUInt32>
-												<Element>
-													<Value>75</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="BaseVolume">
-											<sFloat32>
-												<Element>
-													<Value>0.5</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="VolumeVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="BasePitchShift">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="PitchShiftVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="AttenuationStartDist">
-											<sFloat32>
-												<Element>
-													<Value>20</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="NoFutherAttenuationDist">
-											<sFloat32>
-												<Element>
-													<Value>25</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-										<Attribute name="Sample">
-											<kLoud-cSampleID>
-												<Element>
-													<Value>
-														<Attribute name="Filename">
-															<cDeltaString>
-																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\brzdic_DAKOBS2_zub.wav</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSampleID>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cSingleSampleSound>
-							<kLoud-cSingleSampleSound>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
 													<Value>Rychlobrzda</Value>
 												</Element>
 											</cDeltaString>
@@ -146,7 +47,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -245,7 +146,7 @@
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>2</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -317,7 +218,7 @@
 									</Value>
 								</Element>
 							</kLoud-cSingleSampleSound>
-							<kLoud-cSingleSampleSound>
+							<kLoud-cRandomSampleSound>
 								<Element>
 									<Value>
 										<Attribute name="Name">
@@ -337,14 +238,14 @@
 										<Attribute name="Priority">
 											<sUInt32>
 												<Element>
-													<Value>75</Value>
+													<Value>100</Value>
 												</Element>
 											</sUInt32>
 										</Attribute>
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -399,419 +300,240 @@
 											</kLoud-cInstanceGroup>
 										</Attribute>
 										<Attribute name="Sample">
-											<kLoud-cSampleID>
+											<__Indexed__kLoud-cSampleWithLikelihood>
 												<Element>
 													<Value>
-														<Attribute name="Filename">
-															<cDeltaString>
-																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvakani.wav</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak1.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak2.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak3.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak4.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak5.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak6.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak7.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
+														<kLoud-cSampleWithLikelihood>
+															<Element>
+																<Value>
+																	<Attribute name="Likelihood">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Sample">
+																		<kLoud-cSampleID>
+																			<Element>
+																				<Value>
+																					<Attribute name="Filename">
+																						<cDeltaString>
+																							<Element>
+																								<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_cvak8.wav</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cSampleID>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cSampleWithLikelihood>
 													</Value>
 												</Element>
-											</kLoud-cSampleID>
+											</__Indexed__kLoud-cSampleWithLikelihood>
 										</Attribute>
 									</Value>
 								</Element>
-							</kLoud-cSingleSampleSound>
-							<kLoud-cSingleSampleSound>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>DakoBS2 S-J</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="IsLooped">
-											<bool>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</bool>
-										</Attribute>
-										<Attribute name="Priority">
-											<sUInt32>
-												<Element>
-													<Value>75</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="BaseVolume">
-											<sFloat32>
-												<Element>
-													<Value>0.5</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="VolumeVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="BasePitchShift">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="PitchShiftVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="AttenuationStartDist">
-											<sFloat32>
-												<Element>
-													<Value>20</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="NoFutherAttenuationDist">
-											<sFloat32>
-												<Element>
-													<Value>25</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-										<Attribute name="Sample">
-											<kLoud-cSampleID>
-												<Element>
-													<Value>
-														<Attribute name="Filename">
-															<cDeltaString>
-																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_S-J.wav</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSampleID>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cSingleSampleSound>
-							<kLoud-cSingleSampleSound>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>DakoBS2 J-S</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="IsLooped">
-											<bool>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</bool>
-										</Attribute>
-										<Attribute name="Priority">
-											<sUInt32>
-												<Element>
-													<Value>75</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="BaseVolume">
-											<sFloat32>
-												<Element>
-													<Value>0.5</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="VolumeVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="BasePitchShift">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="PitchShiftVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="AttenuationStartDist">
-											<sFloat32>
-												<Element>
-													<Value>20</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="NoFutherAttenuationDist">
-											<sFloat32>
-												<Element>
-													<Value>25</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-										<Attribute name="Sample">
-											<kLoud-cSampleID>
-												<Element>
-													<Value>
-														<Attribute name="Filename">
-															<cDeltaString>
-																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_J-S.wav</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSampleID>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cSingleSampleSound>
-							<kLoud-cSingleSampleSound>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>DakoBS2 R-BZ</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="IsLooped">
-											<bool>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</bool>
-										</Attribute>
-										<Attribute name="Priority">
-											<sUInt32>
-												<Element>
-													<Value>75</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="BaseVolume">
-											<sFloat32>
-												<Element>
-													<Value>0.5</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="VolumeVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="BasePitchShift">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="PitchShiftVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="AttenuationStartDist">
-											<sFloat32>
-												<Element>
-													<Value>20</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="NoFutherAttenuationDist">
-											<sFloat32>
-												<Element>
-													<Value>25</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-										<Attribute name="Sample">
-											<kLoud-cSampleID>
-												<Element>
-													<Value>
-														<Attribute name="Filename">
-															<cDeltaString>
-																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_R-BZ.wav</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSampleID>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cSingleSampleSound>
-							<kLoud-cSingleSampleSound>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>DakoBS2 BZ-B</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="IsLooped">
-											<bool>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</bool>
-										</Attribute>
-										<Attribute name="Priority">
-											<sUInt32>
-												<Element>
-													<Value>75</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="BaseVolume">
-											<sFloat32>
-												<Element>
-													<Value>0.5</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="VolumeVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="BasePitchShift">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="PitchShiftVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="AttenuationStartDist">
-											<sFloat32>
-												<Element>
-													<Value>20</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="NoFutherAttenuationDist">
-											<sFloat32>
-												<Element>
-													<Value>25</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-										<Attribute name="Sample">
-											<kLoud-cSampleID>
-												<Element>
-													<Value>
-														<Attribute name="Filename">
-															<cDeltaString>
-																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_BZ-B.wav</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSampleID>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cSingleSampleSound>
+							</kLoud-cRandomSampleSound>
 							<kLoud-cSingleSampleSound>
 								<Element>
 									<Value>
@@ -832,14 +554,14 @@
 										<Attribute name="Priority">
 											<sUInt32>
 												<Element>
-													<Value>80</Value>
+													<Value>100</Value>
 												</Element>
 											</sUInt32>
 										</Attribute>
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -931,14 +653,14 @@
 										<Attribute name="Priority">
 											<sUInt32>
 												<Element>
-													<Value>80</Value>
+													<Value>100</Value>
 												</Element>
 											</sUInt32>
 										</Attribute>
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1000,105 +722,6 @@
 															<cDeltaString>
 																<Element>
 																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBP_2.wav</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSampleID>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cSingleSampleSound>
-							<kLoud-cSingleSampleSound>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>DakoBS2 Brzdeni</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="IsLooped">
-											<bool>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</bool>
-										</Attribute>
-										<Attribute name="Priority">
-											<sUInt32>
-												<Element>
-													<Value>75</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="BaseVolume">
-											<sFloat32>
-												<Element>
-													<Value>0.5</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="VolumeVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="BasePitchShift">
-											<sFloat32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="PitchShiftVariation">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="AttenuationStartDist">
-											<sFloat32>
-												<Element>
-													<Value>20</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="NoFutherAttenuationDist">
-											<sFloat32>
-												<Element>
-													<Value>25</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-										<Attribute name="Sample">
-											<kLoud-cSampleID>
-												<Element>
-													<Value>
-														<Attribute name="Filename">
-															<cDeltaString>
-																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_brzdeni.wav</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -1313,28 +936,28 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>DakoBS2 Odbrzdeni</Value>
+													<Value>upousteniPotrubi</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
 										<Attribute name="IsLooped">
 											<bool>
 												<Element>
-													<Value>0</Value>
+													<Value>1</Value>
 												</Element>
 											</bool>
 										</Attribute>
 										<Attribute name="Priority">
 											<sUInt32>
 												<Element>
-													<Value>75</Value>
+													<Value>200</Value>
 												</Element>
 											</sUInt32>
 										</Attribute>
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1369,7 +992,7 @@
 										<Attribute name="NoFutherAttenuationDist">
 											<sFloat32>
 												<Element>
-													<Value>25</Value>
+													<Value>35</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -1395,7 +1018,106 @@
 														<Attribute name="Filename">
 															<cDeltaString>
 																<Element>
-																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_odbrzdovani.wav</Value>
+																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_snizeni.wav</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSampleID>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cSingleSampleSound>
+							<kLoud-cSingleSampleSound>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>skripnutiPistek</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="IsLooped">
+											<bool>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</bool>
+										</Attribute>
+										<Attribute name="Priority">
+											<sUInt32>
+												<Element>
+													<Value>50</Value>
+												</Element>
+											</sUInt32>
+										</Attribute>
+										<Attribute name="BaseVolume">
+											<sFloat32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="VolumeVariation">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="BasePitchShift">
+											<sFloat32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="PitchShiftVariation">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="AttenuationStartDist">
+											<sFloat32>
+												<Element>
+													<Value>20</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="NoFutherAttenuationDist">
+											<sFloat32>
+												<Element>
+													<Value>35</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+										<Attribute name="Sample">
+											<kLoud-cSampleID>
+												<Element>
+													<Value>
+														<Attribute name="Filename">
+															<cDeltaString>
+																<Element>
+																	<Value>Audio\RailVehicles\Electric\460\Cab\460_DakoBS2_skripnuti_pistek.wav</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -1622,7 +1344,7 @@
 																	<Attribute name="Y">
 																		<sFloat32>
 																			<Element>
-																				<Value>1</Value>
+																				<Value>0.3</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -1642,7 +1364,7 @@
 																	<Attribute name="Y">
 																		<sFloat32>
 																			<Element>
-																				<Value>2</Value>
+																				<Value>0.6</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -1662,7 +1384,128 @@
 																	<Attribute name="Y">
 																		<sFloat32>
 																			<Element>
-																				<Value>3</Value>
+																				<Value>1</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+													</Value>
+												</Element>
+											</__Indexed__kLoud-cRVector2>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cCurve>
+							<kLoud-cCurve>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>vypousteniPitchCurve</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="CurvePoint">
+											<__Indexed__kLoud-cRVector2>
+												<Element>
+													<Value>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.98</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.04103075</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.9890974</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.141194075</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.9944967</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.277561</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.998796165</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cRVector2>
+														<kLoud-cRVector2>
+															<Element>
+																<Value>
+																	<Attribute name="X">
+																		<sFloat32>
+																			<Element>
+																				<Value>0.5</Value>
+																			</Element>
+																		</sFloat32>
+																	</Attribute>
+																	<Attribute name="Y">
+																		<sFloat32>
+																			<Element>
+																				<Value>1</Value>
 																			</Element>
 																		</sFloat32>
 																	</Attribute>
@@ -1796,6 +1639,82 @@
 									</Value>
 								</Element>
 							</kLoud-cModifierChain>
+							<kLoud-cModifierChain>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>SyceniPotrubi</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Modifier">
+											<__Indexed__kLoud-cModifier>
+												<Element>
+													<Value>
+														<kLoud-cLinearVolumeModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>vypousteniSoundController</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cLinearVolumeModifier>
+														<kLoud-cPitchCurveModifier>
+															<Element>
+																<Value>
+																	<Attribute name="ControllerIsGlobal">
+																		<bool>
+																			<Element>
+																				<Value>0</Value>
+																			</Element>
+																		</bool>
+																	</Attribute>
+																	<Attribute name="ControllerName">
+																		<cDeltaString>
+																			<Element>
+																				<Value>vypousteniSoundController</Value>
+																			</Element>
+																		</cDeltaString>
+																	</Attribute>
+																	<Attribute name="Curve">
+																		<kLoud-cCurve>
+																			<Element>
+																				<Value>
+																					<Attribute name="Name">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vypousteniPitchCurve</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</kLoud-cCurve>
+																	</Attribute>
+																</Value>
+															</Element>
+														</kLoud-cPitchCurveModifier>
+													</Value>
+												</Element>
+											</__Indexed__kLoud-cModifier>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cModifierChain>
 						</Value>
 					</Element>
 				</__Indexed__kLoud-cModifierChain>
@@ -1864,7 +1783,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>BS2 Brzdeni</Value>
+													<Value>SyceniPotrubi</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -1878,7 +1797,7 @@
 										<Attribute name="InstanceExceededAction">
 											<kLoud-eInstanceExceededAction>
 												<Element>
-													<Value>RejectNew</Value>
+													<Value>StopOldest</Value>
 												</Element>
 											</kLoud-eInstanceExceededAction>
 										</Attribute>
@@ -2093,6 +2012,106 @@
 									</Value>
 								</Element>
 							</kLoud-cControlledLoop>
+							<kLoud-cControlledLoop>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>INSIDE</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>upousteniPotrubi</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>upousteniPotrubi</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>SyceniPotrubi</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>vypousteniSoundController</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="LoopCondition">
+											<kLoud-cControlledLoop-eLoopCondition>
+												<Element>
+													<Value>ValueInRange</Value>
+												</Element>
+											</kLoud-cControlledLoop-eLoopCondition>
+										</Attribute>
+										<Attribute name="ActiveRangeStartValue">
+											<sFloat32>
+												<Element>
+													<Value>0.01</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ActiveRangeEndValue">
+											<sFloat32>
+												<Element>
+													<Value>1.1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>SyceniPotrubi</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cControlledLoop>
 						</Value>
 					</Element>
 				</__Indexed__kLoud-cControlledLoop>
@@ -2101,378 +2120,6 @@
 				<__Indexed__kLoud-cTriggeredOneshot>
 					<Element>
 						<Value>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Svih</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 zub</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueMovesPast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Odbrzdeno</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 zub</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueMovesPast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.15</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Jizda</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 zub</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueMovesPast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.23</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzda</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 zub</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueMovesPast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.27</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
 							<kLoud-cTriggeredOneshot>
 								<Element>
 									<Value>
@@ -2537,7 +2184,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.999</Value>
+													<Value>0.99</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -2723,7 +2370,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.31</Value>
+													<Value>0.07</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -2816,7 +2463,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.35</Value>
+													<Value>0.18</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -2909,7 +2556,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.39</Value>
+													<Value>0.24</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3002,7 +2649,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.43</Value>
+													<Value>0.28</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3095,7 +2742,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.48</Value>
+													<Value>0.32</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3188,7 +2835,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.52</Value>
+													<Value>0.36</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3281,7 +2928,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.56</Value>
+													<Value>0.4</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3374,7 +3021,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.61</Value>
+													<Value>0.44</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3467,7 +3114,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.65</Value>
+													<Value>0.48</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3560,7 +3207,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.69</Value>
+													<Value>0.52</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3653,7 +3300,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.75</Value>
+													<Value>0.56</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3746,7 +3393,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.79</Value>
+													<Value>0.6</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3839,7 +3486,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.83</Value>
+													<Value>0.64</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -3932,7 +3579,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.87</Value>
+													<Value>0.68</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -4025,7 +3672,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.91</Value>
+													<Value>0.72</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -4118,7 +3765,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.95</Value>
+													<Value>0.76</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -4211,7 +3858,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.99</Value>
+													<Value>0.8</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -4253,7 +3900,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VirtualBrake S-J</Value>
+													<Value>DakoBS Zub18</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4264,7 +3911,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>DakoBS2 S-J</Value>
+																	<Value>DakoBS2 Cvakani</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4279,7 +3926,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>VolumeBP</Value>
+																	<Value />
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4290,21 +3937,21 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>TrainBrakeControl</Value>
+													<Value>VirtualBrake</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
 										<Attribute name="TriggerType">
 											<kLoud-eTriggerType>
 												<Element>
-													<Value>ValueIncreasePast</Value>
+													<Value>ValueMovesPast</Value>
 												</Element>
 											</kLoud-eTriggerType>
 										</Attribute>
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.1</Value>
+													<Value>0.84</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -4346,7 +3993,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VirtualBrake J-S</Value>
+													<Value>DakoBS Zub19</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4357,7 +4004,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>DakoBS2 J-S</Value>
+																	<Value>DakoBS2 Cvakani</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4367,49 +4014,6 @@
 										</Attribute>
 										<Attribute name="ModifierChain">
 											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueDecreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.1</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
 												<Element>
 													<Value>
 														<Attribute name="Name">
@@ -4421,169 +4025,26 @@
 														</Attribute>
 													</Value>
 												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake R-BZ</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 R-BZ</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
 											</kLoud-cModifierChain>
 										</Attribute>
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>TrainBrakeControl</Value>
+													<Value>VirtualBrake</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
 										<Attribute name="TriggerType">
 											<kLoud-eTriggerType>
 												<Element>
-													<Value>ValueDecreasePast</Value>
+													<Value>ValueMovesPast</Value>
 												</Element>
 											</kLoud-eTriggerType>
 										</Attribute>
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.95</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake BZ-B</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 BZ-B</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueDecreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.85</Value>
+													<Value>0.93</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -4694,7 +4155,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>DakoBP</Value>
+																	<Value>DakoBPO</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4787,7 +4248,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>DakoBPO</Value>
+																	<Value>DakoBP</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4811,7 +4272,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>VirtualBrake Brzdeni1</Value>
+													<Value>DakoBS skripnuti pistek</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -4822,7 +4283,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
+																	<Value>skripnutiPistek</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4832,49 +4293,6 @@
 										</Attribute>
 										<Attribute name="ModifierChain">
 											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.24</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
 												<Element>
 													<Value>
 														<Attribute name="Name">
@@ -4886,1457 +4304,12 @@
 														</Attribute>
 													</Value>
 												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni2</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
 											</kLoud-cModifierChain>
 										</Attribute>
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.28</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni3</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.32</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni4</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.36</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni5</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.4</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni6</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.44</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni7</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.48</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni8</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.52</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni9</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.56</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni10</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.6</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni11</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.64</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni12</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.68</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni13</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.72</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni14</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.76</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni15</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.8</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>VirtualBrake Brzdeni16</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIncreasePast</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0.84</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>BS2 Brzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>INSIDE</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl Odbrzdeni</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>DakoBS2 Odbrzdeni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>VolumeBP</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>TrainBrakeControl</Value>
+													<Value>vypousteniSoundController</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -6350,7 +4323,7 @@
 										<Attribute name="TriggerValue">
 											<sFloat32>
 												<Element>
-													<Value>0.16</Value>
+													<Value>0.01</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>

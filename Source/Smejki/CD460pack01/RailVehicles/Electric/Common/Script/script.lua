@@ -113,7 +113,8 @@ plynuleValce_bezBP = 0
 tlak_HP = 0
 navoleny_tlak = 0
 tlak_ridiciho_ustroji = 0
-odtrh_ridiciho_ustroji = false
+prah_hystereze_ridiciho_ustroji = 0.3
+hystereze_ridiciho_ustroji = false
 -- tlak_ridiciho_ustroji_opozdene = tlak_ridiciho_ustroji
 VirtualMainReservoirPressureBAR = math.random(0,10)
 -- tlak_HP_opozdene = 0
@@ -2982,10 +2983,12 @@ function Update (casHry)
 								tlak_ridiciho_ustroji = navoleny_tlak
 							end
 
-							if math.abs(tlak_ridiciho_ustroji - tlak_HP) > 0.3 then
-								odtrh_ridiciho_ustroji = true
-							elseif math.abs(tlak_ridiciho_ustroji - tlak_HP) < math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength")) then
-								odtrh_ridiciho_ustroji = false
+							if math.abs(tlak_ridiciho_ustroji - tlak_HP) > prah_hystereze_ridiciho_ustroji then
+								hystereze_ridiciho_ustroji = true
+								prah_hystereze_ridiciho_ustroji = math.min(0.05, prah_hystereze_ridiciho_ustroji - cas*0.25)
+							elseif math.abs(tlak_ridiciho_ustroji - tlak_HP) < 0.001 then
+								hystereze_ridiciho_ustroji = false
+								prah_hystereze_ridiciho_ustroji = math.min(0.3, prah_hystereze_ridiciho_ustroji + cas*0.025)
 							end
 
 							if soupatkoVZ == 1 or matrosov or BS2 > 0.93 then
@@ -3003,8 +3006,9 @@ function Update (casHry)
 									Call("SetControlValue","zvukSyceniVZ",0,0)
 								end
 							end
-							
-							if diraDoPotrubi == 0 and not matrosov and odtrh_ridiciho_ustroji and doplnujBrzdu then
+							local vypousteniSoundController = Call("GetControlValue", "vypousteniSoundController", 0)
+							local plneniSoundController = Call("GetControlValue", "plneniSoundController", 0)
+							if diraDoPotrubi == 0 and not matrosov and hystereze_ridiciho_ustroji and doplnujBrzdu then
 								local prirustek_brzdeni = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength")/3)
 								local prirustek_odbrzdeni = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength"))
 								local prirustek_svih = math.sqrt(math.abs(tlak_ridiciho_ustroji-tlak_HP))/(Call("GetConsistLength")/10)
@@ -3012,8 +3016,19 @@ function Update (casHry)
 									tlak_HP = tlak_HP + prirustek_svih
 								elseif tlak_ridiciho_ustroji - tlak_HP > prirustek_odbrzdeni and tlak_HP < VirtualMainReservoirPressureBAR then
 									tlak_HP = tlak_HP + prirustek_odbrzdeni
+								elseif tlak_ridiciho_ustroji - tlak_HP > 0 and tlak_ridiciho_ustroji - tlak_HP < prirustek_odbrzdeni and tlak_ridiciho_ustroji < VirtualMainReservoirPressureBAR then
+									tlak_HP = tlak_ridiciho_ustroji
 								elseif tlak_HP - tlak_ridiciho_ustroji > prirustek_brzdeni then
 									tlak_HP = tlak_HP - prirustek_brzdeni
+								elseif tlak_HP - tlak_ridiciho_ustroji > 0 and tlak_HP - tlak_ridiciho_ustroji < prirustek_brzdeni and tlak_ridiciho_ustroji < VirtualMainReservoirPressureBAR then
+									tlak_HP = tlak_ridiciho_ustroji
+								end
+								if tlak_ridiciho_ustroji < tlak_HP then
+									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, prirustek_brzdeni*100))
+									Call("SetControlValue", "plneniSoundController", 0, math.max(0, plneniSoundController-((math.sqrt(math.abs(plneniSoundController/3))/(Call("GetConsistLength")/10))*10)))
+								else
+									Call("SetControlValue", "plneniSoundController", 0, math.max(0, prirustek_odbrzdeni*300))
+									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, vypousteniSoundController-((math.sqrt(math.abs(vypousteniSoundController/3))/(Call("GetConsistLength")/10))*10)))
 								end
 							elseif diraDoPotrubi > 0 or matrosov then
 								local prirustek_brzdeni = math.sqrt(math.abs(tlak_HP))/(Call("GetConsistLength")/50)
@@ -3021,6 +3036,15 @@ function Update (casHry)
 									tlak_HP = tlak_HP - prirustek_brzdeni
 								else
 									tlak_HP = 0
+								end
+								Call("SetControlValue", "vypousteniSoundController", 0, 0)
+								Call("SetControlValue", "plneniSoundController", 0, 0)
+							else
+								if vypousteniSoundController > 0 then
+									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, vypousteniSoundController-((math.sqrt(math.abs(vypousteniSoundController/3))/(Call("GetConsistLength")/10))*10)))
+								end
+								if plneniSoundController > 0 then
+									Call("SetControlValue", "plneniSoundController", 0, math.max(0, plneniSoundController-((math.sqrt(math.abs(plneniSoundController/3))/(Call("GetConsistLength")/10))*10)))
 								end
 							end
 
