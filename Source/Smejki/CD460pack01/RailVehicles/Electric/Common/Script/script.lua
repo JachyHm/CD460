@@ -119,10 +119,10 @@ hystereze_ridiciho_ustroji = false
 VirtualMainReservoirPressureBAR = math.random(0,10)
 -- tlak_HP_opozdene = 0
 plynulyVzduchojem = 0
-vysokotlakysvih = false
 -- vysokotlakysvih_opozdene = false
 pribrzdiSvih = false
 vychoziTlakSystemu = 5
+vychoziTlakBrzdice = 5
 -- vychoziTlakSystemu_opozdene = 5
 PipeOld = 0
 
@@ -2357,6 +2357,9 @@ function Update (casHry)
 						diraDoPotrubi = Call("GetControlValue", "diraDoPotrubi", 0)
 						if Call("GetControlValue","VirtualBrake",0) < 0.82 or Call("GetControlValue","VirtualBrake",0) > 0.93 then
 							Call("SetControlValue","BrzdaVS",0,Call("GetControlValue","VirtualBrake",0))
+							if Call("GetControlValue","VirtualBrake",0) > 0.21 or Call("GetControlValue","VirtualBrake",0) < 0.23 then
+								Call("SetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0, vychoziTlakBrzdice)
+							end
 						end
 						if MaPredniPantograf == 1 then PredniPanto = Call("GetControlValue", "PantoPredni", 0) else PredniPanto = 0 end
 						KompresorPrep = Call("GetControlValue","HlKompPrep",0)
@@ -2907,7 +2910,8 @@ function Update (casHry)
 							PantoJimkaZKom = PantoJimkaZKom-(((PantoJimkaZKom/790)^2)*10*cas)
 							prepinaceTlak = prepinaceTlak-(((prepinaceTlak/600)^2)*10*cas)
 							dvereTlak = dvereTlak-(((dvereTlak/400)^2)*10*cas)
-							vychoziTlakSystemu = math.max(vychoziTlakSystemu-0.00333*cas,5)
+							vychoziTlakBrzdice = math.max(vychoziTlakBrzdice-0.00333*cas,5)
+							vychoziTlakSystemu = Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0)
 
 							if VirtualMainReservoirPressureBAR > horniMezKompresoru then
 								autoKompresor = false
@@ -2958,7 +2962,6 @@ function Update (casHry)
 							BS2 = Call("GetControlValue","BrzdaVS",0)
 							if BS2 ~= BS2old or doplnujBrzdu then
 								if BS2 < 0.06 then
-									vysokotlakysvih = true
 									navoleny_tlak = VirtualMainReservoirPressureBAR
 									doplnujBrzdu = true
 								elseif BS2 < 0.21 then
@@ -3052,11 +3055,8 @@ function Update (casHry)
 							Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,tlak_ridiciho_ustroji)
 							Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
 
-							if BS2 < 0.06 and tlak_HP > vychoziTlakSystemu then
-								vychoziTlakSystemu = vychoziTlakSystemu + cas * 0.15
-							end
-							if vychoziTlakSystemu <= 5 then
-								vysokotlakysvih = false
+							if Call("GetControlValue", "VirtualBrake", 0) < 0.06 and tlak_HP > vychoziTlakBrzdice then
+								vychoziTlakBrzdice = vychoziTlakBrzdice + cas * 0.15
 							end
 
 							if tlak_HP > PipeOld then
