@@ -227,6 +227,9 @@ provedPrijetiVUpdate = false
 ksOK = false
 casKS = 0
 
+vevnitr = true
+vOddile = false
+
 function genChckSum(fileObject)
 	fileObject = assert(fileObject, "Soubor nebyl nalezeny!")
 	chckSum = 0
@@ -1976,7 +1979,7 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 
 	if jeZivak == 1 then
 		signalCode = LVZznak
-		if prujezdKolemNavestidla then
+		if prujezdKolemNavestidla and signalCode > 0 then
 			prujezdKolemNavestidla = false
 			casNekodovani = 0
 			if lastSignalCode == 1 then
@@ -1986,6 +1989,8 @@ function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
 				nekodujCas = math.random(0,2) + math.random()
 				pocetSumuPoPrujezdu = math.random(0,1)
 			end
+		else
+			prujezdKolemNavestidla = false
 		end
 
 		casNekodovani = casNekodovani + delkaUpd
@@ -2140,12 +2145,18 @@ function Napoveda (zprava, level)
 	end
 end
 function OnCameraEnter(cabEndWithCamera, carriageCamera)
-	SysCall("CameraManager:ActivateCamera", "CabCamera", 0)
+	vevnitr = true
+	if carriageCamera == 1 then
+		vOddile = true
+	end
+	-- SysCall("CameraManager:ActivateCamera", "CabCamera", 0)
 end
 function OnCameraLeave()
-	if math.max(Call("GetControlValue", "OknoL", 0),Call("GetControlValue", "OknoP", 0)) < 0.5 then
-		SysCall("CameraManager:ActivateCamera", "CabCamera", 0)
-	end
+	-- if math.max(Call("GetControlValue", "OknoL", 0),Call("GetControlValue", "OknoP", 0)) < 0.5 then
+	-- 	SysCall("CameraManager:ActivateCamera", "CabCamera", 0)
+	-- end
+	vevnitr = false
+	vOddile = false
 end
 function Update (casHry)
 	casMinuly = casProcesor
@@ -2357,7 +2368,7 @@ function Update (casHry)
 						diraDoPotrubi = Call("GetControlValue", "diraDoPotrubi", 0)
 						if Call("GetControlValue","VirtualBrake",0) < 0.82 or Call("GetControlValue","VirtualBrake",0) > 0.93 then
 							Call("SetControlValue","BrzdaVS",0,Call("GetControlValue","VirtualBrake",0))
-							if (Call("GetControlValue","VirtualBrake",0) < 0.21 or Call("GetControlValue","VirtualBrake",0) > 0.23) and Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) <= vychoziTlakBrzdice then
+							if (Call("GetControlValue","VirtualBrake",0) < 0.21 or Call("GetControlValue","VirtualBrake",0) > 0.23) and math.abs(Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) - vychoziTlakBrzdice) < 0.01 or Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) <= vychoziTlakBrzdice then
 								Call("SetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0, vychoziTlakBrzdice)
 							end
 						end
@@ -3032,10 +3043,10 @@ function Update (casHry)
 								end
 								if tlak_ridiciho_ustroji < tlak_HP then
 									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, prirustek_brzdeni*100))
-									Call("SetControlValue", "plneniSoundController", 0, math.max(0, plneniSoundController-((math.sqrt(math.abs(plneniSoundController/3))/(Call("GetConsistLength")/10))*10)))
+									Call("SetControlValue", "plneniSoundController", 0, math.max(0, plneniSoundController-((math.sqrt(math.abs(plneniSoundController/3))/(Call("GetConsistLength")/7))*10)))
 								else
 									Call("SetControlValue", "plneniSoundController", 0, math.max(0, prirustek_odbrzdeni*300))
-									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, vypousteniSoundController-((math.sqrt(math.abs(vypousteniSoundController/3))/(Call("GetConsistLength")/10))*10)))
+									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, vypousteniSoundController-((math.sqrt(math.abs(vypousteniSoundController/3))/(Call("GetConsistLength")/7))*10)))
 								end
 							elseif diraDoPotrubi > 0 or matrosov then
 								local prirustek_brzdeni = math.sqrt(math.abs(tlak_HP))/(Call("GetConsistLength")/50)
@@ -3048,10 +3059,10 @@ function Update (casHry)
 								Call("SetControlValue", "plneniSoundController", 0, 0)
 							else
 								if vypousteniSoundController > 0 then
-									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, vypousteniSoundController-((math.sqrt(math.abs(vypousteniSoundController/3))/(Call("GetConsistLength")/10))*10)))
+									Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, vypousteniSoundController-((math.sqrt(math.abs(vypousteniSoundController/3))/(Call("GetConsistLength")/7))*10)))
 								end
 								if plneniSoundController > 0 then
-									Call("SetControlValue", "plneniSoundController", 0, math.max(0, plneniSoundController-((math.sqrt(math.abs(plneniSoundController/3))/(Call("GetConsistLength")/10))*10)))
+									Call("SetControlValue", "plneniSoundController", 0, math.max(0, plneniSoundController-((math.sqrt(math.abs(plneniSoundController/3))/(Call("GetConsistLength")/7))*10)))
 								end
 							end
 
@@ -3102,7 +3113,7 @@ function Update (casHry)
 							
 							if plynuleValce_bezBP == 0 then
 								Call("SetControlValue","TrainBrakeControl",0,0)
-							elseif (plynuleValce_bezBP >= 0.1 and BS2 > 0.93) or tlak_HP < 3.5 then
+							elseif (plynuleValce_bezBP >= 0.1 and BS2 > 0.93) or tlak_HP < 3 then
 								Call("SetControlValue","TrainBrakeControl",0,1)
 							else
 								Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
@@ -4282,20 +4293,54 @@ function Update (casHry)
 								pojezdVDepu = false
 								Call("SetControlValue","StykacPojezd",0,0)
 							end
-						----------------------------------------Okenka--------------------------------------------
-							-- okno = Call("GetControlValue","OknoL",0)
-							-- if okno ~= oknoStare then
-								-- occlusion = (-1200-(okno*600))
-								-- lfRatio = (0.15+(okno*0.51))
-								-- roomRatio = (1 - (okno*0.34))
-								-- Call("*:SetParameter","Occlusion",occlusion)
-								-- Call("SetControlValue","Occlusion",0,occlusion)
-								-- Call("*:SetParameter","OcclusionLFratio",lfRatio)
-								-- Call("SetControlValue","OcclusionLFratio",0,lfRatio)
-								-- Call("*:SetParameter","OcclusionRoomRatio",roomRatio)
-								-- Call("SetControlValue","OcclusionRoomRatio",0,roomRatio)
-								-- oknoStare = okno
-							-- end
+						----------------------------------------Okenka a zvuky deste------------------------------
+							okna = (Call("GetControlValue","OknoL",0)+Call("GetControlValue","OknoP",0))/2
+							
+							if SysCall("GetPrecipitationDensity") > 0 then
+								if SysCall("GetCurrentPrecipitationType") < 2 then
+									if venku then
+										Call("EngineSound:SetParameter", "DestIn", 0)
+										Call("EngineSound:SetParameter", "DestExOkno", 0)
+										Call("EngineSound:SetParameter", "DestEx", 1)
+										Call("EngineSound:SetParameter", "Kroupy", 0)
+									else
+										Call("EngineSound:SetParameter", "DestIn", 1)
+										Call("EngineSound:SetParameter", "DestExOkno", 1)
+										Call("EngineSound:SetParameter", "DestEx", 0)
+										Call("EngineSound:SetParameter", "Kroupy", 0)
+									end
+								elseif SysCall("GetCurrentPrecipitationType") == 2 then
+									if venku then
+										Call("EngineSound:SetParameter", "DestIn", 0)
+										Call("EngineSound:SetParameter", "DestExOkno", 0)
+										Call("EngineSound:SetParameter", "DestEx", 1)
+									else
+										Call("EngineSound:SetParameter", "DestIn", 0)
+										Call("EngineSound:SetParameter", "DestExOkno", 0)
+										Call("EngineSound:SetParameter", "DestEx", 0)
+										if SysCall("GetPrecipitationDensity") > 0.5 then
+											Call("EngineSound:SetParameter", "Kroupy", 2)
+										else
+											Call("EngineSound:SetParameter", "Kroupy", 1)
+										end
+									end
+								else
+									Call("EngineSound:SetParameter", "DestIn", 0)
+									Call("EngineSound:SetParameter", "DestExOkno", 0)
+									Call("EngineSound:SetParameter", "DestEx", 0)
+									Call("EngineSound:SetParameter", "Kroupy", 0)
+								end
+							else
+								Call("EngineSound:SetParameter", "DestIn", 0)
+								Call("EngineSound:SetParameter", "DestExOkno", 0)
+								Call("EngineSound:SetParameter", "DestEx", 0)
+								Call("EngineSound:SetParameter", "Kroupy", 0)
+							end
+							if not vOddile then
+								Call("EngineSound:SetParameter", "OknaOcclusion", okna)
+							else
+								Call("EngineSound:SetParameter", "OknaOcclusion", 0)
+							end
 						----------------------------------------Vnitrni sit---------------------------------------
 							mgZvuk = Call("GetControlValue","mgZvuk",0)
 							if mgZvuk == 1 and napetiVS220 < 380 then

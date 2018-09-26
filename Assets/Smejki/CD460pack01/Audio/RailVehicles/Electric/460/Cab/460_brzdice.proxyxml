@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="122239">
+				<kLoud-cSingleSampleSound d:id="177717">
 					<Name d:type="cDeltaString">Rychlobrzda</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="122252">
+				<kLoud-cSingleSampleSound d:id="177730">
 					<Name d:type="cDeltaString">RychlobrzdaOneshot</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cRandomSampleSound d:id="122265">
+				<kLoud-cRandomSampleSound d:id="177743">
 					<Name d:type="cDeltaString">DakoBS2 Cvakani</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -51,7 +51,7 @@
 					<NoFutherAttenuationDist d:type="sFloat32">25</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="122277">
+						<kLoud-cSampleWithLikelihood d:id="177755">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -59,7 +59,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="122281">
+						<kLoud-cSampleWithLikelihood d:id="177759">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -67,7 +67,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="122285">
+						<kLoud-cSampleWithLikelihood d:id="177763">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -75,7 +75,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="122289">
+						<kLoud-cSampleWithLikelihood d:id="177767">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -83,7 +83,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="122293">
+						<kLoud-cSampleWithLikelihood d:id="177771">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -91,7 +91,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="122297">
+						<kLoud-cSampleWithLikelihood d:id="177775">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -99,7 +99,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="122301">
+						<kLoud-cSampleWithLikelihood d:id="177779">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -107,7 +107,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="122305">
+						<kLoud-cSampleWithLikelihood d:id="177783">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -117,7 +117,7 @@
 						</kLoud-cSampleWithLikelihood>
 					</Sample>
 				</kLoud-cRandomSampleSound>
-				<kLoud-cSingleSampleSound d:id="122309">
+				<kLoud-cSingleSampleSound d:id="177787">
 					<Name d:type="cDeltaString">DakoBP odbrzdeni</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -134,7 +134,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="122322">
+				<kLoud-cSingleSampleSound d:id="177800">
 					<Name d:type="cDeltaString">DakoBP zabrzdeni</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -151,7 +151,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="122335">
+				<kLoud-cSingleSampleSound d:id="177813">
 					<Name d:type="cDeltaString">Rychlobrzda IN</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -168,7 +168,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="122348">
+				<kLoud-cSingleSampleSound d:id="177826">
 					<Name d:type="cDeltaString">RychlobrzdaOneshot IN</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -185,10 +185,10 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="122361">
+				<kLoud-cSingleSampleSound d:id="177839">
 					<Name d:type="cDeltaString">upousteniPotrubi</Name>
 					<IsLooped d:type="bool">1</IsLooped>
-					<Priority d:type="sUInt32">200</Priority>
+					<Priority d:type="sUInt32">100</Priority>
 					<BaseVolume d:type="sFloat32">1</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
@@ -202,7 +202,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="122374">
+				<kLoud-cSingleSampleSound d:id="177852">
 					<Name d:type="cDeltaString">skripnutiPistek</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
@@ -221,80 +221,80 @@
 				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="122388">
+				<kLoud-cCurve d:id="177866">
 					<Name d:type="cDeltaString">VolumeBP</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="122391">
+						<kLoud-cRVector2 d:id="177869">
 							<X d:type="sFloat32">-3</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122394">
+						<kLoud-cRVector2 d:id="177872">
 							<X d:type="sFloat32">-2</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122397">
+						<kLoud-cRVector2 d:id="177875">
 							<X d:type="sFloat32">-1</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122400">
+						<kLoud-cRVector2 d:id="177878">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122403">
+						<kLoud-cRVector2 d:id="177881">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122406">
+						<kLoud-cRVector2 d:id="177884">
 							<X d:type="sFloat32">2</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122409">
+						<kLoud-cRVector2 d:id="177887">
 							<X d:type="sFloat32">3</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="122412">
+				<kLoud-cCurve d:id="177890">
 					<Name d:type="cDeltaString">volumeVZvzduch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="122415">
+						<kLoud-cRVector2 d:id="177893">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122418">
+						<kLoud-cRVector2 d:id="177896">
 							<X d:type="sFloat32">2</X>
 							<Y d:type="sFloat32">0.3</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122421">
+						<kLoud-cRVector2 d:id="177899">
 							<X d:type="sFloat32">8</X>
 							<Y d:type="sFloat32">0.6</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122424">
+						<kLoud-cRVector2 d:id="177902">
 							<X d:type="sFloat32">10</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="122427">
+				<kLoud-cCurve d:id="177905">
 					<Name d:type="cDeltaString">vypousteniPitchCurve</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="122430">
+						<kLoud-cRVector2 d:id="177908">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0.98</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122433">
+						<kLoud-cRVector2 d:id="177911">
 							<X d:type="sFloat32">0.04103075</X>
 							<Y d:type="sFloat32">0.9890974</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122436">
+						<kLoud-cRVector2 d:id="177914">
 							<X d:type="sFloat32">0.141194075</X>
 							<Y d:type="sFloat32">0.9944967</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122439">
+						<kLoud-cRVector2 d:id="177917">
 							<X d:type="sFloat32">0.277561</X>
 							<Y d:type="sFloat32">0.998796165</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="122442">
+						<kLoud-cRVector2 d:id="177920">
 							<X d:type="sFloat32">0.5</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
@@ -302,64 +302,48 @@
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="122446">
+				<kLoud-cModifierChain d:id="177924">
 					<Name d:type="cDeltaString">VolumeBP</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="122449">
+						<kLoud-cVolumeCurveModifier d:id="177927">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VirtualMainReservoirPressureBAR</ControllerName>
-							<Curve d:type="ref">122388</Curve>
+							<Curve d:type="ref">177866</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="122453">
+				<kLoud-cModifierChain d:id="177931">
 					<Name d:type="cDeltaString">VZvzduch</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="122456">
+						<kLoud-cVolumeCurveModifier d:id="177934">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">VirtualMainReservoirPressureBAR</ControllerName>
-							<Curve d:type="ref">122412</Curve>
+							<Curve d:type="ref">177890</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="122460">
+				<kLoud-cModifierChain d:id="177938">
 					<Name d:type="cDeltaString">SyceniPotrubi</Name>
 					<Modifier>
-						<kLoud-cLinearVolumeModifier d:id="122463">
+						<kLoud-cLinearVolumeModifier d:id="177941">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">vypousteniSoundController</ControllerName>
 						</kLoud-cLinearVolumeModifier>
-						<kLoud-cPitchCurveModifier d:id="122466">
+						<kLoud-cPitchCurveModifier d:id="177944">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">vypousteniSoundController</ControllerName>
-							<Curve d:type="ref">122427</Curve>
+							<Curve d:type="ref">177905</Curve>
 						</kLoud-cPitchCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
-			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="122471">
-					<Name d:type="cDeltaString">DakoBP</Name>
-					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
-					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
-				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="122475">
-					<Name d:type="cDeltaString">DakoBPO</Name>
-					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
-					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
-				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="122479">
-					<Name d:type="cDeltaString">SyceniPotrubi</Name>
-					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
-					<InstanceExceededAction d:type="cDeltaString">StopOldest</InstanceExceededAction>
-				</kLoud-cInstanceGroup>
-			</InstanceGroup>
+			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="122484">
+				<kLoud-cControlledLoop d:id="177950">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VZvzduch</Name>
-					<Sound d:type="ref">122335</Sound>
-					<ModifierChain d:type="ref">122453</ModifierChain>
+					<Sound d:type="ref">177813</Sound>
+					<ModifierChain d:type="ref">177931</ModifierChain>
 					<ControllerName d:type="cDeltaString">zvukSyceniVZ</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.5</ActiveRangeStartValue>
@@ -367,11 +351,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="122495">
+				<kLoud-cControlledLoop d:id="177961">
 					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
 					<Name d:type="cDeltaString">VZvzduch</Name>
-					<Sound d:type="ref">122239</Sound>
-					<ModifierChain d:type="ref">122453</ModifierChain>
+					<Sound d:type="ref">177717</Sound>
+					<ModifierChain d:type="ref">177931</ModifierChain>
 					<ControllerName d:type="cDeltaString">zvukSyceniVZ</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.5</ActiveRangeStartValue>
@@ -379,46 +363,46 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="122506">
+				<kLoud-cControlledLoop d:id="177972">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">upousteniPotrubi</Name>
-					<Sound d:type="ref">122361</Sound>
-					<ModifierChain d:type="ref">122460</ModifierChain>
+					<Sound d:type="ref">177839</Sound>
+					<ModifierChain d:type="ref">177938</ModifierChain>
 					<ControllerName d:type="cDeltaString">vypousteniSoundController</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.01</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">1.1</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">122479</InstanceGroup>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="122518">
+				<kLoud-cTriggeredOneshot d:id="177984">
 					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
 					<Name d:type="cDeltaString">Rychlobrzda</Name>
-					<Sound d:type="ref">122252</Sound>
-					<ModifierChain d:type="ref">122446</ModifierChain>
+					<Sound d:type="ref">177730</Sound>
+					<ModifierChain d:type="ref">177924</ModifierChain>
 					<ControllerName d:type="cDeltaString">TrainBrakeControl</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.99</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122528">
+				<kLoud-cTriggeredOneshot d:id="177994">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Rychlobrzda</Name>
-					<Sound d:type="ref">122348</Sound>
-					<ModifierChain d:type="ref">122446</ModifierChain>
+					<Sound d:type="ref">177826</Sound>
+					<ModifierChain d:type="ref">177924</ModifierChain>
 					<ControllerName d:type="cDeltaString">TrainBrakeControl</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.99</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122538">
+				<kLoud-cTriggeredOneshot d:id="178004">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub1</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -426,10 +410,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122548">
+				<kLoud-cTriggeredOneshot d:id="178014">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub2</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -437,10 +421,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122558">
+				<kLoud-cTriggeredOneshot d:id="178024">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub3</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -448,10 +432,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122568">
+				<kLoud-cTriggeredOneshot d:id="178034">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub4</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -459,10 +443,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122578">
+				<kLoud-cTriggeredOneshot d:id="178044">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub5</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -470,10 +454,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122588">
+				<kLoud-cTriggeredOneshot d:id="178054">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub6</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -481,10 +465,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122598">
+				<kLoud-cTriggeredOneshot d:id="178064">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub7</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -492,10 +476,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122608">
+				<kLoud-cTriggeredOneshot d:id="178074">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub8</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -503,10 +487,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122618">
+				<kLoud-cTriggeredOneshot d:id="178084">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub9</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -514,10 +498,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122628">
+				<kLoud-cTriggeredOneshot d:id="178094">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub10</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -525,10 +509,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122638">
+				<kLoud-cTriggeredOneshot d:id="178104">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub11</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -536,10 +520,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122648">
+				<kLoud-cTriggeredOneshot d:id="178114">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub12</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -547,10 +531,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122658">
+				<kLoud-cTriggeredOneshot d:id="178124">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub13</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -558,10 +542,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122668">
+				<kLoud-cTriggeredOneshot d:id="178134">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub14</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -569,10 +553,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122678">
+				<kLoud-cTriggeredOneshot d:id="178144">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub15</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -580,10 +564,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122688">
+				<kLoud-cTriggeredOneshot d:id="178154">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub16</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -591,10 +575,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122698">
+				<kLoud-cTriggeredOneshot d:id="178164">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub17</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -602,10 +586,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122708">
+				<kLoud-cTriggeredOneshot d:id="178174">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub18</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -613,10 +597,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122718">
+				<kLoud-cTriggeredOneshot d:id="178184">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS Zub19</Name>
-					<Sound d:type="ref">122265</Sound>
+					<Sound d:type="ref">177743</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -624,32 +608,32 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122728">
+				<kLoud-cTriggeredOneshot d:id="178194">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">DakoBP Odbrzdeni</Name>
-					<Sound d:type="ref">122309</Sound>
-					<ModifierChain d:type="ref">122446</ModifierChain>
+					<Sound d:type="ref">177787</Sound>
+					<ModifierChain d:type="ref">177924</ModifierChain>
 					<ControllerName d:type="cDeltaString">EngineBrakeControl</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
 					<TriggerValue d:type="sFloat32">0.05</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">122475</InstanceGroup>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122738">
+				<kLoud-cTriggeredOneshot d:id="178204">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">DakoBP Zabrzdeni</Name>
-					<Sound d:type="ref">122322</Sound>
-					<ModifierChain d:type="ref">122446</ModifierChain>
+					<Sound d:type="ref">177800</Sound>
+					<ModifierChain d:type="ref">177924</ModifierChain>
 					<ControllerName d:type="cDeltaString">EngineBrakeControl</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0.05</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">122471</InstanceGroup>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="122748">
+				<kLoud-cTriggeredOneshot d:id="178214">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DakoBS skripnuti pistek</Name>
-					<Sound d:type="ref">122374</Sound>
+					<Sound d:type="ref">177852</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">vypousteniSoundController</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
