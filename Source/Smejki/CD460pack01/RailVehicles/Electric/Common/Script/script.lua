@@ -2357,7 +2357,7 @@ function Update (casHry)
 						diraDoPotrubi = Call("GetControlValue", "diraDoPotrubi", 0)
 						if Call("GetControlValue","VirtualBrake",0) < 0.82 or Call("GetControlValue","VirtualBrake",0) > 0.93 then
 							Call("SetControlValue","BrzdaVS",0,Call("GetControlValue","VirtualBrake",0))
-							if Call("GetControlValue","VirtualBrake",0) > 0.21 or Call("GetControlValue","VirtualBrake",0) < 0.23 then
+							if (Call("GetControlValue","VirtualBrake",0) < 0.21 or Call("GetControlValue","VirtualBrake",0) > 0.23) and Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) <= vychoziTlakBrzdice then
 								Call("SetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0, vychoziTlakBrzdice)
 							end
 						end
@@ -2959,22 +2959,26 @@ function Update (casHry)
 							end
 
 							BS2old = BS2
-							BS2 = Call("GetControlValue","BrzdaVS",0)
+							BS2 = Call("GetControlValue","VirtualBrake",0)
 							if BS2 ~= BS2old or doplnujBrzdu then
 								if BS2 < 0.06 then
 									navoleny_tlak = VirtualMainReservoirPressureBAR
 									doplnujBrzdu = true
 								elseif BS2 < 0.21 then
-									navoleny_tlak = vychoziTlakSystemu
+									navoleny_tlak = vychoziTlakBrzdice
 									doplnujBrzdu = true
 								elseif BS2 < 0.23 then
 									doplnujBrzdu = false
 								elseif BS2 <= 0.82 then
-									navoleny_tlak = vychoziTlakSystemu - 0.3 - ((BS2 - 0.26)*3.0357)
+									navoleny_tlak = vychoziTlakBrzdice - 0.3 - ((BS2 - 0.26)*3.0357)
 									doplnujBrzdu = true
 								elseif BS2 < 0.93 then
 									doplnujBrzdu = false
 								end
+							end
+
+							if BS2 > 0.82 and BS2 < 0.93 then
+								tlak_HP = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
 							end
 
 							local zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(navoleny_tlak-tlak_ridiciho_ustroji))/50
