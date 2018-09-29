@@ -1184,7 +1184,6 @@ function Initialise ()
 	predMasinou = Call("SendConsistMessage",460999,"DUMMY",0)
 	zaMasinou = Call("SendConsistMessage",460999,"DUMMY",1)
 	Call("SetControlValue","PantographControl",0,0)
-	Call("SetControlValue","BrzdaVS",0,0.86)
 	NastavHodnotuSID("pocetJimek", 1, 460993)
 	if not bylKS then
 		bylKS = true
@@ -2367,7 +2366,6 @@ function Update (casHry)
 						end
 						diraDoPotrubi = Call("GetControlValue", "diraDoPotrubi", 0)
 						if Call("GetControlValue","VirtualBrake",0) < 0.82 or Call("GetControlValue","VirtualBrake",0) > 0.93 then
-							Call("SetControlValue","BrzdaVS",0,Call("GetControlValue","VirtualBrake",0))
 							if (Call("GetControlValue","VirtualBrake",0) < 0.21 or Call("GetControlValue","VirtualBrake",0) > 0.23) and math.abs(Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) - vychoziTlakBrzdice) < 0.01 or Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) <= vychoziTlakBrzdice then
 								Call("SetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0, vychoziTlakBrzdice)
 							end
