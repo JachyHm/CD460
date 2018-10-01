@@ -2366,7 +2366,7 @@ function Update (casHry)
 						end
 						diraDoPotrubi = Call("GetControlValue", "diraDoPotrubi", 0)
 						if Call("GetControlValue","VirtualBrake",0) < 0.82 or Call("GetControlValue","VirtualBrake",0) > 0.93 then
-							if (Call("GetControlValue","VirtualBrake",0) < 0.21 or Call("GetControlValue","VirtualBrake",0) > 0.23) and math.abs(Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) - vychoziTlakBrzdice) < 0.01 or Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) <= vychoziTlakBrzdice then
+							if (Call("GetControlValue","VirtualBrake",0) < 0.21 or Call("GetControlValue","VirtualBrake",0) > 0.23) and math.abs(Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) - vychoziTlakBrzdice) < 0.3 or Call("GetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0) <= vychoziTlakBrzdice then
 								Call("SetControlValue", "VirtualBrakeControlSystemDefaultPressureBAR", 0, vychoziTlakBrzdice)
 							end
 						end
