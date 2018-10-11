@@ -148,8 +148,14 @@ dvereLPskutecne = 0
 dvereLZskutecne = 0
 dverePPskutecne = 0
 dverePZskutecne = 0
-rychlostZaviraniDveri = 1.15
-rychlostOteviraniDveri = 0.28
+rychlostZaviraniDveriLP = math.random(100, 130)/100
+rychlostZaviraniDveriPP = math.random(100, 130)/100
+rychlostZaviraniDveriLZ = math.random(100, 130)/100
+rychlostZaviraniDveriPZ = math.random(100, 130)/100
+rychlostOteviraniDveriLP = math.random(20, 36)/100
+rychlostOteviraniDveriPP = math.random(20, 36)/100
+rychlostOteviraniDveriLZ = math.random(20, 36)/100
+rychlostOteviraniDveriPZ = math.random(20, 36)/100
 RizenaRidiciLast_dvere = ""
 
 gProbihaPrasatkoL = false
@@ -2947,11 +2953,11 @@ function Update (casHry)
 								pojistak = false
 							end
 							VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
-							if VirtualBrakeReservoirPressureBAR < 5 and VirtualBrakeReservoirPressureBAR < VirtualMainReservoirPressureBAR - 0.5 then
-								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,math.min(VirtualMainReservoirPressureBAR,VirtualBrakeReservoirPressureBAR+0.02))
-								Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-0.02)
-								VirtualBrakeReservoirPressureBAR = math.min(VirtualMainReservoirPressureBAR,VirtualBrakeReservoirPressureBAR+0.02)
-								VirtualMainReservoirPressureBAR = VirtualMainReservoirPressureBAR - 0.02
+							if math.abs(VirtualBrakeReservoirPressureBAR - VirtualBrakePipePressureBAR) < 0.01 then
+								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR+math.sqrt(math.abs(VirtualBrakePipePressureBAR - VirtualBrakeReservoirPressureBAR)))
+								Call("SetControlValue","VirtualBrakePipePressureBAR",0,VirtualBrakePipePressureBAR-math.sqrt(math.abs(VirtualBrakePipePressureBAR - VirtualBrakeReservoirPressureBAR)))
+								VirtualBrakeReservoirPressureBAR = Call("GetControlValue","VirtualBrakeReservoirPressureBAR",0)
+								VirtualBrakePipePressureBAR = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
 							end
 							if VirtualMainReservoirPressureBAR > 10.5 then
 								bylpojistovak = 1
@@ -3083,7 +3089,7 @@ function Update (casHry)
 								nastaveneValce = 0
 							end
 
-							valcePrimocinne = math.min(Call("GetControlValue","EngineBrakeControl",0)*3.8,VirtualMainReservoirPressureBAR)
+							valcePrimocinne = math.min(Call("GetControlValue","EngineBrakeControl",0)*3.8,VirtualBrakeReservoirPressureBAR)
 							nastaveneValce_bezBP = nastaveneValce
 							if nezobrazujValce then
 								nastaveneValce = math.min(valcePrimocinne,3.8)
@@ -3101,7 +3107,7 @@ function Update (casHry)
 
 							if nastaveneValce > plynuleValce then
 								if valcePrimocinne - plynuleValce > 0.1 then
-									Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - 0.2*cas)
+									Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR - 0.2*cas)
 								end
 								plynuleValce = plynuleValce + math.sqrt(math.abs(nastaveneValce-plynuleValce))/20
 							elseif plynuleValce > nastaveneValce then
@@ -3218,9 +3224,9 @@ function Update (casHry)
 
 								if LP ~= dvereLPskutecne then
 									if LP > dvereLPskutecne then
-										dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveri)
+										dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveriLP)
 									elseif LP < dvereLPskutecne then
-										dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveri)
+										dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveriLP)
 									end
 									if dvereLPskutecne < 0 then
 										dvereLPskutecne = 0
@@ -3230,9 +3236,9 @@ function Update (casHry)
 
 								if LZ ~= dvereLZskutecne then
 									if LZ > dvereLZskutecne then
-										dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveri)
+										dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveriLZ)
 									elseif LZ < dvereLZskutecne then
-										dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveri)
+										dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveriLZ)
 									end
 									if dvereLZskutecne < 0 then
 										dvereLZskutecne = 0
@@ -3242,9 +3248,9 @@ function Update (casHry)
 
 								if PP ~= dverePPskutecne then
 									if PP > dverePPskutecne then
-										dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveri)
+										dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveriPP)
 									elseif PP < dverePPskutecne then
-										dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveri)
+										dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveriPP)
 									end
 									if dverePPskutecne < 0 then
 										dverePPskutecne = 0
@@ -3254,9 +3260,9 @@ function Update (casHry)
 
 								if PZ ~= dverePZskutecne then
 									if PZ > dverePZskutecne then
-										dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveri)
+										dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveriPZ)
 									elseif PZ < dverePZskutecne then
-										dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveri)
+										dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveriPZ)
 									end
 									if dverePZskutecne < 0 then
 										dverePZskutecne = 0
@@ -3419,7 +3425,7 @@ function Update (casHry)
 								DOPCP = ToBolAndBack(Call("GetControlValue","DoorsOpenCloseRight", 0))
 
 								--leve
-								if DOPCL and not blokLeve then
+								if DOPCL and (dvereLevePovelLokalni or dvereLeveZeSoupravy) then
 									Call("SetControlValue","DvereLP",0,1)
 									Call("SetControlValue","DvereLZ",0,1)
 								elseif DOPCL then
@@ -3437,7 +3443,7 @@ function Update (casHry)
 								end
 
 								--prave
-								if DOPCP and not blokPrave then
+								if DOPCP and (dverePravePovelLokalni or dverePraveZeSoupravy) then
 									Call("SetControlValue","DverePP",0,1)
 									Call("SetControlValue","DverePZ",0,1)
 								elseif DOPCP then
@@ -3619,7 +3625,7 @@ function Update (casHry)
 							else
 								baterie = 0
 							end
-
+						----------------------------------------Svetla--------------------------------------------
 							if baterie == 1 then
 								if OsvetleniVozu <= 0.5 then
 									OsvetleniVozuF(0)
@@ -3678,6 +3684,14 @@ function Update (casHry)
 							else
 								DalkovaSvF(1,cas,baterie)
 							end
+							if ((levaPozBil or levaPozBilVPKC) and (pravaPozBil or pravaPozBilVPKC)) and not (levaPozCer or levaPozCerVPKC or pravaPozCer or pravaPozCerVPKC) then
+								Call("SetControlValue", "Headlights", 0, 1)
+							elseif ((levaPozCer or levaPozCerVPKC) and (pravaPozCer or pravaPozCerVPKC)) and not (levaPozBil or levaPozBilVPKC or pravaPozBil or pravaPozBilVPKC) then
+								Call("SetControlValue", "Headlights", 0, 2)
+							else
+								Call("SetControlValue", "Headlights", 0, 0)
+							end
+						----------------------------------------Klic HV-------------------------------------------
 							if klic == 1 then -- Jenom pokud je klic ve zdirce
 								if PolohaKlice < 0.25 then -- blokovani dolni schovane
 									Call ("SetControlValue", "VirtualStartup", 0, 0.25)
@@ -5030,9 +5044,9 @@ function Update (casHry)
 
 				if LP ~= dvereLPskutecne then
 					if LP > dvereLPskutecne then
-						dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveri)
+						dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveriLP)
 					elseif LP < dvereLPskutecne then
-						dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveri)
+						dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveriLP)
 					end
 					if dvereLPskutecne < 0 then
 						dvereLPskutecne = 0
@@ -5042,9 +5056,9 @@ function Update (casHry)
 
 				if LZ ~= dvereLZskutecne then
 					if LZ > dvereLZskutecne then
-						dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveri)
+						dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveriLZ)
 					elseif LZ < dvereLZskutecne then
-						dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveri)
+						dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveriLZ)
 					end
 					if dvereLZskutecne < 0 then
 						dvereLZskutecne = 0
@@ -5054,9 +5068,9 @@ function Update (casHry)
 
 				if PP ~= dverePPskutecne then
 					if PP > dverePPskutecne then
-						dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveri)
+						dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveriPP)
 					elseif PP < dverePPskutecne then
-						dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveri)
+						dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveriPP)
 					end
 					if dverePPskutecne < 0 then
 						dverePPskutecne = 0
@@ -5066,9 +5080,9 @@ function Update (casHry)
 
 				if PZ ~= dverePZskutecne then
 					if PZ > dverePZskutecne then
-						dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveri)
+						dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveriPZ)
 					elseif PZ < dverePZskutecne then
-						dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveri)
+						dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveriPZ)
 					end
 					if dverePZskutecne < 0 then
 						dverePZskutecne = 0
@@ -5178,7 +5192,7 @@ function OnControlValueChange ( name, index, value )
 		if name == "RidiciKontrolerOkno" then
 			ridiciKontrolerOknoOCVC = value
 		end
-		if name == "Headlights" then
+		if name == "VirtualHeadlights" then
 			if value <= 0.5 then
 				DalkovaSv = 0
 			else
