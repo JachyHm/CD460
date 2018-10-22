@@ -3553,6 +3553,18 @@ function Update (casHry)
 								gPredniSmetak = 0
 							end
 
+							if (gPredniSmetak == 1 and PredniPanto == 0) or (gZadniSmetak == 1 and ZadniPanto == 0) then
+								Call("EngineSound:SetParameter", "sound_PantoUP", 1)
+							else
+								Call("EngineSound:SetParameter", "sound_PantoUP", 0)
+							end
+							
+							if (gPredniSmetak == 0 and PredniPanto == 3.75) or (gZadniSmetak == 0 and ZadniPanto == 3.75) then
+								Call("EngineSound:SetParameter", "sound_PantoDOWN", 1)
+							else
+								Call("EngineSound:SetParameter", "sound_PantoDOWN", 0)
+							end
+
 							if gCommonTimer >= 0.0125 then
 								if gPredniSmetak == 1 then -- predni zberac
 									if PredniPanto < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
@@ -3601,10 +3613,10 @@ function Update (casHry)
 							else
 								P01 = 0
 							end
-							if PP > 3.70 and PP ~= 3.75 then 
+							if PP > 3.70 and PP ~= 3.75 then
 								Call("SetControlValue","PantoPredni",0,3.75)
 							end
-							if ZP > 3.70 and ZP ~= 3.75 then 
+							if ZP > 3.70 and ZP ~= 3.75 then
 								Call("SetControlValue","PantoZadni",0,3.75)
 							end
 						----------------------------------------Rozjezdov? proud konvert na ??slo-----------------

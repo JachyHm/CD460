@@ -3,18 +3,18 @@
 	<ProxyControl>
 		<cGenericAudioControl xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
-			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
+			<ActivationDistance d:type="sFloat32">1000</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="11458">
+				<kLoud-cSingleSampleSound d:id="17136">
 					<Name d:type="cDeltaString">Sberac_D</Name>
 					<IsLooped d:type="bool">0</IsLooped>
-					<Priority d:type="sUInt32">50</Priority>
-					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">10</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">30</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -22,16 +22,16 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="11471">
+				<kLoud-cSingleSampleSound d:id="17149">
 					<Name d:type="cDeltaString">Sberac_N</Name>
 					<IsLooped d:type="bool">0</IsLooped>
-					<Priority d:type="sUInt32">50</Priority>
-					<BaseVolume d:type="sFloat32">0.5</BaseVolume>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">10</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">30</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cRandomSampleSound d:id="11484">
+				<kLoud-cRandomSampleSound d:id="17162">
 					<Name d:type="cDeltaString">Jiskreni</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -51,7 +51,7 @@
 					<NoFutherAttenuationDist d:type="sFloat32">100</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="11496">
+						<kLoud-cSampleWithLikelihood d:id="17174">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -59,7 +59,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="11500">
+						<kLoud-cSampleWithLikelihood d:id="17178">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -67,7 +67,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="11504">
+						<kLoud-cSampleWithLikelihood d:id="17182">
 							<Likelihood d:type="sFloat32">0.33</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -80,68 +80,35 @@
 			</Sound>
 			<Curve />
 			<ModifierChain />
-			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="11511">
-					<Name d:type="cDeltaString">ChDown</Name>
-					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
-					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
-				</kLoud-cInstanceGroup>
-				<kLoud-cInstanceGroup d:id="11515">
-					<Name d:type="cDeltaString">ChUp</Name>
-					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
-					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
-				</kLoud-cInstanceGroup>
-			</InstanceGroup>
+			<InstanceGroup />
 			<Loop />
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="11521">
+				<kLoud-cTriggeredOneshot d:id="17191">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
-					<Name d:type="cDeltaString">PantoPredniNahoru</Name>
-					<Sound d:type="ref">11471</Sound>
+					<Name d:type="cDeltaString">PantoNahoru</Name>
+					<Sound d:type="ref">17149</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
-					<ControllerName d:type="cDeltaString">PantoPredni</ControllerName>
+					<ControllerName d:type="cDeltaString">sound_PantoUP</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">11515</InstanceGroup>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="11531">
+				<kLoud-cTriggeredOneshot d:id="17201">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
-					<Name d:type="cDeltaString">PantoZadniNahoru</Name>
-					<Sound d:type="ref">11471</Sound>
+					<Name d:type="cDeltaString">PantoDolu</Name>
+					<Sound d:type="ref">17136</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
-					<ControllerName d:type="cDeltaString">PantoZadni</ControllerName>
+					<ControllerName d:type="cDeltaString">sound_PantoDOWN</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
 					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">11515</InstanceGroup>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="11541">
-					<PlayState d:type="cDeltaString">BOTH</PlayState>
-					<Name d:type="cDeltaString">PantoPredniDolu</Name>
-					<Sound d:type="ref">11458</Sound>
-					<ModifierChain d:type="ref">0</ModifierChain>
-					<ControllerName d:type="cDeltaString">PantoPredni</ControllerName>
-					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
-					<TriggerValue d:type="sFloat32">0</TriggerValue>
-					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">11511</InstanceGroup>
-				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="11551">
-					<PlayState d:type="cDeltaString">BOTH</PlayState>
-					<Name d:type="cDeltaString">PantoZadniDolu</Name>
-					<Sound d:type="ref">11458</Sound>
-					<ModifierChain d:type="ref">0</ModifierChain>
-					<ControllerName d:type="cDeltaString">PantoZadni</ControllerName>
-					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
-					<TriggerValue d:type="sFloat32">0</TriggerValue>
-					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">11511</InstanceGroup>
-				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="11561">
+				<kLoud-cTriggeredOneshot d:id="17211">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Jiskreni</Name>
-					<Sound d:type="ref">11484</Sound>
+					<Sound d:type="ref">17162</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZimniJiskraPrehrajZvuka</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>

@@ -229,7 +229,7 @@
 																												<Attribute name="MaxForcePercentOfVehicleWeight">
 																													<sFloat32>
 																														<Element>
-																															<Value>110</Value>
+																															<Value>55</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
@@ -656,28 +656,7 @@
 																												<Attribute name="AuxiliaryBraking">
 																													<__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking>
 																														<Element>
-																															<Value>
-																																<EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking>
-																																	<Element>
-																																		<Value>
-																																			<Attribute name="MaxChargingRate">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>10</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																			<Attribute name="MaxReservoirPressure">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>72.5</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																		</Value>
-																																	</Element>
-																																</EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking>
-																															</Value>
+																															<Value />
 																														</Element>
 																													</__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking>
 																												</Attribute>
@@ -928,7 +907,7 @@
 																									<Attribute name="PowerRating">
 																										<sFloat32>
 																											<Element>
-																												<Value>0.8</Value>
+																												<Value>100000</Value>
 																											</Element>
 																										</sFloat32>
 																									</Attribute>
@@ -1017,7 +996,7 @@
 																					<Attribute name="CausesAutoBailOff">
 																						<eBoolean>
 																							<Element>
-																								<Value>eFalse</Value>
+																								<Value>eTrue</Value>
 																							</Element>
 																						</eBoolean>
 																					</Attribute>

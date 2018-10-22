@@ -12,7 +12,7 @@
 			<Attribute name="ActivationDistance">
 				<sFloat32>
 					<Element>
-						<Value>400</Value>
+						<Value>1000</Value>
 					</Element>
 				</sFloat32>
 			</Attribute>
@@ -40,14 +40,14 @@
 										<Attribute name="Priority">
 											<sUInt32>
 												<Element>
-													<Value>50</Value>
+													<Value>100</Value>
 												</Element>
 											</sUInt32>
 										</Attribute>
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -75,14 +75,14 @@
 										<Attribute name="AttenuationStartDist">
 											<sFloat32>
 												<Element>
-													<Value>10</Value>
+													<Value>1000</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
 										<Attribute name="NoFutherAttenuationDist">
 											<sFloat32>
 												<Element>
-													<Value>30</Value>
+													<Value>1000</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -139,14 +139,14 @@
 										<Attribute name="Priority">
 											<sUInt32>
 												<Element>
-													<Value>50</Value>
+													<Value>100</Value>
 												</Element>
 											</sUInt32>
 										</Attribute>
 										<Attribute name="BaseVolume">
 											<sFloat32>
 												<Element>
-													<Value>0.5</Value>
+													<Value>1</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -174,14 +174,14 @@
 										<Attribute name="AttenuationStartDist">
 											<sFloat32>
 												<Element>
-													<Value>10</Value>
+													<Value>1000</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
 										<Attribute name="NoFutherAttenuationDist">
 											<sFloat32>
 												<Element>
-													<Value>30</Value>
+													<Value>1000</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>
@@ -415,62 +415,7 @@
 			<Attribute name="InstanceGroup">
 				<__Indexed__kLoud-cInstanceGroup>
 					<Element>
-						<Value>
-							<kLoud-cInstanceGroup>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>ChDown</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="MaximumNumberOfInstances">
-											<sUInt32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="InstanceExceededAction">
-											<kLoud-eInstanceExceededAction>
-												<Element>
-													<Value>RejectNew</Value>
-												</Element>
-											</kLoud-eInstanceExceededAction>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cInstanceGroup>
-							<kLoud-cInstanceGroup>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>ChUp</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="MaximumNumberOfInstances">
-											<sUInt32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="InstanceExceededAction">
-											<kLoud-eInstanceExceededAction>
-												<Element>
-													<Value>RejectNew</Value>
-												</Element>
-											</kLoud-eInstanceExceededAction>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cInstanceGroup>
-						</Value>
+						<Value />
 					</Element>
 				</__Indexed__kLoud-cInstanceGroup>
 			</Attribute>
@@ -498,7 +443,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>PantoPredniNahoru</Value>
+													<Value>PantoNahoru</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -535,7 +480,7 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>PantoPredni</Value>
+													<Value>sound_PantoUP</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -562,56 +507,6 @@
 										</Attribute>
 										<Attribute name="InstanceGroup">
 											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>ChUp</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>BOTH</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>PantoZadniNahoru</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>Sberac_N</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
 												<Element>
 													<Value>
 														<Attribute name="Name">
@@ -623,49 +518,6 @@
 														</Attribute>
 													</Value>
 												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>PantoZadni</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIsChangingUp</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>ChUp</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
 											</kLoud-cInstanceGroup>
 										</Attribute>
 									</Value>
@@ -684,7 +536,7 @@
 										<Attribute name="Name">
 											<cDeltaString>
 												<Element>
-													<Value>PantoPredniDolu</Value>
+													<Value>PantoDolu</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
@@ -721,14 +573,14 @@
 										<Attribute name="ControllerName">
 											<cDeltaString>
 												<Element>
-													<Value>PantoPredni</Value>
+													<Value>sound_PantoDOWN</Value>
 												</Element>
 											</cDeltaString>
 										</Attribute>
 										<Attribute name="TriggerType">
 											<kLoud-eTriggerType>
 												<Element>
-													<Value>ValueIsChangingDown</Value>
+													<Value>ValueIsChangingUp</Value>
 												</Element>
 											</kLoud-eTriggerType>
 										</Attribute>
@@ -748,105 +600,12 @@
 										</Attribute>
 										<Attribute name="InstanceGroup">
 											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>ChDown</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cInstanceGroup>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cTriggeredOneshot>
-							<kLoud-cTriggeredOneshot>
-								<Element>
-									<Value>
-										<Attribute name="PlayState">
-											<ePlayState>
-												<Element>
-													<Value>BOTH</Value>
-												</Element>
-											</ePlayState>
-										</Attribute>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>PantoZadniDolu</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="Sound">
-											<kLoud-cSound>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>Sberac_D</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cSound>
-										</Attribute>
-										<Attribute name="ModifierChain">
-											<kLoud-cModifierChain>
 												<Element>
 													<Value>
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
 																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</kLoud-cModifierChain>
-										</Attribute>
-										<Attribute name="ControllerName">
-											<cDeltaString>
-												<Element>
-													<Value>PantoZadni</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="TriggerType">
-											<kLoud-eTriggerType>
-												<Element>
-													<Value>ValueIsChangingDown</Value>
-												</Element>
-											</kLoud-eTriggerType>
-										</Attribute>
-										<Attribute name="TriggerValue">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="ValueIsChangingGateTime">
-											<sFloat32>
-												<Element>
-													<Value>0</Value>
-												</Element>
-											</sFloat32>
-										</Attribute>
-										<Attribute name="InstanceGroup">
-											<kLoud-cInstanceGroup>
-												<Element>
-													<Value>
-														<Attribute name="Name">
-															<cDeltaString>
-																<Element>
-																	<Value>ChDown</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>

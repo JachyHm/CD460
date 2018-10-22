@@ -1238,35 +1238,7 @@
 			<Attribute name="InstanceGroup">
 				<__Indexed__kLoud-cInstanceGroup>
 					<Element>
-						<Value>
-							<kLoud-cInstanceGroup>
-								<Element>
-									<Value>
-										<Attribute name="Name">
-											<cDeltaString>
-												<Element>
-													<Value>Motorgen</Value>
-												</Element>
-											</cDeltaString>
-										</Attribute>
-										<Attribute name="MaximumNumberOfInstances">
-											<sUInt32>
-												<Element>
-													<Value>1</Value>
-												</Element>
-											</sUInt32>
-										</Attribute>
-										<Attribute name="InstanceExceededAction">
-											<kLoud-eInstanceExceededAction>
-												<Element>
-													<Value>StopOldest</Value>
-												</Element>
-											</kLoud-eInstanceExceededAction>
-										</Attribute>
-									</Value>
-								</Element>
-							</kLoud-cInstanceGroup>
-						</Value>
+						<Value />
 					</Element>
 				</__Indexed__kLoud-cInstanceGroup>
 			</Attribute>
@@ -1463,7 +1435,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value>Motorgen</Value>
+																	<Value />
 																</Element>
 															</cDeltaString>
 														</Attribute>
