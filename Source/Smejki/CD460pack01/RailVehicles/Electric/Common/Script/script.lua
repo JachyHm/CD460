@@ -3122,7 +3122,7 @@ function Update (casHry)
 							PipeOld = tlak_HP
 							
 							if vychoziTlakSystemu - tlak_HP > 0.3 then
-								nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,(vychoziTlakSystemu-tlak_HP)*2.53)
+								nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,math.min(VirtualBrakeReservoirPressureBAR-tlak_HP,0)*2.53)
 							else
 								nastaveneValce = 0
 							end
