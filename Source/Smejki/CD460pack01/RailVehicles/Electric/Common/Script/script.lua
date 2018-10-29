@@ -115,15 +115,11 @@ navoleny_tlak = 0
 tlak_ridiciho_ustroji = 0
 prah_hystereze_ridiciho_ustroji = 0.3
 hystereze_ridiciho_ustroji = false
--- tlak_ridiciho_ustroji_opozdene = tlak_ridiciho_ustroji
 VirtualMainReservoirPressureBAR = math.random(0,10)
--- tlak_HP_opozdene = 0
 plynulyVzduchojem = 0
--- vysokotlakysvih_opozdene = false
 pribrzdiSvih = false
 vychoziTlakSystemu = 5
 vychoziTlakBrzdice = 5
--- vychoziTlakSystemu_opozdene = 5
 PipeOld = 0
 
 ZPRAVA_FAST_START = SysCall("ScenarioManager:GetLocalisedString","d628e082-95e2-4d62-84bd-be5186025d2c")
@@ -145,17 +141,32 @@ dverePraveZeSoupravyPridrznyStav = false
 dverePravePridrznyStav = false
 dvereStavLast = ""
 dvereLPskutecne = 0
+dvereLPvystraha = 0
 dvereLZskutecne = 0
+dvereLZvystraha = 0
 dverePPskutecne = 0
+dverePPvystraha = 0
 dverePZskutecne = 0
-rychlostZaviraniDveriLP = math.random(100, 130)/100
-rychlostZaviraniDveriPP = math.random(100, 130)/100
-rychlostZaviraniDveriLZ = math.random(100, 130)/100
-rychlostZaviraniDveriPZ = math.random(100, 130)/100
+dverePZvystraha = 0
+rychlostZaviraniDveriLP_rychle = math.random(100, 130)/100
+rychlostZaviraniDveriLP_pomalu = math.random(3000, 3250)/10000
+rychlostZaviraniDveriPP_rychle = math.random(100, 130)/100
+rychlostZaviraniDveriPP_pomalu = math.random(3000, 3250)/10000
+rychlostZaviraniDveriLZ_rychle = math.random(100, 130)/100
+rychlostZaviraniDveriLZ_pomalu = math.random(3000, 3250)/10000
+rychlostZaviraniDveriPZ_rychle = math.random(100, 130)/100
+rychlostZaviraniDveriPZ_pomalu = math.random(3000, 3250)/10000
 rychlostOteviraniDveriLP = math.random(20, 36)/100
 rychlostOteviraniDveriPP = math.random(20, 36)/100
 rychlostOteviraniDveriLZ = math.random(20, 36)/100
 rychlostOteviraniDveriPZ = math.random(20, 36)/100
+DVERE_VYSTRAHA = {
+	[460021] = 0,
+	[460063] = 2.5,
+	[460064] = 2.5,
+	[460079] = 0,
+	[460080] = 0,
+}
 RizenaRidiciLast_dvere = ""
 
 gProbihaPrasatkoL = false
@@ -238,6 +249,8 @@ pocetHaslerUpdate = 0
 casHasler = 0
 sumHasler = 0
 
+skriptVersion = -1
+
 function genChckSum(fileObject)
 	fileObject = assert(fileObject, "Soubor nebyl nalezeny!")
 	chckSum = 0
@@ -253,8 +266,6 @@ function genChckSum(fileObject)
 end
 
 function overKS()
-	Call("SetControlValue", "ScriptVersion", 0, 460999)
-	local scriptVersion = Call("GetControlValue", "ScriptVersion", 0)
 	if scriptVersion == 460021 then
 		extModel = io.open("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460021\\460_modra.GeoPcDx", "rb")
 		local ks = genChckSum(extModel)
@@ -2223,6 +2234,8 @@ function Update (casHry)
 	if ToBolAndBack (Call("GetIsNearCamera")) then
 		MaPredniPantograf = Call("ControlExists","PantoPredni",0)
 		delkaVlaku = Call("GetConsistLength")
+		Call("SetControlValue", "ScriptVersion", 0, 460999)
+		scriptVersion = Call("GetControlValue", "ScriptVersion", 0)
 		-- cas = casHry
 		-- Call("ZimniJiskra:Activate",0)
 		-- Call("ZimniJiskra1:Activate",0)
@@ -2383,7 +2396,7 @@ function Update (casHry)
 							Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
 							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,math.min(VirtualMainReservoirPressureBAR, 3.8))
-							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,math.min(VirtualMainReservoirPressureBAR,5))
+							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,tlak_HP)
 							Call ( "DalkovePrave:Activate", 0 )
 							Call ( "DalkoveLeve:Activate", 0 )
 							Call ( "ActivateNode","dalkaclevy",0)
@@ -2958,7 +2971,11 @@ function Update (casHry)
 						----------------------------------------U?ivatelsk? vzduchotechnika-----------------------
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-(((VirtualMainReservoirPressureBAR/500)^2)*5*cas))
 							tlak_ridiciho_ustroji = tlak_ridiciho_ustroji-(((tlak_ridiciho_ustroji/500)^2)*3*cas)
-							Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR-(((VirtualBrakeReservoirPressureBAR/500)^2)*3*cas))
+							if VirtualBrakeReservoirPressureBAR > 5 then
+								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR-0.00333*cas)
+							else
+								Call("SetControlValue","VirtualBrakeReservoirPressureBAR",0,VirtualBrakeReservoirPressureBAR-(((VirtualBrakeReservoirPressureBAR/500)^2)*5*cas))
+							end
 							nastaveneValce = nastaveneValce-(((nastaveneValce/500)^2)*10*cas)
 							PantoJimkaZKom = PantoJimkaZKom-(((PantoJimkaZKom/790)^2)*10*cas)
 							prepinaceTlak = prepinaceTlak-(((prepinaceTlak/600)^2)*10*cas)
@@ -3034,7 +3051,7 @@ function Update (casHry)
 								tlak_HP = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
 							end
 
-							local zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(navoleny_tlak-tlak_ridiciho_ustroji))/50
+							local zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(math.min(navoleny_tlak, VirtualMainReservoirPressureBAR)-tlak_ridiciho_ustroji))/50
 							if navoleny_tlak - tlak_ridiciho_ustroji > zmena_tlaku_ridiciho_ustroji then
 								tlak_ridiciho_ustroji = tlak_ridiciho_ustroji + zmena_tlaku_ridiciho_ustroji
 							elseif tlak_ridiciho_ustroji - navoleny_tlak > zmena_tlaku_ridiciho_ustroji then
@@ -3121,21 +3138,19 @@ function Update (casHry)
 							end
 							PipeOld = tlak_HP
 							
-							if vychoziTlakSystemu - tlak_HP > 0.3 then
-								nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,math.min(VirtualBrakeReservoirPressureBAR-tlak_HP,0)*2.53)
-							else
+							if VirtualBrakeReservoirPressureBAR - tlak_HP > 0.3 then
+								nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,math.max(VirtualBrakeReservoirPressureBAR-tlak_HP,0)*2.53)
+							elseif tlak_HP - VirtualBrakeReservoirPressureBAR < 0.05 then
 								nastaveneValce = 0
 							end
+							nastaveneValce_bezBP = nastaveneValce
 
 							valcePrimocinne = math.min(Call("GetControlValue","EngineBrakeControl",0)*3.8,VirtualMainReservoirPressureBAR)
-							nastaveneValce_bezBP = nastaveneValce
 							if nezobrazujValce then
 								nastaveneValce = math.min(valcePrimocinne,3.8)
 							else
 								nastaveneValce = math.min(math.max(nastaveneValce,valcePrimocinne),3.8)
 							end
-
-							
 
 							if nastaveneValce_bezBP > plynuleValce_bezBP then
 								plynuleValce_bezBP = plynuleValce_bezBP + math.sqrt(math.abs(nastaveneValce_bezBP-plynuleValce_bezBP))/20
@@ -3235,9 +3250,11 @@ function Update (casHry)
 									Call("SetControlValue","HaslerRucka",0,sumHasler/pocetHaslerUpdate)
 									pocetHaslerUpdate = 0
 									casHasler = 0
+									sumHasler = 0
 								end
 							elseif Rychlost < 0.1 then
 								casHasler = 0
+								sumHasler = 0
 								pocetHaslerUpdate = 0
 								Call("SetControlValue","HaslerRucka",0,0)
 							end
@@ -3266,50 +3283,133 @@ function Update (casHry)
 								local PP = Call("GetControlValue","DverePP",0)
 								local PZ = Call("GetControlValue","DverePZ",0)
 
-								if LP ~= dvereLPskutecne then
-									if LP > dvereLPskutecne then
-										dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveriLP)
-									elseif LP < dvereLPskutecne then
-										dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveriLP)
+								if LP == 0 and dvereLPskutecne ~= 0 then
+									if dvereLPvystraha < DVERE_VYSTRAHA[scriptVersion] then
+										dvereLPvystraha = dvereLPvystraha + cas
+										Call("SoundDvereLP:SetParameter","ZvkDverePipani",1)
+									else
+										Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
 									end
-									if dvereLPskutecne < 0 then
-										dvereLPskutecne = 0
+								elseif LP == 1 then
+									dvereLPvystraha = 0
+									Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
+									Call("SoundDvereLP:SetParameter","ZvkDvereLPrychle",0)
+									Call("SoundDvereLP:SetParameter","ZvkDvereLPpomale",0)
+								end
+								if LP ~= dvereLPskutecne and (dvereLPvystraha >= DVERE_VYSTRAHA[scriptVersion] or LP == 1) then
+									if LP > dvereLPskutecne then
+										dvereLPskutecne = math.min(dvereLPskutecne + (cas * rychlostOteviraniDveriLP),1)
+									elseif LP < dvereLPskutecne then
+										if DVERE_VYSTRAHA[scriptVersion] == 0 then
+											dvereLPskutecne = math.max(dvereLPskutecne - (cas * rychlostZaviraniDveriLP_rychle),0)
+											Call("SoundDvereLP:SetParameter","ZvkDvereLPrychle",1)
+											Call("SoundDvereLP:SetParameter","ZvkDvereLPpomale",0)
+											Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
+										else
+											dvereLPskutecne = math.max(dvereLPskutecne - (cas * rychlostZaviraniDveriLP_pomalu),0)
+											Call("SoundDvereLP:SetParameter","ZvkDvereLPrychle",0)
+											Call("SoundDvereLP:SetParameter","ZvkDvereLPpomale",1)
+											Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
+										end
 									end
 								end
 								Call("SetTime", "Dvere1L", dvereLPskutecne * 2.125)
 
-								if LZ ~= dvereLZskutecne then
-									if LZ > dvereLZskutecne then
-										dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveriLZ)
-									elseif LZ < dvereLZskutecne then
-										dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveriLZ)
+								
+								if LZ == 0 and dvereLZskutecne ~= 0 then
+									if dvereLZvystraha < DVERE_VYSTRAHA[scriptVersion] then
+										dvereLZvystraha = dvereLZvystraha + cas
+										Call("SoundDvereLZ:SetParameter","ZvkDverePipani",1)
+									else
+										Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
 									end
-									if dvereLZskutecne < 0 then
-										dvereLZskutecne = 0
+								elseif LZ == 1 then
+									dvereLZvystraha = 0
+									Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
+									Call("SoundDvereLZ:SetParameter","ZvkDvereLZrychle",0)
+									Call("SoundDvereLZ:SetParameter","ZvkDvereLZpomale",0)
+								end
+								if LZ ~= dvereLZskutecne and (dvereLZvystraha >= DVERE_VYSTRAHA[scriptVersion] or LZ == 1) then
+									if LZ > dvereLZskutecne then
+										dvereLZskutecne = math.min(dvereLZskutecne + (cas * rychlostOteviraniDveriLZ),1)
+									elseif LZ < dvereLZskutecne then
+										if DVERE_VYSTRAHA[scriptVersion] == 0 then
+											dvereLZskutecne = math.max(dvereLZskutecne - (cas * rychlostZaviraniDveriLZ_rychle),0)
+											Call("SoundDvereLZ:SetParameter","ZvkDvereLZrychle",1)
+											Call("SoundDvereLZ:SetParameter","ZvkDvereLZpomale",0)
+											Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
+										else
+											dvereLZskutecne = math.max(dvereLZskutecne - (cas * rychlostZaviraniDveriLZ_pomalu),0)
+											Call("SoundDvereLZ:SetParameter","ZvkDvereLZrychle",0)
+											Call("SoundDvereLZ:SetParameter","ZvkDvereLZpomale",1)
+											Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
+										end
 									end
 								end
 								Call("SetTime", "Dvere2L", dvereLZskutecne * 2.125)
 
-								if PP ~= dverePPskutecne then
-									if PP > dverePPskutecne then
-										dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveriPP)
-									elseif PP < dverePPskutecne then
-										dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveriPP)
+								
+								if PP == 0 and dverePPskutecne ~= 0 then
+									if dverePPvystraha < DVERE_VYSTRAHA[scriptVersion] then
+										dverePPvystraha = dverePPvystraha + cas
+										Call("SoundDverePP:SetParameter","ZvkDverePipani",1)
+									else
+										Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
 									end
-									if dverePPskutecne < 0 then
-										dverePPskutecne = 0
+								elseif PP == 1 then
+									dverePPvystraha = 0
+									Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
+									Call("SoundDverePP:SetParameter","ZvkDverePPrychle",0)
+									Call("SoundDverePP:SetParameter","ZvkDverePPpomale",0)
+								end
+								if PP ~= dverePPskutecne and (dverePPvystraha >= DVERE_VYSTRAHA[scriptVersion] or PP == 1) then
+									if PP > dverePPskutecne then
+										dverePPskutecne = math.min(dverePPskutecne + (cas * rychlostOteviraniDveriPP),1)
+									elseif PP < dverePPskutecne then
+										if DVERE_VYSTRAHA[scriptVersion] == 0 then
+											dverePPskutecne = math.max(dverePPskutecne - (cas * rychlostZaviraniDveriPP_rychle),0)
+											Call("SoundDverePP:SetParameter","ZvkDverePPrychle",1)
+											Call("SoundDverePP:SetParameter","ZvkDverePPpomale",0)
+											Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
+										else
+											dverePPskutecne = math.max(dverePPskutecne - (cas * rychlostZaviraniDveriPP_pomalu),0)
+											Call("SoundDverePP:SetParameter","ZvkDverePPrychle",0)
+											Call("SoundDverePP:SetParameter","ZvkDverePPpomale",1)
+											Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
+										end
 									end
 								end
 								Call("SetTime", "Dvere1P", dverePPskutecne * 2.125)
 
-								if PZ ~= dverePZskutecne then
-									if PZ > dverePZskutecne then
-										dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveriPZ)
-									elseif PZ < dverePZskutecne then
-										dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveriPZ)
+								
+								if PZ == 0 and dverePZskutecne ~= 0 then
+									if dverePZvystraha < DVERE_VYSTRAHA[scriptVersion] then
+										dverePZvystraha = dverePZvystraha + cas
+										Call("SoundDverePZ:SetParameter","ZvkDverePipani",1)
+									else
+										Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
 									end
-									if dverePZskutecne < 0 then
-										dverePZskutecne = 0
+								elseif PZ == 1 then
+									dverePZvystraha = 0
+									Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
+									Call("SoundDverePZ:SetParameter","ZvkDverePZrychle",0)
+									Call("SoundDverePZ:SetParameter","ZvkDverePZpomale",0)
+								end
+								if PZ ~= dverePZskutecne and (dverePZvystraha >= DVERE_VYSTRAHA[scriptVersion] or PZ == 1) then
+									if PZ > dverePZskutecne then
+										dverePZskutecne = math.min(dverePZskutecne + (cas * rychlostOteviraniDveriPZ),1)
+									elseif PZ < dverePZskutecne then
+										if DVERE_VYSTRAHA[scriptVersion] == 0 then
+											dverePZskutecne = math.max(dverePZskutecne - (cas * rychlostZaviraniDveriPZ_rychle),0)
+											Call("SoundDverePZ:SetParameter","ZvkDverePZrychle",1)
+											Call("SoundDverePZ:SetParameter","ZvkDverePZpomale",0)
+											Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
+										else
+											dverePZskutecne = math.max(dverePZskutecne - (cas * rychlostZaviraniDveriPZ_pomalu),0)
+											Call("SoundDverePZ:SetParameter","ZvkDverePZrychle",0)
+											Call("SoundDverePZ:SetParameter","ZvkDverePZpomale",1)
+											Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
+										end
 									end
 								end
 								Call("SetTime", "Dvere2P", dverePZskutecne * 2.125)
@@ -5099,50 +5199,133 @@ function Update (casHry)
 				local PP = Call("GetControlValue","DverePP",0)
 				local PZ = Call("GetControlValue","DverePZ",0)
 
-				if LP ~= dvereLPskutecne then
-					if LP > dvereLPskutecne then
-						dvereLPskutecne = dvereLPskutecne + (cas * rychlostOteviraniDveriLP)
-					elseif LP < dvereLPskutecne then
-						dvereLPskutecne = dvereLPskutecne - (cas * rychlostZaviraniDveriLP)
+				if LP == 0 and dvereLPskutecne ~= 0 then
+					if dvereLPvystraha < DVERE_VYSTRAHA[scriptVersion] then
+						dvereLPvystraha = dvereLPvystraha + cas
+						Call("SoundDvereLP:SetParameter","ZvkDverePipani",1)
+					else
+						Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
 					end
-					if dvereLPskutecne < 0 then
-						dvereLPskutecne = 0
+				elseif LP == 1 then
+					dvereLPvystraha = 0
+					Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
+					Call("SoundDvereLP:SetParameter","ZvkDvereLPrychle",0)
+					Call("SoundDvereLP:SetParameter","ZvkDvereLPpomale",0)
+				end
+				if LP ~= dvereLPskutecne and (dvereLPvystraha >= DVERE_VYSTRAHA[scriptVersion] or LP == 1) then
+					if LP > dvereLPskutecne then
+						dvereLPskutecne = math.min(dvereLPskutecne + (cas * rychlostOteviraniDveriLP),1)
+					elseif LP < dvereLPskutecne then
+						if DVERE_VYSTRAHA[scriptVersion] == 0 then
+							dvereLPskutecne = math.max(dvereLPskutecne - (cas * rychlostZaviraniDveriLP_rychle),0)
+							Call("SoundDvereLP:SetParameter","ZvkDvereLPrychle",1)
+							Call("SoundDvereLP:SetParameter","ZvkDvereLPpomale",0)
+							Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
+						else
+							dvereLPskutecne = math.max(dvereLPskutecne - (cas * rychlostZaviraniDveriLP_pomalu),0)
+							Call("SoundDvereLP:SetParameter","ZvkDvereLPrychle",0)
+							Call("SoundDvereLP:SetParameter","ZvkDvereLPpomale",1)
+							Call("SoundDvereLP:SetParameter","ZvkDverePipani",0)
+						end
 					end
 				end
 				Call("SetTime", "Dvere1L", dvereLPskutecne * 2.125)
 
-				if LZ ~= dvereLZskutecne then
-					if LZ > dvereLZskutecne then
-						dvereLZskutecne = dvereLZskutecne + (cas * rychlostOteviraniDveriLZ)
-					elseif LZ < dvereLZskutecne then
-						dvereLZskutecne = dvereLZskutecne - (cas * rychlostZaviraniDveriLZ)
+				
+				if LZ == 0 and dvereLZskutecne ~= 0 then
+					if dvereLZvystraha < DVERE_VYSTRAHA[scriptVersion] then
+						dvereLZvystraha = dvereLZvystraha + cas
+						Call("SoundDvereLZ:SetParameter","ZvkDverePipani",1)
+					else
+						Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
 					end
-					if dvereLZskutecne < 0 then
-						dvereLZskutecne = 0
+				elseif LZ == 1 then
+					dvereLZvystraha = 0
+					Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
+					Call("SoundDvereLZ:SetParameter","ZvkDvereLZrychle",0)
+					Call("SoundDvereLZ:SetParameter","ZvkDvereLZpomale",0)
+				end
+				if LZ ~= dvereLZskutecne and (dvereLZvystraha >= DVERE_VYSTRAHA[scriptVersion] or LZ == 1) then
+					if LZ > dvereLZskutecne then
+						dvereLZskutecne = math.min(dvereLZskutecne + (cas * rychlostOteviraniDveriLZ),1)
+					elseif LZ < dvereLZskutecne then
+						if DVERE_VYSTRAHA[scriptVersion] == 0 then
+							dvereLZskutecne = math.max(dvereLZskutecne - (cas * rychlostZaviraniDveriLZ_rychle),0)
+							Call("SoundDvereLZ:SetParameter","ZvkDvereLZrychle",1)
+							Call("SoundDvereLZ:SetParameter","ZvkDvereLZpomale",0)
+							Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
+						else
+							dvereLZskutecne = math.max(dvereLZskutecne - (cas * rychlostZaviraniDveriLZ_pomalu),0)
+							Call("SoundDvereLZ:SetParameter","ZvkDvereLZrychle",0)
+							Call("SoundDvereLZ:SetParameter","ZvkDvereLZpomale",1)
+							Call("SoundDvereLZ:SetParameter","ZvkDverePipani",0)
+						end
 					end
 				end
 				Call("SetTime", "Dvere2L", dvereLZskutecne * 2.125)
 
-				if PP ~= dverePPskutecne then
-					if PP > dverePPskutecne then
-						dverePPskutecne = dverePPskutecne + (cas * rychlostOteviraniDveriPP)
-					elseif PP < dverePPskutecne then
-						dverePPskutecne = dverePPskutecne - (cas * rychlostZaviraniDveriPP)
+				
+				if PP == 0 and dverePPskutecne ~= 0 then
+					if dverePPvystraha < DVERE_VYSTRAHA[scriptVersion] then
+						dverePPvystraha = dverePPvystraha + cas
+						Call("SoundDverePP:SetParameter","ZvkDverePipani",1)
+					else
+						Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
 					end
-					if dverePPskutecne < 0 then
-						dverePPskutecne = 0
+				elseif PP == 1 then
+					dverePPvystraha = 0
+					Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
+					Call("SoundDverePP:SetParameter","ZvkDverePPrychle",0)
+					Call("SoundDverePP:SetParameter","ZvkDverePPpomale",0)
+				end
+				if PP ~= dverePPskutecne and (dverePPvystraha >= DVERE_VYSTRAHA[scriptVersion] or PP == 1) then
+					if PP > dverePPskutecne then
+						dverePPskutecne = math.min(dverePPskutecne + (cas * rychlostOteviraniDveriPP),1)
+					elseif PP < dverePPskutecne then
+						if DVERE_VYSTRAHA[scriptVersion] == 0 then
+							dverePPskutecne = math.max(dverePPskutecne - (cas * rychlostZaviraniDveriPP_rychle),0)
+							Call("SoundDverePP:SetParameter","ZvkDverePPrychle",1)
+							Call("SoundDverePP:SetParameter","ZvkDverePPpomale",0)
+							Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
+						else
+							dverePPskutecne = math.max(dverePPskutecne - (cas * rychlostZaviraniDveriPP_pomalu),0)
+							Call("SoundDverePP:SetParameter","ZvkDverePPrychle",0)
+							Call("SoundDverePP:SetParameter","ZvkDverePPpomale",1)
+							Call("SoundDverePP:SetParameter","ZvkDverePipani",0)
+						end
 					end
 				end
 				Call("SetTime", "Dvere1P", dverePPskutecne * 2.125)
 
-				if PZ ~= dverePZskutecne then
-					if PZ > dverePZskutecne then
-						dverePZskutecne = dverePZskutecne + (cas * rychlostOteviraniDveriPZ)
-					elseif PZ < dverePZskutecne then
-						dverePZskutecne = dverePZskutecne - (cas * rychlostZaviraniDveriPZ)
+				
+				if PZ == 0 and dverePZskutecne ~= 0 then
+					if dverePZvystraha < DVERE_VYSTRAHA[scriptVersion] then
+						dverePZvystraha = dverePZvystraha + cas
+						Call("SoundDverePZ:SetParameter","ZvkDverePipani",1)
+					else
+						Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
 					end
-					if dverePZskutecne < 0 then
-						dverePZskutecne = 0
+				elseif PZ == 1 then
+					dverePZvystraha = 0
+					Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
+					Call("SoundDverePZ:SetParameter","ZvkDverePZrychle",0)
+					Call("SoundDverePZ:SetParameter","ZvkDverePZpomale",0)
+				end
+				if PZ ~= dverePZskutecne and (dverePZvystraha >= DVERE_VYSTRAHA[scriptVersion] or PZ == 1) then
+					if PZ > dverePZskutecne then
+						dverePZskutecne = math.min(dverePZskutecne + (cas * rychlostOteviraniDveriPZ),1)
+					elseif PZ < dverePZskutecne then
+						if DVERE_VYSTRAHA[scriptVersion] == 0 then
+							dverePZskutecne = math.max(dverePZskutecne - (cas * rychlostZaviraniDveriPZ_rychle),0)
+							Call("SoundDverePZ:SetParameter","ZvkDverePZrychle",1)
+							Call("SoundDverePZ:SetParameter","ZvkDverePZpomale",0)
+							Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
+						else
+							dverePZskutecne = math.max(dverePZskutecne - (cas * rychlostZaviraniDveriPZ_pomalu),0)
+							Call("SoundDverePZ:SetParameter","ZvkDverePZrychle",0)
+							Call("SoundDverePZ:SetParameter","ZvkDverePZpomale",1)
+							Call("SoundDverePZ:SetParameter","ZvkDverePipani",0)
+						end
 					end
 				end
 				Call("SetTime", "Dvere2P", dverePZskutecne * 2.125)
