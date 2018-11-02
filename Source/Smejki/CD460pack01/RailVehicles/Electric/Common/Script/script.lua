@@ -1003,6 +1003,11 @@ rp_420A = math.random(370,470)
 rp_480A = math.random(430,530)
 rp_570A = math.random(520,620)
 
+lastTramex = 0
+tramexSipickaHore = false
+tramexSipickaDole = false
+tramexCasSipicka = 0
+tramexInit = false
 
 -- srv = net.createConnection(net.TCP, 0)
 -- srv:on("receive", function(sck, c) Print(c) end)
@@ -2758,7 +2763,7 @@ function Update (casHry)
 							NastavHodnotuSID("mgPriprava",mgp,460116)
 
 							if mgPrip > 0 and PC == 3.75 then
-								if mgs == 1 then --or auto_mgs == 1 
+								if mgs == 1 or Call("GetControlValue", "mg", 0) > 0 then --or auto_mgs == 1 
 									if napetiVS220 >= 380 then
 										mg = 1
 										mgdocasny = 0
@@ -3138,7 +3143,7 @@ function Update (casHry)
 							end
 							PipeOld = tlak_HP
 							
-							if VirtualBrakeReservoirPressureBAR - tlak_HP > 0.3 then
+							if VirtualBrakeReservoirPressureBAR - tlak_HP > 0.25 then
 								nastaveneValce = math.min(VirtualBrakeReservoirPressureBAR,math.max(VirtualBrakeReservoirPressureBAR-tlak_HP,0)*2.53)
 							elseif tlak_HP - VirtualBrakeReservoirPressureBAR < 0.05 then
 								nastaveneValce = 0
@@ -3266,6 +3271,69 @@ function Update (casHry)
 							elseif zvukhasler ~= 2 then
 								Call("SetControlValue","ZvukHasler",0,2)
 								zvukhasler = 2
+							end
+						----------------------------------------TRAMEX--------------------------------------------
+							if scriptVersion == 460064 or scriptVersion == 460063 then
+								tramexCasSipicka = tramexCasSipicka + cas
+								if baterie == 1 and RizenaRidici == "ridici" then
+									local tramexCilova = math.floor(Rychlost*4)/4
+									if not tramexInit then
+										tramexCilova = 142
+									end
+									if not tramexInit and Call("GetControlValue","TramexRucka",0) > 141 then
+										tramexInit = true
+									end
+									if tramexCilova - Call("GetControlValue","TramexRucka",0) > 0.25 then
+										Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)+90*cas)
+									elseif tramexCilova - Call("GetControlValue","TramexRucka",0) < -0.25 then
+										Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)-90*cas)
+									else
+										Call("SetControlValue","TramexRucka",0,tramexCilova)
+									end
+									local tramexSpeed = "0"
+									if Rychlost - math.floor(Rychlost) > 0.5 then
+										tramexSpeed = ""..math.ceil(Rychlost)
+									else
+										tramexSpeed = ""..math.floor(Rychlost)
+									end
+									while string.len(tramexSpeed) < 3 do
+										tramexSpeed = "X"..tramexSpeed
+									end
+									Call("TramexRych:SetText", tramexSpeed, 0)
+									if tramexCasSipicka > 1 and lastTramex - math.floor(Rychlost*2)/2 > 0.4 then
+										lastTramex = math.floor(Rychlost*2)/2
+										tramexSipickaDole = true
+										tramexSipickaHore = false
+										tramexCasSipicka = 0
+									elseif tramexCasSipicka > 1 and lastTramex - math.floor(Rychlost*2)/2 < -0.4 then
+										lastTramex = math.floor(Rychlost*2)/2
+										tramexSipickaHore = true
+										tramexSipickaDole = false
+										tramexCasSipicka = 0
+									end
+									if KabinaPrist == 2 then
+										Call("SetControlValue", "TramexPodsviceni", 0, 2)
+									else
+										Call("SetControlValue", "TramexPodsviceni", 0, 1)
+									end
+								else
+									tramexInit = false
+									tramexSipickaDole = false
+									tramexSipickaHore = false
+									Call("TramexRych:SetText", "XXX", 0)
+									Call("SetControlValue", "TramexPodsviceni", 0, 0)
+								end
+								if tramexCasSipicka > 0.5 then
+									tramexSipickaDole = false
+									tramexSipickaHore = false
+								end
+								if tramexSipickaHore then
+									Call("SetControlValue", "TramexSipicky", 0, 2)
+								elseif tramexSipickaDole then
+									Call("SetControlValue", "TramexSipicky", 0, 1)
+								else
+									Call("SetControlValue", "TramexSipicky", 0, 0)
+								end
 							end
 						----------------------------------------Dvere---------------------------------------------
 							--dvere ze soupravy
