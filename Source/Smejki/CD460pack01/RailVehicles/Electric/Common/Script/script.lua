@@ -1010,14 +1010,74 @@ tramexCasSipicka = 0
 tramexInit = false
 nulovyDoraz = false
 maximalniDoraz = false
-tramexDrahaKm = math.random(100000,2000000)
+tramexDrahaKm = math.random(100000,99999999)
 tramexRelDrahaKm = 0
+tramexStrojvedouci = ""
+tramexSluzebna = ""
+tramexStanice = ""
+tramexCisloVlaku = ""..math.random(1700,3799)
+tramexHmotnost = "239"
+tramexNaprav = "16"
+tramexRezimBrzdeni = 96
+tramexBrzdiciProc = "104"
+tramexKodZeme = "1"
+tramexHeslo = ""
+
 TRAMEX_VYP = 0
 TRAMEX_CAS = 1
 TRAMEX_DATUM = 2
 TRAMEX_DRAHA = 3
 TRAMEX_RELDRAHA = 4
+TRAMEX_POMALAJIZDA = 5
+TRAMEX_HLAVNIMENU = 16
+	TRAMEX_HM_ZADVOL = 6
+		TRAMEX_ZV_STROJVED = 61
+		TRAMEX_ZV_SLUZ = 62
+		TRAMEX_ZV_STAN = 63
+		TRAMEX_ZV_CVLAKU = 64
+		TRAMEX_ZV_HMOTNOST = 65
+		TRAMEX_ZV_NAPRAV = 66
+		TRAMEX_ZV_BRZDREZ = 67
+		TRAMEX_ZV_BRZDPROC = 68
+		TRAMEX_ZV_KODZEME = 69
+	TRAMEX_HM_ZADZAKL = 7
+	TRAMEX_HM_ZADCHRAN = 8
+	TRAMEX_HM_ZAKLUD = 9
+		TRAMEX_ZU_RYCH = 91
+		TRAMEX_ZU_CAS = 92
+		TRAMEX_ZU_DATUM = 93
+		TRAMEX_ZU_DRAHA = 94
+		TRAMEX_ZU_RELDR = 95
+		TRAMEX_ZU_ZMENACAS = 96
+			TRAMEX_ZU_ZMENACAS_STAV = 961
+	TRAMEX_HM_STATVOL = 10
+		TRAMEX_SV_STROJVED = 101
+		TRAMEX_SV_SLUZ = 102
+		TRAMEX_SV_STAN = 103
+		TRAMEX_SV_CVLAKU = 104
+		TRAMEX_SV_HMOTNOST = 105
+		TRAMEX_SV_NAPRAV = 106
+		TRAMEX_SV_BRZDREZ = 107
+		TRAMEX_SV_BRZDPROC = 108
+		TRAMEX_SV_KODZEME = 109
+	TRAMEH_HM_STATCHRA = 11
+	TRAMEX_HM_DIAG = 12
+	TRAMEX_HM_SERVIS = 13
+TRAMEX_ZAJIZDY_NELZE = 14
+TRAMEX_NELZESPUSTIT = 15
+TRAMEX_HESLO = 17
+TRAMEX_CHYBNEHESLO = 18
+TRAMEX_G = 96
+TRAMEX_P = 97
+TRAMEX_R = 98
+TRAMEX_RMG = 99
+tramexZaJizdyNelzeCas = -1
+tramexCasMenu = 0
 tramexStav = TRAMEX_VYP
+tramexStavPredMenu = TRAMEX_CAS
+tramexPomalaJizdaMetry = -1
+tramexOldContent = ""
+tramexUpravenePolicko = false
 
 tramexLast0 = false
 tramexLast1 = false
@@ -1036,6 +1096,9 @@ tramexLastCas = false
 tramexLastRet = false
 tramexLastEnt = false
 tramexLastMenu = false
+tramexLastDoleva = false
+tramexLastDoprava = false
+
 
 -- srv = net.createConnection(net.TCP, 0)
 -- srv:on("receive", function(sck, c) Print(c) end)
@@ -3318,24 +3381,27 @@ function Update (casHry)
 										end
 										if not tramexInit and nulovyDoraz and Call("GetControlValue","TramexRucka",0) > 141 then
 											maximalniDoraz = true
+											tramexCilova = math.floor(Rychlost*4)/4
+										end
+										if maximalniDoraz and Call("GetControlValue","TramexRucka",0) == tramexCilova and not tramexInit then
 											tramexInit = true
 											tramexStav = TRAMEX_CAS
 										end
 									--------KROKOVY MOTOREK RUCICKY
-										if tramexCilova - Call("GetControlValue","TramexRucka",0) > 0.25 then
+										if tramexCilova - Call("GetControlValue","TramexRucka",0) > 90*cas then
 											Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)+90*cas)
-										elseif tramexCilova - Call("GetControlValue","TramexRucka",0) < -0.25 then
+										elseif tramexCilova - Call("GetControlValue","TramexRucka",0) < -90*cas then
 											Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)-90*cas)
 										else
 											Call("SetControlValue","TramexRucka",0,tramexCilova)
 										end
-									--------RYCHLOST - SIPICKY A MALY DISP
+									--------RYCHLOST - SIPICKY A MALY DISP + OSVETLENI
 										if not tramexInit then
 											tramexCasSipicka = 0
 											tramexSipickaDole = true
 											tramexSipickaHore = true
 											Call("TramexRych:SetText", "888", 0)
-											Call("SetControlValue", "TramexPodsviceni", 0, 2)
+											Call("SetControlValue", "TramexOsvetleni", 0, 2)
 											Call("TramexCom:SetText", "Prob~h`Xselftest", 0)
 										else
 											local tramexSpeed = "0"
@@ -3360,9 +3426,9 @@ function Update (casHry)
 												tramexCasSipicka = 0
 											end
 											if KabinaPrist == 2 then
-												Call("SetControlValue", "TramexPodsviceni", 0, 2)
+												Call("SetControlValue", "TramexOsvetleni", 0, 2)
 											else
-												Call("SetControlValue", "TramexPodsviceni", 0, 1)
+												Call("SetControlValue", "TramexOsvetleni", 0, 1)
 											end
 										end
 									--------TLACITKA
@@ -3383,20 +3449,151 @@ function Update (casHry)
 										local tramexMenu = false
 										local tramexEnt = false
 										local tramexRet = false
-
-										if Call("GetControlValue", "TramexCas", 0) > 0.5 and not tramexLastCas then
-											tramexCas = true
-											tramexLastCas = true
-										elseif Call("GetControlValue", "TramexCas", 0) < 0.5 then
-											tramexLastCas = false
-										end
-										if Call("GetControlValue", "TramexKM", 0) > 0.5 and not tramexLastKM then
-											tramexKM = true
-											tramexLastKM = true
-										elseif Call("GetControlValue", "TramexKM", 0) < 0.5 then
-											tramexLastKM = false
-										end
+										local tramexDoleva = false
+										local tramexDoprava = false
+										--0
+											if Call("GetControlValue", "Tramex0", 0) > 0.5 and not tramexLast0 then
+												tramex0 = true
+												tramexLast0 = true
+											elseif Call("GetControlValue", "Tramex0", 0) < 0.5 then
+												tramexLast0 = false
+											end
+										--1
+											if Call("GetControlValue", "Tramex1", 0) > 0.5 and not tramexLast1 then
+												tramex1 = true
+												tramexLast1 = true
+											elseif Call("GetControlValue", "Tramex1", 0) < 0.5 then
+												tramexLast1 = false
+											end
+										--2
+											if Call("GetControlValue", "Tramex2", 0) > 0.5 and not tramexLast2 then
+												tramex2 = true
+												tramexLast2 = true
+											elseif Call("GetControlValue", "Tramex2", 0) < 0.5 then
+												tramexLast2 = false
+											end
+										--3
+											if Call("GetControlValue", "Tramex3", 0) > 0.5 and not tramexLast3 then
+												tramex3 = true
+												tramexLast3 = true
+											elseif Call("GetControlValue", "Tramex3", 0) < 0.5 then
+												tramexLast3 = false
+											end
+										--4
+											if Call("GetControlValue", "Tramex4", 0) > 0.5 and not tramexLast4 then
+												tramex4 = true
+												tramexLast4 = true
+											elseif Call("GetControlValue", "Tramex4", 0) < 0.5 then
+												tramexLast4 = false
+											end
+										--5
+											if Call("GetControlValue", "Tramex5", 0) > 0.5 and not tramexLast5 then
+												tramex5 = true
+												tramexLast5 = true
+											elseif Call("GetControlValue", "Tramex5", 0) < 0.5 then
+												tramexLast5 = false
+											end
+										--6
+											if Call("GetControlValue", "Tramex6", 0) > 0.5 and not tramexLast6 then
+												tramex6 = true
+												tramexLast6 = true
+											elseif Call("GetControlValue", "Tramex6", 0) < 0.5 then
+												tramexLast6 = false
+											end
+										--7
+											if Call("GetControlValue", "Tramex7", 0) > 0.5 and not tramexLast7 then
+												tramex7 = true
+												tramexLast7 = true
+											elseif Call("GetControlValue", "Tramex7", 0) < 0.5 then
+												tramexLast7 = false
+											end
+										--8
+											if Call("GetControlValue", "Tramex8", 0) > 0.5 and not tramexLast8 then
+												tramex8 = true
+												tramexLast8 = true
+											elseif Call("GetControlValue", "Tramex8", 0) < 0.5 then
+												tramexLast8 = false
+											end
+										--9
+											if Call("GetControlValue", "Tramex9", 0) > 0.5 and not tramexLast9 then
+												tramex9 = true
+												tramexLast9 = true
+											elseif Call("GetControlValue", "Tramex9", 0) < 0.5 then
+												tramexLast9 = false
+											end
+										--KPJ
+											if Call("GetControlValue", "TramexKPJ", 0) > 0.5 and not tramexLastKPJ then
+												tramexKPJ = true
+												tramexLastKPJ = true
+											elseif Call("GetControlValue", "TramexKPJ", 0) < 0.5 then
+												tramexLastKPJ = false
+											end
+										--Cas
+											if Call("GetControlValue", "TramexCas", 0) > 0.5 and not tramexLastCas then
+												tramexCas = true
+												tramexLastCas = true
+											elseif Call("GetControlValue", "TramexCas", 0) < 0.5 then
+												tramexLastCas = false
+											end
+										--Draha
+											if Call("GetControlValue", "TramexKM", 0) > 0.5 and not tramexLastKM then
+												tramexKM = true
+												tramexLastKM = true
+											elseif Call("GetControlValue", "TramexKM", 0) < 0.5 then
+												tramexLastKM = false
+											end
+										--Error
+											if Call("GetControlValue", "TramexVykricnik", 0) > 0.5 and not tramexLastErr then
+												tramexErr = true
+												tramexLastErr = true
+											elseif Call("GetControlValue", "TramexVykricnik", 0) < 0.5 then
+												tramexLastErr = false
+											end
+										--Menu
+											if Call("GetControlValue", "TramexMenu", 0) > 0.5 and not tramexLastMenu then
+												tramexMenu = true
+												tramexLastMenu = true
+											elseif Call("GetControlValue", "TramexMenu", 0) < 0.5 then
+												tramexLastMenu = false
+											end
+										--Enter
+											if Call("GetControlValue", "TramexEnter", 0) > 0.5 and not tramexLastEnt then
+												tramexEnt = true
+												tramexLastEnt = true
+											elseif Call("GetControlValue", "TramexEnter", 0) < 0.5 then
+												tramexLastEnt = false
+											end
+										--Return
+											if Call("GetControlValue", "TramexReturn", 0) > 0.5 and not tramexLastRet then
+												tramexRet = true
+												tramexLastRet = true
+											elseif Call("GetControlValue", "TramexReturn", 0) < 0.5 then
+												tramexLastRet = false
+											end
+										--Doleva
+											if Call("GetControlValue", "TramexVlevo", 0) > 0.5 and not tramexLastDoleva then
+												tramexDoleva = true
+												tramexLastDoleva = true
+											elseif Call("GetControlValue", "TramexVlevo", 0) < 0.5 then
+												tramexLastDoleva = false
+											end
+										--Doprava
+											if Call("GetControlValue", "TramexVpravo", 0) > 0.5 and not tramexLastDoprava then
+												tramexDoprava = true
+												tramexLastDoprava = true
+											elseif Call("GetControlValue", "TramexVpravo", 0) < 0.5 then
+												tramexLastDoprava = false
+											end
 									--------VELKY DISPLEJ
+										--specialni znaky:
+											--	`	á
+											--	;	é
+											-- 	~	í
+											--	@	ó
+											-- 	#	ú
+											--	$	č
+											-- 	^	ě
+											-- 	&	ž
 										if tramexStav == TRAMEX_CAS then
 											if hh < 10 then hh = "0"..tostring(hh) end
 											if mm < 10 then mm = "0"..tostring(mm) end
@@ -3404,20 +3601,32 @@ function Update (casHry)
 											Call("TramexCom:SetText", "Cas:XXXX"..hh..":"..mm..":"..ss, 0)
 											if tramexCas then
 												tramexStav = TRAMEX_DATUM
+												tramexCas = false
 											end
 											if tramexKM then
 												tramexStav = TRAMEX_DRAHA
+												tramexKM = false
 											end
 										elseif tramexStav == TRAMEX_DATUM then
-											Call("TramexCom:SetText", "Datum:XX03.11.18", 0)
+											Call("TramexCom:SetText", "Datum:XX"..os.date("%d.%m.%y"), 0)
 											if tramexCas then
 												tramexStav = TRAMEX_CAS
+												tramexCas = false
 											end
 											if tramexKM then
 												tramexStav = TRAMEX_DRAHA
+												tramexKM = false
 											end
 										elseif tramexStav == TRAMEX_DRAHA then
-											local drahaString = ""..tramexDrahaKm
+											local drahaString = ""
+											if tramexDrahaKm - math.floor(tramexDrahaKm) > 0.5 then
+												drahaString = ""..math.ceil(tramexDrahaKm)
+											else
+												drahaString = ""..math.floor(tramexDrahaKm)
+											end
+											if string.len(drahaString) > 8 then
+												drahaString = "99999999"
+											end
 											while string.len(drahaString) < 8 do
 												drahaString = "X"..drahaString
 											end
@@ -3425,12 +3634,22 @@ function Update (casHry)
 											Call("TramexCom:SetText", drahaString, 0)
 											if tramexCas then
 												tramexStav = TRAMEX_CAS
+												tramexCas = false
 											end
 											if tramexKM then
 												tramexStav = TRAMEX_RELDRAHA
+												tramexKM = false
 											end
 										elseif tramexStav == TRAMEX_RELDRAHA then
-											local drahaString = ""..tramexRelDrahaKm
+											local drahaString = ""
+											if tramexRelDrahaKm - math.floor(tramexRelDrahaKm) > 0.5 then
+												drahaString = ""..math.ceil(tramexRelDrahaKm)
+											else
+												drahaString = ""..math.floor(tramexRelDrahaKm)
+											end
+											if string.len(drahaString) > 4 then
+												drahaString = "9999"
+											end
 											while string.len(drahaString) < 4 do
 												drahaString = "X"..drahaString
 											end
@@ -3438,21 +3657,776 @@ function Update (casHry)
 											Call("TramexCom:SetText", drahaString, 0)
 											if tramexCas then
 												tramexStav = TRAMEX_CAS
+												tramexCas = false
 											end
+											if tramexKM then
+												tramexStav = TRAMEX_DRAHA
+												tramexKM = false
+											end
+										elseif tramexStav == TRAMEX_NELZESPUSTIT then
+											Call("TramexCom:SetText", "NelzeXspustit!XX", 0)
+										elseif tramexStav == TRAMEX_ZAJIZDY_NELZE then
+											Call("TramexCom:SetText", "ZaXj~zdyXnelze!X", 0)
+										elseif tramexStav == TRAMEX_HLAVNIMENU then
+											Call("TramexCom:SetText", "Hlavn~XmenuXXXXX", 0)
+										elseif tramexStav == TRAMEX_HM_ZADVOL then
+											Call("TramexCom:SetText", "Zad`n~-voln;XXXX", 0)
+										elseif tramexStav == TRAMEX_HM_ZADZAKL then
+											Call("TramexCom:SetText", "Zad`n~-z`kladn~X", 0)
+										elseif tramexStav == TRAMEX_HM_ZADCHRAN then
+											Call("TramexCom:SetText", "Zad`n~-chr`n^n;X", 0)
+										elseif tramexStav == TRAMEX_HM_ZAKLUD then
+											Call("TramexCom:SetText", "Z`kladn~X#dajeXX", 0)
+										elseif tramexStav == TRAMEX_HM_STATVOL then
+											Call("TramexCom:SetText", "Stat.-voln;XXXXX", 0)
+										elseif tramexStav == TRAMEX_HM_STATCHRA then
+											Call("TramexCom:SetText", "Stat.-chr`n^n;XX", 0)
+										elseif tramexStav == TRAMEX_HM_DIAG then
+											Call("TramexCom:SetText", "DiagnostikaXXXXX", 0)
+										elseif tramexStav == TRAMEX_HM_SERVIS then
+											Call("TramexCom:SetText", "ServisXXXXXXXXXX", 0)
+										elseif tramexStav == TRAMEX_ZV_STROJVED or tramexStav == TRAMEX_SV_STROJVED then
+											local text = ""..tramexStrojvedouci
+											while string.len(text) < 4 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "Strojved.:XX"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_SLUZ or tramexStav == TRAMEX_SV_SLUZ then
+											local text = ""..tramexSluzebna
+											while string.len(text) < 6 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "Slu&ebna:X"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_STAN or tramexStav == TRAMEX_SV_STAN then
+											local text = ""..tramexStanice
+											while string.len(text) < 6 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "Stanice:XX"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_CVLAKU or tramexStav == TRAMEX_SV_CVLAKU then
+											local text = ""..tramexCisloVlaku
+											while string.len(text) < 6 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "C.vlaku:XX"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_HMOTNOST or tramexStav == TRAMEX_SV_HMOTNOST then
+											local text = tramexHmotnost.."t"
+											while string.len(text) < 5 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "Hmotnost:XX"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_NAPRAV or tramexStav == TRAMEX_SV_NAPRAV then
+											local text = ""..tramexNaprav
+											while string.len(text) < 4 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "N`prav:XXXXX"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_BRZDREZ or tramexStav == TRAMEX_SV_BRZDREZ then
+											local text = ""
+											if tramexRezimBrzdeni == TRAMEX_G then
+												text = "XXXG%"
+											elseif tramexRezimBrzdeni == TRAMEX_P then
+												text = "XXXP%"
+											elseif tramexRezimBrzdeni == TRAMEX_R then
+												text = "XXXR%"
+											elseif tramexRezimBrzdeni == TRAMEX_RMG then
+												text = "R+Mg%"
+											else
+												text = "XErr%"
+											end
+											Call("TramexCom:SetText", "Brzd.re&im:"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_BRZDPROC or tramexStav == TRAMEX_SV_BRZDPROC then
+											local text = tramexBrzdiciProc.."%"
+											while string.len(text) < 5 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "Brzd~c~X%:X"..text, 0)
+										elseif tramexStav == TRAMEX_ZV_KODZEME or tramexStav == TRAMEX_SV_KODZEME then
+											local text = ""..tramexKodZeme
+											while string.len(text) < 4 do
+												text = "0"..text
+											end
+											Call("TramexCom:SetText", "K@dXzem^:XXX"..text, 0)
+										elseif tramexStav == TRAMEX_HESLO then
+											local text = ""..tramexHeslo
+											while string.len(text) < 4 do
+												text = "X"..text
+											end
+											Call("TramexCom:SetText", "Heslo:XXXXXX"..text, 0)
+										elseif tramexStav == TRAMEX_ZU_RYCH then
+											local tramexSpeed = "0"
+											if Rychlost - math.floor(Rychlost) > 0.5 then
+												tramexSpeed = ""..math.ceil(Rychlost)
+											else
+												tramexSpeed = ""..math.floor(Rychlost)
+											end
+											while string.len(tramexSpeed) < 3 do
+												tramexSpeed = "X"..tramexSpeed
+											end
+											tramexSpeed = tramexSpeed.."km/h"
+											Call("TramexCom:SetText", "Rychlost:"..tramexSpeed, 0)
+										elseif tramexStav == TRAMEX_ZU_CAS then
+											if hh < 10 then hh = "0"..tostring(hh) end
+											if mm < 10 then mm = "0"..tostring(mm) end
+											if ss < 10 then ss = "0"..tostring(ss) end
+											Call("TramexCom:SetText", "Cas:XXXXX"..hh..":"..mm..":"..ss, 0)
+										elseif tramexStav == TRAMEX_ZU_DATUM then
+											Call("TramexCom:SetText", "Datum:XXX"..os.date("%d.%m.%y"), 0)
+										elseif tramexStav == TRAMEX_ZU_DRAHA then
+											local drahaString = ""
+											if tramexDrahaKm - math.floor(tramexDrahaKm) > 0.5 then
+												drahaString = ""..math.ceil(tramexDrahaKm)
+											else
+												drahaString = ""..math.floor(tramexDrahaKm)
+											end
+											if string.len(drahaString) > 8 then
+												drahaString = "99999999"
+											end
+											while string.len(drahaString) < 8 do
+												drahaString = "X"..drahaString
+											end
+											drahaString = "Dr`ha:"..drahaString.."km"
+											Call("TramexCom:SetText", drahaString, 0)
+										elseif tramexStav == TRAMEX_ZU_RELDR then
+											local drahaString = ""
+											if tramexRelDrahaKm - math.floor(tramexRelDrahaKm) > 0.5 then
+												drahaString = ""..math.ceil(tramexRelDrahaKm)
+											else
+												drahaString = ""..math.floor(tramexRelDrahaKm)
+											end
+											if string.len(drahaString) > 4 then
+												drahaString = "9999"
+											end
+											while string.len(drahaString) < 4 do
+												drahaString = "X"..drahaString
+											end
+											drahaString = "Rel.dr`ha:"..drahaString.."km"
+											Call("TramexCom:SetText", drahaString, 0)
+										elseif tramexStav == TRAMEX_ZU_ZMENACAS then
+											Call("TramexCom:SetText", "Zm^na $asuXXXXXX", 0)
+										elseif tramexStav == TRAMEX_ZU_ZMENACAS_STAV then
+											Call("TramexCom:SetText", "Neaktivov`naXXXX", 0)
+										elseif tramexStav == TRAMEX_CHYBNEHESLO then
+											Call("TramexCom:SetText", "Chybn;Xheslo!XXX", 0)
+										elseif tramexStav == TRAMEX_POMALAJIZDA then
+											Call("TramexCom:SetText", "Pomal`Xj~zdaXXXX", 0)
+										end
+									--------LOGIKA RYCHLOMERU
+										if tramexKPJ then
+											if Rychlost > 1 and tramexNaprav ~= "" then
+												tramexPomalaJizdaMetry = tramexNaprav * 6
+												if tramexStav == TRAMEX_CAS or tramexStav == TRAMEX_DATUM or tramexStav == TRAMEX_DRAHA or tramexStav == TRAMEX_RELDRAHA then
+													tramexStavPredMenu = tramexStav
+												end
+												tramexStav = TRAMEX_POMALAJIZDA
+											else
+												if tramexStav == TRAMEX_CAS or tramexStav == TRAMEX_DATUM or tramexStav == TRAMEX_DRAHA or tramexStav == TRAMEX_RELDRAHA then
+													tramexStavPredMenu = tramexStav
+												end
+												tramexStav = TRAMEX_NELZESPUSTIT
+												tramexZaJizdyNelzeCas = 3
+											end
+										end
+										if tramexZaJizdyNelzeCas > 0 then
+											tramexZaJizdyNelzeCas = math.max(tramexZaJizdyNelzeCas - cas, 0)
+										elseif tramexZaJizdyNelzeCas > -1 then
+											tramexZaJizdyNelzeCas = -1
+											tramexStav = tramexStavPredMenu
+										end
+										if tramexPomalaJizdaMetry > 0 then
+											tramexPomalaJizdaMetry = math.max(tramexPomalaJizdaMetry - Call("GetSpeed") * casHry, 0)
+										elseif tramexPomalaJizdaMetry > -1 then
+											tramexPomalaJizdaMetry = -1
+											tramexStav = tramexStavPredMenu
+											Call("SoundHasler:SetParameter", "TramexPipi", 1)
+										end
+										if tramexStav == TRAMEX_CAS or tramexStav == TRAMEX_DATUM or tramexStav == TRAMEX_DRAHA or tramexStav == TRAMEX_RELDRAHA then --zakladni zobrazeni
+											if tramexMenu then
+												tramexStavPredMenu = TRAMEX_HM_ZADVOL
+												tramexStav = TRAMEX_HLAVNIMENU
+												tramexZaJizdyNelzeCas = 3
+											end
+										end
+										if tramexStav == TRAMEX_HM_ZADVOL or tramexStav == TRAMEX_HM_ZADZAKL or tramexStav == TRAMEX_HM_ZADCHRAN or tramexStav == TRAMEX_HM_ZAKLUD or tramexStav == TRAMEX_HM_STATVOL or tramexStav == TRAMEX_HM_STATCHRA then
+											if Rychlost > 0.2 and tramexEnt then
+												tramexStavPredMenu = tramexStav
+												tramexStav = TRAMEX_ZAJIZDY_NELZE
+												tramexZaJizdyNelzeCas = 3
+											elseif tramexEnt then
+												if tramexStav == TRAMEX_HM_ZADVOL then
+													tramexStav = TRAMEX_ZV_STROJVED
+												elseif tramexStav == TRAMEX_HM_ZADZAKL then
+													tramexStavPredMenu = tramexStav
+													tramexStav = TRAMEX_HESLO
+													tramexHeslo = ""
+												elseif tramexStav == TRAMEX_HM_ZADCHRAN then
+													tramexStavPredMenu = tramexStav
+													tramexStav = TRAMEX_HESLO
+													tramexHeslo = ""
+												elseif tramexStav == TRAMEX_HM_ZAKLUD then
+													tramexStav = TRAMEX_ZU_RYCH
+												elseif tramexStav == TRAMEX_HM_STATVOL then
+													tramexStav = TRAMEX_SV_STROJVED
+												elseif tramexStav == TRAMEX_HM_STATCHRA then
+													tramexStavPredMenu = tramexStav
+													tramexStav = TRAMEX_HESLO
+													tramexHeslo = ""
+												end
+											end
+											if tramexDoleva then
+												if tramexStav == TRAMEX_HM_ZADVOL then
+													tramexStav = TRAMEX_HM_SERVIS
+												elseif tramexStav == TRAMEX_HM_ZADZAKL then
+													tramexStav = TRAMEX_HM_ZADVOL
+												elseif tramexStav == TRAMEX_HM_ZADCHRAN then
+													tramexStav = TRAMEX_HM_ZADZAKL
+												elseif tramexStav == TRAMEX_HM_ZAKLUD then
+													tramexStav = TRAMEX_HM_ZADCHRAN
+												elseif tramexStav == TRAMEX_HM_STATVOL then
+													tramexStav = TRAMEX_HM_ZAKLUD
+												elseif tramexStav == TRAMEX_HM_STATCHRA then
+													tramexStav = TRAMEX_HM_STATVOL
+												end
+											end
+											if tramexDoprava then
+												if tramexStav == TRAMEX_HM_ZADVOL then
+													tramexStav = TRAMEX_HM_ZADZAKL
+												elseif tramexStav == TRAMEX_HM_ZADZAKL then
+													tramexStav = TRAMEX_HM_ZADCHRAN
+												elseif tramexStav == TRAMEX_HM_ZADCHRAN then
+													tramexStav = TRAMEX_HM_ZAKLUD
+												elseif tramexStav == TRAMEX_HM_ZAKLUD then
+													tramexStav = TRAMEX_HM_STATVOL
+												elseif tramexStav == TRAMEX_HM_STATVOL then
+													tramexStav = TRAMEX_HM_STATCHRA
+												elseif tramexStav == TRAMEX_HM_STATCHRA then
+													tramexStav = TRAMEX_HM_DIAG
+												end
+											end
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_CAS
+											end
+										elseif tramexStav == TRAMEX_HM_DIAG or tramexStav == TRAMEX_HM_SERVIS then
+											if tramexEnt then
+												if tramexStav == TRAMEX_HM_DIAG then
+													tramexStavPredMenu = tramexStav
+													tramexStav = TRAMEX_HESLO
+													tramexHeslo = ""
+												elseif tramexStav == TRAMEX_HM_SERVIS then
+													tramexStavPredMenu = tramexStav
+													tramexStav = TRAMEX_HESLO
+													tramexHeslo = ""
+												end
+											end
+											if tramexDoleva then
+												if tramexStav == TRAMEX_HM_DIAG then
+													tramexStav = TRAMEX_HM_STATCHRA
+												elseif tramexStav == TRAMEX_HM_SERVIS then
+													tramexStav = TRAMEX_HM_DIAG
+												end
+											end
+											if tramexDoprava then
+												if tramexStav == TRAMEX_HM_DIAG then
+													tramexStav = TRAMEX_HM_SERVIS
+												elseif tramexStav == TRAMEX_HM_SERVIS then
+													tramexStav = TRAMEX_HM_ZADVOL
+												end
+											end
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_CAS
+											end
+										elseif tramexStav == TRAMEX_HESLO then
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and string.len(tramexHeslo) < 4 then
+												tramexHeslo = tramexHeslo.."*"
+											end
+											if tramexRet then
+												tramexHeslo = string.sub(tramexHeslo,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_CHYBNEHESLO
+												tramexZaJizdyNelzeCas = 3
+											end
+										elseif tramexStav == TRAMEX_ZV_STROJVED then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexStrojvedouci = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexStrojvedouci
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexStrojvedouci = ""
+											end
+											if string.len(tramexStrojvedouci) < 4 then
+												if tramex0 and tramexStrojvedouci ~= "" then
+													tramexStrojvedouci = tramexStrojvedouci.."0"
+												end
+												if tramex1 then
+													tramexStrojvedouci = tramexStrojvedouci.."1"
+												end
+												if tramex2 then
+													tramexStrojvedouci = tramexStrojvedouci.."2"
+												end
+												if tramex3 then
+													tramexStrojvedouci = tramexStrojvedouci.."3"
+												end
+												if tramex4 then
+													tramexStrojvedouci = tramexStrojvedouci.."4"
+												end
+												if tramex5 then
+													tramexStrojvedouci = tramexStrojvedouci.."5"
+												end
+												if tramex6 then
+													tramexStrojvedouci = tramexStrojvedouci.."6"
+												end
+												if tramex7 then
+													tramexStrojvedouci = tramexStrojvedouci.."7"
+												end
+												if tramex8 then
+													tramexStrojvedouci = tramexStrojvedouci.."8"
+												end
+												if tramex9 then
+													tramexStrojvedouci = tramexStrojvedouci.."9"
+												end
+											end
+											if tramexRet then
+												tramexStrojvedouci = string.sub(tramexStrojvedouci,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_SLUZ
+												tramexOldContent = ""
+												tramexUpravenePolicko = false
+											end
+										elseif tramexStav == TRAMEX_ZV_SLUZ then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexSluzebna = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexSluzebna
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexSluzebna = ""
+											end
+											if string.len(tramexSluzebna) < 6 then
+												if tramex0 and tramexSluzebna ~= "" then
+													tramexSluzebna = tramexSluzebna.."0"
+												end
+												if tramex1 then
+													tramexSluzebna = tramexSluzebna.."1"
+												end
+												if tramex2 then
+													tramexSluzebna = tramexSluzebna.."2"
+												end
+												if tramex3 then
+													tramexSluzebna = tramexSluzebna.."3"
+												end
+												if tramex4 then
+													tramexSluzebna = tramexSluzebna.."4"
+												end
+												if tramex5 then
+													tramexSluzebna = tramexSluzebna.."5"
+												end
+												if tramex6 then
+													tramexSluzebna = tramexSluzebna.."6"
+												end
+												if tramex7 then
+													tramexSluzebna = tramexSluzebna.."7"
+												end
+												if tramex8 then
+													tramexSluzebna = tramexSluzebna.."8"
+												end
+												if tramex9 then
+													tramexSluzebna = tramexSluzebna.."9"
+												end
+											end
+											if tramexRet then
+												tramexSluzebna = string.sub(tramexSluzebna,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_STAN
+												tramexOldContent = ""
+											end
+										elseif tramexStav == TRAMEX_ZV_STAN then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexStanice = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexStanice
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexStanice = ""
+											end
+											if string.len(tramexStanice) < 6 then
+												if tramex0 and tramexStanice ~= "" then
+													tramexStanice = tramexStanice.."0"
+												end
+												if tramex1 then
+													tramexStanice = tramexStanice.."1"
+												end
+												if tramex2 then
+													tramexStanice = tramexStanice.."2"
+												end
+												if tramex3 then
+													tramexStanice = tramexStanice.."3"
+												end
+												if tramex4 then
+													tramexStanice = tramexStanice.."4"
+												end
+												if tramex5 then
+													tramexStanice = tramexStanice.."5"
+												end
+												if tramex6 then
+													tramexStanice = tramexStanice.."6"
+												end
+												if tramex7 then
+													tramexStanice = tramexStanice.."7"
+												end
+												if tramex8 then
+													tramexStanice = tramexStanice.."8"
+												end
+												if tramex9 then
+													tramexStanice = tramexStanice.."9"
+												end
+											end
+											if tramexRet then
+												tramexStanice = string.sub(tramexStanice,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_CVLAKU
+												tramexOldContent = ""
+											end
+										elseif tramexStav == TRAMEX_ZV_CVLAKU then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexCisloVlaku = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexCisloVlaku
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexCisloVlaku = ""
+											end
+											if string.len(tramexCisloVlaku) < 6 then
+												if tramex0 and tramexCisloVlaku ~= "" then
+													tramexCisloVlaku = tramexCisloVlaku.."0"
+												end
+												if tramex1 then
+													tramexCisloVlaku = tramexCisloVlaku.."1"
+												end
+												if tramex2 then
+													tramexCisloVlaku = tramexCisloVlaku.."2"
+												end
+												if tramex3 then
+													tramexCisloVlaku = tramexCisloVlaku.."3"
+												end
+												if tramex4 then
+													tramexCisloVlaku = tramexCisloVlaku.."4"
+												end
+												if tramex5 then
+													tramexCisloVlaku = tramexCisloVlaku.."5"
+												end
+												if tramex6 then
+													tramexCisloVlaku = tramexCisloVlaku.."6"
+												end
+												if tramex7 then
+													tramexCisloVlaku = tramexCisloVlaku.."7"
+												end
+												if tramex8 then
+													tramexCisloVlaku = tramexCisloVlaku.."8"
+												end
+												if tramex9 then
+													tramexCisloVlaku = tramexCisloVlaku.."9"
+												end
+											end
+											if tramexRet then
+												tramexCisloVlaku = string.sub(tramexCisloVlaku,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_HMOTNOST
+												tramexOldContent = ""
+											end
+										elseif tramexStav == TRAMEX_ZV_HMOTNOST then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexHmotnost = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexHmotnost
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexHmotnost = ""
+											end
+											if string.len(tramexHmotnost) < 4 then
+												if tramex0 and tramexHmotnost ~= "" then
+													tramexHmotnost = tramexHmotnost.."0"
+												end
+												if tramex1 then
+													tramexHmotnost = tramexHmotnost.."1"
+												end
+												if tramex2 then
+													tramexHmotnost = tramexHmotnost.."2"
+												end
+												if tramex3 then
+													tramexHmotnost = tramexHmotnost.."3"
+												end
+												if tramex4 then
+													tramexHmotnost = tramexHmotnost.."4"
+												end
+												if tramex5 then
+													tramexHmotnost = tramexHmotnost.."5"
+												end
+												if tramex6 then
+													tramexHmotnost = tramexHmotnost.."6"
+												end
+												if tramex7 then
+													tramexHmotnost = tramexHmotnost.."7"
+												end
+												if tramex8 then
+													tramexHmotnost = tramexHmotnost.."8"
+												end
+												if tramex9 then
+													tramexHmotnost = tramexHmotnost.."9"
+												end
+											end
+											if tramexRet then
+												tramexHmotnost = string.sub(tramexHmotnost,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_NAPRAV
+												tramexOldContent = ""
+											end
+										elseif tramexStav == TRAMEX_ZV_NAPRAV then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexNaprav = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexNaprav
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexNaprav = ""
+											end
+											if string.len(tramexNaprav) < 4 then
+												if tramex0 and tramexNaprav ~= "" then
+													tramexNaprav = tramexNaprav.."0"
+												end
+												if tramex1 then
+													tramexNaprav = tramexNaprav.."1"
+												end
+												if tramex2 then
+													tramexNaprav = tramexNaprav.."2"
+												end
+												if tramex3 then
+													tramexNaprav = tramexNaprav.."3"
+												end
+												if tramex4 then
+													tramexNaprav = tramexNaprav.."4"
+												end
+												if tramex5 then
+													tramexNaprav = tramexNaprav.."5"
+												end
+												if tramex6 then
+													tramexNaprav = tramexNaprav.."6"
+												end
+												if tramex7 then
+													tramexNaprav = tramexNaprav.."7"
+												end
+												if tramex8 then
+													tramexNaprav = tramexNaprav.."8"
+												end
+												if tramex9 then
+													tramexNaprav = tramexNaprav.."9"
+												end
+											end
+											if tramexRet then
+												tramexNaprav = string.sub(tramexNaprav,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_BRZDREZ
+												tramexOldContent = ""
+											end
+										elseif tramexStav == TRAMEX_ZV_BRZDREZ then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexRezimBrzdeni = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexRezimBrzdeni
+											end
+											if tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9 then
+												if tramexRezimBrzdeni == TRAMEX_G then
+													tramexRezimBrzdeni = TRAMEX_P
+												elseif tramexRezimBrzdeni == TRAMEX_P then
+													tramexRezimBrzdeni = TRAMEX_R
+												elseif tramexRezimBrzdeni == TRAMEX_R then
+													tramexRezimBrzdeni = TRAMEX_RMG
+												elseif tramexRezimBrzdeni == TRAMEX_RMG then
+													tramexRezimBrzdeni = TRAMEX_G
+												end
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_BRZDPROC
+												tramexOldContent = ""
+											end
+										elseif tramexStav == TRAMEX_ZV_BRZDPROC then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexBrzdiciProc = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexBrzdiciProc
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexBrzdiciProc = ""
+											end
+											if string.len(tramexBrzdiciProc) < 4 then
+												if tramex0 and tramexBrzdiciProc ~= "" then
+													tramexBrzdiciProc = tramexBrzdiciProc.."0"
+												end
+												if tramex1 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."1"
+												end
+												if tramex2 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."2"
+												end
+												if tramex3 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."3"
+												end
+												if tramex4 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."4"
+												end
+												if tramex5 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."5"
+												end
+												if tramex6 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."6"
+												end
+												if tramex7 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."7"
+												end
+												if tramex8 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."8"
+												end
+												if tramex9 then
+													tramexBrzdiciProc = tramexBrzdiciProc.."9"
+												end
+											end
+											if tramexRet then
+												tramexBrzdiciProc = string.sub(tramexBrzdiciProc,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_KODZEME
+												tramexOldContent = ""
+											end
+										elseif tramexStav == TRAMEX_ZV_KODZEME then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZADVOL
+												tramexKodZeme = tramexOldContent
+												tramexOldContent = ""
+											end
+											if tramexOldContent == "" then
+												tramexOldContent = tramexKodZeme
+												tramexUpravenePolicko = false
+											end
+											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
+												tramexUpravenePolicko = true
+												tramexKodZeme = ""
+											end
+											if string.len(tramexKodZeme) < 4 then
+												if tramex0 and tramexKodZeme ~= "" then
+													tramexKodZeme = tramexKodZeme.."0"
+												end
+												if tramex1 then
+													tramexKodZeme = tramexKodZeme.."1"
+												end
+												if tramex2 then
+													tramexKodZeme = tramexKodZeme.."2"
+												end
+												if tramex3 then
+													tramexKodZeme = tramexKodZeme.."3"
+												end
+												if tramex4 then
+													tramexKodZeme = tramexKodZeme.."4"
+												end
+												if tramex5 then
+													tramexKodZeme = tramexKodZeme.."5"
+												end
+												if tramex6 then
+													tramexKodZeme = tramexKodZeme.."6"
+												end
+												if tramex7 then
+													tramexKodZeme = tramexKodZeme.."7"
+												end
+												if tramex8 then
+													tramexKodZeme = tramexKodZeme.."8"
+												end
+												if tramex9 then
+													tramexKodZeme = tramexKodZeme.."9"
+												end
+											end
+											if tramexRet then
+												tramexKodZeme = string.sub(tramexKodZeme,1,-2)
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZV_STROJVED
+												tramexOldContent = ""
+											end
+										end
+										if tramexStav ~= TRAMEX_CAS then
+											if tramexCas then
+												tramexStav = TRAMEX_CAS
+											end
+										end
+										if tramexStav ~= TRAMEX_DRAHA then
 											if tramexKM then
 												tramexStav = TRAMEX_DRAHA
 											end
 										end
+									--------POCITADLO DRAHY
+										tramexDrahaKm = tramexDrahaKm + Rychlost * (casHry/3600)
+									--------POCITADLO RELATIVNI DRAHY
+										tramexRelDrahaKm = tramexRelDrahaKm + Rychlost * (casHry/3600)
 								else
 									tramexRelDrahaKm = 0
+									tramexStav = TRAMEX_VYP
 									nulovyDoraz = false
 									maximalniDoraz = false
 									tramexInit = false
 									tramexSipickaDole = false
 									tramexSipickaHore = false
 									Call("TramexRych:SetText", "XXX", 0)
-									Call("TramexCom:SetText", "0123456789+-%`*~", 0)
-									Call("SetControlValue", "TramexPodsviceni", 0, 0)
+									Call("TramexCom:SetText", "XXXXXXXXXXXXXXXX", 0)
+									Call("SetControlValue", "TramexOsvetleni", 0, 0)
 								end
 								if tramexCasSipicka > 0.5 then
 									tramexSipickaDole = false
@@ -3465,6 +4439,7 @@ function Update (casHry)
 								else
 									Call("SetControlValue", "TramexSipicky", 0, 0)
 								end
+								Call("SoundHasler:SetParameter", "TramexPipi", 0)
 							end
 						----------------------------------------Dvere---------------------------------------------
 							--dvere ze soupravy
