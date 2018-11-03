@@ -1008,6 +1008,34 @@ tramexSipickaHore = false
 tramexSipickaDole = false
 tramexCasSipicka = 0
 tramexInit = false
+nulovyDoraz = false
+maximalniDoraz = false
+tramexDrahaKm = math.random(100000,2000000)
+tramexRelDrahaKm = 0
+TRAMEX_VYP = 0
+TRAMEX_CAS = 1
+TRAMEX_DATUM = 2
+TRAMEX_DRAHA = 3
+TRAMEX_RELDRAHA = 4
+tramexStav = TRAMEX_VYP
+
+tramexLast0 = false
+tramexLast1 = false
+tramexLast2 = false
+tramexLast3 = false
+tramexLast4 = false
+tramexLast5 = false
+tramexLast6 = false
+tramexLast7 = false
+tramexLast8 = false
+tramexLast9 = false
+tramexLastKPJ = false
+tramexLastErr = false
+tramexLastKM = false
+tramexLastCas = false
+tramexLastRet = false
+tramexLastEnt = false
+tramexLastMenu = false
 
 -- srv = net.createConnection(net.TCP, 0)
 -- srv:on("receive", function(sck, c) Print(c) end)
@@ -3277,50 +3305,153 @@ function Update (casHry)
 								tramexCasSipicka = tramexCasSipicka + cas
 								if baterie == 1 and RizenaRidici == "ridici" then
 									local tramexCilova = math.floor(Rychlost*4)/4
-									if not tramexInit then
-										tramexCilova = 142
-									end
-									if not tramexInit and Call("GetControlValue","TramexRucka",0) > 141 then
-										tramexInit = true
-									end
-									if tramexCilova - Call("GetControlValue","TramexRucka",0) > 0.25 then
-										Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)+90*cas)
-									elseif tramexCilova - Call("GetControlValue","TramexRucka",0) < -0.25 then
-										Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)-90*cas)
-									else
-										Call("SetControlValue","TramexRucka",0,tramexCilova)
-									end
-									local tramexSpeed = "0"
-									if Rychlost - math.floor(Rychlost) > 0.5 then
-										tramexSpeed = ""..math.ceil(Rychlost)
-									else
-										tramexSpeed = ""..math.floor(Rychlost)
-									end
-									while string.len(tramexSpeed) < 3 do
-										tramexSpeed = "X"..tramexSpeed
-									end
-									Call("TramexRych:SetText", tramexSpeed, 0)
-									if tramexCasSipicka > 1 and lastTramex - math.floor(Rychlost*2)/2 > 0.4 then
-										lastTramex = math.floor(Rychlost*2)/2
-										tramexSipickaDole = true
-										tramexSipickaHore = false
-										tramexCasSipicka = 0
-									elseif tramexCasSipicka > 1 and lastTramex - math.floor(Rychlost*2)/2 < -0.4 then
-										lastTramex = math.floor(Rychlost*2)/2
-										tramexSipickaHore = true
-										tramexSipickaDole = false
-										tramexCasSipicka = 0
-									end
-									if KabinaPrist == 2 then
-										Call("SetControlValue", "TramexPodsviceni", 0, 2)
-									else
-										Call("SetControlValue", "TramexPodsviceni", 0, 1)
-									end
+									--------INICIALIZACE RYCHLOMERU PO ZTRATE NAPAJENI
+										if not tramexInit then
+											if not nulovyDoraz then
+												tramexCilova = 0
+												if Call("GetControlValue","TramexRucka",0) == 0 then
+													nulovyDoraz = true
+												end
+											elseif not maximalniDoraz then
+												tramexCilova = 142
+											end
+										end
+										if not tramexInit and nulovyDoraz and Call("GetControlValue","TramexRucka",0) > 141 then
+											maximalniDoraz = true
+											tramexInit = true
+											tramexStav = TRAMEX_CAS
+										end
+									--------KROKOVY MOTOREK RUCICKY
+										if tramexCilova - Call("GetControlValue","TramexRucka",0) > 0.25 then
+											Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)+90*cas)
+										elseif tramexCilova - Call("GetControlValue","TramexRucka",0) < -0.25 then
+											Call("SetControlValue","TramexRucka",0,Call("GetControlValue","TramexRucka",0)-90*cas)
+										else
+											Call("SetControlValue","TramexRucka",0,tramexCilova)
+										end
+									--------RYCHLOST - SIPICKY A MALY DISP
+										if not tramexInit then
+											tramexCasSipicka = 0
+											tramexSipickaDole = true
+											tramexSipickaHore = true
+											Call("TramexRych:SetText", "888", 0)
+											Call("SetControlValue", "TramexPodsviceni", 0, 2)
+											Call("TramexCom:SetText", "Prob~h`Xselftest", 0)
+										else
+											local tramexSpeed = "0"
+											if Rychlost - math.floor(Rychlost) > 0.5 then
+												tramexSpeed = ""..math.ceil(Rychlost)
+											else
+												tramexSpeed = ""..math.floor(Rychlost)
+											end
+											while string.len(tramexSpeed) < 3 do
+												tramexSpeed = "X"..tramexSpeed
+											end
+											Call("TramexRych:SetText", tramexSpeed, 0)
+											if tramexCasSipicka > 1 and lastTramex - math.floor(Rychlost*2)/2 > 0.4 then
+												lastTramex = math.floor(Rychlost*2)/2
+												tramexSipickaDole = true
+												tramexSipickaHore = false
+												tramexCasSipicka = 0
+											elseif tramexCasSipicka > 1 and lastTramex - math.floor(Rychlost*2)/2 < -0.4 then
+												lastTramex = math.floor(Rychlost*2)/2
+												tramexSipickaHore = true
+												tramexSipickaDole = false
+												tramexCasSipicka = 0
+											end
+											if KabinaPrist == 2 then
+												Call("SetControlValue", "TramexPodsviceni", 0, 2)
+											else
+												Call("SetControlValue", "TramexPodsviceni", 0, 1)
+											end
+										end
+									--------TLACITKA
+										local tramex0 = false
+										local tramex1 = false
+										local tramex2 = false
+										local tramex3 = false
+										local tramex4 = false
+										local tramex5 = false
+										local tramex6 = false
+										local tramex7 = false
+										local tramex8 = false
+										local tramex9 = false
+										local tramexKPJ = false
+										local tramexCas = false
+										local tramexKM = false
+										local tramexErr = false
+										local tramexMenu = false
+										local tramexEnt = false
+										local tramexRet = false
+
+										if Call("GetControlValue", "TramexCas", 0) > 0.5 and not tramexLastCas then
+											tramexCas = true
+											tramexLastCas = true
+										elseif Call("GetControlValue", "TramexCas", 0) < 0.5 then
+											tramexLastCas = false
+										end
+										if Call("GetControlValue", "TramexKM", 0) > 0.5 and not tramexLastKM then
+											tramexKM = true
+											tramexLastKM = true
+										elseif Call("GetControlValue", "TramexKM", 0) < 0.5 then
+											tramexLastKM = false
+										end
+									--------VELKY DISPLEJ
+										if tramexStav == TRAMEX_CAS then
+											if hh < 10 then hh = "0"..tostring(hh) end
+											if mm < 10 then mm = "0"..tostring(mm) end
+											if ss < 10 then ss = "0"..tostring(ss) end
+											Call("TramexCom:SetText", "Cas:XXXX"..hh..":"..mm..":"..ss, 0)
+											if tramexCas then
+												tramexStav = TRAMEX_DATUM
+											end
+											if tramexKM then
+												tramexStav = TRAMEX_DRAHA
+											end
+										elseif tramexStav == TRAMEX_DATUM then
+											Call("TramexCom:SetText", "Datum:XX03.11.18", 0)
+											if tramexCas then
+												tramexStav = TRAMEX_CAS
+											end
+											if tramexKM then
+												tramexStav = TRAMEX_DRAHA
+											end
+										elseif tramexStav == TRAMEX_DRAHA then
+											local drahaString = ""..tramexDrahaKm
+											while string.len(drahaString) < 8 do
+												drahaString = "X"..drahaString
+											end
+											drahaString = "Dr`ha:"..drahaString.."km"
+											Call("TramexCom:SetText", drahaString, 0)
+											if tramexCas then
+												tramexStav = TRAMEX_CAS
+											end
+											if tramexKM then
+												tramexStav = TRAMEX_RELDRAHA
+											end
+										elseif tramexStav == TRAMEX_RELDRAHA then
+											local drahaString = ""..tramexRelDrahaKm
+											while string.len(drahaString) < 4 do
+												drahaString = "X"..drahaString
+											end
+											drahaString = "Rel.dr`ha:"..drahaString.."km"
+											Call("TramexCom:SetText", drahaString, 0)
+											if tramexCas then
+												tramexStav = TRAMEX_CAS
+											end
+											if tramexKM then
+												tramexStav = TRAMEX_DRAHA
+											end
+										end
 								else
+									tramexRelDrahaKm = 0
+									nulovyDoraz = false
+									maximalniDoraz = false
 									tramexInit = false
 									tramexSipickaDole = false
 									tramexSipickaHore = false
 									Call("TramexRych:SetText", "XXX", 0)
+									Call("TramexCom:SetText", "0123456789+-%`*~", 0)
 									Call("SetControlValue", "TramexPodsviceni", 0, 0)
 								end
 								if tramexCasSipicka > 0.5 then
