@@ -5005,7 +5005,7 @@
 														<Attribute name="DefaultValue">
 															<sFloat32>
 																<Element>
-																	<Value>0.86</Value>
+																	<Value>0.9</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
@@ -5210,13 +5210,13 @@
 																						<__Indexed__cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
 																							<Element>
 																								<Value>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>Vysokotlaky svih</Value>
+																															<Value>Svih</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5227,10 +5227,124 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Svih</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
@@ -5247,10 +5361,124 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Jizda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
@@ -5267,16 +5495,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>1/15</Value>
+																															<Value>1/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5287,16 +5629,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>1/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.05882353</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.9411765</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>2/15</Value>
+																															<Value>2/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5307,16 +5763,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>2/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.1176471</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.8823529</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>3/15</Value>
+																															<Value>3/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5327,16 +5897,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>3/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.1764706</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.8235294</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>4/15</Value>
+																															<Value>4/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5347,16 +6031,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>4/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.2352941</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.7647059</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>5/15</Value>
+																															<Value>5/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5367,16 +6165,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>5/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.2941177</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.7058824</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>6/15</Value>
+																															<Value>6/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5387,16 +6299,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>6/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.3529412</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.6470588</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>7/15</Value>
+																															<Value>7/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5407,16 +6433,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>7/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.4117647</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.5882353</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>8/15</Value>
+																															<Value>8/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5427,16 +6567,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>8/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.4705882</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.5294118</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>9/15</Value>
+																															<Value>9/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5447,16 +6701,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>9/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.5294118</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.4705882</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>10/15</Value>
+																															<Value>10/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5467,16 +6835,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>10/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.588235</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.4117647</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>11/15</Value>
+																															<Value>11/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5487,16 +6969,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>11/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.6470588</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.3529412</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>12/15</Value>
+																															<Value>12/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5507,16 +7103,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>12/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.7058824</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.2941177</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>13/15</Value>
+																															<Value>13/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5527,16 +7237,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>13/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.7647059</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.2352941</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>14/15</Value>
+																															<Value>14/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5547,16 +7371,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>14/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.8235294</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.1764706</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>15/15</Value>
+																															<Value>15/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5567,16 +7505,130 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>15/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.8823529</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.1176471</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value>Zamykatelny zaver</Value>
+																															<Value>16/16</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -5587,10 +7639,258 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>16/16</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.9411765</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0.05882353</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																										<Element>
+																											<Value>
+																												<Attribute name="Identifier">
+																													<cDeltaString>
+																														<Element>
+																															<Value>Zaver</Value>
+																														</Element>
+																													</cDeltaString>
+																												</Attribute>
+																												<Attribute name="Value">
+																													<sFloat32>
+																														<Element>
+																															<Value>0.9</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Zaver</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
+																											</Value>
+																										</Element>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
+																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																										<Element>
 																											<Value>
 																												<Attribute name="Identifier">
@@ -5607,9 +7907,123 @@
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
+																												<Attribute name="LocalisedNotchName">
+																													<Localisation-cUserLocalisedString>
+																														<Element>
+																															<Value>
+																																<Attribute name="English">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="French">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Italian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="German">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Spanish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Dutch">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Polish">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Russian">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value>Rychlobrzda</Value>
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																																<Attribute name="Other">
+																																	<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																																</Attribute>
+																																<Attribute name="Key">
+																																	<cDeltaString>
+																																		<Element>
+																																			<Value />
+																																		</Element>
+																																	</cDeltaString>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</Localisation-cUserLocalisedString>
+																												</Attribute>
+																												<Attribute name="Colour">
+																													<cHcColour>
+																														<Element>
+																															<Value>
+																																<Attribute name="Red">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Green">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Blue">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>0</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																																<Attribute name="Alpha">
+																																	<sFloat32>
+																																		<Element>
+																																			<Value>1</Value>
+																																		</Element>
+																																	</sFloat32>
+																																</Attribute>
+																															</Value>
+																														</Element>
+																													</cHcColour>
+																												</Attribute>
 																											</Value>
 																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
+																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cExtendedNotchData>
 																								</Value>
 																							</Element>
 																						</__Indexed__cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
@@ -38504,7 +40918,7 @@
 														<Attribute name="ControlName">
 															<cDeltaString>
 																<Element>
-																	<Value>VirtualBrakeReservoirPressureBAR</Value>
+																	<Value>VirtualDistributorReservoirPressureBAR</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -38651,7 +41065,7 @@
 														<Attribute name="ControlName">
 															<cDeltaString>
 																<Element>
-																	<Value>VirtualBrakeControlSystemDefaultPressureBAR</Value>
+																	<Value>VirtualDistributorControlReservoirPressureBAR</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -38771,7 +41185,154 @@
 														<Attribute name="ApplyToConsist">
 															<eBoolean>
 																<Element>
-																	<Value>eTrue</Value>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value />
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>VirtualDistributorInitialPressureBAR</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>16</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
 																</Element>
 															</eBoolean>
 														</Attribute>
