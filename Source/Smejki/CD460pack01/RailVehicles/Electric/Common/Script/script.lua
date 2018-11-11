@@ -1103,6 +1103,12 @@ tramexLastMenu = false
 tramexLastDoleva = false
 tramexLastDoprava = false
 
+ohrevLeve = 1
+ohrevLevePredni = 1
+ohrevPravePredni = 1
+ohrevPrave = 1
+
+vypnutaTrakce = false
 
 -- srv = net.createConnection(net.TCP, 0)
 -- srv:on("receive", function(sck, c) Print(c) end)
@@ -2568,7 +2574,7 @@ function Update (casHry)
 							Call ( "SetControlValue", "povel_Reverser", 0, Smer)
 						end
 
-						if baterie == 1 and prepinaceTlak > 3.5 then
+						if baterie == 1 and prepinaceTlak > 3.5 and (not vypnutaTrakce or pojezdNeschopna) then
 							Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
 						else
 							Call("SetControlValue", "Reverser", 0, 0)
@@ -2646,6 +2652,14 @@ function Update (casHry)
 								soupatkoVZ = 1
 								Call("SetControlValue", "JeZivakZap", 0, 0)
 							end
+
+							if byloZhaveni then
+								Call("SetControlValue", "LVZmenic", 0, 1)
+							else
+								Call("SetControlValue", "LVZmenic", 0, 0)
+							end
+
+							Call("SetControlValue", "LVZvybaveni", 0, Call("GetControlValue","LVZzivak",0))
 
 							if Call("GetControlValue", "JeZivakZap", 0) == 1  then
 								JeZivak1 = 1
@@ -2871,7 +2885,7 @@ function Update (casHry)
 							Call("SetControlValue","mgZvuk",0,math.max(mg,mgdocasny))
 							NastavHodnotuSID("mgVS",math.max(mg,mgdocasny),460117)
 							NastavHodnotuSID("mg",mg,460118)
-						----------------------------------------Vys?la?ka-----------------------------------------
+						----------------------------------------Vysilacka-----------------------------------------
 							if baterie == 1 then
 								if vysilackaObrazovka ~= vysilackaObrazovkaStara then -- displej vys?la?ky
 									Call("SetControlValue","vysilacka_displeje",0,vysilackaObrazovka)
@@ -3242,7 +3256,7 @@ function Update (casHry)
 								else
 									Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
 								end
-						-- -------------------------------------Brzdove valce-------------------------------------
+						----------------------------------------Brzdove valce-------------------------------------
 							if nastaveneValce > plynuleValce then
 								if valcePrimocinne - plynuleValce > 0.1 then
 									Call("SetControlValue","VirtualDistributorReservoirPressureBAR",0,VirtualDistributorReservoirPressureBAR - 0.2*cas)
@@ -3253,6 +3267,7 @@ function Update (casHry)
 							end
 							Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,plynuleValce)
 						----------------------------------------Ostatni vzduchotechnika---------------------------
+							VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
 							Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR-(((VirtualMainReservoirPressureBAR/500)^2)*5*cas))
 							PantoJimkaZKom = PantoJimkaZKom-(((PantoJimkaZKom/790)^2)*10*cas)
 							prepinaceTlak = prepinaceTlak-(((prepinaceTlak/600)^2)*10*cas)
@@ -3359,7 +3374,7 @@ function Update (casHry)
 
 							if RizenaRidici == "ridici" and PolohaKlice < 0.5 and math.max(diagPU,skluzDiag,niDiag) == 0 then
 								ZamekHLvyp = 0
-							elseif Call("GetControlValue", "povel_HlavniVypinac", 0) == 0 and math.max(diagPU,skluzDiag,niDiag) == 0 then
+							elseif Call("GetControlValue", "povel_HlavniVypinac", 0) == 0 and math.max(diagPU,skluzDiag,niDiag) == 0 and RizenaRidici == "rizena" then
 								ZamekHLvyp = 0
 							end
 						----------------------------------------Cvakani HASLERa-----------------------------------
@@ -3795,9 +3810,9 @@ function Update (casHry)
 											if hh < 10 then hh = "0"..tostring(hh) end
 											if mm < 10 then mm = "0"..tostring(mm) end
 											if ss < 10 then ss = "0"..tostring(ss) end
-											Call("TramexCom:SetText", "Cas:XXXXX"..hh..":"..mm..":"..ss, 0)
+											Call("TramexCom:SetText", "Cas:XXXX"..hh..":"..mm..":"..ss, 0)
 										elseif tramexStav == TRAMEX_ZU_DATUM then
-											Call("TramexCom:SetText", "Datum:XXX"..os.date("%d.%m.%y"), 0)
+											Call("TramexCom:SetText", "Datum:XX"..os.date("%d.%m.%y"), 0)
 										elseif tramexStav == TRAMEX_ZU_DRAHA then
 											local drahaString = ""
 											if tramexDrahaKm - math.floor(tramexDrahaKm) > 0.5 then
@@ -3829,7 +3844,7 @@ function Update (casHry)
 											drahaString = "Rel.dr`ha:"..drahaString.."km"
 											Call("TramexCom:SetText", drahaString, 0)
 										elseif tramexStav == TRAMEX_ZU_ZMENACAS then
-											Call("TramexCom:SetText", "Zm^na $asuXXXXXX", 0)
+											Call("TramexCom:SetText", "Zm^naX$asuXXXXXX", 0)
 										elseif tramexStav == TRAMEX_ZU_ZMENACAS_STAV then
 											Call("TramexCom:SetText", "Neaktivov`naXXXX", 0)
 										elseif tramexStav == TRAMEX_CHYBNEHESLO then
@@ -4454,7 +4469,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_SLUZ
 											end
 											if tramexDoleva then
@@ -4467,7 +4482,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_STAN
 											end
 											if tramexDoleva then
@@ -4480,7 +4495,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_CVLAKU
 											end
 											if tramexDoleva then
@@ -4493,7 +4508,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_HMOTNOST
 											end
 											if tramexDoleva then
@@ -4506,7 +4521,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_NAPRAV
 											end
 											if tramexDoleva then
@@ -4519,7 +4534,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_BRZDREZ
 											end
 											if tramexDoleva then
@@ -4532,7 +4547,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_BRZDPROC
 											end
 											if tramexDoleva then
@@ -4545,7 +4560,7 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_KODZEME
 											end
 											if tramexDoleva then
@@ -4558,11 +4573,99 @@ function Update (casHry)
 											if tramexRet then
 												tramexStav = TRAMEX_HM_STATVOL
 											end
-											if tramexEnt or tramexDoprava then
+											if tramexDoprava then
 												tramexStav = TRAMEX_SV_STROJVED
 											end
 											if tramexDoleva then
 												tramexStav = TRAMEX_SV_BRZDPROC
+											end
+										elseif tramexStav == TRAMEX_ZU_RYCH then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexDoprava then
+												tramexStav = TRAMEX_ZU_CAS
+											end
+											if tramexDoleva then
+												tramexStav = TRAMEX_ZU_ZMENACAS
+											end
+										elseif tramexStav == TRAMEX_ZU_CAS then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexDoprava then
+												tramexStav = TRAMEX_ZU_DATUM
+											end
+											if tramexDoleva then
+												tramexStav = TRAMEX_ZU_RYCH
+											end
+										elseif tramexStav == TRAMEX_ZU_DATUM then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexDoprava then
+												tramexStav = TRAMEX_ZU_DRAHA
+											end
+											if tramexDoleva then
+												tramexStav = TRAMEX_ZU_CAS
+											end
+										elseif tramexStav == TRAMEX_ZU_DRAHA then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexDoprava then
+												tramexStav = TRAMEX_ZU_RELDR
+											end
+											if tramexDoleva then
+												tramexStav = TRAMEX_ZU_DATUM
+											end
+										elseif tramexStav == TRAMEX_ZU_RELDR then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexDoprava then
+												tramexStav = TRAMEX_ZU_ZMENACAS
+											end
+											if tramexDoleva then
+												tramexStav = TRAMEX_ZU_DRAHA
+											end
+										elseif tramexStav == TRAMEX_ZU_ZMENACAS then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexDoprava then
+												tramexStav = TRAMEX_ZU_RYCH
+											end
+											if tramexDoleva then
+												tramexStav = TRAMEX_ZU_RELDR
+											end
+											if tramexEnt then
+												tramexStav = TRAMEX_ZU_ZMENACAS_STAV
+											end
+										elseif tramexStav == TRAMEX_ZU_ZMENACAS_STAV then
+											if tramexMenu then
+												tramexStav = TRAMEX_HM_ZAKLUD
+											end
+											if tramexRet then
+												tramexStav = TRAMEX_ZU_ZMENACAS
 											end
 										end
 										if tramexStav ~= TRAMEX_CAS then
@@ -5316,7 +5419,7 @@ function Update (casHry)
 								vykon = 0 
 							end
 							pojezdNeschopna = false
-							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and Call("GetControlValue","VentilatoryTM",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0) or pojezdVDepu then -- kontrola podmínek pro jízdu
+							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and Call("GetControlValue","VentilatoryTM",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutaTrakce) or pojezdVDepu then -- kontrola podmínek pro jízdu
 								if vykon == 0 or not pojezdNeschopna then
 									Call("SetControlValue","MuteSounds",0,0)
 								end
@@ -5424,8 +5527,27 @@ function Update (casHry)
 								Call("LockControl","JeNouzovyRadic",0,1)
 							end
 
-						----------------------------------------Ventil?tory---------------------------------------
-							if HlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 then
+						----------------------------------------Smer jako vypinac trakce--------------------------
+							if Smer > 1.8 then
+								Call("LockControl", "JeSmerVeVypinaci", 0, 0)
+							else
+								Call("LockControl", "JeSmerVeVypinaci", 0, 1)
+							end
+							if Call("GetControlValue", "JeSmerVeVypinaci", 0) == 1 then
+								Call("LockControl", "UserVirtualReverser", 0, 1)
+								Call("LockControl", "VypinacHlavy", 0, 0)
+							else
+								Call("LockControl", "UserVirtualReverser", 0, 0)
+								Call("LockControl", "VypinacHlavy", 0, 1)
+							end
+
+							if Call("GetControlValue", "VypinacHlavy", 0) > 0.5 then
+								vypnutaTrakce = false
+							else
+								vypnutaTrakce = true
+							end
+						----------------------------------------Ventilatory---------------------------------------
+							if HlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 and not vypnutaTrakce then
 								Call("SetControlValue","VentilatoryTM",0,1)
 								ventilatoryTM = 1
 								if math.abs(Call("GetControlValue", "prerusovanyChodVentilatoru", 0)) > 0.5 then
@@ -5440,7 +5562,7 @@ function Update (casHry)
 									Call("SetControlValue","VentilatoryStrecha",0,1)
 									ventilatoryStrecha = 1
 								end
-							elseif HlavniVypinac ~= 1 or PC ~= 3.75 or baterie ~= 1 or Call("GetControlValue","Reverser",0) == 0 or vnitrniSit220V ~= 1 then
+							else
 								Call("SetControlValue","VentilatoryTM",0,0)
 								ventilatoryTM = 0
 								Call("SetControlValue","VentilatoryStrecha",0,0)
@@ -5587,7 +5709,7 @@ function Update (casHry)
 								ZamekHLvyp = 1
 							end
 
-						----------------------------------------Sn??en? v?kon-------------------------------------
+						----------------------------------------Snieny v?kon--------------------------------------
 							if Call("GetControlValue","snizenyvykonanim",0) == 1 and RizenaRidici == "ridici" then
 								Call("SetControlValue","SnizenyVykon",0,1)
 								snizenyVykonTady = true
@@ -5605,7 +5727,7 @@ function Update (casHry)
 							else
 								SnizenyVykonVozu = false
 							end
-						----------------------------------------Brzdi? z?mek--------------------------------------
+						----------------------------------------Brzdic z?mek--------------------------------------
 							if (Call("GetControlValue","ZamekBS2vs",0) ~= 1 or gKlicTady) and Call("GetControlValue","VirtualBrake",0) > 0.88 and Call("GetControlValue","VirtualBrake",0) < 0.95 then
 								Call("LockControl","ZamekBS2",0,0)
 							else
@@ -5772,11 +5894,11 @@ function Update (casHry)
 									Call("SetControlValue","JOBpovel",0,0)
 								end
 							end
-							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 then
+							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 and not vypnutaTrakce then
 								Call("SetControlValue","JOB",0,1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and Call("GetControlValue","JOBpovel",0) == -1 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and Call("GetControlValue","JOBpovel",0) == -1 and not vypnutaTrakce then
 								Call("SetControlValue","JOB",0,-1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0 or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0 or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or vypnutaTrakce then
 								Call("SetControlValue","JOB",0,0)
 							end
 
@@ -5800,6 +5922,30 @@ function Update (casHry)
 							end
 						----------------------------------------Okenka a zvuky deste------------------------------
 							okna = (Call("GetControlValue","OknoL",0)+Call("GetControlValue","OknoP",0))/2
+
+							-- local pocasiZamlzeni = 0
+							-- if SysCall("ScenarioManager:GetCurrentPrecipitationType") ~= nil or SysCall("ScenarioManager:GetSeason") == 3 then
+								pocasiZamlzeni = 1
+							-- end
+
+							if baterie == 1 then
+								ohrevLevePredni = math.max(ohrevLevePredni-(0.016*cas),0)
+								ohrevPravePredni = math.max(ohrevPravePredni-(0.016*cas),0)
+								
+								ohrevLeve = math.max(ohrevLeve-(0.0017*cas),0)
+								ohrevPrave = math.max(ohrevPrave-(0.0017*cas),0)
+							else
+								ohrevLevePredni = math.min(ohrevLevePredni+(0.001*cas),1)
+								ohrevPravePredni = math.min(ohrevPravePredni+(0.001*cas),1)
+								
+								ohrevLeve = math.min(ohrevLeve+(0.001*cas),1)
+								ohrevPrave = math.min(ohrevPrave+(0.001*cas),1)
+							end
+
+							Call("SetControlValue", "zamlzeniLeve", 0, math.min(pocasiZamlzeni, ohrevLeve))
+							Call("SetControlValue", "zamlzeniLevePredni", 0, math.min(pocasiZamlzeni, ohrevLevePredni))
+							Call("SetControlValue", "zamlzeniPravePredni", 0, math.min(pocasiZamlzeni, ohrevPravePredni))
+							Call("SetControlValue", "zamlzeniPrave", 0, math.min(pocasiZamlzeni, ohrevPrave))
 							
 							if SysCall("GetPrecipitationDensity") > 0 then
 								if SysCall("GetCurrentPrecipitationType") < 2 then
@@ -6026,7 +6172,7 @@ function Update (casHry)
 								
 								--*******H22 POZICE JOB
 									local jobDiag = 0
-									if ((Call("GetControlValue","VykonPredTrCh",0) > 0 and JOB ~= 1) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) < 0 and JOB ~= -1)) and RizenaRidici == "ridici" then
+									if ((Call("GetControlValue","VykonPredTrCh",0) > 0 and JOB ~= 1 and not pojezdNeschopna) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) < 0 and JOB ~= -1 and not pojezdNeschopna)) and RizenaRidici == "ridici" then
 										jobDiag = 1
 									end
 									Call("SetControlValue","Diag_JOB",0,jobDiag) -- H22
