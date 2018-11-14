@@ -5942,10 +5942,12 @@ function Update (casHry)
 								ohrevPrave = math.min(ohrevPrave+(0.001*cas),1)
 							end
 
+							Call("SetControlValue", "zamlzeniLeveDvere", 0, math.min(pocasiZamlzeni, ohrevPrave))
 							Call("SetControlValue", "zamlzeniLeve", 0, math.min(pocasiZamlzeni, ohrevLeve))
 							Call("SetControlValue", "zamlzeniLevePredni", 0, math.min(pocasiZamlzeni, ohrevLevePredni))
 							Call("SetControlValue", "zamlzeniPravePredni", 0, math.min(pocasiZamlzeni, ohrevPravePredni))
 							Call("SetControlValue", "zamlzeniPrave", 0, math.min(pocasiZamlzeni, ohrevPrave))
+							Call("SetControlValue", "zamlzeniPraveDvere", 0, math.min(pocasiZamlzeni, ohrevPrave))
 							
 							if SysCall("GetPrecipitationDensity") > 0 then
 								if SysCall("GetCurrentPrecipitationType") < 2 then
