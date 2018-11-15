@@ -837,7 +837,7 @@ IS = {
 			if IS.cil1ID > table.getn(IS.cile1IN) then
 				IS.cil1ID = 1
 			end
-			IS:NastavCil1(IS.cil1ID,false)
+			IS:NastavCil1(IS.cil1ID,true)
 			IS:NastavCislo(IS.cil1ID)
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
@@ -845,7 +845,7 @@ IS = {
 			if IS.cil2ID > table.getn(IS.cile2IN) then
 				IS.cil2ID = 1
 			end
-			IS:NastavCil2(IS.cil2ID,false)
+			IS:NastavCil2(IS.cil2ID,true)
 			IS:NastavCislo(IS.cil2ID)
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
@@ -853,7 +853,7 @@ IS = {
 			if IS.linkaID > table.getn(IS.linkyIN) then
 				IS.linkaID = 1
 			end
-			IS:NastavLinku(IS.linkaID,false)
+			IS:NastavLinku(IS.linkaID,true)
 			IS:NastavCislo(IS.linkaID)
 			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
@@ -1019,7 +1019,7 @@ tramexStanice = ""
 tramexCisloVlaku = ""..math.random(1700,3799)
 tramexHmotnost = "239"
 tramexNaprav = "16"
-tramexRezimBrzdeni = TRAMEX_R
+tramexRezimBrzdeni = 98
 tramexBrzdiciProc = "104"
 tramexKodZeme = "1"
 tramexHeslo = ""
@@ -1080,7 +1080,7 @@ tramex3secZobrazeni = -1
 tramexStavPred3sec = TRAMEX_VYP
 tramexPomalaJizdaMetry = -1
 tramexStavPredKPJ = TRAMEX_VYP
-tramexOldContent = ""
+tramexOldContent = false
 tramexUpravenePolicko = false
 
 tramexLast0 = false
@@ -4017,9 +4017,9 @@ function Update (casHry)
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexStrojvedouci = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent then
 												tramexOldContent = tramexStrojvedouci
 												tramexUpravenePolicko = false
 											end
@@ -4064,16 +4064,16 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_SLUZ
-												tramexOldContent = ""
+												tramexOldContent = false
 												tramexUpravenePolicko = false
 											end
 										elseif tramexStav == TRAMEX_ZV_SLUZ then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexSluzebna = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent then
 												tramexOldContent = tramexSluzebna
 												tramexUpravenePolicko = false
 											end
@@ -4118,15 +4118,15 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_STAN
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_ZV_STAN then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexStanice = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent then
 												tramexOldContent = tramexStanice
 												tramexUpravenePolicko = false
 											end
@@ -4171,15 +4171,15 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_CVLAKU
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_ZV_CVLAKU then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexCisloVlaku = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent then
 												tramexOldContent = tramexCisloVlaku
 												tramexUpravenePolicko = false
 											end
@@ -4224,15 +4224,15 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_HMOTNOST
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_ZV_HMOTNOST then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexHmotnost = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent then
 												tramexOldContent = tramexHmotnost
 												tramexUpravenePolicko = false
 											end
@@ -4277,15 +4277,15 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_NAPRAV
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_ZV_NAPRAV then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexNaprav = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent then
 												tramexOldContent = tramexNaprav
 												tramexUpravenePolicko = false
 											end
@@ -4330,15 +4330,15 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_BRZDREZ
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_ZV_BRZDREZ then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexRezimBrzdeni = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent then
 												tramexOldContent = tramexRezimBrzdeni
 											end
 											if tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9 then
@@ -4354,15 +4354,15 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_BRZDPROC
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_ZV_BRZDPROC then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexBrzdiciProc = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent  then
 												tramexOldContent = tramexBrzdiciProc
 												tramexUpravenePolicko = false
 											end
@@ -4407,15 +4407,15 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_KODZEME
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_ZV_KODZEME then
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexKodZeme = tramexOldContent
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
-											if tramexOldContent == "" then
+											if not tramexOldContent  then
 												tramexOldContent = tramexKodZeme
 												tramexUpravenePolicko = false
 											end
@@ -4460,7 +4460,7 @@ function Update (casHry)
 											end
 											if tramexEnt then
 												tramexStav = TRAMEX_ZV_STROJVED
-												tramexOldContent = ""
+												tramexOldContent = false
 											end
 										elseif tramexStav == TRAMEX_SV_STROJVED then
 											if tramexMenu then
