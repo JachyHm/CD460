@@ -592,7 +592,7 @@ end
 	--ý(253) = ;(59)
 	--Ý(221) = ¤(164)
 	--ž(382) = /(47)
-	--Ž(381) = \(92)
+    --Ž(381) = \(92)
 local map_unicode_to_1252 = {
    [8364] = 128,
    [129] = 129,
@@ -724,18 +724,85 @@ local map_unicode_to_1252 = {
    [255] = 255,
 }
 
+local map_custom_upper_1252_to_lower = {
+    [49] = 176,
+    [51] = 50,
+    [53] = 52,
+    [56] = 54,
+    [57] = 55,
+    [37] = 48,
+    [96] = 43,
+    [64] = 33,
+    [36] = 35,
+    [38] = 94,
+    [61] = 42,
+    [91] = 123,
+    [93] = 125,
+    [164] = 59,
+    [92] = 47,
+    [95] = 45,
+    [8364] = 40,
+    [168] = 41,
+    [63] = 32,
+    [126] = 46,
+    [167] = 44
+}
+
+local map_custom_lower_1252_to_upper = {
+    [176] = 49,
+    [50] = 51,
+    [52] = 53,
+    [54] = 56,
+    [55] = 57,
+    [48] = 37,
+    [43] = 96,
+    [33] = 64,
+    [35] = 36,
+    [94] = 38,
+    [42] = 61,
+    [123] = 91,
+    [125] = 93,
+    [59] = 164,
+    [47] = 92,
+    [45] = 95,
+    [40] = 8364,
+    [41] = 168,
+    [32] = 63,
+    [46] = 126,
+    [44] = 167
+}
+
 function string.fromutf8(utf8str)
 	local pos, result_1252 = 1, {}
 	while pos <= string.len(utf8str) do
 		local code, size = utf8_to_unicode(utf8str, pos)
 		pos = pos + size
-		local kodPred = code
 		code = code < 128 and code or map_unicode_to_1252[code] or string.byte('?')
-		local kodPo = code
-		local znakPo = char(code)
 		table_insert(result_1252, char(code))
 	end
 	return table_concat(result_1252)
+end
+
+function string.lowerCustomEncoded1252(CP1252customEncoded)
+	local pos, result_1252 = 1, {}
+	while pos <= string.len(CP1252customEncoded) do
+		local code, size = utf8_to_unicode(CP1252customEncoded, pos)
+		pos = pos + size
+		code = map_custom_upper_1252_to_lower[code] or code
+		table_insert(result_1252, char(code))
+	end
+    return table_concat(result_1252)
+end
+
+function string.upperCustomEncoded1252(CP1252customEncoded)
+	local pos, result_1252 = 1, {}
+	while pos <= string.len(CP1252customEncoded) do
+		local code, size = utf8_to_unicode(CP1252customEncoded, pos)
+		pos = pos + size
+		code = map_custom_lower_1252_to_upper[code] or code
+		table_insert(result_1252, char(code))
+	end
+    return table_concat(result_1252)
 end
 
 IS = {
@@ -763,8 +830,9 @@ IS = {
 	linkaID = 1,
 	casStart = 0,
 	casMenu = 0,
-	Zapis = function(self, kam, co, zleva, center)
-		local maxDelka = IS.maxDelky[kam]
+	Zapis = function(self, kam, co, zleva, center, escChar)
+        local maxDelka = IS.maxDelky[kam]
+        escChar = escChar or " "
 		if maxDelka then
 			if string.len(co) > maxDelka then
 				co = string.sub(co,1,maxDelka)
@@ -772,37 +840,41 @@ IS = {
 			if not center then
 				while string.len(co) < maxDelka do
 					if not zleva then
-						co = co.." "
+						co = co..escChar
 					else
-						co = " "..co
+						co = escChar..co
 					end
 				end
 			else
 				local pocetMezerLeva = math.floor((maxDelka - string.len(co))/2)
 				local i = 0
 				while i < pocetMezerLeva do
-					co = " "..co
+					co = escChar..co
 					i = i + 1
 				end
 				while string.len(co) < maxDelka do
-					co = co.." "
+					co = co..escChar
 				end
 			end
 			if kam ~= "MSVcil1IN" and kam ~= "MSVcil2IN" and kam ~= "MSVlinkaIN" and kam ~= "MSVid" then
 				Call(kam..":SetText",co,0)
 				Call(kam.."2:SetText",co,0)
 			else
-				Call(kam.."2:SetText",co,0)
+                Call(kam..":SetText",co,0)
 			end
 		end
 	end,
-	NastavLinku = function(self, ID, venku)
+	NastavLinku = function(self, ID, inverzni)
 		if venku then
 			IS:Zapis("MSVlinkaOUT",IS.linkyOUT[ID],false,false)
-		end
-		IS:Zapis("MSVlinkaIN",IS.linkyIN[ID],false,false)
+        end
+        if not inverzni then --neinverzni zapis
+            IS:Zapis("MSVlinkaIN",string.lowerCustomEncoded1252(string.fromutf8(string.lower(IS.linkyIN[ID]))),false,false)
+        else
+            IS:Zapis("MSVlinkaIN",string.upperCustomEncoded1252(string.fromutf8(string.upper(IS.linkyIN[ID]))),false,false, "?")
+        end
 	end,
-	NastavCil1 = function(self, ID, venku)
+	NastavCil1 = function(self, ID, inverzni)
 		if venku and IS.cileIsWhole[ID] == "false" then
 			IS:Zapis("MSVcil1OUT",IS.cile1OUT[ID],false,false)
 			IS:Zapis("MSVcilCelaPlochaOUT","",false,false)
@@ -815,23 +887,42 @@ IS = {
 			IS:Zapis("MSVlinkaIN","",false,false)
 			IS:Zapis("MSVcil2OUT","",false,false)
 			IS:Zapis("MSVcil2IN","",false,false)
-		end
-		IS:Zapis("MSVcil1IN",IS.cile1IN[ID],false,false)
+        end
+        if not inverzni then --neinverzni zapis
+            IS:Zapis("MSVcil1IN",string.lowerCustomEncoded1252(string.fromutf8(string.lower(IS.cile1IN[ID]))),false,false)
+        else
+            IS:Zapis("MSVcil1IN",string.upperCustomEncoded1252(string.fromutf8(string.upper(IS.cile1IN[ID]))),false,false, "?")
+        end
 	end,
-	NastavCil2 = function(self, ID, venku)
+	NastavCil2 = function(self, ID, inverzni)
 		if venku then
 			IS:Zapis("MSVcil2OUT",IS.cile2OUT[ID],true,false)
 		end
-		IS:Zapis("MSVcil2IN",IS.cile2IN[ID],true,false)
+        if not inverzni then --neinverzni zapis
+            IS:Zapis("MSVcil2IN",string.lowerCustomEncoded1252(string.fromutf8(string.lower(IS.cile2IN[ID]))),false,false)
+        else
+            IS:Zapis("MSVcil2IN",string.upperCustomEncoded1252(string.fromutf8(string.upper(IS.cile2IN[ID]))),false,false, "?")
+        end
 	end,
 	NastavCislo = function(self, ID)
-		ZpravaDebug("Nastavuji ID "..ID)
 		IS:Zapis("MSVid",tostring(ID-1),false,false)
 	end,
 	SipkaNahoru = function(self)
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
-			IS.stav = "cil1"
+			IS.stav = "menu"
+        elseif IS.stav == "menu" and IS.cileIsWhole[IS.cil1ID] == "false" then
+			local cil1 = IS.cil1ID
+			local cil2 = IS.cil2ID
+			IS.cil1ID = cil2
+			IS.cil2ID = cil1
+			IS:NastavCil1(IS.cil1ID)
+			IS:NastavCil2(IS.cil2ID)
+			if IS.stav == "cil1" then
+				IS:NastavCislo(IS.cil1ID)
+			elseif IS.stav == "cil2" then
+				IS:NastavCislo(IS.cil2ID)
+			end
 		elseif IS.stav == "cil1" then
 			IS.cil1ID = IS.cil1ID + 1
 			if IS.cil1ID > table.getn(IS.cile1IN) then
@@ -839,7 +930,6 @@ IS = {
 			end
 			IS:NastavCil1(IS.cil1ID,true)
 			IS:NastavCislo(IS.cil1ID)
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
 			IS.cil2ID = IS.cil2ID + 1
 			if IS.cil2ID > table.getn(IS.cile2IN) then
@@ -847,7 +937,6 @@ IS = {
 			end
 			IS:NastavCil2(IS.cil2ID,true)
 			IS:NastavCislo(IS.cil2ID)
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
 			IS.linkaID = IS.linkaID + 1
 			if IS.linkaID > table.getn(IS.linkyIN) then
@@ -855,13 +944,24 @@ IS = {
 			end
 			IS:NastavLinku(IS.linkaID,true)
 			IS:NastavCislo(IS.linkaID)
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
 	end,
 	SipkaDolu = function(self)
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
-			IS.stav = "cil1"
+            IS.stav = "menu"
+        elseif IS.stav == "menu" and IS.cileIsWhole[IS.cil1ID] == "false" then
+			local cil1 = IS.cil1ID
+			local cil2 = IS.cil2ID
+			IS.cil1ID = cil2
+			IS.cil2ID = cil1
+			IS:NastavCil1(IS.cil1ID)
+			IS:NastavCil2(IS.cil2ID)
+			if IS.stav == "cil1" then
+				IS:NastavCislo(IS.cil1ID)
+			elseif IS.stav == "cil2" then
+				IS:NastavCislo(IS.cil2ID)
+			end
 		elseif IS.stav == "cil1" then
 			IS.cil1ID = IS.cil1ID - 1
 			if IS.cil1ID <= 0 then
@@ -869,7 +969,6 @@ IS = {
 			end
 			IS:NastavCil1(IS.cil1ID,true)
 			IS:NastavCislo(IS.cil1ID)
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
 		elseif IS.stav == "cil2" then
 			IS.cil2ID = IS.cil2ID - 1
 			if IS.cil2ID <= 0 then
@@ -877,7 +976,6 @@ IS = {
 			end
 			IS:NastavCil2(IS.cil2ID,true)
 			IS:NastavCislo(IS.cil2ID)
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
 			IS.linkaID = IS.linkaID - 1
 			if IS.linkaID <= 0 then
@@ -885,33 +983,43 @@ IS = {
 			end
 			IS:NastavLinku(IS.linkaID,true)
 			IS:NastavCislo(IS.linkaID)
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
 		end
 	end,
 	Potvrzeni = function(self)
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
-			IS.stav = "cil1"
+            IS.stav = "menu"
+        elseif IS.stav == "menu" then
+            IS.stav = "cil1"
+            IS:NastavCil1(IS.cil1ID, true)
+            IS:NastavCil2(IS.cil2ID)
+            IS:NastavLinku(IS.linkaID)
 		elseif IS.stav == "cil1" then
 			IS:NastavCislo(IS.cil2ID)
 			if IS.cileIsWhole[IS.cil1ID] == "false" then
 				IS.stav = "cil2"
 			end
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 2:", "Zapisuji ID: "..IS.cil1ID.." CIL: "..IS.cile1IN[IS.cil1ID],0.2)
+            IS:NastavCil1(IS.cil1ID)
+            IS:NastavCil2(IS.cil2ID, true)
+            IS:NastavLinku(IS.linkaID)
 		elseif IS.stav == "cil2" then
 			IS:NastavCislo(IS.linkaID)
+            IS:NastavCil1(IS.cil1ID)
+            IS:NastavCil2(IS.cil2ID)
+            IS:NastavLinku(IS.linkaID, true)
 			IS.stav = "linka"
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni linky:", "Zapisuji ID: "..IS.cil2ID.." CIL: "..IS.cile2IN[IS.cil2ID],0.2)
 		elseif IS.stav == "linka" then
 			IS:NastavCislo(IS.cil1ID)
-			IS.stav = "cil1"
-			SysCall("ScenarioManager:ShowAlertMessageExt", "MSV IS nastaveni cile 1:", "Zapisuji ID: "..IS.linkaID.." LINKA: "..IS.linkyIN[IS.linkaID],0.2)
+            IS:NastavCil1(IS.cil1ID)
+            IS:NastavCil2(IS.cil2ID)
+            IS:NastavLinku(IS.linkaID)
+			IS.stav = "menu"
 		end
 	end,
 	SipkaBok = function(self)
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
-			IS.stav = "cil1"
+			IS.stav = "menu"
 		elseif (IS.stav == "cil1" or IS.stav == "cil2") and IS.cileIsWhole[IS.cil1ID] == "false" then
 			local cil1 = IS.cil1ID
 			local cil2 = IS.cil2ID
@@ -946,17 +1054,17 @@ function NactiIS()
 		souborCile:close()
 		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/cile.ci4") do
 			if not string.find(radek,"#") then
-				radek = string.fromutf8(radek)
+				-- radek = string.fromutf8(radek)
 				local splitted = split(radek,"|")
 				local cilIN = splitted[1]
 				local cilOUT = splitted[2]
 				local cilIS = splitted[3]
 				IS.cile1IN[table.getn(IS.cile1IN)+1] = cilIN
-				IS.cile1OUT[table.getn(IS.cile1OUT)+1] = cilOUT
+				IS.cile1OUT[table.getn(IS.cile1OUT)+1] = string.fromutf8(cilOUT)
 				IS.cileIsWhole[table.getn(IS.cileIsWhole)+1] = cilIS
 				if IS.cileIsWhole[table.getn(IS.cileIsWhole)] == "false" then
 					IS.cile2IN[table.getn(IS.cile2IN)+1] = cilIN
-					IS.cile2OUT[table.getn(IS.cile2OUT)+1] = cilOUT
+					IS.cile2OUT[table.getn(IS.cile2OUT)+1] = string.fromutf8(cilOUT)
 				end
 			end
 			if table.getn(IS.cile1IN) == 99 then
@@ -974,12 +1082,12 @@ function NactiIS()
 		souborLinky:close()
 		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/linky.lin") do
 			if not string.find(radek,"#") then
-				radek = string.fromutf8(radek)
+				-- radek = string.fromutf8(radek)
 				local splitted = split(radek,"|")
 				local linkaIN = string.upper(splitted[1])
 				local linkaOUT = string.upper(splitted[2])
 				IS.linkyIN[table.getn(IS.linkyIN)+1] = linkaIN
-				IS.linkyOUT[table.getn(IS.linkyOUT)+1] = linkaOUT
+				IS.linkyOUT[table.getn(IS.linkyOUT)+1] = string.fromutf8(linkaOUT)
 			end
 			if table.getn(IS.linkyIN) == 99 then
 				break
@@ -1867,9 +1975,9 @@ end
 
 function VratRadic(radicMain,radicOkno)
 	if radicMain >= 0 then
-		if math.min(radicOkno,radicMain*2) < 1 then
+		if math.min(radicOkno,radicMain*2) < 0.5 then
 			return(0)
-		elseif math.max(radicOkno,radicMain*2) > 1 then
+		elseif math.max(radicOkno,radicMain*2) > 1.5 then
 			return(1)
 		else
 			return(0.5)
@@ -1945,9 +2053,9 @@ function VratTCh(gRegulatorTrCh)
 		elseif stupenTrCh <= -4 then
 			vypoctenaTrCh = ((-1000-speed)/((2*speed)+2))+100
 		end
-		vratRegulator = -(vypoctenaTrCh/gAbsolutniMax_kN_EDB)*pocetMG
+		vratRegulator = -(vypoctenaTrCh/gAbsolutniMax_kN_EDB)--*pocetMG
 		if pojezdNeschopna then
-			vratRegulator = vratRegulator / 2
+			vratRegulator = vratRegulator * ((pocetMG-1)/pocetMG)
 		end
 		--vratRegulator = vypoctenaTrCh
 		if vratRegulator > 0 then vratRegulator = 0 end
@@ -2320,14 +2428,16 @@ end
 function GetMaxkN(rychlostKMH)
 	local koefVyuzitelnostiAdhese = 0.7
 	local koefAdhese = ((7500/(rychlostKMH+44))+161)/1000
-	local maxkN = 700 * koefAdhese * koefVyuzitelnostiAdhese
+	local hmotnost = 70
+	local gravitacniKonstanta = 9.81
+	local maxkN = hmotnost * gravitacniKonstanta * koefAdhese * koefVyuzitelnostiAdhese
 	return maxkN
 end
 
 function Update (casHry)
 	casMinuly = casProcesor
 	casProcesor = os.clock()
-	cas = math.abs(casProcesor - casMinuly)
+    cas = math.abs(casProcesor - casMinuly)
 	if math.abs(cas - casHry) > 2 then
 		cas = 0
 	end
@@ -2448,7 +2558,7 @@ function Update (casHry)
 				--##################################################################################--
 				------------------------------------ČOST expert controls------------------------------
 				--##################################################################################--
-					if ID ~= nil or ID ~= 0 then
+					if ID ~= nil and ID ~= 0 then
 						NastavHodnotuSID("pocetJimek", 1, 460993)
 						pocetJimek = decToBitsCount(Call("GetControlValue", "pocetJimek", 0))
 						HlavniVypinac = Call ("GetControlValue", "HlavniVypinac", 0)
@@ -2624,11 +2734,6 @@ function Update (casHry)
 								if LVZstart and LVZrezim > 0.75 then
 									byloZhaveni = true
 								end
-								if LVZvypinac and LVZstanoviste > 0.5 then
-									byloZhaveni = false
-									Call("SetControlValue", "JeZivakZap", 0, 0)
-									soupatkoVZ = 1
-								end
 								if LVZrezim > 0.75 then
 									Call("SetControlValue", "JeZivakZap", 0, 0)
 									if not LVZvypinac then
@@ -2674,7 +2779,7 @@ function Update (casHry)
 
 							if JeZivak1 == 1 and baterie == 1 and soupatkoVZ == 0 then ------- zivak
 								CasZivak = CasZivak + cas
-								if ZivakReset <= 0.25 and ZivakStary == 1 then
+								if ZivakReset <= 0.25 and ZivakStary == 1 and LVZstanoviste < 0.5 then
 									if CasZivak > 7 then
 										CasZivak = 0
 									end
@@ -2684,7 +2789,7 @@ function Update (casHry)
 									CasZivak = 0
 								end
 								if kodNavesti == 2 or kodNavesti == 4 then
-									if ZivakReset >= 0.25 then
+									if ZivakReset >= 0.25 and LVZstanoviste < 0.5 then
 										nadbytecnaObsluha = true
 										Call ("SetControlValue", "ZivakPip", 0, 1)
 									end
@@ -2692,15 +2797,15 @@ function Update (casHry)
 										CasZivak = 10
 									end
 								end
-								if ZivakReset <= 0.25 then
+								if ZivakReset <= 0.25 or LVZstanoviste > 0.5 then
 									nadbytecnaObsluha = false
 								end
-								if CasZivak <= 7 then
+								if CasZivak <= 7 and LVZstanoviste < 0.5 then
 									Call ("SetControlValue", "LVZzivak", 0, 1)
 									if not nadbytecnaObsluha then
 										Call ("SetControlValue", "ZivakPip", 0, 0)
 									end
-								elseif CasZivak <= 15 then
+								elseif CasZivak <= 15 and LVZstanoviste < 0.5 then
 									if ZivakReset >= 0.25 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
 									else
@@ -2709,21 +2814,23 @@ function Update (casHry)
 									if not nadbytecnaObsluha then
 										Call ("SetControlValue", "ZivakPip", 0, 0)
 									end
-								elseif CasZivak <= 19 then
+								elseif CasZivak <= 19 and LVZstanoviste < 0.5 then
 									if ZivakReset >= 0.25 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
 									else
 										Call ("SetControlValue", "LVZzivak", 0, 0)
 									end
 									Call ("SetControlValue", "ZivakPip", 0, 1)
-								else
+								elseif CasZivak > 19 then
 									Call ("SetControlValue", "ZivakPip", 0, 0)
-									if ZivakReset >= 0.25 then
+									if ZivakReset >= 0.25 and LVZstanoviste < 0.5 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
 									else
 										Call ("SetControlValue", "LVZzivak", 0, 0)
 									end
 									soupatkoVZ = 1
+								elseif LVZstanoviste > 0.5 then
+									Call ("SetControlValue", "LVZzivak", 0, 0)
 								end
 							else
 								Call ("SetControlValue", "LVZzivak", 0, 0)
@@ -2798,11 +2905,12 @@ function Update (casHry)
 								Call("MSVstart2:ActivateNode","MSVstart",1)
 								if IS.casStart > 5 then
 									Call("MSVstart:ActivateNode","MSVstart",0)
-									Call("MSVstart2:ActivateNode","MSVstart",0)
-									IS.stav = "sleep"
-									IS:NastavCil1(1,true)
-									IS:NastavCil2(1,true)
-									IS:NastavLinku(1,true)
+                                    Call("MSVstart2:ActivateNode","MSVstart",0)
+                                    IS.casMenu = 0
+									IS.stav = "menu"
+									IS:NastavCil1(1)
+									IS:NastavCil2(1)
+									IS:NastavLinku(1)
 								end
 							else
 								IS.casStart = 0
@@ -3164,10 +3272,10 @@ function Update (casHry)
 										tlak_HP = tlak_ridiciho_ustroji
 									end
 									if tlak_ridiciho_ustroji < tlak_HP then
-										Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, prirustek_brzdeni*100))
+										Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, prirustek_brzdeni*300))
 										Call("SetControlValue", "plneniSoundController", 0, math.max(0, plneniSoundController-((math.sqrt(math.abs(plneniSoundController/3))/(Call("GetConsistLength")/7))*10)))
 									else
-										Call("SetControlValue", "plneniSoundController", 0, math.max(0, prirustek_odbrzdeni*300))
+										Call("SetControlValue", "plneniSoundController", 0, math.max(0, prirustek_odbrzdeni*100))
 										Call("SetControlValue", "vypousteniSoundController", 0, math.max(0, vypousteniSoundController-((math.sqrt(math.abs(vypousteniSoundController/3))/(Call("GetConsistLength")/7))*10)))
 									end
 								elseif diraDoPotrubi > 0 then
@@ -4856,8 +4964,8 @@ function Update (casHry)
 							--blokovani dveri
 								--true - dvere zablokovane
 								--false - dvere odblokovane
-								blokLeve = ToBolAndBack(Call("GetControlValue","DvereLeveBlok",0))
-								blokPrave = ToBolAndBack(Call("GetControlValue","DverePraveBlok",0))
+								blokLeve = not ToBolAndBack(Call("GetControlValue","DvereLeveBlok",0))
+								blokPrave = not ToBolAndBack(Call("GetControlValue","DverePraveBlok",0))
 
 							--koncove spinace dveri HV
 								--true - dvere zavrene
@@ -5045,8 +5153,8 @@ function Update (casHry)
 							
 							--zapis kontrolek
 								if baterie == 1 then
-									Call("SetControlValue","DvereLeveBlok",0, ToBolAndBack(blokLeve))
-									Call("SetControlValue","DverePraveBlok",0, ToBolAndBack(blokPrave))
+									Call("SetControlValue","DvereLeveBlok",0, ToBolAndBack(not blokLeve))
+									Call("SetControlValue","DverePraveBlok",0, ToBolAndBack(not blokPrave))
 									Call("SetControlValue","DvereLeveKoncak",0, ToBolAndBack(kontrolkaKoncakLeve))
 									Call("SetControlValue","DverePraveKoncak",0, ToBolAndBack(kontrolkaKoncakPrave))
 								else
@@ -5403,11 +5511,11 @@ function Update (casHry)
 									end
 								end
 							elseif JeNouzovyRadic == 1 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-								if kontroler - vykon > 0.03 and casstupnu >= caskroku and JOB == 1 and Smer ~= 0 and ventilatoryTM == 1 then
+								if kontroler - vykon > 0.03 and casstupnu >= caskroku and Smer ~= 0 and (JOB == 1 or pojezdNeschopna) then
 									Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
 									casstupnu = 0
 									caskroku = (math.random(8,12)/20)
-								elseif kontroler - vykon < -0.03 and vykon > 0 and casstupnu >= caszkroku or JOB ~= 1 then
+								elseif kontroler - vykon < -0.03 and vykon > 0 and casstupnu >= caszkroku or (JOB ~= 1 and not pojezdNeschopna) then
 									Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
 									casstupnu = 0
 									caszkroku = (math.random(3,7)/20)
@@ -5419,7 +5527,7 @@ function Update (casHry)
 								vykon = 0 
 							end
 							pojezdNeschopna = false
-							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and Call("GetControlValue","VentilatoryTM",0) == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutaTrakce) or pojezdVDepu then -- kontrola podmínek pro jízdu
+							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutaTrakce) or pojezdVDepu then -- kontrola podmínek pro jízdu
 								if vykon == 0 or not pojezdNeschopna then
 									Call("SetControlValue","MuteSounds",0,0)
 								end
@@ -6441,9 +6549,9 @@ function Update (casHry)
 			Call("MSVstart:ActivateNode","MSVstart",0)
 			Call("MSVstart2:ActivateNode","MSVstart",0)
 			IS.stav = "sleep"
-			IS:NastavCil1(1,true)
-			IS:NastavCil2(1,true)
-			IS:NastavLinku(1,true)
+			IS:NastavCil1(1)
+			IS:NastavCil2(1)
+			IS:NastavLinku(1)
 			Call("SetControlValue","AI",0,1)
 			Call("SetControlValue","AbsolutniRychlomer",0,math.abs(Call("GetSpeed")*3.6))
 			deltaSpeedMinula = deltaSpeed
