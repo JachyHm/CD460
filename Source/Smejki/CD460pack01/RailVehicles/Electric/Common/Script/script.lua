@@ -741,7 +741,7 @@ local map_custom_upper_1252_to_lower = {
     [164] = 59,
     [92] = 47,
     [95] = 45,
-    [8364] = 40,
+    [215] = 40,
     [168] = 41,
     [63] = 32,
     [126] = 46,
@@ -765,7 +765,7 @@ local map_custom_lower_1252_to_upper = {
     [59] = 164,
     [47] = 92,
     [45] = 95,
-    [40] = 8364,
+    [40] = 215,
     [41] = 168,
     [32] = 63,
     [46] = 126,
@@ -829,7 +829,8 @@ IS = {
 	cil2ID = 1,
 	linkaID = 1,
 	casStart = 0,
-	casMenu = 0,
+    casMenu = 0,
+    rezim = 1,
 	Zapis = function(self, kam, co, zleva, center, escChar)
         local maxDelka = IS.maxDelky[kam]
         escChar = escChar or " "
@@ -865,43 +866,41 @@ IS = {
 		end
 	end,
 	NastavLinku = function(self, ID, inverzni)
-		if venku then
-			IS:Zapis("MSVlinkaOUT",IS.linkyOUT[ID],false,false)
-        end
+		IS:Zapis("MSVlinkaOUT",IS.linkyOUT[ID],false,false)
         if not inverzni then --neinverzni zapis
-            IS:Zapis("MSVlinkaIN",string.lowerCustomEncoded1252(string.fromutf8(string.lower(IS.linkyIN[ID]))),false,false)
+            IS:Zapis("MSVlinkaIN",string.lowerCustomEncoded1252(string.lower(IS.linkyIN[ID])),false,false)
         else
-            IS:Zapis("MSVlinkaIN",string.upperCustomEncoded1252(string.fromutf8(string.upper(IS.linkyIN[ID]))),false,false, "?")
+            IS:Zapis("MSVlinkaIN",string.upperCustomEncoded1252(string.upper(IS.linkyIN[ID])),false,false, "?")
         end
 	end,
 	NastavCil1 = function(self, ID, inverzni)
-		if venku and IS.cileIsWhole[ID] == "false" then
+		if IS.cileIsWhole[ID] == "false" then
 			IS:Zapis("MSVcil1OUT",IS.cile1OUT[ID],false,false)
 			IS:Zapis("MSVcilCelaPlochaOUT","",false,false)
-		elseif venku then
+			IS:NastavCil2(IS.cil2ID)
+			IS:NastavLinku(IS.linkaID)
+		else
 			IS:Zapis("MSVcil1OUT","",false,false)
 			IS:Zapis("MSVcilCelaPlochaOUT",IS.cile1OUT[ID],false,true)
 		end
-		if IS.cileIsWhole[ID] == "true" and venku then
+		if IS.cileIsWhole[ID] == "true" then
 			IS:Zapis("MSVlinkaOUT","",false,false)
 			IS:Zapis("MSVlinkaIN","",false,false)
 			IS:Zapis("MSVcil2OUT","",false,false)
 			IS:Zapis("MSVcil2IN","",false,false)
         end
         if not inverzni then --neinverzni zapis
-            IS:Zapis("MSVcil1IN",string.lowerCustomEncoded1252(string.fromutf8(string.lower(IS.cile1IN[ID]))),false,false)
+            IS:Zapis("MSVcil1IN",string.lowerCustomEncoded1252(string.lower(IS.cile1IN[ID])),false,false)
         else
-            IS:Zapis("MSVcil1IN",string.upperCustomEncoded1252(string.fromutf8(string.upper(IS.cile1IN[ID]))),false,false, "?")
+            IS:Zapis("MSVcil1IN",string.upperCustomEncoded1252(string.upper(IS.cile1IN[ID])),false,false, "?")
         end
 	end,
 	NastavCil2 = function(self, ID, inverzni)
-		if venku then
-			IS:Zapis("MSVcil2OUT",IS.cile2OUT[ID],true,false)
-		end
+		IS:Zapis("MSVcil2OUT",IS.cile2OUT[ID],true,false)
         if not inverzni then --neinverzni zapis
-            IS:Zapis("MSVcil2IN",string.lowerCustomEncoded1252(string.fromutf8(string.lower(IS.cile2IN[ID]))),false,false)
+            IS:Zapis("MSVcil2IN",string.lowerCustomEncoded1252(string.lower(IS.cile2IN[ID])),false,false)
         else
-            IS:Zapis("MSVcil2IN",string.upperCustomEncoded1252(string.fromutf8(string.upper(IS.cile2IN[ID]))),false,false, "?")
+            IS:Zapis("MSVcil2IN",string.upperCustomEncoded1252(string.upper(IS.cile2IN[ID])),false,false, "?")
         end
 	end,
 	NastavCislo = function(self, ID)
@@ -992,16 +991,17 @@ IS = {
         elseif IS.stav == "menu" then
             IS.stav = "cil1"
             IS:NastavCil1(IS.cil1ID, true)
-            IS:NastavCil2(IS.cil2ID)
-            IS:NastavLinku(IS.linkaID)
 		elseif IS.stav == "cil1" then
-			IS:NastavCislo(IS.cil2ID)
 			if IS.cileIsWhole[IS.cil1ID] == "false" then
-				IS.stav = "cil2"
+                IS:NastavCislo(IS.cil2ID)
+                IS:NastavCil1(IS.cil1ID)
+                IS:NastavCil2(IS.cil2ID, true)
+                IS:NastavLinku(IS.linkaID)
+                IS.stav = "cil2"
+            else
+                IS:NastavCil1(IS.cil1ID)
+                IS.stav = "menu"
 			end
-            IS:NastavCil1(IS.cil1ID)
-            IS:NastavCil2(IS.cil2ID, true)
-            IS:NastavLinku(IS.linkaID)
 		elseif IS.stav == "cil2" then
 			IS:NastavCislo(IS.linkaID)
             IS:NastavCil1(IS.cil1ID)
@@ -1020,18 +1020,13 @@ IS = {
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
 			IS.stav = "menu"
-		elseif (IS.stav == "cil1" or IS.stav == "cil2") and IS.cileIsWhole[IS.cil1ID] == "false" then
-			local cil1 = IS.cil1ID
-			local cil2 = IS.cil2ID
-			IS.cil1ID = cil2
-			IS.cil2ID = cil1
-			IS:NastavCil1(IS.cil1ID)
-			IS:NastavCil2(IS.cil2ID)
-			if IS.stav == "cil1" then
-				IS:NastavCislo(IS.cil1ID)
-			elseif IS.stav == "cil2" then
-				IS:NastavCislo(IS.cil2ID)
-			end
+		else
+            if IS.rezim == 2 then
+                IS.rezim = 1
+            else
+                IS.rezim = 2
+            end
+            Call("SetControlValue", "MSVrezim", 0, IS.rezim)
 		end
 	end,
 	VymazVse = function(self)
@@ -1042,7 +1037,8 @@ IS = {
 		IS:Zapis("MSVcil2OUT","",false,false)
 		IS:Zapis("MSVcil2IN","",false,false)
 		IS:Zapis("MSVcilCelaPlochaOUT","",false,false)
-		IS:Zapis("MSVid","",false,false)
+        IS:Zapis("MSVid","",false,false)
+        Call("SetControlValue", "MSVrezim", 0, 0)
 	end
 }
 
@@ -1054,17 +1050,17 @@ function NactiIS()
 		souborCile:close()
 		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/cile.ci4") do
 			if not string.find(radek,"#") then
-				-- radek = string.fromutf8(radek)
+				radek = string.fromutf8(radek)
 				local splitted = split(radek,"|")
 				local cilIN = splitted[1]
 				local cilOUT = splitted[2]
 				local cilIS = splitted[3]
 				IS.cile1IN[table.getn(IS.cile1IN)+1] = cilIN
-				IS.cile1OUT[table.getn(IS.cile1OUT)+1] = string.fromutf8(cilOUT)
+				IS.cile1OUT[table.getn(IS.cile1OUT)+1] = cilOUT
 				IS.cileIsWhole[table.getn(IS.cileIsWhole)+1] = cilIS
 				if IS.cileIsWhole[table.getn(IS.cileIsWhole)] == "false" then
 					IS.cile2IN[table.getn(IS.cile2IN)+1] = cilIN
-					IS.cile2OUT[table.getn(IS.cile2OUT)+1] = string.fromutf8(cilOUT)
+					IS.cile2OUT[table.getn(IS.cile2OUT)+1] = cilOUT
 				end
 			end
 			if table.getn(IS.cile1IN) == 99 then
@@ -1074,20 +1070,18 @@ function NactiIS()
 	else
 		IS.cile1IN[1] = "PRÁZDNÝ DISPLEJ"
 		IS.cile1OUT[1] = " "
-		IS.cileIsWhole[1] = "false"
-		IS.cile2IN[1] = "PRÁZDNÝ DISPLEJ"
-		IS.cile2OUT[1] = " "
+		IS.cileIsWhole[1] = "true"
 	end
 	if souborLinky then
 		souborLinky:close()
 		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/linky.lin") do
 			if not string.find(radek,"#") then
-				-- radek = string.fromutf8(radek)
+				radek = string.fromutf8(radek)
 				local splitted = split(radek,"|")
 				local linkaIN = string.upper(splitted[1])
 				local linkaOUT = string.upper(splitted[2])
 				IS.linkyIN[table.getn(IS.linkyIN)+1] = linkaIN
-				IS.linkyOUT[table.getn(IS.linkyOUT)+1] = string.fromutf8(linkaOUT)
+				IS.linkyOUT[table.getn(IS.linkyOUT)+1] = linkaOUT
 			end
 			if table.getn(IS.linkyIN) == 99 then
 				break
@@ -1217,6 +1211,7 @@ ohrevPravePredni = 1
 ohrevPrave = 1
 
 vypnutaTrakce = false
+venku = false
 
 -- srv = net.createConnection(net.TCP, 0)
 -- srv:on("receive", function(sck, c) Print(c) end)
@@ -2907,10 +2902,9 @@ function Update (casHry)
 									Call("MSVstart:ActivateNode","MSVstart",0)
                                     Call("MSVstart2:ActivateNode","MSVstart",0)
                                     IS.casMenu = 0
-									IS.stav = "menu"
-									IS:NastavCil1(1)
-									IS:NastavCil2(1)
-									IS:NastavLinku(1)
+                                    IS.stav = "menu"
+									IS:NastavCil1(IS.cil1ID)
+                                    Call("SetControlValue", "MSVrezim", 0, 1)
 								end
 							else
 								IS.casStart = 0
@@ -2919,7 +2913,7 @@ function Update (casHry)
 								IS.stav = "start"
 								IS:VymazVse()
 								Call("MSVstart:ActivateNode","MSVstart",0)
-								Call("MSVstart2:ActivateNode","MSVstart",0)
+                                Call("MSVstart2:ActivateNode","MSVstart",0)
 							end
 							if baterie == 1 and IS.stav ~= "sleep" then
 								IS.casMenu = IS.casMenu + cas
@@ -2930,23 +2924,18 @@ function Update (casHry)
 
 							if MSVsipkaDolu and not MSVsipkaDoluLast then
 								IS:SipkaDolu()
-								ZpravaDebug("dolu")
 							end
 							if MSVsipkaNahoru and not MSVsipkaNahoruLast then
 								IS:SipkaNahoru()
-								ZpravaDebug("nahoru")
 							end
 							if MSVsipkaLeva and not MSVsipkaLevaLast then
 								IS:SipkaBok()
-								ZpravaDebug("leva")
 							end
 							if MSVsipkaPrava and not MSVsipkaPravaLast then
 								IS:SipkaBok()
-								ZpravaDebug("prava")
 							end
 							if MSVok and not MSVokLast then
 								IS:Potvrzeni()
-								ZpravaDebug("OK")
 							end
 
 						----------------------------------------Prechod z RI do RA--------------------------------
