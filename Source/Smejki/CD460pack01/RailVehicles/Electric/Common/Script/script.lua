@@ -772,6 +772,27 @@ local map_custom_lower_1252_to_upper = {
     [44] = 167
 }
 
+local map_line_disp_to_upper_line_disp = {
+    [32] = 63,
+    [48] = 37
+}
+local map_upper_line_disp_to_line_disp = {
+    [63] = 32,
+    [37] = 48
+}
+
+local map_unicode_to_inverse_line_disp = {
+    [49] = 33,
+    [50] = 64,
+    [51] = 35,
+    [52] = 36,
+    [53] = 41,
+    [54] = 94,
+    [55] = 38,
+    [56] = 42,
+    [57] = 40
+}
+
 function string.fromutf8(utf8str)
 	local pos, result_1252 = 1, {}
 	while pos <= string.len(utf8str) do
@@ -805,6 +826,40 @@ function string.upperCustomEncoded1252(CP1252customEncoded)
     return table_concat(result_1252)
 end
 
+function string.upperLineDisp(CP1252customEncoded)
+	local pos, result_1252 = 1, {}
+	while pos <= string.len(CP1252customEncoded) do
+		local code, size = utf8_to_unicode(CP1252customEncoded, pos)
+		pos = pos + size
+		code = map_line_disp_to_upper_line_disp[code] or code
+		table_insert(result_1252, char(code))
+	end
+    return table_concat(result_1252)
+end
+
+function string.lowerLineDisp(CP1252customEncoded)
+	local pos, result_1252 = 1, {}
+	while pos <= string.len(CP1252customEncoded) do
+		local code, size = utf8_to_unicode(CP1252customEncoded, pos)
+		pos = pos + size
+		code = map_upper_line_disp_to_line_disp[code] or code
+		table_insert(result_1252, char(code))
+	end
+    return table_concat(result_1252)
+end
+
+function string.inverseLineDisp(CP1252customEncoded)
+    local pos, result_1252 = 1, {}
+    local CP1252customEncoded = string.upper(CP1252customEncoded)
+    while pos <= string.len(CP1252customEncoded) do
+        local code, size = utf8_to_unicode(CP1252customEncoded, pos)
+        pos = pos + size
+        code = map_unicode_to_inverse_line_disp[code] or code
+        table_insert(result_1252, char(code))
+    end
+    return table_concat(result_1252)
+end
+
 IS = {
 	maxDelky = {
 		MSVlinkaOUT = 2,
@@ -817,13 +872,15 @@ IS = {
 		MSVcilCelaPlochaIN = 16,
 		MSVid = 2,
 	},
-	cile1IN = {},
+    cile1IN = {},
+    cile1INremap = {},
 	cile1OUT = {},
 	cileIsWhole = {},
-	cile2IN = {},
+    cile2IN = {},
+    cile2INremap = {},    
 	cile2OUT = {},
 	linkyOUT = {},
-	linkyIN = {},
+    linkyIN = {},
 	stav = "start",
 	cil1ID = 1,
 	cil2ID = 1,
@@ -868,9 +925,9 @@ IS = {
 	NastavLinku = function(self, ID, inverzni)
 		IS:Zapis("MSVlinkaOUT",IS.linkyOUT[ID],false,false)
         if not inverzni then --neinverzni zapis
-            IS:Zapis("MSVlinkaIN",string.lowerCustomEncoded1252(string.lower(IS.linkyIN[ID])),false,false)
+            IS:Zapis("MSVlinkaIN",string.lowerLineDisp(string.lower(IS.linkyIN[ID])),false,false)
         else
-            IS:Zapis("MSVlinkaIN",string.upperCustomEncoded1252(string.upper(IS.linkyIN[ID])),false,false, "?")
+            IS:Zapis("MSVlinkaIN",string.inverseLineDisp(string.upperLineDisp(string.upper(IS.linkyIN[ID]))),false,false, "?")
         end
 	end,
 	NastavCil1 = function(self, ID, inverzni)
@@ -913,8 +970,8 @@ IS = {
         elseif IS.stav == "menu" and IS.cileIsWhole[IS.cil1ID] == "false" then
 			local cil1 = IS.cil1ID
 			local cil2 = IS.cil2ID
-			IS.cil1ID = cil2
-			IS.cil2ID = cil1
+			IS.cil1ID = IS.cile2INremap[cil2]
+			IS.cil2ID = IS.cile1INremap[cil1]
 			IS:NastavCil1(IS.cil1ID)
 			IS:NastavCil2(IS.cil2ID)
 			if IS.stav == "cil1" then
@@ -952,8 +1009,8 @@ IS = {
         elseif IS.stav == "menu" and IS.cileIsWhole[IS.cil1ID] == "false" then
 			local cil1 = IS.cil1ID
 			local cil2 = IS.cil2ID
-			IS.cil1ID = cil2
-			IS.cil2ID = cil1
+			IS.cil1ID = IS.cile2INremap[cil2]
+			IS.cil2ID = IS.cile1INremap[cil1]
 			IS:NastavCil1(IS.cil1ID)
 			IS:NastavCil2(IS.cil2ID)
 			if IS.stav == "cil1" then
@@ -991,6 +1048,7 @@ IS = {
         elseif IS.stav == "menu" then
             IS.stav = "cil1"
             IS:NastavCil1(IS.cil1ID, true)
+            Call("SetControlValue", "MSVzdo", 0, 0)
 		elseif IS.stav == "cil1" then
 			if IS.cileIsWhole[IS.cil1ID] == "false" then
                 IS:NastavCislo(IS.cil2ID)
@@ -1013,6 +1071,7 @@ IS = {
             IS:NastavCil1(IS.cil1ID)
             IS:NastavCil2(IS.cil2ID)
             IS:NastavLinku(IS.linkaID)
+            Call("SetControlValue", "MSVzdo", 0, 1)
 			IS.stav = "menu"
 		end
 	end,
@@ -1026,7 +1085,7 @@ IS = {
             else
                 IS.rezim = 2
             end
-            Call("SetControlValue", "MSVrezim", 0, IS.rezim)
+            Call("SetControlValue", "", 0, IS.rezim)
 		end
 	end,
 	VymazVse = function(self)
@@ -1038,7 +1097,8 @@ IS = {
 		IS:Zapis("MSVcil2IN","",false,false)
 		IS:Zapis("MSVcilCelaPlochaOUT","",false,false)
         IS:Zapis("MSVid","",false,false)
-        Call("SetControlValue", "MSVrezim", 0, 0)
+        Call("SetControlValue", "", 0, 0)
+        Call("SetControlValue", "MSVzdo", 0, 0)
 	end
 }
 
@@ -1060,15 +1120,17 @@ function NactiIS()
 				IS.cileIsWhole[table.getn(IS.cileIsWhole)+1] = cilIS
 				if IS.cileIsWhole[table.getn(IS.cileIsWhole)] == "false" then
 					IS.cile2IN[table.getn(IS.cile2IN)+1] = cilIN
-					IS.cile2OUT[table.getn(IS.cile2OUT)+1] = cilOUT
+                    IS.cile2OUT[table.getn(IS.cile2OUT)+1] = cilOUT
+                    IS.cile2INremap[table.getn(IS.cile2IN)] = table.getn(IS.cile1IN)
 				end
+                IS.cile1INremap[table.getn(IS.cile1IN)] = table.getn(IS.cile2IN)
 			end
 			if table.getn(IS.cile1IN) == 99 then
 				break
 			end
 		end
 	else
-		IS.cile1IN[1] = "PRÁZDNÝ DISPLEJ"
+		IS.cile1IN[1] = "pr°zdn; displej"
 		IS.cile1OUT[1] = " "
 		IS.cileIsWhole[1] = "true"
 	end
@@ -1076,7 +1138,7 @@ function NactiIS()
 		souborLinky:close()
 		for radek in io.lines("Assets/Smejki/CD460pack01/RailVehicles/Electric/Common/MSV/linky.lin") do
 			if not string.find(radek,"#") then
-				radek = string.fromutf8(radek)
+				radek = string.fromutf8(string.lower(radek))
 				local splitted = split(radek,"|")
 				local linkaIN = string.upper(splitted[1])
 				local linkaOUT = string.upper(splitted[2])
@@ -1088,7 +1150,7 @@ function NactiIS()
 			end
 		end
 	else
-		IS.linkyIN[1] = "NENÍ LINKA"
+		IS.linkyIN[1] = "nen% linka"
 		IS.linkyOUT[1] = " "
 	end
 	ZpravaDebug("Nacteno "..table.getn(IS.cile1IN).." cilu a "..table.getn(IS.linkyIN).." linek do IS!")
@@ -2904,7 +2966,8 @@ function Update (casHry)
                                     IS.casMenu = 0
                                     IS.stav = "menu"
 									IS:NastavCil1(IS.cil1ID)
-                                    Call("SetControlValue", "MSVrezim", 0, 1)
+                                    Call("SetControlValue", "", 0, 1)
+                                    Call("SetControlValue", "MSVzdo", 0, 1)
 								end
 							else
 								IS.casStart = 0
@@ -2917,7 +2980,13 @@ function Update (casHry)
 							end
 							if baterie == 1 and IS.stav ~= "sleep" then
 								IS.casMenu = IS.casMenu + cas
-								if IS.casMenu > 20 then
+                                if IS.casMenu > 20 then
+                                    if IS.cileIsWhole[IS.cil1ID] == "true" then
+                                        IS:NastavCil1(IS.cil1ID)
+                                    else
+                                        IS:NastavCil2(IS.cil2ID)
+                                        IS:NastavLinku(IS.linkaID)
+                                    end
 									IS.stav = "sleep"
 								end
 							end
