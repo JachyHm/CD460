@@ -961,12 +961,13 @@ IS = {
         end
 	end,
 	NastavCislo = function(self, ID)
-		IS:Zapis("MSVid",tostring(ID-1),false,false)
+		IS:Zapis("MSVid",tostring(ID-1),true,false)
 	end,
 	SipkaNahoru = function(self)
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
 			IS.stav = "menu"
+            Call("SetControlValue", "MSVdisp", 0, 2)
         elseif IS.stav == "menu" and IS.cileIsWhole[IS.cil1ID] == "false" then
 			local cil1 = IS.cil1ID
 			local cil2 = IS.cil2ID
@@ -1006,6 +1007,7 @@ IS = {
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
             IS.stav = "menu"
+            Call("SetControlValue", "MSVdisp", 0, 2)
         elseif IS.stav == "menu" and IS.cileIsWhole[IS.cil1ID] == "false" then
 			local cil1 = IS.cil1ID
 			local cil2 = IS.cil2ID
@@ -1045,9 +1047,11 @@ IS = {
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
             IS.stav = "menu"
+            Call("SetControlValue", "MSVdisp", 0, 2)
         elseif IS.stav == "menu" then
             IS.stav = "cil1"
             IS:NastavCil1(IS.cil1ID, true)
+            IS:NastavCislo(IS.cil1ID)
             Call("SetControlValue", "MSVzdo", 0, 0)
 		elseif IS.stav == "cil1" then
 			if IS.cileIsWhole[IS.cil1ID] == "false" then
@@ -1058,6 +1062,7 @@ IS = {
                 IS.stav = "cil2"
             else
                 IS:NastavCil1(IS.cil1ID)
+                IS:Zapis("MSVid","",false,false)
                 IS.stav = "menu"
 			end
 		elseif IS.stav == "cil2" then
@@ -1067,7 +1072,7 @@ IS = {
             IS:NastavLinku(IS.linkaID, true)
 			IS.stav = "linka"
 		elseif IS.stav == "linka" then
-			IS:NastavCislo(IS.cil1ID)
+            IS:Zapis("MSVid","",false,false)
             IS:NastavCil1(IS.cil1ID)
             IS:NastavCil2(IS.cil2ID)
             IS:NastavLinku(IS.linkaID)
@@ -1079,13 +1084,14 @@ IS = {
 		IS.casMenu = 0
 		if IS.stav == "sleep" then
 			IS.stav = "menu"
+            Call("SetControlValue", "MSVdisp", 0, 2)
 		else
             if IS.rezim == 2 then
                 IS.rezim = 1
             else
                 IS.rezim = 2
             end
-            Call("SetControlValue", "", 0, IS.rezim)
+            Call("SetControlValue", "MSVrezim", 0, IS.rezim)
 		end
 	end,
 	VymazVse = function(self)
@@ -1099,6 +1105,8 @@ IS = {
         IS:Zapis("MSVid","",false,false)
         Call("SetControlValue", "", 0, 0)
         Call("SetControlValue", "MSVzdo", 0, 0)
+        Call("SetControlValue", "MSVrezim", 0, 0)
+        Call("SetControlValue", "MSVdisp", 0, 0)
 	end
 }
 
@@ -2960,6 +2968,8 @@ function Update (casHry)
 								IS.casStart = IS.casStart + cas
 								Call("MSVstart:ActivateNode","MSVstart",1)
 								Call("MSVstart2:ActivateNode","MSVstart",1)
+                                Call("SetControlValue","MSVrezim",0,0)
+                                Call("SetControlValue", "MSVdisp", 0, 1)
 								if IS.casStart > 5 then
 									Call("MSVstart:ActivateNode","MSVstart",0)
                                     Call("MSVstart2:ActivateNode","MSVstart",0)
@@ -2968,6 +2978,8 @@ function Update (casHry)
 									IS:NastavCil1(IS.cil1ID)
                                     Call("SetControlValue", "", 0, 1)
                                     Call("SetControlValue", "MSVzdo", 0, 1)
+                                    Call("SetControlValue","MSVrezim",0,1)
+                                    Call("SetControlValue", "MSVdisp", 0, 2)
 								end
 							else
 								IS.casStart = 0
@@ -2977,17 +2989,18 @@ function Update (casHry)
 								IS:VymazVse()
 								Call("MSVstart:ActivateNode","MSVstart",0)
                                 Call("MSVstart2:ActivateNode","MSVstart",0)
+                                Call("SetControlValue","MSVrezim",0,0)
 							end
 							if baterie == 1 and IS.stav ~= "sleep" then
 								IS.casMenu = IS.casMenu + cas
                                 if IS.casMenu > 20 then
-                                    if IS.cileIsWhole[IS.cil1ID] == "true" then
-                                        IS:NastavCil1(IS.cil1ID)
-                                    else
-                                        IS:NastavCil2(IS.cil2ID)
-                                        IS:NastavLinku(IS.linkaID)
-                                    end
+                                    IS:Zapis("MSVid","",false,false)
+                                    IS:NastavCil1(IS.cil1ID)
+                                    IS:NastavCil2(IS.cil2ID)
+                                    IS:NastavLinku(IS.linkaID)
+                                    Call("SetControlValue", "MSVzdo", 0, 1)
 									IS.stav = "sleep"
+                                    Call("SetControlValue", "MSVdisp", 0, 1)
 								end
 							end
 
