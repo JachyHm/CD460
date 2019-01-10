@@ -199,7 +199,8 @@ pojezdNeschopna = false
 
 prvnizprava = false
 
-byloZhaveni = false
+releEPV = false
+kontrolaBdelosti = false
 nadbytecnaObsluha = false
 
 steracLevyOut = 0
@@ -1183,7 +1184,7 @@ tramexCasSipicka = 0
 tramexInit = false
 nulovyDoraz = false
 maximalniDoraz = false
-tramexDrahaKm = math.random(100000,99999999)
+tramexDrahaKm = math.random(10000,1000000)
 tramexRelDrahaKm = 0
 tramexStrojvedouci = ""
 tramexSluzebna = ""
@@ -1313,10 +1314,9 @@ function DefinujPromene()
 	pravaPozCerVPKC = false
 	horniPozBilVKPC = false
 	soupatkoVZ = 0
-	JeZivak1 = 0
-	CasZivak = 0
-	ZivakStary = 0
-	ZivakReset = 1
+	LVZtimer = 0
+	LVZresetOld = 0
+	LVZreset = 1
 	KlicNaDruheKabine = 0
 	RizenaRidici = "rizena"
 	gPredniSberacControl = 0
@@ -2301,11 +2301,11 @@ function SvetloDimm(dimValue)
 	Call("SvetloBudik4:SetColour",0,3.48548 - (dimValue*3.48548),0.580913 - (dimValue*0.580913))
 end
 
-function LVZ(LVZznak,vybaveni,delkaUpd,jeZivak)
+function LVZ(LVZznak,vybaveni,delkaUpd,prenosKodu)
 	local pribytek = delkaUpd * 30
 	local signalCode = 0
 
-	if jeZivak == 1 then
+	if prenosKodu then
 		signalCode = LVZznak
 		if prujezdKolemNavestidla and signalCode > 0 then
 			prujezdKolemNavestidla = false
@@ -2731,8 +2731,8 @@ function Update (casHry)
 						end
 
 						buttonPojezdVDepu = Call("GetControlValue","ButtonPojezdVDepu",0)
-						if ZivakReset > 0.25 then ZivakStary = 1 end
-						ZivakReset = math.max(Call("GetControlValue","ZivakReset",0),Call("GetControlValue","ZivakReset2",0),Call("GetControlValue","ZivakReset3",0))
+						if LVZreset > 0.25 then LVZresetOld = 1 end
+						LVZreset = math.max(Call("GetControlValue","ZivakReset",0),Call("GetControlValue","ZivakReset2",0),Call("GetControlValue","ZivakReset3",0))
 						casproud = casproud + cas
 						if Call("GetControlValue","Wheelslip",0) ~= 1 then
 							skluzWheelSlip = 1
@@ -2773,105 +2773,119 @@ function Update (casHry)
 						end
 						VirtualMainReservoirPressureBAR = Call("GetControlValue","VirtualMainReservoirPressureBAR",0)
 						----------------------------------------LVZ-----------------------------------------------
-							local LVZnapeti = Call("GetControlValue", "LVZnapeti", 0)
-							local LVZrezim = Call("GetControlValue", "LVZrezim", 0)
-							local LVZstanoviste = Call("GetControlValue", "LVZstan", 0)
-							local LVZvypinac = ToBolAndBack(Call("GetControlValue", "LVZhv", 0))
-							local LVZstart = ToBolAndBack(Call("GetControlValue", "LVZstart", 0))
-							local LVZzkouseni = false
+							local LVZnapeti = Call("GetControlValue", "LVZnapeti", 0) --nacti hodnotu Vmetru do promenne
+							local LVZrezim = Call("GetControlValue", "LVZrezim", 0) --nacti hodnotu voliciho prepinace do promenne
+							local LVZstanoviste = Call("GetControlValue", "LVZstan", 0) --nacti hodnotu aktivniho stanoviste do promenne
+							local LVZvypinac = ToBolAndBack(Call("GetControlValue", "LVZhv", 0)) --vrat bool pro stav HV LVZ
+							local LVZstart = ToBolAndBack(Call("GetControlValue", "LVZstart", 0)) --vrat bool pro tlacitko startu bezkontaktniho menice
+							local LVZzkouseni = false --definuj volbu zkouseni
 
-							if baterie == 1 then
-								if LVZnapeti < 1 and LVZvypinac then
-									LVZnapeti = LVZnapeti + cas
-									Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
-								end
-								if LVZvypinac and LVZrezim < 0.25 and byloZhaveni and soupatkoVZ == 0 then
-									Call("SetControlValue", "JeZivakZap", 0, 1)
-								elseif LVZvypinac and LVZrezim < 0.25 then
-									byloZhaveni = false
-									Call("SetControlValue", "JeZivakZap", 0, 0)
-									soupatkoVZ = 1
-								end
-								if LVZvypinac and byloZhaveni and LVZrezim > 0.25 and LVZrezim < 0.75 and soupatkoVZ == 0 then
-									Call("SetControlValue", "JeZivakZap", 0, 1)
-									LVZzkouseni = true
-								end
-								if LVZstart and LVZrezim > 0.75 then
-									byloZhaveni = true
-								end
-								if LVZrezim > 0.75 then
-									Call("SetControlValue", "JeZivakZap", 0, 0)
-									if not LVZvypinac then
-										soupatkoVZ = 0
-									end
-								end
-								if not LVZvypinac then
-									byloZhaveni = false
-									Call("SetControlValue", "JeZivakZap", 0, 0)
-									if LVZrezim < 0.75 then
-										soupatkoVZ = 1
-									end
-								end
-							end
-							if LVZnapeti > 0 and (not LVZvypinac or baterie ~= 1) then
-								LVZnapeti = LVZnapeti - cas*2
-								Call("SetControlValue", "LVZnapeti", 0, LVZnapeti)
-							end
+                            if baterie == 1 then
+                                if LVZnapeti < 1 and LVZvypinac then --pokud je napeti mensi nez 1 (24V) a je sepnuty vypinac VZ
+                                    LVZnapeti = LVZnapeti + cas --napeti roste umerne s casem PC - kompenzace malych FPS
+                                    Call("SetControlValue", "LVZnapeti", 0, LVZnapeti) --zapis hodnoty Vmetru
+                                end
+
+                                if LVZvypinac and LVZrezim < 0.25 and releEPV and soupatkoVZ == 0 then --pokud je zapaty HV, rezim je provoz, bezkontaktni menic bezi a je natazene soupatko, je VZ aktivni
+                                    kontrolaBdelosti = true
+                                elseif LVZvypinac and LVZrezim < 0.25 then --pokud je zapaty HV a rezim je provoz a zaroven neni natazene soupatko, nebo vubec nebezi bezkontaktni menic
+                                    releEPV = false --rozhod rele EPV
+                                    kontrolaBdelosti = false
+                                    soupatkoVZ = 1 --odpadni soupatko
+                                end
+                                if LVZvypinac and releEPV and LVZrezim > 0.25 and LVZrezim < 0.75 and soupatkoVZ == 0 then --je zapate HV, menic bezi, rezim je zkouseni a je natazene soupatko
+                                    kontrolaBdelosti = true
+                                    LVZzkouseni = true --aktivuj volbu "zkouseni"
+                                elseif LVZvypinac and LVZrezim > 0.25 and LVZrezim < 0.75 then --pokud je zapaty HV a rezim je testovani a nejsou splnene podm. vyse
+                                    releEPV = false --rozhod rele EPV
+                                    kontrolaBdelosti = false
+                                    soupatkoVZ = 1 --odpadni soupatko
+                                end
+                                if LVZstart and LVZrezim > 0.75 and LVZvypinac then --pokud je rezim postrk a je zapaty vypinac, je mozne nazhavit bezkontaktni menic
+                                    releEPV = true --natahni rele EPV
+                                    soupatkoVZ = 0 --natahuje soupatko
+                                end
+                                if LVZrezim > 0.75 then --pokud je rezim postrk
+                                    kontrolaBdelosti = false
+                                    if not LVZvypinac then --zaroven pokud je zapaty HV
+                                        soupatkoVZ = 0 --pritahni soupatko
+                                    end
+                                end
+                                if not LVZvypinac then --pokud je vypaty vypinac LVZ
+                                    releEPV = false --rozhod rele EPV
+                                    kontrolaBdelosti = false
+                                    if LVZrezim < 0.75 then --pokud je rezim vlak
+                                        soupatkoVZ = 1 --odpada soupatko - v rezimu postrk zustava, soupatko drzi
+                                    end
+                                    Call("SetControlValue", "LVZmenic", 0, 0)
+                                else --pokud bezi bezkontaktni menic, tj. je zapaty HV a baterie, sviti jeho kontrolka
+                                    Call("SetControlValue", "LVZmenic", 0, 1)
+                                end
+                            end
+                                
+							if LVZnapeti > 0 and (not LVZvypinac or baterie ~= 1) then --pokud je na Vmetru napeti a je vypaty HV
+								LVZnapeti = LVZnapeti - cas*2 --zmiz napeti
+								Call("SetControlValue", "LVZnapeti", 0, LVZnapeti) --zapis napeti
+                            end
+                            
+                            --zakomentovane, LVZ ma vlastni privod mimo stykac baterii
+
 							if baterie ~= 1 then
-								byloZhaveni = false
+								releEPV = false --rozhod rele EPV
 								soupatkoVZ = 1
-								Call("SetControlValue", "JeZivakZap", 0, 0)
-							end
-
-							if byloZhaveni then
-								Call("SetControlValue", "LVZmenic", 0, 1)
-							else
+                                kontrolaBdelosti = false
 								Call("SetControlValue", "LVZmenic", 0, 0)
 							end
+                            
+                            if LVZrezim > 0.75 then  --rezim posun
+                                if baterie == 1 and LVZstanoviste < 0.5 then --pokud je zapnuty HV, sviti vybaveni
+                                    Call("SetControlValue", "LVZzivak", 0, 1)
+                                else
+                                    Call("SetControlValue", "LVZzivak", 0, 0)
+                                end
+                            end
 
-							Call("SetControlValue", "LVZvybaveni", 0, Call("GetControlValue","LVZzivak",0))
+							Call("SetControlValue", "LVZvybaveni", 0, Call("GetControlValue","LVZzivak",0)) --kontrolka vybaveni
 
-							if Call("GetControlValue", "JeZivakZap", 0) == 1  then
-								JeZivak1 = 1
-							elseif Call("GetControlValue", "JeZivakZap", 0) == 0 then
-								JeZivak1 = 0
-								Call ("SetControlValue", "LVZzivak", 0, 0)
-								CasZivak = 0
-							end
+                            local kodNavesti = LVZ(Call("GetControlValue","SkutecnyKod",0),Call("GetControlValue","LVZzivak",0),cas,ToBolAndBack(Call("GetControlValue", "LVZmenic", 0)) and LVZstanoviste < 0.5)
+                            --zavolej fci LVZ (fakove poruchy prenosu) a predej ji:
+                            --      -skutecny prijaty kod z navestidla
+                            --      -stav kontrolky vybaveni
+                            --      -cas od posledniho update, ale realny z PC, nikoli "skoro cas" ze hry
+                            --      -info o zapnutem / vypnutem LVZ
 
-							local kodNavesti = LVZ(Call("GetControlValue","SkutecnyKod",0),Call("GetControlValue","LVZzivak",0),cas,JeZivak1)
-							Call("SetControlValue","Mirel",0, kodNavesti)
+							Call("SetControlValue","Mirel",0, kodNavesti) --watafuck??? Sorry, ale fakt netusim :D 
 
-							if JeZivak1 == 1 and baterie == 1 and soupatkoVZ == 0 then ------- zivak
-								CasZivak = CasZivak + cas
-								if ZivakReset <= 0.25 and ZivakStary == 1 and LVZstanoviste < 0.5 then
-									if CasZivak > 7 then
-										CasZivak = 0
+							if kontrolaBdelosti and baterie == 1 and soupatkoVZ == 0 then --samotna LVZ
+								LVZtimer = LVZtimer + cas
+								if LVZreset <= 0.25 and LVZresetOld == 1 and LVZstanoviste < 0.5 then
+									if LVZtimer > 7 then
+										LVZtimer = 0
 									end
-									ZivakStary = 0
+									LVZresetOld = 0
 								end
-								if (valcePrimocinne >= 1.8) and not LVZzkouseni then
-									CasZivak = 0
+								if valcePrimocinne >= 1.8 and not LVZzkouseni then
+									LVZtimer = 0
 								end
 								if kodNavesti == 2 or kodNavesti == 4 then
-									if ZivakReset >= 0.25 and LVZstanoviste < 0.5 then
+									if LVZreset >= 0.25 and LVZstanoviste < 0.5 then
 										nadbytecnaObsluha = true
 										Call ("SetControlValue", "ZivakPip", 0, 1)
 									end
-									if CasZivak > 10 then
-										CasZivak = 10
+									if LVZtimer > 10 then
+										LVZtimer = 10
 									end
 								end
-								if ZivakReset <= 0.25 or LVZstanoviste > 0.5 then
+								if LVZreset <= 0.25 or LVZstanoviste > 0.5 then
 									nadbytecnaObsluha = false
 								end
-								if CasZivak <= 7 and LVZstanoviste < 0.5 then
+								if LVZtimer <= 7 and LVZstanoviste < 0.5 then
 									Call ("SetControlValue", "LVZzivak", 0, 1)
 									if not nadbytecnaObsluha then
 										Call ("SetControlValue", "ZivakPip", 0, 0)
 									end
-								elseif CasZivak <= 15 and LVZstanoviste < 0.5 then
-									if ZivakReset >= 0.25 then
+								elseif LVZtimer <= 15 and LVZstanoviste < 0.5 then
+									if LVZreset >= 0.25 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
 									else
 										Call ("SetControlValue", "LVZzivak", 0, 0)
@@ -2879,16 +2893,16 @@ function Update (casHry)
 									if not nadbytecnaObsluha then
 										Call ("SetControlValue", "ZivakPip", 0, 0)
 									end
-								elseif CasZivak <= 19 and LVZstanoviste < 0.5 then
-									if ZivakReset >= 0.25 then
+								elseif LVZtimer <= 19 and LVZstanoviste < 0.5 then
+									if LVZreset >= 0.25 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
 									else
 										Call ("SetControlValue", "LVZzivak", 0, 0)
 									end
 									Call ("SetControlValue", "ZivakPip", 0, 1)
-								elseif CasZivak > 19 then
+								elseif LVZtimer > 19 then
 									Call ("SetControlValue", "ZivakPip", 0, 0)
-									if ZivakReset >= 0.25 and LVZstanoviste < 0.5 then
+									if LVZreset >= 0.25 and LVZstanoviste < 0.5 then
 										Call ("SetControlValue", "LVZzivak", 0, 1)
 									else
 										Call ("SetControlValue", "LVZzivak", 0, 0)
@@ -2898,9 +2912,9 @@ function Update (casHry)
 									Call ("SetControlValue", "LVZzivak", 0, 0)
 								end
 							else
-								Call ("SetControlValue", "LVZzivak", 0, 0)
 								Call ("SetControlValue", "ZivakPip", 0, 0)
-								CasZivak = 0
+                                Call ("SetControlValue", "LVZzivak", 0, 0)
+								LVZtimer = 0
 							end
 
 						----------------------------------------Sterace-------------------------------------------
@@ -3907,38 +3921,62 @@ function Update (casHry)
 											Call("TramexCom:SetText", "ServisXXXXXXXXXX", 0)
 										elseif tramexStav == TRAMEX_ZV_STROJVED or tramexStav == TRAMEX_SV_STROJVED then
 											local text = ""..tramexStrojvedouci
-											while string.len(text) < 4 do
-												text = "0"..text
+                                            while string.len(text) < 4 do
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "Strojved.:XX"..text, 0)
 										elseif tramexStav == TRAMEX_ZV_SLUZ or tramexStav == TRAMEX_SV_SLUZ then
 											local text = ""..tramexSluzebna
 											while string.len(text) < 6 do
-												text = "0"..text
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "Slu&ebna:X"..text, 0)
 										elseif tramexStav == TRAMEX_ZV_STAN or tramexStav == TRAMEX_SV_STAN then
 											local text = ""..tramexStanice
 											while string.len(text) < 6 do
-												text = "0"..text
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "Stanice:XX"..text, 0)
 										elseif tramexStav == TRAMEX_ZV_CVLAKU or tramexStav == TRAMEX_SV_CVLAKU then
 											local text = ""..tramexCisloVlaku
 											while string.len(text) < 6 do
-												text = "0"..text
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "C.vlaku:XX"..text, 0)
 										elseif tramexStav == TRAMEX_ZV_HMOTNOST or tramexStav == TRAMEX_SV_HMOTNOST then
 											local text = tramexHmotnost.."t"
 											while string.len(text) < 5 do
-												text = "0"..text
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "Hmotnost:XX"..text, 0)
 										elseif tramexStav == TRAMEX_ZV_NAPRAV or tramexStav == TRAMEX_SV_NAPRAV then
 											local text = ""..tramexNaprav
 											while string.len(text) < 4 do
-												text = "0"..text
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "N`prav:XXXXX"..text, 0)
 										elseif tramexStav == TRAMEX_ZV_BRZDREZ or tramexStav == TRAMEX_SV_BRZDREZ then
@@ -3958,13 +3996,21 @@ function Update (casHry)
 										elseif tramexStav == TRAMEX_ZV_BRZDPROC or tramexStav == TRAMEX_SV_BRZDPROC then
 											local text = tramexBrzdiciProc.."%"
 											while string.len(text) < 5 do
-												text = "0"..text
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "Brzd~c~X%:X"..text, 0)
 										elseif tramexStav == TRAMEX_ZV_KODZEME or tramexStav == TRAMEX_SV_KODZEME then
 											local text = ""..tramexKodZeme
 											while string.len(text) < 4 do
-												text = "0"..text
+                                                if not tramexUpravenePolicko then
+                                                    text = "0"..text
+                                                else
+                                                    text = "-"..text
+                                                end
 											end
 											Call("TramexCom:SetText", "K@dXzem^:XXX"..text, 0)
 										elseif tramexStav == TRAMEX_HESLO then
@@ -4193,14 +4239,14 @@ function Update (casHry)
 												tramex3secZobrazeni = 3
 											end
 										elseif tramexStav == TRAMEX_ZV_STROJVED then
+											if not tramexOldContent then
+												tramexOldContent = tramexStrojvedouci
+												tramexUpravenePolicko = false
+											end
 											if tramexMenu then
 												tramexStav = TRAMEX_HM_ZADVOL
 												tramexStrojvedouci = tramexOldContent
 												tramexOldContent = false
-											end
-											if not tramexOldContent then
-												tramexOldContent = tramexStrojvedouci
-												tramexUpravenePolicko = false
 											end
 											if (tramex0 or tramex1 or tramex2 or tramex3 or tramex4 or tramex5 or tramex6 or tramex7 or tramex8 or tramex9) and not tramexUpravenePolicko then
 												tramexUpravenePolicko = true
@@ -6003,7 +6049,8 @@ function Update (casHry)
 								Call("SetControlValue","mgautostart",0,1)
 								Call("SetControlValue", "LVZrezim", 0, 0)
 								Call("SetControlValue", "LVZhv", 0, 1)
-								byloZhaveni = true
+                                releEPV = true
+                                kontrolaBdelosti = true
 								soupatkoVZ = 0
 								Call("SetControlValue","FastStart",0,0)
 								pozadavekNaFastStart = 0

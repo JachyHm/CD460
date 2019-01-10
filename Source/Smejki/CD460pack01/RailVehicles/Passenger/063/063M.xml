@@ -900,7 +900,7 @@
 																					<Attribute name="MaxForcePercentOfVehicleWeight">
 																						<sFloat32>
 																							<Element>
-																								<Value>80</Value>
+																								<Value>130</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
@@ -921,7 +921,7 @@
 																					<Attribute name="GraduatedRelease">
 																						<eBoolean>
 																							<Element>
-																								<Value>eFalse</Value>
+																								<Value>eTrue</Value>
 																							</Element>
 																						</eBoolean>
 																					</Attribute>
@@ -935,49 +935,98 @@
 																					<Attribute name="MaxReleaseRate">
 																						<sFloat32>
 																							<Element>
-																								<Value>5</Value>
+																								<Value>1E+07</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="MaxApplicationRate">
 																						<sFloat32>
 																							<Element>
-																								<Value>10</Value>
+																								<Value>1E+07</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="MaxCylinderPressure">
 																						<sFloat32>
 																							<Element>
-																								<Value>90</Value>
+																								<Value>55.1</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="PressureForMaxForce">
 																						<sFloat32>
 																							<Element>
-																								<Value>70</Value>
+																								<Value>55.1</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="MaxSystemPressure">
 																						<sFloat32>
 																							<Element>
-																								<Value>70</Value>
+																								<Value>72.5189</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="MinSystemPressure">
 																						<sFloat32>
 																							<Element>
-																								<Value>0</Value>
+																								<Value>43.5113</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="Distributor">
 																						<__Indexed__EngineSimulation-cBrakeDistributorBlueprint>
 																							<Element>
-																								<Value />
+																								<Value>
+																									<EngineSimulation-cBrakeDistributorBlueprint>
+																										<Element>
+																											<Value>
+																												<Attribute name="NormalFullReleasePressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>72.5189</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="FullServicePressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>43.5113</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="TrainPipeControlRatio">
+																													<sFloat32>
+																														<Element>
+																															<Value>2.53</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="MaxEmergencyResPressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>72.5189</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="MaxAuxResPressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>72.5189</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="EmergencyApplicationPressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>43.5113</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																											</Value>
+																										</Element>
+																									</EngineSimulation-cBrakeDistributorBlueprint>
+																								</Value>
 																							</Element>
 																						</__Indexed__EngineSimulation-cBrakeDistributorBlueprint>
 																					</Attribute>
@@ -1026,7 +1075,7 @@
 																					<Attribute name="TripleValveRatio">
 																						<sFloat32>
 																							<Element>
-																								<Value>2.5</Value>
+																								<Value>2.53</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>

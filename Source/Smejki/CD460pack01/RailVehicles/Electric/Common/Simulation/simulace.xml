@@ -439,14 +439,14 @@
 																																			<Attribute name="FullServicePressureDrop">
 																																				<sFloat32>
 																																					<Element>
-																																						<Value>29</Value>
+																																						<Value>29.0075</Value>
 																																					</Element>
 																																				</sFloat32>
 																																			</Attribute>
 																																			<Attribute name="MaxPressureDropInNormalApplication">
 																																				<sFloat32>
 																																					<Element>
-																																						<Value>3</Value>
+																																						<Value>29.0075</Value>
 																																					</Element>
 																																				</sFloat32>
 																																			</Attribute>
@@ -530,14 +530,14 @@
 																												<Attribute name="MaxSystemPressure">
 																													<sFloat32>
 																														<Element>
-																															<Value>73</Value>
+																															<Value>72.5189</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
 																												<Attribute name="MinSystemPressure">
 																													<sFloat32>
 																														<Element>
-																															<Value>50.7632</Value>
+																															<Value>43.5113</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
@@ -551,14 +551,14 @@
 																																			<Attribute name="NormalFullReleasePressure">
 																																				<sFloat32>
 																																					<Element>
-																																						<Value>72.5</Value>
+																																						<Value>72.5189</Value>
 																																					</Element>
 																																				</sFloat32>
 																																			</Attribute>
 																																			<Attribute name="FullServicePressure">
 																																				<sFloat32>
 																																					<Element>
-																																						<Value>55.1</Value>
+																																						<Value>43.5113</Value>
 																																					</Element>
 																																				</sFloat32>
 																																			</Attribute>
@@ -572,21 +572,21 @@
 																																			<Attribute name="MaxEmergencyResPressure">
 																																				<sFloat32>
 																																					<Element>
-																																						<Value>75.5</Value>
+																																						<Value>72.5189</Value>
 																																					</Element>
 																																				</sFloat32>
 																																			</Attribute>
 																																			<Attribute name="MaxAuxResPressure">
 																																				<sFloat32>
 																																					<Element>
-																																						<Value>73</Value>
+																																						<Value>72.5189</Value>
 																																					</Element>
 																																				</sFloat32>
 																																			</Attribute>
 																																			<Attribute name="EmergencyApplicationPressure">
 																																				<sFloat32>
 																																					<Element>
-																																						<Value>55.1</Value>
+																																						<Value>43.5113</Value>
 																																					</Element>
 																																				</sFloat32>
 																																			</Attribute>
@@ -600,56 +600,7 @@
 																												<Attribute name="EmergencyBraking">
 																													<__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking>
 																														<Element>
-																															<Value>
-																																<EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking>
-																																	<Element>
-																																		<Value>
-																																			<Attribute name="TriggerRate">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>10</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																			<Attribute name="ReservoirPressure">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>78.5</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																			<Attribute name="ReservoirCapacity">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>8</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																			<Attribute name="ReservoirVolumeMultiplier">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>1.1</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																			<Attribute name="ApplicationRate">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>40</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																			<Attribute name="ChargeRate">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>5</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																		</Value>
-																																	</Element>
-																																</EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking>
-																															</Value>
+																															<Value />
 																														</Element>
 																													</__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking>
 																												</Attribute>
@@ -691,7 +642,7 @@
 																												<Attribute name="TripleValveRatio">
 																													<sFloat32>
 																														<Element>
-																															<Value>1.3333</Value>
+																															<Value>2.53</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
