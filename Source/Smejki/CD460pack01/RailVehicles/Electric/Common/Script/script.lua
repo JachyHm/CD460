@@ -1281,7 +1281,7 @@ ohrevLevePredni = 1
 ohrevPravePredni = 1
 ohrevPrave = 1
 
-vypnutaTrakce = false
+vypnutaVlastniSpotreba = false
 venku = false
 
 -- srv = net.createConnection(net.TCP, 0)
@@ -2537,12 +2537,21 @@ function Update (casHry)
 		ss = tonumber(ss)
 		gCommonTimer = gCommonTimer + cas
 		if Call("GetIsPlayer") == 1 or UzJsiZjistovalPanto then
-			if delkaVlakuLast ~= delkaVlaku then
-				Call("SetControlValue","IsMasterInConsist",0,0)
-				Call("SetControlValue","mg",0,0)
-				Call("SetControlValue","mgZvuk",0,0)
-				Call("SetControlValue","mgVS",0,0)
-				Call("SetControlValue","poruchaVeVlaku",0,0)
+            if delkaVlakuLast ~= delkaVlaku then
+                --reset pridelenych ID
+                    Call("SetControlValue","IsMasterInConsist",0,0)
+                --nulovani ovladacu obsahujicich sumu ID
+                    Call("SetControlValue","mg",0,0)
+                    Call("SetControlValue","mgZvuk",0,0)
+                    Call("SetControlValue","mgVS",0,0)
+                    Call("SetControlValue","DvereLeveVSouprave",0,0)
+                    Call("SetControlValue","DverePraveVSouprave",0,0)
+                    Call("SetControlValue","pomkompVS",0,0)
+                    Call("SetControlValue","mgPriprava",0,0)
+                    Call("SetControlValue","poruchaVeVlaku",0,0)
+                    Call("SetControlValue","pocetJimek",0,0)
+                    Call("SetControlValue","synchronizacniRele",0,0)
+                    Call("SetControlValue","diraDoPotrubi",0,0)
 				x, _, y = Call("*:getNearPosition")
 				Call("SendConsistMessage",460994,string.sub(x, 1, 10),0)
 				predMasinou = Call("SendConsistMessage",460995,string.sub(y, 1, 10),0)
@@ -2749,7 +2758,7 @@ function Update (casHry)
 							Call ( "SetControlValue", "povel_Reverser", 0, Smer)
 						end
 
-						if baterie == 1 and prepinaceTlak > 3.5 and (not vypnutaTrakce or pojezdNeschopna) then
+						if baterie == 1 and prepinaceTlak > 3.5 and (not vypnutaVlastniSpotreba or pojezdNeschopna) then
 							Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
 						else
 							Call("SetControlValue", "Reverser", 0, 0)
@@ -5644,7 +5653,7 @@ function Update (casHry)
 								vykon = 0 
 							end
 							pojezdNeschopna = false
-							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutaTrakce) or pojezdVDepu then -- kontrola podmínek pro jízdu
+							if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutaVlastniSpotreba) or pojezdVDepu then -- kontrola podmínek pro jízdu
 								if vykon == 0 or not pojezdNeschopna then
 									Call("SetControlValue","MuteSounds",0,0)
 								end
@@ -5767,12 +5776,12 @@ function Update (casHry)
 							end
 
 							if Call("GetControlValue", "VypinacHlavy", 0) > 0.5 then
-								vypnutaTrakce = false
+								vypnutaVlastniSpotreba = false
 							else
-								vypnutaTrakce = true
+								vypnutaVlastniSpotreba = true
 							end
 						----------------------------------------Ventilatory---------------------------------------
-							if HlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 and not vypnutaTrakce then
+							if HlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 and not vypnutaVlastniSpotreba then
 								Call("SetControlValue","VentilatoryTM",0,1)
 								ventilatoryTM = 1
 								if math.abs(Call("GetControlValue", "prerusovanyChodVentilatoru", 0)) > 0.5 then
@@ -6120,11 +6129,11 @@ function Update (casHry)
 									Call("SetControlValue","JOBpovel",0,0)
 								end
 							end
-							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 and not vypnutaTrakce then
+							if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 and not vypnutaVlastniSpotreba then
 								Call("SetControlValue","JOB",0,1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and Call("GetControlValue","JOBpovel",0) == -1 and not vypnutaTrakce then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and Call("GetControlValue","JOBpovel",0) == -1 and not vypnutaVlastniSpotreba then
 								Call("SetControlValue","JOB",0,-1)
-							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0 or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or vypnutaTrakce then
+							elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0 or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or vypnutaVlastniSpotreba then
 								Call("SetControlValue","JOB",0,0)
 							end
 
