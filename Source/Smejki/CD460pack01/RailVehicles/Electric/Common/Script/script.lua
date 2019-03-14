@@ -117,6 +117,7 @@ prah_hystereze_plniciho_ustroji = 0.25
 idealni_membrana_ridiciho_ustroji = 0
 skutecna_membrana_ridiciho_ustroji = 0
 VirtualMainReservoirPressureBAR = math.random(0,10)
+-- TargetVirtualDistributorPressureConverterPosition = 0
 VirtualDistributorPressureConverterPosition = 0
 VirtualDistributorBrakeCylinderPressureBAR = 0
 plynulyVzduchojem = 0
@@ -2843,6 +2844,7 @@ function Update (casHry)
                                         soupatkoVZ = 1 --odpada soupatko - v rezimu postrk zustava, soupatko drzi
                                     end
                                     Call("SetControlValue", "LVZmenic", 0, 0)
+                                    Call("SetControlValue", "LVZzivak", 0, 0)
                                 else --pokud bezi bezkontaktni menic, tj. je zapaty HV a baterie, sviti jeho kontrolka
                                     Call("SetControlValue", "LVZmenic", 0, 1)
                                 end
@@ -2860,10 +2862,11 @@ function Update (casHry)
 								soupatkoVZ = 1
                                 kontrolaBdelosti = false
 								Call("SetControlValue", "LVZmenic", 0, 0)
+                                Call("SetControlValue", "LVZzivak", 0, 0)
 							end
                             
                             if LVZrezim > 0.75 then  --rezim posun
-                                if baterie == 1 and LVZstanoviste < 0.5 then --pokud je zapnuty HV, sviti vybaveni
+                                if baterie == 1 and LVZstanoviste < 0.5 and LVZvypinac then --pokud je zapnuty HV, sviti vybaveni
                                     Call("SetControlValue", "LVZzivak", 0, 1)
                                 else
                                     Call("SetControlValue", "LVZzivak", 0, 0)
@@ -3344,7 +3347,10 @@ function Update (casHry)
 								Call("SetControlValue","VirtualBrakeSettedPressureBAR",0,navoleny_tlak)
 							
 							--tlak ridiciho ustroji brzdice
-								local zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(math.min(navoleny_tlak, VirtualMainReservoirPressureBAR)-tlak_ridiciho_ustroji))/50
+                                local zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(math.min(navoleny_tlak, VirtualMainReservoirPressureBAR)-tlak_ridiciho_ustroji))/50
+                                if navoleny_tlak > 5 then
+                                    zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(math.min(navoleny_tlak, VirtualMainReservoirPressureBAR)-tlak_ridiciho_ustroji))/200
+                                end
 								if math.min(navoleny_tlak, VirtualMainReservoirPressureBAR) - tlak_ridiciho_ustroji > zmena_tlaku_ridiciho_ustroji then
 									tlak_ridiciho_ustroji = tlak_ridiciho_ustroji + zmena_tlaku_ridiciho_ustroji
 								elseif tlak_ridiciho_ustroji - navoleny_tlak > zmena_tlaku_ridiciho_ustroji then
@@ -3368,7 +3374,11 @@ function Update (casHry)
 									prah_hystereze_ridiciho_ustroji = math.min(math.max(0.05, prah_hystereze_ridiciho_ustroji + cas*0.01), 0.25)
 								elseif math.abs(idealni_membrana_ridiciho_ustroji - skutecna_membrana_ridiciho_ustroji) > 0.01 then
 									prah_hystereze_ridiciho_ustroji = math.min(math.max(0.05, prah_hystereze_ridiciho_ustroji - cas*1*math.sqrt(math.abs(idealni_membrana_ridiciho_ustroji-skutecna_membrana_ridiciho_ustroji))), 0.25)
-								end
+                                end
+                                
+                                if tlak_HP > 5 then
+                                    prah_hystereze_ridiciho_ustroji = 0
+                                end
 								
 								if math.abs(skutecna_membrana_ridiciho_ustroji) < 0.01 and math.abs(idealni_membrana_ridiciho_ustroji) < 0.01 then
 									skutecna_membrana_ridiciho_ustroji = 0
@@ -3390,12 +3400,21 @@ function Update (casHry)
 										tlak_HP = math.max(tlak_HP - math.abs(skutecna_membrana_ridiciho_ustroji*cas/(Call("GetConsistLength")/100)),0)
 									end
 								elseif diraDoPotrubi > 0 then
-									local prirustek_brzdeni = math.sqrt(tlak_HP)/(Call("GetConsistLength")/10)
-									if tlak_HP > 0 then
-										tlak_HP = tlak_HP - prirustek_brzdeni * 15 * cas
-									else
-										tlak_HP = 0
-									end
+                                    if doplnujBrzdu then
+                                        local prirustek_brzdeni = math.sqrt(math.abs(tlak_HP-math.min(tlak_ridiciho_ustroji/2.5, VirtualMainReservoirPressureBAR/5)))/(Call("GetConsistLength")/10)
+                                        if tlak_HP > math.min(tlak_ridiciho_ustroji/2.5, VirtualMainReservoirPressureBAR/5) then
+                                            tlak_HP = tlak_HP - prirustek_brzdeni * 15 * cas
+                                        else
+                                            tlak_HP = tlak_HP + prirustek_brzdeni * 15 * cas
+                                        end
+                                    else
+                                        local prirustek_brzdeni = math.sqrt(tlak_HP)/(Call("GetConsistLength")/10)
+                                        if tlak_HP > 0 then
+                                            tlak_HP = tlak_HP - prirustek_brzdeni * 15 * cas
+                                        else
+                                            tlak_HP = 0
+                                        end
+                                    end
 									Call("SetControlValue", "vypousteniSoundController", 0, 0)
 									if doplnujBrzdu then
 										Call("SetControlValue", "plneniSoundController", 0, 1)
@@ -3445,7 +3464,7 @@ function Update (casHry)
 									Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP-math.sqrt(math.abs(tlak_HP - VirtualDistributorControlReservoirPressureBAR))/500*15*cas)
 									VirtualDistributorControlReservoirPressureBAR = Call("GetControlValue","VirtualDistributorControlReservoirPressureBAR",0)
 									tlak_HP = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
-								elseif math.abs(VirtualDistributorControlReservoirPressureBAR - tlak_HP) < 0.01 then
+								elseif math.abs(VirtualDistributorControlReservoirPressureBAR - tlak_HP) < 0.05 then
 									Call("SetControlValue","VirtualDistributorControlReservoirPressureBAR",0,VirtualDistributorControlReservoirPressureBAR-0.005*cas)
 									VirtualDistributorControlReservoirPressureBAR = Call("GetControlValue","VirtualDistributorControlReservoirPressureBAR",0)
 								end
@@ -3457,7 +3476,17 @@ function Update (casHry)
 									prah_hystereze_plniciho_ustroji = math.max(math.min(prah_hystereze_plniciho_ustroji-cas*math.sqrt(math.abs(math.max(VirtualDistributorControlReservoirPressureBAR-tlak_HP,0)*2.53-VirtualDistributorBrakeCylinderPressureBAR)),0.05),0.3)
 								end
 
-							--prevodni pistek
+                            --prevodni pistek
+                                -- if VirtualDistributorControlReservoirPressureBAR > tlak_HP then
+                                --     TargetVirtualDistributorPressureConverterPosition = math.sqrt(math.abs(math.max(VirtualDistributorControlReservoirPressureBAR-tlak_HP,0)*2.53-VirtualDistributorBrakeCylinderPressureBAR))
+                                -- else
+                                --     TargetVirtualDistributorPressureConverterPosition = -math.sqrt(math.abs(math.max(VirtualDistributorControlReservoirPressureBAR-tlak_HP,0)*2.53-VirtualDistributorBrakeCylinderPressureBAR))
+                                -- end
+
+								-- if math.abs(VirtualDistributorPressureConverterPosition) < 0.01 then
+								-- 	VirtualDistributorPressureConverterPosition = 0
+                                -- end
+
 								if (math.max(VirtualDistributorControlReservoirPressureBAR-tlak_HP,0)*2.53)-prah_hystereze_plniciho_ustroji > VirtualDistributorBrakeCylinderPressureBAR then
 									VirtualDistributorPressureConverterPosition = math.min(VirtualDistributorPressureConverterPosition + math.sqrt(math.abs(math.max(VirtualDistributorControlReservoirPressureBAR-tlak_HP,0)*2.53-VirtualDistributorBrakeCylinderPressureBAR))*cas,1)
 								elseif math.max(VirtualDistributorControlReservoirPressureBAR-tlak_HP,0)*2.53 < VirtualDistributorBrakeCylinderPressureBAR then
@@ -3466,10 +3495,15 @@ function Update (casHry)
 									VirtualDistributorPressureConverterPosition = math.max(VirtualDistributorPressureConverterPosition - cas*math.sqrt(VirtualDistributorPressureConverterPosition),-1)
 								elseif VirtualDistributorPressureConverterPosition < 0 then
 									VirtualDistributorPressureConverterPosition = math.min(VirtualDistributorPressureConverterPosition + cas*math.sqrt(-VirtualDistributorPressureConverterPosition),1)
-								end
+                                end
+                                
 								if math.abs(VirtualDistributorPressureConverterPosition) < 0.01 then
 									VirtualDistributorPressureConverterPosition = 0
-								end
+                                end
+                                
+                                if Call("ControlExists", "VirtualDistributorPressureConverterPosition", 0) == 1 then
+                                    Call("SetControlValue", "VirtualDistributorPressureConverterPosition", 0, VirtualDistributorPressureConverterPosition)
+                                end
 
 							--plneni valcu
 								if VirtualDistributorPressureConverterPosition > 0 then
@@ -3482,10 +3516,6 @@ function Update (casHry)
 									VirtualDistributorBrakeCylinderPressureBAR = math.max(VirtualDistributorBrakeCylinderPressureBAR + cas*VirtualDistributorPressureConverterPosition*math.sqrt(VirtualDistributorBrakeCylinderPressureBAR),0)
 									-- Call("SoundDistributor:SetParameter", "CylinderReleasing", VirtualDistributorPressureConverterPosition*math.sqrt(math.abs(VirtualDistributorBrakeCylinderPressureBAR-VirtualDistributorReservoirPressureBAR)))
 									-- Call("SoundDistributor:SetParameter", "CylinderFilling", 0)
-								end
-
-								if VirtualDistributorPressureConverterPosition < 0.01 then
-									VirtualDistributorPressureConverterPosition = 0
 								end
 
 							--prevod ubytek -> tlak valcu
@@ -3513,7 +3543,10 @@ function Update (casHry)
 									Call("SetControlValue","TrainBrakeControl",0,1)
 								else
 									Call("SetControlValue","TrainBrakeControl",0,math.min(((plynuleValce_bezBP+0.1)/4.33333333333333333333),0.9))
-								end
+                                end
+
+                        ----------------------------------------Manometry-----------------------------------------
+                                
 						----------------------------------------Brzdove valce-------------------------------------
 							if nastaveneValce > plynuleValce then
 								if valcePrimocinne - plynuleValce > 0.1 then

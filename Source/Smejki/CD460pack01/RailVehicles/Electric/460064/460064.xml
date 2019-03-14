@@ -41894,7 +41894,7 @@
 														<Attribute name="ControlName">
 															<cDeltaString>
 																<Element>
-																	<Value>VirtualDistributorInitialPressureBAR</Value>
+																	<Value>VirtualDistributorPressureConverterPosition</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -41908,14 +41908,14 @@
 														<Attribute name="MinimumValue">
 															<sFloat32>
 																<Element>
-																	<Value>0</Value>
+																	<Value>-10</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
 														<Attribute name="MaximumValue">
 															<sFloat32>
 																<Element>
-																	<Value>16</Value>
+																	<Value>10</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
