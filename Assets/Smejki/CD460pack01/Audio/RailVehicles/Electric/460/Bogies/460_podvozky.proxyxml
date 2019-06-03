@@ -5,19 +5,65 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">1000</ActivationDistance>
 			<Sound>
-				<kLoud-cRandomSampleSound d:id="158782">
-					<Name d:type="cDeltaString">styk1</Name>
+				<kLoud-cRandomSampleSound d:id="32627">
+					<Name d:type="cDeltaString">styk1_int</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
 					<BaseVolume d:type="sFloat32">1</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0.1</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
-					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">50</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">51</NoFutherAttenuationDist>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="158794">
+						<kLoud-cSampleWithLikelihood d:id="32639">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_1_1_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32643">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_1_2_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32647">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_1_3_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32651">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_1_4_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
+				<kLoud-cRandomSampleSound d:id="32655">
+					<Name d:type="cDeltaString">styk1_ext</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.1</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="32667">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -25,7 +71,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158798">
+						<kLoud-cSampleWithLikelihood d:id="32671">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -33,7 +79,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158802">
+						<kLoud-cSampleWithLikelihood d:id="32675">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -41,7 +87,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158806">
+						<kLoud-cSampleWithLikelihood d:id="32679">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -49,17 +95,161 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158810">
+					</Sample>
+				</kLoud-cRandomSampleSound>
+				<kLoud-cRandomSampleSound d:id="32683">
+					<Name d:type="cDeltaString">styk2_int</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.1</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="32695">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
-									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_1_5_Ext.dav</Filename>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_1_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32699">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_2_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32703">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_3_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32707">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_4_Int.dav</Filename>
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
 					</Sample>
 				</kLoud-cRandomSampleSound>
-				<kLoud-cSingleSampleSound d:id="158814">
+				<kLoud-cRandomSampleSound d:id="32711">
+					<Name d:type="cDeltaString">styk2_ext</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.1</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="32723">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_1_Ext.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32727">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_2_Ext.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32731">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_3_Ext.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32735">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_2_4_Ext.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
+				<kLoud-cRandomSampleSound d:id="32739">
+					<Name d:type="cDeltaString">styk3_int</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.1</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="32751">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_3_1_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32755">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_3_2_Int.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
+				<kLoud-cRandomSampleSound d:id="32759">
+					<Name d:type="cDeltaString">styk3_ext</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0.1</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="32771">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_3_1_Ext.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="32775">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Bogies\styk_3_2_Ext.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
+				<kLoud-cSingleSampleSound d:id="32779">
 					<Name d:type="cDeltaString">obloukLoop</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -67,8 +257,8 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">20</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">200</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -76,7 +266,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="158827">
+				<kLoud-cSingleSampleSound d:id="32792">
 					<Name d:type="cDeltaString">obloukLoopInt</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -93,7 +283,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cRandomSampleSound d:id="158840">
+				<kLoud-cRandomSampleSound d:id="32805">
 					<Name d:type="cDeltaString">obloukRandom</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -101,11 +291,11 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">20</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">200</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">1000</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="158852">
+						<kLoud-cSampleWithLikelihood d:id="32817">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -113,7 +303,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158856">
+						<kLoud-cSampleWithLikelihood d:id="32821">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -121,7 +311,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158860">
+						<kLoud-cSampleWithLikelihood d:id="32825">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -129,7 +319,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158864">
+						<kLoud-cSampleWithLikelihood d:id="32829">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -137,7 +327,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158868">
+						<kLoud-cSampleWithLikelihood d:id="32833">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -145,7 +335,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158872">
+						<kLoud-cSampleWithLikelihood d:id="32837">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -153,7 +343,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158876">
+						<kLoud-cSampleWithLikelihood d:id="32841">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -161,7 +351,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158880">
+						<kLoud-cSampleWithLikelihood d:id="32845">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -169,7 +359,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158884">
+						<kLoud-cSampleWithLikelihood d:id="32849">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -177,7 +367,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158888">
+						<kLoud-cSampleWithLikelihood d:id="32853">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -187,7 +377,7 @@
 						</kLoud-cSampleWithLikelihood>
 					</Sample>
 				</kLoud-cRandomSampleSound>
-				<kLoud-cRandomSampleSound d:id="158892">
+				<kLoud-cRandomSampleSound d:id="32857">
 					<Name d:type="cDeltaString">obloukRandomInt</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -199,7 +389,7 @@
 					<NoFutherAttenuationDist d:type="sFloat32">16</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="158904">
+						<kLoud-cSampleWithLikelihood d:id="32869">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -207,7 +397,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158908">
+						<kLoud-cSampleWithLikelihood d:id="32873">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -215,7 +405,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158912">
+						<kLoud-cSampleWithLikelihood d:id="32877">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -223,7 +413,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158916">
+						<kLoud-cSampleWithLikelihood d:id="32881">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -231,7 +421,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158920">
+						<kLoud-cSampleWithLikelihood d:id="32885">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -239,7 +429,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158924">
+						<kLoud-cSampleWithLikelihood d:id="32889">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -247,7 +437,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158928">
+						<kLoud-cSampleWithLikelihood d:id="32893">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -255,7 +445,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158932">
+						<kLoud-cSampleWithLikelihood d:id="32897">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -263,7 +453,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158936">
+						<kLoud-cSampleWithLikelihood d:id="32901">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -271,7 +461,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="158940">
+						<kLoud-cSampleWithLikelihood d:id="32905">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -283,415 +473,517 @@
 				</kLoud-cRandomSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="158945">
+				<kLoud-cCurve d:id="32910">
 					<Name d:type="cDeltaString">obloukLoopRychlost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="158948">
+						<kLoud-cRVector2 d:id="32913">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158951">
+						<kLoud-cRVector2 d:id="32916">
 							<X d:type="sFloat32">4</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158954">
+						<kLoud-cRVector2 d:id="32919">
 							<X d:type="sFloat32">5</X>
 							<Y d:type="sFloat32">0.3</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158957">
+						<kLoud-cRVector2 d:id="32922">
 							<X d:type="sFloat32">11</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="158960">
+				<kLoud-cCurve d:id="32925">
 					<Name d:type="cDeltaString">obloukLoopPolomer</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="158963">
+						<kLoud-cRVector2 d:id="32928">
 							<X d:type="sFloat32">0.001</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158966">
+						<kLoud-cRVector2 d:id="32931">
 							<X d:type="sFloat32">0.005</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="158969">
+				<kLoud-cCurve d:id="32934">
 					<Name d:type="cDeltaString">obloukVelkePolomeryLoopRychlost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="158972">
+						<kLoud-cRVector2 d:id="32937">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158975">
+						<kLoud-cRVector2 d:id="32940">
 							<X d:type="sFloat32">4</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158978">
+						<kLoud-cRVector2 d:id="32943">
 							<X d:type="sFloat32">5</X>
 							<Y d:type="sFloat32">0.3</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158981">
+						<kLoud-cRVector2 d:id="32946">
 							<X d:type="sFloat32">6</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158984">
+						<kLoud-cRVector2 d:id="32949">
 							<X d:type="sFloat32">11</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158987">
+						<kLoud-cRVector2 d:id="32952">
 							<X d:type="sFloat32">12</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="158990">
+				<kLoud-cCurve d:id="32955">
 					<Name d:type="cDeltaString">obloukVelkePolomeryLoopPolomer</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="158993">
+						<kLoud-cRVector2 d:id="32958">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158996">
+						<kLoud-cRVector2 d:id="32961">
 							<X d:type="sFloat32">0.0005</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="158999">
+						<kLoud-cRVector2 d:id="32964">
 							<X d:type="sFloat32">0.005</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159002">
+						<kLoud-cRVector2 d:id="32967">
 							<X d:type="sFloat32">0.006</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159005">
-					<Name d:type="cDeltaString">stykHlasitostRychlost</Name>
-					<CurvePoint>
-						<kLoud-cRVector2 d:id="159008">
-							<X d:type="sFloat32">0</X>
-							<Y d:type="sFloat32">0.5</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159011">
-							<X d:type="sFloat32">8</X>
-							<Y d:type="sFloat32">1</Y>
-						</kLoud-cRVector2>
-					</CurvePoint>
-				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159014">
-					<Name d:type="cDeltaString">vzdalenostStyk1</Name>
-					<CurvePoint>
-						<kLoud-cRVector2 d:id="159017">
-							<X d:type="sFloat32">0</X>
-							<Y d:type="sFloat32">1</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159020">
-							<X d:type="sFloat32">225</X>
-							<Y d:type="sFloat32">0.6</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159023">
-							<X d:type="sFloat32">901.026855</X>
-							<Y d:type="sFloat32">0.5</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159026">
-							<X d:type="sFloat32">2025</X>
-							<Y d:type="sFloat32">0.4</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159029">
-							<X d:type="sFloat32">2026</X>
-							<Y d:type="sFloat32">0</Y>
-						</kLoud-cRVector2>
-					</CurvePoint>
-				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159032">
+				<kLoud-cCurve d:id="32970">
 					<Name d:type="cDeltaString">obloukRychlost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="159035">
+						<kLoud-cRVector2 d:id="32973">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159038">
+						<kLoud-cRVector2 d:id="32976">
 							<X d:type="sFloat32">0.1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159041">
+						<kLoud-cRVector2 d:id="32979">
 							<X d:type="sFloat32">0.3</X>
 							<Y d:type="sFloat32">0.6</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159044">
+						<kLoud-cRVector2 d:id="32982">
 							<X d:type="sFloat32">7</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159047">
+						<kLoud-cRVector2 d:id="32985">
 							<X d:type="sFloat32">8</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159050">
+				<kLoud-cCurve d:id="32988">
 					<Name d:type="cDeltaString">obloukPolomer</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="159053">
+						<kLoud-cRVector2 d:id="32991">
 							<X d:type="sFloat32">0.001</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159056">
+						<kLoud-cRVector2 d:id="32994">
 							<X d:type="sFloat32">0.005</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159059">
+				<kLoud-cCurve d:id="32997">
 					<Name d:type="cDeltaString">obloukVelkePolomeryRychlost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="159062">
+						<kLoud-cRVector2 d:id="33000">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159065">
+						<kLoud-cRVector2 d:id="33003">
 							<X d:type="sFloat32">0.1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159068">
+						<kLoud-cRVector2 d:id="33006">
 							<X d:type="sFloat32">0.3</X>
 							<Y d:type="sFloat32">0.6</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159071">
+						<kLoud-cRVector2 d:id="33009">
 							<X d:type="sFloat32">7</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159074">
+						<kLoud-cRVector2 d:id="33012">
 							<X d:type="sFloat32">8</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159077">
+				<kLoud-cCurve d:id="33015">
 					<Name d:type="cDeltaString">obloukVelkePolomeryPolomer</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="159080">
+						<kLoud-cRVector2 d:id="33018">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159083">
+						<kLoud-cRVector2 d:id="33021">
 							<X d:type="sFloat32">0.0005</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159086">
+						<kLoud-cRVector2 d:id="33024">
 							<X d:type="sFloat32">0.005</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159089">
+						<kLoud-cRVector2 d:id="33027">
 							<X d:type="sFloat32">0.006</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159092">
-					<Name d:type="cDeltaString">stykRychlostHlasitostInt</Name>
+				<kLoud-cCurve d:id="33030">
+					<Name d:type="cDeltaString">Distance Volume Curve</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="159095">
-							<X d:type="sFloat32">0</X>
-							<Y d:type="sFloat32">0.5</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159098">
-							<X d:type="sFloat32">1</X>
-							<Y d:type="sFloat32">0.7</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159101">
-							<X d:type="sFloat32">3</X>
+						<kLoud-cRVector2 d:id="33033">
+							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33036">
+							<X d:type="sFloat32">100</X>
+							<Y d:type="sFloat32">0.8</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33039">
+							<X d:type="sFloat32">400</X>
+							<Y d:type="sFloat32">0.6</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33042">
+							<X d:type="sFloat32">1600</X>
+							<Y d:type="sFloat32">0.2</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33045">
+							<X d:type="sFloat32">6400</X>
+							<Y d:type="sFloat32">0.1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33048">
+							<X d:type="sFloat32">25600</X>
+							<Y d:type="sFloat32">0.03125</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33051">
+							<X d:type="sFloat32">102400</X>
+							<Y d:type="sFloat32">0.015625</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33054">
+							<X d:type="sFloat32">409600</X>
+							<Y d:type="sFloat32">0.007813</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33057">
+							<X d:type="sFloat32">1638400</X>
+							<Y d:type="sFloat32">0.003906</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33060">
+							<X d:type="sFloat32">6553600</X>
+							<Y d:type="sFloat32">0.001953</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33063">
+							<X d:type="sFloat32">1.024E+07</X>
+							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="159104">
-					<Name d:type="cDeltaString">stykHlasitostInt</Name>
+				<kLoud-cCurve d:id="33066">
+					<Name d:type="cDeltaString">Distance Volume Curve Interior</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="159107">
-							<X d:type="sFloat32">0</X>
-							<Y d:type="sFloat32">0.1</Y>
+						<kLoud-cRVector2 d:id="33069">
+							<X d:type="sFloat32">10</X>
+							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159110">
-							<X d:type="sFloat32">16</X>
-							<Y d:type="sFloat32">0.1</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159113">
-							<X d:type="sFloat32">17</X>
-							<Y d:type="sFloat32">0.5</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159116">
-							<X d:type="sFloat32">20</X>
-							<Y d:type="sFloat32">0.5</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="159119">
-							<X d:type="sFloat32">21</X>
+						<kLoud-cRVector2 d:id="33072">
+							<X d:type="sFloat32">45</X>
 							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="33075">
+					<Name d:type="cDeltaString">styk1_rychlost</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="33078">
+							<X d:type="sFloat32">0</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33081">
+							<X d:type="sFloat32">0.1</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33084">
+							<X d:type="sFloat32">2.7777</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33087">
+							<X d:type="sFloat32">5.5555</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="33090">
+					<Name d:type="cDeltaString">styk2_rychlost</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="33093">
+							<X d:type="sFloat32">2.77777767</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33096">
+							<X d:type="sFloat32">5.55555534</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33099">
+							<X d:type="sFloat32">11.1111107</X>
+							<Y d:type="sFloat32">1</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33102">
+							<X d:type="sFloat32">13.8888893</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+					</CurvePoint>
+				</kLoud-cCurve>
+				<kLoud-cCurve d:id="33105">
+					<Name d:type="cDeltaString">styk3_rychlost</Name>
+					<CurvePoint>
+						<kLoud-cRVector2 d:id="33108">
+							<X d:type="sFloat32">11.1111107</X>
+							<Y d:type="sFloat32">0</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="33111">
+							<X d:type="sFloat32">13.8</X>
+							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="159123">
-					<Name d:type="cDeltaString">styk1</Name>
+				<kLoud-cModifierChain d:id="33115">
+					<Name d:type="cDeltaString">styk1_ext</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159126">
+						<kLoud-cVolumeCurveModifier d:id="33118">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">159014</Curve>
+							<Curve d:type="ref">33030</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159130">
+						<kLoud-cVolumeCurveModifier d:id="33122">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">159005</Curve>
+							<Curve d:type="ref">33075</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159134">
+				<kLoud-cModifierChain d:id="33126">
+					<Name d:type="cDeltaString">styk2_ext</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="33129">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">33030</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="33133">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">33090</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="33137">
+					<Name d:type="cDeltaString">styk3_ext</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="33140">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">33030</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="33144">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">33105</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="33148">
+					<Name d:type="cDeltaString">styk1_int</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="33151">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">33066</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="33155">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">33075</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="33159">
+					<Name d:type="cDeltaString">styk2_int</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="33162">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">33066</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="33166">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">33090</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="33170">
+					<Name d:type="cDeltaString">styk3_int</Name>
+					<Modifier>
+						<kLoud-cVolumeCurveModifier d:id="33173">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">33066</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="33177">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
+							<Curve d:type="ref">33105</Curve>
+						</kLoud-cVolumeCurveModifier>
+					</Modifier>
+				</kLoud-cModifierChain>
+				<kLoud-cModifierChain d:id="33181">
 					<Name d:type="cDeltaString">obloukLoop</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159137">
+						<kLoud-cVolumeCurveModifier d:id="33184">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">158945</Curve>
+							<Curve d:type="ref">32910</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159141">
+						<kLoud-cVolumeCurveModifier d:id="33188">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">158960</Curve>
+							<Curve d:type="ref">32925</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159145">
+				<kLoud-cModifierChain d:id="33192">
 					<Name d:type="cDeltaString">obloukLoopInt</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159148">
+						<kLoud-cVolumeCurveModifier d:id="33195">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">158945</Curve>
+							<Curve d:type="ref">32910</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159152">
+						<kLoud-cVolumeCurveModifier d:id="33199">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">158960</Curve>
+							<Curve d:type="ref">32925</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159156">
+						<kLoud-cVolumeCurveModifier d:id="33203">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">159104</Curve>
+							<Curve d:type="ref">0</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159160">
+				<kLoud-cModifierChain d:id="33207">
 					<Name d:type="cDeltaString">obloukVelkePolomeryLoop</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159163">
+						<kLoud-cVolumeCurveModifier d:id="33210">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">158969</Curve>
+							<Curve d:type="ref">32934</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159167">
+						<kLoud-cVolumeCurveModifier d:id="33214">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">158990</Curve>
+							<Curve d:type="ref">32955</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159171">
+				<kLoud-cModifierChain d:id="33218">
 					<Name d:type="cDeltaString">obloukVelkePolomeryLoopInt</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159174">
+						<kLoud-cVolumeCurveModifier d:id="33221">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">158969</Curve>
+							<Curve d:type="ref">32934</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159178">
+						<kLoud-cVolumeCurveModifier d:id="33225">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">158990</Curve>
+							<Curve d:type="ref">32955</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159182">
+						<kLoud-cVolumeCurveModifier d:id="33229">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">159104</Curve>
+							<Curve d:type="ref">0</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159186">
+				<kLoud-cModifierChain d:id="33233">
 					<Name d:type="cDeltaString">oblouk</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159189">
+						<kLoud-cVolumeCurveModifier d:id="33236">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">159032</Curve>
+							<Curve d:type="ref">32970</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159193">
+						<kLoud-cVolumeCurveModifier d:id="33240">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">159050</Curve>
+							<Curve d:type="ref">32988</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159197">
+				<kLoud-cModifierChain d:id="33244">
 					<Name d:type="cDeltaString">obloukInt</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159200">
+						<kLoud-cVolumeCurveModifier d:id="33247">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">159032</Curve>
+							<Curve d:type="ref">32970</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159204">
+						<kLoud-cVolumeCurveModifier d:id="33251">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">159050</Curve>
+							<Curve d:type="ref">32988</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159208">
+						<kLoud-cVolumeCurveModifier d:id="33255">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">159104</Curve>
+							<Curve d:type="ref">0</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159212">
+				<kLoud-cModifierChain d:id="33259">
 					<Name d:type="cDeltaString">obloukVelkePolomery</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159215">
+						<kLoud-cVolumeCurveModifier d:id="33262">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">159059</Curve>
+							<Curve d:type="ref">32997</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159219">
+						<kLoud-cVolumeCurveModifier d:id="33266">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">159077</Curve>
+							<Curve d:type="ref">33015</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159223">
+				<kLoud-cModifierChain d:id="33270">
 					<Name d:type="cDeltaString">obloukVelkePolomeryInt</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159226">
+						<kLoud-cVolumeCurveModifier d:id="33273">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">159059</Curve>
+							<Curve d:type="ref">32997</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159230">
+						<kLoud-cVolumeCurveModifier d:id="33277">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Curvature</ControllerName>
-							<Curve d:type="ref">159077</Curve>
+							<Curve d:type="ref">33015</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="159234">
-							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">159104</Curve>
-						</kLoud-cVolumeCurveModifier>
-					</Modifier>
-				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="159238">
-					<Name d:type="cDeltaString">DistanceVolume</Name>
-					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="159241">
+						<kLoud-cVolumeCurveModifier d:id="33281">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
 							<Curve d:type="ref">0</Curve>
@@ -701,11 +993,11 @@
 			</ModifierChain>
 			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="159247">
+				<kLoud-cControlledLoop d:id="33287">
 					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukLoop</Name>
-					<Sound d:type="ref">158814</Sound>
-					<ModifierChain d:type="ref">159134</ModifierChain>
+					<Sound d:type="ref">32779</Sound>
+					<ModifierChain d:type="ref">33181</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.001</ActiveRangeStartValue>
@@ -713,11 +1005,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="159258">
+				<kLoud-cControlledLoop d:id="33298">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukLoopInt</Name>
-					<Sound d:type="ref">158827</Sound>
-					<ModifierChain d:type="ref">159145</ModifierChain>
+					<Sound d:type="ref">32792</Sound>
+					<ModifierChain d:type="ref">33192</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.001</ActiveRangeStartValue>
@@ -725,11 +1017,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="159269">
+				<kLoud-cControlledLoop d:id="33309">
 					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukLoop</Name>
-					<Sound d:type="ref">158814</Sound>
-					<ModifierChain d:type="ref">159160</ModifierChain>
+					<Sound d:type="ref">32779</Sound>
+					<ModifierChain d:type="ref">33207</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.0001</ActiveRangeStartValue>
@@ -737,11 +1029,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="159280">
+				<kLoud-cControlledLoop d:id="33320">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukLoopInt</Name>
-					<Sound d:type="ref">158827</Sound>
-					<ModifierChain d:type="ref">159171</ModifierChain>
+					<Sound d:type="ref">32792</Sound>
+					<ModifierChain d:type="ref">33218</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0.0001</ActiveRangeStartValue>
@@ -751,55 +1043,110 @@
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="159292">
-					<PlayState d:type="cDeltaString">BOTH</PlayState>
-					<Name d:type="cDeltaString">styk1</Name>
-					<Sound d:type="ref">158782</Sound>
-					<ModifierChain d:type="ref">159123</ModifierChain>
+				<kLoud-cTriggeredOneshot d:id="33332">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">styk1_int</Name>
+					<Sound d:type="ref">32627</Sound>
+					<ModifierChain d:type="ref">33148</ModifierChain>
 					<ControllerName d:type="cDeltaString">JointCount</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
 					<TriggerValue d:type="sFloat32">1</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="159302">
+				<kLoud-cTriggeredOneshot d:id="33342">
+					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
+					<Name d:type="cDeltaString">styk1_ext</Name>
+					<Sound d:type="ref">32655</Sound>
+					<ModifierChain d:type="ref">33115</ModifierChain>
+					<ControllerName d:type="cDeltaString">JointCount</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">1</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="33352">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">styk2_int</Name>
+					<Sound d:type="ref">32683</Sound>
+					<ModifierChain d:type="ref">33159</ModifierChain>
+					<ControllerName d:type="cDeltaString">JointCount</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">1</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="33362">
+					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
+					<Name d:type="cDeltaString">styk2_ext</Name>
+					<Sound d:type="ref">32711</Sound>
+					<ModifierChain d:type="ref">33126</ModifierChain>
+					<ControllerName d:type="cDeltaString">JointCount</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">1</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="33372">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">styk3_int</Name>
+					<Sound d:type="ref">32739</Sound>
+					<ModifierChain d:type="ref">33170</ModifierChain>
+					<ControllerName d:type="cDeltaString">JointCount</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">1</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="33382">
+					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
+					<Name d:type="cDeltaString">styk3_ext</Name>
+					<Sound d:type="ref">32759</Sound>
+					<ModifierChain d:type="ref">33137</ModifierChain>
+					<ControllerName d:type="cDeltaString">JointCount</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">1</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="33392">
 					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukOnce</Name>
-					<Sound d:type="ref">158840</Sound>
-					<ModifierChain d:type="ref">159186</ModifierChain>
+					<Sound d:type="ref">32805</Sound>
+					<ModifierChain d:type="ref">33233</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
 					<TriggerValue d:type="sFloat32">1</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">3</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="159312">
+				<kLoud-cTriggeredOneshot d:id="33402">
 					<PlayState d:type="cDeltaString">OUTSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukOnce</Name>
-					<Sound d:type="ref">158840</Sound>
-					<ModifierChain d:type="ref">159212</ModifierChain>
+					<Sound d:type="ref">32805</Sound>
+					<ModifierChain d:type="ref">33259</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
 					<TriggerValue d:type="sFloat32">1</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">3</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="159322">
+				<kLoud-cTriggeredOneshot d:id="33412">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukOnceInt</Name>
-					<Sound d:type="ref">158892</Sound>
-					<ModifierChain d:type="ref">159197</ModifierChain>
+					<Sound d:type="ref">32857</Sound>
+					<ModifierChain d:type="ref">33244</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
 					<TriggerValue d:type="sFloat32">1</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">3</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="159332">
+				<kLoud-cTriggeredOneshot d:id="33422">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">obloukOnceInt</Name>
-					<Sound d:type="ref">158892</Sound>
-					<ModifierChain d:type="ref">159223</ModifierChain>
+					<Sound d:type="ref">32857</Sound>
+					<ModifierChain d:type="ref">33270</ModifierChain>
 					<ControllerName d:type="cDeltaString">Curvature</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
 					<TriggerValue d:type="sFloat32">1</TriggerValue>
