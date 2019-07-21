@@ -256,7 +256,7 @@ function Update(time)
 						ZpravaDebug("x: "..x)
 						local vzdalenost = math.sqrt((xZS-x)^2 + (yZS-y)^2)
 						if vzdalenost < maxVzdalenost then
-							if smer == 1 then
+							if i == 2 then
 								predMasinouTornado = true
 								predMasinouTornadoCas = nil
 								predMasinouTornadoPosledniZpravaCas = os.clock()
@@ -266,7 +266,7 @@ function Update(time)
 								zaMasinouTornadoPosledniZpravaCas = os.clock()
 							end
 						else
-							if smer == 1 then
+							if i == 2 then
 								predMasinouTornado = false
 								predMasinouTornadoCas = nil
 								predMasinouTornadoPosledniZpravaCas = os.clock()

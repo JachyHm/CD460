@@ -97,7 +97,7 @@ locoPosAPI = {
                 end
             end
             if self.rearSendTimeStamp then --waiting for response from rear
-                if sel.frontSendTimeStamp + (deltaTime*5) < self.lastTime then --response time exceeds limit (5 times update time)
+                if self.frontSendTimeStamp + (deltaTime*5) < self.lastTime then --response time exceeds limit (5 times update time)
                     self.ON_FAIL_FUNCTION(0)
                     self.rearSendTimeStamp = nil
                 end
