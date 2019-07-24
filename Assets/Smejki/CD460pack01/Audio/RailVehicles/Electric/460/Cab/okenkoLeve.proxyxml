@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="9272">
+				<kLoud-cSingleSampleSound d:id="22632">
 					<Name d:type="cDeltaString">okenkoLoop</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="9285">
+				<kLoud-cSingleSampleSound d:id="22645">
 					<Name d:type="cDeltaString">okenkoDorazDole</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="9298">
+				<kLoud-cSingleSampleSound d:id="22658">
 					<Name d:type="cDeltaString">okenkoDorazNahore</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -60,31 +60,31 @@
 			<Curve />
 			<ModifierChain />
 			<InstanceGroup>
-				<kLoud-cInstanceGroup d:id="9314">
+				<kLoud-cInstanceGroup d:id="22674">
 					<Name d:type="cDeltaString">okenkoLoop</Name>
 					<MaximumNumberOfInstances d:type="sUInt32">1</MaximumNumberOfInstances>
 					<InstanceExceededAction d:type="cDeltaString">RejectNew</InstanceExceededAction>
 				</kLoud-cInstanceGroup>
 			</InstanceGroup>
 			<Loop>
-				<kLoud-cControlledLoop d:id="9319">
+				<kLoud-cControlledLoop d:id="22679">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">okenkoLoop</Name>
-					<Sound d:type="ref">9272</Sound>
+					<Sound d:type="ref">22632</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">OknoL</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChanging</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">0</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">9314</InstanceGroup>
+					<InstanceGroup d:type="ref">22674</InstanceGroup>
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="9331">
+				<kLoud-cTriggeredOneshot d:id="22691">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">okenkoDorazDole</Name>
-					<Sound d:type="ref">9285</Sound>
+					<Sound d:type="ref">22645</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">OknoL</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -92,10 +92,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="9341">
+				<kLoud-cTriggeredOneshot d:id="22701">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">okenkoDorazNahore</Name>
-					<Sound d:type="ref">9298</Sound>
+					<Sound d:type="ref">22658</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">OknoL</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>

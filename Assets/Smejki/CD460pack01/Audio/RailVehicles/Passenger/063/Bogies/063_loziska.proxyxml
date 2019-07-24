@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">1000</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="162305">
+				<kLoud-cSingleSampleSound d:id="31580">
 					<Name d:type="cDeltaString">Jizda10</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="162318">
+				<kLoud-cSingleSampleSound d:id="31593">
 					<Name d:type="cDeltaString">Jizda40</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cRandomSampleSound d:id="162331">
+				<kLoud-cRandomSampleSound d:id="31606">
 					<Name d:type="cDeltaString">Jizda80</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -51,7 +51,7 @@
 					<NoFutherAttenuationDist d:type="sFloat32">1000</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="162343">
+						<kLoud-cSampleWithLikelihood d:id="31618">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -59,7 +59,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="162347">
+						<kLoud-cSampleWithLikelihood d:id="31622">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -69,7 +69,7 @@
 						</kLoud-cSampleWithLikelihood>
 					</Sample>
 				</kLoud-cRandomSampleSound>
-				<kLoud-cSingleSampleSound d:id="162351">
+				<kLoud-cSingleSampleSound d:id="31626">
 					<Name d:type="cDeltaString">Jizda110</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -88,182 +88,182 @@
 				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="162365">
+				<kLoud-cCurve d:id="31640">
 					<Name d:type="cDeltaString">Jizda10Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162368">
+						<kLoud-cRVector2 d:id="31643">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162371">
+						<kLoud-cRVector2 d:id="31646">
 							<X d:type="sFloat32">16.6</X>
 							<Y d:type="sFloat32">1.1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162374">
+				<kLoud-cCurve d:id="31649">
 					<Name d:type="cDeltaString">Jizda10Volume</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162377">
+						<kLoud-cRVector2 d:id="31652">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162380">
+						<kLoud-cRVector2 d:id="31655">
 							<X d:type="sFloat32">1.20196009</X>
 							<Y d:type="sFloat32">0.3012846</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162383">
+						<kLoud-cRVector2 d:id="31658">
 							<X d:type="sFloat32">4.727709</X>
 							<Y d:type="sFloat32">0.794596732</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162386">
+						<kLoud-cRVector2 d:id="31661">
 							<X d:type="sFloat32">8.3</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162389">
+						<kLoud-cRVector2 d:id="31664">
 							<X d:type="sFloat32">16.6</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162392">
+				<kLoud-cCurve d:id="31667">
 					<Name d:type="cDeltaString">Jizda40Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162395">
+						<kLoud-cRVector2 d:id="31670">
 							<X d:type="sFloat32">5.5</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162398">
+						<kLoud-cRVector2 d:id="31673">
 							<X d:type="sFloat32">22</X>
 							<Y d:type="sFloat32">1.1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162401">
+				<kLoud-cCurve d:id="31676">
 					<Name d:type="cDeltaString">Jizda40Volume</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162404">
+						<kLoud-cRVector2 d:id="31679">
 							<X d:type="sFloat32">5.5</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162407">
+						<kLoud-cRVector2 d:id="31682">
 							<X d:type="sFloat32">8.3</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162410">
+						<kLoud-cRVector2 d:id="31685">
 							<X d:type="sFloat32">16.66</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162413">
+						<kLoud-cRVector2 d:id="31688">
 							<X d:type="sFloat32">22</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162416">
+				<kLoud-cCurve d:id="31691">
 					<Name d:type="cDeltaString">Jizda80Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162419">
+						<kLoud-cRVector2 d:id="31694">
 							<X d:type="sFloat32">17.7</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162422">
+						<kLoud-cRVector2 d:id="31697">
 							<X d:type="sFloat32">31</X>
 							<Y d:type="sFloat32">1.05</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162425">
+				<kLoud-cCurve d:id="31700">
 					<Name d:type="cDeltaString">Jizda80Volume</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162428">
+						<kLoud-cRVector2 d:id="31703">
 							<X d:type="sFloat32">13.88</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162431">
+						<kLoud-cRVector2 d:id="31706">
 							<X d:type="sFloat32">16.6</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162434">
+						<kLoud-cRVector2 d:id="31709">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162437">
+						<kLoud-cRVector2 d:id="31712">
 							<X d:type="sFloat32">28</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162440">
+				<kLoud-cCurve d:id="31715">
 					<Name d:type="cDeltaString">Jizda110Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162443">
+						<kLoud-cRVector2 d:id="31718">
 							<X d:type="sFloat32">22</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162446">
+						<kLoud-cRVector2 d:id="31721">
 							<X d:type="sFloat32">200</X>
 							<Y d:type="sFloat32">1.4</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162449">
+				<kLoud-cCurve d:id="31724">
 					<Name d:type="cDeltaString">Jizda110Volume</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162452">
+						<kLoud-cRVector2 d:id="31727">
 							<X d:type="sFloat32">22</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162455">
+						<kLoud-cRVector2 d:id="31730">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="162458">
+				<kLoud-cCurve d:id="31733">
 					<Name d:type="cDeltaString">Distance Volume Curve</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="162461">
+						<kLoud-cRVector2 d:id="31736">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162464">
+						<kLoud-cRVector2 d:id="31739">
 							<X d:type="sFloat32">100</X>
 							<Y d:type="sFloat32">0.8</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162467">
+						<kLoud-cRVector2 d:id="31742">
 							<X d:type="sFloat32">400</X>
 							<Y d:type="sFloat32">0.6</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162470">
+						<kLoud-cRVector2 d:id="31745">
 							<X d:type="sFloat32">1600</X>
 							<Y d:type="sFloat32">0.2</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162473">
+						<kLoud-cRVector2 d:id="31748">
 							<X d:type="sFloat32">6400</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162476">
+						<kLoud-cRVector2 d:id="31751">
 							<X d:type="sFloat32">25600</X>
 							<Y d:type="sFloat32">0.03125</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162479">
+						<kLoud-cRVector2 d:id="31754">
 							<X d:type="sFloat32">102400</X>
 							<Y d:type="sFloat32">0.015625</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162482">
+						<kLoud-cRVector2 d:id="31757">
 							<X d:type="sFloat32">409600</X>
 							<Y d:type="sFloat32">0.007813</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162485">
+						<kLoud-cRVector2 d:id="31760">
 							<X d:type="sFloat32">1638400</X>
 							<Y d:type="sFloat32">0.003906</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162488">
+						<kLoud-cRVector2 d:id="31763">
 							<X d:type="sFloat32">6553600</X>
 							<Y d:type="sFloat32">0.001953</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="162491">
+						<kLoud-cRVector2 d:id="31766">
 							<X d:type="sFloat32">1.024E+07</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
@@ -271,94 +271,94 @@
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="162495">
+				<kLoud-cModifierChain d:id="31770">
 					<Name d:type="cDeltaString">Jizda10kmh</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="162498">
+						<kLoud-cPitchCurveModifier d:id="31773">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162365</Curve>
+							<Curve d:type="ref">31640</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162502">
+						<kLoud-cVolumeCurveModifier d:id="31777">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162374</Curve>
+							<Curve d:type="ref">31649</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162506">
+						<kLoud-cVolumeCurveModifier d:id="31781">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">162458</Curve>
+							<Curve d:type="ref">31733</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="162510">
+				<kLoud-cModifierChain d:id="31785">
 					<Name d:type="cDeltaString">Jizda40kmh</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="162513">
+						<kLoud-cPitchCurveModifier d:id="31788">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162392</Curve>
+							<Curve d:type="ref">31667</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162517">
+						<kLoud-cVolumeCurveModifier d:id="31792">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162401</Curve>
+							<Curve d:type="ref">31676</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162521">
+						<kLoud-cVolumeCurveModifier d:id="31796">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">162458</Curve>
+							<Curve d:type="ref">31733</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="162525">
+				<kLoud-cModifierChain d:id="31800">
 					<Name d:type="cDeltaString">Jizda80kmh</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="162528">
+						<kLoud-cPitchCurveModifier d:id="31803">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162416</Curve>
+							<Curve d:type="ref">31691</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162532">
+						<kLoud-cVolumeCurveModifier d:id="31807">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162425</Curve>
+							<Curve d:type="ref">31700</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162536">
+						<kLoud-cVolumeCurveModifier d:id="31811">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">162458</Curve>
+							<Curve d:type="ref">31733</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="162540">
+				<kLoud-cModifierChain d:id="31815">
 					<Name d:type="cDeltaString">Jizda110kmh</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="162543">
+						<kLoud-cPitchCurveModifier d:id="31818">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162440</Curve>
+							<Curve d:type="ref">31715</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162547">
+						<kLoud-cVolumeCurveModifier d:id="31822">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">162449</Curve>
+							<Curve d:type="ref">31724</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="162551">
+						<kLoud-cVolumeCurveModifier d:id="31826">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">162458</Curve>
+							<Curve d:type="ref">31733</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
 			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="162557">
+				<kLoud-cControlledLoop d:id="31832">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Jizda10</Name>
-					<Sound d:type="ref">162305</Sound>
-					<ModifierChain d:type="ref">162495</ModifierChain>
+					<Sound d:type="ref">31580</Sound>
+					<ModifierChain d:type="ref">31770</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
@@ -366,11 +366,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="162568">
+				<kLoud-cControlledLoop d:id="31843">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Jizda40</Name>
-					<Sound d:type="ref">162318</Sound>
-					<ModifierChain d:type="ref">162510</ModifierChain>
+					<Sound d:type="ref">31593</Sound>
+					<ModifierChain d:type="ref">31785</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">5.5</ActiveRangeStartValue>
@@ -378,11 +378,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="162579">
+				<kLoud-cControlledLoop d:id="31854">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Jizda80</Name>
-					<Sound d:type="ref">162331</Sound>
-					<ModifierChain d:type="ref">162525</ModifierChain>
+					<Sound d:type="ref">31606</Sound>
+					<ModifierChain d:type="ref">31800</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">13</ActiveRangeStartValue>
@@ -390,11 +390,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="162590">
+				<kLoud-cControlledLoop d:id="31865">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Jizda110</Name>
-					<Sound d:type="ref">162351</Sound>
-					<ModifierChain d:type="ref">162540</ModifierChain>
+					<Sound d:type="ref">31626</Sound>
+					<ModifierChain d:type="ref">31815</ModifierChain>
 					<ControllerName d:type="cDeltaString">AbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">22</ActiveRangeStartValue>

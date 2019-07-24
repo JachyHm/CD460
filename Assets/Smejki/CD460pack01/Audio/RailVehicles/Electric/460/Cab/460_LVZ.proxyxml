@@ -5,16 +5,16 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="10479">
+				<kLoud-cSingleSampleSound d:id="19344">
 					<Name d:type="cDeltaString">Zivak</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
-					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<BaseVolume d:type="sFloat32">0.7</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">100</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">150</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">25</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">35</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
 						<kLoud-cSampleID>
@@ -27,10 +27,10 @@
 			<ModifierChain />
 			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="10496">
+				<kLoud-cControlledLoop d:id="19361">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Zivak</Name>
-					<Sound d:type="ref">10479</Sound>
+					<Sound d:type="ref">19344</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakPip</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
