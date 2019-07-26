@@ -1371,7 +1371,8 @@ rychlostKolaPodvozek2 = 0
 rychlostKolaKMHPodvozek2 = 0
 
 prahDSO = math.random(10,60)/2
-obuti = math.random(1)
+obutiVolume = math.max(math.random(-3,1),0)
+obuti = 0
 obutiDistance = 2.4772805742778301026860760754598
 
 modelConfig = {
@@ -1661,8 +1662,10 @@ function Initialise ()
 	Call ( "Zarivka1:Activate", 0 )
 	Call ( "Zarivka2:Activate", 0 )
 	Call ( "Zarivka3:Activate", 0 )
-	Call ( "CabLight1:Activate", 0 )
+    Call ( "CabLight1:Activate", 0 )
 	Call ( "CabLight2:Activate", 0 )
+    Call ( "CabLight3:Activate", 0 )
+    Call ( "CabLight4:Activate", 0 )
 	Call ( "SvetloRychlomer:Activate", 0 )
 	Call ( "SvetloBudik1:Activate", 0 )
 	Call ( "SvetloBudik2:Activate", 0 )
@@ -1703,6 +1706,8 @@ function Initialise ()
 	Call("Zarivka2:SetRange",8)
 	Call("Zarivka3:SetRange",8)
 	Call("CabLight1:SetRange",8)
+	Call("CabLight3:SetRange",8)
+	Call("CabLight4:SetRange",8)
 	Call("SvetloBudik1:SetRange",0.07)
 	Call("SvetloBudik2:SetRange",0.1)
 	Call("SvetloBudik3:SetRange",0.07)
@@ -2094,6 +2099,8 @@ function VypniVse()
 	Call ( "PozickaHorniBi:Activate", 0 )
 	Call ( "CabLight1:Activate", 0 )
 	Call ( "CabLight2:Activate", 0 )
+	Call ( "CabLight3:Activate", 0 )
+	Call ( "CabLight4:Activate", 0 )
 	Call ( "SvetloRychlomer:Activate", 0 )
 	Call ( "SvetloBudik1:Activate", 0 )
 	Call ( "SvetloBudik2:Activate", 0 )
@@ -2107,6 +2114,9 @@ function VypniVse()
 	Call ( "ActivateNode", "pozickalevaCr", 0 ) 
 	Call ( "ActivateNode", "pozickapravaBi", 0 ) 
 	Call ( "ActivateNode", "pozickapravaCr", 0 ) 
+    Call("SetControlValue", "ZarivkaSvetlo", 0, 0)
+    Call("SetControlValue", "LustrLevySvetlo", 0, 0)
+    Call("SetControlValue", "LustrPravySvetlo", 0, 0)
 end
 
 function RozsvitSvetlo(corozsvit,plati)
@@ -2271,7 +2281,6 @@ end
 
 function KabinaPristF(stupen)
 	if stupen == 1 then
-		RozsvitSvetlo("CabLight1",1)
 		RozsvitSvetlo("SvetloBudik1",0)
 		RozsvitSvetlo("SvetloBudik2",0)
 		RozsvitSvetlo("SvetloBudik3",0)
@@ -2284,7 +2293,6 @@ function KabinaPristF(stupen)
 		RozsvitSvetlo("SvetloBudik3",1)
 		RozsvitSvetlo("SvetloBudik4",1)
 		RozsvitSvetlo("SvetloRychlomer",1)
-		RozsvitSvetlo("CabLight1",0)
 	end
 	if stupen == 0 then
 		RozsvitSvetlo("SvetloBudik1",0)
@@ -2292,7 +2300,6 @@ function KabinaPristF(stupen)
 		RozsvitSvetlo("SvetloBudik3",0)
 		RozsvitSvetlo("SvetloBudik4",0)
 		RozsvitSvetlo("SvetloRychlomer",0)
-		RozsvitSvetlo("CabLight1",0)
 	end
 end
 
@@ -2614,6 +2621,7 @@ function PIDcntrlCommon(gHodnota,gRucicka,gProbiha,gHranice,gHODNOTA_LAST,limitB
 end
 
 function SvetloDimm(dimValue)
+    dimValue = 1-dimValue
 	Call("SvetloBudik1:SetColour",10 - dimValue*10,3.443983 - (dimValue*3.443983),0)
 	Call("SvetloBudik2:SetColour",10 - dimValue*10,6.26556 - (dimValue*6.26556),0)
 	Call("SvetloRychlomer:SetColour",0,3.48548 - (dimValue*3.48548),0.580913 - (dimValue*0.580913))
@@ -3946,6 +3954,11 @@ function Update (casHry)
                             end
                             Call("SetControlValue", "ManometrBV", 0, manometrBV)
 
+                            if Call("GetControlValue", "Odkalovani", 0) > 0.5 and baterie == 1 then
+                                odkalovaniJimek = true
+                            else
+                                odkalovaniJimek = false
+                            end
                             manometrHJ = Call("GetControlValue", "ManometrHJ", 0)
                             if ((diraDoPotrubi > 0 and doplnujBrzdu) or odkalovaniJimek) then
                                 ubytekHJ = true
@@ -4049,6 +4062,10 @@ function Update (casHry)
                             end
                             if pojistak then
                                 Call("SetControlValue","PantoJimka",0,math.max(PantoJimkaZKom,PantoJimkaZHJ)-0.00125)
+                            end
+
+                            if odkalovaniJimek then
+                                Call("SetControlValue","VirtualMainReservoirPressureBAR",0,Call("GetControlValue","VirtualMainReservoirPressureBAR",0)-0.2*cas)
                             end
 
                             if baterie == 1 and vnitrniSit220V == 1 and PC == 3.75 and (hlkomp == -1 or (hlkomp == 1 and autoKompresor)) then
@@ -6155,6 +6172,10 @@ function Update (casHry)
                                 osvetleniPomocnik = 1
                             end
 
+                            local zarivka = math.abs(Call("GetControlValue", "Zarivka", 0))
+                            local svetloLeve = Call("GetControlValue", "LustrLevy", 0)
+                            local svetloPrave = Call("GetControlValue", "LustrPravy", 0)
+
                             if baterie == 1 then
                                 if OsvetleniVozu <= 0.5 then
                                     OsvetleniVozuF(0)
@@ -6199,6 +6220,27 @@ function Update (casHry)
                                     Pozicka("Prava","Cr",1)
                                 else
                                     Pozicka("Prava","Cr",0)
+                                end
+                                if zarivka > 0.5 then
+                                    RozsvitSvetlo("CabLight1",1)
+                                    Call("SetControlValue", "ZarivkaSvetlo", 0, 1)
+                                else
+                                    RozsvitSvetlo("CabLight1",0)
+                                    Call("SetControlValue", "ZarivkaSvetlo", 0, 0)
+                                end
+                                if KabinaPrist == 1 or svetloPrave > 0.5 then
+                                    RozsvitSvetlo("CabLight3",1)
+                                    Call("SetControlValue", "LustrLevySvetlo", 0, 1)
+                                else
+                                    RozsvitSvetlo("CabLight3",0)
+                                    Call("SetControlValue", "LustrLevySvetlo", 0, 0)
+                                end
+                                if KabinaPrist == 1 or svetloLeve > 0.5 then
+                                    RozsvitSvetlo("CabLight4",1)
+                                    Call("SetControlValue", "LustrPravySvetlo", 0, 1)
+                                else
+                                    RozsvitSvetlo("CabLight4",0)
+                                    Call("SetControlValue", "LustrPravySvetlo", 0, 0)
                                 end
                             else
                                 VypniVse()
@@ -6654,24 +6696,24 @@ function Update (casHry)
                                 if rychlostKolaPodvozek1 < 1 and rychlostKolaPodvozek2 < 1 and tractiveEffortForWheelslip > adhesiveTractiveForcePodvozek1+10 then
                                     output_kN = 0
                                     actual_tbc = 0.2
-                                    obuti = math.min(obuti + cas*math.abs(rychlostKolaKMHPodvozek1-rychlost)/100,1)
+                                    obutiVolume = math.min(obutiVolume + cas*math.abs(rychlostKolaKMHPodvozek1-rychlost)/100,1)
                                 end
 
-                                if plynuleValce > 0.1 and tractiveEffortForWheelslip < adhesiveTractiveForcePodvozek1 then
-                                    obuti = math.max(obuti - cas*plynuleValce/1000,0)
+                                if (plynuleValce > 0.1 and tractiveEffortForWheelslip < adhesiveTractiveForcePodvozek1) or rychlostKolaKMHPodvozek1+5 > rychlost then
+                                    obutiVolume = math.max(obutiVolume - cas*plynuleValce/1000,0)
                                 end
 
-                                Call("SoundLoziska:SetParameter", "obutiVolume", obuti)
+                                Call("SoundLoziska:SetParameter", "obutiVolume", obutiVolume)
 
                                 if obutiDistance > 0 then
-                                    if rychlost > 0.2 then
-                                        obutiDistance = obutiDistance - casHry*Call("GetSpeed")
+                                    if rychlostKolaKMHPodvozek1 > 0.2 then
+                                        obutiDistance = obutiDistance - cas*rychlostKolaPodvozek1
                                     end
-                                    Call("SoundLoziska:SetParameter", "obuti", 0)
                                 else
-                                    Call("SoundLoziska:SetParameter", "obuti", 1)
                                     obutiDistance = 2.4772805742778301026860760754598+obutiDistance
+                                    obuti = 1-obuti
                                 end
+                                Call("SoundLoziska:SetParameter", "obuti", obuti)
                                 
                                 if plynuleValce_bezBP < 0.05 then
                                     Call("SetControlValue","TrainBrakeControl",0,0)
@@ -7727,6 +7769,9 @@ function Update (casHry)
                 Call("Zarivka2:Activate",0)
                 Call("Zarivka3:Activate",0)
                 Call("CabLight1:Activate",0)
+                Call("CabLight2:Activate",0)
+                Call("CabLight3:Activate",0)
+                Call("CabLight4:Activate",0)
                 Call("SvetloRychlomer:Activate",0)
                 Call("SvetloBudik1:Activate",0)
                 Call("SvetloBudik2:Activate",0)
