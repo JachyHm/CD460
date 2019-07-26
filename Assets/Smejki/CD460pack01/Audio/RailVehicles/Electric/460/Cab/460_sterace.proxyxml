@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="21648">
+				<kLoud-cSingleSampleSound d:id="10881">
 					<Name d:type="cDeltaString">sterace1</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="21661">
+				<kLoud-cSingleSampleSound d:id="10894">
 					<Name d:type="cDeltaString">sterace2</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,16 +39,62 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
+				<kLoud-cRandomSampleSound d:id="10907">
+					<Name d:type="cDeltaString">steraceDry</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">75</Priority>
+					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">50</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">300</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleWithLikelihood d:id="10919">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\460_sterace_dry1.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="10923">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\460_sterace_dry2.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="10927">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\460_sterace_dry3.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+						<kLoud-cSampleWithLikelihood d:id="10931">
+							<Likelihood d:type="sFloat32">0.5</Likelihood>
+							<Sample>
+								<kLoud-cSampleID>
+									<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\460_sterace_dry4.dav</Filename>
+								</kLoud-cSampleID>
+							</Sample>
+						</kLoud-cSampleWithLikelihood>
+					</Sample>
+				</kLoud-cRandomSampleSound>
 			</Sound>
 			<Curve />
 			<ModifierChain />
 			<InstanceGroup />
 			<Loop />
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="21679">
+				<kLoud-cTriggeredOneshot d:id="10940">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">steracL1</Name>
-					<Sound d:type="ref">21648</Sound>
+					<Sound d:type="ref">10881</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">steracLevyZvuk</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -56,10 +102,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="21689">
+				<kLoud-cTriggeredOneshot d:id="10950">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">steracL2</Name>
-					<Sound d:type="ref">21661</Sound>
+					<Sound d:type="ref">10894</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">steracLevyZvuk</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -67,10 +113,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="21699">
+				<kLoud-cTriggeredOneshot d:id="10960">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">steracP1</Name>
-					<Sound d:type="ref">21648</Sound>
+					<Sound d:type="ref">10881</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">steracPravyZvuk</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -78,14 +124,36 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="21709">
+				<kLoud-cTriggeredOneshot d:id="10970">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">steracP2</Name>
-					<Sound d:type="ref">21661</Sound>
+					<Sound d:type="ref">10894</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">steracPravyZvuk</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
 					<TriggerValue d:type="sFloat32">0.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="10980">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">steracPDry</Name>
+					<Sound d:type="ref">10907</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">steracLevyZvukDry</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="10990">
+					<PlayState d:type="cDeltaString">BOTH</PlayState>
+					<Name d:type="cDeltaString">steracLDry</Name>
+					<Sound d:type="ref">10907</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">steracPravyZvukDry</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChanging</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>

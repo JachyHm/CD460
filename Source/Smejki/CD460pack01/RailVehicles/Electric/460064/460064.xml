@@ -879,7 +879,7 @@
 							<Attribute name="CouplingAudioControlName">
 								<cDeltaString>
 									<Element>
-										<Value />
+										<Value>Audio\RailVehicles\coupling_sound.xml</Value>
 									</Element>
 								</cDeltaString>
 							</Attribute>
@@ -1396,14 +1396,41 @@
 														<Attribute name="AnimationID">
 															<cDeltaString>
 																<Element>
-																	<Value>Wipers</Value>
+																	<Value>steracLOut</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
 														<Attribute name="AnimationName">
 															<cDeltaString>
 																<Element>
-																	<Value>RailVehicles\Electric\Common\Animations\sterace.ia</Value>
+																	<Value>RailVehicles\Electric\Common\Animations\steracl.ia</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="AnimateInEditor">
+															<eBoolean>
+																<Element>
+																	<Value>eTrue</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+													</Value>
+												</Element>
+											</iAnimObjectRenderBlueprint-cAnimation>
+											<iAnimObjectRenderBlueprint-cAnimation>
+												<Element>
+													<Value>
+														<Attribute name="AnimationID">
+															<cDeltaString>
+																<Element>
+																	<Value>steracPOut</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="AnimationName">
+															<cDeltaString>
+																<Element>
+																	<Value>RailVehicles\Electric\Common\Animations\steracp.ia</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -4546,7 +4573,7 @@
 														<Attribute name="DefaultValue">
 															<sFloat32>
 																<Element>
-																	<Value>0.86</Value>
+																	<Value>0</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
@@ -4784,7 +4811,7 @@
 																												<Attribute name="Value">
 																													<sFloat32>
 																														<Element>
-																															<Value>0.1</Value>
+																															<Value>0.001</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
@@ -4798,26 +4825,6 @@
 																													<cDeltaString>
 																														<Element>
 																															<Value>FullService</Value>
-																														</Element>
-																													</cDeltaString>
-																												</Attribute>
-																												<Attribute name="Value">
-																													<sFloat32>
-																														<Element>
-																															<Value>0.9</Value>
-																														</Element>
-																													</sFloat32>
-																												</Attribute>
-																											</Value>
-																										</Element>
-																									</cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																									<cControlContainerBlueprint-cInteriorIrregularNotchedLever-cNotchData>
-																										<Element>
-																											<Value>
-																												<Attribute name="Identifier">
-																													<cDeltaString>
-																														<Element>
-																															<Value>Emergency</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
@@ -25404,7 +25411,7 @@
 														<Attribute name="BriefDescription">
 															<cDeltaString>
 																<Element>
-																	<Value>Volic rozjezdoveho proudu (270,350,420,480,570 [A]) &lt;E / Shift + E&gt;</Value>
+																	<Value>Volic rozjezdoveho proudu (270,350,420,480,570 [A]) &lt;PageUp/PageDown&gt;</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -63496,28 +63503,62 @@
 														<Attribute name="SlaveToAnimationA">
 															<cDeltaString>
 																<Element>
-																	<Value>Wipers</Value>
+																	<Value>steracLOut</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
 														<Attribute name="SlaveToAnimationB">
 															<cDeltaString>
 																<Element>
-																	<Value>Wipers</Value>
+																	<Value>steracLOut</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
 														<Attribute name="TextureID">
 															<cDeltaString>
 																<Element>
-																	<Value>RailVehicles\Electric\Common\Cab\Textures\winwmotion_nm.ace</Value>
+																	<Value>RailVehicles\Electric\Common\Cab\Textures\winwmotion_nm_levy.ace</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
 														<Attribute name="NormalsTextureID">
 															<cDeltaString>
 																<Element>
-																	<Value>RailVehicles\Electric\Common\Cab\Textures\winnorm_nm.ace</Value>
+																	<Value>RailVehicles\Electric\Common\Cab\Textures\winnorm_nm_levy.ace</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cWiperPair>
+											<cControlContainerBlueprint-cWiperPair>
+												<Element>
+													<Value>
+														<Attribute name="SlaveToAnimationA">
+															<cDeltaString>
+																<Element>
+																	<Value>steracPOut</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="SlaveToAnimationB">
+															<cDeltaString>
+																<Element>
+																	<Value>steracPOut</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="TextureID">
+															<cDeltaString>
+																<Element>
+																	<Value>RailVehicles\Electric\Common\Cab\Textures\winwmotion_nm_pravy.ace</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="NormalsTextureID">
+															<cDeltaString>
+																<Element>
+																	<Value>RailVehicles\Electric\Common\Cab\Textures\winnorm_nm_pravy.ace</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -73609,17 +73650,17 @@
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>0.867648</Value>
+																								<Value>0.0867648</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>2.23501</Value>
+																								<Value>2.23636</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>11.42</Value>
+																								<Value>11.423</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>

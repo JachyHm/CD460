@@ -423,6 +423,74 @@
 													</Value>
 												</Element>
 											</cAnimSceneryRenderBlueprint-cAutoAnimation>
+											<cAnimSceneryRenderBlueprint-cAutoAnimation>
+												<Element>
+													<Value>
+														<Attribute name="AnimationID">
+															<cDeltaString>
+																<Element>
+																	<Value>Levy</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="AnimationName">
+															<cDeltaString>
+																<Element>
+																	<Value>RailVehicles\Electric\Common\Animations\kabina_lustr_vypinac_levy.ia</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="AnimateInEditor">
+															<eBoolean>
+																<Element>
+																	<Value>eTrue</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="Probability">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cAnimSceneryRenderBlueprint-cAutoAnimation>
+											<cAnimSceneryRenderBlueprint-cAutoAnimation>
+												<Element>
+													<Value>
+														<Attribute name="AnimationID">
+															<cDeltaString>
+																<Element>
+																	<Value>Pravy</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="AnimationName">
+															<cDeltaString>
+																<Element>
+																	<Value>RailVehicles\Electric\Common\Animations\kabina_lustr_vypinac_pravy.ia</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="AnimateInEditor">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="Probability">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cAnimSceneryRenderBlueprint-cAutoAnimation>
 										</Value>
 									</Element>
 								</__Indexed__cAnimSceneryRenderBlueprint-cAutoAnimation>

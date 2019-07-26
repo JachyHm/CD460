@@ -226,8 +226,10 @@ steracPravy = 0
 steracePrep = false
 steracLevySpeed = 0
 steracPravySpeed = 0
-STERAC_LEVY_MAX_SPEED = math.random(30, 70)/100
+STERAC_LEVY_MAX_SPEED = math.random(55, 70)/100
+STERAC_LEVY_DRY_SPEED = math.random(40,60)/100
 STERAC_PRAVY_MAX_SPEED = STERAC_LEVY_MAX_SPEED - math.random(-10, 10)/100
+STERAC_PRAVY_DRY_SPEED = STERAC_LEVY_DRY_SPEED - math.random(-10, 10)/100
 
 ojThrottleAndBrakeLast = 0
 
@@ -1369,6 +1371,8 @@ rychlostKolaPodvozek2 = 0
 rychlostKolaKMHPodvozek2 = 0
 
 prahDSO = math.random(10,60)/2
+obuti = math.random(1)
+obutiDistance = 2.4772805742778301026860760754598
 
 modelConfig = {
     [460021] = {
@@ -1542,7 +1546,7 @@ modelConfig = {
 	pravaPozCer = false
 	pravaPozCerVPKC = false
 	horniPozBilVKPC = false
-	soupatkoVZ = 0
+	soupatkoVZ = 1
 	LVZtimer = 0
 	LVZresetOld = 0
 	LVZreset = 1
@@ -2474,30 +2478,30 @@ function VratProud(gTaznaSila,gZarazenyStupen,wheelSpeed)
     else
         vratProud = vratProud*1.1
     end
-	if smer > 0 and Call("GetSpeed") < 0 then
+	if smer > 0 and Call("GetSpeed") < 0 and Call("GetIsEngineWithKey") == 1 then
         vratProud = vratProud * math.max((math.abs(speed)/1.5),1)
-        if vratProud > 1000 and math.random(4) > 3 then
+        if vratProud > 1800 and math.random(4) > 3  then
             zkratTM = true
         end
-		-- if vratProud > 840 or (math.abs(speed) > 5.55 and vratProud ~= 0) then
-		-- 	Call ("SetControlValue", "HlavniVypinac", 0, 0)
-		-- 	ZamekHLvyp = 1
-		-- 	Call("SendConsistMessage",460102,"",0)
-		-- 	Call("SendConsistMessage",460102,"",1)
-		-- 	niDiag = 1
-		-- end
-	elseif smer < 0 and Call("GetSpeed") > 0 then
+		if vratProud > 840 or (math.abs(speed) > 5.55 and vratProud ~= 0) then
+			Call ("SetControlValue", "HlavniVypinac", 0, 0)
+			ZamekHLvyp = 1
+			Call("SendConsistMessage",460102,"",0)
+			Call("SendConsistMessage",460102,"",1)
+			niDiag = 1
+		end
+	elseif smer < 0 and Call("GetSpeed") > 0 and Call("GetIsEngineWithKey") == 1 then
 		vratProud = vratProud * math.max((math.abs(speed)/1.5),1)
-        if vratProud > 1000 and math.random(4) > 3 then
+        if vratProud > 1800 and math.random(4) > 3 then
             zkratTM = true
         end
-		-- if vratProud > 840 or (math.abs(speed) > 5.55 and vratProud ~= 0) then
-		-- 	Call ("SetControlValue", "HlavniVypinac", 0, 0)
-		-- 	ZamekHLvyp = 1
-		-- 	Call("SendConsistMessage",460102,"",0)
-		-- 	Call("SendConsistMessage",460102,"",1)
-		-- 	niDiag = 1
-		-- end
+		if vratProud > 840 or (math.abs(speed) > 5.55 and vratProud ~= 0) then
+			Call ("SetControlValue", "HlavniVypinac", 0, 0)
+			ZamekHLvyp = 1
+			Call("SendConsistMessage",460102,"",0)
+			Call("SendConsistMessage",460102,"",1)
+			niDiag = 1
+		end
     end
 	return (vratProud)
 end
@@ -3038,8 +3042,7 @@ function Update (casHry)
                             Call("ActivateNode", "pozickalevaBi", 0) 
                             Call("ActivateNode", "pozickalevaCr", 0) 
                             Call("ActivateNode", "pozickapravaBi", 0) 
-                            Call("ActivateNode", "pozickapravaCr", 0) 
-                            soupatkoVZ = 0
+                            Call("ActivateNode", "pozickapravaCr", 0)
                             if modelConfig[scriptVersion].ctyriSberace then
                                 Call ("SetTime","PredniSberac",0)
                                 Call ("SetTime","ZadniSberac",0)
@@ -3129,17 +3132,12 @@ function Update (casHry)
                                     Call("SetControlValue", "LVZnapeti", 0, LVZnapeti) --zapis hodnoty Vmetru
                                 end
 
-                                if LVZvypinac and LVZrezim < 0.25 and releEPV and soupatkoVZ == 0 then --pokud je zapaty HV, rezim je provoz, bezkontaktni menic bezi a je natazene soupatko, je VZ aktivni
+                                if LVZvypinac and LVZrezim < 0.75 and releEPV and soupatkoVZ == 0 then --pokud je zapaty HV, rezim je provoz, bezkontaktni menic bezi a je natazene soupatko, je VZ aktivni
                                     kontrolaBdelosti = true
-                                elseif LVZvypinac and LVZrezim < 0.25 then --pokud je zapaty HV a rezim je provoz a zaroven neni natazene soupatko, nebo vubec nebezi bezkontaktni menic
-                                    releEPV = false --rozhod rele EPV
-                                    kontrolaBdelosti = false
-                                    soupatkoVZ = 1 --odpadni soupatko
-                                end
-                                if LVZvypinac and releEPV and LVZrezim > 0.25 and LVZrezim < 0.75 and soupatkoVZ == 0 then --je zapate HV, menic bezi, rezim je zkouseni a je natazene soupatko
-                                    kontrolaBdelosti = true
-                                    LVZzkouseni = true --aktivuj volbu "zkouseni"
-                                elseif LVZvypinac and LVZrezim > 0.25 and LVZrezim < 0.75 then --pokud je zapaty HV a rezim je testovani a nejsou splnene podm. vyse
+                                    if LVZrezim > 0.25 then
+                                        LVZzkouseni = true
+                                    end
+                                elseif LVZrezim < 0.75 then --pokud je zapaty HV a rezim je provoz a zaroven neni natazene soupatko, nebo vubec nebezi bezkontaktni menic
                                     releEPV = false --rozhod rele EPV
                                     kontrolaBdelosti = false
                                     soupatkoVZ = 1 --odpadni soupatko
@@ -3161,9 +3159,17 @@ function Update (casHry)
                                         soupatkoVZ = 1 --odpada soupatko - v rezimu postrk zustava, soupatko drzi
                                     end
                                     Call("SetControlValue", "LVZmenic", 0, 0)
-                                    Call("SetControlValue", "LVZzivak", 0, 0)
                                 else --pokud bezi bezkontaktni menic, tj. je zapaty HV a baterie, sviti jeho kontrolka
-                                    Call("SetControlValue", "LVZmenic", 0, 1)
+                                    if releEPV then
+                                        Call("SetControlValue", "LVZmenic", 0, 1)
+                                    else
+                                        Call("SetControlValue", "LVZmenic", 0, 0)
+                                    end
+                                end
+                                if not kontrolaBdelosti and soupatkoVZ == 0 then
+                                    Call("SetControlValue", "LVZvybaveni", 0, 1)
+                                elseif not kontrolaBdelosti then
+                                    Call("SetControlValue", "LVZvybaveni", 0, 0)
                                 end
                             end
                                 
@@ -3179,18 +3185,14 @@ function Update (casHry)
                                 soupatkoVZ = 1
                                 kontrolaBdelosti = false
                                 Call("SetControlValue", "LVZmenic", 0, 0)
-                                Call("SetControlValue", "LVZzivak", 0, 0)
-                            end
-                            
-                            if LVZrezim > 0.75 then  --rezim posun
-                                if baterie == 1 and LVZstanoviste < 0.5 and LVZvypinac then --pokud je zapnuty HV, sviti vybaveni
-                                    Call("SetControlValue", "LVZzivak", 0, 1)
-                                else
-                                    Call("SetControlValue", "LVZzivak", 0, 0)
-                                end
+                                Call("SetControlValue", "LVZvybaveni", 0, 0)
                             end
 
-                            Call("SetControlValue", "LVZvybaveni", 0, Call("GetControlValue","LVZzivak",0)) --kontrolka vybaveni
+                            if LVZstanoviste < 0.5 then
+                                Call("SetControlValue", "LVZzivak", 0, Call("GetControlValue","LVZvybaveni",0)) --kontrolka vybaveni
+                            else
+                                Call("SetControlValue", "LVZzivak", 0, 0) --kontrolka vybaveni vypnuta
+                            end
 
                             local kodNavesti = LVZ(Call("GetControlValue","SkutecnyKod",0),Call("GetControlValue","LVZzivak",0),cas,ToBolAndBack(Call("GetControlValue", "LVZmenic", 0)) and LVZstanoviste < 0.5)
                             --zavolej fci LVZ (fakove poruchy prenosu) a predej ji:
@@ -3224,59 +3226,72 @@ function Update (casHry)
                                 if LVZreset <= 0.25 or LVZstanoviste > 0.5 then
                                     nadbytecnaObsluha = false
                                 end
-                                if LVZtimer <= 7 and LVZstanoviste < 0.5 then
-                                    Call ("SetControlValue", "LVZzivak", 0, 1)
-                                    if not nadbytecnaObsluha then
+                                if LVZtimer <= 7 then
+                                    Call ("SetControlValue", "LVZvybaveni", 0, 1)
+                                    if not nadbytecnaObsluha or LVZstanoviste > 0.5 then
                                         Call ("SetControlValue", "ZivakPip", 0, 0)
                                     end
-                                elseif LVZtimer <= 15 and LVZstanoviste < 0.5 then
-                                    if LVZreset >= 0.25 then
-                                        Call ("SetControlValue", "LVZzivak", 0, 1)
-                                    else
-                                        Call ("SetControlValue", "LVZzivak", 0, 0)
-                                    end
-                                    if not nadbytecnaObsluha then
+                                elseif LVZtimer <= 15 then
+                                    Call ("SetControlValue", "LVZvybaveni", 0, 0)
+                                    if not nadbytecnaObsluha or LVZstanoviste > 0.5 then
                                         Call ("SetControlValue", "ZivakPip", 0, 0)
                                     end
-                                elseif LVZtimer <= 19 and LVZstanoviste < 0.5 then
-                                    if LVZreset >= 0.25 then
-                                        Call ("SetControlValue", "LVZzivak", 0, 1)
-                                    else
-                                        Call ("SetControlValue", "LVZzivak", 0, 0)
+                                elseif LVZtimer <= 19 then
+                                    Call ("SetControlValue", "LVZvybaveni", 0, 0)
+                                    if LVZstanoviste < 0.5 then
+                                        Call("SetControlValue", "ZivakPip", 0, 1)
                                     end
-                                    Call ("SetControlValue", "ZivakPip", 0, 1)
                                 elseif LVZtimer > 19 then
                                     Call ("SetControlValue", "ZivakPip", 0, 0)
-                                    if LVZreset >= 0.25 and LVZstanoviste < 0.5 then
-                                        Call ("SetControlValue", "LVZzivak", 0, 1)
-                                    else
-                                        Call ("SetControlValue", "LVZzivak", 0, 0)
-                                    end
+                                    Call("SetControlValue", "LVZvybaveni", 0, 0)
                                     soupatkoVZ = 1
-                                elseif LVZstanoviste > 0.5 then
-                                    Call ("SetControlValue", "LVZzivak", 0, 0)
+                                end
+                                if LVZstanoviste > 0.5 then
+                                    Call ("SetControlValue", "ZivakPip", 0, 0)
                                 end
                             else
                                 Call ("SetControlValue", "ZivakPip", 0, 0)
-                                Call ("SetControlValue", "LVZzivak", 0, 0)
                                 LVZtimer = 0
                             end
 
                         ----------------------------------------Sterace-------------------------------------------
+                            intenzitaSrazek = SysCall("WeatherController:GetPrecipitationDensity")
                             steracePrep = ToBolAndBack(math.abs(Call("GetControlValue","steracePrep",0)))
+                            dryKoeficient = intenzitaSrazek*math.max(1,rychlost/4)
 
-                            if steracePrep and baterie == 1 and steracLevySpeed < STERAC_LEVY_MAX_SPEED and steracPravySpeed < STERAC_PRAVY_MAX_SPEED then
-                                steracLevySpeed = math.min(steracLevySpeed+cas, STERAC_LEVY_MAX_SPEED)
-                                steracPravySpeed = math.min(steracPravySpeed+cas, STERAC_PRAVY_MAX_SPEED)
-                            elseif (not steracePrep or baterie ~= 1) and steracLevySpeed > 0 or steracPravySpeed > 0 then
-                                steracLevySpeed = math.max(steracLevySpeed-cas/3, 0)
-                                steracPravySpeed = math.max(steracPravySpeed-cas/3, 0)
+                            if steracePrep and baterie == 1 then
+                                if dryKoeficient > 0.5 then
+                                    if steracLevySpeed < STERAC_LEVY_MAX_SPEED then
+                                        steracLevySpeed = math.min(steracLevySpeed+cas, STERAC_LEVY_MAX_SPEED)
+                                    end
+                                    if steracPravySpeed < STERAC_PRAVY_MAX_SPEED then
+                                        steracPravySpeed = math.min(steracPravySpeed+cas, STERAC_PRAVY_MAX_SPEED)
+                                    end
+                                else
+                                    if steracLevySpeed < STERAC_LEVY_DRY_SPEED then
+                                        steracLevySpeed = math.min(steracLevySpeed+cas, STERAC_LEVY_DRY_SPEED)
+                                    else
+                                        steracLevySpeed = math.max(steracLevySpeed-cas, STERAC_LEVY_DRY_SPEED)
+                                    end
+                                    if steracPravySpeed < STERAC_PRAVY_DRY_SPEED then
+                                        steracPravySpeed = math.min(steracPravySpeed+cas, STERAC_PRAVY_DRY_SPEED)
+                                    else
+                                        steracPravySpeed = math.max(steracPravySpeed-cas, STERAC_PRAVY_DRY_SPEED)
+                                    end
+                                end
+                            else
+                                if dryKoeficient > 0.5 then
+                                    steracLevySpeed = math.max(steracLevySpeed-cas/5, 0)
+                                    steracPravySpeed = math.max(steracPravySpeed-cas/5, 0)
+                                else
+                                    steracLevySpeed = math.max(steracLevySpeed-cas, 0)
+                                    steracPravySpeed = math.max(steracPravySpeed-cas, 0)
+                                end
                             end
 
                             if steracLevySpeed > 0 or steracPravySpeed > 0 then
                                 steracLevy = Call("GetControlValue","steracLevy",0)
                                 steracPravy = Call("GetControlValue","steracPravy",0)
-
                                 steracLevy = steracLevy+cas*steracLevySpeed
                                 steracPravy = steracPravy+cas*steracPravySpeed
 
@@ -3288,16 +3303,28 @@ function Update (casHry)
                                 end
 
                                 if steracLevy >= 0.5 then
-                                    Call("SetControlValue","steracLevyZvuk",0,1)
+                                    Call("SoundWipers:SetParameter", "steracLevyZvuk", 1)
+                                    if dryKoeficient < 0.5 then
+                                        Call("SoundWipers:SetParameter", "steracLevyZvukDry", 1)
+                                    end
                                 else
-                                    Call("SetControlValue","steracLevyZvuk",0,0)
+                                    Call("SoundWipers:SetParameter", "steracLevyZvuk", 0)
+                                    if dryKoeficient < 0.5 then
+                                        Call("SoundWipers:SetParameter", "steracLevyZvukDry", 0)
+                                    end
                                 end
                                 if steracPravy >= 0.5 then
-                                    Call("SetControlValue","steracPravyZvuk",0,1)
+                                    Call("SoundWipers:SetParameter", "steracPravyZvuk", 1)
+                                    if dryKoeficient < 0.5 then
+                                        Call("SoundWipers:SetParameter", "steracPravyZvukDry", 1)
+                                    end
                                 else
-                                    Call("SetControlValue","steracPravyZvuk",0,0)
+                                    Call("SoundWipers:SetParameter", "steracPravyZvuk", 0)
+                                    if dryKoeficient < 0.5 then
+                                        Call("SoundWipers:SetParameter", "steracPravyZvukDry", 0)
+                                    end
                                 end
-
+                                
                                 Call("SetControlValue","steracLevy",0,steracLevy)
                                 Call("SetControlValue","steracPravy",0,steracPravy)
 
@@ -3306,16 +3333,14 @@ function Update (casHry)
                                 else
                                     steracLevyOut = 1/steracLevy - 1
                                 end
-
+    
                                 if steracPravy < 0.5 then
                                     steracPravyOut = steracPravy * 2
                                 else
                                     steracPravyOut = 1/steracPravy - 1
                                 end
-
-                                -- Call("SetTime", "steracLOut", steracLevyOut * 2.125)
-                                -- Call("SetTime", "steracPOut", steracPravyOut * 2.125)
-                                Call("SetTime", "Wipers", steracPravyOut * 3.7917)
+                                Call("SetTime", "steracLOut", steracLevyOut * 4.2083)--2.125
+                                Call("SetTime", "steracPOut", steracPravyOut * 4.2083)--2.125
                             end
                                 
                         ----------------------------------------IS------------------------------------------------
@@ -3692,22 +3717,24 @@ function Update (casHry)
                                 -- if navoleny_tlak > vychoziTlakBrzdice then
                                 --     zmena_tlaku_ridiciho_ustroji = math.sqrt(math.abs(math.min(navoleny_tlak, VirtualMainReservoirPressureBAR)-ridici_tlak))/200
                                 -- end
-                                if not ventilSvihu or tlak_HP < 5 then
+                                --if not ventilSvihu or tlak_HP < 5 then
                                     if math.min(navoleny_tlak, VirtualMainReservoirPressureBAR) > ridici_tlak then
                                         ridici_tlak = math.min(ridici_tlak + zmena_tlaku_ridiciho_ustroji, math.min(navoleny_tlak, VirtualMainReservoirPressureBAR))
                                     elseif ridici_tlak > navoleny_tlak then
                                         ridici_tlak = math.max(ridici_tlak - zmena_tlaku_ridiciho_ustroji, navoleny_tlak)
                                     end
-                                else
-                                    if (ridici_tlak < navoleny_tlak) then
-                                        ridici_tlak = math.min(ridici_tlak + math.sqrt(navoleny_tlak-ridici_tlak)*cas/10, navoleny_tlak)
-                                    else
-                                        ridici_tlak = ridici_tlak - math.sqrt(ridici_tlak-navoleny_tlak)*cas/10
-                                    end
-                                end
+                                -- else
+                                --     if (ridici_tlak < navoleny_tlak) then
+                                --         ridici_tlak = math.min(ridici_tlak + math.sqrt(navoleny_tlak-ridici_tlak)*cas*0.03, navoleny_tlak)
+                                --     else
+                                --         ridici_tlak = ridici_tlak - math.sqrt(ridici_tlak-navoleny_tlak)*cas*0.03
+                                --     end
+                                -- end
 
                             --prebijeni vychoziho tlaku brzdice
-                                vychoziTlakBrzdice = math.max(vychoziTlakBrzdice, ridici_tlak)
+                                if (vychoziTlakBrzdice < ridici_tlak) then
+                                    vychoziTlakBrzdice = math.min(vychoziTlakBrzdice + math.sqrt(ridici_tlak-vychoziTlakBrzdice)*cas*0.05,ridici_tlak)
+                                end
                             
                             --prenaseni tlaku ze soupravy - prevazne kvuli prebiti
                                 if BS2 > 0.88 and BS2 < 0.95 then
@@ -3738,7 +3765,11 @@ function Update (casHry)
                             --pistek regulatoru hlavniho potrubi - napousteni a vypousteni
                                 if diraDoPotrubi == 0 then
                                     if doplnujBrzdu then
-                                        Call("SoundBrzdice:SetParameter", "MainPipeReleasing", math.max(math.min(skutecna_membrana_ridiciho_ustroji, tlak_HP),-1))
+                                        if tlak_HP > vychoziTlakBrzdice then
+                                            Call("SoundBrzdice:SetParameter", "MainPipeReleasing", 0)
+                                        else
+                                            Call("SoundBrzdice:SetParameter", "MainPipeReleasing", math.max(math.min(skutecna_membrana_ridiciho_ustroji, tlak_HP),-1))
+                                        end
                                         Call("SoundBrzdice:SetParameter", "MainPipeFilling", math.max(math.min(skutecna_membrana_ridiciho_ustroji, math.abs(tlak_HP - VirtualMainReservoirPressureBAR)),0))
                                         if skutecna_membrana_ridiciho_ustroji > 0 and tlak_HP < VirtualMainReservoirPressureBAR then
                                             tlak_HP = tlak_HP + math.abs(skutecna_membrana_ridiciho_ustroji*cas*math.max(tlak_HP-VirtualMainReservoirPressureBAR,1)/(Call("GetConsistLength")/100))
@@ -3810,7 +3841,7 @@ function Update (casHry)
 
                             --ridici jimka
                                 if VirtualDistributorControlReservoirPressureBAR < tlak_HP then
-                                    Call("SetControlValue","VirtualDistributorControlReservoirPressureBAR",0,VirtualDistributorControlReservoirPressureBAR+math.sqrt(math.abs(tlak_HP - VirtualDistributorControlReservoirPressureBAR))/100*15*cas)
+                                    Call("SetControlValue","VirtualDistributorControlReservoirPressureBAR",0,VirtualDistributorControlReservoirPressureBAR+math.sqrt(math.abs(tlak_HP - VirtualDistributorControlReservoirPressureBAR))*0.03*cas)
                                     Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP-math.sqrt(math.abs(tlak_HP - VirtualDistributorControlReservoirPressureBAR))/500*15*cas)
                                     VirtualDistributorControlReservoirPressureBAR = Call("GetControlValue","VirtualDistributorControlReservoirPressureBAR",0)
                                     tlak_HP = Call("GetControlValue","VirtualBrakePipePressureBAR",0)
@@ -3880,12 +3911,12 @@ function Update (casHry)
                                     manometrHP = math.max(math.min(manometrHP + prirustek_brzdeni * 15 * cas,math.min(tlak_HP/2.5, VirtualMainReservoirPressureBAR/5)), manometrHP)
                                 end
                             elseif doplnujBrzdu then
-                                if (navoleny_tlak < manometrHP-0.05) then
-                                    local prirustek_brzdeni = math.sqrt(math.abs(manometrHP-(tlak_HP-(tlak_HP-navoleny_tlak)*0.3)))
-                                    manometrHP = math.max(manometrHP - prirustek_brzdeni * 3 * cas,(tlak_HP-(tlak_HP-navoleny_tlak)*0.3))
-                                elseif (navoleny_tlak > manometrHP+0.05) then
-                                    local prirustek_brzdeni = math.sqrt(math.abs(manometrHP-(tlak_HP+(navoleny_tlak-tlak_HP)*0.3)))
-                                    manometrHP = math.min(manometrHP + prirustek_brzdeni * 3 * cas,(tlak_HP+(navoleny_tlak-tlak_HP)*0.3))
+                                if (math.min(navoleny_tlak,VirtualMainReservoirPressureBAR) < manometrHP-0.05) then
+                                    local prirustek_brzdeni = math.sqrt(math.abs(manometrHP-(math.min(tlak_HP,VirtualMainReservoirPressureBAR)-(math.min(tlak_HP,VirtualMainReservoirPressureBAR)-math.min(navoleny_tlak,VirtualMainReservoirPressureBAR))*0.3)))
+                                    manometrHP = math.max(manometrHP - prirustek_brzdeni * 3 * cas,(math.min(tlak_HP,VirtualMainReservoirPressureBAR)-(math.min(tlak_HP,VirtualMainReservoirPressureBAR)-math.min(navoleny_tlak,VirtualMainReservoirPressureBAR))*0.3))
+                                elseif (math.min(navoleny_tlak,VirtualMainReservoirPressureBAR) > manometrHP+0.05) then
+                                    local prirustek_brzdeni = math.sqrt(math.abs(manometrHP-(math.min(tlak_HP,VirtualMainReservoirPressureBAR)+(math.min(navoleny_tlak,VirtualMainReservoirPressureBAR)-math.min(tlak_HP,VirtualMainReservoirPressureBAR))*0.3)))
+                                    manometrHP = math.min(manometrHP + prirustek_brzdeni * 3 * cas,(math.min(tlak_HP,VirtualMainReservoirPressureBAR)+(math.min(navoleny_tlak,VirtualMainReservoirPressureBAR)-math.min(tlak_HP,VirtualMainReservoirPressureBAR))*0.3))
                                 end
                             else
                                 if (tlak_HP < manometrHP-0.05) then
@@ -5904,7 +5935,7 @@ function Update (casHry)
 
                             if gPressureDelayCoefP > 0 then -- predni zberac
                                 if PP < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
-                                    PP = PP + math.min((((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2), math.abs(math.sin(math.pi*PP*3/3.75))*0.03+0.015)*cas*10*math.max(gPressureDelayCoefP,0)
+                                    PP = PP + math.min((((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2), math.abs(math.sin(math.pi*PP*3/3.75))*0.03+0.015)*cas*15*math.max(gPressureDelayCoefP,0)
                                     Call("SetControlValue", "PantoPredni", 0, PP)
                                 elseif PP == 3.75 then
                                     gPredniSberacDelay = math.min(gPredniSberacDelay + cas*2,PREDNI_SBERAC_MAX_DELAY)
@@ -5936,7 +5967,7 @@ function Update (casHry)
 
                             if gPressureDelayCoefZ > 0 then -- zadni zberac
                                 if ZP < 3.75 and Call("GetControlValue","PantoJimka",0) > 0.87393202250021 then
-                                    ZP = ZP + math.min((((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2), math.abs(math.sin(math.pi*ZP*3/3.75))*0.03+0.015)*cas*10*math.max(gPressureDelayCoefZ,0)
+                                    ZP = ZP + math.min((((Call("GetControlValue","PantoJimka",0)/10)-0.087393202250021)^2), math.abs(math.sin(math.pi*ZP*3/3.75))*0.03+0.015)*cas*15*math.max(gPressureDelayCoefZ,0)
                                     Call("SetControlValue", "PantoZadni", 0, ZP)
                                 elseif ZP == 3.75 then
                                     gZadniSberacDelay = math.min(gZadniSberacDelay + cas*2,ZADNI_SBERAC_MAX_DELAY)
@@ -6259,7 +6290,7 @@ function Update (casHry)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
                                     end
-                                elseif rychlostKolaKMHPodvozek1 < rychlostEDB and vykon < 0 and casstupnu >= caszkroku then
+                                elseif (rychlostKolaKMHPodvozek1 < rychlostEDB or valcePrimocinne > 0.5) and vykon < 0 and casstupnu >= caszkroku then
                                     blokEDB = true
                                     Call("SetControlValue","JizdniKontroler",0,vykon+0.25)
                                     casstupnu = 0
@@ -6421,9 +6452,10 @@ function Update (casHry)
                         ----------------------------------------ADHESE--------------------------------------------
                             --------------Adhese koeficienty----
                                 typSrazek = SysCall("WeatherController:GetCurrentPrecipitationType")
+                                intenzitaSrazek = SysCall("WeatherController:GetPrecipitationDensity")
                                 if typSrazek ~= nil then
                                     if typSrazek < 3 then --nesnezi
-                                        if SysCall("WeatherController:GetPrecipitationDensity") > 0.3 then --prsi hodne
+                                        if intenzitaSrazek > 0.3 then --prsi hodne
                                             if adhese_casdeste == -1 then
                                                 adhese_casdeste = 0
                                             end
@@ -6431,7 +6463,7 @@ function Update (casHry)
                                                 adhese_casdeste = adhese_casdeste + cas
                                             end
                                             adhese_caspodesti = -1
-                                        elseif SysCall("WeatherController:GetPrecipitationDensity") ~= 0 then --prsi trochenc
+                                        elseif intenzitaSrazek ~= 0 then --prsi trochenc
                                             if adhese_casdeste == -1 then
                                                 adhese_casdeste = ADHESE_VLHKO_CAS_NABEH
                                             end
@@ -6484,9 +6516,7 @@ function Update (casHry)
                                     sourceAdhesion = -1
                                 end
 
-                                if SysCall("ScenarioManager:GetSeason") == 2 then --pokud je podzim, vsade jsou listy - klouze to 3x tolik
-                                    ambientAdhesion = ambientAdhesion * ADHESE_KOEF_LISTI
-                                elseif SysCall("ScenarioManager:GetSeason") == 3 then --pokud je zima, je snih - sankuje to 2x tolik jak obvykle
+                                if SysCall("ScenarioManager:GetSeason") == 3 then --pokud je zima, je snih - sankuje to 2x tolik jak obvykle
                                     ambientAdhesion = ADHESE_SNIH
                                 end
 
@@ -6522,7 +6552,7 @@ function Update (casHry)
                                 decisiveAdhesionPodvozek2 = ambientAdhesion + brakeAdhesionAdditionPodvozek2
 
                                 if adheseRandomCtdnPodvozek1 > 0 then
-                                    if math.abs(Call("GetSpeed")) > 0.1 and math.abs(Call("GetSpeed")) < 38 then
+                                    if math.abs(Call("GetSpeed")) > 0.1 and math.abs(Call("GetSpeed")) < 15 and intenzitaSrazek ~= 0 then
                                         adheseRandomCtdnPodvozek1 = adheseRandomCtdnPodvozek1 - cas
                                     end
                                     adheseRandomLenCtuPodvozek1 = 0
@@ -6534,7 +6564,7 @@ function Update (casHry)
                                 end
                                 
                                 if adheseRandomCtdnPodvozek2 > 0 then
-                                    if math.abs(Call("GetSpeed")) > 0.1 and math.abs(Call("GetSpeed")) < 38 then
+                                    if math.abs(Call("GetSpeed")) > 0.1 and math.abs(Call("GetSpeed")) < 15 and intenzitaSrazek ~= 0 then
                                         adheseRandomCtdnPodvozek2 = adheseRandomCtdnPodvozek2 - cas
                                     end
                                     adheseRandomLenCtuPodvozek2 = 0
@@ -6548,7 +6578,7 @@ function Update (casHry)
                             --------------Adheze a skluz--------
                                 output_kN = VratTCh(Call("GetControlValue","VykonPredTrCh",0),Call("GetSpeed"))*gAbsolutniMax_kN
                                 positiveTractiveEffortForWheelslip = math.max(output_kN,0)
-                                negativeTractiveEffortForWheelslip = math.abs(math.min(output_kN,0)/pocetMG)+plynuleValce/3.8*50*max_tbc
+                                negativeTractiveEffortForWheelslip = math.abs(math.min(output_kN,0)/pocetMG)+plynuleValce/3.8*100*max_tbc+200*Call("GetControlValue", "HandBrake", 0)
                                 if fiktivniVykonNaRizeneNeschopne then
                                     positiveTractiveEffortForWheelslip = 0
                                     negativeTractiveEffortForWheelslip = 0
@@ -6570,9 +6600,9 @@ function Update (casHry)
                                 end
 
                                 if cilovaRychlostKolaPodvozek1 > rychlostKolaPodvozek1 then
-                                    rychlostKolaPodvozek1 = rychlostKolaPodvozek1 + math.sqrt(cilovaRychlostKolaPodvozek1-rychlostKolaPodvozek1)*cas*koefSpeedChange
+                                    rychlostKolaPodvozek1 = math.min(rychlostKolaPodvozek1 + math.sqrt(cilovaRychlostKolaPodvozek1-rychlostKolaPodvozek1)*cas*koefSpeedChange, cilovaRychlostKolaPodvozek1)
                                 else
-                                    rychlostKolaPodvozek1 = rychlostKolaPodvozek1 - math.sqrt(rychlostKolaPodvozek1-cilovaRychlostKolaPodvozek1)*cas*koefSpeedChange
+                                    rychlostKolaPodvozek1 = math.max(rychlostKolaPodvozek1 - math.sqrt(rychlostKolaPodvozek1-cilovaRychlostKolaPodvozek1)*cas*koefSpeedChange, cilovaRychlostKolaPodvozek1)
                                 end
                                 if math.abs(rychlostKolaPodvozek1 - cilovaRychlostKolaPodvozek1) < 0.5 then
                                     rychlostKolaPodvozek1 = cilovaRychlostKolaPodvozek1
@@ -6603,9 +6633,9 @@ function Update (casHry)
                                 end
 
                                 if cilovaRychlostKolaPodvozek2 > rychlostKolaPodvozek2 then
-                                    rychlostKolaPodvozek2 = rychlostKolaPodvozek2 + math.sqrt(cilovaRychlostKolaPodvozek2-rychlostKolaPodvozek2)*cas*koefSpeedChange
+                                    rychlostKolaPodvozek2 = math.min(rychlostKolaPodvozek2 + math.sqrt(cilovaRychlostKolaPodvozek2-rychlostKolaPodvozek2)*cas*koefSpeedChange,cilovaRychlostKolaPodvozek2)
                                 else
-                                    rychlostKolaPodvozek2 = rychlostKolaPodvozek2 - math.sqrt(rychlostKolaPodvozek2-cilovaRychlostKolaPodvozek2)*cas*koefSpeedChange
+                                    rychlostKolaPodvozek2 = math.max(rychlostKolaPodvozek2 - math.sqrt(rychlostKolaPodvozek2-cilovaRychlostKolaPodvozek2)*cas*koefSpeedChange,cilovaRychlostKolaPodvozek2)
                                 end
                                 if math.abs(rychlostKolaPodvozek2 - cilovaRychlostKolaPodvozek2) < 0.5 then
                                     rychlostKolaPodvozek2 = cilovaRychlostKolaPodvozek2
@@ -6620,13 +6650,35 @@ function Update (casHry)
                                         output_kN = output_kN*0.22360679774997896964091736687313
                                     end
                                 end
+
+                                if rychlostKolaPodvozek1 < 1 and rychlostKolaPodvozek2 < 1 and tractiveEffortForWheelslip > adhesiveTractiveForcePodvozek1+10 then
+                                    output_kN = 0
+                                    actual_tbc = 0.2
+                                    obuti = math.min(obuti + cas*math.abs(rychlostKolaKMHPodvozek1-rychlost)/100,1)
+                                end
+
+                                if plynuleValce > 0.1 and tractiveEffortForWheelslip < adhesiveTractiveForcePodvozek1 then
+                                    obuti = math.max(obuti - cas*plynuleValce/1000,0)
+                                end
+
+                                Call("SoundLoziska:SetParameter", "obutiVolume", obuti)
+
+                                if obutiDistance > 0 then
+                                    if rychlost > 0.2 then
+                                        obutiDistance = obutiDistance - casHry*Call("GetSpeed")
+                                    end
+                                    Call("SoundLoziska:SetParameter", "obuti", 0)
+                                else
+                                    Call("SoundLoziska:SetParameter", "obuti", 1)
+                                    obutiDistance = 2.4772805742778301026860760754598+obutiDistance
+                                end
                                 
                                 if plynuleValce_bezBP < 0.05 then
                                     Call("SetControlValue","TrainBrakeControl",0,0)
                                 else
                                     Call("SetControlValue","TrainBrakeControl",0,actual_tbc)
                                 end
-                                Call("*:SetParameter", "WheelAbsoluteSpeed", rychlostKolaPodvozek1)
+                                --Call("*:SetParameter", "WheelAbsoluteSpeed", rychlostKolaPodvozek1)
                                 Call("SoundTMpredni:SetParameter", "WheelAbsoluteSpeed", rychlostKolaKMHPodvozek1)
                                 Call("SoundTMzadni:SetParameter", "WheelAbsoluteSpeed", rychlostKolaKMHPodvozek2)
                                 Call("SoundZdrze:SetParameter", "WheelAbsoluteSpeed", rychlostKolaPodvozek1)
@@ -7230,7 +7282,7 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_PU",0,diagPU) -- H12
                                 
                                 --*******H13 DOTO
-                                    if zkratTM and not fiktivniVykonNaRizeneNeschopne and Call("GetControlValue", "Ammeter", 0) ~= 0 then
+                                    if zkratTM and not fiktivniVykonNaRizeneNeschopne and math.abs(Call("GetControlValue", "VirtualAmmeter", 0)) > 50 then
                                         diagDOTO = 1
                                         if Call("GetControlValue","Diag_DOTO",0) == 0 then
                                             Call ( "SetControlValue", "HlavniVypinac", 0, 0)
@@ -7324,7 +7376,7 @@ function Update (casHry)
                                     
                                     if (math.abs(rychlost-rychlostKolaKMHPodvozek1) > 5 or math.abs(rychlost-rychlostKolaKMHPodvozek2) > 5 or math.abs(rychlostKolaKMHPodvozek1-rychlostKolaKMHPodvozek2) > 2) and vykon ~= 0 then
                                         casSkluz = casSkluz + cas
-                                        if (math.abs(rychlost-rychlostKolaKMHPodvozek1)*casSkluz > prahDSO or math.abs(rychlostKolaKMHPodvozek1-rychlostKolaKMHPodvozek2) > 2) and P01 == 1 then
+                                        if (math.abs(rychlost-rychlostKolaKMHPodvozek1)*casSkluz > prahDSO or math.abs(rychlostKolaKMHPodvozek1-rychlostKolaKMHPodvozek2) > 5) and P01 == 1 then
                                             Call("SetControlValue", "HlavniVypinac", 0, 0)
                                             ZamekHLvyp = 1
                                         elseif (casstupnu >= caszkroku) and JeNouzovyRadicVS == 0 then
@@ -7339,7 +7391,13 @@ function Update (casHry)
                                         skluzDiag = 1
                                         blokKrokSkluz = true
                                     end
-                                    if math.abs(rychlost-rychlostKolaKMHPodvozek1) < 1 then
+                                    if math.abs(rychlost-rychlostKolaKMHPodvozek1) < 1 and HlavniVypinac == 1 then
+                                        blokKrokSkluz = false
+                                        casSkluz = 0
+                                        skluzDiag = 0
+                                    end
+                                    if Call("GetControlValue", "povel_Reverser", 0) == 0 then --predelat na tlacitko az bude
+                                        --if Call("GetControlValue","ResetDOTO",0) > 0.75 then
                                         blokKrokSkluz = false
                                         skluzDiag = 0
                                         casSkluz = 0
@@ -7470,25 +7528,17 @@ function Update (casHry)
                 deltaSpeed = Call("GetSpeed")
                 local reflektorAI = false
                 Call("SetControlValue", "DeltaSpeed", 0, math.abs(deltaSpeed) - math.abs(deltaSpeedMinula))
-                if deltaSpeed > 0.01 then
-                    SmerAI = 1
-                    if predMasinou == 0 and not jeMrtva then
-                        SvetlaAI = 1
-                    else
-                        SvetlaAI = 0
-                    end
-                elseif deltaSpeed < -0.01 then
-                    SmerAI = -1
-                    if predMasinou == 0 and not jeMrtva then
-                        SvetlaAI = 1
-                    else
-                        SvetlaAI = 0
-                    end
-                elseif not jeMrtva then
+                if predMasinou == 0 and not jeMrtva then
                     SvetlaAI = 1
-                    reflektorAI = false
                 else
                     SvetlaAI = 0
+                end
+                if deltaSpeed > 0.01 then
+                    SmerAI = 1
+                elseif deltaSpeed < -0.01 then
+                    SmerAI = -1
+                elseif not jeMrtva then
+                    reflektorAI = false
                 end
                 if not jeMrtva then
                     if not modelConfig[scriptVersion].ctyriSberace then
@@ -7666,7 +7716,7 @@ function Update (casHry)
                     Call ( "ActivateNode", "pozickalevaCr", 0 ) 
                     Call ( "ActivateNode", "pozickapravaBi", 0 ) 
                     Call ( "ActivateNode", "pozickapravaCr", 0 )
-                end;
+                end
                 Call("SetControlValue","JeNouzovyRadic",0,0)
                 Call("SetControlValue","Picka",0,0)
                 Call("SetControlValue","EngineBrakeControl",0,0)
@@ -7683,14 +7733,14 @@ function Update (casHry)
                 Call("SvetloBudik3:Activate",0)
                 Call("SvetloBudik4:Activate",0)
 
-                if Call("GetControlValue","DoorsOpenCloseLeft") ~= 0 then
+                if Call("GetControlValue","DoorsOpenCloseLeft",0) ~= 0 then
                     Call("SetControlValue","DvereLP",0,1)
                     Call("SetControlValue","DvereLZ",0,1)
                 else
                     Call("SetControlValue","DvereLP",0,0)
                     Call("SetControlValue","DvereLZ",0,0)
                 end
-                if Call("GetControlValue","DoorsOpenCloseRight") ~= 0 then
+                if Call("GetControlValue","DoorsOpenCloseRight",0) ~= 0 then
                     Call("SetControlValue","DverePP",0,1)
                     Call("SetControlValue","DverePZ",0,1)
                 else
