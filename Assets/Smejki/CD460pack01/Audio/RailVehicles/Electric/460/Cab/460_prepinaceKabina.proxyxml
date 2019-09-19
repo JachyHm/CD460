@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">400</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="2237">
+				<kLoud-cSingleSampleSound d:id="26957">
 					<Name d:type="cDeltaString">smerDoRizene</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2250">
+				<kLoud-cSingleSampleSound d:id="26970">
 					<Name d:type="cDeltaString">smerZRizene</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2263">
+				<kLoud-cSingleSampleSound d:id="26983">
 					<Name d:type="cDeltaString">RKdoJI</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -56,7 +56,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2276">
+				<kLoud-cSingleSampleSound d:id="26996">
 					<Name d:type="cDeltaString">RKdoJII</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -73,7 +73,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2289">
+				<kLoud-cSingleSampleSound d:id="27009">
 					<Name d:type="cDeltaString">RKzJII</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -90,7 +90,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2302">
+				<kLoud-cSingleSampleSound d:id="27022">
 					<Name d:type="cDeltaString">RKzJI</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -107,7 +107,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2315">
+				<kLoud-cSingleSampleSound d:id="27035">
 					<Name d:type="cDeltaString">prepinac</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -124,7 +124,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2328">
+				<kLoud-cSingleSampleSound d:id="27048">
 					<Name d:type="cDeltaString">ZivakDown</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
@@ -141,7 +141,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="2341">
+				<kLoud-cSingleSampleSound d:id="27061">
 					<Name d:type="cDeltaString">ZivakUp</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">50</Priority>
@@ -158,7 +158,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cRandomSampleSound d:id="2354">
+				<kLoud-cRandomSampleSound d:id="27074">
 					<Name d:type="cDeltaString">RKdoStupnu</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -166,11 +166,11 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">50</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">300</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">20</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">25</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="2366">
+						<kLoud-cSampleWithLikelihood d:id="27086">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -178,7 +178,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="2370">
+						<kLoud-cSampleWithLikelihood d:id="27090">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -188,7 +188,7 @@
 						</kLoud-cSampleWithLikelihood>
 					</Sample>
 				</kLoud-cRandomSampleSound>
-				<kLoud-cRandomSampleSound d:id="2374">
+				<kLoud-cRandomSampleSound d:id="27094">
 					<Name d:type="cDeltaString">RKzeStupnu</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -196,11 +196,11 @@
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0.2</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">50</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">300</NoFutherAttenuationDist>
+					<AttenuationStartDist d:type="sFloat32">20</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">25</NoFutherAttenuationDist>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 					<Sample>
-						<kLoud-cSampleWithLikelihood d:id="2386">
+						<kLoud-cSampleWithLikelihood d:id="27106">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -208,7 +208,7 @@
 								</kLoud-cSampleID>
 							</Sample>
 						</kLoud-cSampleWithLikelihood>
-						<kLoud-cSampleWithLikelihood d:id="2390">
+						<kLoud-cSampleWithLikelihood d:id="27110">
 							<Likelihood d:type="sFloat32">0.5</Likelihood>
 							<Sample>
 								<kLoud-cSampleID>
@@ -218,16 +218,50 @@
 						</kLoud-cSampleWithLikelihood>
 					</Sample>
 				</kLoud-cRandomSampleSound>
+				<kLoud-cSingleSampleSound d:id="27114">
+					<Name d:type="cDeltaString">TRAMEX_press</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">0.7</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">20</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">25</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\Tramex\460_tramexPress.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
+				<kLoud-cSingleSampleSound d:id="27127">
+					<Name d:type="cDeltaString">TRAMEX_release</Name>
+					<IsLooped d:type="bool">0</IsLooped>
+					<Priority d:type="sUInt32">100</Priority>
+					<BaseVolume d:type="sFloat32">0.7</BaseVolume>
+					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
+					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
+					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
+					<AttenuationStartDist d:type="sFloat32">20</AttenuationStartDist>
+					<NoFutherAttenuationDist d:type="sFloat32">25</NoFutherAttenuationDist>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+					<Sample>
+						<kLoud-cSampleID>
+							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Cab\Tramex\460_tramexRelease.dav</Filename>
+						</kLoud-cSampleID>
+					</Sample>
+				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve />
 			<ModifierChain />
 			<InstanceGroup />
 			<Loop />
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="2399">
+				<kLoud-cTriggeredOneshot d:id="27145">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">SmerovyPrepVpredRizena</Name>
-					<Sound d:type="ref">2237</Sound>
+					<Sound d:type="ref">26957</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -235,10 +269,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2409">
+				<kLoud-cTriggeredOneshot d:id="27155">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">SmerovyPrepRizenaVpred</Name>
-					<Sound d:type="ref">2250</Sound>
+					<Sound d:type="ref">26970</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -246,10 +280,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2419">
+				<kLoud-cTriggeredOneshot d:id="27165">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">SmerovyPrepNulaVpred</Name>
-					<Sound d:type="ref">2237</Sound>
+					<Sound d:type="ref">26957</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -257,10 +291,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2429">
+				<kLoud-cTriggeredOneshot d:id="27175">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">SmerovyPrepVpredNula</Name>
-					<Sound d:type="ref">2250</Sound>
+					<Sound d:type="ref">26970</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -268,10 +302,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2439">
+				<kLoud-cTriggeredOneshot d:id="27185">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">SmerovyPrepVzadNula</Name>
-					<Sound d:type="ref">2237</Sound>
+					<Sound d:type="ref">26957</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -279,10 +313,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2449">
+				<kLoud-cTriggeredOneshot d:id="27195">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">SmerovyPrepNulaVzad</Name>
-					<Sound d:type="ref">2250</Sound>
+					<Sound d:type="ref">26970</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">UserVirtualReverser</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -290,10 +324,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2459">
+				<kLoud-cTriggeredOneshot d:id="27205">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerDoJI</Name>
-					<Sound d:type="ref">2263</Sound>
+					<Sound d:type="ref">26983</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -301,10 +335,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2469">
+				<kLoud-cTriggeredOneshot d:id="27215">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerZJI</Name>
-					<Sound d:type="ref">2302</Sound>
+					<Sound d:type="ref">27022</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -312,10 +346,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2479">
+				<kLoud-cTriggeredOneshot d:id="27225">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerDoJII</Name>
-					<Sound d:type="ref">2276</Sound>
+					<Sound d:type="ref">26996</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -323,10 +357,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2489">
+				<kLoud-cTriggeredOneshot d:id="27235">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerZJII</Name>
-					<Sound d:type="ref">2289</Sound>
+					<Sound d:type="ref">27009</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -334,10 +368,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2499">
+				<kLoud-cTriggeredOneshot d:id="27245">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerDoBI</Name>
-					<Sound d:type="ref">2263</Sound>
+					<Sound d:type="ref">26983</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -345,10 +379,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2509">
+				<kLoud-cTriggeredOneshot d:id="27255">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerZBI</Name>
-					<Sound d:type="ref">2302</Sound>
+					<Sound d:type="ref">27022</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -356,10 +390,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2519">
+				<kLoud-cTriggeredOneshot d:id="27265">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerDoBII</Name>
-					<Sound d:type="ref">2276</Sound>
+					<Sound d:type="ref">26996</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -367,10 +401,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2529">
+				<kLoud-cTriggeredOneshot d:id="27275">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerZBII</Name>
-					<Sound d:type="ref">2289</Sound>
+					<Sound d:type="ref">27009</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualThrottleAndBrake</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -378,10 +412,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2539">
+				<kLoud-cTriggeredOneshot d:id="27285">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -389,10 +423,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2549">
+				<kLoud-cTriggeredOneshot d:id="27295">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -400,10 +434,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2559">
+				<kLoud-cTriggeredOneshot d:id="27305">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -411,10 +445,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2569">
+				<kLoud-cTriggeredOneshot d:id="27315">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -422,10 +456,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2579">
+				<kLoud-cTriggeredOneshot d:id="27325">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -433,10 +467,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2589">
+				<kLoud-cTriggeredOneshot d:id="27335">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -444,10 +478,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2599">
+				<kLoud-cTriggeredOneshot d:id="27345">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -455,10 +489,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2609">
+				<kLoud-cTriggeredOneshot d:id="27355">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -466,10 +500,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2619">
+				<kLoud-cTriggeredOneshot d:id="27365">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -477,10 +511,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2629">
+				<kLoud-cTriggeredOneshot d:id="27375">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -488,10 +522,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2639">
+				<kLoud-cTriggeredOneshot d:id="27385">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -499,10 +533,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2649">
+				<kLoud-cTriggeredOneshot d:id="27395">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -510,10 +544,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2659">
+				<kLoud-cTriggeredOneshot d:id="27405">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -521,10 +555,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2669">
+				<kLoud-cTriggeredOneshot d:id="27415">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -532,10 +566,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2679">
+				<kLoud-cTriggeredOneshot d:id="27425">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -543,10 +577,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2689">
+				<kLoud-cTriggeredOneshot d:id="27435">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -554,10 +588,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2699">
+				<kLoud-cTriggeredOneshot d:id="27445">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -565,10 +599,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2709">
+				<kLoud-cTriggeredOneshot d:id="27455">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -576,10 +610,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2719">
+				<kLoud-cTriggeredOneshot d:id="27465">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -587,10 +621,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2729">
+				<kLoud-cTriggeredOneshot d:id="27475">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -598,10 +632,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2739">
+				<kLoud-cTriggeredOneshot d:id="27485">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -609,10 +643,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2749">
+				<kLoud-cTriggeredOneshot d:id="27495">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -620,10 +654,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2759">
+				<kLoud-cTriggeredOneshot d:id="27505">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -631,10 +665,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2769">
+				<kLoud-cTriggeredOneshot d:id="27515">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -642,10 +676,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2779">
+				<kLoud-cTriggeredOneshot d:id="27525">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -653,10 +687,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2789">
+				<kLoud-cTriggeredOneshot d:id="27535">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -664,10 +698,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2799">
+				<kLoud-cTriggeredOneshot d:id="27545">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -675,10 +709,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2809">
+				<kLoud-cTriggeredOneshot d:id="27555">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -686,10 +720,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2819">
+				<kLoud-cTriggeredOneshot d:id="27565">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -697,10 +731,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2829">
+				<kLoud-cTriggeredOneshot d:id="27575">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -708,10 +742,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2839">
+				<kLoud-cTriggeredOneshot d:id="27585">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2354</Sound>
+					<Sound d:type="ref">27074</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -719,10 +753,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2849">
+				<kLoud-cTriggeredOneshot d:id="27595">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">NouzovyKontroler</Name>
-					<Sound d:type="ref">2374</Sound>
+					<Sound d:type="ref">27094</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RadicNouzovy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -730,10 +764,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2859">
+				<kLoud-cTriggeredOneshot d:id="27605">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VirtualStartup</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualStartup</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -741,10 +775,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2869">
+				<kLoud-cTriggeredOneshot d:id="27615">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VirtualHeadlights</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualHeadlights</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -752,10 +786,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2879">
+				<kLoud-cTriggeredOneshot d:id="27625">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">steracePrep</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">steracePrep</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -763,10 +797,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2889">
+				<kLoud-cTriggeredOneshot d:id="27635">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">steracePrep</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">steracePrep</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -774,10 +808,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2899">
+				<kLoud-cTriggeredOneshot d:id="27645">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerOkno</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RidiciKontrolerOkno</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -785,10 +819,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2909">
+				<kLoud-cTriggeredOneshot d:id="27655">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RidiciKontrolerOkno</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RidiciKontrolerOkno</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -796,10 +830,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2919">
+				<kLoud-cTriggeredOneshot d:id="27665">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VolbaPozicKonecCelo</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VolbaPozicKonecCelo</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -807,10 +841,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2929">
+				<kLoud-cTriggeredOneshot d:id="27675">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VolbaPozicKonecCelo</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VolbaPozicKonecCelo</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -818,10 +852,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2939">
+				<kLoud-cTriggeredOneshot d:id="27685">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">LevaPoz</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">LevaPoz</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -829,10 +863,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2949">
+				<kLoud-cTriggeredOneshot d:id="27695">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">LevaPoz</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">LevaPoz</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -840,10 +874,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2959">
+				<kLoud-cTriggeredOneshot d:id="27705">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">PravaPoz</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">PravaPoz</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -851,10 +885,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2969">
+				<kLoud-cTriggeredOneshot d:id="27715">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">PravaPoz</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">PravaPoz</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -862,10 +896,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2979">
+				<kLoud-cTriggeredOneshot d:id="27725">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">OsvetleniKabiny</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">OsvetleniKabiny</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -873,10 +907,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2989">
+				<kLoud-cTriggeredOneshot d:id="27735">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">OsvetleniKabiny</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">OsvetleniKabiny</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -884,10 +918,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="2999">
+				<kLoud-cTriggeredOneshot d:id="27745">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Picka</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">Picka</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -895,10 +929,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3009">
+				<kLoud-cTriggeredOneshot d:id="27755">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Baterie</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">Baterie</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -906,10 +940,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3019">
+				<kLoud-cTriggeredOneshot d:id="27765">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Baterie</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">Baterie</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -917,10 +951,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3029">
+				<kLoud-cTriggeredOneshot d:id="27775">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VirtualPantographControl</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VirtualPantographControl</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -928,10 +962,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3039">
+				<kLoud-cTriggeredOneshot d:id="27785">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RozProud</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RozProud</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -939,10 +973,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3049">
+				<kLoud-cTriggeredOneshot d:id="27795">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RozProud</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RozProud</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -950,10 +984,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3059">
+				<kLoud-cTriggeredOneshot d:id="27805">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RozProud</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RozProud</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -961,10 +995,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3069">
+				<kLoud-cTriggeredOneshot d:id="27815">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">RozProud</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">RozProud</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -972,10 +1006,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3079">
+				<kLoud-cTriggeredOneshot d:id="27825">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VolbaPanto</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VolbaPanto</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -983,10 +1017,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3089">
+				<kLoud-cTriggeredOneshot d:id="27835">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">VolbaPanto</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">VolbaPanto</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -994,10 +1028,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3099">
+				<kLoud-cTriggeredOneshot d:id="27845">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DverePrepPravy</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">DverePrepPravy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1005,10 +1039,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3109">
+				<kLoud-cTriggeredOneshot d:id="27855">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DverePrepPravy</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">DverePrepPravy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1016,10 +1050,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3119">
+				<kLoud-cTriggeredOneshot d:id="27865">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">DverePrepLevy</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">DverePrepLevy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1027,10 +1061,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3129">
+				<kLoud-cTriggeredOneshot d:id="27875">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">HlKompPrep</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">HlKompPrep</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1038,10 +1072,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3139">
+				<kLoud-cTriggeredOneshot d:id="27885">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">HlKompPrep</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">HlKompPrep</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1049,10 +1083,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3149">
+				<kLoud-cTriggeredOneshot d:id="27895">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">pomkomp</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">pomkomp</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1060,10 +1094,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3159">
+				<kLoud-cTriggeredOneshot d:id="27905">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">pomkomp</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">pomkomp</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1071,10 +1105,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3169">
+				<kLoud-cTriggeredOneshot d:id="27915">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">mgp</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">mgp</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1082,10 +1116,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3179">
+				<kLoud-cTriggeredOneshot d:id="27925">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">snizenyvykonanim</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">snizenyvykonanim</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1093,10 +1127,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3189">
+				<kLoud-cTriggeredOneshot d:id="27935">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">LVZhv</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">LVZhv</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1104,10 +1138,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3199">
+				<kLoud-cTriggeredOneshot d:id="27945">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">LVZrezim</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">LVZrezim</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1115,10 +1149,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3209">
+				<kLoud-cTriggeredOneshot d:id="27955">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">LVZrezim</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">LVZrezim</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1126,10 +1160,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3219">
+				<kLoud-cTriggeredOneshot d:id="27965">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">LVZstan</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">LVZstan</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1137,10 +1171,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3229">
+				<kLoud-cTriggeredOneshot d:id="27975">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Zivak01Up</Name>
-					<Sound d:type="ref">2341</Sound>
+					<Sound d:type="ref">27061</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakReset</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -1148,10 +1182,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3239">
+				<kLoud-cTriggeredOneshot d:id="27985">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Zivak02Up</Name>
-					<Sound d:type="ref">2341</Sound>
+					<Sound d:type="ref">27061</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakReset2</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -1159,10 +1193,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3249">
+				<kLoud-cTriggeredOneshot d:id="27995">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Zivak03Up</Name>
-					<Sound d:type="ref">2341</Sound>
+					<Sound d:type="ref">27061</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakReset3</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueDecreasePast</TriggerType>
@@ -1170,10 +1204,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3259">
+				<kLoud-cTriggeredOneshot d:id="28005">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Zivak01Down</Name>
-					<Sound d:type="ref">2328</Sound>
+					<Sound d:type="ref">27048</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakReset</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -1181,10 +1215,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3269">
+				<kLoud-cTriggeredOneshot d:id="28015">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Zivak02Down</Name>
-					<Sound d:type="ref">2328</Sound>
+					<Sound d:type="ref">27048</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakReset2</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -1192,10 +1226,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3279">
+				<kLoud-cTriggeredOneshot d:id="28025">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">Zivak03Down</Name>
-					<Sound d:type="ref">2328</Sound>
+					<Sound d:type="ref">27048</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">ZivakReset3</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
@@ -1203,10 +1237,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3289">
+				<kLoud-cTriggeredOneshot d:id="28035">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">TopeniStupLevy</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">TopeniStupLevy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1214,10 +1248,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3299">
+				<kLoud-cTriggeredOneshot d:id="28045">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">TopeniStupLevy</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">TopeniStupLevy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1225,10 +1259,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3309">
+				<kLoud-cTriggeredOneshot d:id="28055">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">TopeniStupPravy</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">TopeniStupPravy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1236,10 +1270,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3319">
+				<kLoud-cTriggeredOneshot d:id="28065">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">TopeniStupPravy</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">TopeniStupPravy</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1247,10 +1281,10 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3329">
+				<kLoud-cTriggeredOneshot d:id="28075">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">TopeniStan</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">TopeniStan</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
@@ -1258,14 +1292,47 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="3339">
+				<kLoud-cTriggeredOneshot d:id="28085">
 					<PlayState d:type="cDeltaString">INSIDE</PlayState>
 					<Name d:type="cDeltaString">TopeniStan</Name>
-					<Sound d:type="ref">2315</Sound>
+					<Sound d:type="ref">27035</Sound>
 					<ModifierChain d:type="ref">0</ModifierChain>
 					<ControllerName d:type="cDeltaString">TopeniStan</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueMovesPast</TriggerType>
 					<TriggerValue d:type="sFloat32">-0.5</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="28095">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">TramexPressPip</Name>
+					<Sound d:type="ref">27114</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">TramexButtonsCountPip</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="28105">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">TramexPress</Name>
+					<Sound d:type="ref">27127</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">TramexButtonsCountNotPip</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingUp</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
+					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
+					<InstanceGroup d:type="ref">0</InstanceGroup>
+				</kLoud-cTriggeredOneshot>
+				<kLoud-cTriggeredOneshot d:id="28115">
+					<PlayState d:type="cDeltaString">INSIDE</PlayState>
+					<Name d:type="cDeltaString">TramexRelease</Name>
+					<Sound d:type="ref">27127</Sound>
+					<ModifierChain d:type="ref">0</ModifierChain>
+					<ControllerName d:type="cDeltaString">TramexButtonsCount</ControllerName>
+					<TriggerType d:type="cDeltaString">ValueIsChangingDown</TriggerType>
+					<TriggerValue d:type="sFloat32">0</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>

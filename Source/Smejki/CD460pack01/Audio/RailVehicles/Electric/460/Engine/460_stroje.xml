@@ -1192,6 +1192,204 @@
 									</Value>
 								</Element>
 							</kLoud-cRandomSampleSound>
+							<kLoud-cSingleSampleSound>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>P10SC_smer</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="IsLooped">
+											<bool>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</bool>
+										</Attribute>
+										<Attribute name="Priority">
+											<sUInt32>
+												<Element>
+													<Value>75</Value>
+												</Element>
+											</sUInt32>
+										</Attribute>
+										<Attribute name="BaseVolume">
+											<sFloat32>
+												<Element>
+													<Value>0.4</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="VolumeVariation">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="BasePitchShift">
+											<sFloat32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="PitchShiftVariation">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="AttenuationStartDist">
+											<sFloat32>
+												<Element>
+													<Value>1000</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="NoFutherAttenuationDist">
+											<sFloat32>
+												<Element>
+													<Value>1000</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+										<Attribute name="Sample">
+											<kLoud-cSampleID>
+												<Element>
+													<Value>
+														<Attribute name="Filename">
+															<cDeltaString>
+																<Element>
+																	<Value>Audio\RailVehicles\Electric\460\Engine\460_P10SC_doSmeru.wav</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSampleID>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cSingleSampleSound>
+							<kLoud-cSingleSampleSound>
+								<Element>
+									<Value>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>P10SC_0</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="IsLooped">
+											<bool>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</bool>
+										</Attribute>
+										<Attribute name="Priority">
+											<sUInt32>
+												<Element>
+													<Value>75</Value>
+												</Element>
+											</sUInt32>
+										</Attribute>
+										<Attribute name="BaseVolume">
+											<sFloat32>
+												<Element>
+													<Value>0.4</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="VolumeVariation">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="BasePitchShift">
+											<sFloat32>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="PitchShiftVariation">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="AttenuationStartDist">
+											<sFloat32>
+												<Element>
+													<Value>1000</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="NoFutherAttenuationDist">
+											<sFloat32>
+												<Element>
+													<Value>1000</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+										<Attribute name="Sample">
+											<kLoud-cSampleID>
+												<Element>
+													<Value>
+														<Attribute name="Filename">
+															<cDeltaString>
+																<Element>
+																	<Value>Audio\RailVehicles\Electric\460\Engine\460_P10SC_zeSmeru.wav</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSampleID>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cSingleSampleSound>
 						</Value>
 					</Element>
 				</__Indexed__kLoud-cSound>
@@ -2536,7 +2734,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value />
+																	<Value>DistanceVolume</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2629,7 +2827,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value />
+																	<Value>DistanceVolume</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2722,7 +2920,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value />
+																	<Value>DistanceVolume</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2815,7 +3013,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value />
+																	<Value>DistanceVolume</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2908,7 +3106,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value />
+																	<Value>DistanceVolume</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3001,7 +3199,7 @@
 														<Attribute name="Name">
 															<cDeltaString>
 																<Element>
-																	<Value />
+																	<Value>DistanceVolume</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3027,6 +3225,378 @@
 											<sFloat32>
 												<Element>
 													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>P10SC_0J</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>P10SC_smer</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DistanceVolume</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>SoundReverser</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>P10SC_J0</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>P10SC_0</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DistanceVolume</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>SoundReverser</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueDecreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>P10SC_0Z</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>P10SC_smer</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DistanceVolume</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>SoundReverser</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueDecreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>-0.5</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ValueIsChangingGateTime">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="InstanceGroup">
+											<kLoud-cInstanceGroup>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cInstanceGroup>
+										</Attribute>
+									</Value>
+								</Element>
+							</kLoud-cTriggeredOneshot>
+							<kLoud-cTriggeredOneshot>
+								<Element>
+									<Value>
+										<Attribute name="PlayState">
+											<ePlayState>
+												<Element>
+													<Value>BOTH</Value>
+												</Element>
+											</ePlayState>
+										</Attribute>
+										<Attribute name="Name">
+											<cDeltaString>
+												<Element>
+													<Value>P10SC_Z0</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="Sound">
+											<kLoud-cSound>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>P10SC_0</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cSound>
+										</Attribute>
+										<Attribute name="ModifierChain">
+											<kLoud-cModifierChain>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DistanceVolume</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</kLoud-cModifierChain>
+										</Attribute>
+										<Attribute name="ControllerName">
+											<cDeltaString>
+												<Element>
+													<Value>SoundReverser</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="TriggerType">
+											<kLoud-eTriggerType>
+												<Element>
+													<Value>ValueIncreasePast</Value>
+												</Element>
+											</kLoud-eTriggerType>
+										</Attribute>
+										<Attribute name="TriggerValue">
+											<sFloat32>
+												<Element>
+													<Value>-0.5</Value>
 												</Element>
 											</sFloat32>
 										</Attribute>

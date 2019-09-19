@@ -70,11 +70,8 @@ blokKrokNU = false
 
 blokOchran = false
 
-shunty = false
-stupenKontroleruOld = 0
+HRKzeShuntu = false
 stupenKontroleru = 0
-pocitejCasShuntu = false
-casShuntu = 0
 
 ojDiag = 0
 
@@ -94,7 +91,8 @@ JOB = 0
 
 stavDalkoveLeve = 0
 stavDalkovePrave = 0
-stavDalkoveHorni = 0
+stavDalkoveHorni1 = 0
+stavDalkoveHorni2 = 0
 
 ridiciKontrolerOknoOCVC = 1
 
@@ -247,11 +245,13 @@ delkaVlakuLast = 0
 delkaVlaku = 0
 
 pocetMG = 0
+pocetZapnutychVozu = 0
 
 dolniMezKompresoru = 8.2
 horniMezKompresoru = 9.7
 
 mgUnitValueLast = 0
+zapnuteVozyValueLast = 0
 
 dvereTlak = 0
 prepinaceTlak = 0
@@ -1284,6 +1284,7 @@ TRAMEX_NELZESPUSTIT = 15
 TRAMEX_HESLO = 17
 TRAMEX_CHYBNEHESLO = 18
 TRAMEX_PJIZDA = 19
+TRAMEX_DATA_ULOZENA = 20
 TRAMEX_G = 96
 TRAMEX_P = 97
 TRAMEX_R = 98
@@ -1297,6 +1298,7 @@ tramexPomalaJizdaMetry = -1
 tramexStavPredKPJ = TRAMEX_VYP
 tramexOldContent = false
 tramexUpravenePolicko = false
+tramexZadavani = false
 
 tramexLast0 = false
 tramexLast1 = false
@@ -1326,7 +1328,7 @@ ohrevPrave = 1
 vypnutyVuz = false
 venku = false
 
-casVentilatory = math.random(3,6)
+NABEH_VENTILATORY = math.random(5,9)/10
 
 startDelay = 0
 
@@ -1375,6 +1377,21 @@ obutiVolume = math.max(math.random(-3,1),0)
 obuti = 0
 obutiDistance = 2.4772805742778301026860760754598
 
+soundPantoUp = 0
+soundPantoDown = 0
+soundJiskreni = 0
+
+releSoucinnostiBrzd = false
+tlakVeValcich = false
+
+cilovaTBC = 0
+actualTBC = 0
+
+casOJ = 0
+kontrolerLast = 0
+
+blokujJK = false
+
 modelConfig = {
     [460021] = {
         tramex = false,
@@ -1383,7 +1400,8 @@ modelConfig = {
         horniPozicka = true,
         vystraha = false,
         delkaVystrahy = 0,
-        ctyriSberace = false
+        ctyriSberace = false,
+        stupneEDB = 2
     },
     [460063] = {
         tramex = true,
@@ -1392,7 +1410,8 @@ modelConfig = {
         horniPozicka = true,
         vystraha = true,
         delkaVystrahy = 2.5,
-        ctyriSberace = false
+        ctyriSberace = false,
+        stupneEDB = 2
     },
     [460064] = {
         tramex = true,
@@ -1401,7 +1420,8 @@ modelConfig = {
         horniPozicka = true,
         vystraha = true,
         delkaVystrahy = 2.5,
-        ctyriSberace = false
+        ctyriSberace = false,
+        stupneEDB = 2
     },
     [460079] = {
         tramex = false,
@@ -1410,7 +1430,8 @@ modelConfig = {
         horniPozicka = false,
         vystraha = false,
         delkaVystrahy = 0,
-        ctyriSberace = true
+        ctyriSberace = true,
+        stupneEDB = 2
     },
     [460080] = {
         tramex = false,
@@ -1419,7 +1440,8 @@ modelConfig = {
         horniPozicka = false,
         vystraha = false,
         delkaVystrahy = 0,
-        ctyriSberace = true
+        ctyriSberace = true,
+        stupneEDB = 2
     }
 }
 
@@ -1537,7 +1559,7 @@ modelConfig = {
 	OsvetleniVozu = 0
 	KabinaPrist = 0
 	osvetleniPomocnik = 0
-	HlavniVypinac = 0
+	hlavniVypinac = 0
 	levaPozBil = false
 	levaPozBilVPKC = false
 	levaPozCer = false
@@ -1569,10 +1591,8 @@ modelConfig = {
 	ventilatoryTM = 0
 	ventilatoryStrecha = 0
 	zvukhasler = 0
-	casproud = 0
 	proud = 0
 	UzJsiZjistovalPanto = false
-	PrvniEDBorVzduch = "nichts"
 	ZamekHLvyp = 0
 	hh = 0
 	necojakomm = 0
@@ -1614,8 +1634,6 @@ modelConfig = {
 	mgdocasny = 0
 	failvykon = 0
 	failmg = 0
-	skluzmg = 0
-	skluzWheelSlip = 0
 	P01 = 0
 	SnizenyVykonVozu = false
 	-- TlakovyBlokJizdy = false
@@ -1627,8 +1645,7 @@ modelConfig = {
 	zaMasinou = 0
 	nezobrazujValce = false
 	matrosov = false
-	gDebug = true
-	gTimeVentilatory = 0
+	gDebug = false
 	gKlicTady = false
 	casSkluz = 0
     diagNU = 0
@@ -1698,16 +1715,16 @@ function Initialise ()
 	Call("PozickaLevaBi:SetRange",12)
 	Call("PozickaPravaCr:SetRange",12)
 	Call("PozickaPravaBi:SetRange",12)
-	Call("DalkovePrave:SetRange",35)
-	Call("DalkoveLeve:SetRange",35)
-	Call("Zarovka1:SetRange",5)
-	Call("Zarovka2:SetRange",5)
-	Call("Zarivka1:SetRange",8)
-	Call("Zarivka2:SetRange",8)
-	Call("Zarivka3:SetRange",8)
-	Call("CabLight1:SetRange",8)
-	Call("CabLight3:SetRange",8)
-	Call("CabLight4:SetRange",8)
+	Call("DalkovePrave:SetRange",500)
+	Call("DalkoveLeve:SetRange",500)
+	Call("Zarovka1:SetRange",4)
+	Call("Zarovka2:SetRange",4)
+	Call("Zarivka1:SetRange",4)
+	Call("Zarivka2:SetRange",4)
+	Call("Zarivka3:SetRange",4)
+	Call("CabLight1:SetRange",4)
+	Call("CabLight3:SetRange",4)
+	Call("CabLight4:SetRange",4)
 	Call("SvetloBudik1:SetRange",0.07)
 	Call("SvetloBudik2:SetRange",0.1)
 	Call("SvetloBudik3:SetRange",0.07)
@@ -1825,7 +1842,8 @@ end
 
 --zpravy
 	-- 460101 - kl?? na druh? kabin?
-	-- 460102 - vypnutí HV při nadproudu při nesprávném směru
+    -- 460102 - vypnutí HV při nadproudu při nesprávném směru
+    -- 460103 - pocet vozu se zapnutem rizenim
 	-- 460105 - dvereP
     -- 460106 - osv?tlen? vozu
     -- 460107 - skluz ve vlaku
@@ -1851,7 +1869,7 @@ end
 	-- 460998 - zadost o ID
 	-- 460999 - DUMMY
 function OnConsistMessage(zprava,argument,smer)
-	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460993 and zprava ~= 460992 and zprava ~= 460991 and zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
+	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460993 and zprava ~= 460992 and zprava ~= 460991 and zprava ~= 460997 and zprava ~= 460103 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
 		if smer == 1 and zaMasinouTornado then
 			stavPoslane = Call("SendConsistMessage",zprava,argument,1)
 		elseif smer == 0 and predMasinouTornado then
@@ -1874,6 +1892,9 @@ function OnConsistMessage(zprava,argument,smer)
 			Call ("SetControlValue", "HlavniVypinac", 0, 0)
 			ZamekHLvyp = 1
 		end
+	end
+	if zprava == 460103 then
+		ZpracujZpravuSID(zprava,argument,smer,"zapnuteVozy")
 	end
 	if zprava == 460105 then
 		if argument == "00" then
@@ -2153,7 +2174,8 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
 	local pribytek = delkaUpd * 7
 	local dalkoveLeve = false
     local dalkovePrave = false
-    local dalkoveHorni = false
+    local dalkoveHorni1 = false
+    local dalkoveHorni2 = false
 
 	local barvaDalkovaDolniLED = {1,1,0.7}
 	local barvaDalkovaHorniLED = {0.7385892,1,1}
@@ -2165,6 +2187,11 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
 	if stupen == 1 and baterie == 1 then
 		dalkoveLeve = true
 		dalkovePrave = true
+        if tlumene or not (levy and pravy) then
+            dalkoveHorni1 = true
+        else
+            dalkoveHorni2 = true
+        end
     end
 
     if modelConfig[scriptVersion].horniPozicka then
@@ -2182,48 +2209,53 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
             Call("PozickaHorniBi:SetColour",barvaPozickaHorniZ[1],barvaPozickaHorniZ[2],barvaPozickaHorniZ[3])
         end
     else
-        Call("PozickaHorniBi:SetRange",35)
-        if not tlumene and stupen == 1 and baterie == 1 then
-            dalkoveHorni = true
+        if dalkoveHorni1 and stavDalkoveHorni1 < 5 then
+            stavDalkoveHorni1 = stavDalkoveHorni1 + (math.sqrt(5-stavDalkoveHorni1)*pribytek/5)
+        elseif not dalkoveHorni1 and stavDalkoveHorni1 > 0 then
+            stavDalkoveHorni1 = stavDalkoveHorni1 - (math.sqrt(stavDalkoveHorni1)*pribytek/5)
         end
-        -- if levy and baterie == 1 then
-        --     -- AktivujNode("reflektor_horni_levy",1)
-        -- else
-        --     -- AktivujNode("reflektor_horni_levy",0)
-        -- end
-        -- if pravy and baterie == 1 then
-        --     -- AktivujNode("reflektor_horni_pravy",1)
-        -- else
-        --     -- AktivujNode("reflektor_horni_pravy",0)
-        -- end
-        if dalkoveHorni and stavDalkoveHorni < 5 then
-            stavDalkoveHorni = stavDalkoveHorni + (math.sqrt(5-stavDalkoveHorni)*pribytek/5)
-        elseif not dalkoveHorni and stavDalkoveHorni > 0 then
-            stavDalkoveHorni = stavDalkoveHorni - (math.sqrt(stavDalkoveHorni)*pribytek/5)
+
+        stavDalkoveHorni1Zapis = stavDalkoveHorni1/3
+        Call("DalkoveHorni1:SetColour",barvaDalkovaHorniZ[1]*stavDalkoveHorni1Zapis,barvaDalkovaHorniZ[2]*stavDalkoveHorni1Zapis,barvaDalkovaHorniZ[3]*stavDalkoveHorni1Zapis)
+        if stavDalkoveHorni1Zapis > 0 then
+			Call("DalkoveHorni1:Activate",1)
+            Call("DalkoveHorni1:SetRange",75)
+		else 
+			Call("DalkoveHorni1:Activate",0)
+            Call("DalkoveHorni1:SetRange",0)
         end
-        if stavDalkoveHorni >= 5 then
+        
+        if dalkoveHorni2 and stavDalkoveHorni1 < 5 then
+            stavDalkoveHorni1 = stavDalkoveHorni1 + (math.sqrt(5-stavDalkoveHorni1)*pribytek/5)
+        elseif not dalkoveHorni2 and stavDalkoveHorni1 > 0 then
+            stavDalkoveHorni1 = stavDalkoveHorni1 - (math.sqrt(stavDalkoveHorni1)*pribytek/5)
+        end
+
+        stavDalkoveHorni2Zapis = stavDalkoveHorni1/3
+        Call("DalkoveHorni2:SetColour",barvaDalkovaHorniZ[1]*stavDalkoveHorni2Zapis,barvaDalkovaHorniZ[2]*stavDalkoveHorni2Zapis,barvaDalkovaHorniZ[3]*stavDalkoveHorni2Zapis)
+        if stavDalkoveHorni2Zapis > 0 then
+			Call("DalkoveHorni2:Activate",1)
+            Call("DalkoveHorni2:SetRange",150)
+		else 
+			Call("DalkoveHorni2:Activate",0)
+            Call("DalkoveHorni2:SetRange",0)
+        end
+        
+        if stavDalkoveHorni1 >= 5 or stavDalkoveHorni2 >= 5 then
             AktivujNode("reflektor_rozsviceny",1)
         else
             AktivujNode("reflektor_rozsviceny",0)
         end
-
-        stavDalkoveHorniZapis = stavDalkoveHorni/3
-        Call("DalkovePrave:SetColour",barvaDalkovaHorniZ[1]*stavDalkoveHorniZapis,barvaDalkovaHorniZ[2]*stavDalkoveHorniZapis,barvaDalkovaHorniZ[3]*stavDalkoveHorniZapis)
-        if stavDalkoveHorniZapis > 0 then
-			Call("PozickaHorniBi:Activate",1)
-		else 
-			Call("PozickaHorniBi:Activate",0)
-        end
     end
 
     if not modelConfig[scriptVersion].led then
-        if dalkoveLeve and stavDalkoveLeve < 5 then
+        if dalkoveLeve and stavDalkoveLeve < 5 and modelConfig[scriptVersion].horniPozicka then
             stavDalkoveLeve = stavDalkoveLeve + (math.sqrt(5-stavDalkoveLeve)*pribytek/5)
         elseif not dalkoveLeve and stavDalkoveLeve > 0 then
             stavDalkoveLeve = stavDalkoveLeve - (math.sqrt(stavDalkoveLeve)*pribytek/5)
         end
 
-        if dalkovePrave and stavDalkovePrave < 5 then
+        if dalkovePrave and stavDalkovePrave < 5 and modelConfig[scriptVersion].horniPozicka then
             stavDalkovePrave = stavDalkovePrave + (math.sqrt(5-stavDalkovePrave)*pribytek/5)
         elseif not dalkovePrave and stavDalkovePrave > 0 then
             stavDalkovePrave = stavDalkovePrave - (math.sqrt(stavDalkovePrave)*pribytek/5)
@@ -2245,35 +2277,43 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
         stavDalkovePraveZapis = stavDalkovePrave/3
 		Call("DalkoveLeve:SetColour",barvaDalkovaDolniZ[1]*stavDalkoveLeveZapis,barvaDalkovaDolniZ[2]*stavDalkoveLeveZapis,barvaDalkovaDolniZ[3]*stavDalkoveLeveZapis)
 		if stavDalkoveLeveZapis > 0 then
+            Call("DalkoveLeve:SetRange",150)
 			Call("DalkoveLeve:Activate",1)
 		else 
+            Call("DalkoveLeve:SetRange",0)
 			Call("DalkoveLeve:Activate",0)
 		end
 
 		Call("DalkovePrave:SetColour",barvaDalkovaDolniZ[1]*stavDalkovePraveZapis,barvaDalkovaDolniZ[2]*stavDalkovePraveZapis,barvaDalkovaDolniZ[3]*stavDalkovePraveZapis)
 		if stavDalkovePraveZapis > 0 then
+            Call("DalkovePrave:SetRange",150)
 			Call("DalkovePrave:Activate",1)
 		else 
+            Call("DalkovePrave:SetRange",0)
 			Call("DalkovePrave:Activate",0)
 		end
     else
         if dalkoveLeve then
+            Call("DalkoveLeve:SetRange",500)
             Call("DalkoveLeve:SetColour",barvaDalkovaDolniLED[1],barvaDalkovaDolniLED[2],barvaDalkovaDolniLED[3])
             Call("DalkoveLeve:Activate",1)
             AktivujNode("dalkaclevy",1)
         else
             Call("DalkoveLeve:SetColour",0,0,0)
             Call("DalkoveLeve:Activate",0)
+            Call("DalkoveLeve:SetRange",0)
             AktivujNode("dalkaclevy",0)
         end
 
         if dalkovePrave then
+            Call("DalkovePrave:SetRange",500)
             Call("DalkovePrave:SetColour",barvaDalkovaDolniLED[1],barvaDalkovaDolniLED[2],barvaDalkovaDolniLED[3])
             Call("DalkovePrave:Activate",1)
             AktivujNode("dalkacpravy",1)
         else
             Call("DalkovePrave:SetColour",0,0,0)
             Call("DalkovePrave:Activate",0)
+            Call("DalkovePrave:SetRange",0)
             AktivujNode("dalkacpravy",0)
         end
 	end
@@ -2391,7 +2431,7 @@ function VratTCh(gRegulatorTrCh,wheelSpeed)
 		end
 	end
 	if gRegulatorTrCh < 0 then
-		stupenTrCh = gRegulatorTrCh/0.25
+		stupenTrCh = gRegulatorTrCh/(1/modelConfig[scriptVersion].stupneEDB)
 		cele, zbytek = divMod(stupenTrCh,1)
 		if zbytek ~= 0 then
 			if zbytek < -0.5 then
@@ -2410,29 +2450,28 @@ function VratTCh(gRegulatorTrCh,wheelSpeed)
 		end
 	elseif stupenTrCh < 0 and not pojezdVDepu then
         speed = speed * 3.6
-		if stupenTrCh == -1 then
-			vypoctenaTrCh = ((-250-speed)/(speed+2))+27
-			--vypoctenaTrCh = -0.5
-		elseif stupenTrCh == -2 then
-			vypoctenaTrCh = (((-250-speed)/((0.2*speed)+2))+74)
-			--vypoctenaTrCh = -1
-		elseif stupenTrCh == -3 then
-			vypoctenaTrCh = (((-1000-speed)/((2*speed)+2))+80)/2
-		elseif stupenTrCh <= -4 then
-			vypoctenaTrCh = (((-1000-speed)/((2*speed)+2))+100)/2
+        if stupenTrCh == -1 or blokKrokNU or speed < 30 then
+            if speed > 70 then
+                vypoctenaTrCh = 23
+            else
+                vypoctenaTrCh = math.min(12 + 0.03333333*speed + 0.0075*speed^2 - 0.00008333333*speed^3, 23)
+            end
+		elseif stupenTrCh == -2 and not blokKrokNU and speed > 30 then
+			vypoctenaTrCh = 5.662053 + 1.502787*speed - 0.01519608*speed^2 + 0.00005113418*speed^3
+		-- elseif stupenTrCh == -3 then
+		-- 	vypoctenaTrCh = (((-1000-speed)/((2*speed)+2))+80)/2*0.6
+		-- elseif stupenTrCh <= -4 then
+		-- 	vypoctenaTrCh = (((-1000-speed)/((2*speed)+2))+100)/2*0.6
         end
-		vratRegulator = -(vypoctenaTrCh/gAbsolutniMax_kN)*pocetMG
-		if fiktivniVykonNaRizeneNeschopne then
-			vratRegulator = vratRegulator * ((pocetMG-1)/pocetMG)
-		end
+		vratRegulator = -math.max((vypoctenaTrCh/gAbsolutniMax_kN)*math.min(pocetZapnutychVozu, pocetMG), 0)
+		-- if fiktivniVykonNaRizeneNeschopne then
+		-- 	vratRegulator = vratRegulator * math.min(pocetZapnutychVozu, pocetMG)
+		-- end
 		--vratRegulator = vypoctenaTrCh
 		if vratRegulator > 0 then vratRegulator = 0 end
 	elseif pojezdVDepu then
 		vratRegulator = (1 / (20+math.exp(speed)))
 	end
-    if ridiciKontroler < -0.75 and not blokKrokNU then
-        vratRegulator = vratRegulator*1.5
-    end
 	return(vratRegulator)
 end
 
@@ -2448,17 +2487,12 @@ function VratProud(gTaznaSila,gZarazenyStupen,wheelSpeed)
 	local b = 25
 	local vratProud = (a*k)*(math.sqrt((((kN+(b*k))^2)/((b*k)^2))-1))
 	if gZarazenyStupen < 0 then
-        stupenTrCh = -gZarazenyStupen/0.25
-        cele, zbytek = divMod(stupenTrCh,1)
-        if zbytek ~= 0 then
-            if zbytek > 0.5 then
-                stupenTrCh = cele + 1
-            else
-                stupenTrCh = cele
-            end
+        kmh = speed * 3.6
+		-- kN = (kN/math.min(pocetZapnutychVozu, pocetMG))*gAbsolutniMax_kN
+        vratProud = -math.max(-48.82555 + 8.544289*kmh - 0.05755316*kmh^2 + 0.0001317839*kmh^3,0)
+        if gZarazenyStupen < -1/modelConfig[scriptVersion].stupneEDB and not blokKrokNU and kmh > 30 then
+            vratProud = vratProud*1.5
         end
-		-- kN = (kN/pocetMG)*gAbsolutniMax_kN
-        vratProud = -(gA[stupenTrCh]-gB[stupenTrCh]/(speed*3.6+gC[stupenTrCh]))/pocetMG*2
 		-- if gZarazenyStupen < -0.25 then
 		-- 	vratProud = vratProud * 1.03
 		-- 	if gZarazenyStupen < -0.5 then
@@ -2479,11 +2513,6 @@ function VratProud(gTaznaSila,gZarazenyStupen,wheelSpeed)
 		vratProud = 1.39 * vratProud
 	elseif shunt > 3.5 then
 		vratProud = 1.48 * vratProud
-    end
-    if (ridiciKontroler < 0 and ridiciKontroler > -0.75) or blokKrokNU then
-        vratProud = vratProud*0.9
-    else
-        vratProud = vratProud*1.1
     end
 	if smer > 0 and Call("GetSpeed") < 0 and Call("GetIsEngineWithKey") == 1 then
         vratProud = vratProud * math.max((math.abs(speed)/1.5),1)
@@ -2870,6 +2899,7 @@ function Update (casHry)
                     --reset pridelenych ID
                         Call("SetControlValue","IsMasterInConsist",0,0)
                     --nulovani ovladacu obsahujicich sumu ID
+                        Call("SetControlValue","zapnuteVozy",0,0)
                         Call("SetControlValue","mg",0,0)
                         Call("SetControlValue","mgZvuk",0,0)
                         Call("SetControlValue","mgVS",0,0)
@@ -2966,7 +2996,7 @@ function Update (casHry)
                     if ID ~= nil and ID > 0 then
                         NastavHodnotuSID("pocetJimek", 1, 460993)
                         pocetJimek = decToBitsCount(Call("GetControlValue", "pocetJimek", 0))
-                        HlavniVypinac = Call ("GetControlValue", "HlavniVypinac", 0)
+                        hlavniVypinac = Call ("GetControlValue", "HlavniVypinac", 0)
                         Call("SetControlValue","AI",0,0)
                         Ammeter = Call("GetControlValue","Ampermetr",0)
                         RocniObdobi = SysCall("ScenarioManager:GetSeason")
@@ -2977,6 +3007,11 @@ function Update (casHry)
                         if mgUnitValueLast ~= mgUnitValue then
                             mgUnitValueLast = mgUnitValue
                             pocetMG = decToBitsCount(mgUnitValue)
+                        end
+                        zapnuteVozyUnitValue = Call("GetControlValue", "zapnuteVozy", 0)
+                        if zapnuteVozyUnitValueLast ~= zapnuteVozyUnitValue then
+                            zapnuteVozyUnitValueLast = zapnuteVozyUnitValue
+                            pocetZapnutychVozu = decToBitsCount(zapnuteVozyUnitValue)
                         end
                         if not modelConfig[scriptVersion].ctyriSberace then
                             if Call("GetControlValue","VirtualPantographControl",0) < 0 then
@@ -3087,13 +3122,6 @@ function Update (casHry)
                         buttonPojezdVDepu = Call("GetControlValue","ButtonPojezdVDepu",0)
                         if LVZreset > 0.25 then LVZresetOld = 1 end
                         LVZreset = math.max(Call("GetControlValue","ZivakReset",0),Call("GetControlValue","ZivakReset2",0),Call("GetControlValue","ZivakReset3",0))
-                        casproud = casproud + cas
-                        if Call("GetControlValue","Wheelslip",0) ~= 1 then
-                            skluzWheelSlip = 1
-                        else
-                            skluzWheelSlip = 0
-                        end
-                        wheelSlip = Call("GetControlValue","Wheelslip",0)
                         hlkomp = Call("GetControlValue","hlkomp",0)
                         Smer = Call("GetControlValue","UserVirtualReverser",0)
 
@@ -3105,8 +3133,14 @@ function Update (casHry)
 
                         if baterie == 1 and prepinaceTlak > 3.5 and (not vypnutyVuz or fiktivniVykonNaRizeneNeschopne) then
                             Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
+                            if not vypnutyVuz then
+                                Call("SoundStroje:SetParameter", "SoundReverser", Call("GetControlValue", "povel_Reverser", 0))
+                            else
+                                Call("SoundStroje:SetParameter", "SoundReverser", 0)
+                            end
                         else
                             Call("SetControlValue", "Reverser", 0, 0)
+                            Call("SoundStroje:SetParameter", "SoundReverser", 0)
                         end
 
                         -- if rychlost >= 100 then
@@ -3435,14 +3469,14 @@ function Update (casHry)
                                 snizenyVykonTady = false
                             end
                             RizenaRidiciLast = RizenaRidici
-                        ----------------------------------------Motorgener?tor------------------------------------
+                        ----------------------------------------Motorgenerator------------------------------------
                             mgs = Call("GetControlValue","mgstart",0)
                             auto_mgs = Call("GetControlValue","mgautostart",0)
                             mgPrip = Call("GetControlValue","mgPriprava",0)
                             
                             NastavHodnotuSID("mgPriprava",mgp,460116)
 
-                            if mgPrip > 0 and PC == 3.75 then
+                            if mgPrip > 0 and PC == 3.75 and hlavniVypinac > 0.5 then
                                 if mgs == 1 or Call("GetControlValue", "mg", 0) > 0 then --or auto_mgs == 1 
                                     Call("SoundStroje:SetParameter", "MGpriprava", 1)
                                     if napetiVS220 >= 350 then
@@ -3646,40 +3680,39 @@ function Update (casHry)
                                 Call("vysilackacislovdolni:SetText","xxxxxx",0)
                                 Call("vysilackacislov:SetText","xxxxxx",0)
                             end
-                        ----------------------------------------Brzdy p?i EDB m?n? ne? 300A-----------------------
-                            --------Prvn? bylo EDB, nebo vzduch?-------------------------------------
-                                if plynuleValce > 1.2 and PrvniEDBorVzduch == "nichts" then 
-                                    PrvniEDBorVzduch = "vzduch"
-                                elseif plynuleValce < 0.5 and PrvniEDBorVzduch == "vzduch" then
-                                    PrvniEDBorVzduch = "nichts"
-                                end
-                                if vykon < 0 and PC == 3.75 and PrvniEDBorVzduch == "nichts" then
-                                    PrvniEDBorVzduch = "EDB"
-                                elseif (vykon >= 0 or PC ~= 3.75) and PrvniEDBorVzduch == "EDB" then
-                                    PrvniEDBorVzduch = "nichts"
-                                end
-                                if Ammeter <= -300  and PrvniEDBorVzduch == "EDB" and tlak_HP > 3.5 then
-                                    Call("*:SetBrakeFailureValue","BRAKE_FADE",1)
-                                    Call("SetControlValue", "BrakeBailOff", 0, 1)
-                                    nezobrazujValce = true
-                                else
-                                    Call("*:SetBrakeFailureValue","BRAKE_FADE",0)
-                                    Call("SetControlValue", "BrakeBailOff", 0, 0)
-                                    nezobrazujValce = false
-                                end
+                        ----------------------------------------Rele soucinnosti brzdeni--------------------------
+                            if plynuleValce > 1.2 then
+                                tlakVeValcich = true
+                            elseif plynuleValce < 0.5 then
+                                tlakVeValcich = false
+                            end
+
+                            if Ammeter < -300 and not tlakVeValcich and tlak_HP > 3.5 then
+                                releSoucinnostiBrzd = true
+                                Call("*:SetBrakeFailureValue","BRAKE_FADE",1)
+                                Call("SetControlValue", "BrakeBailOff", 0, 1)
+                                nezobrazujValce = true
+                            else
+                                releSoucinnostiBrzd = false
+                                Call("*:SetBrakeFailureValue","BRAKE_FADE",0)
+                                Call("SetControlValue", "BrakeBailOff", 0, 0)
+                                nezobrazujValce = false
+                            end
                         ----------------------------------------Ventily povesene na brzdove potrubi---------------
                             if soupatkoVZ == 1 or matrosov or BS2 > 0.95 then
                                 NastavHodnotuSID("diraDoPotrubi", 1, 460991)
+                                Call("SoundBrzdice:SetParameter", "EmergencyValve", 1)
                             else
                                 NastavHodnotuSID("diraDoPotrubi", 0, 460991)
-                                Call("SetControlValue","zvukSyceniVZ",0,0)
+                                Call("SoundBrzdice:SetParameter", "EmergencyValve", 0)
+                                Call("SoundBrzdice:SetParameter", "EmergencyFilling", 0)
                             end
                             if Call("GetControlValue", "diraDoPotrubi", 0) > 0 then
                                 if doplnujBrzdu then
                                     Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR - ((math.sqrt(VirtualMainReservoirPressureBAR)/100)+0.01))
-                                    Call("SetControlValue","zvukSyceniVZ",0,1)
+                                    Call("SoundBrzdice:SetParameter", "EmergencyFilling", 1)
                                 else
-                                    Call("SetControlValue","zvukSyceniVZ",0,0)
+                                    Call("SoundBrzdice:SetParameter", "EmergencyFilling", 0)
                                 end
                             end
                         ----------------------------------------DAKO BS2------------------------------------------
@@ -3698,9 +3731,9 @@ function Update (casHry)
                                 vychoziTlakBrzdice = math.max(vychoziTlakBrzdice-0.00333*cas,5)
 
                             --nastaveni idealniho (ciloveho) tlaku v potrubi
-                                BS2old = BS2
+                                --BS2old = BS2
                                 BS2 = Call("GetControlValue","VirtualBrake",0)
-                                if BS2 ~= BS2old or doplnujBrzdu then
+                                --if BS2 ~= BS2old or doplnujBrzdu then
                                     ventilSvihu = false
                                     if BS2 < 0.05 then
                                         ventilSvihu = true
@@ -3714,10 +3747,10 @@ function Update (casHry)
                                     elseif BS2 <= 0.82 then --0.28 - 0.78
                                         navoleny_tlak = vychoziTlakBrzdice - 0.3 - ((BS2 - 0.28)*3.4)
                                         doplnujBrzdu = true
-                                    elseif BS2 < 0.93 then
+                                    else
                                         doplnujBrzdu = false
                                     end
-                                end
+                                --end
                                 Call("SetControlValue","VirtualBrakeSettedPressureBAR",0,navoleny_tlak)
                             
                             --tlak ridiciho ustroji brzdice
@@ -3752,9 +3785,9 @@ function Update (casHry)
                             --rizeni membrany regulatoru hlavniho potrubi
                                 idealni_membrana_ridiciho_ustroji = math.max(math.min((ridici_tlak-tlak_HP)*math.max(VirtualMainReservoirPressureBAR-tlak_HP,1),1),-1)
 
-                                if math.abs(skutecna_membrana_ridiciho_ustroji) < 0.01 and math.abs(idealni_membrana_ridiciho_ustroji - skutecna_membrana_ridiciho_ustroji) < 0.01 then
+                                if math.abs(skutecna_membrana_ridiciho_ustroji) < 0.001 and math.abs(idealni_membrana_ridiciho_ustroji - skutecna_membrana_ridiciho_ustroji) < 0.001 then
                                     prah_hystereze_ridiciho_ustroji = math.min(prah_hystereze_ridiciho_ustroji + cas*0.01, 0.25)
-                                elseif math.abs(idealni_membrana_ridiciho_ustroji - skutecna_membrana_ridiciho_ustroji) > 0.01 then
+                                elseif math.abs(idealni_membrana_ridiciho_ustroji - skutecna_membrana_ridiciho_ustroji) > 0.001 then
                                     prah_hystereze_ridiciho_ustroji = math.max(prah_hystereze_ridiciho_ustroji - cas*math.sqrt(math.abs(idealni_membrana_ridiciho_ustroji-skutecna_membrana_ridiciho_ustroji)),0)
                                 end
                                 
@@ -3895,8 +3928,18 @@ function Update (casHry)
                                 end
                             
                             --vypocet vracene hodnoty TBC
-                                max_tbc = -math.log(0.18*rychlostKolaPodvozek1+20)+4
-                                actual_tbc = math.max(max_tbc*math.min(plynuleValce_bezBP/3.8,1),0)
+                                max_tbc = (-math.log(0.18*rychlostKolaPodvozek1+20)+4)/2 + (-math.log(0.18*rychlostKolaPodvozek2+20)+4)/2
+                                if releSoucinnostiBrzd then
+                                    cilovaTBC = math.max(max_tbc*math.min(plynuleValce_bezBP/3.8,1),0)*math.max((delkaVlaku-(math.min(pocetZapnutychVozu, pocetMG)*23.85))/delkaVlaku, 0)
+                                else
+                                    cilovaTBC = math.max(max_tbc*math.min(plynuleValce_bezBP/3.8,1),0)
+                                end
+
+                                if cilovaTBC > actualTBC then
+                                    actualTBC = actualTBC + math.sqrt(math.abs(cilovaTBC-actualTBC))/20*15*cas
+                                elseif actualTBC > cilovaTBC then
+                                    actualTBC = actualTBC - math.sqrt(math.abs(cilovaTBC-actualTBC))/40*15*cas
+                                end
 
                         ----------------------------------------Brzdove valce-------------------------------------
                             if nastaveneValce > plynuleValce then
@@ -4108,16 +4151,17 @@ function Update (casHry)
 
                         ----------------------------------------Ovladani HV---------------------------------------
                             PolohaKlice = Call ("GetControlValue", "VirtualStartup", 0)
+                            povel_VlastniObaCizi = Call("GetControlValue","povel_VlastniObaCizi",0)
                             if PolohaKlice == 0.25 then klic = 1 end
                             if (PolohaKlice < 0.5 or baterie ~= 1) and RizenaRidici == "ridici" then
                                 Call ( "SetControlValue", "povel_HlavniVypinac", 0, 0)
-                            elseif ZamekHLvyp == 0 and PolohaKlice > 0.5 and baterie == 1 and RizenaRidici == "ridici" then
+                            elseif PolohaKlice > 0.5 and baterie == 1 and RizenaRidici == "ridici" then
                                 Call ( "SetControlValue", "povel_HlavniVypinac", 0, 1)
                             end
 
                             if baterie ~= 1 or Call("GetControlValue", "povel_HlavniVypinac", 0) == 0 then
                                 Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-                            elseif ZamekHLvyp == 0 and baterie == 1 and Call("GetControlValue", "povel_HlavniVypinac", 0) == 1 then
+                            elseif ZamekHLvyp == 0 and baterie == 1 and Call("GetControlValue", "povel_HlavniVypinac", 0) == 1 and (hlavniVypinac == 1 or mgPrip == 0) and ((RizenaRidici == "ridici" and povel_VlastniObaCizi < 1.5) or (RizenaRidici == "rizena" and povel_VlastniObaCizi > 0.5)) then
                                 Call ( "SetControlValue", "HlavniVypinac", 0, 1)
                             end
 
@@ -4162,6 +4206,184 @@ function Update (casHry)
                         ----------------------------------------TRAMEX--------------------------------------------
                             if modelConfig[scriptVersion].tramex then
                                 tramexCasSipicka = tramexCasSipicka + cas
+                                --------TLACITKA
+                                    local tramex0 = false
+                                    local tramex1 = false
+                                    local tramex2 = false
+                                    local tramex3 = false
+                                    local tramex4 = false
+                                    local tramex5 = false
+                                    local tramex6 = false
+                                    local tramex7 = false
+                                    local tramex8 = false
+                                    local tramex9 = false
+                                    local tramexKPJ = false
+                                    local tramexCas = false
+                                    local tramexKM = false
+                                    local tramexErr = false
+                                    local tramexMenu = false
+                                    local tramexEnt = false
+                                    local tramexRet = false
+                                    local tramexDoleva = false
+                                    local tramexDoprava = false
+                                    --0
+                                        if Call("GetControlValue", "Tramex0", 0) > 0.5 and not tramexLast0 then
+                                            tramex0 = true
+                                            tramexLast0 = true
+                                        elseif Call("GetControlValue", "Tramex0", 0) < 0.5 then
+                                            tramexLast0 = false
+                                        end
+                                    --1
+                                        if Call("GetControlValue", "Tramex1", 0) > 0.5 and not tramexLast1 then
+                                            tramex1 = true
+                                            tramexLast1 = true
+                                        elseif Call("GetControlValue", "Tramex1", 0) < 0.5 then
+                                            tramexLast1 = false
+                                        end
+                                    --2
+                                        if Call("GetControlValue", "Tramex2", 0) > 0.5 and not tramexLast2 then
+                                            tramex2 = true
+                                            tramexLast2 = true
+                                        elseif Call("GetControlValue", "Tramex2", 0) < 0.5 then
+                                            tramexLast2 = false
+                                        end
+                                    --3
+                                        if Call("GetControlValue", "Tramex3", 0) > 0.5 and not tramexLast3 then
+                                            tramex3 = true
+                                            tramexLast3 = true
+                                        elseif Call("GetControlValue", "Tramex3", 0) < 0.5 then
+                                            tramexLast3 = false
+                                        end
+                                    --4
+                                        if Call("GetControlValue", "Tramex4", 0) > 0.5 and not tramexLast4 then
+                                            tramex4 = true
+                                            tramexLast4 = true
+                                        elseif Call("GetControlValue", "Tramex4", 0) < 0.5 then
+                                            tramexLast4 = false
+                                        end
+                                    --5
+                                        if Call("GetControlValue", "Tramex5", 0) > 0.5 and not tramexLast5 then
+                                            tramex5 = true
+                                            tramexLast5 = true
+                                        elseif Call("GetControlValue", "Tramex5", 0) < 0.5 then
+                                            tramexLast5 = false
+                                        end
+                                    --6
+                                        if Call("GetControlValue", "Tramex6", 0) > 0.5 and not tramexLast6 then
+                                            tramex6 = true
+                                            tramexLast6 = true
+                                        elseif Call("GetControlValue", "Tramex6", 0) < 0.5 then
+                                            tramexLast6 = false
+                                        end
+                                    --7
+                                        if Call("GetControlValue", "Tramex7", 0) > 0.5 and not tramexLast7 then
+                                            tramex7 = true
+                                            tramexLast7 = true
+                                        elseif Call("GetControlValue", "Tramex7", 0) < 0.5 then
+                                            tramexLast7 = false
+                                        end
+                                    --8
+                                        if Call("GetControlValue", "Tramex8", 0) > 0.5 and not tramexLast8 then
+                                            tramex8 = true
+                                            tramexLast8 = true
+                                        elseif Call("GetControlValue", "Tramex8", 0) < 0.5 then
+                                            tramexLast8 = false
+                                        end
+                                    --9
+                                        if Call("GetControlValue", "Tramex9", 0) > 0.5 and not tramexLast9 then
+                                            tramex9 = true
+                                            tramexLast9 = true
+                                        elseif Call("GetControlValue", "Tramex9", 0) < 0.5 then
+                                            tramexLast9 = false
+                                        end
+                                    --KPJ
+                                        if Call("GetControlValue", "TramexKPJ", 0) > 0.5 and not tramexLastKPJ then
+                                            tramexKPJ = true
+                                            tramexLastKPJ = true
+                                        elseif Call("GetControlValue", "TramexKPJ", 0) < 0.5 then
+                                            tramexLastKPJ = false
+                                        end
+                                    --Cas
+                                        if Call("GetControlValue", "TramexCas", 0) > 0.5 and not tramexLastCas then
+                                            tramexCas = true
+                                            tramexLastCas = true
+                                        elseif Call("GetControlValue", "TramexCas", 0) < 0.5 then
+                                            tramexLastCas = false
+                                        end
+                                    --Draha
+                                        if Call("GetControlValue", "TramexKM", 0) > 0.5 and not tramexLastKM then
+                                            tramexKM = true
+                                            tramexLastKM = true
+                                        elseif Call("GetControlValue", "TramexKM", 0) < 0.5 then
+                                            tramexLastKM = false
+                                        end
+                                    --Error
+                                        if Call("GetControlValue", "TramexVykricnik", 0) > 0.5 and not tramexLastErr then
+                                            tramexErr = true
+                                            tramexLastErr = true
+                                        elseif Call("GetControlValue", "TramexVykricnik", 0) < 0.5 then
+                                            tramexLastErr = false
+                                        end
+                                    --Menu
+                                        if Call("GetControlValue", "TramexMenu", 0) > 0.5 and not tramexLastMenu then
+                                            tramexMenu = true
+                                            tramexLastMenu = true
+                                        elseif Call("GetControlValue", "TramexMenu", 0) < 0.5 then
+                                            tramexLastMenu = false
+                                        end
+                                    --Enter
+                                        if Call("GetControlValue", "TramexEnter", 0) > 0.5 and not tramexLastEnt then
+                                            tramexEnt = true
+                                            tramexLastEnt = true
+                                        elseif Call("GetControlValue", "TramexEnter", 0) < 0.5 then
+                                            tramexLastEnt = false
+                                        end
+                                    --Return
+                                        if Call("GetControlValue", "TramexReturn", 0) > 0.5 and not tramexLastRet then
+                                            tramexRet = true
+                                            tramexLastRet = true
+                                        elseif Call("GetControlValue", "TramexReturn", 0) < 0.5 then
+                                            tramexLastRet = false
+                                        end
+                                    --Doleva
+                                        if Call("GetControlValue", "TramexVlevo", 0) > 0.5 and not tramexLastDoleva then
+                                            tramexDoleva = true
+                                            tramexLastDoleva = true
+                                        elseif Call("GetControlValue", "TramexVlevo", 0) < 0.5 then
+                                            tramexLastDoleva = false
+                                        end
+                                    --Doprava
+                                        if Call("GetControlValue", "TramexVpravo", 0) > 0.5 and not tramexLastDoprava then
+                                            tramexDoprava = true
+                                            tramexLastDoprava = true
+                                        elseif Call("GetControlValue", "TramexVpravo", 0) < 0.5 then
+                                            tramexLastDoprava = false
+                                        end
+                                    buttonsCount = ToBolAndBack(tramexLast0)
+                                        + ToBolAndBack(tramexLast1)
+                                        + ToBolAndBack(tramexLast2)
+                                        + ToBolAndBack(tramexLast3)
+                                        + ToBolAndBack(tramexLast4)
+                                        + ToBolAndBack(tramexLast5)
+                                        + ToBolAndBack(tramexLast6)
+                                        + ToBolAndBack(tramexLast7)
+                                        + ToBolAndBack(tramexLast8)
+                                        + ToBolAndBack(tramexLast9)
+                                        + ToBolAndBack(tramexLastKPJ)
+                                        + ToBolAndBack(tramexLastCas)
+                                        + ToBolAndBack(tramexLastKM)
+                                        + ToBolAndBack(tramexLastErr)
+                                        + ToBolAndBack(tramexLastMenu)
+                                        + ToBolAndBack(tramexLastEnt)
+                                        + ToBolAndBack(tramexLastRet)
+                                        + ToBolAndBack(tramexLastDoleva)
+                                        + ToBolAndBack(tramexLastDoprava)
+                                    Call("SoundPrep:SetParameter", "TramexButtonsCount", buttonsCount)
+                                    if baterie == 1 and RizenaRidici == "ridici" then
+                                        Call("SoundPrep:SetParameter", "TramexButtonsCountPip", buttonsCount)
+                                    else
+                                        Call("SoundPrep:SetParameter", "TramexButtonsCountNotPip", buttonsCount)
+                                    end
                                 if baterie == 1 and RizenaRidici == "ridici" then
                                     local tramexCilova = math.floor(rychlostKolaKMHPodvozek1*4)/4
                                     --------INICIALIZACE RYCHLOMERU PO ZTRATE NAPAJENI
@@ -4228,159 +4450,6 @@ function Update (casHry)
                                                 Call("SetControlValue", "TramexOsvetleni", 0, 1)
                                             end
                                         end
-                                    --------TLACITKA
-                                        local tramex0 = false
-                                        local tramex1 = false
-                                        local tramex2 = false
-                                        local tramex3 = false
-                                        local tramex4 = false
-                                        local tramex5 = false
-                                        local tramex6 = false
-                                        local tramex7 = false
-                                        local tramex8 = false
-                                        local tramex9 = false
-                                        local tramexKPJ = false
-                                        local tramexCas = false
-                                        local tramexKM = false
-                                        local tramexErr = false
-                                        local tramexMenu = false
-                                        local tramexEnt = false
-                                        local tramexRet = false
-                                        local tramexDoleva = false
-                                        local tramexDoprava = false
-                                        --0
-                                            if Call("GetControlValue", "Tramex0", 0) > 0.5 and not tramexLast0 then
-                                                tramex0 = true
-                                                tramexLast0 = true
-                                            elseif Call("GetControlValue", "Tramex0", 0) < 0.5 then
-                                                tramexLast0 = false
-                                            end
-                                        --1
-                                            if Call("GetControlValue", "Tramex1", 0) > 0.5 and not tramexLast1 then
-                                                tramex1 = true
-                                                tramexLast1 = true
-                                            elseif Call("GetControlValue", "Tramex1", 0) < 0.5 then
-                                                tramexLast1 = false
-                                            end
-                                        --2
-                                            if Call("GetControlValue", "Tramex2", 0) > 0.5 and not tramexLast2 then
-                                                tramex2 = true
-                                                tramexLast2 = true
-                                            elseif Call("GetControlValue", "Tramex2", 0) < 0.5 then
-                                                tramexLast2 = false
-                                            end
-                                        --3
-                                            if Call("GetControlValue", "Tramex3", 0) > 0.5 and not tramexLast3 then
-                                                tramex3 = true
-                                                tramexLast3 = true
-                                            elseif Call("GetControlValue", "Tramex3", 0) < 0.5 then
-                                                tramexLast3 = false
-                                            end
-                                        --4
-                                            if Call("GetControlValue", "Tramex4", 0) > 0.5 and not tramexLast4 then
-                                                tramex4 = true
-                                                tramexLast4 = true
-                                            elseif Call("GetControlValue", "Tramex4", 0) < 0.5 then
-                                                tramexLast4 = false
-                                            end
-                                        --5
-                                            if Call("GetControlValue", "Tramex5", 0) > 0.5 and not tramexLast5 then
-                                                tramex5 = true
-                                                tramexLast5 = true
-                                            elseif Call("GetControlValue", "Tramex5", 0) < 0.5 then
-                                                tramexLast5 = false
-                                            end
-                                        --6
-                                            if Call("GetControlValue", "Tramex6", 0) > 0.5 and not tramexLast6 then
-                                                tramex6 = true
-                                                tramexLast6 = true
-                                            elseif Call("GetControlValue", "Tramex6", 0) < 0.5 then
-                                                tramexLast6 = false
-                                            end
-                                        --7
-                                            if Call("GetControlValue", "Tramex7", 0) > 0.5 and not tramexLast7 then
-                                                tramex7 = true
-                                                tramexLast7 = true
-                                            elseif Call("GetControlValue", "Tramex7", 0) < 0.5 then
-                                                tramexLast7 = false
-                                            end
-                                        --8
-                                            if Call("GetControlValue", "Tramex8", 0) > 0.5 and not tramexLast8 then
-                                                tramex8 = true
-                                                tramexLast8 = true
-                                            elseif Call("GetControlValue", "Tramex8", 0) < 0.5 then
-                                                tramexLast8 = false
-                                            end
-                                        --9
-                                            if Call("GetControlValue", "Tramex9", 0) > 0.5 and not tramexLast9 then
-                                                tramex9 = true
-                                                tramexLast9 = true
-                                            elseif Call("GetControlValue", "Tramex9", 0) < 0.5 then
-                                                tramexLast9 = false
-                                            end
-                                        --KPJ
-                                            if Call("GetControlValue", "TramexKPJ", 0) > 0.5 and not tramexLastKPJ then
-                                                tramexKPJ = true
-                                                tramexLastKPJ = true
-                                            elseif Call("GetControlValue", "TramexKPJ", 0) < 0.5 then
-                                                tramexLastKPJ = false
-                                            end
-                                        --Cas
-                                            if Call("GetControlValue", "TramexCas", 0) > 0.5 and not tramexLastCas then
-                                                tramexCas = true
-                                                tramexLastCas = true
-                                            elseif Call("GetControlValue", "TramexCas", 0) < 0.5 then
-                                                tramexLastCas = false
-                                            end
-                                        --Draha
-                                            if Call("GetControlValue", "TramexKM", 0) > 0.5 and not tramexLastKM then
-                                                tramexKM = true
-                                                tramexLastKM = true
-                                            elseif Call("GetControlValue", "TramexKM", 0) < 0.5 then
-                                                tramexLastKM = false
-                                            end
-                                        --Error
-                                            if Call("GetControlValue", "TramexVykricnik", 0) > 0.5 and not tramexLastErr then
-                                                tramexErr = true
-                                                tramexLastErr = true
-                                            elseif Call("GetControlValue", "TramexVykricnik", 0) < 0.5 then
-                                                tramexLastErr = false
-                                            end
-                                        --Menu
-                                            if Call("GetControlValue", "TramexMenu", 0) > 0.5 and not tramexLastMenu then
-                                                tramexMenu = true
-                                                tramexLastMenu = true
-                                            elseif Call("GetControlValue", "TramexMenu", 0) < 0.5 then
-                                                tramexLastMenu = false
-                                            end
-                                        --Enter
-                                            if Call("GetControlValue", "TramexEnter", 0) > 0.5 and not tramexLastEnt then
-                                                tramexEnt = true
-                                                tramexLastEnt = true
-                                            elseif Call("GetControlValue", "TramexEnter", 0) < 0.5 then
-                                                tramexLastEnt = false
-                                            end
-                                        --Return
-                                            if Call("GetControlValue", "TramexReturn", 0) > 0.5 and not tramexLastRet then
-                                                tramexRet = true
-                                                tramexLastRet = true
-                                            elseif Call("GetControlValue", "TramexReturn", 0) < 0.5 then
-                                                tramexLastRet = false
-                                            end
-                                        --Doleva
-                                            if Call("GetControlValue", "TramexVlevo", 0) > 0.5 and not tramexLastDoleva then
-                                                tramexDoleva = true
-                                                tramexLastDoleva = true
-                                            elseif Call("GetControlValue", "TramexVlevo", 0) < 0.5 then
-                                                tramexLastDoleva = false
-                                            end
-                                        --Doprava
-                                            if Call("GetControlValue", "TramexVpravo", 0) > 0.5 and not tramexLastDoprava then
-                                                tramexDoprava = true
-                                                tramexLastDoprava = true
-                                            elseif Call("GetControlValue", "TramexVpravo", 0) < 0.5 then
-                                                tramexLastDoprava = false
-                                            end
                                     --------VELKY DISPLEJ
                                         --specialni znaky:
                                             --	`	á
@@ -4644,6 +4713,8 @@ function Update (casHry)
                                             if mm < 10 then mm = "0"..tostring(mm) end
                                             if ss < 10 then ss = "0"..tostring(ss) end
                                             Call("TramexCom:SetText", "P.j~zdaX"..hh..":"..mm..":"..ss, 0)
+                                        elseif tramexStav == TRAMEX_DATA_ULOZENA then
+                                            Call("TramexCom:SetText", "DataXulo&ena!XXX", 0)
                                         end
                                     --------LOGIKA RYCHLOMERU
                                         if tramexKPJ then
@@ -4695,8 +4766,10 @@ function Update (casHry)
                                                 tramexStav = TRAMEX_HLAVNIMENU
                                                 tramex3secZobrazeni = 3
                                             end
+                                            tramexZadavani = false
                                         end
                                         if tramexStav == TRAMEX_HM_ZADVOL or tramexStav == TRAMEX_HM_ZADZAKL or tramexStav == TRAMEX_HM_ZADCHRAN or tramexStav == TRAMEX_HM_ZAKLUD or tramexStav == TRAMEX_HM_STATVOL or tramexStav == TRAMEX_HM_STATCHRA then
+                                            tramexZadavani = false
                                             if rychlostKolaKMHPodvozek1 > 0.2 and tramexEnt then
                                                 tramexStavPred3sec = tramexStav
                                                 tramexStav = TRAMEX_ZAJIZDY_NELZE
@@ -4704,16 +4777,20 @@ function Update (casHry)
                                             elseif tramexEnt then
                                                 if tramexStav == TRAMEX_HM_ZADVOL then
                                                     tramexStav = TRAMEX_ZV_STROJVED
+                                                    tramexZadavani = true
                                                 elseif tramexStav == TRAMEX_HM_ZADZAKL then
                                                     tramexStavPred3sec = tramexStav
                                                     tramexStav = TRAMEX_HESLO
                                                     tramexHeslo = ""
+                                                    tramexZadavani = true
                                                 elseif tramexStav == TRAMEX_HM_ZADCHRAN then
                                                     tramexStavPred3sec = tramexStav
                                                     tramexStav = TRAMEX_HESLO
                                                     tramexHeslo = ""
+                                                    tramexZadavani = true
                                                 elseif tramexStav == TRAMEX_HM_ZAKLUD then
                                                     tramexStav = TRAMEX_ZU_RYCH
+                                                    tramexZadavani = true
                                                 elseif tramexStav == TRAMEX_HM_STATVOL then
                                                     tramexStav = TRAMEX_SV_STROJVED
                                                 elseif tramexStav == TRAMEX_HM_STATCHRA then
@@ -5203,7 +5280,7 @@ function Update (casHry)
                                                 tramexKodZeme = tramexOldContent
                                                 tramexOldContent = false
                                             end
-                                            if not tramexOldContent  then
+                                            if not tramexOldContent then
                                                 tramexOldContent = tramexKodZeme
                                                 tramexUpravenePolicko = false
                                             end
@@ -5466,6 +5543,12 @@ function Update (casHry)
                                                 tramexStav = TRAMEX_DRAHA
                                             end
                                         end
+                                        if tramexZadavani and (tramexStav < 60 or tramexStav >= 70) then
+                                            tramexStavPred3sec = tramexStav
+                                            tramexStav = TRAMEX_DATA_ULOZENA
+                                            tramex3secZobrazeni = 3
+                                            tramexZadavani = false
+                                        end
                                     --------POCITADLO DRAHY
                                         tramexDrahaKm = tramexDrahaKm + rychlostKolaPodvozek1 * (casHry/3600)
                                     --------POCITADLO RELATIVNI DRAHY
@@ -5495,6 +5578,7 @@ function Update (casHry)
                                 end
                             end
                         ----------------------------------------Dvere---------------------------------------------
+                            povelHV = Call("GetControlValue", "povel_HlavniVypinac", 0)
                             --dvere ze soupravy
                                 if otocPovely then
                                     dverePraveVSouprave = Call("GetControlValue","DvereLeveVSouprave",0)
@@ -5668,7 +5752,7 @@ function Update (casHry)
                                 local prepLevy = ToBolAndBack(Call("GetControlValue","DverePrepLevy",0))
 
                                 --leve dvere lokalni
-                                if (prepPravy == 0 or prepLevy) and RizenaRidici == "ridici" then
+                                if (prepPravy == 0 or prepLevy) and RizenaRidici == "ridici" and (povelHV > 0.5 or modelConfig[scriptVersion].delkaVystrahy > 0) then
                                     dvereLevePovelLokalni = true
                                     dvereLevePridrznyStav = true
                                 elseif prepPravy >= 1 and not prepLevy then
@@ -5676,7 +5760,7 @@ function Update (casHry)
                                 end
 
                                 --prave dvere lokalni
-                                if prepPravy == 2 and RizenaRidici == "ridici" then
+                                if prepPravy == 2 and RizenaRidici == "ridici" and (povelHV > 0.5 or modelConfig[scriptVersion].delkaVystrahy > 0) then
                                     dverePravePovelLokalni = true
                                     dverePravePridrznyStav = true
                                 elseif prepPravy <= 1 then
@@ -5684,7 +5768,7 @@ function Update (casHry)
                                 end
 
                             --pridrzny obvod dveri
-                                if RizenaRidici == "ridici" then
+                                if RizenaRidici == "ridici" and povelHV > 0.5 then
                                     if dvereStavLast ~= tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni) or RizenaRidici ~= RizenaRidiciLast_dvere then
                                         dvereStavLast = tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni)
                                         RizenaRidiciLast_dvere = RizenaRidici
@@ -5859,11 +5943,10 @@ function Update (casHry)
                             Call("SetControlValue","PrasatkoDvereP",0,prasatkoHodnotaP)
 
                         ----------------------------------------Pantografy----------------------------------------
-                            local povel_VlastniObaCizi = Call("GetControlValue","povel_VlastniObaCizi",0)
                             local povel_VirtualPantographControl = Call("GetControlValue","povel_VirtualPantographControl",0)
 
                             if RizenaRidici == "ridici" then
-                                if baterie == 1 and HlavniVypinac == 1 and povel_VlastniObaCizi < 1.5 then
+                                if baterie == 1 and hlavniVypinac == 1 and povel_VlastniObaCizi < 1.5 then
                                     if modelConfig[scriptVersion].ctyriSberace then
                                         if povel_VirtualPantographControl < 2.5 and povel_VirtualPantographControl > 0.5 then
                                             gPredniSmetak = 1
@@ -5889,7 +5972,7 @@ function Update (casHry)
                                     gPredniSmetak = 0
                                 end
                             else
-                                if baterie == 1 and HlavniVypinac == 1 and povel_VlastniObaCizi > 0.5 then
+                                if baterie == 1 and hlavniVypinac == 1 and povel_VlastniObaCizi > 0.5 then
                                     if modelConfig[scriptVersion].ctyriSberace then
                                         if not otocPovely then
                                             if povel_VirtualPantographControl < 2.5 and povel_VirtualPantographControl > 0.5 then
@@ -5933,16 +6016,14 @@ function Update (casHry)
                             ZP = Call ("GetControlValue", "PantoZadni", 0)
 
                             if (gPredniSmetak == 1 and PP == 0) or (gZadniSmetak == 1 and ZP == 0) then
-                                Call("EngineSound:SetParameter", "sound_PantoUP", 1)
-                            else
-                                Call("EngineSound:SetParameter", "sound_PantoUP", 0)
+                                soundPantoUp = 1 - soundPantoUp
                             end
+                            Call("EngineSound:SetParameter", "sound_PantoUP", soundPantoUp)
                             
                             if (gPredniSmetak == 0 and PP == 3.75) or (gZadniSmetak == 0 and ZP == 3.75) then
-                                Call("EngineSound:SetParameter", "sound_PantoDOWN", 1)
-                            else
-                                Call("EngineSound:SetParameter", "sound_PantoDOWN", 0)
+                                soundPantoDown = 1 - soundPantoDown
                             end
+                            Call("EngineSound:SetParameter", "sound_PantoDOWN", soundPantoDown)
 
                             if gPredniSmetak == 1 then
                                 gPressureDelayCoefP = math.min(gPressureDelayCoefP + cas*2,1)
@@ -6017,7 +6098,7 @@ function Update (casHry)
                             -- if ZP > 3.70 and ZP ~= 3.75 then
                             --     Call("SetControlValue","PantoZadni",0,3.75)
                             -- end
-                        ----------------------------------------Rozjezdov? proud konvert na ??slo-----------------
+                        ----------------------------------------Prepinac roz proudu na cislo----------------------
                             if RizenaRidici == "ridici" then
                                 Call("SetControlValue", "povel_RozProud", 0, Call("GetControlValue","RozProud",0))
                             end
@@ -6037,7 +6118,7 @@ function Update (casHry)
                                     proud = rp_570A
                                 end
                             end
-                        ----------------------------------------Sn?h od kol v zim?--------------------------------
+                        ----------------------------------------Snih od kol v zime--------------------------------
                             -- if math.abs(rychlost) > 10 and RocniObdobi == 3 then
                             -- 	Call ("KourP1L:SetEmitterActive",1 ) 
                             -- 	Call ("KourP2L:SetEmitterActive",1 ) 
@@ -6173,8 +6254,8 @@ function Update (casHry)
                             end
 
                             local zarivka = math.abs(Call("GetControlValue", "Zarivka", 0))
-                            local svetloLeve = Call("GetControlValue", "LustrLevy", 0)
-                            local svetloPrave = Call("GetControlValue", "LustrPravy", 0)
+                            local fofrnikLevy = Call("GetControlValue", "LustrLevy", 0)
+                            local fofrnikPravy = Call("GetControlValue", "LustrPravy", 0)
 
                             if baterie == 1 then
                                 if OsvetleniVozu <= 0.5 then
@@ -6228,14 +6309,14 @@ function Update (casHry)
                                     RozsvitSvetlo("CabLight1",0)
                                     Call("SetControlValue", "ZarivkaSvetlo", 0, 0)
                                 end
-                                if KabinaPrist == 1 or svetloPrave > 0.5 then
+                                if KabinaPrist == 1 then
                                     RozsvitSvetlo("CabLight3",1)
                                     Call("SetControlValue", "LustrLevySvetlo", 0, 1)
                                 else
                                     RozsvitSvetlo("CabLight3",0)
                                     Call("SetControlValue", "LustrLevySvetlo", 0, 0)
                                 end
-                                if KabinaPrist == 1 or svetloLeve > 0.5 then
+                                if KabinaPrist == 1 then
                                     RozsvitSvetlo("CabLight4",1)
                                     Call("SetControlValue", "LustrPravySvetlo", 0, 1)
                                 else
@@ -6272,12 +6353,13 @@ function Update (casHry)
                             end
                         ----------------------------------------Automatika a kontroler----------------------------
                             casstupnu = casstupnu+cas
+                            ridiciKontroler = Call("GetControlValue","VirtualThrottleAndBrake",0)
                             if Call("GetControlValue","RidiciKontrolerOkno",0) > 1 and ridiciKontrolerOknoOCVC == Call("GetControlValue","RidiciKontrolerOkno",0) then
                                 Call("SetControlValue","RidiciKontrolerOkno",0,1)
                             end
                             if RizenaRidici == "ridici" then
                                 if JeNouzovyRadic == 0 then
-                                    Call("SetControlValue","povel_RidiciKontroler",0,VratRadic(Call("GetControlValue","VirtualThrottleAndBrake",0),Call("GetControlValue","RidiciKontrolerOkno",0)))
+                                    Call("SetControlValue","povel_RidiciKontroler",0,VratRadic(ridiciKontroler,Call("GetControlValue","RidiciKontrolerOkno",0)))
                                     Call("SetControlValue","povel_NouzovyKontroler",0,0)
                                 else
                                     Call("SetControlValue","povel_RidiciKontroler",0,Call("GetControlValue","RadicNouzovy",0))
@@ -6292,8 +6374,11 @@ function Update (casHry)
                             end
                             -- if TlakovyBlokJizdy and tlak_HP >= 4.7 then TlakovyBlokJizdy = false end
                             -- if plynuleValce > 1.2 then TlakovyBlokJizdy = true end
+                            if JeNouzovyRadicVS == 0 then
+                                kontrolerLast = 0
+                            end
                             if JeNouzovyRadicVS == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-                                if kontroler == 0 or (JOB == 0 and not fiktivniVykonNaRizeneNeschopne) or Smer == 0 or (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5 and vykon < 0) or zavedSnizenyVykon then 
+                                if kontroler == 0 or (JOB == 0 and not fiktivniVykonNaRizeneNeschopne) or Smer == 0 or ((tlakVeValcich or casOJ > 1) and vykon <= 0) or zavedSnizenyVykon then 
                                     if kontroler == 0 then
                                         blokEDB = false
                                     end
@@ -6302,17 +6387,17 @@ function Update (casHry)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
                                     elseif vykon < 0 and casstupnu >= caszkroku then
-                                        Call("SetControlValue","JizdniKontroler",0,vykon + 0.25)
+                                        Call("SetControlValue","JizdniKontroler",0,vykon + 1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caszkroku = (math.random(8,12)/20)
                                     end
                                 elseif kontroler == 0.5 and not blokKrokSkluz and not SnizenyVykonVozu then
                                     if vykon < 0 and casstupnu >= caszkroku then
-                                        Call("SetControlValue","JizdniKontroler",0,vykon+0.25)
+                                        Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
                                     elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
-                                        Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
+                                        Call("SetControlValue","JizdniKontroler",0,0.05)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
                                     end
@@ -6324,7 +6409,7 @@ function Update (casHry)
                                             caskroku = (math.random(8,12)/20)
                                         end
                                     elseif vykon < 0 and casstupnu >= caszkroku and (JOB == -1  or fiktivniVykonNaRizeneNeschopne) then
-                                        Call("SetControlValue","JizdniKontroler",0,vykon+0.25)
+                                        Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
                                     elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
@@ -6332,29 +6417,29 @@ function Update (casHry)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
                                     end
-                                elseif (rychlostKolaKMHPodvozek1 < rychlostEDB or valcePrimocinne > 0.5) and vykon < 0 and casstupnu >= caszkroku then
-                                    blokEDB = true
-                                    Call("SetControlValue","JizdniKontroler",0,vykon+0.25)
-                                    casstupnu = 0
-                                    caszkroku = (math.random(3,7)/20)
+                                -- elseif (rychlostKolaKMHPodvozek1 < rychlostEDB or valcePrimocinne > 0.5) and vykon < 0 and casstupnu >= caszkroku then
+                                --     blokEDB = true
+                                --     Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
+                                --     casstupnu = 0
+                                --     caszkroku = (math.random(3,7)/20)
                                 elseif kontroler == -0.5 then
                                     if vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
                                         Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
-                                    elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and rychlostKolaKMHPodvozek1 > rychlostEDB and not blokKrokSkluz and not blokEDB and not (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5) then
-                                        Call("SetControlValue","JizdniKontroler",0,vykon-0.25)
+                                    elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
+                                        Call("SetControlValue","JizdniKontroler",0,-1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
-                                    -- elseif vykon < -0.25 and casstupnu >= caszkroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and rychlostKolaKMHPodvozek1 > rychlostEDB and not blokKrokSkluz and not blokEDB then
-                                    -- 	Call("SetControlValue","JizdniKontroler",0,vykon+0.25)
+                                    -- elseif vykon < -1/modelConfig[scriptVersion].stupneEDB and casstupnu >= caszkroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB then
+                                    -- 	Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
                                     -- 	casstupnu = 0
                                     -- 	caszkroku = (math.random(3,7)/20)
                                     end
                                 elseif kontroler == -1 then 
-                                    if vykon <= -0.25 and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and rychlostKolaKMHPodvozek1 > rychlostEDB and not blokEDB and ojDiag == 0 and not (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5) then
+                                    if vykon <= -1/modelConfig[scriptVersion].stupneEDB and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
                                         if Ammeter >= -350 then
-                                            Call("SetControlValue","JizdniKontroler",0,vykon-0.25)
+                                            Call("SetControlValue","JizdniKontroler",0,vykon-1/modelConfig[scriptVersion].stupneEDB)
                                             casstupnu = 0
                                             caskroku = (math.random(8,12)/20)
                                         end
@@ -6362,30 +6447,58 @@ function Update (casHry)
                                         Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
-                                    elseif vykon > -0.25 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and rychlostKolaKMHPodvozek1 > rychlostEDB and not blokEDB and not (PrvniEDBorVzduch == "vzduch" and tlak_HP > 3.5) then
-                                        Call("SetControlValue","JizdniKontroler",0,-0.25)
+                                    elseif vykon > -1/modelConfig[scriptVersion].stupneEDB and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
+                                        Call("SetControlValue","JizdniKontroler",0,-1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
                                     end
                                 end
-                            elseif JeNouzovyRadicVS == 1 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-                                if kontroler - vykon > 0.03 and casstupnu >= caskroku and Smer ~= 0 and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
-                                    Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
+                            elseif JeNouzovyRadicVS == 1 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu and Call("GetControlValue","RadicNouzovy",0) < 0.95 then
+                                if kontroler - kontrolerLast > 0.03 and casstupnu >= caskroku and Smer ~= 0 then
+                                    if vykon >= 0 then
+                                        Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
+                                    else
+                                        Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
+                                    end
                                     casstupnu = 0
-                                    caskroku = (math.random(8,12)/20)
-                                elseif kontroler - vykon < -0.03 and vykon > 0 and casstupnu >= caszkroku or (JOB ~= 1 and not fiktivniVykonNaRizeneNeschopne) then
-                                    Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
+                                    caskroku = (math.random(4,7)/20)
+                                    kontrolerStupen = kontroler/0.05
+                                    cele, zbytek = divMod(kontrolerStupen,1)
+                                    if zbytek ~= 0 then
+                                        if zbytek < 0.5 then
+                                            kontrolerStupen = cele
+                                        else
+                                            kontrolerStupen = cele + 1
+                                        end
+                                    end
+                                    kontrolerLast = kontrolerStupen*0.05
+                                elseif kontroler - kontrolerLast < -0.03 and casstupnu >= caszkroku then
+                                    if vykon > 0 then
+                                        Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
+                                    else
+                                        Call("SetControlValue","JizdniKontroler",0,vykon-1/modelConfig[scriptVersion].stupneEDB)
+                                    end
                                     casstupnu = 0
-                                    caszkroku = (math.random(3,7)/20)
+                                    caszkroku = (math.random(2,4)/20)
+                                    kontrolerStupen = kontroler/0.05
+                                    cele, zbytek = divMod(kontrolerStupen,1)
+                                    if zbytek ~= 0 then
+                                        if zbytek < 0.5 then
+                                            kontrolerStupen = cele
+                                        else
+                                            kontrolerStupen = cele + 1
+                                        end
+                                    end
+                                    kontrolerLast = kontrolerStupen*0.05
                                 end
                             end
                             vykon = Call("GetControlValue","JizdniKontroler",0) 
-                            if (vykon < 0.05 and vykon >= 0) or (vykon > -0.25 and vykon <= 0) then 
+                            if (vykon < 0.05 and vykon >= 0) or (vykon > -1/modelConfig[scriptVersion].stupneEDB and vykon <= 0) then 
                                 Call("SetControlValue","JizdniKontroler",0,0) 
                                 vykon = 0 
                             end
                             fiktivniVykonNaRizeneNeschopne = false
-                            if (PC == 3.75 and HlavniVypinac == 1 and baterie == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutyVuz) or pojezdVDepu then -- kontrola podmínek pro jízdu
+                            if (PC == 3.75 and hlavniVypinac == 1 and baterie == 1 and not (SnizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutyVuz) or pojezdVDepu then -- kontrola podmínek pro jízdu
                                 if vykon == 0 or not fiktivniVykonNaRizeneNeschopne then
                                     Call("SetControlValue","MuteSounds",0,0)
                                 end
@@ -6403,7 +6516,6 @@ function Update (casHry)
                             if JeNouzovyRadic == 1 and Call("GetControlValue","RadicNouzovy",0) > 0.85 then
                                 Call("SetControlValue","RadicNouzovy",0,0.85)
                             end
-                            stupenKontroleruOld = stupenKontroleru
                             if vykon > 0 then
                                 stupenKontroleru = vykon/0.05
                                 cele, zbytek = divMod(stupenKontroleru,1) 
@@ -6416,8 +6528,8 @@ function Update (casHry)
                                 end
                             end
                             if vykon < 0 then
-                                stupenKontroleru = vykon/0.25
-                                cele, zbytek = divMod(stupenKontroleru,0.25)
+                                stupenKontroleru = vykon/(1/modelConfig[scriptVersion].stupneEDB)
+                                cele, zbytek = divMod(stupenKontroleru,1/modelConfig[scriptVersion].stupneEDB)
                                 if zbytek ~= 0 then
                                     if zbytek < -0.5 then
                                         stupenKontroleru = cele - 1
@@ -6427,12 +6539,13 @@ function Update (casHry)
                                 end
                             end
 
-                            local blokujJK = false
                             local blokujSmer = true
-                            if Smer == 0 or Smer == 2 or baterie ~= 1 then
+                            if (Smer == 0 or Smer == 2 or baterie ~= 1) and (Call("GetControlValue","RadicNouzovy",0) == 0 or Call("GetControlValue","VirtualThrottleAndBrake",0) == 0 or blokujJK) then
                                 blokujJK = true
+                            else
+                                blokujJK = false
                             end
-                            if vykon == 0 and baterie == 1 and not fiktivniVykonNaRizeneNeschopne and (Call("GetControlValue","VirtualThrottleAndBrake",0) == 0 or Call("GetControlValue","VirtualThrottleAndBrake",0) == 2) and (Call("GetControlValue","RadicNouzovy",0) == 0 or Call("GetControlValue","RadicNouzovy",0) == 2) then
+                            if vykon == 0 and baterie == 1 and not fiktivniVykonNaRizeneNeschopne and (ridiciKontroler == 0 or ridiciKontroler == 2) and (Call("GetControlValue","RadicNouzovy",0) == 0 or Call("GetControlValue","RadicNouzovy",0) == 2) then
                                 blokujSmer = false
                             end
 
@@ -6451,14 +6564,7 @@ function Update (casHry)
                             
                             if blokujJK then
                                 if JeNouzovyRadic == 0 then
-                                    if JKBlokovany == nil then
-                                        cele, zbytek = divMod(Call("GetControlValue","VirtualThrottleAndBrake",0),1)
-                                        JKBlokovany = cele
-                                        if zbytek > 0.5 then
-                                            JKBlokovany = JKBlokovany + 1
-                                        end
-                                    end
-                                    Call("SetControlValue","VirtualThrottleAndBrake",0,JKBlokovany)
+                                    Call("SetControlValue","VirtualThrottleAndBrake",0,0)
                                 else
                                     Call("SetControlValue","RadicNouzovy",0,0)
                                 end
@@ -6620,7 +6726,7 @@ function Update (casHry)
                             --------------Adheze a skluz--------
                                 output_kN = VratTCh(Call("GetControlValue","VykonPredTrCh",0),Call("GetSpeed"))*gAbsolutniMax_kN
                                 positiveTractiveEffortForWheelslip = math.max(output_kN,0)
-                                negativeTractiveEffortForWheelslip = math.abs(math.min(output_kN,0)/pocetMG)+plynuleValce/3.8*100*max_tbc+200*Call("GetControlValue", "HandBrake", 0)
+                                negativeTractiveEffortForWheelslip = math.abs(math.min(output_kN,0)/math.min(pocetZapnutychVozu, pocetMG))+plynuleValce/3.8*100*max_tbc+200*Call("GetControlValue", "HandBrake", 0)
                                 if fiktivniVykonNaRizeneNeschopne then
                                     positiveTractiveEffortForWheelslip = 0
                                     negativeTractiveEffortForWheelslip = 0
@@ -6654,7 +6760,7 @@ function Update (casHry)
                                 if math.max(0,tractiveEffortForWheelslip-adhesiveTractiveForcePodvozek1) > 5 then
                                     if positiveTractiveEffortForWheelslip < negativeTractiveEffortForWheelslip then
                                         output_kN = output_kN*0.63245553203367586639977870888654
-                                        actual_tbc = actual_tbc*0.63245553203367586639977870888654
+                                        actualTBC = actualTBC*0.63245553203367586639977870888654
                                     else 
                                         output_kN = output_kN*0.22360679774997896964091736687313
                                     end
@@ -6687,7 +6793,7 @@ function Update (casHry)
                                 if math.max(0,tractiveEffortForWheelslip-adhesiveTractiveForcePodvozek2) > 5 then
                                     if positiveTractiveEffortForWheelslip < negativeTractiveEffortForWheelslip then
                                         output_kN = output_kN*0.63245553203367586639977870888654
-                                        actual_tbc = actual_tbc*0.63245553203367586639977870888654
+                                        actualTBC = actualTBC*0.63245553203367586639977870888654
                                     else 
                                         output_kN = output_kN*0.22360679774997896964091736687313
                                     end
@@ -6695,7 +6801,7 @@ function Update (casHry)
 
                                 if rychlostKolaPodvozek1 < 1 and rychlostKolaPodvozek2 < 1 and tractiveEffortForWheelslip > adhesiveTractiveForcePodvozek1+10 then
                                     output_kN = 0
-                                    actual_tbc = 0.2
+                                    actualTBC = 0.2
                                     obutiVolume = math.min(obutiVolume + cas*math.abs(rychlostKolaKMHPodvozek1-rychlost)/100,1)
                                 end
 
@@ -6718,7 +6824,7 @@ function Update (casHry)
                                 if plynuleValce_bezBP < 0.05 then
                                     Call("SetControlValue","TrainBrakeControl",0,0)
                                 else
-                                    Call("SetControlValue","TrainBrakeControl",0,actual_tbc)
+                                    Call("SetControlValue","TrainBrakeControl",0,actualTBC)
                                 end
                                 --Call("*:SetParameter", "WheelAbsoluteSpeed", rychlostKolaPodvozek1)
                                 Call("SoundTMpredni:SetParameter", "WheelAbsoluteSpeed", rychlostKolaKMHPodvozek1)
@@ -6747,15 +6853,17 @@ function Update (casHry)
                                 -- end
                                 vypnutyVuz = false
                                 mgRezim = MG_VLASTNI
+                                NastavHodnotuSID("zapnuteVozy",1,460103)
                             else
                                 -- if not vypnutyVuz then
                                 --     SysCall("ScenarioManager:ShowMessage", "Rezim MG", "Nouzove",ALERT)
                                 -- end
                                 vypnutyVuz = true
                                 mgRezim = MG_NOUZOVY
+                                NastavHodnotuSID("zapnuteVozy",0,460103)
                             end
                         ----------------------------------------Ventilatory---------------------------------------
-                            if HlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 and not vypnutyVuz then
+                            if hlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 and not vypnutyVuz then
                                 Call("SetControlValue","VentilatoryTM",0,1)
                                 ventilatoryTM = 1
                                 if math.abs(Call("GetControlValue", "prerusovanyChodVentilatoru", 0)) > 0.5 then
@@ -6917,7 +7025,13 @@ function Update (casHry)
                                 ZamekHLvyp = 1
                             end
 
-                        ----------------------------------------Snieny v?kon--------------------------------------
+                        ----------------------------------------Vypnuti HV pri stazeni na stupnich----------------
+                            if vykon ~= 0 and povel_VirtualPantographControl < 0.5 then
+                                Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+                                ZamekHLvyp = 1
+                            end
+
+                        ----------------------------------------Snizeny vykon-------------------------------------
                             if Call("GetControlValue","snizenyvykonanim",0) == 1 and RizenaRidici == "ridici" then
                                 Call("SetControlValue","SnizenyVykon",0,1)
                                 snizenyVykonTady = true
@@ -6935,7 +7049,7 @@ function Update (casHry)
                             else
                                 SnizenyVykonVozu = false
                             end
-                        ----------------------------------------Brzdic z?mek--------------------------------------
+                        ----------------------------------------Brzdic zamek--------------------------------------
                             if (Call("GetControlValue","ZamekBS2vs",0) ~= 1 or gKlicTady) and Call("GetControlValue","VirtualBrake",0) > 0.82 and Call("GetControlValue","VirtualBrake",0) < 0.93 then
                                 Call("LockControl","ZamekBS2",0,0)
                             else
@@ -7010,7 +7124,8 @@ function Update (casHry)
                                 klic = 1
                                 Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
                                 Call("SetControlValue","VirtualBrakeSettedPressureBAR",0,navoleny_tlak)
-                                Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,ridici_tlak)
+                                Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,navoleny_tlak)
+                                Call("SetControlValue","VirtualDistributorControlReservoirPressureBAR",0,ridici_tlak)
                                 Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
                                 Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,plynuleValce)
                                 Call("SetControlValue","VirtualDistributorReservoirPressureBAR",0,VirtualDistributorReservoirPressureBAR)
@@ -7034,6 +7149,8 @@ function Update (casHry)
                                 releEPV = true
                                 kontrolaBdelosti = true
                                 soupatkoVZ = 0
+                                gZadniSmetak = 1
+                                gPredniSmetak = 1
                                 Call("SetControlValue","FastStart",0,0)
                                 pozadavekNaFastStart = 0
                                 SysCall("ScenarioManager:ShowMessage", ZPRAVA_HLAVICKA, ZPRAVA_FAST_START,ALERT)
@@ -7070,9 +7187,11 @@ function Update (casHry)
                                 Call("SendConsistMessage",460101,"0",1)
                                 VirtualMainReservoirPressureBAR = 10
                                 VirtualDistributorReservoirPressureBAR = 5
+                                Call ( "SetControlValue", "HlavniVypinac", 0, 1)
                                 Call("SetControlValue","VirtualMainReservoirPressureBAR",0,VirtualMainReservoirPressureBAR)
                                 Call("SetControlValue","VirtualBrakeSettedPressureBAR",0,navoleny_tlak)
                                 Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,ridici_tlak)
+                                Call("SetControlValue","VirtualBrakeControlSystemPressureBAR",0,navoleny_tlak)
                                 Call("SetControlValue","VirtualBrakePipePressureBAR",0,tlak_HP)
                                 Call("SetControlValue","VirtualTrainBrakeCylinderPressureBAR",0,plynuleValce)
                                 Call("SetControlValue","VirtualDistributorReservoirPressureBAR",0,VirtualDistributorReservoirPressureBAR)
@@ -7084,6 +7203,8 @@ function Update (casHry)
                                 napetiVS220nouz = 380
                                 PantoJimkaZKom = 3.11
                                 Call("SetControlValue","mgautostart",0,1)
+                                gZadniSmetak = 1
+                                gPredniSmetak = 1
                                 Call("SetControlValue","FastStart",0,0)
                                 pozadavekNaFastStart = 0
                             elseif pozadavekNaFastStart == 2 and jeMrtva then
@@ -7095,7 +7216,7 @@ function Update (casHry)
                             if RizenaRidici == "ridici" then
                                 if kontroler > 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 then
                                     Call("SetControlValue","JOBpovel",0,1)
-                                elseif kontroler < 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 then
+                                elseif kontroler < 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and casOJ < 1 then
                                     Call("SetControlValue","JOBpovel",0,-1)
                                 elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or baterie == 0 then
                                     Call("SetControlValue","JOBpovel",0,0)
@@ -7274,15 +7395,8 @@ function Update (casHry)
                                 
                                 --*******H8 VENTILATORY
                                     local diagVentilatoryBeh = 0
-                                    if ventilatoryTM == 1 then
-                                        gTimeVentilatory = gTimeVentilatory + cas
-                                        if gTimeVentilatory > casVentilatory then
-                                            diagVentilatoryBeh = 0
-                                        else
-                                            diagVentilatoryBeh = 1
-                                        end
-                                    else
-                                        gTimeVentilatory = 0
+                                    if ventilatoryTM == 1 and ventilatory_tm_otacky < NABEH_VENTILATORY then
+                                        diagVentilatoryBeh = 1
                                     end
                                     Call("SetControlValue","Diag_Ventilatory",0,diagVentilatoryBeh) -- H8
                                 
@@ -7361,10 +7475,14 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_NI",0,niDiag) -- H15
                                 
                                 --*******H18 OJ
-                                    if (vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) and not fiktivniVykonNaRizeneNeschopne then
+                                    if ((vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) or SnizenyVykonVozu) and not fiktivniVykonNaRizeneNeschopne then
                                         ojDiag = 1
+                                        casOJ = casOJ + cas
                                     elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or fiktivniVykonNaRizeneNeschopne then
                                         ojDiag = 0
+                                        if kontroler == 0 then
+                                            casOJ = 0
+                                        end
                                     end
                                     Call("SetControlValue","Diag_OJ",0,ojDiag) -- H18
                                     -- if vykon ~= 0 and Call("GetControlValue", "Current", 0) == 0 then
@@ -7373,7 +7491,7 @@ function Update (casHry)
 
                                 --*******H19 SOUCINOST BRZD
                                     local rbDiag = 0
-                                    if Ammeter < -300 and PrvniEDBorVzduch == "EDB" then
+                                    if releSoucinnostiBrzd then
                                         rbDiag = 1
                                     end
                                     Call("SetControlValue","Diag_RB",0,rbDiag) -- H19
@@ -7405,11 +7523,6 @@ function Update (casHry)
                                     else
                                         failvykon = 0
                                     end
-                                    if stridaveNap then
-                                        skluzmg = 0
-                                    else
-                                        skluzmg = 1
-                                    end
                                     if vnitrniSit220V ~= 1 then
                                         failmg = 1
                                     else
@@ -7424,8 +7537,8 @@ function Update (casHry)
                                         elseif (casstupnu >= caszkroku) and JeNouzovyRadicVS == 0 then
                                             if vykon > 0.05 then
                                                 Call("SetControlValue","JizdniKontroler",0,vykon - 0.05)
-                                            elseif vykon < 0.25 then
-                                                Call("SetControlValue","JizdniKontroler",0,vykon + 0.25)
+                                            elseif vykon < -1/modelConfig[scriptVersion].stupneEDB then
+                                                Call("SetControlValue","JizdniKontroler",0,vykon + 1/modelConfig[scriptVersion].stupneEDB)
                                             end
                                             casstupnu = 0
                                             caszkroku = (math.random(3,7)/20)
@@ -7433,7 +7546,7 @@ function Update (casHry)
                                         skluzDiag = 1
                                         blokKrokSkluz = true
                                     end
-                                    if math.abs(rychlost-rychlostKolaKMHPodvozek1) < 1 and HlavniVypinac == 1 then
+                                    if math.abs(rychlost-rychlostKolaKMHPodvozek1) < 1 and hlavniVypinac == 1 then
                                         blokKrokSkluz = false
                                         casSkluz = 0
                                         skluzDiag = 0
@@ -7446,33 +7559,25 @@ function Update (casHry)
                                     end
 
                                     Call("SetControlValue","fail",0,math.max(math.min(Call("GetControlValue","poruchaVeVlaku",0),1),failmg,failvykon,diagHV,diagVentilatoryBeh,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,diagDOTO,diagMG,niDiag,ojDiag,uzemneniDiag,jobDiag))
-                                    NastavHodnotuSID("skluzVeVlaku",math.max(skluzDiag,skluzWheelSlip),460107)
+                                    NastavHodnotuSID("skluzVeVlaku",skluzDiag,460107)
                                     Call("SetControlValue","skluz",0,math.min(Call("GetControlValue","skluzVeVlaku",0),1))
                                 --*******H5 OBECNA POR NA VLASTNIM
                                     local PoruchaNap = 0
                                     Call("SetControlValue","Diag_Porucha",0,math.max(failmg,failvykon,PoruchaNap,diagHV,diagVentilatoryBeh,diagArel,diagPretaveni,diagNU,diagPU,skluzDiag,diagDOTO,diagMG,niDiag,ojDiag,uzemneniDiag,jobDiag)) -- H5
                                     NastavHodnotuSID("poruchaVeVlaku",Call("GetControlValue","Diag_Porucha",0),460120)
                                 --*******Odshuntovani az do odporu
-                                    -- if stupenKontroleru > 17 then
-                                    -- 	shunty = true
-                                    -- else
-                                    -- 	shunty = false
-                                    -- end
-                                    -- if shunty and stupenKontroleru < stupenKontroleruOld then
-                                    -- 	pocitejCasShuntu = true
-                                    -- end
-                                    -- if not shunty then
-                                    -- 	pocitejCasShuntu = false
-                                    -- end 
-                                    -- if pocitejCasShuntu then
-                                    -- 	casShuntu = casShuntu + cas
-                                    -- else
-                                    -- 	casShuntu = 0
-                                    -- end
-                                    -- if casShuntu > 6 then
-                                    -- 	Call("SetControlValue","HlavniVypinac",0,0)
-                                    -- 	ZamekHLvyp = 1
-                                    -- end
+                                    if RizenaRidici == "ridici" then
+                                        if HRKzeShuntu and kontroler > 0.25 then
+                                            HRKzeShuntu = false
+                                            Call("SetControlValue","HlavniVypinac",0,0)
+                                            ZamekHLvyp = 1
+                                        end
+                                        if ridiciKontroler < 0.25 and stupenKontroleru > 17 then
+                                            HRKzeShuntu = true
+                                        else
+                                            HRKzeShuntu = false
+                                        end
+                                    end
                             elseif baterie == 1 then
                                 Call("SetControlValue","fail",0,1)
                                 Call("SetControlValue","skluz",0,1)
@@ -7525,6 +7630,7 @@ function Update (casHry)
                                 diagDOTO = 0
                                 niDiag = 0
                                 ojDiag = 0
+                                casOJ = 0
                                 Call("SetControlValue","Diag_220V",0,0) -- H6
                                 Call("SetControlValue","Diag_HV",0,0) -- H7
                                 Call("SetControlValue","Diag_Ventilatory",0,0) -- H8
@@ -7635,8 +7741,13 @@ function Update (casHry)
                         Call ( "DalkoveLeve:Activate", 0 )
                         Call ( "ActivateNode","dalkaclevy",0)
                         Call ( "ActivateNode","dalkacpravy",0)
-                        Call ( "ActivateNode","reflektor_rozsviceny",0) 
-                        Call ( "PozickaHorniBi:Activate", 0 )
+                        Call ( "ActivateNode","reflektor_rozsviceny",0)
+                        if modelConfig[scriptVersion].horniPozicka then
+                            Call ( "PozickaHorniBi:Activate", 0 )
+                        else
+                            Call ( "DalkoveHorni1:Activate", 0 )
+                            Call ( "DalkoveHorni2:Activate", 0 )
+                        end
                         Call ( "PozickaLevaBi:Activate", 0 )
                         Call ( "PozickaLevaCr:Activate", 1 )
                         Call ( "PozickaPravaBi:Activate", 0 )
@@ -7660,7 +7771,12 @@ function Update (casHry)
                                     Call ( "ActivateNode","dalkacpravy",0)
                                 end
                                 Call ( "ActivateNode","reflektor_rozsviceny",1) 
-                                Call ( "PozickaHorniBi:Activate", 1 )
+                                if modelConfig[scriptVersion].horniPozicka then
+                                    Call ( "PozickaHorniBi:Activate", 1 )
+                                else
+                                    Call ( "DalkoveHorni1:Activate", 1 )
+                                    Call ( "DalkoveHorni2:Activate", 1 )
+                                end
                                 Call ( "PozickaLevaBi:Activate", 1 )
                                 Call ( "PozickaLevaCr:Activate", 0 )
                                 Call ( "PozickaPravaBi:Activate", 1 )
@@ -7675,7 +7791,12 @@ function Update (casHry)
                                 Call ( "ActivateNode","dalkaclevy",0)
                                 Call ( "ActivateNode","dalkacpravy",0)
                                 Call ( "ActivateNode","reflektor_rozsviceny",0) 
-                                Call ( "PozickaHorniBi:Activate", 1 )
+                                if modelConfig[scriptVersion].horniPozicka then
+                                    Call ( "PozickaHorniBi:Activate", 0 )
+                                else
+                                    Call ( "DalkoveHorni1:Activate", 0 )
+                                    Call ( "DalkoveHorni2:Activate", 0 )
+                                end
                                 Call ( "PozickaLevaBi:Activate", 1 )
                                 Call ( "PozickaLevaCr:Activate", 0 )
                                 Call ( "PozickaPravaBi:Activate", 1 )
@@ -7731,7 +7852,12 @@ function Update (casHry)
                         Call ( "ActivateNode","dalkaclevy",0)
                         Call ( "ActivateNode","dalkacpravy",0)
                         Call ( "ActivateNode","reflektor_rozsviceny",0) 
-                        Call ( "PozickaHorniBi:Activate", 0 )
+                        if modelConfig[scriptVersion].horniPozicka then
+                            Call ( "PozickaHorniBi:Activate", 0 )
+                        else
+                            Call ( "DalkoveHorni1:Activate", 0 )
+                            Call ( "DalkoveHorni2:Activate", 0 )
+                        end
                         Call ( "PozickaLevaBi:Activate", 0 )
                         Call ( "PozickaLevaCr:Activate", 0 )
                         Call ( "PozickaPravaCr:Activate", 0 )
@@ -7746,10 +7872,15 @@ function Update (casHry)
                 else
                     Call ( "DalkovePrave:Activate", 0 )
                     Call ( "DalkoveLeve:Activate", 0 )
-                    Call ( "ActivateNode","dalkaclevy",0)
-                    Call ( "ActivateNode","dalkacpravy",0)
-                    Call ( "ActivateNode","reflektor_rozsviceny",0) 
-                    Call ( "PozickaHorniBi:Activate", 0 )
+                    Call ( "ActivateNode","dalkaclevy",0 )
+                    Call ( "ActivateNode","dalkacpravy",0 )
+                    Call ( "ActivateNode","reflektor_rozsviceny",0 )
+                    if modelConfig[scriptVersion].horniPozicka then
+                        Call ( "PozickaHorniBi:Activate", 0 )
+                    else
+                        Call ( "DalkoveHorni1:Activate", 0 )
+                        Call ( "DalkoveHorni2:Activate", 0 )
+                    end
                     Call ( "PozickaLevaBi:Activate", 0 )
                     Call ( "PozickaLevaCr:Activate", 0 )
                     Call ( "PozickaPravaBi:Activate", 0 )

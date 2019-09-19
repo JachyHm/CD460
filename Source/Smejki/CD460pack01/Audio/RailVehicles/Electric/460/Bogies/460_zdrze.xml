@@ -1343,7 +1343,7 @@
 																	<Attribute name="ControllerName">
 																		<cDeltaString>
 																			<Element>
-																				<Value>TrainBrakeAmount</Value>
+																				<Value>BrakeAmount</Value>
 																			</Element>
 																		</cDeltaString>
 																	</Attribute>
@@ -1504,7 +1504,7 @@
 																	<Attribute name="ControllerName">
 																		<cDeltaString>
 																			<Element>
-																				<Value>TrainBrakeAmount</Value>
+																				<Value>BrakeAmount</Value>
 																			</Element>
 																		</cDeltaString>
 																	</Attribute>
@@ -1665,41 +1665,6 @@
 																	<Attribute name="ControllerName">
 																		<cDeltaString>
 																			<Element>
-																				<Value>AI</Value>
-																			</Element>
-																		</cDeltaString>
-																	</Attribute>
-																	<Attribute name="Curve">
-																		<kLoud-cCurve>
-																			<Element>
-																				<Value>
-																					<Attribute name="Name">
-																						<cDeltaString>
-																							<Element>
-																								<Value />
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</kLoud-cCurve>
-																	</Attribute>
-																</Value>
-															</Element>
-														</kLoud-cVolumeCurveModifier>
-														<kLoud-cVolumeCurveModifier>
-															<Element>
-																<Value>
-																	<Attribute name="ControllerIsGlobal">
-																		<bool>
-																			<Element>
-																				<Value>0</Value>
-																			</Element>
-																		</bool>
-																	</Attribute>
-																	<Attribute name="ControllerName">
-																		<cDeltaString>
-																			<Element>
 																				<Value>ListenerDistanceSquared</Value>
 																			</Element>
 																		</cDeltaString>
@@ -1826,7 +1791,7 @@
 																	<Attribute name="ControllerName">
 																		<cDeltaString>
 																			<Element>
-																				<Value>TrainBrakeAmount</Value>
+																				<Value>BrakeAmount</Value>
 																			</Element>
 																		</cDeltaString>
 																	</Attribute>
@@ -1876,7 +1841,7 @@
 										<Attribute name="PlayState">
 											<ePlayState>
 												<Element>
-													<Value>BOTH</Value>
+													<Value>OUTSIDE</Value>
 												</Element>
 											</ePlayState>
 										</Attribute>
