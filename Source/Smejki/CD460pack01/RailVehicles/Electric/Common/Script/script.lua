@@ -3476,7 +3476,7 @@ function Update (casHry)
                             
                             NastavHodnotuSID("mgPriprava",mgp,460116)
 
-                            if mgPrip > 0 and PC == 3.75 and hlavniVypinac > 0.5 then
+                            if mgPrip > 0 and PC == 3.75 and hlavniVypinac > 0.5 and ((mgRezim == MG_VLASTNI and not vypnutyVuz) or (mgRezim == MG_NOUZOVY and vypnutyVuz)) then
                                 if mgs == 1 or Call("GetControlValue", "mg", 0) > 0 then --or auto_mgs == 1 
                                     Call("SoundStroje:SetParameter", "MGpriprava", 1)
                                     if napetiVS220 >= 350 then
@@ -3687,7 +3687,7 @@ function Update (casHry)
                                 tlakVeValcich = false
                             end
 
-                            if Ammeter < -300 and not tlakVeValcich and tlak_HP > 3.5 then
+                            if Ammeter < -300 and not tlakVeValcich and tlak_HP > 3.5 and not fiktivniVykonNaRizeneNeschopne then
                                 releSoucinnostiBrzd = true
                                 Call("*:SetBrakeFailureValue","BRAKE_FADE",1)
                                 Call("SetControlValue", "BrakeBailOff", 0, 1)
@@ -4182,7 +4182,7 @@ function Update (casHry)
                             if rychlostKolaKMHPodvozek1 >= 0.1 then
                                 sumHasler = sumHasler + rychlostKolaKMHPodvozek1
                                 pocetHaslerUpdate = pocetHaslerUpdate + 1
-                                if casHasler >= 1 then
+                                if casHasler >= 0.8 then
                                     Call("SetControlValue","HaslerRucka",0,sumHasler/pocetHaslerUpdate)
                                     pocetHaslerUpdate = 0
                                     casHasler = 0
@@ -6356,6 +6356,7 @@ function Update (casHry)
                             ridiciKontroler = Call("GetControlValue","VirtualThrottleAndBrake",0)
                             if Call("GetControlValue","RidiciKontrolerOkno",0) > 1 and ridiciKontrolerOknoOCVC == Call("GetControlValue","RidiciKontrolerOkno",0) then
                                 Call("SetControlValue","RidiciKontrolerOkno",0,1)
+                                ridiciKontrolerOknoOCVC = 1
                             end
                             if RizenaRidici == "ridici" then
                                 if JeNouzovyRadic == 0 then
@@ -6378,7 +6379,7 @@ function Update (casHry)
                                 kontrolerLast = 0
                             end
                             if JeNouzovyRadicVS == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-                                if kontroler == 0 or (JOB == 0 and not fiktivniVykonNaRizeneNeschopne) or Smer == 0 or ((tlakVeValcich or casOJ > 1) and vykon <= 0) or zavedSnizenyVykon then 
+                                if kontroler == 0 or (JOB == 0 and not fiktivniVykonNaRizeneNeschopne) or Smer == 0 or ((tlakVeValcich or casOJ > 1) and (vykon < 0 or kontroler < 0.25)) or zavedSnizenyVykon then 
                                     if kontroler == 0 then
                                         blokEDB = false
                                     end
@@ -6438,11 +6439,11 @@ function Update (casHry)
                                     end
                                 elseif kontroler == -1 then 
                                     if vykon <= -1/modelConfig[scriptVersion].stupneEDB and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
-                                        if Ammeter >= -350 then
+                                        --if Ammeter >= -350 then
                                             Call("SetControlValue","JizdniKontroler",0,vykon-1/modelConfig[scriptVersion].stupneEDB)
                                             casstupnu = 0
                                             caskroku = (math.random(8,12)/20)
-                                        end
+                                        --end
                                     elseif vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
                                         Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
                                         casstupnu = 0
@@ -6806,10 +6807,10 @@ function Update (casHry)
                                 end
 
                                 if (plynuleValce > 0.1 and tractiveEffortForWheelslip < adhesiveTractiveForcePodvozek1) or rychlostKolaKMHPodvozek1+5 > rychlost then
-                                    obutiVolume = math.max(obutiVolume - cas*plynuleValce/1000,0)
+                                    obutiVolume = math.max(obutiVolume - cas*plynuleValce/10000,0)
                                 end
 
-                                Call("SoundLoziska:SetParameter", "obutiVolume", obutiVolume)
+                                Call("SoundLoziska:SetParameter", "obutiVolume", math.min(obutiVolume, math.max(0.3, 1-((rychlost-40)/60))))
 
                                 if obutiDistance > 0 then
                                     if rychlostKolaKMHPodvozek1 > 0.2 then
@@ -6833,7 +6834,7 @@ function Update (casHry)
                                 Call("SoundLoziska:SetParameter", "WheelAbsoluteSpeed", rychlostKolaPodvozek1)
                                 Call("EngineSound:SetParameter", "WheelAbsoluteSpeed", rychlostKolaPodvozek1)
 
-                        ----------------------------------------Smer jako vypinac trakce--------------------------
+                        ----------------------------------------Smer jako vypinac rizeni--------------------------
                             if Smer > 1.8 then
                                 Call("LockControl", "JeSmerVeVypinaci", 0, 0)
                             else
@@ -6863,7 +6864,7 @@ function Update (casHry)
                                 NastavHodnotuSID("zapnuteVozy",0,460103)
                             end
                         ----------------------------------------Ventilatory---------------------------------------
-                            if hlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 and not vypnutyVuz then
+                            if hlavniVypinac == 1 and PC == 3.75 and baterie == 1 and Call("GetControlValue","Reverser",0) ~= 0 and vnitrniSit220V == 1 and not vypnutyVuz and mgs < 0.5 then
                                 Call("SetControlValue","VentilatoryTM",0,1)
                                 ventilatoryTM = 1
                                 if math.abs(Call("GetControlValue", "prerusovanyChodVentilatoru", 0)) > 0.5 then
@@ -7252,7 +7253,7 @@ function Update (casHry)
                             okna = (Call("GetControlValue","OknoL",0)+Call("GetControlValue","OknoP",0))/2
 
                             local pocasiZamlzeni = 0
-                            if SysCall("WeatherController:GetCurrentPrecipitationType") ~= nil or SysCall("ScenarioManager:GetSeason") == 3 then
+                            if SysCall("WeatherController:GetPrecipitationDensity") > 0 or SysCall("ScenarioManager:GetSeason") == 3 then
                                 pocasiZamlzeni = 1
                             end
 
@@ -7342,7 +7343,7 @@ function Update (casHry)
                                 napetiVS220nouz = napetiVS220nouz - cas * 10
                             end
                             
-                            if ((napetiVS220 > 350 and mg == 1 and (mgRezim == MG_VLASTNI or mgRezim == MG_NOUZOVY)) or (napetiVS220nouz > 350 and Call("GetControlValue","mgVS",0) > 0 and mgRezim == MG_SOUSEDNI)) and mgdocasny == 0 then
+                            if ((napetiVS220 > 350 and mg == 1 and (mgRezim == MG_VLASTNI or mgRezim == MG_NOUZOVY)) or (napetiVS220nouz > 350 and Call("GetControlValue","mgVS",0) > 0 and mgRezim == MG_SOUSEDNI and vypnutyVuz)) and mgdocasny == 0 then
                                 vnitrniSit220Vnouzova = 1
                             else
                                 vnitrniSit220Vnouzova = 0
@@ -7447,6 +7448,9 @@ function Update (casHry)
                                     elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
                                         diagDOTO = 0
                                     end
+                                    if mgs > 0.5 then
+                                        diagDOTO = 0
+                                    end
                                     Call("SetControlValue","Diag_DOTO",0,diagDOTO) -- H13
                                 
                                 --*******H14 DOPM
@@ -7460,6 +7464,9 @@ function Update (casHry)
                                     elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
                                         diagMG = 0 
                                     end
+                                    if mgs > 0.5 then
+                                        diagMG = 0
+                                    end
                                     Call("SetControlValue","Diag_DOPM",0,diagMG) -- H14
                                 
                                 --*******H15 NI
@@ -7472,10 +7479,13 @@ function Update (casHry)
                                     elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
                                         niDiag = 0
                                     end
+                                    if mgs > 0.5 then
+                                        niDiag = 0
+                                    end
                                     Call("SetControlValue","Diag_NI",0,niDiag) -- H15
                                 
                                 --*******H18 OJ
-                                    if ((vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) or SnizenyVykonVozu) and not fiktivniVykonNaRizeneNeschopne then
+                                    if ((vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) or (SnizenyVykonVozu and JOB == 1)) and not fiktivniVykonNaRizeneNeschopne then
                                         ojDiag = 1
                                         casOJ = casOJ + cas
                                     elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or fiktivniVykonNaRizeneNeschopne then

@@ -5,7 +5,7 @@
 			<ProxyControlRevision d:type="cDeltaString">eVersion2</ProxyControlRevision>
 			<ActivationDistance d:type="sFloat32">1000</ActivationDistance>
 			<Sound>
-				<kLoud-cSingleSampleSound d:id="233693">
+				<kLoud-cSingleSampleSound d:id="1283">
 					<Name d:type="cDeltaString">TM25</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -22,7 +22,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233706">
+				<kLoud-cSingleSampleSound d:id="1296">
 					<Name d:type="cDeltaString">TM50</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -39,7 +39,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233719">
+				<kLoud-cSingleSampleSound d:id="1309">
 					<Name d:type="cDeltaString">TM70</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -56,7 +56,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233732">
+				<kLoud-cSingleSampleSound d:id="1322">
 					<Name d:type="cDeltaString">TM70Boost</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">95</Priority>
@@ -73,7 +73,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233745">
+				<kLoud-cSingleSampleSound d:id="1335">
 					<Name d:type="cDeltaString">TM90</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
@@ -90,11 +90,11 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233758">
+				<kLoud-cSingleSampleSound d:id="1348">
 					<Name d:type="cDeltaString">Prevody01</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
-					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<BaseVolume d:type="sFloat32">0.75</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
@@ -107,11 +107,11 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233771">
+				<kLoud-cSingleSampleSound d:id="1361">
 					<Name d:type="cDeltaString">Prevody02</Name>
 					<IsLooped d:type="bool">0</IsLooped>
 					<Priority d:type="sUInt32">100</Priority>
-					<BaseVolume d:type="sFloat32">1</BaseVolume>
+					<BaseVolume d:type="sFloat32">0.75</BaseVolume>
 					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
 					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
 					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
@@ -124,24 +124,7 @@
 						</kLoud-cSampleID>
 					</Sample>
 				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233784">
-					<Name d:type="cDeltaString">TMSingle</Name>
-					<IsLooped d:type="bool">1</IsLooped>
-					<Priority d:type="sUInt32">75</Priority>
-					<BaseVolume d:type="sFloat32">0.8</BaseVolume>
-					<VolumeVariation d:type="sFloat32">0</VolumeVariation>
-					<BasePitchShift d:type="sFloat32">1</BasePitchShift>
-					<PitchShiftVariation d:type="sFloat32">0</PitchShiftVariation>
-					<AttenuationStartDist d:type="sFloat32">15</AttenuationStartDist>
-					<NoFutherAttenuationDist d:type="sFloat32">150</NoFutherAttenuationDist>
-					<InstanceGroup d:type="ref">0</InstanceGroup>
-					<Sample>
-						<kLoud-cSampleID>
-							<Filename d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Electric\460\Engine\460_TM.dav</Filename>
-						</kLoud-cSampleID>
-					</Sample>
-				</kLoud-cSingleSampleSound>
-				<kLoud-cSingleSampleSound d:id="233797">
+				<kLoud-cSingleSampleSound d:id="1374">
 					<Name d:type="cDeltaString">TMBoost</Name>
 					<IsLooped d:type="bool">1</IsLooped>
 					<Priority d:type="sUInt32">75</Priority>
@@ -160,314 +143,284 @@
 				</kLoud-cSingleSampleSound>
 			</Sound>
 			<Curve>
-				<kLoud-cCurve d:id="233811">
+				<kLoud-cCurve d:id="1388">
 					<Name d:type="cDeltaString">TM25Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233814">
+						<kLoud-cRVector2 d:id="1391">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0.4</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233817">
+						<kLoud-cRVector2 d:id="1394">
+							<X d:type="sFloat32">11</X>
+							<Y d:type="sFloat32">0.7</Y>
+						</kLoud-cRVector2>
+						<kLoud-cRVector2 d:id="1397">
 							<X d:type="sFloat32">40</X>
 							<Y d:type="sFloat32">1.525</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233820">
+				<kLoud-cCurve d:id="1400">
 					<Name d:type="cDeltaString">TM25Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233823">
-							<X d:type="sFloat32">5</X>
+						<kLoud-cRVector2 d:id="1403">
+							<X d:type="sFloat32">0.05</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233826">
-							<X d:type="sFloat32">20</X>
+						<kLoud-cRVector2 d:id="1406">
+							<X d:type="sFloat32">10</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233829">
+						<kLoud-cRVector2 d:id="1409">
 							<X d:type="sFloat32">29</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233832">
+						<kLoud-cRVector2 d:id="1412">
 							<X d:type="sFloat32">40</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233835">
+				<kLoud-cCurve d:id="1415">
 					<Name d:type="cDeltaString">TM50Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233838">
+						<kLoud-cRVector2 d:id="1418">
 							<X d:type="sFloat32">20</X>
 							<Y d:type="sFloat32">0.575</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233841">
+						<kLoud-cRVector2 d:id="1421">
 							<X d:type="sFloat32">70</X>
 							<Y d:type="sFloat32">1.35</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233844">
+				<kLoud-cCurve d:id="1424">
 					<Name d:type="cDeltaString">TM50Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233847">
+						<kLoud-cRVector2 d:id="1427">
 							<X d:type="sFloat32">27</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233850">
+						<kLoud-cRVector2 d:id="1430">
 							<X d:type="sFloat32">40</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233853">
+						<kLoud-cRVector2 d:id="1433">
 							<X d:type="sFloat32">55</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233856">
+						<kLoud-cRVector2 d:id="1436">
 							<X d:type="sFloat32">70</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233859">
+				<kLoud-cCurve d:id="1439">
 					<Name d:type="cDeltaString">TM70Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233862">
+						<kLoud-cRVector2 d:id="1442">
 							<X d:type="sFloat32">50</X>
 							<Y d:type="sFloat32">0.65</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233865">
+						<kLoud-cRVector2 d:id="1445">
 							<X d:type="sFloat32">85</X>
 							<Y d:type="sFloat32">1.2</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233868">
+				<kLoud-cCurve d:id="1448">
 					<Name d:type="cDeltaString">TM70Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233871">
+						<kLoud-cRVector2 d:id="1451">
 							<X d:type="sFloat32">50</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233874">
+						<kLoud-cRVector2 d:id="1454">
 							<X d:type="sFloat32">65</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233877">
+						<kLoud-cRVector2 d:id="1457">
 							<X d:type="sFloat32">75</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233880">
+						<kLoud-cRVector2 d:id="1460">
 							<X d:type="sFloat32">85</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233883">
+				<kLoud-cCurve d:id="1463">
 					<Name d:type="cDeltaString">TM Ampermetr</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233886">
+						<kLoud-cRVector2 d:id="1466">
 							<X d:type="sFloat32">-350</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233889">
+						<kLoud-cRVector2 d:id="1469">
 							<X d:type="sFloat32">-100</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233892">
+						<kLoud-cRVector2 d:id="1472">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233895">
+						<kLoud-cRVector2 d:id="1475">
 							<X d:type="sFloat32">100</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233898">
+						<kLoud-cRVector2 d:id="1478">
 							<X d:type="sFloat32">350</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233901">
+				<kLoud-cCurve d:id="1481">
 					<Name d:type="cDeltaString">AIpovol</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233904">
+						<kLoud-cRVector2 d:id="1484">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233907">
+						<kLoud-cRVector2 d:id="1487">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233910">
+				<kLoud-cCurve d:id="1490">
 					<Name d:type="cDeltaString">AIblok</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233913">
+						<kLoud-cRVector2 d:id="1493">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233916">
+						<kLoud-cRVector2 d:id="1496">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233919">
+				<kLoud-cCurve d:id="1499">
 					<Name d:type="cDeltaString">TM90Pitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233922">
+						<kLoud-cRVector2 d:id="1502">
 							<X d:type="sFloat32">75</X>
 							<Y d:type="sFloat32">0.7</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233925">
+						<kLoud-cRVector2 d:id="1505">
 							<X d:type="sFloat32">130</X>
 							<Y d:type="sFloat32">1.3</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233928">
+				<kLoud-cCurve d:id="1508">
 					<Name d:type="cDeltaString">TM90Hlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233931">
+						<kLoud-cRVector2 d:id="1511">
 							<X d:type="sFloat32">75</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233934">
+						<kLoud-cRVector2 d:id="1514">
 							<X d:type="sFloat32">85</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233937">
+				<kLoud-cCurve d:id="1517">
 					<Name d:type="cDeltaString">MuteSounds</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233940">
+						<kLoud-cRVector2 d:id="1520">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233943">
+						<kLoud-cRVector2 d:id="1523">
 							<X d:type="sFloat32">1</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233946">
-					<Name d:type="cDeltaString">PrevodyxVykon</Name>
-					<CurvePoint>
-						<kLoud-cRVector2 d:id="233949">
-							<X d:type="sFloat32">0</X>
-							<Y d:type="sFloat32">0</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233952">
-							<X d:type="sFloat32">0.5</X>
-							<Y d:type="sFloat32">0.5</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233955">
-							<X d:type="sFloat32">0.7</X>
-							<Y d:type="sFloat32">1</Y>
-						</kLoud-cRVector2>
-					</CurvePoint>
-				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233958">
+				<kLoud-cCurve d:id="1526">
 					<Name d:type="cDeltaString">Distance Volume Curve</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="233961">
+						<kLoud-cRVector2 d:id="1529">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233964">
+						<kLoud-cRVector2 d:id="1532">
 							<X d:type="sFloat32">100</X>
 							<Y d:type="sFloat32">0.8</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233967">
+						<kLoud-cRVector2 d:id="1535">
 							<X d:type="sFloat32">400</X>
 							<Y d:type="sFloat32">0.6</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233970">
+						<kLoud-cRVector2 d:id="1538">
 							<X d:type="sFloat32">1600</X>
 							<Y d:type="sFloat32">0.2</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233973">
+						<kLoud-cRVector2 d:id="1541">
 							<X d:type="sFloat32">6400</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233976">
+						<kLoud-cRVector2 d:id="1544">
 							<X d:type="sFloat32">25600</X>
 							<Y d:type="sFloat32">0.03125</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233979">
+						<kLoud-cRVector2 d:id="1547">
 							<X d:type="sFloat32">102400</X>
 							<Y d:type="sFloat32">0.015625</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233982">
+						<kLoud-cRVector2 d:id="1550">
 							<X d:type="sFloat32">409600</X>
 							<Y d:type="sFloat32">0.007813</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233985">
+						<kLoud-cRVector2 d:id="1553">
 							<X d:type="sFloat32">1638400</X>
 							<Y d:type="sFloat32">0.003906</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233988">
+						<kLoud-cRVector2 d:id="1556">
 							<X d:type="sFloat32">6553600</X>
 							<Y d:type="sFloat32">0.001953</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="233991">
+						<kLoud-cRVector2 d:id="1559">
 							<X d:type="sFloat32">1.024E+07</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="233994">
-					<Name d:type="cDeltaString">TMSingleHlasitost</Name>
-					<CurvePoint>
-						<kLoud-cRVector2 d:id="233997">
-							<X d:type="sFloat32">1</X>
-							<Y d:type="sFloat32">0</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="234000">
-							<X d:type="sFloat32">5</X>
-							<Y d:type="sFloat32">0.6</Y>
-						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="234003">
-							<X d:type="sFloat32">20</X>
-							<Y d:type="sFloat32">1</Y>
-						</kLoud-cRVector2>
-					</CurvePoint>
-				</kLoud-cCurve>
-				<kLoud-cCurve d:id="234006">
+				<kLoud-cCurve d:id="1562">
 					<Name d:type="cDeltaString">TMSinglePitch</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="234009">
+						<kLoud-cRVector2 d:id="1565">
 							<X d:type="sFloat32">0</X>
 							<Y d:type="sFloat32">0.1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="234012">
+						<kLoud-cRVector2 d:id="1568">
 							<X d:type="sFloat32">35</X>
 							<Y d:type="sFloat32">1.5</Y>
 						</kLoud-cRVector2>
 					</CurvePoint>
 				</kLoud-cCurve>
-				<kLoud-cCurve d:id="234015">
+				<kLoud-cCurve d:id="1571">
 					<Name d:type="cDeltaString">TMBoostHlasitost</Name>
 					<CurvePoint>
-						<kLoud-cRVector2 d:id="234018">
+						<kLoud-cRVector2 d:id="1574">
 							<X d:type="sFloat32">15</X>
 							<Y d:type="sFloat32">0</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="234021">
+						<kLoud-cRVector2 d:id="1577">
 							<X d:type="sFloat32">20</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="234024">
+						<kLoud-cRVector2 d:id="1580">
 							<X d:type="sFloat32">20</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="234027">
+						<kLoud-cRVector2 d:id="1583">
 							<X d:type="sFloat32">25</X>
 							<Y d:type="sFloat32">1</Y>
 						</kLoud-cRVector2>
-						<kLoud-cRVector2 d:id="234030">
+						<kLoud-cRVector2 d:id="1586">
 							<X d:type="sFloat32">30</X>
 							<Y d:type="sFloat32">0.5</Y>
 						</kLoud-cRVector2>
@@ -475,289 +428,284 @@
 				</kLoud-cCurve>
 			</Curve>
 			<ModifierChain>
-				<kLoud-cModifierChain d:id="234034">
+				<kLoud-cModifierChain d:id="1590">
 					<Name d:type="cDeltaString">TM25</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234037">
+						<kLoud-cPitchCurveModifier d:id="1593">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233811</Curve>
+							<Curve d:type="ref">1388</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234041">
+						<kLoud-cVolumeCurveModifier d:id="1597">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233820</Curve>
+							<Curve d:type="ref">1400</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234045">
+						<kLoud-cVolumeCurveModifier d:id="1601">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
-							<Curve d:type="ref">233883</Curve>
+							<Curve d:type="ref">1463</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234049">
+						<kLoud-cVolumeCurveModifier d:id="1605">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
-							<Curve d:type="ref">233937</Curve>
+							<Curve d:type="ref">1517</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234053">
+						<kLoud-cVolumeCurveModifier d:id="1609">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234057">
+				<kLoud-cModifierChain d:id="1613">
 					<Name d:type="cDeltaString">TM50</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234060">
+						<kLoud-cPitchCurveModifier d:id="1616">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233835</Curve>
+							<Curve d:type="ref">1415</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234064">
+						<kLoud-cVolumeCurveModifier d:id="1620">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233844</Curve>
+							<Curve d:type="ref">1424</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234068">
+						<kLoud-cVolumeCurveModifier d:id="1624">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
-							<Curve d:type="ref">233883</Curve>
+							<Curve d:type="ref">1463</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234072">
+						<kLoud-cVolumeCurveModifier d:id="1628">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
-							<Curve d:type="ref">233937</Curve>
+							<Curve d:type="ref">1517</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234076">
+						<kLoud-cVolumeCurveModifier d:id="1632">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234080">
+				<kLoud-cModifierChain d:id="1636">
 					<Name d:type="cDeltaString">TM70</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234083">
+						<kLoud-cPitchCurveModifier d:id="1639">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233859</Curve>
+							<Curve d:type="ref">1439</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234087">
+						<kLoud-cVolumeCurveModifier d:id="1643">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233868</Curve>
+							<Curve d:type="ref">1448</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234091">
+						<kLoud-cVolumeCurveModifier d:id="1647">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
-							<Curve d:type="ref">233883</Curve>
+							<Curve d:type="ref">1463</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234095">
+						<kLoud-cVolumeCurveModifier d:id="1651">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
-							<Curve d:type="ref">233937</Curve>
+							<Curve d:type="ref">1517</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234099">
+						<kLoud-cVolumeCurveModifier d:id="1655">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234103">
+				<kLoud-cModifierChain d:id="1659">
 					<Name d:type="cDeltaString">AITM25</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234106">
+						<kLoud-cPitchCurveModifier d:id="1662">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233811</Curve>
+							<Curve d:type="ref">1388</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234110">
+						<kLoud-cVolumeCurveModifier d:id="1666">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233820</Curve>
+							<Curve d:type="ref">1400</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234114">
+						<kLoud-cVolumeCurveModifier d:id="1670">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">233901</Curve>
+							<Curve d:type="ref">1481</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234118">
+						<kLoud-cVolumeCurveModifier d:id="1674">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234122">
+				<kLoud-cModifierChain d:id="1678">
 					<Name d:type="cDeltaString">AITM50</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234125">
+						<kLoud-cPitchCurveModifier d:id="1681">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233835</Curve>
+							<Curve d:type="ref">1415</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234129">
+						<kLoud-cVolumeCurveModifier d:id="1685">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233844</Curve>
+							<Curve d:type="ref">1424</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234133">
+						<kLoud-cVolumeCurveModifier d:id="1689">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">233901</Curve>
+							<Curve d:type="ref">1481</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234137">
+						<kLoud-cVolumeCurveModifier d:id="1693">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234141">
+				<kLoud-cModifierChain d:id="1697">
 					<Name d:type="cDeltaString">AITM70</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234144">
+						<kLoud-cPitchCurveModifier d:id="1700">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233859</Curve>
+							<Curve d:type="ref">1439</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234148">
+						<kLoud-cVolumeCurveModifier d:id="1704">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233868</Curve>
+							<Curve d:type="ref">1448</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234152">
+						<kLoud-cVolumeCurveModifier d:id="1708">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">233901</Curve>
+							<Curve d:type="ref">1481</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234156">
+						<kLoud-cVolumeCurveModifier d:id="1712">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234160">
+				<kLoud-cModifierChain d:id="1716">
 					<Name d:type="cDeltaString">TM90</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234163">
+						<kLoud-cPitchCurveModifier d:id="1719">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233919</Curve>
+							<Curve d:type="ref">1499</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234167">
+						<kLoud-cVolumeCurveModifier d:id="1723">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233928</Curve>
+							<Curve d:type="ref">1508</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234171">
+						<kLoud-cVolumeCurveModifier d:id="1727">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
-							<Curve d:type="ref">233883</Curve>
+							<Curve d:type="ref">1463</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234175">
+						<kLoud-cVolumeCurveModifier d:id="1731">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
-							<Curve d:type="ref">233937</Curve>
+							<Curve d:type="ref">1517</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234179">
+						<kLoud-cVolumeCurveModifier d:id="1735">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234183">
+				<kLoud-cModifierChain d:id="1739">
 					<Name d:type="cDeltaString">AITM90</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234186">
+						<kLoud-cPitchCurveModifier d:id="1742">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233919</Curve>
+							<Curve d:type="ref">1499</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234190">
+						<kLoud-cVolumeCurveModifier d:id="1746">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233928</Curve>
+							<Curve d:type="ref">1508</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234194">
+						<kLoud-cVolumeCurveModifier d:id="1750">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">AI</ControllerName>
-							<Curve d:type="ref">233901</Curve>
+							<Curve d:type="ref">1481</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234198">
+						<kLoud-cVolumeCurveModifier d:id="1754">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234202">
+				<kLoud-cModifierChain d:id="1758">
 					<Name d:type="cDeltaString">PrevodyXVykon</Name>
 					<Modifier>
-						<kLoud-cVolumeCurveModifier d:id="234205">
+						<kLoud-cVolumeCurveModifier d:id="1761">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">Regulator</ControllerName>
-							<Curve d:type="ref">233946</Curve>
+							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
+							<Curve d:type="ref">1463</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234209">
+						<kLoud-cVolumeCurveModifier d:id="1765">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
+							<Curve d:type="ref">1517</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="1769">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
-							<Curve d:type="ref">233958</Curve>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234213">
-					<Name d:type="cDeltaString">TMSingle</Name>
-					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234216">
-							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">234006</Curve>
-						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234220">
-							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">233994</Curve>
-						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234224">
-							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
-							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
-							<Curve d:type="ref">233883</Curve>
-						</kLoud-cVolumeCurveModifier>
-					</Modifier>
-				</kLoud-cModifierChain>
-				<kLoud-cModifierChain d:id="234228">
+				<kLoud-cModifierChain d:id="1773">
 					<Name d:type="cDeltaString">TMBoost</Name>
 					<Modifier>
-						<kLoud-cPitchCurveModifier d:id="234231">
+						<kLoud-cPitchCurveModifier d:id="1776">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">234006</Curve>
+							<Curve d:type="ref">1562</Curve>
 						</kLoud-cPitchCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234235">
+						<kLoud-cVolumeCurveModifier d:id="1780">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-							<Curve d:type="ref">234015</Curve>
+							<Curve d:type="ref">1571</Curve>
 						</kLoud-cVolumeCurveModifier>
-						<kLoud-cVolumeCurveModifier d:id="234239">
+						<kLoud-cVolumeCurveModifier d:id="1784">
 							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
 							<ControllerName d:type="cDeltaString">Ampermetr</ControllerName>
-							<Curve d:type="ref">233883</Curve>
+							<Curve d:type="ref">1463</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="1788">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">MuteSounds</ControllerName>
+							<Curve d:type="ref">1517</Curve>
+						</kLoud-cVolumeCurveModifier>
+						<kLoud-cVolumeCurveModifier d:id="1792">
+							<ControllerIsGlobal d:type="bool">0</ControllerIsGlobal>
+							<ControllerName d:type="cDeltaString">ListenerDistanceSquared</ControllerName>
+							<Curve d:type="ref">1526</Curve>
 						</kLoud-cVolumeCurveModifier>
 					</Modifier>
 				</kLoud-cModifierChain>
 			</ModifierChain>
 			<InstanceGroup />
 			<Loop>
-				<kLoud-cControlledLoop d:id="234245">
+				<kLoud-cControlledLoop d:id="1798">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM25</Name>
-					<Sound d:type="ref">233693</Sound>
-					<ModifierChain d:type="ref">234034</ModifierChain>
+					<Sound d:type="ref">1283</Sound>
+					<ModifierChain d:type="ref">1590</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
@@ -765,11 +713,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234256">
+				<kLoud-cControlledLoop d:id="1809">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM50</Name>
-					<Sound d:type="ref">233706</Sound>
-					<ModifierChain d:type="ref">234057</ModifierChain>
+					<Sound d:type="ref">1296</Sound>
+					<ModifierChain d:type="ref">1613</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">20</ActiveRangeStartValue>
@@ -777,11 +725,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234267">
+				<kLoud-cControlledLoop d:id="1820">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM70</Name>
-					<Sound d:type="ref">233719</Sound>
-					<ModifierChain d:type="ref">234080</ModifierChain>
+					<Sound d:type="ref">1309</Sound>
+					<ModifierChain d:type="ref">1636</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">50</ActiveRangeStartValue>
@@ -789,11 +737,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234278">
+				<kLoud-cControlledLoop d:id="1831">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM70Boost</Name>
-					<Sound d:type="ref">233732</Sound>
-					<ModifierChain d:type="ref">234080</ModifierChain>
+					<Sound d:type="ref">1322</Sound>
+					<ModifierChain d:type="ref">1636</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">50</ActiveRangeStartValue>
@@ -801,11 +749,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234289">
+				<kLoud-cControlledLoop d:id="1842">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM20</Name>
-					<Sound d:type="ref">233693</Sound>
-					<ModifierChain d:type="ref">234103</ModifierChain>
+					<Sound d:type="ref">1283</Sound>
+					<ModifierChain d:type="ref">1659</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">0</ActiveRangeStartValue>
@@ -813,11 +761,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">1</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234300">
+				<kLoud-cControlledLoop d:id="1853">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM50</Name>
-					<Sound d:type="ref">233706</Sound>
-					<ModifierChain d:type="ref">234122</ModifierChain>
+					<Sound d:type="ref">1296</Sound>
+					<ModifierChain d:type="ref">1678</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">20</ActiveRangeStartValue>
@@ -825,11 +773,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">1</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234311">
+				<kLoud-cControlledLoop d:id="1864">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM70</Name>
-					<Sound d:type="ref">233719</Sound>
-					<ModifierChain d:type="ref">234141</ModifierChain>
+					<Sound d:type="ref">1309</Sound>
+					<ModifierChain d:type="ref">1697</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">50</ActiveRangeStartValue>
@@ -837,11 +785,11 @@
 					<ValueIsChangingGateTime d:type="sFloat32">1</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234322">
+				<kLoud-cControlledLoop d:id="1875">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">TM90</Name>
-					<Sound d:type="ref">233745</Sound>
-					<ModifierChain d:type="ref">234160</ModifierChain>
+					<Sound d:type="ref">1335</Sound>
+					<ModifierChain d:type="ref">1716</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">70</ActiveRangeStartValue>
@@ -849,63 +797,39 @@
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234333">
+				<kLoud-cControlledLoop d:id="1886">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">AITM90</Name>
-					<Sound d:type="ref">233745</Sound>
-					<ModifierChain d:type="ref">234183</ModifierChain>
+					<Sound d:type="ref">1335</Sound>
+					<ModifierChain d:type="ref">1739</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<LoopCondition d:type="cDeltaString">ValueIsChangingUp</LoopCondition>
 					<ActiveRangeStartValue d:type="sFloat32">70</ActiveRangeStartValue>
 					<ActiveRangeEndValue d:type="sFloat32">200</ActiveRangeEndValue>
 					<ValueIsChangingGateTime d:type="sFloat32">1</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">0</InstanceGroup>
-				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234344">
-					<PlayState d:type="cDeltaString">BOTH</PlayState>
-					<Name d:type="cDeltaString">TMSingle</Name>
-					<Sound d:type="ref">0</Sound>
-					<ModifierChain d:type="ref">234213</ModifierChain>
-					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
-					<ActiveRangeStartValue d:type="sFloat32">1</ActiveRangeStartValue>
-					<ActiveRangeEndValue d:type="sFloat32">50</ActiveRangeEndValue>
-					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
-					<InstanceGroup d:type="ref">0</InstanceGroup>
-				</kLoud-cControlledLoop>
-				<kLoud-cControlledLoop d:id="234355">
-					<PlayState d:type="cDeltaString">BOTH</PlayState>
-					<Name d:type="cDeltaString">TMBoost</Name>
-					<Sound d:type="ref">0</Sound>
-					<ModifierChain d:type="ref">234228</ModifierChain>
-					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
-					<LoopCondition d:type="cDeltaString">ValueInRange</LoopCondition>
-					<ActiveRangeStartValue d:type="sFloat32">15</ActiveRangeStartValue>
-					<ActiveRangeEndValue d:type="sFloat32">50</ActiveRangeEndValue>
-					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cControlledLoop>
 			</Loop>
 			<Oneshot>
-				<kLoud-cTriggeredOneshot d:id="234367">
+				<kLoud-cTriggeredOneshot d:id="1898">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Prevody01</Name>
-					<Sound d:type="ref">233758</Sound>
-					<ModifierChain d:type="ref">234202</ModifierChain>
+					<Sound d:type="ref">1348</Sound>
+					<ModifierChain d:type="ref">1758</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
-					<TriggerValue d:type="sFloat32">2.7</TriggerValue>
+					<TriggerValue d:type="sFloat32">7</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
-				<kLoud-cTriggeredOneshot d:id="234377">
+				<kLoud-cTriggeredOneshot d:id="1908">
 					<PlayState d:type="cDeltaString">BOTH</PlayState>
 					<Name d:type="cDeltaString">Prevody02</Name>
-					<Sound d:type="ref">233771</Sound>
-					<ModifierChain d:type="ref">234202</ModifierChain>
+					<Sound d:type="ref">1348</Sound>
+					<ModifierChain d:type="ref">1758</ModifierChain>
 					<ControllerName d:type="cDeltaString">WheelAbsoluteSpeed</ControllerName>
 					<TriggerType d:type="cDeltaString">ValueIncreasePast</TriggerType>
-					<TriggerValue d:type="sFloat32">1.1</TriggerValue>
+					<TriggerValue d:type="sFloat32">16</TriggerValue>
 					<ValueIsChangingGateTime d:type="sFloat32">0</ValueIsChangingGateTime>
 					<InstanceGroup d:type="ref">0</InstanceGroup>
 				</kLoud-cTriggeredOneshot>
