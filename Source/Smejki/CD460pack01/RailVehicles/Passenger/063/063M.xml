@@ -851,14 +851,14 @@
 							<Attribute name="BogieAudioControlName">
 								<cDeltaString>
 									<Element>
-										<Value />
+										<Value>Audio\RailVehicles\Passenger\063\Bogies\063_bogieSound.xml</Value>
 									</Element>
 								</cDeltaString>
 							</Attribute>
 							<Attribute name="CouplingAudioControlName">
 								<cDeltaString>
 									<Element>
-										<Value />
+										<Value>Audio\RailVehicles\coupling_sound.xml</Value>
 									</Element>
 								</cDeltaString>
 							</Attribute>
@@ -928,7 +928,7 @@
 																					<Attribute name="ProportionalBrake">
 																						<eBoolean>
 																							<Element>
-																								<Value>eFalse</Value>
+																								<Value>eTrue</Value>
 																							</Element>
 																						</eBoolean>
 																					</Attribute>
@@ -949,28 +949,28 @@
 																					<Attribute name="MaxCylinderPressure">
 																						<sFloat32>
 																							<Element>
-																								<Value>55.1</Value>
+																								<Value>90</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="PressureForMaxForce">
 																						<sFloat32>
 																							<Element>
-																								<Value>55.1</Value>
+																								<Value>70</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="MaxSystemPressure">
 																						<sFloat32>
 																							<Element>
-																								<Value>72.5189</Value>
+																								<Value>70</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
 																					<Attribute name="MinSystemPressure">
 																						<sFloat32>
 																							<Element>
-																								<Value>43.5113</Value>
+																								<Value>0</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
@@ -984,42 +984,42 @@
 																												<Attribute name="NormalFullReleasePressure">
 																													<sFloat32>
 																														<Element>
-																															<Value>72.5189</Value>
+																															<Value>110</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
 																												<Attribute name="FullServicePressure">
 																													<sFloat32>
 																														<Element>
-																															<Value>43.5113</Value>
+																															<Value>50</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
 																												<Attribute name="TrainPipeControlRatio">
 																													<sFloat32>
 																														<Element>
-																															<Value>2.53</Value>
+																															<Value>2.03</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
 																												<Attribute name="MaxEmergencyResPressure">
 																													<sFloat32>
 																														<Element>
-																															<Value>72.5189</Value>
+																															<Value>100</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
 																												<Attribute name="MaxAuxResPressure">
 																													<sFloat32>
 																														<Element>
-																															<Value>72.5189</Value>
+																															<Value>70</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
 																												<Attribute name="EmergencyApplicationPressure">
 																													<sFloat32>
 																														<Element>
-																															<Value>43.5113</Value>
+																															<Value>70</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
@@ -1075,7 +1075,7 @@
 																					<Attribute name="TripleValveRatio">
 																						<sFloat32>
 																							<Element>
-																								<Value>2.53</Value>
+																								<Value>2.5</Value>
 																							</Element>
 																						</sFloat32>
 																					</Attribute>
@@ -1681,42 +1681,7 @@
 														<Attribute name="InterfaceElements">
 															<__Indexed__cControlContainerBlueprint-cElement>
 																<Element>
-																	<Value>
-																		<cControlContainerBlueprint-cExteriorAnimation>
-																			<Element>
-																				<Value>
-																					<Attribute name="ElementName">
-																						<cDeltaString>
-																							<Element>
-																								<Value>Untitled</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="DifficultyType">
-																						<cControlContainerBlueprint-cElement-eDifficultyType>
-																							<Element>
-																								<Value>StopGo</Value>
-																							</Element>
-																						</cControlContainerBlueprint-cElement-eDifficultyType>
-																					</Attribute>
-																					<Attribute name="AnimationID">
-																						<cDeltaString>
-																							<Element>
-																								<Value />
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="AnimStyle">
-																						<cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
-																							<Element>
-																								<Value>Once</Value>
-																							</Element>
-																						</cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</cControlContainerBlueprint-cExteriorAnimation>
-																	</Value>
+																	<Value />
 																</Element>
 															</__Indexed__cControlContainerBlueprint-cElement>
 														</Attribute>
@@ -1863,42 +1828,7 @@
 														<Attribute name="InterfaceElements">
 															<__Indexed__cControlContainerBlueprint-cElement>
 																<Element>
-																	<Value>
-																		<cControlContainerBlueprint-cExteriorAnimation>
-																			<Element>
-																				<Value>
-																					<Attribute name="ElementName">
-																						<cDeltaString>
-																							<Element>
-																								<Value>Untitled</Value>
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="DifficultyType">
-																						<cControlContainerBlueprint-cElement-eDifficultyType>
-																							<Element>
-																								<Value>StopGo</Value>
-																							</Element>
-																						</cControlContainerBlueprint-cElement-eDifficultyType>
-																					</Attribute>
-																					<Attribute name="AnimationID">
-																						<cDeltaString>
-																							<Element>
-																								<Value />
-																							</Element>
-																						</cDeltaString>
-																					</Attribute>
-																					<Attribute name="AnimStyle">
-																						<cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
-																							<Element>
-																								<Value>Once</Value>
-																							</Element>
-																						</cControlContainerBlueprint-cExteriorAnimation-eAnimStyle>
-																					</Attribute>
-																				</Value>
-																			</Element>
-																		</cControlContainerBlueprint-cExteriorAnimation>
-																	</Value>
+																	<Value />
 																</Element>
 															</__Indexed__cControlContainerBlueprint-cElement>
 														</Attribute>
@@ -1932,7 +1862,7 @@
 														<Attribute name="MaximumValue">
 															<sFloat32>
 																<Element>
-																	<Value>1.12589991E+15</Value>
+																	<Value>1</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
@@ -2079,7 +2009,7 @@
 														<Attribute name="MaximumValue">
 															<sFloat32>
 																<Element>
-																	<Value>1.12589991E+15</Value>
+																	<Value>1</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
@@ -2226,7 +2156,7 @@
 														<Attribute name="MaximumValue">
 															<sFloat32>
 																<Element>
-																	<Value>1.12589991E+15</Value>
+																	<Value>1</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
@@ -2681,160 +2611,7 @@
 														<Attribute name="ChildName">
 															<cDeltaString>
 																<Element>
-																	<Value>zvukZdrzePredni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-														<Attribute name="BlueprintID">
-															<iBlueprintLibrary-cAbsoluteBlueprintID>
-																<Element>
-																	<Value>
-																		<Attribute name="BlueprintSetID">
-																			<iBlueprintLibrary-cBlueprintSetID>
-																				<Element>
-																					<Value>
-																						<Attribute name="Provider">
-																							<cDeltaString>
-																								<Element>
-																									<Value>Smejki</Value>
-																								</Element>
-																							</cDeltaString>
-																						</Attribute>
-																						<Attribute name="Product">
-																							<cDeltaString>
-																								<Element>
-																									<Value>CD460pack01</Value>
-																								</Element>
-																							</cDeltaString>
-																						</Attribute>
-																					</Value>
-																				</Element>
-																			</iBlueprintLibrary-cBlueprintSetID>
-																		</Attribute>
-																		<Attribute name="BlueprintID">
-																			<cDeltaString>
-																				<Element>
-																					<Value>Audio\RailVehicles\Passenger\063\Bogies\063_zdrzeBP.xml</Value>
-																				</Element>
-																			</cDeltaString>
-																		</Attribute>
-																	</Value>
-																</Element>
-															</iBlueprintLibrary-cAbsoluteBlueprintID>
-														</Attribute>
-														<Attribute name="Matrix">
-															<cHcRMatrix4x4>
-																<Element>
-																	<Value>
-																		<Attribute name="Element">
-																			<__Indexed__sFloat32>
-																				<Element>
-																					<Value>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0.6463737</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>8.579871</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																					</Value>
-																				</Element>
-																			</__Indexed__sFloat32>
-																		</Attribute>
-																	</Value>
-																</Element>
-															</cHcRMatrix4x4>
-														</Attribute>
-														<Attribute name="ParentNodeName">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</cEntityContainerBlueprint-sChild>
-											<cEntityContainerBlueprint-sChild>
-												<Element>
-													<Value>
-														<Attribute name="ChildName">
-															<cDeltaString>
-																<Element>
-																	<Value>zvukLoziskaPredni</Value>
+																	<Value>zvukLoziska</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -2950,12 +2727,12 @@
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>0.6463737</Value>
+																								<Value>0</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>8.579871</Value>
+																								<Value>0</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
@@ -2987,7 +2764,7 @@
 														<Attribute name="ChildName">
 															<cDeltaString>
 																<Element>
-																	<Value>zvukZdrzeZadni</Value>
+																	<Value>zvukZdrze</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -3103,165 +2880,12 @@
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>0.5729563</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>-8.647644</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																					</Value>
-																				</Element>
-																			</__Indexed__sFloat32>
-																		</Attribute>
-																	</Value>
-																</Element>
-															</cHcRMatrix4x4>
-														</Attribute>
-														<Attribute name="ParentNodeName">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</cEntityContainerBlueprint-sChild>
-											<cEntityContainerBlueprint-sChild>
-												<Element>
-													<Value>
-														<Attribute name="ChildName">
-															<cDeltaString>
-																<Element>
-																	<Value>zvukLoziskaZadni</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-														<Attribute name="BlueprintID">
-															<iBlueprintLibrary-cAbsoluteBlueprintID>
-																<Element>
-																	<Value>
-																		<Attribute name="BlueprintSetID">
-																			<iBlueprintLibrary-cBlueprintSetID>
-																				<Element>
-																					<Value>
-																						<Attribute name="Provider">
-																							<cDeltaString>
-																								<Element>
-																									<Value>Smejki</Value>
-																								</Element>
-																							</cDeltaString>
-																						</Attribute>
-																						<Attribute name="Product">
-																							<cDeltaString>
-																								<Element>
-																									<Value>CD460pack01</Value>
-																								</Element>
-																							</cDeltaString>
-																						</Attribute>
-																					</Value>
-																				</Element>
-																			</iBlueprintLibrary-cBlueprintSetID>
-																		</Attribute>
-																		<Attribute name="BlueprintID">
-																			<cDeltaString>
-																				<Element>
-																					<Value>Audio\RailVehicles\Passenger\063\Bogies\063_loziskaBP.xml</Value>
-																				</Element>
-																			</cDeltaString>
-																		</Attribute>
-																	</Value>
-																</Element>
-															</iBlueprintLibrary-cAbsoluteBlueprintID>
-														</Attribute>
-														<Attribute name="Matrix">
-															<cHcRMatrix4x4>
-																<Element>
-																	<Value>
-																		<Attribute name="Element">
-																			<__Indexed__sFloat32>
-																				<Element>
-																					<Value>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
 																								<Value>0</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
 																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0.5729563</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>-8.647644</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>

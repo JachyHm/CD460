@@ -158,7 +158,7 @@
 					<SnowFriction d:type="sFloat32">0.15</SnowFriction>
 					<SandFrictionMultiplier d:type="sFloat32">1.3</SandFrictionMultiplier>
 					<Bogey>
-						<cRailVehicleComponentBlueprint-tag_sBogey d:id="6054">
+						<cRailVehicleComponentBlueprint-tag_sBogey d:id="35801">
 							<BogeyPivotX d:type="sFloat32">8.646</BogeyPivotX>
 							<BogeyPivotY d:type="sFloat32">0.91</BogeyPivotY>
 							<BogeyBlueprint>
@@ -173,7 +173,7 @@
 								</iBlueprintLibrary-cAbsoluteBlueprintID>
 							</BogeyBlueprint>
 						</cRailVehicleComponentBlueprint-tag_sBogey>
-						<cRailVehicleComponentBlueprint-tag_sBogey d:id="6062">
+						<cRailVehicleComponentBlueprint-tag_sBogey d:id="35809">
 							<BogeyPivotX d:type="sFloat32">-8.82</BogeyPivotX>
 							<BogeyPivotY d:type="sFloat32">0.91</BogeyPivotY>
 							<BogeyBlueprint>
@@ -192,34 +192,34 @@
 					<StopgoRemapper d:type="cDeltaString"></StopgoRemapper>
 					<IntermediateRemapper d:type="cDeltaString"></IntermediateRemapper>
 					<ExpertRemapper d:type="cDeltaString"></ExpertRemapper>
-					<BogieAudioControlName d:type="cDeltaString"></BogieAudioControlName>
-					<CouplingAudioControlName d:type="cDeltaString"></CouplingAudioControlName>
+					<BogieAudioControlName d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\Passenger\063\Bogies\063_bogieSound</BogieAudioControlName>
+					<CouplingAudioControlName d:type="cDeltaString">Smejki\CD460pack01\Audio\RailVehicles\coupling_sound</CouplingAudioControlName>
 					<AnimatedBodyNodeName d:type="cDeltaString"></AnimatedBodyNodeName>
 					<MaxComfortableAcceleration d:type="sFloat32">100</MaxComfortableAcceleration>
 					<TrainBrakeAssembly>
-						<EngineSimulation-cTrainAirBrakeBlueprint d:id="6078">
+						<EngineSimulation-cTrainAirBrakeBlueprint d:id="35825">
 							<BrakeType>
-								<EngineSimulation-cTrainAirBrakeDataBlueprint d:id="6080">
+								<EngineSimulation-cTrainAirBrakeDataBlueprint d:id="35827">
 									<EquipmentType d:type="cDeltaString">eAirSinglePipe</EquipmentType>
 									<MaxForcePercentOfVehicleWeight d:type="sFloat32">130</MaxForcePercentOfVehicleWeight>
 									<Control />
 									<Handbrake />
 									<GraduatedRelease d:type="cDeltaString">eTrue</GraduatedRelease>
-									<ProportionalBrake d:type="cDeltaString">eFalse</ProportionalBrake>
+									<ProportionalBrake d:type="cDeltaString">eTrue</ProportionalBrake>
 									<MaxReleaseRate d:type="sFloat32">1E+07</MaxReleaseRate>
 									<MaxApplicationRate d:type="sFloat32">1E+07</MaxApplicationRate>
-									<MaxCylinderPressure d:type="sFloat32">55.1</MaxCylinderPressure>
-									<PressureForMaxForce d:type="sFloat32">55.1</PressureForMaxForce>
-									<MaxSystemPressure d:type="sFloat32">72.5189</MaxSystemPressure>
-									<MinSystemPressure d:type="sFloat32">43.5113</MinSystemPressure>
+									<MaxCylinderPressure d:type="sFloat32">90</MaxCylinderPressure>
+									<PressureForMaxForce d:type="sFloat32">70</PressureForMaxForce>
+									<MaxSystemPressure d:type="sFloat32">70</MaxSystemPressure>
+									<MinSystemPressure d:type="sFloat32">0</MinSystemPressure>
 									<Distributor>
-										<EngineSimulation-cBrakeDistributorBlueprint d:id="6094">
-											<NormalFullReleasePressure d:type="sFloat32">72.5189</NormalFullReleasePressure>
-											<FullServicePressure d:type="sFloat32">43.5113</FullServicePressure>
-											<TrainPipeControlRatio d:type="sFloat32">2.53</TrainPipeControlRatio>
-											<MaxEmergencyResPressure d:type="sFloat32">72.5189</MaxEmergencyResPressure>
-											<MaxAuxResPressure d:type="sFloat32">72.5189</MaxAuxResPressure>
-											<EmergencyApplicationPressure d:type="sFloat32">43.5113</EmergencyApplicationPressure>
+										<EngineSimulation-cBrakeDistributorBlueprint d:id="35841">
+											<NormalFullReleasePressure d:type="sFloat32">110</NormalFullReleasePressure>
+											<FullServicePressure d:type="sFloat32">50</FullServicePressure>
+											<TrainPipeControlRatio d:type="sFloat32">2.03</TrainPipeControlRatio>
+											<MaxEmergencyResPressure d:type="sFloat32">100</MaxEmergencyResPressure>
+											<MaxAuxResPressure d:type="sFloat32">70</MaxAuxResPressure>
+											<EmergencyApplicationPressure d:type="sFloat32">70</EmergencyApplicationPressure>
 										</EngineSimulation-cBrakeDistributorBlueprint>
 									</Distributor>
 									<EmergencyBraking />
@@ -228,7 +228,7 @@
 									<PressureGainedFromOnePipePounds d:type="sFloat32">100</PressureGainedFromOnePipePounds>
 									<RetainerType d:type="cDeltaString">eNoRetainer</RetainerType>
 									<TripleValve d:type="cDeltaString">eFalse</TripleValve>
-									<TripleValveRatio d:type="sFloat32">2.53</TripleValveRatio>
+									<TripleValveRatio d:type="sFloat32">2.5</TripleValveRatio>
 									<RetainerSlowReleaseRate d:type="sFloat32">15</RetainerSlowReleaseRate>
 								</EngineSimulation-cTrainAirBrakeDataBlueprint>
 							</BrakeType>
@@ -348,7 +348,7 @@
 					<MinimalHUDControlsPath d:type="cDeltaString"></MinimalHUDControlsPath>
 					<HUDControlsTexturePath d:type="cDeltaString"></HUDControlsTexturePath>
 					<ControlValues>
-						<cControlContainerBlueprint-cControlValue d:id="6170">
+						<cControlContainerBlueprint-cControlValue d:id="35917">
 							<ControlName d:type="cDeltaString">DoorsOpenCloseRight</ControlName>
 							<DefaultValue d:type="sFloat32">0</DefaultValue>
 							<MinimumValue d:type="sFloat32">0</MinimumValue>
@@ -371,16 +371,9 @@
 							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
 							<ApplyToConsist d:type="cDeltaString">eFalse</ApplyToConsist>
 							<HUDControlID d:type="sUInt32">0</HUDControlID>
-							<InterfaceElements>
-								<cControlContainerBlueprint-cExteriorAnimation d:id="6191">
-									<ElementName d:type="cDeltaString">Untitled</ElementName>
-									<DifficultyType d:type="cDeltaString">StopGo</DifficultyType>
-									<AnimationID d:type="cDeltaString"></AnimationID>
-									<AnimStyle d:type="cDeltaString">Once</AnimStyle>
-								</cControlContainerBlueprint-cExteriorAnimation>
-							</InterfaceElements>
+							<InterfaceElements />
 						</cControlContainerBlueprint-cControlValue>
-						<cControlContainerBlueprint-cControlValue d:id="6196">
+						<cControlContainerBlueprint-cControlValue d:id="35938">
 							<ControlName d:type="cDeltaString">DoorsOpenCloseLeft</ControlName>
 							<DefaultValue d:type="sFloat32">0</DefaultValue>
 							<MinimumValue d:type="sFloat32">0</MinimumValue>
@@ -403,20 +396,13 @@
 							<DetailedDescription d:type="cDeltaString"></DetailedDescription>
 							<ApplyToConsist d:type="cDeltaString">eFalse</ApplyToConsist>
 							<HUDControlID d:type="sUInt32">0</HUDControlID>
-							<InterfaceElements>
-								<cControlContainerBlueprint-cExteriorAnimation d:id="6217">
-									<ElementName d:type="cDeltaString">Untitled</ElementName>
-									<DifficultyType d:type="cDeltaString">StopGo</DifficultyType>
-									<AnimationID d:type="cDeltaString"></AnimationID>
-									<AnimStyle d:type="cDeltaString">Once</AnimStyle>
-								</cControlContainerBlueprint-cExteriorAnimation>
-							</InterfaceElements>
+							<InterfaceElements />
 						</cControlContainerBlueprint-cControlValue>
-						<cControlContainerBlueprint-cControlValue d:id="6222">
+						<cControlContainerBlueprint-cControlValue d:id="35959">
 							<ControlName d:type="cDeltaString">mgVS</ControlName>
 							<DefaultValue d:type="sFloat32">0</DefaultValue>
 							<MinimumValue d:type="sFloat32">0</MinimumValue>
-							<MaximumValue d:type="sFloat32">1.12589991E+15</MaximumValue>
+							<MaximumValue d:type="sFloat32">1</MaximumValue>
 							<BriefDescription d:type="cDeltaString"></BriefDescription>
 							<LocalisedControlName>
 								<Localisation-cUserLocalisedString>
@@ -437,11 +423,11 @@
 							<HUDControlID d:type="sUInt32">0</HUDControlID>
 							<InterfaceElements />
 						</cControlContainerBlueprint-cControlValue>
-						<cControlContainerBlueprint-cControlValue d:id="6243">
+						<cControlContainerBlueprint-cControlValue d:id="35980">
 							<ControlName d:type="cDeltaString">mg</ControlName>
 							<DefaultValue d:type="sFloat32">0</DefaultValue>
 							<MinimumValue d:type="sFloat32">0</MinimumValue>
-							<MaximumValue d:type="sFloat32">1.12589991E+15</MaximumValue>
+							<MaximumValue d:type="sFloat32">1</MaximumValue>
 							<BriefDescription d:type="cDeltaString"></BriefDescription>
 							<LocalisedControlName>
 								<Localisation-cUserLocalisedString>
@@ -462,11 +448,11 @@
 							<HUDControlID d:type="sUInt32">0</HUDControlID>
 							<InterfaceElements />
 						</cControlContainerBlueprint-cControlValue>
-						<cControlContainerBlueprint-cControlValue d:id="6264">
+						<cControlContainerBlueprint-cControlValue d:id="36001">
 							<ControlName d:type="cDeltaString">mgPriprava</ControlName>
 							<DefaultValue d:type="sFloat32">0</DefaultValue>
 							<MinimumValue d:type="sFloat32">0</MinimumValue>
-							<MaximumValue d:type="sFloat32">1.12589991E+15</MaximumValue>
+							<MaximumValue d:type="sFloat32">1</MaximumValue>
 							<BriefDescription d:type="cDeltaString"></BriefDescription>
 							<LocalisedControlName>
 								<Localisation-cUserLocalisedString>
@@ -494,42 +480,42 @@
 			<CargoComponent>
 				<cCargoComponentBlueprint>
 					<CargoDef>
-						<cPassengerDoorwayDef d:id="6288">
+						<cPassengerDoorwayDef d:id="36025">
 							<Name d:type="cDeltaString">DvereLevePredni</Name>
 							<DoorSide d:type="cDeltaString">LHS</DoorSide>
 							<OffsetX d:type="sFloat32">-1.42751</OffsetX>
 							<OffsetZ d:type="sFloat32">11.23446</OffsetZ>
 							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
 						</cPassengerDoorwayDef>
-						<cPassengerDoorwayDef d:id="6294">
+						<cPassengerDoorwayDef d:id="36031">
 							<Name d:type="cDeltaString">DvereLeveProstredni</Name>
 							<DoorSide d:type="cDeltaString">LHS</DoorSide>
 							<OffsetX d:type="sFloat32">-1.3356</OffsetX>
 							<OffsetZ d:type="sFloat32">0.0414</OffsetZ>
 							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
 						</cPassengerDoorwayDef>
-						<cPassengerDoorwayDef d:id="6300">
+						<cPassengerDoorwayDef d:id="36037">
 							<Name d:type="cDeltaString">DvereLeveZadni</Name>
 							<DoorSide d:type="cDeltaString">LHS</DoorSide>
 							<OffsetX d:type="sFloat32">-1.42845</OffsetX>
 							<OffsetZ d:type="sFloat32">-11.13657</OffsetZ>
 							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
 						</cPassengerDoorwayDef>
-						<cPassengerDoorwayDef d:id="6306">
+						<cPassengerDoorwayDef d:id="36043">
 							<Name d:type="cDeltaString">DverePravePredni</Name>
 							<DoorSide d:type="cDeltaString">RHS</DoorSide>
 							<OffsetX d:type="sFloat32">1.43393</OffsetX>
 							<OffsetZ d:type="sFloat32">11.28886</OffsetZ>
 							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
 						</cPassengerDoorwayDef>
-						<cPassengerDoorwayDef d:id="6312">
+						<cPassengerDoorwayDef d:id="36049">
 							<Name d:type="cDeltaString">DverePraveProstredni</Name>
 							<DoorSide d:type="cDeltaString">RHS</DoorSide>
 							<OffsetX d:type="sFloat32">1.34658</OffsetX>
 							<OffsetZ d:type="sFloat32">0.0414</OffsetZ>
 							<RatePerSecond d:type="sFloat32">100</RatePerSecond>
 						</cPassengerDoorwayDef>
-						<cPassengerDoorwayDef d:id="6318">
+						<cPassengerDoorwayDef d:id="36055">
 							<Name d:type="cDeltaString">DverePraveZadni</Name>
 							<DoorSide d:type="cDeltaString">RHS</DoorSide>
 							<OffsetX d:type="sFloat32">1.43641</OffsetX>
@@ -554,45 +540,8 @@
 				<cEntityContainerBlueprint>
 					<TrackTerrainInEditor d:type="bool">0</TrackTerrainInEditor>
 					<Children>
-						<cEntityContainerBlueprint-sChild d:id="6332">
-							<ChildName d:type="cDeltaString">zvukZdrzePredni</ChildName>
-							<BlueprintID>
-								<iBlueprintLibrary-cAbsoluteBlueprintID>
-									<BlueprintSetID>
-										<iBlueprintLibrary-cBlueprintSetID>
-											<Provider d:type="cDeltaString">Smejki</Provider>
-											<Product d:type="cDeltaString">CD460pack01</Product>
-										</iBlueprintLibrary-cBlueprintSetID>
-									</BlueprintSetID>
-									<BlueprintID d:type="cDeltaString">Audio\RailVehicles\Passenger\063\Bogies\063_zdrzeBP.xml</BlueprintID>
-								</iBlueprintLibrary-cAbsoluteBlueprintID>
-							</BlueprintID>
-							<Matrix>
-								<cHcRMatrix4x4>
-									<Element>
-										<e d:type="sFloat32">1</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">1</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">1</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0.6463737</e>
-										<e d:type="sFloat32">8.579871</e>
-										<e d:type="sFloat32">1</e>
-									</Element>
-								</cHcRMatrix4x4>
-							</Matrix>
-							<ParentNodeName d:type="cDeltaString"></ParentNodeName>
-						</cEntityContainerBlueprint-sChild>
-						<cEntityContainerBlueprint-sChild d:id="6358">
-							<ChildName d:type="cDeltaString">zvukLoziskaPredni</ChildName>
+						<cEntityContainerBlueprint-sChild d:id="36069">
+							<ChildName d:type="cDeltaString">zvukLoziska</ChildName>
 							<BlueprintID>
 								<iBlueprintLibrary-cAbsoluteBlueprintID>
 									<BlueprintSetID>
@@ -621,15 +570,15 @@
 										<e d:type="sFloat32">0</e>
 										<e d:type="sFloat32">0</e>
 										<e d:type="sFloat32">0.6463737</e>
-										<e d:type="sFloat32">8.579871</e>
+										<e d:type="sFloat32">0</e>
 										<e d:type="sFloat32">1</e>
 									</Element>
 								</cHcRMatrix4x4>
 							</Matrix>
 							<ParentNodeName d:type="cDeltaString"></ParentNodeName>
 						</cEntityContainerBlueprint-sChild>
-						<cEntityContainerBlueprint-sChild d:id="6384">
-							<ChildName d:type="cDeltaString">zvukZdrzeZadni</ChildName>
+						<cEntityContainerBlueprint-sChild d:id="36095">
+							<ChildName d:type="cDeltaString">zvukZdrze</ChildName>
 							<BlueprintID>
 								<iBlueprintLibrary-cAbsoluteBlueprintID>
 									<BlueprintSetID>
@@ -658,44 +607,7 @@
 										<e d:type="sFloat32">0</e>
 										<e d:type="sFloat32">0</e>
 										<e d:type="sFloat32">0.5729563</e>
-										<e d:type="sFloat32">-8.647644</e>
-										<e d:type="sFloat32">1</e>
-									</Element>
-								</cHcRMatrix4x4>
-							</Matrix>
-							<ParentNodeName d:type="cDeltaString"></ParentNodeName>
-						</cEntityContainerBlueprint-sChild>
-						<cEntityContainerBlueprint-sChild d:id="6410">
-							<ChildName d:type="cDeltaString">zvukLoziskaZadni</ChildName>
-							<BlueprintID>
-								<iBlueprintLibrary-cAbsoluteBlueprintID>
-									<BlueprintSetID>
-										<iBlueprintLibrary-cBlueprintSetID>
-											<Provider d:type="cDeltaString">Smejki</Provider>
-											<Product d:type="cDeltaString">CD460pack01</Product>
-										</iBlueprintLibrary-cBlueprintSetID>
-									</BlueprintSetID>
-									<BlueprintID d:type="cDeltaString">Audio\RailVehicles\Passenger\063\Bogies\063_loziskaBP.xml</BlueprintID>
-								</iBlueprintLibrary-cAbsoluteBlueprintID>
-							</BlueprintID>
-							<Matrix>
-								<cHcRMatrix4x4>
-									<Element>
-										<e d:type="sFloat32">1</e>
 										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">1</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">1</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0</e>
-										<e d:type="sFloat32">0.5729563</e>
-										<e d:type="sFloat32">-8.647644</e>
 										<e d:type="sFloat32">1</e>
 									</Element>
 								</cHcRMatrix4x4>

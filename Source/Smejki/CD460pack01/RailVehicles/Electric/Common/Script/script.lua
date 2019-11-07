@@ -2,6 +2,16 @@
 --**********************skript lokomotivy 460**************************--
 	-- SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 addon", "Baterie zapnute.",5,16,0,0)
 --os.execute('Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\ActualizationAutoRun\\runactualization.exe')
+
+-- addPoints, err = loadlib("c:\\Users\\Jachym\\source\\repos\\TSGui\\Debug\\TSGui.dll", "addPoints")
+-- if _G["addPoints"] then 
+--     Print("TSDll Library Loaded!")
+--     addPoints()
+-- else
+--     Print("loadlib on TSDll failed: ")
+--     Print(err)
+-- end
+
 INFO = 0
 ALERT = 1
 
@@ -1337,7 +1347,7 @@ odkalovaniJimek = false
 zkratTM = false
 zkratMG = false
 
-ADHESE_VYUZITI = 0.69
+ADHESE_VYUZITI = 0.80
 ADHESE_SUCHO = 1*ADHESE_VYUZITI
 ADHESE_VLHKO_START = 0.5*ADHESE_VYUZITI
 ADHESE_VLHKO_CAS_NABEH = 70
@@ -6727,10 +6737,11 @@ function Update (casHry)
                             --------------Adheze a skluz--------
                                 output_kN = VratTCh(Call("GetControlValue","VykonPredTrCh",0),Call("GetSpeed"))*gAbsolutniMax_kN
                                 positiveTractiveEffortForWheelslip = math.max(output_kN,0)
-                                negativeTractiveEffortForWheelslip = math.abs(math.min(output_kN,0)/math.min(pocetZapnutychVozu, pocetMG))+plynuleValce/3.8*100*max_tbc+200*Call("GetControlValue", "HandBrake", 0)
                                 if fiktivniVykonNaRizeneNeschopne then
                                     positiveTractiveEffortForWheelslip = 0
-                                    negativeTractiveEffortForWheelslip = 0
+                                    negativeTractiveEffortForWheelslip = plynuleValce/3.8*150*max_tbc+200*Call("GetControlValue", "HandBrake", 0)
+                                else
+                                    negativeTractiveEffortForWheelslip = math.abs(math.min(output_kN,0)/math.min(pocetZapnutychVozu, pocetMG))+plynuleValce/3.8*150*max_tbc+200*Call("GetControlValue", "HandBrake", 0)
                                 end
                                 tractiveEffortForWheelslip = math.abs(positiveTractiveEffortForWheelslip-negativeTractiveEffortForWheelslip)
                                 
