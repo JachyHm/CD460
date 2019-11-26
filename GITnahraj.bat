@@ -1,5 +1,4 @@
-
-git add Assets/Smejki/CD460pack01/ Source/Smejki/CD460pack01/ GITnahraj.bat GITstahni.bat
+git add Assets/Smejki/CD460pack01/ Source/Smejki/CD460pack01/ GITnahraj.bat GITstahni.bat -f
 git commit
 git push origin master
 @echo off
