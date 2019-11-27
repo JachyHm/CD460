@@ -67418,7 +67418,7 @@
 														<Attribute name="ChildName">
 															<cDeltaString>
 																<Element>
-																	<Value>SvetloBudik1</Value>
+																	<Value>SvetloAmpermetrHorni</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -67529,17 +67529,17 @@
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>0.40398</Value>
+																								<Value>0.3719182</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>2.2705</Value>
+																								<Value>2.34832</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>11.44067</Value>
+																								<Value>11.46212</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
@@ -67571,7 +67571,160 @@
 														<Attribute name="ChildName">
 															<cDeltaString>
 																<Element>
-																	<Value>SvetloBudik2</Value>
+																	<Value>SvetloAmpermetrDolni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="BlueprintID">
+															<iBlueprintLibrary-cAbsoluteBlueprintID>
+																<Element>
+																	<Value>
+																		<Attribute name="BlueprintSetID">
+																			<iBlueprintLibrary-cBlueprintSetID>
+																				<Element>
+																					<Value>
+																						<Attribute name="Provider">
+																							<cDeltaString>
+																								<Element>
+																									<Value>Smejki</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																						<Attribute name="Product">
+																							<cDeltaString>
+																								<Element>
+																									<Value>CD460pack01</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																					</Value>
+																				</Element>
+																			</iBlueprintLibrary-cBlueprintSetID>
+																		</Attribute>
+																		<Attribute name="BlueprintID">
+																			<cDeltaString>
+																				<Element>
+																					<Value>RailVehicles\Electric\Common\Lights\budik1.xml</Value>
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</iBlueprintLibrary-cAbsoluteBlueprintID>
+														</Attribute>
+														<Attribute name="Matrix">
+															<cHcRMatrix4x4>
+																<Element>
+																	<Value>
+																		<Attribute name="Element">
+																			<__Indexed__sFloat32>
+																				<Element>
+																					<Value>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0.3718149</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>2.216675</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>11.40148</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																					</Value>
+																				</Element>
+																			</__Indexed__sFloat32>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</cHcRMatrix4x4>
+														</Attribute>
+														<Attribute name="ParentNodeName">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</cEntityContainerBlueprint-sChild>
+											<cEntityContainerBlueprint-sChild>
+												<Element>
+													<Value>
+														<Attribute name="ChildName">
+															<cDeltaString>
+																<Element>
+																	<Value>SvetloVoltmetrHorni</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -67682,17 +67835,17 @@
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>0.31164</Value>
+																								<Value>0.2815662</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>2.2705</Value>
+																								<Value>2.347691</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>11.42</Value>
+																								<Value>11.45027</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
@@ -67724,7 +67877,7 @@
 														<Attribute name="ChildName">
 															<cDeltaString>
 																<Element>
-																	<Value>SvetloRychlomer</Value>
+																	<Value>SvetloVoltmetrDolni</Value>
 																</Element>
 															</cDeltaString>
 														</Attribute>
@@ -67757,7 +67910,7 @@
 																		<Attribute name="BlueprintID">
 																			<cDeltaString>
 																				<Element>
-																					<Value>RailVehicles\Electric\Common\Lights\budik3.xml</Value>
+																					<Value>RailVehicles\Electric\Common\Lights\budik2.xml</Value>
 																				</Element>
 																			</cDeltaString>
 																		</Attribute>
@@ -67835,17 +67988,17 @@
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>0.08861</Value>
+																								<Value>0.2883396</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>2.29126</Value>
+																								<Value>2.231913</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
 																							<Element>
-																								<Value>11.45</Value>
+																								<Value>11.40488</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>
@@ -71059,159 +71212,6 @@
 																						<sFloat32>
 																							<Element>
 																								<Value>11.66411</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																					</Value>
-																				</Element>
-																			</__Indexed__sFloat32>
-																		</Attribute>
-																	</Value>
-																</Element>
-															</cHcRMatrix4x4>
-														</Attribute>
-														<Attribute name="ParentNodeName">
-															<cDeltaString>
-																<Element>
-																	<Value />
-																</Element>
-															</cDeltaString>
-														</Attribute>
-													</Value>
-												</Element>
-											</cEntityContainerBlueprint-sChild>
-											<cEntityContainerBlueprint-sChild>
-												<Element>
-													<Value>
-														<Attribute name="ChildName">
-															<cDeltaString>
-																<Element>
-																	<Value>SoundHasler</Value>
-																</Element>
-															</cDeltaString>
-														</Attribute>
-														<Attribute name="BlueprintID">
-															<iBlueprintLibrary-cAbsoluteBlueprintID>
-																<Element>
-																	<Value>
-																		<Attribute name="BlueprintSetID">
-																			<iBlueprintLibrary-cBlueprintSetID>
-																				<Element>
-																					<Value>
-																						<Attribute name="Provider">
-																							<cDeltaString>
-																								<Element>
-																									<Value>Smejki</Value>
-																								</Element>
-																							</cDeltaString>
-																						</Attribute>
-																						<Attribute name="Product">
-																							<cDeltaString>
-																								<Element>
-																									<Value>CD460pack01</Value>
-																								</Element>
-																							</cDeltaString>
-																						</Attribute>
-																					</Value>
-																				</Element>
-																			</iBlueprintLibrary-cBlueprintSetID>
-																		</Attribute>
-																		<Attribute name="BlueprintID">
-																			<cDeltaString>
-																				<Element>
-																					<Value>Audio\RailVehicles\Electric\460\Cab\460_haslerBP.xml</Value>
-																				</Element>
-																			</cDeltaString>
-																		</Attribute>
-																	</Value>
-																</Element>
-															</iBlueprintLibrary-cAbsoluteBlueprintID>
-														</Attribute>
-														<Attribute name="Matrix">
-															<cHcRMatrix4x4>
-																<Element>
-																	<Value>
-																		<Attribute name="Element">
-																			<__Indexed__sFloat32>
-																				<Element>
-																					<Value>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>1</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>0.22774</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>2.18436</Value>
-																							</Element>
-																						</sFloat32>
-																						<sFloat32>
-																							<Element>
-																								<Value>11.44961</Value>
 																							</Element>
 																						</sFloat32>
 																						<sFloat32>

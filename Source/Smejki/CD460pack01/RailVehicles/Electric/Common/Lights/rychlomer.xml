@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cPointLightBlueprint>
+<cSpotLightBlueprint>
 	<Element>
 		<Value>
 			<Attribute name="Name">
 				<cDeltaString>
 					<Element>
-						<Value>Budik2</Value>
+						<Value>SvetloRychlomer</Value>
 					</Element>
 				</cDeltaString>
 			</Attribute>
@@ -397,13 +397,27 @@
 				</cPosOriBlueprint>
 			</Attribute>
 			<Attribute name="LightComponent">
-				<cPointLightComponentBlueprint>
+				<cSpotLightComponentBlueprint>
 					<Element>
 						<Value>
 							<Attribute name="Radius">
 								<sFloat32>
 									<Element>
-										<Value>0.07</Value>
+										<Value>0.15</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="Phi">
+								<sFloat32>
+									<Element>
+										<Value>50</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="Theta">
+								<sFloat32>
+									<Element>
+										<Value>45</Value>
 									</Element>
 								</sFloat32>
 							</Attribute>
@@ -414,21 +428,21 @@
 											<Attribute name="Red">
 												<sFloat32>
 													<Element>
-														<Value>1</Value>
+														<Value>0</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
 											<Attribute name="Green">
 												<sFloat32>
 													<Element>
-														<Value>0.626556</Value>
+														<Value>0.3485478</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
 											<Attribute name="Blue">
 												<sFloat32>
 													<Element>
-														<Value>0</Value>
+														<Value>0.0580913</Value>
 													</Element>
 												</sFloat32>
 											</Attribute>
@@ -473,8 +487,8 @@
 							</Attribute>
 						</Value>
 					</Element>
-				</cPointLightComponentBlueprint>
+				</cSpotLightComponentBlueprint>
 			</Attribute>
 		</Value>
 	</Element>
-</cPointLightBlueprint>
+</cSpotLightBlueprint>
