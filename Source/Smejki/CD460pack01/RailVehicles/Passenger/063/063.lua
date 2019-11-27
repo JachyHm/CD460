@@ -85,7 +85,7 @@ function Initialise()
 end
 function OnConsistMessage(zprava,argument,smer)
 	ZpravaDebug("Prijata message: "..zprava.." s argumentem: "..argument.." ve smeru: "..smer)
-	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460997 then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
+	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460997 and zprava ~= 460104 then --zprava ~= 460997 and zprava ~= 460105 and zprava ~= 460109
 		if smer == 1 and zaMasinouTornado then
 			stavPoslane = Call("SendConsistMessage",zprava,argument,1)
 			ZpravaDebug("Preposilam zpravu: "..zprava.." s argumentem: "..argument.." ve smeru: "..smer)
@@ -109,6 +109,12 @@ function OnConsistMessage(zprava,argument,smer)
 			end
 		end
 	end
+    if zprava == 460104 then
+        delimpos = string.find(argument, ":")
+        ujeteMetry = tonumber(string.sub(argument, 1, delimpos-1))
+        noveNapeti = tonumber(string.sub(argument, delimpos+1))
+		Call("SendConsistMessage",460104,(ujeteMetry-24.6)..":"..noveNapeti,smer)
+    end
 	if zprava == 460105 then
 		if argument == "00" then
 			dvereLeveZeSoupravy = false
@@ -120,7 +126,7 @@ function OnConsistMessage(zprava,argument,smer)
 			dvereLeveZeSoupravy = true
 			dvereLevePridrznyStav = true
 		end
-		Call("SendConsistMessage",460105,argument,smer)
+		--Call("SendConsistMessage",460105,argument,smer)
 	end
 	if zprava == 460106 then
 		if argument == "1" then
@@ -144,7 +150,7 @@ function OnConsistMessage(zprava,argument,smer)
 			dverePraveZeSoupravy = true
 			dverePravePridrznyStav = true
 		end
-		Call("SendConsistMessage",460109,argument,smer)
+		--Call("SendConsistMessage",460109,argument,smer)
 	end
 	if zprava == 460994 then
 		prijateZpravy[smer+1]["x"] = argument

@@ -1402,6 +1402,18 @@ kontrolerLast = 0
 
 blokujJK = false
 
+idealniNapeti = 3000
+ujeteMetry = 0
+ujeteMetryLast = 0
+noveNapeti = nil
+predchoziNapeti = 3000
+
+napetiTargetDelta = math.random()*500-200
+napetiDelta = napetiTargetDelta
+
+tvrdostNapetiTarget = math.random()
+tvrdostNapeti = tvrdostNapetiTarget
+
 modelConfig = {
     [460021] = {
         tramex = false,
@@ -1659,6 +1671,7 @@ modelConfig = {
 	gKlicTady = false
 	casSkluz = 0
     diagNU = 0
+    diagKTM = 0
     diagMG = 0
     diagDOTO = 0
 	diagPU = 0
@@ -1858,6 +1871,7 @@ end
 	-- 460101 - kl?? na druh? kabin?
     -- 460102 - vypnutí HV při nadproudu při nesprávném směru
     -- 460103 - pocet vozu se zapnutem rizenim
+    -- 460104 - zmeny NS
 	-- 460105 - dvereP
     -- 460106 - osv?tlen? vozu
     -- 460107 - skluz ve vlaku
@@ -1883,7 +1897,7 @@ end
 	-- 460998 - zadost o ID
 	-- 460999 - DUMMY
 function OnConsistMessage(zprava,argument,smer)
-	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460993 and zprava ~= 460992 and zprava ~= 460991 and zprava ~= 460997 and zprava ~= 460103 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 then
+	if zprava ~= 460995 and zprava ~= 460994 and zprava ~= 460993 and zprava ~= 460992 and zprava ~= 460991 and zprava ~= 460997 and zprava ~= 460103 and zprava ~= 460105 and zprava ~= 460109 and zprava ~= 460108 and zprava ~= 460114 and zprava ~= 460115 and zprava ~= 460116 and zprava ~= 460117 and zprava ~= 460118 and zprava ~= 460119 and zprava ~= 460104 then
 		if smer == 1 and zaMasinouTornado then
 			stavPoslane = Call("SendConsistMessage",zprava,argument,1)
 		elseif smer == 0 and predMasinouTornado then
@@ -1909,7 +1923,13 @@ function OnConsistMessage(zprava,argument,smer)
 	end
 	if zprava == 460103 then
 		ZpracujZpravuSID(zprava,argument,smer,"zapnuteVozy")
-	end
+    end
+    if zprava == 460104 then
+        delimpos = string.find(argument, ":")
+        ujeteMetry = tonumber(string.sub(argument, 1, delimpos-1))
+        noveNapeti = tonumber(string.sub(argument, delimpos+1))
+		Call("SendConsistMessage",460104,(ujeteMetry-24.464)..":"..noveNapeti,smer)
+    end
 	if zprava == 460105 then
 		if argument == "00" then
 			dvereLeveZeSoupravy = false
@@ -2083,6 +2103,30 @@ function OnCustomSignalMessage(parameter)
         zkratTM = true
     elseif parameter == "PORUCHA_MG" then
         zkratMG = true
+    elseif parameter == "0V" then
+        predchoziNapeti = idealniNapeti
+        noveNapeti = 0
+        ujeteMetry = -24.464
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
+    elseif parameter == "3000V" then
+        predchoziNapeti = idealniNapeti
+        noveNapeti = 3000
+        ujeteMetry = -24.464
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
+    elseif parameter == "15000V" then
+        predchoziNapeti = idealniNapeti
+        noveNapeti = 15000
+        ujeteMetry = -24.464
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
+    elseif parameter == "25000V" then
+        predchoziNapeti = idealniNapeti
+        noveNapeti = 25000
+        ujeteMetry = -24.464
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
+		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
     else
         local NO
         local vzdalenost
@@ -6403,7 +6447,7 @@ function Update (casHry)
                                 kontrolerLast = 0
                             end
                             if JeNouzovyRadicVS == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-                                if kontroler == 0 or (JOB == 0 and not fiktivniVykonNaRizeneNeschopne) or Smer == 0 or ((tlakVeValcich or casOJ > 1) and (vykon < 0 or kontroler < 0.25)) or zavedSnizenyVykon then 
+                                if kontroler == 0 or (JOB == 0 and not fiktivniVykonNaRizeneNeschopne) or Smer == 0 or (vykon > 0 and ojDiag == 1) or ((tlakVeValcich or casOJ > 1) and (vykon < 0 or kontroler < 0.25)) or zavedSnizenyVykon then 
                                     if kontroler == 0 then
                                         blokEDB = false
                                     end
@@ -7389,14 +7433,56 @@ function Update (casHry)
                             end
                         
                         ----------------------------------------VOLTMETR------------------------------------------
-                            local tvrdostNapeti = math.sqrt(math.sqrt(math.floor(((math.floor(os.time()/100)/100) - math.floor(math.floor(os.time()/100)/100))*100)+mm))
-                            if not fiktivniVykonNaRizeneNeschopne then
-                                napeti = ((3000 - (200 * Ammeter / 700)) - ((tvrdostNapeti-2.5) * 300)) / 3.896
+                            if otocPovely then
+                                ujeteMetry = ujeteMetry + Call("GetSpeed") * casHry
                             else
-                                napeti = (3000 - ((tvrdostNapeti-2.5) * 300)) / 3.896
+                                ujeteMetry = ujeteMetry - Call("GetSpeed") * casHry
                             end
-                            if Ammeter < 0 then
-                                napeti = (3000 - ((tvrdostNapeti-2.5) * 300)) / 3.896
+
+                            if ujeteMetry >= 0 and ujeteMetryLast < 0 then
+                                if noveNapeti ~= nil then
+                                    idealniNapeti = noveNapeti
+                                    noveNapeti = nil
+                                else
+                                    _ = idealniNapeti
+                                    idealniNapeti = predchoziNapeti
+                                    predchoziNapeti = _
+                                end
+                            end
+                            if (ujeteMetry <= 0 and ujeteMetryLast > 0) then
+                                _ = idealniNapeti
+                                idealniNapeti = predchoziNapeti
+                                predchoziNapeti = _
+                            end
+                            ujeteMetryLast = ujeteMetry
+
+                            if math.abs(napetiTargetDelta - napetiDelta) < 1 then
+                                napetiTargetDelta = math.random()*500-200
+                            end
+                            if napetiTargetDelta > napetiDelta then
+                                napetiDelta = napetiDelta + 0.01*cas
+                            else
+                                napetiDelta = napetiDelta - 0.01*cas
+                            end
+
+                            if math.abs(tvrdostNapetiTarget - tvrdostNapeti) < 1 then
+                                tvrdostNapetiTarget = math.random()*500
+                            end
+                            if tvrdostNapetiTarget > tvrdostNapeti then
+                                tvrdostNapeti = tvrdostNapeti + 0.01*cas
+                            else
+                                tvrdostNapeti = tvrdostNapeti - 0.01*cas
+                            end
+
+                            local vychoziNapeti = idealniNapeti
+                            if vychoziNapeti == 0 then
+                                napeti = 0
+                            else
+                                if not fiktivniVykonNaRizeneNeschopne and Ammeter > 0 then
+                                    napeti = ((vychoziNapeti - (Ammeter*tvrdostNapeti/400)) + napetiDelta) / 3.896
+                                else
+                                    napeti = (vychoziNapeti + napetiDelta) / 3.896
+                                end
                             end
                             if P01 == 1 and not pojezdVDepu then
                                 Call("SetControlValue","Napeti",0,napeti)
@@ -7435,24 +7521,25 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_Pretaveni",0,diagPretaveni) -- H10
                                 
                                 --*******H11 NU
-                                    if ((rychlostKolaKMHPodvozek1 > 100 or rychlostKolaKMHPodvozek2 > 100) and kontroler < -0.75) then
+                                    if Call("GetControlValue","Napeti",0) > 950 then --3700V
                                         diagNU = 1
-                                        if Call("GetControlValue","Diag_NU",0) == 0 then
-                                            -- Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-                                            -- ZamekHLvyp = 1
-                                            blokKrokNU = true
-                                            -- if vykon == -1 then
-                                            --     Call("SetControlValue","JizdniKontroler",0,-0.5)
-                                            -- end
-                                        end
+                                        Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+                                        ZamekHLvyp = 1
                                     elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
                                         diagNU = 0
-                                        blokKrokNU = false
                                     end
-                                    Call("SetControlValue","Diag_NU",0,diagNU) -- H11
+                                    --Prepetova ochrana KTM
+                                        if ((rychlostKolaKMHPodvozek1 > 100 or rychlostKolaKMHPodvozek2 > 100) and kontroler < -0.75) then
+                                            blokKrokNU = true
+                                            diagKTM = 1
+                                        elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
+                                            blokKrokNU = false
+                                            diagKTM = 0
+                                        end
+                                    Call("SetControlValue","Diag_NU",0,math.max(diagNU, diagKTM)) -- H11
                                 
                                 --*******H12 PU
-                                    if Call("GetControlValue", "povel_Reverser", 0) ~= 0 and (Call("GetControlValue","Napeti",0) < 500 and P01 == 1) then
+                                    if Call("GetControlValue","Napeti",0) < 540 and vykon ~= 0 then --2100V
                                         diagPU = 1
                                         if Call("GetControlValue","Diag_PU",0) == 0 and P01 == 1 then
                                             Call ( "SetControlValue", "HlavniVypinac", 0, 0)
@@ -7510,10 +7597,10 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_NI",0,niDiag) -- H15
                                 
                                 --*******H18 OJ
-                                    if ((vykon ~= 0 and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and vykon ~= 0 and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) or (SnizenyVykonVozu and JOB == 1)) and not fiktivniVykonNaRizeneNeschopne then
+                                    if (((vykon < 0 or vykon > 0.05) and math.abs(Ammeter) < 0.05) or (Call("GetControlValue", "Ammeter", 0) == 0 and (vykon < 0 or vykon > 0.05) and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) or (SnizenyVykonVozu and JOB == 1)) and not fiktivniVykonNaRizeneNeschopne then
                                         ojDiag = 1
                                         casOJ = casOJ + cas
-                                    elseif kontroler == 0 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or fiktivniVykonNaRizeneNeschopne then
+                                    elseif kontroler <= 0.05 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or fiktivniVykonNaRizeneNeschopne then
                                         ojDiag = 0
                                         if kontroler == 0 then
                                             casOJ = 0
@@ -7660,6 +7747,7 @@ function Update (casHry)
                             else
                                 ZamekHLvyp = 0
                                 diagNU = 0
+                                diagKTM = 0
                                 diagPU = 0
                                 skluzDiag = 0
                                 diagDOTO = 0
