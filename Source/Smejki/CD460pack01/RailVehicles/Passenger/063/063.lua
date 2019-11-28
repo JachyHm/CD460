@@ -111,9 +111,11 @@ function OnConsistMessage(zprava,argument,smer)
 	end
     if zprava == 460104 then
         delimpos = string.find(argument, ":")
+        delim2pos = string.find(argument, ";")
         ujeteMetry = tonumber(string.sub(argument, 1, delimpos-1))
-        noveNapeti = tonumber(string.sub(argument, delimpos+1))
-		Call("SendConsistMessage",460104,(ujeteMetry-24.6)..":"..noveNapeti,smer)
+        noveNapeti = tonumber(string.sub(argument, delimpos+1, delim2pos-1))
+        stareNapeti = tonumber(string.sub(argument, delim2pos+1))
+		Call("SendConsistMessage",460104,(ujeteMetry-24.6)..":"..noveNapeti..";"..stareNapeti,smer)
     end
 	if zprava == 460105 then
 		if argument == "00" then

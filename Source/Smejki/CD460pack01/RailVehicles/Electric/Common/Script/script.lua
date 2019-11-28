@@ -1403,12 +1403,10 @@ kontrolerLast = 0
 blokujJK = false
 
 idealniNapeti = 3000
-ujeteMetry = 0
-ujeteMetryLast = 0
-noveNapeti = nil
-predchoziNapeti = 3000
+tabulkaNapeti = {}
 
-napetiTargetDelta = math.random()*500-200
+napetiTargetDelta = math.random()*700-400
+napetiDeltaSpeed = math.random(1,20)
 napetiDelta = napetiTargetDelta
 
 tvrdostNapetiTarget = math.random()
@@ -1925,10 +1923,22 @@ function OnConsistMessage(zprava,argument,smer)
 		ZpracujZpravuSID(zprava,argument,smer,"zapnuteVozy")
     end
     if zprava == 460104 then
+        found = false
         delimpos = string.find(argument, ":")
+        delim2pos = string.find(argument, ";")
         ujeteMetry = tonumber(string.sub(argument, 1, delimpos-1))
-        noveNapeti = tonumber(string.sub(argument, delimpos+1))
-		Call("SendConsistMessage",460104,(ujeteMetry-24.464)..":"..noveNapeti,smer)
+        noveNapeti = tonumber(string.sub(argument, delimpos+1, delim2pos-1))
+        stareNapeti = tonumber(string.sub(argument, delim2pos+1))
+        for k, v in tabulkaNapeti do
+            if math.abs(ujeteMetry-v[1]) < 5 then
+                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, stareNapeti}
+                found = true
+            end
+        end
+        if not found then
+            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, stareNapeti}
+        end
+        Call("SendConsistMessage",460104,(ujeteMetry-24.464)..":"..noveNapeti..";"..stareNapeti,smer)
     end
 	if zprava == 460105 then
 		if argument == "00" then
@@ -2104,29 +2114,65 @@ function OnCustomSignalMessage(parameter)
     elseif parameter == "PORUCHA_MG" then
         zkratMG = true
     elseif parameter == "0V" then
-        predchoziNapeti = idealniNapeti
         noveNapeti = 0
+        found = false
         ujeteMetry = -24.464
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
+        for k, v in tabulkaNapeti do
+            if math.abs(ujeteMetry-v[1]) < 5 then
+                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                found = true
+            end
+        end
+        if not found then
+            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+        end
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     elseif parameter == "3000V" then
-        predchoziNapeti = idealniNapeti
         noveNapeti = 3000
+        found = false
         ujeteMetry = -24.464
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
+        for k, v in tabulkaNapeti do
+            if math.abs(ujeteMetry-v[1]) < 5 then
+                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                found = true
+            end
+        end
+        if not found then
+            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+        end
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     elseif parameter == "15000V" then
-        predchoziNapeti = idealniNapeti
         noveNapeti = 15000
+        found = false
         ujeteMetry = -24.464
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
+        for k, v in tabulkaNapeti do
+            if math.abs(ujeteMetry-v[1]) < 5 then
+                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                found = true
+            end
+        end
+        if not found then
+            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+        end
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     elseif parameter == "25000V" then
-        predchoziNapeti = idealniNapeti
         noveNapeti = 25000
+        found = false
         ujeteMetry = -24.464
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,0)
-		Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti,1)
+        for k, v in tabulkaNapeti do
+            if math.abs(ujeteMetry-v[1]) < 5 then
+                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                found = true
+            end
+        end
+        if not found then
+            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+        end
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     else
         local NO
         local vzdalenost
@@ -2246,11 +2292,13 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
 	
 	if stupen == 1 and baterie == 1 then
 		dalkoveLeve = true
-		dalkovePrave = true
-        if tlumene or not (levy and pravy) then
-            dalkoveHorni1 = true
-        else
-            dalkoveHorni2 = true
+        dalkovePrave = true
+        if levy or pravy then
+            if not (levy and pravy) then
+                dalkoveHorni1 = true
+            else
+                dalkoveHorni2 = true
+            end
         end
     end
 
@@ -2309,13 +2357,13 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
     end
 
     if not modelConfig[scriptVersion].led then
-        if dalkoveLeve and stavDalkoveLeve < 5 and modelConfig[scriptVersion].horniPozicka then
+        if dalkoveLeve and stavDalkoveLeve < 5 then --and modelConfig[scriptVersion].horniPozicka 
             stavDalkoveLeve = stavDalkoveLeve + (math.sqrt(5-stavDalkoveLeve)*pribytek/5)
         elseif not dalkoveLeve and stavDalkoveLeve > 0 then
             stavDalkoveLeve = stavDalkoveLeve - (math.sqrt(stavDalkoveLeve)*pribytek/5)
         end
 
-        if dalkovePrave and stavDalkovePrave < 5 and modelConfig[scriptVersion].horniPozicka then
+        if dalkovePrave and stavDalkovePrave < 5 then --and modelConfig[scriptVersion].horniPozicka 
             stavDalkovePrave = stavDalkovePrave + (math.sqrt(5-stavDalkovePrave)*pribytek/5)
         elseif not dalkovePrave and stavDalkovePrave > 0 then
             stavDalkovePrave = stavDalkovePrave - (math.sqrt(stavDalkovePrave)*pribytek/5)
@@ -3163,7 +3211,7 @@ function Update (casHry)
                             Call("SetControlValue","vysilacka_displeje",0,0)
                             Call("SetControlValue","HlavniVypinac",0,0)
                             Call("SetControlValue","VirtualStartup",0,0)
-                            Call("SetControlValue","RozProud",0,math.floor(math.random(0,5))/5)
+                            Call("SetControlValue","RozProud",0,math.floor(math.random(0,4))/4)
                         end
                         diraDoPotrubi = Call("GetControlValue", "diraDoPotrubi", 0)
                         KompresorPrep = Call("GetControlValue","HlKompPrep",0)
@@ -6248,16 +6296,10 @@ function Update (casHry)
                                 elseif dalkovaSv < 0.25 then
                                     DalkovaSvF(0,cas,baterie,false,false,false)
                                 elseif dalkovaSv < 0.75 then
-                                    DalkovaSvF(1,cas,baterie,true,true,true)
+                                    DalkovaSvF(1,cas,baterie,true,false,false)
                                 else
                                     DalkovaSvF(1,cas,baterie,false,true,true)
                                 end
-                            end
-
-                            if dalkovaSv <= 0.5 then
-                                DalkovaSvF(0,cas,baterie,false,false,false)
-                            else
-                                DalkovaSvF(1,cas,baterie,false,false,false)
                             end
 
                             local vkpc = Call("GetControlValue", "VolbaPozicKonecCelo", 0)
@@ -7394,9 +7436,9 @@ function Update (casHry)
                             end
                         ----------------------------------------Vnitrni sit---------------------------------------
                             mgZvuk = Call("GetControlValue","mgZvuk",0)
-                            if mgZvuk == 1 and napetiVS220 < 380 then
+                            if mgZvuk == 1 and napeti ~= 0 and napetiVS220 < 380 then
                                 napetiVS220 = napetiVS220 + cas * 100
-                            elseif mgZvuk == 0 and napetiVS220 > 0 then
+                            elseif (mgZvuk == 0 or napeti == 0) and napetiVS220 > 0 then
                                 napetiVS220 = napetiVS220 - cas * 10
                             end
                             if napetiVS220 > 350 and mgdocasny == 0 and mg == 1 then
@@ -7433,45 +7475,38 @@ function Update (casHry)
                             end
                         
                         ----------------------------------------VOLTMETR------------------------------------------
-                            if otocPovely then
-                                ujeteMetry = ujeteMetry + Call("GetSpeed") * casHry
-                            else
-                                ujeteMetry = ujeteMetry - Call("GetSpeed") * casHry
-                            end
-
-                            if ujeteMetry >= 0 and ujeteMetryLast < 0 then
-                                if noveNapeti ~= nil then
-                                    idealniNapeti = noveNapeti
-                                    noveNapeti = nil
+                            for k, v in tabulkaNapeti do
+                                oldTabulkaNapeti = tabulkaNapeti[k]
+                                if otocPovely then
+                                    tabulkaNapeti[k] = {oldTabulkaNapeti[1] + Call("GetSpeed") * casHry, oldTabulkaNapeti[2], oldTabulkaNapeti[3]}
                                 else
-                                    _ = idealniNapeti
-                                    idealniNapeti = predchoziNapeti
-                                    predchoziNapeti = _
+                                    tabulkaNapeti[k] = {oldTabulkaNapeti[1] - Call("GetSpeed") * casHry, oldTabulkaNapeti[2], oldTabulkaNapeti[3]}
+                                end
+
+                                if tabulkaNapeti[k][1] >= 0 and oldTabulkaNapeti[1] < 0 then
+                                    idealniNapeti = tabulkaNapeti[k][2]
+                                elseif tabulkaNapeti[k][1] <= 0 and oldTabulkaNapeti[1] > 0 then
+                                    idealniNapeti = tabulkaNapeti[k][3]
                                 end
                             end
-                            if (ujeteMetry <= 0 and ujeteMetryLast > 0) then
-                                _ = idealniNapeti
-                                idealniNapeti = predchoziNapeti
-                                predchoziNapeti = _
-                            end
-                            ujeteMetryLast = ujeteMetry
 
                             if math.abs(napetiTargetDelta - napetiDelta) < 1 then
-                                napetiTargetDelta = math.random()*500-200
+                                napetiTargetDelta = math.random()*700-400
+                                napetiDeltaSpeed = math.random(1,20)
                             end
                             if napetiTargetDelta > napetiDelta then
-                                napetiDelta = napetiDelta + 0.01*cas
+                                napetiDelta = napetiDelta + napetiDeltaSpeed*cas
                             else
-                                napetiDelta = napetiDelta - 0.01*cas
+                                napetiDelta = napetiDelta - napetiDeltaSpeed*cas
                             end
 
                             if math.abs(tvrdostNapetiTarget - tvrdostNapeti) < 1 then
                                 tvrdostNapetiTarget = math.random()*500
                             end
                             if tvrdostNapetiTarget > tvrdostNapeti then
-                                tvrdostNapeti = tvrdostNapeti + 0.01*cas
+                                tvrdostNapeti = tvrdostNapeti + 1*cas
                             else
-                                tvrdostNapeti = tvrdostNapeti - 0.01*cas
+                                tvrdostNapeti = tvrdostNapeti - 1*cas
                             end
 
                             local vychoziNapeti = idealniNapeti
@@ -7479,9 +7514,9 @@ function Update (casHry)
                                 napeti = 0
                             else
                                 if not fiktivniVykonNaRizeneNeschopne and Ammeter > 0 then
-                                    napeti = ((vychoziNapeti - (Ammeter*tvrdostNapeti/400)) + napetiDelta) / 3.896
+                                    napeti = ((vychoziNapeti - (Ammeter*tvrdostNapeti/400)) + napetiDelta) / 4
                                 else
-                                    napeti = (vychoziNapeti + napetiDelta) / 3.896
+                                    napeti = (vychoziNapeti + napetiDelta) / 4
                                 end
                             end
                             if P01 == 1 and not pojezdVDepu then
@@ -7490,6 +7525,10 @@ function Update (casHry)
                             else
                                 Call("SetControlValue","Voltmeter",0,PIDcntrlVolt(0,Call("GetControlValue","Voltmeter",0)))
                                 Call("SetControlValue","Napeti",0,0)
+                            end
+
+                            if napeti > 1250 and mgZvuk == 1 then
+                                zkratMG = true
                             end
                             
                         ----------------------------------------Diagnostický panel a ochrany----------------------
@@ -7521,7 +7560,7 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_Pretaveni",0,diagPretaveni) -- H10
                                 
                                 --*******H11 NU
-                                    if Call("GetControlValue","Napeti",0) > 950 then --3700V
+                                    if Call("GetControlValue","Napeti",0) > 925 then --3700V
                                         diagNU = 1
                                         Call ( "SetControlValue", "HlavniVypinac", 0, 0)
                                         ZamekHLvyp = 1
@@ -7539,7 +7578,7 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_NU",0,math.max(diagNU, diagKTM)) -- H11
                                 
                                 --*******H12 PU
-                                    if Call("GetControlValue","Napeti",0) < 540 and vykon ~= 0 then --2100V
+                                    if Call("GetControlValue","Napeti",0) < 525 and vykon ~= 0 then --2100V
                                         diagPU = 1
                                         if Call("GetControlValue","Diag_PU",0) == 0 and P01 == 1 then
                                             Call ( "SetControlValue", "HlavniVypinac", 0, 0)
@@ -7557,26 +7596,20 @@ function Update (casHry)
                                             Call ( "SetControlValue", "HlavniVypinac", 0, 0)
                                             ZamekHLvyp = 1
                                         end
-                                    elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
-                                        diagDOTO = 0
-                                    end
-                                    if mgs > 0.5 then
+                                    elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then --predelat na tlacitko az bude
                                         diagDOTO = 0
                                     end
                                     Call("SetControlValue","Diag_DOTO",0,diagDOTO) -- H13
                                 
                                 --*******H14 DOPM
-                                    if zkratMG and vnitrniSit220V == 1 then
+                                    if zkratMG and mgZvuk == 1 then
                                         diagMG = 1
                                         if Call("GetControlValue","Diag_DOTO",0) == 0 then
                                             Call ( "SetControlValue", "HlavniVypinac", 0, 0)
                                             ZamekHLvyp = 1
                                         end
                                         --Call("GetControlValue","ResetDOPM",0) > 0.75
-                                    elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
-                                        diagMG = 0 
-                                    end
-                                    if mgs > 0.5 then
+                                    elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then --predelat na tlacitko az bude
                                         diagMG = 0
                                     end
                                     Call("SetControlValue","Diag_DOPM",0,diagMG) -- H14
@@ -7589,9 +7622,6 @@ function Update (casHry)
                                             ZamekHLvyp = 1
                                         end
                                     elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
-                                        niDiag = 0
-                                    end
-                                    if mgs > 0.5 then
                                         niDiag = 0
                                     end
                                     Call("SetControlValue","Diag_NI",0,niDiag) -- H15
@@ -7638,7 +7668,12 @@ function Update (casHry)
                                         rozProudDiag = 1
                                     end
                                     Call("SetControlValue","Diag_RozProud",0,rozProudDiag) -- H24
-
+                                --*******Zhasnuti DO a NI pri startu MG
+                                    if mgs > 0.5 then
+                                        Call("SetControlValue","Diag_DOPM",0,0) -- H14
+                                        Call("SetControlValue","Diag_DOTO",0,0) -- H14
+                                        Call("SetControlValue","Diag_NI",0,0) -- H14
+                                    end
                                 --*******ObecnaPorucha a Skluz
                                     if Call("GetControlValue","JOB",0) ~= 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 then
                                         failvykon = 1 
@@ -7712,10 +7747,16 @@ function Update (casHry)
                                 if ZamekHLvyp == 0 then
                                     Call("SetControlValue","Diag_NU",0,1) -- H11
                                     Call("SetControlValue","Diag_PU",0,1) -- H12
-                                    Call("SetControlValue","Diag_DOTO",0,1) -- H13
-                                    Call("SetControlValue","Diag_DOPM",0,1) -- H14
-                                    Call("SetControlValue","Diag_NI",0,1) -- H15
                                     Call("SetControlValue","Diag_OJ",0,1) -- H18
+                                    if mgs > 0.5 then
+                                        Call("SetControlValue","Diag_DOTO",0,0) -- H13
+                                        Call("SetControlValue","Diag_DOPM",0,0) -- H14
+                                        Call("SetControlValue","Diag_NI",0,0) -- H15
+                                    else
+                                        Call("SetControlValue","Diag_DOTO",0,1) -- H13
+                                        Call("SetControlValue","Diag_DOPM",0,1) -- H14
+                                        Call("SetControlValue","Diag_NI",0,1) -- H15
+                                    end
                                 elseif diagPU == 1 then
                                     Call("SetControlValue","Diag_PU",0,1) -- H12
                                     if Call("GetControlValue", "povel_Reverser", 0) == 0 then
@@ -7729,17 +7770,29 @@ function Update (casHry)
                                         casSkluz = 0
                                     end
                                 elseif niDiag == 1 then
-                                    Call("SetControlValue","Diag_NI",0,1) -- H15
+                                    if mgs > 0.5 then
+                                        Call("SetControlValue","Diag_NI",0,0) -- H15
+                                    else
+                                        Call("SetControlValue","Diag_NI",0,1) -- H15
+                                    end
                                     if Call("GetControlValue", "povel_Reverser", 0) == 0 then
                                         niDiag = 0
                                     end
                                 elseif diagDOTO == 1 then
-                                    Call("SetControlValue","Diag_DOTO",0,1) -- H12
+                                    if mgs > 0.5 then
+                                        Call("SetControlValue","Diag_DOTO",0,0) -- H12
+                                    else
+                                        Call("SetControlValue","Diag_DOTO",0,1) -- H12
+                                    end
                                     if Call("GetControlValue", "povel_Reverser", 0) == 0 then
                                         diagDOTO = 0
                                     end
                                 elseif diagMG == 1 then
-                                    Call("SetControlValue","Diag_DOPM",0,1) -- H12
+                                    if mgs > 0.5 then
+                                        Call("SetControlValue","Diag_DOPM",0,0) -- H12
+                                    else
+                                        Call("SetControlValue","Diag_DOPM",0,1) -- H12
+                                    end
                                     if Call("GetControlValue", "povel_Reverser", 0) == 0 then
                                         diagMG = 0
                                     end
