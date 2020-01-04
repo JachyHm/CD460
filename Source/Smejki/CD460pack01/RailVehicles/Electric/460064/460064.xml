@@ -3137,7 +3137,7 @@
 																					<Attribute name="RestInNotchedPosition">
 																						<eBoolean>
 																							<Element>
-																								<Value>eFalse</Value>
+																								<Value>eTrue</Value>
 																							</Element>
 																						</eBoolean>
 																					</Attribute>
@@ -3158,14 +3158,14 @@
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value />
+																															<Value>KLICEK OUT</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
 																												<Attribute name="Value">
 																													<sFloat32>
 																														<Element>
-																															<Value>10</Value>
+																															<Value>0.1</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
@@ -3178,14 +3178,14 @@
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value />
+																															<Value>HV VYP</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
 																												<Attribute name="Value">
 																													<sFloat32>
 																														<Element>
-																															<Value>25</Value>
+																															<Value>0.25</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
@@ -3198,14 +3198,14 @@
 																												<Attribute name="Identifier">
 																													<cDeltaString>
 																														<Element>
-																															<Value />
+																															<Value>HV ZAP</Value>
 																														</Element>
 																													</cDeltaString>
 																												</Attribute>
 																												<Attribute name="Value">
 																													<sFloat32>
 																														<Element>
-																															<Value>75</Value>
+																															<Value>0.75</Value>
 																														</Element>
 																													</sFloat32>
 																												</Attribute>
@@ -53208,7 +53208,7 @@
 														<Attribute name="MaximumValue">
 															<sFloat32>
 																<Element>
-																	<Value>450</Value>
+																	<Value>500</Value>
 																</Element>
 															</sFloat32>
 														</Attribute>
@@ -53321,7 +53321,224 @@
 														<Attribute name="InterfaceElements">
 															<__Indexed__cControlContainerBlueprint-cElement>
 																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorGeometryOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VnitrniSit</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_rucNapMG.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometryOutput>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>VnitrniSitProud</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>300</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
 																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorGeometryOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>VnitrniSitProud</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_rucProudMG.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometryOutput>
+																	</Value>
 																</Element>
 															</__Indexed__cControlContainerBlueprint-cElement>
 														</Attribute>
@@ -64859,6 +65076,2525 @@
 															<__Indexed__cControlContainerBlueprint-cElement>
 																<Element>
 																	<Value />
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>mgSousedni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorVisibilityObject>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>mgSousedni</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="LowerVisibilityThreshold">
+																						<sFloat32>
+																							<Element>
+																								<Value>-0.5</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="UpperVisibilityThreshold">
+																						<sFloat32>
+																							<Element>
+																								<Value>0.5</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="TransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>kontrolkamgsousedniz</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="ThresholdType">
+																						<cControlContainerBlueprint-cInteriorVisibilityObject-eThresholdType>
+																							<Element>
+																								<Value>Value</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInteriorVisibilityObject-eThresholdType>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorVisibilityObject>
+																		<cControlContainerBlueprint-cInteriorVisibilityObject>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>mgSousedni</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="LowerVisibilityThreshold">
+																						<sFloat32>
+																							<Element>
+																								<Value>0.5</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="UpperVisibilityThreshold">
+																						<sFloat32>
+																							<Element>
+																								<Value>1.5</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="TransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>kontrolkamgsousednir</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="ThresholdType">
+																						<cControlContainerBlueprint-cInteriorVisibilityObject-eThresholdType>
+																							<Element>
+																								<Value>Value</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInteriorVisibilityObject-eThresholdType>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorVisibilityObject>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>napetiAutostop</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorGeometryOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>napetiAutostop</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_rucNapAutostop.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometryOutput>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>proudAutostop</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>-100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorGeometryOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>proudAutostop</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_rucProudAutostop.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometryOutput>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>napetiRizeni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorGeometryOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>napetiRizeni</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_rucNapRizeni.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometryOutput>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>proudRizeni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>-100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorGeometryOutput>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>proudRizeni</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_rucProudRizeni.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorGeometryOutput>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>zkouseniOchran</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value>Zkouseni ochran</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorPushButton>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>zkouseniOchran</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="PickTransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>zkOchran</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="MovementType">
+																						<cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																							<Element>
+																								<Value>PushAndHoldButton</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																					</Attribute>
+																					<Attribute name="AnalogInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="DigitalInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_zkouseniOchran.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																					<Attribute name="AutoRelease">
+																						<eBoolean>
+																							<Element>
+																								<Value>eFalse</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorPushButton>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>startDSO</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value>Opakovany start DSO</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorPushButton>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>startDSO</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="PickTransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>restartDSO</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="MovementType">
+																						<cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																							<Element>
+																								<Value>PushAndHoldButton</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																					</Attribute>
+																					<Attribute name="AnalogInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="DigitalInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_startDSO.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																					<Attribute name="AutoRelease">
+																						<eBoolean>
+																							<Element>
+																								<Value>eFalse</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorPushButton>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>vybaveniMG</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value>Vybaveni preotackove ochrany MG</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorPushButton>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vybaveniMG</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="PickTransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vybaveniMG</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="MovementType">
+																						<cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																							<Element>
+																								<Value>PushAndHoldButton</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																					</Attribute>
+																					<Attribute name="AnalogInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="DigitalInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_vybaveniB8.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																					<Attribute name="AutoRelease">
+																						<eBoolean>
+																							<Element>
+																								<Value>eFalse</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorPushButton>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>vybaveniDOPM</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value>Vybaveni DOPM</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorPushButton>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vybaveniDOPM</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="PickTransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vybaveniDOPM</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="MovementType">
+																						<cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																							<Element>
+																								<Value>PushAndHoldButton</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																					</Attribute>
+																					<Attribute name="AnalogInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="DigitalInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_vybaveniDOPM.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																					<Attribute name="AutoRelease">
+																						<eBoolean>
+																							<Element>
+																								<Value>eFalse</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorPushButton>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>vybaveniDOTO</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value>Vybaveni DOTO</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorPushButton>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vybaveniDOTO</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="PickTransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vybaveniDOTO</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="MovementType">
+																						<cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																							<Element>
+																								<Value>PushAndHoldButton</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																					</Attribute>
+																					<Attribute name="AnalogInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="DigitalInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_vybaveniDOTO.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																					<Attribute name="AutoRelease">
+																						<eBoolean>
+																							<Element>
+																								<Value>eFalse</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorPushButton>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>rezimRychlomeru</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorNotchedLever>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>rezimRychlomeru</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="PickTransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>rezimRychlomeru</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="MovementType">
+																						<cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																							<Element>
+																								<Value>MoveLeftRight</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																					</Attribute>
+																					<Attribute name="AnalogInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>7</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="DigitalInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>7</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_prepinacRychlomer.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																					<Attribute name="RestInNotchedPosition">
+																						<eBoolean>
+																							<Element>
+																								<Value>eTrue</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																					<Attribute name="NumberOfNotches">
+																						<sFloat32>
+																							<Element>
+																								<Value>2</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorNotchedLever>
+																	</Value>
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>vyberOchran</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>9</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value>
+																		<cControlContainerBlueprint-cInteriorNotchedLever>
+																			<Element>
+																				<Value>
+																					<Attribute name="ElementName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>vyberOchran</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="DifficultyType">
+																						<cControlContainerBlueprint-cElement-eDifficultyType>
+																							<Element>
+																								<Value>StopGo</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cElement-eDifficultyType>
+																					</Attribute>
+																					<Attribute name="PickTransformName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>kroutitko</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="MovementType">
+																						<cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																							<Element>
+																								<Value>MoveLeftRight</Value>
+																							</Element>
+																						</cControlContainerBlueprint-cInternalInteriorGeometryInput-eMovementType>
+																					</Attribute>
+																					<Attribute name="AnalogInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>3</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="DigitalInputSensitivity">
+																						<sFloat32>
+																							<Element>
+																								<Value>3</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="AnimationName">
+																						<cDeltaString>
+																							<Element>
+																								<Value>RailVehicles\Electric\Common\Animations\kabina_knoflikOchrany.ia</Value>
+																							</Element>
+																						</cDeltaString>
+																					</Attribute>
+																					<Attribute name="OutputInterface">
+																						<cControlContainerBlueprint-eInterfaceType>
+																							<Element>
+																								<Value>eCab</Value>
+																							</Element>
+																						</cControlContainerBlueprint-eInterfaceType>
+																					</Attribute>
+																					<Attribute name="RestInNotchedPosition">
+																						<eBoolean>
+																							<Element>
+																								<Value>eTrue</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																					<Attribute name="NumberOfNotches">
+																						<sFloat32>
+																							<Element>
+																								<Value>10</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</cControlContainerBlueprint-cInteriorNotchedLever>
+																	</Value>
 																</Element>
 															</__Indexed__cControlContainerBlueprint-cElement>
 														</Attribute>

@@ -1412,6 +1412,15 @@ napetiDelta = napetiTargetDelta
 tvrdostNapetiTarget = math.random()
 tvrdostNapeti = tvrdostNapetiTarget
 
+napetiBaterieRizeni = math.random()*10+40
+napetiBaterieRizeniSmooth = 0
+napetiBaterieAutostop = math.random()*10+40
+napetiBaterieAutostopSmooth = 0
+proudBaterieRizeni = 0
+proudBaterieRizeniSmooth = 0
+proudBaterieAutostop = 0
+proudBaterieAutostopSmooth = 0
+
 modelConfig = {
     [460021] = {
         tramex = false,
@@ -1676,10 +1685,13 @@ modelConfig = {
 	diagHV = 0
 	skluzDiag = 0
 	niDiag = 0
-	blokKrokSkluz = false
+    blokKrokSkluz = false
+    nutnyRestartDSO = false
 	PP = 0
 	ZP = 0
-	pozadavekNaZapisKlice = false
+    pozadavekNaZapisKlice = false
+    casKompresor = -1
+    odberVSsmooth = 0
 -- 	return(true)
 -- end
 
@@ -4229,7 +4241,9 @@ function Update (casHry)
 
                             if baterie == 1 and vnitrniSit220V == 1 and PC == 3.75 and (hlkomp == -1 or (hlkomp == 1 and autoKompresor)) then
                                 Call("SetControlValue","kompresor_zvk",0,1)
+                                casKompresor = math.max(math.min(casKompresor + cas,1),0)
                             else
+                                casKompresor = -1
                                 Call("SetControlValue","kompresor_zvk",0,0)
                             end
                             Call("SetControlValue","kompom_zvk",0,math.min(math.abs(pomkomp),baterie))
@@ -4288,9 +4302,9 @@ function Update (casHry)
                             -- 	Call("SetControlValue","VirtualStartup",0,0.25)
                             -- end
 
-                            if RizenaRidici == "ridici" and PolohaKlice < 0.5 and math.max(diagPU,skluzDiag,niDiag,diagDOTO,diagMG) == 0 then
+                            if RizenaRidici == "ridici" and PolohaKlice < 0.5 and math.max(diagPU,skluzDiag,niDiag,diagDOTO,diagMG) == 0 and not nutnyRestartDSO then
                                 ZamekHLvyp = 0
-                            elseif Call("GetControlValue", "povel_HlavniVypinac", 0) == 0 and math.max(diagPU,skluzDiag,niDiag,diagDOTO,diagMG) == 0 and RizenaRidici == "rizena" then
+                            elseif Call("GetControlValue", "povel_HlavniVypinac", 0) == 0 and math.max(diagPU,skluzDiag,niDiag,diagDOTO,diagMG) == 0 and RizenaRidici == "rizena" and not nutnyRestartDSO then
                                 ZamekHLvyp = 0
                             end
                         ----------------------------------------Cvakani HASLERa-----------------------------------
@@ -6277,6 +6291,67 @@ function Update (casHry)
                             else
                                 baterie = 0
                             end
+
+                            if baterie == 1 then
+                                if vnitrniSit220Vnouzova == 1 then
+                                    napetiBaterieAutostop = math.min(napetiBaterieAutostop + math.sqrt(52.1-napetiBaterieAutostop)*cas*0.1, 52)
+                                    proudBaterieAutostop = math.sqrt(52.1-napetiBaterieAutostop)*10
+                                    napetiBaterieRizeni = math.min(napetiBaterieRizeni + math.sqrt(51.1-napetiBaterieRizeni)*cas*0.1, 51)
+                                    proudBaterieRizeni = math.sqrt(51.1-napetiBaterieRizeni)*10
+                                    if 52 > napetiBaterieAutostopSmooth then
+                                        napetiBaterieAutostopSmooth = napetiBaterieAutostopSmooth + math.sqrt(52 - napetiBaterieAutostopSmooth) * cas * 50
+                                    elseif napetiBaterieAutostopSmooth > 52 then
+                                        napetiBaterieAutostopSmooth = napetiBaterieAutostopSmooth - math.sqrt(napetiBaterieAutostopSmooth - 52) * cas * 50
+                                    end
+                                    if 51 > napetiBaterieRizeniSmooth then
+                                        napetiBaterieRizeniSmooth = napetiBaterieRizeniSmooth + math.sqrt(51 - napetiBaterieRizeniSmooth) * cas * 50
+                                    elseif napetiBaterieRizeniSmooth > 51 then
+                                        napetiBaterieRizeniSmooth = napetiBaterieRizeniSmooth - math.sqrt(napetiBaterieRizeniSmooth - 51) * cas * 50
+                                    end
+                                else
+                                    if napetiBaterieAutostop > napetiBaterieAutostopSmooth then
+                                        napetiBaterieAutostopSmooth = napetiBaterieAutostopSmooth + math.sqrt(napetiBaterieAutostop - napetiBaterieAutostopSmooth) * cas * 50
+                                    elseif napetiBaterieAutostopSmooth > napetiBaterieAutostop then
+                                        napetiBaterieAutostopSmooth = napetiBaterieAutostopSmooth - math.sqrt(napetiBaterieAutostopSmooth - napetiBaterieAutostop) * cas * 50
+                                    end
+                                    if napetiBaterieRizeni > napetiBaterieRizeniSmooth then
+                                        napetiBaterieRizeniSmooth = napetiBaterieRizeniSmooth + math.sqrt(napetiBaterieRizeni - napetiBaterieRizeniSmooth) * cas * 50
+                                    elseif napetiBaterieRizeniSmooth > napetiBaterieRizeni then
+                                        napetiBaterieRizeniSmooth = napetiBaterieRizeniSmooth - math.sqrt(napetiBaterieRizeniSmooth - napetiBaterieRizeni) * cas * 50
+                                    end
+                                    proudBaterieAutostop = 0
+                                    proudBaterieRizeni = 0
+                                end
+                            else
+                                proudBaterieAutostop = 0
+                                proudBaterieRizeni = 0
+                                if 0 > napetiBaterieAutostopSmooth then
+                                    napetiBaterieAutostopSmooth = napetiBaterieAutostopSmooth + math.sqrt(0 - napetiBaterieAutostopSmooth) * cas * 50
+                                elseif napetiBaterieAutostopSmooth > 0 then
+                                    napetiBaterieAutostopSmooth = napetiBaterieAutostopSmooth - math.sqrt(napetiBaterieAutostopSmooth - 0) * cas * 50
+                                end
+                                if 0 > napetiBaterieRizeniSmooth then
+                                    napetiBaterieRizeniSmooth = napetiBaterieRizeniSmooth + math.sqrt(0 - napetiBaterieRizeniSmooth) * cas * 50
+                                elseif napetiBaterieRizeniSmooth > 0 then
+                                    napetiBaterieRizeniSmooth = napetiBaterieRizeniSmooth - math.sqrt(napetiBaterieRizeniSmooth - 0) * cas * 50
+                                end
+                            end
+
+                            if proudBaterieAutostop > proudBaterieAutostopSmooth then
+                                proudBaterieAutostopSmooth = proudBaterieAutostopSmooth + math.sqrt(proudBaterieAutostop - proudBaterieAutostopSmooth) * cas * 50
+                            elseif proudBaterieAutostopSmooth > proudBaterieAutostop then
+                                proudBaterieAutostopSmooth = proudBaterieAutostopSmooth - math.sqrt(proudBaterieAutostopSmooth - proudBaterieAutostop) * cas * 50
+                            end
+                            if proudBaterieRizeni > proudBaterieRizeniSmooth then
+                                proudBaterieRizeniSmooth = proudBaterieRizeniSmooth + math.sqrt(proudBaterieRizeni - proudBaterieRizeniSmooth) * cas * 50
+                            elseif proudBaterieRizeniSmooth > proudBaterieRizeni then
+                                proudBaterieRizeniSmooth = proudBaterieRizeniSmooth - math.sqrt(proudBaterieRizeniSmooth - proudBaterieRizeni) * cas * 50
+                            end
+                            Call("SetControlValue", "napetiAutostop", 0, napetiBaterieAutostopSmooth)
+                            Call("SetControlValue", "proudAutostop", 0, proudBaterieAutostopSmooth)
+                            Call("SetControlValue", "napetiRizeni", 0, napetiBaterieRizeniSmooth)
+                            Call("SetControlValue", "proudRizeni", 0, proudBaterieRizeniSmooth)
+                                
                         ----------------------------------------Svetla--------------------------------------------
                             local dalkovaSv = Call("GetControlValue", "VirtualHeadlights", 0)
                             if modelConfig[scriptVersion].horniPozicka then
@@ -6921,7 +6996,7 @@ function Update (casHry)
                                     obutiVolume = math.max(obutiVolume - cas*plynuleValce/10000,0)
                                 end
 
-                                Call("SoundLoziska:SetParameter", "obutiVolume", math.min(obutiVolume, math.max(0.3, 1-((rychlost-40)/60))))
+                                Call("SoundLoziska:SetParameter", "obutiVolume", math.min(obutiVolume, math.max(0.6, 1-((rychlost-60)/100)))) --math.min(obutiVolume, math.max(0.3, 1-((rychlost-40)/60)))
 
                                 if obutiDistance > 0 then
                                     if rychlostKolaKMHPodvozek1 > 0.2 then
@@ -7460,6 +7535,24 @@ function Update (casHry)
                                 vnitrniSit220Vnouzova = 0
                             end
                             Call("SetControlValue","VnitrniSitNouzova",0,math.max(napetiVS220nouz,napetiVS220))
+
+                            odberVS = 0
+                            if ventilatoryTM == 1 then
+                                odberVS = odberVS + math.min(20/math.min(ventilatory_tm_otacky*8,1),60)
+                            end
+                            if ventilatoryStrecha == 1 then
+                                odberVS = odberVS + math.min(20/math.min(ventilatory_strecha_otacky*8,1),60)
+                            end
+                            if casKompresor >= 0 then
+                                odberVS = odberVS + math.min(30/casKompresor,150)
+                            end
+
+                            if odberVS > odberVSsmooth then
+                                odberVSsmooth = odberVSsmooth + math.sqrt(odberVS - odberVSsmooth) * cas * 50
+                            elseif odberVSsmooth > odberVS then
+                                odberVSsmooth = odberVSsmooth - math.sqrt(odberVSsmooth - odberVS) * cas * 50
+                            end
+                            Call("SetControlValue", "VnitrniSitProud", 0, odberVSsmooth)
                         
                         ----------------------------------------Custom TrCh---------------------------------------
                             Call("SetControlValue","ThrottleAndBrake",0,output_kN/gAbsolutniMax_kN)
@@ -7560,13 +7653,13 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_Pretaveni",0,diagPretaveni) -- H10
                                 
                                 --*******H11 NU
-                                    if Call("GetControlValue","Napeti",0) > 925 then --3700V
-                                        diagNU = 1
-                                        Call ( "SetControlValue", "HlavniVypinac", 0, 0)
-                                        ZamekHLvyp = 1
-                                    elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
-                                        diagNU = 0
-                                    end
+                                    -- if Call("GetControlValue","Napeti",0) > 925 then --3700V
+                                    --     diagNU = 1
+                                    --     Call ( "SetControlValue", "HlavniVypinac", 0, 0)
+                                    --     ZamekHLvyp = 1
+                                    -- elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then
+                                    --     diagNU = 0
+                                    -- end
                                     --Prepetova ochrana KTM
                                         if ((rychlostKolaKMHPodvozek1 > 100 or rychlostKolaKMHPodvozek2 > 100) and kontroler < -0.75) then
                                             blokKrokNU = true
@@ -7596,7 +7689,7 @@ function Update (casHry)
                                             Call ( "SetControlValue", "HlavniVypinac", 0, 0)
                                             ZamekHLvyp = 1
                                         end
-                                    elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then --predelat na tlacitko az bude
+                                    elseif Call("GetControlValue", "vybaveniDOTO", 0) >= 0.5 then --predelat na tlacitko az bude
                                         diagDOTO = 0
                                     end
                                     Call("SetControlValue","Diag_DOTO",0,diagDOTO) -- H13
@@ -7609,7 +7702,7 @@ function Update (casHry)
                                             ZamekHLvyp = 1
                                         end
                                         --Call("GetControlValue","ResetDOPM",0) > 0.75
-                                    elseif Call("GetControlValue", "povel_Reverser", 0) == 0 then --predelat na tlacitko az bude
+                                    elseif Call("GetControlValue", "vybaveniDOPM", 0) >= 0.5 then --predelat na tlacitko az bude
                                         diagMG = 0
                                     end
                                     Call("SetControlValue","Diag_DOPM",0,diagMG) -- H14
@@ -7691,6 +7784,7 @@ function Update (casHry)
                                         if (math.abs(rychlost-rychlostKolaKMHPodvozek1)*casSkluz > prahDSO or math.abs(rychlostKolaKMHPodvozek1-rychlostKolaKMHPodvozek2) > 5) and P01 == 1 then
                                             Call("SetControlValue", "HlavniVypinac", 0, 0)
                                             ZamekHLvyp = 1
+                                            nutnyRestartDSO = true
                                         elseif (casstupnu >= caszkroku) and JeNouzovyRadicVS == 0 then
                                             if vykon > 0.05 then
                                                 Call("SetControlValue","JizdniKontroler",0,vykon - 0.05)
@@ -7703,6 +7797,7 @@ function Update (casHry)
                                         skluzDiag = 1
                                         blokKrokSkluz = true
                                     end
+
                                     if math.abs(rychlost-rychlostKolaKMHPodvozek1) < 1 and hlavniVypinac == 1 then
                                         blokKrokSkluz = false
                                         casSkluz = 0
@@ -7798,6 +7893,7 @@ function Update (casHry)
                                     end
                                 end
                             else
+                                nutnyRestartDSO = false
                                 ZamekHLvyp = 0
                                 diagNU = 0
                                 diagKTM = 0
@@ -7825,6 +7921,9 @@ function Update (casHry)
                                 Call("SetControlValue","fail",0,0)
                                 Call("SetControlValue","skluz",0,0)
                                 Call("SetControlValue","Diag_Porucha",0,0) -- H5
+                            end
+                            if Call("GetControlValue", "startDSO", 0) >= 0.5 and baterie == 1 then
+                                nutnyRestartDSO = false
                             end
                     end
                 end
