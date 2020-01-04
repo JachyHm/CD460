@@ -3565,11 +3565,6 @@ function Update (casHry)
                                 IS.casMenu = IS.casMenu + cas
                                 if IS.casMenu > 20 then
                                     IS:Zapis("MSVid","",false,false)
-                                    IS:NastavCil1(IS.cil1ID)
-                                    if IS.cileIsWhole[ID] == "false" then
-                                        IS:NastavCil2(IS.cil2ID)
-                                        IS:NastavLinku(IS.linkaID)
-                                    end
                                     --Call("SetControlValue", "MSVzdo", 0, 1)
                                     IS.stav = "sleep"
                                     Call("SetControlValue", "MSVdisp", 0, 1)
