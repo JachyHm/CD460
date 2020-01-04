@@ -1424,6 +1424,22 @@ proudBaterieAutostopSmooth = 0
 dobijec1Napeti = math.random()*10+50
 dobijec2Napeti = math.random()*10+50
 
+zarivka1CasStart = nil
+zarivka1Blik = math.random()*0.5
+zarivka1Cas = 0
+zarivka1BlikCas = 0
+zarivka1 = false
+zarivka2CasStart = nil
+zarivka2Blik = math.random()*0.5
+zarivka2Cas = 0
+zarivka2BlikCas = 0
+zarivka2 = false
+zarivka3CasStart = nil
+zarivka3Blik = math.random()*0.5
+zarivka3Cas = 0
+zarivka3BlikCas = 0
+zarivka3 = false
+
 modelConfig = {
     [460021] = {
         tramex = false,
@@ -1695,6 +1711,7 @@ modelConfig = {
     pozadavekNaZapisKlice = false
     casKompresor = -1
     odberVSsmooth = 0
+    
 -- 	return(true)
 -- end
 
@@ -2268,28 +2285,6 @@ end
 function AktivujNode(ktery,plati)
 	Call("ActivateNode",ktery,plati)
 end
-
-function OsvetleniVozuF(stupen)
-	if stupen == 0 then
-		RozsvitSvetlo("Zarovka1",0)
-		RozsvitSvetlo("Zarovka2",0)
-		RozsvitSvetlo("Zarivka1",0)
-		RozsvitSvetlo("Zarivka2",0)
-		RozsvitSvetlo("Zarivka3",0)
-	end
-	if stupen == 1 then
-		RozsvitSvetlo("Zarovka1",1)
-		RozsvitSvetlo("Zarovka2",1)
-		RozsvitSvetlo("Zarivka1",0)
-		RozsvitSvetlo("Zarivka2",0)
-		RozsvitSvetlo("Zarivka3",0)
-	end
-	if stupen == 2 then
-		RozsvitSvetlo("Zarivka1",1)
-		RozsvitSvetlo("Zarivka2",1)
-		RozsvitSvetlo("Zarivka3",1)
-	end
-end	
 
 function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
 	local pribytek = delkaUpd * 7
@@ -6456,15 +6451,130 @@ function Update (casHry)
 
                             if baterie == 1 then
                                 if OsvetleniVozu <= 0.5 then
-                                    OsvetleniVozuF(0)
+                                    RozsvitSvetlo("Zarovka1",0)
+                                    RozsvitSvetlo("Zarovka2",0)
+                                    RozsvitSvetlo("Zarivka1",0)
+                                    RozsvitSvetlo("Zarivka2",0)
+                                    RozsvitSvetlo("Zarivka3",0)
+                                    zarivka1CasStart = nil
+                                    zarivka2CasStart = nil
+                                    zarivka3CasStart = nil
                                 elseif OsvetleniVozu <= 1.5 then
-                                    OsvetleniVozuF(1)
+                                    RozsvitSvetlo("Zarovka1",1)
+                                    RozsvitSvetlo("Zarovka2",1)
+                                    RozsvitSvetlo("Zarivka1",0)
+                                    RozsvitSvetlo("Zarivka2",0)
+                                    RozsvitSvetlo("Zarivka3",0)
                                     proudBaterieAutostop = proudBaterieAutostop - 12
+                                    zarivka1CasStart = nil
+                                    zarivka2CasStart = nil
+                                    zarivka3CasStart = nil
                                 elseif vnitrniSit220V == 1 then
-                                    OsvetleniVozuF(2)
+                                    RozsvitSvetlo("Zarovka1",0)
+                                    RozsvitSvetlo("Zarovka2",0)
+
+                                    if zarivka1CasStart == nil then
+                                        zarivka1Cas = 0
+                                        zarivka1CasStart = math.random()*5
+                                        zarivka1 = false
+                                        zarivka1Blik = nil
+                                    end
+
+                                    if zarivka1Cas < zarivka1CasStart then
+                                        zarivka1Cas = zarivka1Cas + cas
+                                        if zarivka1Blik == nil or zarivka1Blik < zarivka1BlikCas then
+                                            zarivka1BlikCas = 0
+                                            zarivka1 = not zarivka1
+                                            if zarivka1 then
+                                                zarivka1Blik = math.random()*0.2
+                                            else
+                                                zarivka1Blik = math.random()*1
+                                            end
+                                        else
+                                            zarivka1BlikCas = zarivka1BlikCas + cas
+                                        end
+                                    else
+                                        zarivka1Blik = nil
+                                        zarivka1 = true
+                                    end
+
+                                    if zarivka1 then
+                                        RozsvitSvetlo("Zarivka1",1)
+                                    else
+                                        RozsvitSvetlo("Zarivka1",0)
+                                    end
+
+                                    if zarivka2CasStart == nil then
+                                        zarivka2Cas = 0
+                                        zarivka2CasStart = math.random()*5
+                                        zarivka2 = false
+                                        zarivka2Blik = nil
+                                    end
+
+                                    if zarivka2Cas < zarivka2CasStart then
+                                        zarivka2Cas = zarivka2Cas + cas
+                                        if zarivka2Blik == nil or zarivka2Blik < zarivka2BlikCas then
+                                            zarivka2BlikCas = 0
+                                            zarivka2 = not zarivka2
+                                            if zarivka2 then
+                                                zarivka2Blik = math.random()*0.2
+                                            else
+                                                zarivka2Blik = math.random()*1
+                                            end
+                                        else
+                                            zarivka2BlikCas = zarivka2BlikCas + cas
+                                        end
+                                    else
+                                        zarivka2Blik = nil
+                                        zarivka2 = true
+                                    end
+
+                                    if zarivka2 then
+                                        RozsvitSvetlo("Zarivka2",1)
+                                    else
+                                        RozsvitSvetlo("Zarivka2",0)
+                                    end
+                                    
+                                    if zarivka3CasStart == nil then
+                                        zarivka3Cas = 0
+                                        zarivka3CasStart = math.random()*5
+                                        zarivka3 = false
+                                        zarivka3Blik = nil
+                                    end
+
+                                    if zarivka3Cas < zarivka3CasStart then
+                                        zarivka3Cas = zarivka3Cas + cas
+                                        if zarivka3Blik == nil or zarivka3Blik < zarivka3BlikCas then
+                                            zarivka3BlikCas = 0
+                                            zarivka3 = not zarivka3
+                                            if zarivka3 then
+                                                zarivka3Blik = math.random()*0.2
+                                            else
+                                                zarivka3Blik = math.random()*1
+                                            end
+                                        else
+                                            zarivka3BlikCas = zarivka3BlikCas + cas
+                                        end
+                                    else
+                                        zarivka3Blik = nil
+                                        zarivka3 = true
+                                    end
+
+                                    if zarivka3 then
+                                        RozsvitSvetlo("Zarivka3",1)
+                                    else
+                                        RozsvitSvetlo("Zarivka3",0)
+                                    end
                                 elseif vnitrniSit220V ~= 1 then
+                                    zarivka1CasStart = nil
+                                    zarivka2CasStart = nil
+                                    zarivka3CasStart = nil
                                     proudBaterieAutostop = proudBaterieAutostop - 12
-                                    OsvetleniVozuF(1)
+                                    RozsvitSvetlo("Zarovka1",1)
+                                    RozsvitSvetlo("Zarovka2",1)
+                                    RozsvitSvetlo("Zarivka1",0)
+                                    RozsvitSvetlo("Zarivka2",0)
+                                    RozsvitSvetlo("Zarivka3",0)
                                 end
                                 if KabinaPrist == 1 then
                                     KabinaPristF(1)
@@ -6531,6 +6641,9 @@ function Update (casHry)
                                 end
                             else
                                 VypniVse()
+                                zarivka1CasStart = nil
+                                zarivka2CasStart = nil
+                                zarivka3CasStart = nil
                             end
 
                             if ((levaPozBil or levaPozBilVPKC) and (pravaPozBil or pravaPozBilVPKC)) and not (levaPozCer or levaPozCerVPKC or pravaPozCer or pravaPozCerVPKC) then
