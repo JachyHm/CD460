@@ -299,21 +299,7 @@
 																												<Attribute name="Handbrake">
 																													<__Indexed__EngineSimulation-cHandbrake>
 																														<Element>
-																															<Value>
-																																<EngineSimulation-cHandbrake>
-																																	<Element>
-																																		<Value>
-																																			<Attribute name="MaxForce">
-																																				<sFloat32>
-																																					<Element>
-																																						<Value>20232</Value>
-																																					</Element>
-																																				</sFloat32>
-																																			</Attribute>
-																																		</Value>
-																																	</Element>
-																																</EngineSimulation-cHandbrake>
-																															</Value>
+																															<Value />
 																														</Element>
 																													</__Indexed__EngineSimulation-cHandbrake>
 																												</Attribute>
@@ -481,7 +467,21 @@
 																												<Attribute name="Handbrake">
 																													<__Indexed__EngineSimulation-cHandbrake>
 																														<Element>
-																															<Value />
+																															<Value>
+																																<EngineSimulation-cHandbrake>
+																																	<Element>
+																																		<Value>
+																																			<Attribute name="MaxForce">
+																																				<sFloat32>
+																																					<Element>
+																																						<Value>20232</Value>
+																																					</Element>
+																																				</sFloat32>
+																																			</Attribute>
+																																		</Value>
+																																	</Element>
+																																</EngineSimulation-cHandbrake>
+																															</Value>
 																														</Element>
 																													</__Indexed__EngineSimulation-cHandbrake>
 																												</Attribute>

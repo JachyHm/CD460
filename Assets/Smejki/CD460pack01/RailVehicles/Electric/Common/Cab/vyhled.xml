@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cBlueprintLoader xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+	<Blueprint>
+		<cHeadOutCameraBlueprint xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0">
+			<Name d:type="cDeltaString"></Name>
+			<RenderComponent>
+				<cCameraRenderBlueprint />
+			</RenderComponent>
+			<UpdateComponent>
+				<cHeadOutCameraUpdateBlueprint>
+					<PrimarySide d:type="cDeltaString">Right</PrimarySide>
+					<CameraLeftOffset>
+						<cRVector3>
+							<X d:type="sFloat32">-1.8</X>
+							<Y d:type="sFloat32">2.9</Y>
+							<Z d:type="sFloat32">10.3</Z>
+						</cRVector3>
+					</CameraLeftOffset>
+					<CameraRightOffset>
+						<cRVector3>
+							<X d:type="sFloat32">1.8</X>
+							<Y d:type="sFloat32">2.9</Y>
+							<Z d:type="sFloat32">10.3</Z>
+						</cRVector3>
+					</CameraRightOffset>
+				</cHeadOutCameraUpdateBlueprint>
+			</UpdateComponent>
+			<PosOriComponent>
+				<cPosOriBlueprint />
+			</PosOriComponent>
+		</cHeadOutCameraBlueprint>
+	</Blueprint>
+</cBlueprintLoader>

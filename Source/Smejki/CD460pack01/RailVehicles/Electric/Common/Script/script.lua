@@ -3,14 +3,11 @@
 	-- SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 addon", "Baterie zapnute.",5,16,0,0)
 --os.execute('Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\ActualizationAutoRun\\runactualization.exe')
 
--- addPoints, err = loadlib("c:\\Users\\Jachym\\source\\repos\\TSGui\\Debug\\TSGui.dll", "addPoints")
--- if _G["addPoints"] then 
---     Print("TSDll Library Loaded!")
---     addPoints()
--- else
---     Print("loadlib on TSDll failed: ")
---     Print(err)
--- end
+openDoors, err = loadlib("Source\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\460\\Release\\460.dll", "openDoors")
+--checkActualisation, err2 = loadlib("Source\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\460\\Release\\460.dll", "checkActualisation")
+if not _G["openDoors"] then
+    openDoors, err = loadlib("Source\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\460\\x64\\Release\\460.dll", "openDoors")
+end
 
 INFO = 0
 ALERT = 1
@@ -94,8 +91,6 @@ gProbihaValce = false
 gHraniceValce = 0
 gHODNOTA_LAST_Valce = 0
 BS2 = 0
-
-snizenyVykonTady = false
 
 JOB = 0
 
@@ -218,8 +213,10 @@ MSVsipkaNahoru = false
 MSVok = false
 
 zavedSnizenyVykon = false
+snizenyVykonVozu = false
+snizenyVykonTady = false
 
-fiktivniVykonNaRizeneNeschopne = false
+fiktivniVykonNaObsazene = false
 
 prvnizprava = false
 
@@ -285,6 +282,9 @@ casHasler = 0
 sumHasler = 0
 
 skriptVersion = -1
+
+openDoorsCalled = false
+openDoorsTimer = 0
 
 function genChckSum(fileObject)
 	fileObject = assert(fileObject, "Soubor nebyl nalezeny!")
@@ -1421,8 +1421,31 @@ proudBaterieRizeniSmooth = 0
 proudBaterieAutostop = 0
 proudBaterieAutostopSmooth = 0
 
-dobijec1Napeti = math.random()*10+50
-dobijec2Napeti = math.random()*10+50
+dobijec1Napeti = math.random()*6+52
+dobijec2Napeti = math.random()*6+52
+
+zarivka1CasStart = nil
+zarivka1Blik = math.random()*0.5
+zarivka1Cas = 0
+zarivka1BlikCas = 0
+zarivka1 = false
+zarivka2CasStart = nil
+zarivka2Blik = math.random()*0.5
+zarivka2Cas = 0
+zarivka2BlikCas = 0
+zarivka2 = false
+zarivka3CasStart = nil
+zarivka3Blik = math.random()*0.5
+zarivka3Cas = 0
+zarivka3BlikCas = 0
+zarivka3 = false
+
+kapacitaBaterieRizeni = math.random(60,160)
+kapacitaBaterieAutostop = math.random(60,160)
+
+tabulkaVykonu = {}
+throttleAndBrake = 0
+throttleAndBrakeLast = 0
 
 modelConfig = {
     [460021] = {
@@ -1667,7 +1690,6 @@ modelConfig = {
 	failvykon = 0
 	failmg = 0
 	P01 = 0
-	snizenyVykonVozu = false
 	-- TlakovyBlokJizdy = false
 	VyberJiskry = 0
 	deltaSpeedMinula = 0
@@ -1695,6 +1717,7 @@ modelConfig = {
     pozadavekNaZapisKlice = false
     casKompresor = -1
     odberVSsmooth = 0
+    
 -- 	return(true)
 -- end
 
@@ -1900,7 +1923,8 @@ end
 	-- 460119 - inverze dveri Leve/Prave na motorovych vozech - bohuzel predpoklada vzdy cela od sebe
 	-- 460120 - porucha ve vlaku
 	-- 460121 - ex. baterie ve vlaku
-	-- 460122 - pomkomp ve vlaku
+    -- 460122 - pomkomp ve vlaku
+    -- 460990 - prenos kontroleru
 	-- 460991 - dira do potrubi
 	-- 460992 - synchronizacni rele
 	-- 460993 - pocet jimek na vlaku
@@ -2048,7 +2072,12 @@ function OnConsistMessage(zprava,argument,smer)
 	end
 	if zprava == 460122 then
 		ZpracujZpravuSID(zprava,argument,smer,"pomkompVS")
-	end
+    end
+    if zprava == 460990 then
+		lokoID = string.sub(argument,0,string.find( argument,":")-1)
+        hodnota = tonumber(string.sub(argument,string.find(argument,":")+1))
+        tabulkaVykonu[lokoID] = hodnota
+    end
 	if zprava == 460991 then
 		ZpracujZpravuSID(zprava,argument,smer,"diraDoPotrubi")
 	end
@@ -2268,28 +2297,6 @@ end
 function AktivujNode(ktery,plati)
 	Call("ActivateNode",ktery,plati)
 end
-
-function OsvetleniVozuF(stupen)
-	if stupen == 0 then
-		RozsvitSvetlo("Zarovka1",0)
-		RozsvitSvetlo("Zarovka2",0)
-		RozsvitSvetlo("Zarivka1",0)
-		RozsvitSvetlo("Zarivka2",0)
-		RozsvitSvetlo("Zarivka3",0)
-	end
-	if stupen == 1 then
-		RozsvitSvetlo("Zarovka1",1)
-		RozsvitSvetlo("Zarovka2",1)
-		RozsvitSvetlo("Zarivka1",0)
-		RozsvitSvetlo("Zarivka2",0)
-		RozsvitSvetlo("Zarivka3",0)
-	end
-	if stupen == 2 then
-		RozsvitSvetlo("Zarivka1",1)
-		RozsvitSvetlo("Zarivka2",1)
-		RozsvitSvetlo("Zarivka3",1)
-	end
-end	
 
 function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
 	local pribytek = delkaUpd * 7
@@ -2593,7 +2600,7 @@ function VratTCh(gRegulatorTrCh,wheelSpeed)
 		-- 	vypoctenaTrCh = (((-1000-speed)/((2*speed)+2))+100)/2*0.6
         end
 		vratRegulator = -math.max((vypoctenaTrCh/gAbsolutniMax_kN)*math.min(pocetZapnutychVozu, pocetMG), 0)
-		-- if fiktivniVykonNaRizeneNeschopne then
+		-- if fiktivniVykonNaObsazene then
 		-- 	vratRegulator = vratRegulator * math.min(pocetZapnutychVozu, pocetMG)
 		-- end
 		--vratRegulator = vypoctenaTrCh
@@ -3043,6 +3050,8 @@ function Update (casHry)
                         Call("SetControlValue","pocetJimek",0,0)
                         Call("SetControlValue","synchronizacniRele",0,0)
                         Call("SetControlValue","diraDoPotrubi",0,0)
+                    --nulovani tabulky kontroleru
+                        tabulkaVykonu = {}
                     --vypusteni potrubi - simulace nove pripojenych vozu
                         if delkaVlaku > delkaVlakuLast then
                             cilovy_tlak_HP_po_zmene = (delkaVlakuLast^2/delkaVlaku^2)*5
@@ -3125,6 +3134,7 @@ function Update (casHry)
                         end
                     end
                     if ID ~= nil and ID > 0 then
+                        ZpravaDebug("---------UPDATE START---------")
                         NastavHodnotuSID("pocetJimek", 1, 460993)
                         pocetJimek = decToBitsCount(Call("GetControlValue", "pocetJimek", 0))
                         hlavniVypinac = Call ("GetControlValue", "HlavniVypinac", 0)
@@ -3175,7 +3185,7 @@ function Update (casHry)
                                     end
                                 end
                             end
-                        if RocniObdobi == 3 and not fiktivniVykonNaRizeneNeschopne then
+                        if RocniObdobi == 3 and not fiktivniVykonNaObsazene then
                             nahoda = math.random(1,1000)
                             if nahoda > 100 and nahoda < math.abs(Ammeter) then
                                 if math.floor(math.random(0,5)) == 1 then
@@ -3266,7 +3276,7 @@ function Update (casHry)
                         end
 
                         if baterie == 1 and prepinaceTlak > 2 then
-                            if not vypnutyVuz or fiktivniVykonNaRizeneNeschopne then
+                            if not vypnutyVuz or fiktivniVykonNaObsazene then
                                 Call("SetControlValue", "Reverser", 0, Call("GetControlValue", "povel_Reverser", 0))
                             else
                                 Call("SetControlValue", "Reverser", 0, 0)
@@ -3290,6 +3300,16 @@ function Update (casHry)
                             RizenaRidici = "rizena"
                         else
                             RizenaRidici = "ridici"
+                            -- if _G["checkActualisation"] then
+                            --     ZpravaDebug("Check actualisation...")
+                            --     checkActualisation()
+                            --     ZpravaDebug("Check actualisation OK!")
+                            -- else
+                            --     ZpravaDebug("Check actualisation error: "..err2)
+                            -- end
+                            -- if not _G["openDoors"] then
+                            --     ZpravaDebug("Dvere error: "..err)
+                            -- end
                         end
                         RizenaRidiciJednaNula = 0
                         if RizenaRidici == "ridici" then
@@ -3552,28 +3572,25 @@ function Update (casHry)
                                     Call("SetControlValue", "MSVdisp", 0, 2)
                                 end
                             else
+                                Call("MSVstart:ActivateNode","MSVstart",0)
+                                Call("MSVstart2:ActivateNode","MSVstart",0)
                                 IS.casStart = 0
                             end
                             if baterie ~= 1 then
                                 IS.stav = "start"
                                 IS:VymazVse()
-                                Call("MSVstart:ActivateNode","MSVstart",0)
-                                Call("MSVstart2:ActivateNode","MSVstart",0)
                                 Call("SetControlValue","MSVrezim",0,0)
                             end
                             if baterie == 1 and IS.stav ~= "sleep" then
                                 IS.casMenu = IS.casMenu + cas
                                 if IS.casMenu > 20 then
                                     IS:Zapis("MSVid","",false,false)
-                                    IS:NastavCil1(IS.cil1ID)
-                                    if IS.cileIsWhole[ID] == "false" then
-                                        IS:NastavCil2(IS.cil2ID)
-                                        IS:NastavLinku(IS.linkaID)
-                                    end
                                     --Call("SetControlValue", "MSVzdo", 0, 1)
                                     IS.stav = "sleep"
                                     Call("SetControlValue", "MSVdisp", 0, 1)
                                 end
+                            else
+                                IS.casMenu = 0
                             end
 
                             if MSVsipkaDolu and not MSVsipkaDoluLast then
@@ -3823,7 +3840,7 @@ function Update (casHry)
                                 tlakVeValcich = false
                             end
 
-                            if Ammeter < -300 and not tlakVeValcich and tlak_HP > 3.5 and not fiktivniVykonNaRizeneNeschopne then
+                            if Ammeter < -300 and not tlakVeValcich and tlak_HP > 3.5 and not fiktivniVykonNaObsazene then
                                 releSoucinnostiBrzd = true
                                 Call("*:SetBrakeFailureValue","BRAKE_FADE",1)
                                 Call("SetControlValue", "BrakeBailOff", 0, 1)
@@ -5909,6 +5926,18 @@ function Update (casHry)
                                     dverePravePovelLokalni = false
                                 end
 
+                                if _G["openDoors"] and rychlost < 0.1 and (dvereLevePovelLokalni or dverePravePovelLokalni) then
+                                    if not openDoorsCalled and openDoorsTimer > 0.5 then
+                                        openDoors()
+                                        openDoorsCalled = true
+                                    else
+                                        openDoorsTimer = openDoorsTimer + cas
+                                    end
+                                else
+                                    openDoorsTimer = 0
+                                    openDoorsCalled = false
+                                end
+
                             --pridrzny obvod dveri
                                 if RizenaRidici == "ridici" and povelHV > 0.5 then
                                     if dvereStavLast ~= tostring(dvereLevePovelLokalni)..tostring(dverePravePovelLokalni) or RizenaRidici ~= RizenaRidiciLast_dvere then
@@ -6281,7 +6310,7 @@ function Update (casHry)
                             -- 	Call ("KourP2P:SetEmitterActive",0 ) 
                             -- end
                         ----------------------------------------Kontrolka jizdy na odporovych stupnich------------
-                            if vykon ~= 0 and vykon < 0.85 and not fiktivniVykonNaRizeneNeschopne then
+                            if vykon ~= 0 and vykon < 0.85 and not fiktivniVykonNaObsazene then
                                 NastavHodnotuSID("jizdaNaOdporechVeVlaku",1,460110)
                             else
                                 NastavHodnotuSID("jizdaNaOdporechVeVlaku",0,460110)
@@ -6298,53 +6327,57 @@ function Update (casHry)
                             Call("SetTime", "ZaclonkaPB", Call("GetControlValue", "zaclonkaPB", 0))
                         ----------------------------------------Baterie-------------------------------------------
                             local prepinacBat = math.abs(Call("GetControlValue","prepinacBat",0))
-                            if prepinacBat > 0.5 then
-                                baterie = 1
-                            else
-                                baterie = 0
-                            end
 
-                            if baterie == 1 then
-                                if vnitrniSit220Vnouzova == 1 then
-                                    napetiBaterieAutostop = math.min(napetiBaterieAutostop + math.sqrt(dobijec1Napeti-napetiBaterieAutostop+0.1)*cas*0.1, dobijec1Napeti)
-                                    proudBaterieAutostop = math.sqrt(dobijec1Napeti-napetiBaterieAutostop+0.1)*10
-                                    napetiBaterieRizeni = math.min(napetiBaterieRizeni + math.sqrt(dobijec2Napeti-napetiBaterieRizeni+0.1)*cas*0.1, dobijec2Napeti)
-                                    proudBaterieRizeni = math.sqrt(dobijec2Napeti-napetiBaterieRizeni+0.1)*10
-                                    if dobijec1Napeti > napetiBaterieAutostopSmooth then
-                                        napetiBaterieAutostopSmooth = math.min(napetiBaterieAutostopSmooth + (math.sqrt(dobijec1Napeti - napetiBaterieAutostopSmooth) * cas * 50), dobijec1Napeti)
-                                    elseif napetiBaterieAutostopSmooth > dobijec1Napeti then
-                                        napetiBaterieAutostopSmooth = math.max(napetiBaterieAutostopSmooth - (math.sqrt(napetiBaterieAutostopSmooth - dobijec1Napeti) * cas * 50), dobijec1Napeti)
-                                    end
-                                    if dobijec2Napeti > napetiBaterieRizeniSmooth then
-                                        napetiBaterieRizeniSmooth = math.min(napetiBaterieRizeniSmooth + (math.sqrt(dobijec2Napeti - napetiBaterieRizeniSmooth) * cas * 50), dobijec2Napeti)
-                                    elseif napetiBaterieRizeniSmooth > dobijec2Napeti then
-                                        napetiBaterieRizeniSmooth = math.max(napetiBaterieRizeniSmooth - (math.sqrt(napetiBaterieRizeniSmooth - dobijec2Napeti) * cas * 50), dobijec2Napeti)
-                                    end
+                            proudBaterieAutostop = proudBaterieAutostop * (napetiBaterieAutostop/49)
+                            proudBaterieRizeni = proudBaterieRizeni * (napetiBaterieRizeni/49)
+
+                            if vnitrniSit220Vnouzova == 1 then
+                                if prepinacBat > 0.5 then
+                                    proudBaterieAutostop = math.sqrt(dobijec1Napeti-napetiBaterieAutostop)*10
+                                    napetiBaterieAutostop = math.min(napetiBaterieAutostop + (proudBaterieAutostop * cas / (3600*kapacitaBaterieRizeni)), 49)
+                                    proudBaterieRizeni = math.sqrt(dobijec2Napeti-napetiBaterieRizeni)*10
+                                    napetiBaterieRizeni = math.min(napetiBaterieRizeni + (proudBaterieRizeni * cas / (3600*kapacitaBaterieAutostop)), 49)
                                 else
-                                    napetiBaterieAutostop = napetiBaterieAutostop + (proudBaterieAutostop * cas * 0.005)
-                                    napetiBaterieRizeni = napetiBaterieRizeni + (proudBaterieRizeni * cas * 0.005)
-                                    if napetiBaterieAutostop > napetiBaterieAutostopSmooth then
-                                        napetiBaterieAutostopSmooth = math.min(napetiBaterieAutostopSmooth + (math.sqrt(napetiBaterieAutostop - napetiBaterieAutostopSmooth) * cas * 50), napetiBaterieAutostop)
-                                    elseif napetiBaterieAutostopSmooth > napetiBaterieAutostop then
-                                        napetiBaterieAutostopSmooth = math.max(napetiBaterieAutostopSmooth - (math.sqrt(napetiBaterieAutostopSmooth - napetiBaterieAutostop) * cas * 50), napetiBaterieAutostop)
-                                    end
-                                    if napetiBaterieRizeni > napetiBaterieRizeniSmooth then
-                                        napetiBaterieRizeniSmooth = math.min(napetiBaterieRizeniSmooth + (math.sqrt(napetiBaterieRizeni - napetiBaterieRizeniSmooth) * cas * 50), napetiBaterieRizeni)
-                                    elseif napetiBaterieRizeniSmooth > napetiBaterieRizeni then
-                                        napetiBaterieRizeniSmooth = math.max(napetiBaterieRizeniSmooth - (math.sqrt(napetiBaterieRizeniSmooth - napetiBaterieRizeni) * cas * 50), napetiBaterieRizeni)
-                                    end
+                                    proudBaterieAutostop = 0
+                                    proudBaterieRizeni = 0
+                                end
+                                if dobijec1Napeti > napetiBaterieAutostopSmooth then
+                                    napetiBaterieAutostopSmooth = math.min(napetiBaterieAutostopSmooth + (math.sqrt(dobijec1Napeti - napetiBaterieAutostopSmooth) * cas * 50), dobijec1Napeti)
+                                elseif napetiBaterieAutostopSmooth > dobijec1Napeti then
+                                    napetiBaterieAutostopSmooth = math.max(napetiBaterieAutostopSmooth - (math.sqrt(napetiBaterieAutostopSmooth - dobijec1Napeti) * cas * 50), dobijec1Napeti)
+                                end
+                                if dobijec2Napeti > napetiBaterieRizeniSmooth then
+                                    napetiBaterieRizeniSmooth = math.min(napetiBaterieRizeniSmooth + (math.sqrt(dobijec2Napeti - napetiBaterieRizeniSmooth) * cas * 50), dobijec2Napeti)
+                                elseif napetiBaterieRizeniSmooth > dobijec2Napeti then
+                                    napetiBaterieRizeniSmooth = math.max(napetiBaterieRizeniSmooth - (math.sqrt(napetiBaterieRizeniSmooth - dobijec2Napeti) * cas * 50), dobijec2Napeti)
+                                end
+                                baterie = 1
+                            elseif prepinacBat > 0.5 then
+                                napetiBaterieAutostop = napetiBaterieAutostop + (proudBaterieAutostop * cas / (3600*kapacitaBaterieRizeni))
+                                napetiBaterieRizeni = napetiBaterieRizeni + (proudBaterieRizeni * cas / (3600*kapacitaBaterieAutostop))
+                                if napetiBaterieAutostop > napetiBaterieAutostopSmooth then
+                                    napetiBaterieAutostopSmooth = math.min(napetiBaterieAutostopSmooth + (math.sqrt(napetiBaterieAutostop - napetiBaterieAutostopSmooth) * cas * 50), napetiBaterieAutostop)
+                                elseif napetiBaterieAutostopSmooth > napetiBaterieAutostop then
+                                    napetiBaterieAutostopSmooth = math.max(napetiBaterieAutostopSmooth - (math.sqrt(napetiBaterieAutostopSmooth - napetiBaterieAutostop) * cas * 50), napetiBaterieAutostop)
+                                end
+                                if napetiBaterieRizeni > napetiBaterieRizeniSmooth then
+                                    napetiBaterieRizeniSmooth = math.min(napetiBaterieRizeniSmooth + (math.sqrt(napetiBaterieRizeni - napetiBaterieRizeniSmooth) * cas * 50), napetiBaterieRizeni)
+                                elseif napetiBaterieRizeniSmooth > napetiBaterieRizeni then
+                                    napetiBaterieRizeniSmooth = math.max(napetiBaterieRizeniSmooth - (math.sqrt(napetiBaterieRizeniSmooth - napetiBaterieRizeni) * cas * 50), napetiBaterieRizeni)
+                                end
+                                if napetiBaterieRizeni > 25 then
+                                    baterie = 1
+                                else
+                                    baterie = 0
                                 end
                             else
-                                if 0 > napetiBaterieAutostopSmooth then
-                                    napetiBaterieAutostopSmooth = math.min(napetiBaterieAutostopSmooth + (math.sqrt(napetiBaterieAutostop - napetiBaterieAutostopSmooth) * cas * 50), 0)
-                                elseif napetiBaterieAutostopSmooth > 0 then
-                                    napetiBaterieAutostopSmooth = math.max(napetiBaterieAutostopSmooth - (math.sqrt(napetiBaterieAutostopSmooth - napetiBaterieAutostop) * cas * 50), 0)
+                                if napetiBaterieAutostopSmooth > 0 then
+                                    napetiBaterieAutostopSmooth = math.max(napetiBaterieAutostopSmooth - (math.sqrt(napetiBaterieAutostopSmooth) * cas * 50), 0)
                                 end
-                                if 0 > napetiBaterieRizeniSmooth then
-                                    napetiBaterieRizeniSmooth = math.min(napetiBaterieRizeniSmooth + (math.sqrt(napetiBaterieRizeni - napetiBaterieRizeniSmooth) * cas * 50), 0)
-                                elseif napetiBaterieRizeniSmooth > 0 then
-                                    napetiBaterieRizeniSmooth = math.max(napetiBaterieRizeniSmooth - (math.sqrt(napetiBaterieRizeniSmooth - napetiBaterieRizeni) * cas * 50), 0)
+                                if napetiBaterieRizeniSmooth > 0 then
+                                    napetiBaterieRizeniSmooth = math.max(napetiBaterieRizeniSmooth - (math.sqrt(napetiBaterieRizeniSmooth) * cas * 50), 0)
                                 end
+                                baterie = 0
                             end
 
                             if proudBaterieAutostop > proudBaterieAutostopSmooth then
@@ -6379,18 +6412,18 @@ function Update (casHry)
                             else
                                 if dalkovaSv < -0.75 then
                                     DalkovaSvF(1,cas,baterie,false,false,true)
-                                    proudBaterieRizeni = proudBaterieRizeni - 2
+                                    proudBaterieRizeni = proudBaterieRizeni - 7
                                 elseif dalkovaSv < -0.25 then
                                     DalkovaSvF(1,cas,baterie,false,true,false)
-                                    proudBaterieRizeni = proudBaterieRizeni - 2
+                                    proudBaterieRizeni = proudBaterieRizeni - 7
                                 elseif dalkovaSv < 0.25 then
                                     DalkovaSvF(0,cas,baterie,false,false,false)
                                 elseif dalkovaSv < 0.75 then
                                     DalkovaSvF(1,cas,baterie,true,false,false)
-                                    proudBaterieRizeni = proudBaterieRizeni - 2
+                                    proudBaterieRizeni = proudBaterieRizeni - 8
                                 else
                                     DalkovaSvF(1,cas,baterie,false,true,true)
-                                    proudBaterieRizeni = proudBaterieRizeni - 6
+                                    proudBaterieRizeni = proudBaterieRizeni - 14
                                 end
                             end
 
@@ -6461,15 +6494,130 @@ function Update (casHry)
 
                             if baterie == 1 then
                                 if OsvetleniVozu <= 0.5 then
-                                    OsvetleniVozuF(0)
+                                    RozsvitSvetlo("Zarovka1",0)
+                                    RozsvitSvetlo("Zarovka2",0)
+                                    RozsvitSvetlo("Zarivka1",0)
+                                    RozsvitSvetlo("Zarivka2",0)
+                                    RozsvitSvetlo("Zarivka3",0)
+                                    zarivka1CasStart = nil
+                                    zarivka2CasStart = nil
+                                    zarivka3CasStart = nil
                                 elseif OsvetleniVozu <= 1.5 then
-                                    OsvetleniVozuF(1)
-                                    proudBaterieAutostop = proudBaterieAutostop - 12
+                                    RozsvitSvetlo("Zarovka1",1)
+                                    RozsvitSvetlo("Zarovka2",1)
+                                    RozsvitSvetlo("Zarivka1",0)
+                                    RozsvitSvetlo("Zarivka2",0)
+                                    RozsvitSvetlo("Zarivka3",0)
+                                    proudBaterieAutostop = proudBaterieAutostop - 27
+                                    zarivka1CasStart = nil
+                                    zarivka2CasStart = nil
+                                    zarivka3CasStart = nil
                                 elseif vnitrniSit220V == 1 then
-                                    OsvetleniVozuF(2)
+                                    RozsvitSvetlo("Zarovka1",0)
+                                    RozsvitSvetlo("Zarovka2",0)
+
+                                    if zarivka1CasStart == nil then
+                                        zarivka1Cas = 0
+                                        zarivka1CasStart = math.random()*5
+                                        zarivka1 = false
+                                        zarivka1Blik = nil
+                                    end
+
+                                    if zarivka1Cas < zarivka1CasStart then
+                                        zarivka1Cas = zarivka1Cas + cas
+                                        if zarivka1Blik == nil or zarivka1Blik < zarivka1BlikCas then
+                                            zarivka1BlikCas = 0
+                                            zarivka1 = not zarivka1
+                                            if zarivka1 then
+                                                zarivka1Blik = math.random()*0.2
+                                            else
+                                                zarivka1Blik = math.random()*1
+                                            end
+                                        else
+                                            zarivka1BlikCas = zarivka1BlikCas + cas
+                                        end
+                                    else
+                                        zarivka1Blik = nil
+                                        zarivka1 = true
+                                    end
+
+                                    if zarivka1 then
+                                        RozsvitSvetlo("Zarivka1",1)
+                                    else
+                                        RozsvitSvetlo("Zarivka1",0)
+                                    end
+
+                                    if zarivka2CasStart == nil then
+                                        zarivka2Cas = 0
+                                        zarivka2CasStart = math.random()*5
+                                        zarivka2 = false
+                                        zarivka2Blik = nil
+                                    end
+
+                                    if zarivka2Cas < zarivka2CasStart then
+                                        zarivka2Cas = zarivka2Cas + cas
+                                        if zarivka2Blik == nil or zarivka2Blik < zarivka2BlikCas then
+                                            zarivka2BlikCas = 0
+                                            zarivka2 = not zarivka2
+                                            if zarivka2 then
+                                                zarivka2Blik = math.random()*0.2
+                                            else
+                                                zarivka2Blik = math.random()*1
+                                            end
+                                        else
+                                            zarivka2BlikCas = zarivka2BlikCas + cas
+                                        end
+                                    else
+                                        zarivka2Blik = nil
+                                        zarivka2 = true
+                                    end
+
+                                    if zarivka2 then
+                                        RozsvitSvetlo("Zarivka2",1)
+                                    else
+                                        RozsvitSvetlo("Zarivka2",0)
+                                    end
+                                    
+                                    if zarivka3CasStart == nil then
+                                        zarivka3Cas = 0
+                                        zarivka3CasStart = math.random()*5
+                                        zarivka3 = false
+                                        zarivka3Blik = nil
+                                    end
+
+                                    if zarivka3Cas < zarivka3CasStart then
+                                        zarivka3Cas = zarivka3Cas + cas
+                                        if zarivka3Blik == nil or zarivka3Blik < zarivka3BlikCas then
+                                            zarivka3BlikCas = 0
+                                            zarivka3 = not zarivka3
+                                            if zarivka3 then
+                                                zarivka3Blik = math.random()*0.2
+                                            else
+                                                zarivka3Blik = math.random()*1
+                                            end
+                                        else
+                                            zarivka3BlikCas = zarivka3BlikCas + cas
+                                        end
+                                    else
+                                        zarivka3Blik = nil
+                                        zarivka3 = true
+                                    end
+
+                                    if zarivka3 then
+                                        RozsvitSvetlo("Zarivka3",1)
+                                    else
+                                        RozsvitSvetlo("Zarivka3",0)
+                                    end
                                 elseif vnitrniSit220V ~= 1 then
-                                    proudBaterieAutostop = proudBaterieAutostop - 12
-                                    OsvetleniVozuF(1)
+                                    zarivka1CasStart = nil
+                                    zarivka2CasStart = nil
+                                    zarivka3CasStart = nil
+                                    proudBaterieAutostop = proudBaterieAutostop - 27
+                                    RozsvitSvetlo("Zarovka1",1)
+                                    RozsvitSvetlo("Zarovka2",1)
+                                    RozsvitSvetlo("Zarivka1",0)
+                                    RozsvitSvetlo("Zarivka2",0)
+                                    RozsvitSvetlo("Zarivka3",0)
                                 end
                                 if KabinaPrist == 1 then
                                     KabinaPristF(1)
@@ -6536,6 +6684,9 @@ function Update (casHry)
                                 end
                             else
                                 VypniVse()
+                                zarivka1CasStart = nil
+                                zarivka2CasStart = nil
+                                zarivka3CasStart = nil
                             end
 
                             if ((levaPozBil or levaPozBilVPKC) and (pravaPozBil or pravaPozBilVPKC)) and not (levaPozCer or levaPozCerVPKC or pravaPozCer or pravaPozCerVPKC) then
@@ -6590,7 +6741,7 @@ function Update (casHry)
                                 kontrolerLast = 0
                             end
                             if JeNouzovyRadicVS == 0 and prepinaceTlak > 3.5 and baterie == 1 and not pojezdVDepu then
-                                if kontroler == 0 or (JOB == 0 and not fiktivniVykonNaRizeneNeschopne) or Smer == 0 or (vykon > 0 and ojDiag == 1) or ((tlakVeValcich or casOJ > 1) and (vykon < 0 or kontroler < 0.25)) or zavedSnizenyVykon then 
+                                if kontroler == 0 or (JOB == 0) or Smer == 0 or (vykon > 0 and ojDiag == 1) or ((tlakVeValcich or casOJ > 1) and (vykon < 0 or kontroler < 0.25)) or ((zavedSnizenyVykon or snizenyVykonVozu) and kontroler >= 0) then --and not fiktivniVykonNaObsazene 
                                     if kontroler == 0 then
                                         blokEDB = false
                                     end
@@ -6608,23 +6759,23 @@ function Update (casHry)
                                         Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
-                                    elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
+                                    elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaObsazene) then
                                         Call("SetControlValue","JizdniKontroler",0,0.05)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
                                     end
                                 elseif kontroler == 1 and not blokKrokSkluz and not snizenyVykonVozu then
-                                    if vykon >= 0.05 and vykon < 1 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) and ojDiag == 0 then
+                                    if vykon >= 0.05 and vykon < 1 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaObsazene) and ojDiag == 0 then
                                         if Call("GetControlValue", "synchronizacniRele", 0) < 1 then
                                             Call("SetControlValue","JizdniKontroler",0,vykon+0.05)
                                             casstupnu = 0
                                             caskroku = (math.random(8,12)/20)
                                         end
-                                    elseif vykon < 0 and casstupnu >= caszkroku and (JOB == -1  or fiktivniVykonNaRizeneNeschopne) then
+                                    elseif vykon < 0 and casstupnu >= caszkroku and (JOB == -1  or fiktivniVykonNaObsazene) then
                                         Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
-                                    elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
+                                    elseif vykon < 0.05 and casstupnu >= caskroku and (JOB == 1 or fiktivniVykonNaObsazene) then
                                         Call("SetControlValue","JizdniKontroler",0,0.05)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
@@ -6635,31 +6786,31 @@ function Update (casHry)
                                 --     casstupnu = 0
                                 --     caszkroku = (math.random(3,7)/20)
                                 elseif kontroler == -0.5 then
-                                    if vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
+                                    if vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or fiktivniVykonNaObsazene) then
                                         Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
-                                    elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
+                                    elseif vykon == 0 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaObsazene) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
                                         Call("SetControlValue","JizdniKontroler",0,-1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
-                                    -- elseif vykon < -1/modelConfig[scriptVersion].stupneEDB and casstupnu >= caszkroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB then
+                                    -- elseif vykon < -1/modelConfig[scriptVersion].stupneEDB and casstupnu >= caszkroku and (JOB == -1 or fiktivniVykonNaObsazene) and not blokKrokSkluz and not blokEDB then
                                     -- 	Call("SetControlValue","JizdniKontroler",0,vykon+1/modelConfig[scriptVersion].stupneEDB)
                                     -- 	casstupnu = 0
                                     -- 	caszkroku = (math.random(3,7)/20)
                                     end
                                 elseif kontroler == -1 then 
-                                    if vykon <= -1/modelConfig[scriptVersion].stupneEDB and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
+                                    if vykon <= -1/modelConfig[scriptVersion].stupneEDB and vykon > -1 and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaObsazene) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
                                         --if Ammeter >= -350 then
                                             Call("SetControlValue","JizdniKontroler",0,vykon-1/modelConfig[scriptVersion].stupneEDB)
                                             casstupnu = 0
                                             caskroku = (math.random(8,12)/20)
                                         --end
-                                    elseif vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or fiktivniVykonNaRizeneNeschopne) then
+                                    elseif vykon > 0 and casstupnu >= caszkroku and (JOB == 1 or fiktivniVykonNaObsazene) then
                                         Call("SetControlValue","JizdniKontroler",0,vykon-0.05)
                                         casstupnu = 0
                                         caszkroku = (math.random(3,7)/20)
-                                    elseif vykon > -1/modelConfig[scriptVersion].stupneEDB and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaRizeneNeschopne) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
+                                    elseif vykon > -1/modelConfig[scriptVersion].stupneEDB and casstupnu >= caskroku and (JOB == -1 or fiktivniVykonNaObsazene) and not blokKrokSkluz and not blokEDB and not tlakVeValcich then
                                         Call("SetControlValue","JizdniKontroler",0,-1/modelConfig[scriptVersion].stupneEDB)
                                         casstupnu = 0
                                         caskroku = (math.random(8,12)/20)
@@ -6709,19 +6860,21 @@ function Update (casHry)
                                 Call("SetControlValue","JizdniKontroler",0,0) 
                                 vykon = 0 
                             end
-                            fiktivniVykonNaRizeneNeschopne = false
+
                             if (PC == 3.75 and hlavniVypinac == 1 and baterie == 1 and not (snizenyVykonVozu and vykon > 0) and JOB ~= 0 and not vypnutyVuz) or pojezdVDepu then -- kontrola podmínek pro jízdu
-                                if vykon == 0 or not fiktivniVykonNaRizeneNeschopne then
+                                if vykon == 0 or not fiktivniVykonNaObsazene then
                                     Call("SetControlValue","MuteSounds",0,0)
+                                    fiktivniVykonNaObsazene = false
                                 end
-                                Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
-                            elseif (kontroler ~= 0 or vykon ~= 0) and Call("GetControlValue","mgVS",0) > 0 and baterie == 1 and not (snizenyVykonVozu and vykon > 0) then
-                                Call("SetControlValue","VykonPredTrCh",0,Call("GetControlValue","JizdniKontroler",0))
-                                fiktivniVykonNaRizeneNeschopne = true
+                                Call("SetControlValue","VykonPredTrCh",0,vykon)
+                            elseif (kontroler ~= 0 or vykon ~= 0 or throttleAndBrakeFiktivni ~= 0) and Call("GetControlValue","mgVS",0) > 0 and baterie == 1 and Call("GetIsEngineWithKey") == 1 and Call("GetControlValue","JOBpovel",0) ~= 0 then
+                                Call("SetControlValue","VykonPredTrCh",0,vykon)
+                                fiktivniVykonNaObsazene = true
                                 Call("SetControlValue","MuteSounds",0,1)
                             else
-                                if vykon == 0 or not fiktivniVykonNaRizeneNeschopne then
+                                if vykon == 0 or not fiktivniVykonNaObsazene then
                                     Call("SetControlValue","MuteSounds",0,0)
+                                    fiktivniVykonNaObsazene = false
                                 end
                                 Call("SetControlValue","VykonPredTrCh",0,0)
                             end
@@ -6751,13 +6904,14 @@ function Update (casHry)
                                 end
                             end
 
+                        ----------------------------------------ZAPADKY-------------------------------------------
                             local blokujSmer = true
                             if (Smer == 0 or Smer == 2 or baterie ~= 1) and (Call("GetControlValue","RadicNouzovy",0) == 0 or Call("GetControlValue","VirtualThrottleAndBrake",0) == 0 or blokujJK) then
                                 blokujJK = true
                             else
                                 blokujJK = false
                             end
-                            if vykon == 0 and baterie == 1 and not fiktivniVykonNaRizeneNeschopne and (ridiciKontroler == 0 or ridiciKontroler == 2) and (Call("GetControlValue","RadicNouzovy",0) == 0 or Call("GetControlValue","RadicNouzovy",0) == 2) then
+                            if vykon == 0 and baterie == 1 and not fiktivniVykonNaObsazene and (ridiciKontroler == 0 or ridiciKontroler == 2) and (Call("GetControlValue","RadicNouzovy",0) == 0 or Call("GetControlValue","RadicNouzovy",0) == 2) then
                                 blokujSmer = false
                             end
 
@@ -6770,8 +6924,10 @@ function Update (casHry)
                                     end
                                 end
                                 Call("SetControlValue","UserVirtualReverser",0,smerBlokovany)
+                                Call("SoundZapadky:SetParameter", "ZapadkaSmer", 1)
                             else
                                 smerBlokovany = nil
+                                Call("SoundZapadky:SetParameter", "ZapadkaSmer", 0)
                             end
                             
                             if blokujJK then
@@ -6938,7 +7094,7 @@ function Update (casHry)
                             --------------Adheze a skluz--------
                                 output_kN = VratTCh(Call("GetControlValue","VykonPredTrCh",0),Call("GetSpeed"))*gAbsolutniMax_kN
                                 positiveTractiveEffortForWheelslip = math.max(output_kN,0)
-                                if fiktivniVykonNaRizeneNeschopne then
+                                if fiktivniVykonNaObsazene then
                                     positiveTractiveEffortForWheelslip = 0
                                     negativeTractiveEffortForWheelslip = plynuleValce/3.8*150*max_tbc+200*Call("GetControlValue", "HandBrake", 0)
                                 else
@@ -7249,22 +7405,26 @@ function Update (casHry)
                             end
 
                         ----------------------------------------Snizeny vykon-------------------------------------
-                            if Call("GetControlValue","snizenyvykonanim",0) == 1 and RizenaRidici == "ridici" then
-                                Call("SetControlValue","SnizenyVykon",0,1)
+                            if Call("GetControlValue","snizenyvykonanim",0) > 0.5 and RizenaRidici == "ridici" then
+                                if otocPovely then
+                                    Call("SetControlValue","SnizenyVykon",0,-1)
+                                else
+                                    Call("SetControlValue","SnizenyVykon",0,1)
+                                end
                                 snizenyVykonTady = true
                             elseif snizenyVykonTady then
                                 snizenyVykonTady = false
                                 Call("SetControlValue","SnizenyVykon",0,0)
                             end
-                            zavedSnizenyVykon = false
-                            if Call("GetControlValue","snizenyvykonanim",0) == 0 and Call("GetControlValue","SnizenyVykon",0) == 1 then
-                                if Call("GetControlValue","VykonPredTrCh",0) <= 0 then
+                            if (Call("GetControlValue","SnizenyVykon",0) * Call("GetControlValue","Reverser",0) == -1 and not otocPovely) or (Call("GetControlValue","SnizenyVykon",0) * Call("GetControlValue","Reverser",0) == 1 and otocPovely) then
+                                if Call("GetControlValue","JizdniKontroler",0) <= 0 then
                                     snizenyVykonVozu = true
                                 else
                                     zavedSnizenyVykon = true
                                 end
                             else
                                 snizenyVykonVozu = false
+                                zavedSnizenyVykon = false
                             end
                         ----------------------------------------Brzdic zamek--------------------------------------
                             if (Call("GetControlValue","ZamekBS2vs",0) ~= 1 or gKlicTady) and Call("GetControlValue","VirtualBrake",0) > 0.82 and Call("GetControlValue","VirtualBrake",0) < 0.93 then
@@ -7431,19 +7591,19 @@ function Update (casHry)
                             end
                         ----------------------------------------JOB-----------------------------------------------
                             if RizenaRidici == "ridici" then
-                                if kontroler > 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 then
+                                if kontroler > 0 and throttleAndBrakeFiktivni == 0 and baterie == 1 then
                                     Call("SetControlValue","JOBpovel",0,1)
-                                elseif kontroler < 0 and Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and casOJ < 1 then
+                                elseif kontroler < 0 and throttleAndBrakeFiktivni == 0 and baterie == 1 and casOJ < 1 then
                                     Call("SetControlValue","JOBpovel",0,-1)
-                                elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or baterie == 0 then
+                                elseif throttleAndBrakeFiktivni == 0 or baterie == 0 then
                                     Call("SetControlValue","JOBpovel",0,0)
                                 end
                             end
-                            if Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 and not vypnutyVuz then
+                            if throttleAndBrakeFiktivni == 0 and baterie == 1 and ventilatoryTM == 1 and P01 == 1 and Call("GetControlValue","JOBpovel",0) == 1 and not vypnutyVuz then
                                 Call("SetControlValue","JOB",0,1)
-                            elseif Call("GetControlValue","VykonPredTrCh",0) == 0 and baterie == 1 and ventilatoryTM == 1 and Call("GetControlValue","JOBpovel",0) == -1 and not vypnutyVuz then
+                            elseif throttleAndBrakeFiktivni == 0 and baterie == 1 and ventilatoryTM == 1 and Call("GetControlValue","JOBpovel",0) == -1 and not vypnutyVuz then
                                 Call("SetControlValue","JOB",0,-1)
-                            elseif Call("GetControlValue","VykonPredTrCh",0) == 0 or ventilatoryTM == 0 or baterie == 0 or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or vypnutyVuz then
+                            elseif throttleAndBrakeFiktivni == 0 or ventilatoryTM == 0 or baterie == 0 or P01 ~= 1 or Call("GetControlValue","JOBpovel",0) == 0 or vypnutyVuz then
                                 Call("SetControlValue","JOB",0,0)
                             end
 
@@ -7479,6 +7639,8 @@ function Update (casHry)
                                 
                                 ohrevLeve = math.max(ohrevLeve-(0.0017*cas),0)
                                 ohrevPrave = math.max(ohrevPrave-(0.0017*cas),0)
+
+                                proudBaterieRizeni = proudBaterieRizeni - 10
                             else
                                 ohrevLevePredni = math.min(ohrevLevePredni+(0.001*cas),1)
                                 ohrevPravePredni = math.min(ohrevPravePredni+(0.001*cas),1)
@@ -7588,12 +7750,33 @@ function Update (casHry)
                             Call("SetControlValue", "VnitrniSitProud", 0, odberVSsmooth)
                         
                         ----------------------------------------Custom TrCh---------------------------------------
-                            Call("SetControlValue","ThrottleAndBrake",0,output_kN/gAbsolutniMax_kN)
+                            throttleAndBrakeLast = throttleAndBrake
+                            throttleAndBrake = output_kN/gAbsolutniMax_kN
+                            if throttleAndBrakeLast ~= throttleAndBrake then
+                                Call("SendConsistMessage",460990,ID..":"..throttleAndBrake,0)
+                                Call("SendConsistMessage",460990,ID..":"..throttleAndBrake,1)
+                                tabulkaVykonu[ID] = throttleAndBrake
+                            end
+
+                            throttleAndBrakeFiktivni = 0
+                            lokoVTahu = 0
+                            for k,v in tabulkaVykonu do
+                                if v ~= 0 then
+                                    throttleAndBrakeFiktivni = throttleAndBrakeFiktivni + v
+                                    lokoVTahu = lokoVTahu + 1
+                                end
+                            end
+                            if lokoVTahu ~= 0 then
+                                --if throttleAndBrakeFiktivni > 0 then
+                                    throttleAndBrakeFiktivni = throttleAndBrakeFiktivni/lokoVTahu
+                                --end
+                            end
+                            Call("SetControlValue","ThrottleAndBrake",0,throttleAndBrakeFiktivni)
                             vykon = Call("GetControlValue","VykonPredTrCh",0)
                         ----------------------------------------Custom Ampermetr----------------------------------
                             Call("SetControlValue","Ampermetr",0,VratProud(VratTCh(Call("GetControlValue","VykonPredTrCh",0),rychlostKolaPodvozek1),Call("GetControlValue","VykonPredTrCh",0),rychlostKolaPodvozek1))
                             Ammeter = Call("GetControlValue","Ampermetr",0)
-                            if not fiktivniVykonNaRizeneNeschopne and Call("GetControlValue", "Ammeter", 0) ~= 0 then
+                            if not fiktivniVykonNaObsazene and Call("GetControlValue", "Ammeter", 0) ~= 0 then
                                 -- Call("SetControlTargetValue","VirtualAmmeter",0,Call("GetControlValue","Ampermetr",0))
                                 Call("SetControlValue","VirtualAmmeter",0,PIDcntrlAmp(Call("GetControlValue", "Reverser", 0)*Call("GetControlValue","Ampermetr",0),Call("GetControlValue","VirtualAmmeter",0)))
                             else
@@ -7639,7 +7822,7 @@ function Update (casHry)
                             if vychoziNapeti == 0 then
                                 napeti = 0
                             else
-                                if not fiktivniVykonNaRizeneNeschopne and Ammeter > 0 then
+                                if not fiktivniVykonNaObsazene and Ammeter > 0 then
                                     napeti = ((vychoziNapeti - (Ammeter*tvrdostNapeti/400)) + napetiDelta) / 4
                                 else
                                     napeti = (vychoziNapeti + napetiDelta) / 4
@@ -7670,9 +7853,9 @@ function Update (casHry)
                                     end
                                     Call("SetControlValue","Diag_HV",0,diagHV) -- H7
                                 
-                                --*******H8 VENTILATORY
+                                --*******H8 PORUCHA VENTILACE
                                     local diagVentilatoryBeh = 0
-                                    if ventilatoryTM == 1 and ventilatory_tm_otacky < NABEH_VENTILATORY then
+                                    if Call("GetControlValue", "Reverser", 0) ~= 0 and not vypnutyVuz and ventilatory_tm_otacky < NABEH_VENTILATORY then
                                         diagVentilatoryBeh = 1
                                     end
                                     Call("SetControlValue","Diag_Ventilatory",0,diagVentilatoryBeh) -- H8
@@ -7716,7 +7899,7 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_PU",0,diagPU) -- H12
                                 
                                 --*******H13 DOTO
-                                    if zkratTM and not fiktivniVykonNaRizeneNeschopne and math.abs(Call("GetControlValue", "VirtualAmmeter", 0)) > 50 then
+                                    if zkratTM and not fiktivniVykonNaObsazene and math.abs(Call("GetControlValue", "VirtualAmmeter", 0)) > 50 then
                                         diagDOTO = 1
                                         if Call("GetControlValue","Diag_DOTO",0) == 0 then
                                             Call ( "SetControlValue", "HlavniVypinac", 0, 0)
@@ -7753,10 +7936,10 @@ function Update (casHry)
                                     Call("SetControlValue","Diag_NI",0,niDiag) -- H15
                                 
                                 --*******H18 OJ
-                                    if (((vykon < 0 or vykon > 0.05) and math.abs(Ammeter) < 0.05) or (vykon < 0 and Ammeter > -251 and rychlost < 7) or (Call("GetControlValue", "Ammeter", 0) == 0 and (vykon < 0 or vykon > 0.05) and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) or (snizenyVykonVozu and JOB == 1)) and not fiktivniVykonNaRizeneNeschopne then
+                                    if (((vykon < 0 or vykon > 0.05) and math.abs(Ammeter) < 0.05) or (vykon < 0 and Ammeter > -251 and rychlost < 7) or (Call("GetControlValue", "Ammeter", 0) == 0 and (vykon < 0 or vykon > 0.05) and not pojezdVDepu and Call("GetIsEngineWithKey") == 1) or (snizenyVykonVozu and JOB == 1)) and not fiktivniVykonNaObsazene then
                                         ojDiag = 1
                                         casOJ = casOJ + cas
-                                    elseif kontroler <= 0.05 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or fiktivniVykonNaRizeneNeschopne then
+                                    elseif kontroler <= 0.05 or math.abs(Ammeter) > 0.5 or Call("GetControlValue", "Ammeter", 0) ~= 0 or fiktivniVykonNaObsazene then
                                         ojDiag = 0
                                         if kontroler == 0 then
                                             casOJ = 0
@@ -7780,10 +7963,10 @@ function Update (casHry)
                                 
                                 --*******H22 POZICE JOB
                                     local jobDiag = 0
-                                    -- if (Call("GetControlValue","VykonPredTrCh",0) > 0 and JOB ~= 1 and not fiktivniVykonNaRizeneNeschopne) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) < 0 and JOB ~= -1 and not fiktivniVykonNaRizeneNeschopne) then
+                                    -- if (Call("GetControlValue","VykonPredTrCh",0) > 0 and JOB ~= 1 and not fiktivniVykonNaObsazene) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) < 0 and JOB ~= -1 and not fiktivniVykonNaObsazene) then
                                     -- 	jobDiag = 1
                                     -- end
-                                    if (Call("GetControlValue","VykonPredTrCh",0) >= 0 and kontroler > 0.25 and kontroler < 0.75 and JOB ~= 1 and not fiktivniVykonNaRizeneNeschopne) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and kontroler > -0.25 and kontroler < 0.25 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) <= 0 and kontroler < -0.25 and kontroler > -0.75 and JOB ~= -1 and not fiktivniVykonNaRizeneNeschopne) then
+                                    if (Call("GetControlValue","VykonPredTrCh",0) >= 0 and kontroler > 0.25 and kontroler < 0.75 and JOB ~= 1 and not fiktivniVykonNaObsazene) or (Call("GetControlValue","VykonPredTrCh",0) == 0 and kontroler > -0.25 and kontroler < 0.25 and JOB ~= 0) or (Call("GetControlValue","VykonPredTrCh",0) <= 0 and kontroler < -0.25 and kontroler > -0.75 and JOB ~= -1 and not fiktivniVykonNaObsazene) or (JOB == 0 and Call("GetControlValue","JOBpovel",0) ~= 0) then
                                         jobDiag = 1
                                     end
                                     Call("SetControlValue","Diag_JOB",0,jobDiag) -- H22
