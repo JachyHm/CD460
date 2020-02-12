@@ -143,7 +143,7 @@ extern "C" {
         case DLL_PROCESS_ATTACH:
             break;
         case DLL_PROCESS_DETACH:
-            system("notepad.exe");
+            //system("notepad.exe");
             break;
         case DLL_THREAD_ATTACH:
             break;

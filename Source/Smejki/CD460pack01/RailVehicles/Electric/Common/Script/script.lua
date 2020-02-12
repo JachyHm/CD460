@@ -1,12 +1,12 @@
---Aktuální verze k 16.4.2018
+--Aktuální verze k 08.02.2019
 --**********************skript lokomotivy 460**************************--
 	-- SysCall("ScenarioManager:ShowInfoMessageExt", "CD460 addon", "Baterie zapnute.",5,16,0,0)
 --os.execute('Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\460080\\ActualizationAutoRun\\runactualization.exe')
 
-openDoors, err = loadlib("Source\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\460\\Release\\460.dll", "openDoors")
+openDoors, err = loadlib("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\460.dll", "openDoors")
 --checkActualisation, err2 = loadlib("Source\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\460\\Release\\460.dll", "checkActualisation")
 if not _G["openDoors"] then
-    openDoors, err = loadlib("Source\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\460\\x64\\Release\\460.dll", "openDoors")
+    openDoors, err = loadlib("Assets\\Smejki\\CD460pack01\\RailVehicles\\Electric\\Common\\Script\\x64\\460.dll", "openDoors")
 end
 
 INFO = 0
@@ -235,8 +235,6 @@ STERAC_LEVY_MAX_SPEED = math.random(55, 70)/100
 STERAC_LEVY_DRY_SPEED = math.random(40,60)/100
 STERAC_PRAVY_MAX_SPEED = STERAC_LEVY_MAX_SPEED - math.random(-10, 10)/100
 STERAC_PRAVY_DRY_SPEED = STERAC_LEVY_DRY_SPEED - math.random(-10, 10)/100
-
-ojThrottleAndBrakeLast = 0
 
 rychlostEDB = math.random(20, 25)
 
@@ -1451,7 +1449,9 @@ modelConfig = {
     [460021] = {
         tramex = false,
         metra = false,
-        led = false,
+        ledDolni = true,
+        ledHorni = true,
+        horniReflektor = false,
         horniPozicka = true,
         vystraha = false,
         delkaVystrahy = 0,
@@ -1461,7 +1461,9 @@ modelConfig = {
     [460063] = {
         tramex = true,
         metra = false,
-        led = true,
+        ledDolni = true,
+        ledHorni = true,
+        horniReflektor = true,
         horniPozicka = true,
         vystraha = true,
         delkaVystrahy = 2.5,
@@ -1471,7 +1473,9 @@ modelConfig = {
     [460064] = {
         tramex = true,
         metra = false,
-        led = true,
+        ledDolni = true,
+        ledHorni = true,
+        horniReflektor = true,
         horniPozicka = true,
         vystraha = true,
         delkaVystrahy = 2.5,
@@ -1481,7 +1485,9 @@ modelConfig = {
     [460079] = {
         tramex = false,
         metra = true,
-        led = false,
+        ledDolni = false,
+        ledHorni = false,
+        horniReflektor = true,
         horniPozicka = false,
         vystraha = false,
         delkaVystrahy = 0,
@@ -1491,7 +1497,9 @@ modelConfig = {
     [460080] = {
         tramex = false,
         metra = true,
-        led = false,
+        ledDolni = false,
+        ledHorni = false,
+        horniReflektor = true,
         horniPozicka = false,
         vystraha = false,
         delkaVystrahy = 0,
@@ -1699,7 +1707,7 @@ modelConfig = {
 	zaMasinou = 0
 	nezobrazujValce = false
 	matrosov = false
-	gDebug = false
+	gDebug = true
 	gKlicTady = false
 	casSkluz = 0
     diagNU = 0
@@ -1914,7 +1922,8 @@ end
 	-- 460108 - zadost o otevreni dveri z nerizene HV
 	-- 460109 - dvereL
 	-- 460110 - jizda na odporech ve vlaku
-	-- 460111 - FastStart
+    -- 460111 - FastStart
+    -- 460112 - zmena NS ze zadni
 	-- 460114 - Ovladani DveriL
 	-- 460115 - Ovladani DveriP
 	-- 460116 - MGen priprava
@@ -1969,9 +1978,16 @@ function OnConsistMessage(zprava,argument,smer)
         noveNapeti = tonumber(string.sub(argument, delimpos+1, delim2pos-1))
         stareNapeti = tonumber(string.sub(argument, delim2pos+1))
         for k, v in tabulkaNapeti do
-            if math.abs(ujeteMetry-v[1]) < 5 then
-                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, stareNapeti}
-                found = true
+            if (Call("GetSpeed") > 0 and otocPovely) or (Call("GetSpeed") < 0 and not otocPovely) then
+                if math.abs(ujeteMetry-v[1]) < 10 and v[2] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, noveNapeti, stareNapeti}
+                    found = true
+                end
+            else
+                if math.abs(ujeteMetry-v[1]) < 10 and v[3] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, noveNapeti, stareNapeti}
+                    found = true
+                end
             end
         end
         if not found then
@@ -2043,7 +2059,7 @@ function OnConsistMessage(zprava,argument,smer)
 	end
 	if zprava == 460111 then
 		pozadavekNaFastStart = 2
-	end
+    end
 	if zprava == 460114 then
 		ZpracujZpravuSID(zprava,argument,smer,"DvereLeveVSouprave")
 	end
@@ -2160,63 +2176,131 @@ function OnCustomSignalMessage(parameter)
     elseif parameter == "0V" then
         noveNapeti = 0
         found = false
-        ujeteMetry = -24.464
-        for k, v in tabulkaNapeti do
-            if math.abs(ujeteMetry-v[1]) < 5 then
-                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
-                found = true
+        if Call("GetSpeed") > 0 then
+            ujeteMetry = -24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[2] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                    found = true
+                end
             end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
+        else
+            ujeteMetry = Call("GetConsistLength")-24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[3] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, idealniNapeti, noveNapeti}
+                    found = true
+                end
+            end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, idealniNapeti, noveNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,1)
         end
-        if not found then
-            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
-        end
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     elseif parameter == "3000V" then
         noveNapeti = 3000
         found = false
-        ujeteMetry = -24.464
-        for k, v in tabulkaNapeti do
-            if math.abs(ujeteMetry-v[1]) < 5 then
-                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
-                found = true
+        if Call("GetSpeed") > 0 then
+            ujeteMetry = -24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[2] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                    found = true
+                end
             end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
+        else
+            ujeteMetry = Call("GetConsistLength")-24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[3] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, idealniNapeti, noveNapeti}
+                    found = true
+                end
+            end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, idealniNapeti, noveNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,1)
         end
-        if not found then
-            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
-        end
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     elseif parameter == "15000V" then
         noveNapeti = 15000
         found = false
-        ujeteMetry = -24.464
-        for k, v in tabulkaNapeti do
-            if math.abs(ujeteMetry-v[1]) < 5 then
-                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
-                found = true
+        if Call("GetSpeed") > 0 then
+            ujeteMetry = -24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[2] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                    found = true
+                end
             end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
+        else
+            ujeteMetry = Call("GetConsistLength")-24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[3] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, idealniNapeti, noveNapeti}
+                    found = true
+                end
+            end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, idealniNapeti, noveNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,1)
         end
-        if not found then
-            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
-        end
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     elseif parameter == "25000V" then
         noveNapeti = 25000
         found = false
-        ujeteMetry = -24.464
-        for k, v in tabulkaNapeti do
-            if math.abs(ujeteMetry-v[1]) < 5 then
-                tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
-                found = true
+        if Call("GetSpeed") > 0 then
+            ujeteMetry = -24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[2] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, noveNapeti, idealniNapeti}
+                    found = true
+                end
             end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
+        else
+            ujeteMetry = Call("GetConsistLength")-24.464
+            ZpravaDebug("Vzdalenost k "..tostring(noveNapeti).." napeti "..tostring(ujeteMetry))
+            for k, v in tabulkaNapeti do
+                if math.abs(ujeteMetry-v[1]) < 10 and v[3] == noveNapeti then
+                    tabulkaNapeti[k] = {ujeteMetry, idealniNapeti, noveNapeti}
+                    found = true
+                end
+            end
+            if not found then
+                tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, idealniNapeti, noveNapeti}
+            end
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,0)
+            Call("SendConsistMessage",460104,ujeteMetry..":"..idealniNapeti..";"..noveNapeti,1)
         end
-        if not found then
-            tabulkaNapeti[table.getn(tabulkaNapeti)+1] = {ujeteMetry, noveNapeti, idealniNapeti}
-        end
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,0)
-        Call("SendConsistMessage",460104,ujeteMetry..":"..noveNapeti..";"..idealniNapeti,1)
     else
         local NO
         local vzdalenost
@@ -2298,21 +2382,21 @@ function AktivujNode(ktery,plati)
 	Call("ActivateNode",ktery,plati)
 end
 
-function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
+function DalkovaSvF(zapnute,delkaUpd,baterie,tlumene,levy,pravy)
 	local pribytek = delkaUpd * 7
 	local dalkoveLeve = false
     local dalkovePrave = false
     local dalkoveHorni1 = false
     local dalkoveHorni2 = false
 
-	local barvaDalkovaDolniLED = {1,1,0.7}
-	local barvaDalkovaHorniLED = {0.7385892,1,1}
+	local barvaDalkovaDolniLED = {0.25,0.25,0.175}
+	local barvaDalkovaHorniLED = {0.1846473,0.25,0.25}
 
-	local barvaDalkovaDolniZ = {1,1,0.1576764}
-    local barvaDalkovaHorniZ = {1,0.6597511,0}
-    local barvaPozickaHorniZ = {1,0.9543568,0}
+	local barvaDalkovaDolniZ = {0.25,0.25,0.0394191}
+    local barvaDalkovaHorniZ = {0.25,0.164937775,0}
+    local barvaPozickaHorniZ = {0.25,0.2385892,0}
 	
-	if stupen == 1 and baterie == 1 then
+	if zapnute and baterie == 1 then
 		dalkoveLeve = true
         dalkovePrave = true
         if levy or pravy then
@@ -2333,7 +2417,7 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
 			Call("PozickaHorniBi:Activate",0)
             AktivujNode("reflektor_rozsviceny",0)
         end
-        if modelConfig[scriptVersion].led then
+        if modelConfig[scriptVersion].ledDolni then
             Call("PozickaHorniBi:SetColour",barvaDalkovaHorniLED[1],barvaDalkovaHorniLED[2],barvaDalkovaHorniLED[3])
         else
             Call("PozickaHorniBi:SetColour",barvaPozickaHorniZ[1],barvaPozickaHorniZ[2],barvaPozickaHorniZ[3])
@@ -2378,7 +2462,7 @@ function DalkovaSvF(stupen,delkaUpd,baterie,tlumene,levy,pravy)
         end
     end
 
-    if not modelConfig[scriptVersion].led then
+    if not modelConfig[scriptVersion].ledDolni then
         if dalkoveLeve and stavDalkoveLeve < 5 then --and modelConfig[scriptVersion].horniPozicka 
             stavDalkoveLeve = stavDalkoveLeve + (math.sqrt(5-stavDalkoveLeve)*pribytek/5)
         elseif not dalkoveLeve and stavDalkoveLeve > 0 then
@@ -3126,7 +3210,7 @@ function Update (casHry)
                     if not ToBolAndBack(Call("GetControlValue","IsMasterInConsist",0)) and Call("GetIsEngineWithKey") == 1 then
                         Call("SetControlValue","IsMasterInConsist",0,1)
                         ZpravaDebug("Beru si master!")
-                        if zaMasinou == 1 or predMasinou == 1 then
+                        if zaMasinouTornado then
                             Call("SendConsistMessage",460998,"1",1)
                         else
                             ID = 1
@@ -3134,7 +3218,6 @@ function Update (casHry)
                         end
                     end
                     if ID ~= nil and ID > 0 then
-                        ZpravaDebug("---------UPDATE START---------")
                         NastavHodnotuSID("pocetJimek", 1, 460993)
                         pocetJimek = decToBitsCount(Call("GetControlValue", "pocetJimek", 0))
                         hlavniVypinac = Call ("GetControlValue", "HlavniVypinac", 0)
@@ -3965,10 +4048,12 @@ function Update (casHry)
                                             Call("SoundBrzdice:SetParameter", "MainPipeReleasing", math.max(math.min(skutecna_membrana_ridiciho_ustroji, tlak_HP),-1))
                                         end
                                         Call("SoundBrzdice:SetParameter", "MainPipeFilling", math.max(math.min(skutecna_membrana_ridiciho_ustroji, math.abs(tlak_HP - VirtualMainReservoirPressureBAR)),0))
-                                        if skutecna_membrana_ridiciho_ustroji > 0 and tlak_HP < VirtualMainReservoirPressureBAR then
-                                            tlak_HP = tlak_HP + math.abs(skutecna_membrana_ridiciho_ustroji*cas*math.max(tlak_HP-VirtualMainReservoirPressureBAR,1)/(Call("GetConsistLength")/100))
-                                        elseif skutecna_membrana_ridiciho_ustroji < 0 then
-                                            tlak_HP = math.max(tlak_HP - math.abs(skutecna_membrana_ridiciho_ustroji*cas/(Call("GetConsistLength")/100)),0)
+                                        if cilovy_tlak_HP_po_zmene <= 0 then
+                                            if skutecna_membrana_ridiciho_ustroji > 0 and tlak_HP < VirtualMainReservoirPressureBAR then
+                                                tlak_HP = tlak_HP + math.abs(skutecna_membrana_ridiciho_ustroji*cas*math.max(tlak_HP-VirtualMainReservoirPressureBAR,1)/(Call("GetConsistLength")/100))
+                                            elseif skutecna_membrana_ridiciho_ustroji < 0 then
+                                                tlak_HP = math.max(tlak_HP - math.abs(skutecna_membrana_ridiciho_ustroji*cas/(Call("GetConsistLength")/100)),0)
+                                            end
                                         end
                                     else
                                         Call("SoundBrzdice:SetParameter", "MainPipeReleasing", 0)
@@ -4005,7 +4090,7 @@ function Update (casHry)
                                 PipeOld = tlak_HP
 
                             --ubytek v potrubi pri pripojeni vozu
-                                if tlak_HP - cilovy_tlak_HP_po_zmene > math.sqrt(tlak_HP-cilovy_tlak_HP_po_zmene)*cas*3 and cilovy_tlak_HP_po_zmene > 0 then
+                                if tlak_HP - cilovy_tlak_HP_po_zmene > math.sqrt(tlak_HP-cilovy_tlak_HP_po_zmene)*cas*3 and cilovy_tlak_HP_po_zmene > 0 and tlak_HP > cilovy_tlak_HP_po_zmene then
                                     tlak_HP = tlak_HP - math.sqrt(tlak_HP-cilovy_tlak_HP_po_zmene)*cas*3
                                 else
                                     cilovy_tlak_HP_po_zmene = -1
@@ -6399,30 +6484,37 @@ function Update (casHry)
                                 
                         ----------------------------------------Svetla--------------------------------------------
                             local dalkovaSv = Call("GetControlValue", "VirtualHeadlights", 0)
-                            if modelConfig[scriptVersion].horniPozicka then
+                            if not modelConfig[scriptVersion].horniReflektor or modelConfig[scriptVersion].ledHorni then --pokud je horni LED, nebo vubec nema reflektor, nema polohy N
                                 if dalkovaSv < 0 then
                                     Call("SetControlValue", "VirtualHeadlights", 0, 0)
+                                    dalkovaSv = 0
                                 end
+                            end
+                            if not modelConfig[scriptVersion].horniReflektor then
                                 if dalkovaSv > 0.5 then
-                                    DalkovaSvF(1,cas,baterie,false,false,false)
-                                    proudBaterieRizeni = proudBaterieRizeni - 1
+                                    DalkovaSvF(true,cas,baterie,false,false,false)
+                                    if modelConfig[scriptVersion].ledDolni then
+                                        proudBaterieRizeni = proudBaterieRizeni - 1
+                                    else
+                                        proudBaterieRizeni = proudBaterieRizeni - 7
+                                    end
                                 else
-                                    DalkovaSvF(0,cas,baterie,false,false,false)
+                                    DalkovaSvF(false,cas,baterie,false,false,false)
                                 end
                             else
                                 if dalkovaSv < -0.75 then
-                                    DalkovaSvF(1,cas,baterie,false,false,true)
+                                    DalkovaSvF(true,cas,baterie,false,false,true)
                                     proudBaterieRizeni = proudBaterieRizeni - 7
                                 elseif dalkovaSv < -0.25 then
-                                    DalkovaSvF(1,cas,baterie,false,true,false)
+                                    DalkovaSvF(true,cas,baterie,false,true,false)
                                     proudBaterieRizeni = proudBaterieRizeni - 7
                                 elseif dalkovaSv < 0.25 then
-                                    DalkovaSvF(0,cas,baterie,false,false,false)
+                                    DalkovaSvF(false,cas,baterie,false,false,false)
                                 elseif dalkovaSv < 0.75 then
-                                    DalkovaSvF(1,cas,baterie,true,false,false)
+                                    DalkovaSvF(true,cas,baterie,true,false,false)
                                     proudBaterieRizeni = proudBaterieRizeni - 8
                                 else
-                                    DalkovaSvF(1,cas,baterie,false,true,true)
+                                    DalkovaSvF(true,cas,baterie,false,true,true)
                                     proudBaterieRizeni = proudBaterieRizeni - 14
                                 end
                             end
@@ -7750,12 +7842,12 @@ function Update (casHry)
                             Call("SetControlValue", "VnitrniSitProud", 0, odberVSsmooth)
                         
                         ----------------------------------------Custom TrCh---------------------------------------
-                            throttleAndBrakeLast = throttleAndBrake
                             throttleAndBrake = output_kN/gAbsolutniMax_kN
-                            if throttleAndBrakeLast ~= throttleAndBrake then
+                            if math.abs(throttleAndBrake-throttleAndBrakeLast) > 0.00076923 then
                                 Call("SendConsistMessage",460990,ID..":"..throttleAndBrake,0)
                                 Call("SendConsistMessage",460990,ID..":"..throttleAndBrake,1)
                                 tabulkaVykonu[ID] = throttleAndBrake
+                                throttleAndBrakeLast = throttleAndBrake
                             end
 
                             throttleAndBrakeFiktivni = 0
@@ -7788,14 +7880,19 @@ function Update (casHry)
                                 oldTabulkaNapeti = tabulkaNapeti[k]
                                 if otocPovely then
                                     tabulkaNapeti[k] = {oldTabulkaNapeti[1] + Call("GetSpeed") * casHry, oldTabulkaNapeti[2], oldTabulkaNapeti[3]}
+                                    ZpravaDebug(tostring(tabulkaNapeti[k][1]).."m do napeti "..tostring(tabulkaNapeti[k][2])..":"..tostring(tabulkaNapeti[k][3]))
                                 else
                                     tabulkaNapeti[k] = {oldTabulkaNapeti[1] - Call("GetSpeed") * casHry, oldTabulkaNapeti[2], oldTabulkaNapeti[3]}
+                                    ZpravaDebug(tostring(tabulkaNapeti[k][1]).."m do napeti "..tostring(tabulkaNapeti[k][2])..":"..tostring(tabulkaNapeti[k][3]))
                                 end
-
                                 if tabulkaNapeti[k][1] >= 0 and oldTabulkaNapeti[1] < 0 then
+                                    tabulkaNapeti[k][3] = idealniNapeti
                                     idealniNapeti = tabulkaNapeti[k][2]
+                                    ZpravaDebug("Nove napeti je "..tostring(idealniNapeti))
                                 elseif tabulkaNapeti[k][1] <= 0 and oldTabulkaNapeti[1] > 0 then
+                                    tabulkaNapeti[k][2] = idealniNapeti
                                     idealniNapeti = tabulkaNapeti[k][3]
+                                    ZpravaDebug("Nove napeti je "..tostring(idealniNapeti))
                                 end
                             end
 
