@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cHcGeometry xmlns:d="http://www.kuju.com/TnT/2003/Delta" d:version="1.0" d:id="11213144">
+	<LODController>
+		<cHcGeometryLODController d:id="11305456">
+			<LOD>
+				<e d:type="sFloat32" d:alt_encoding="000000E0FFFFEF47" d:precision="string">3.40282e+038</e>
+			</LOD>
+		</cHcGeometryLODController>
+	</LODController>
+	<Material>
+		<cHcEffectMaterialDx d:id="11271080">
+			<ShaderName d:type="cDeltaString">TrainEmissiveGlow.fx</ShaderName>
+			<TextureByName>
+				<e d:type="cDeltaString">textures\[00]decal_primarynumber_0</e>
+				<e d:type="cDeltaString">textures\[00]460_cab01em</e>
+			</TextureByName>
+			<Name d:type="cDeltaString">primarynumber_0</Name>
+			<CollisionSurface d:type="cDeltaString">METAL</CollisionSurface>
+			<VertexType d:type="ref">11294096</VertexType>
+			<FrameAlphaMode d:type="cDeltaString">ALPHA_MODE_NONE</FrameAlphaMode>
+			<PassPlatformData/>
+			<FloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11271284">
+					<Name d:type="cDeltaString">SPECULARPOWER</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000001040" d:precision="string">4</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11271296">
+					<Name d:type="cDeltaString">CUSTOMPARAM0</Name>
+					<Value d:type="sFloat32" d:alt_encoding="000000E0342F3A40" d:precision="string">26.1844</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11271308">
+					<Name d:type="cDeltaString">CUSTOMPARAM1</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11271320">
+					<Name d:type="cDeltaString">CUSTOMPARAM2</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11271332">
+					<Name d:type="cDeltaString">CUSTOMPARAM3</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11271344">
+					<Name d:type="cDeltaString">CUSTOMPARAM4</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11271356">
+					<Name d:type="cDeltaString">CUSTOMPARAM5</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+			</FloatParam>
+			<VectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11271480">
+					<Name d:type="cDeltaString">AMBIENT</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11271504">
+					<Name d:type="cDeltaString">EMISSIVE</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 0.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11271528">
+					<Name d:type="cDeltaString">SPECULARCOLOR</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11271552">
+					<Name d:type="cDeltaString">DIFFUSECOLOR</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8000000 0.8000000 0.8000000 0.8000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+			</VectorParam>
+			<AlphaTestType d:type="cDeltaString">HC_ALPHATEST_GREATER</AlphaTestType>
+			<AlphaRef d:type="sUInt32">127</AlphaRef>
+			<TwoSided d:type="bool">0</TwoSided>
+			<MipLodBias>
+				<e d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</e>
+				<e d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</e>
+			</MipLodBias>
+			<TextureAddrModeU>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeU>
+			<TextureAddrModeV>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeV>
+			<TextureAddrModeW>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeW>
+			<BorderColour>
+				<e d:type="sUInt32">1953722220</e>
+				<e d:type="sUInt32">1868908334</e>
+			</BorderColour>
+		</cHcEffectMaterialDx>
+		<cHcEffectMaterialDx d:id="11272744">
+			<ShaderName d:type="cDeltaString">TrainEmissiveGlow.fx</ShaderName>
+			<TextureByName>
+				<e d:type="cDeltaString">textures\[00]decal_primarynumber_1</e>
+				<e d:type="cDeltaString">textures\[00]460_cab01em</e>
+			</TextureByName>
+			<Name d:type="cDeltaString">primarynumber_1</Name>
+			<CollisionSurface d:type="cDeltaString">METAL</CollisionSurface>
+			<VertexType d:type="ref">11294096</VertexType>
+			<FrameAlphaMode d:type="cDeltaString">ALPHA_MODE_NONE</FrameAlphaMode>
+			<PassPlatformData/>
+			<FloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11272948">
+					<Name d:type="cDeltaString">SPECULARPOWER</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000001040" d:precision="string">4</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11272960">
+					<Name d:type="cDeltaString">CUSTOMPARAM0</Name>
+					<Value d:type="sFloat32" d:alt_encoding="000000E0342F3A40" d:precision="string">26.1844</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11272972">
+					<Name d:type="cDeltaString">CUSTOMPARAM1</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11272984">
+					<Name d:type="cDeltaString">CUSTOMPARAM2</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11272996">
+					<Name d:type="cDeltaString">CUSTOMPARAM3</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11273008">
+					<Name d:type="cDeltaString">CUSTOMPARAM4</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11273020">
+					<Name d:type="cDeltaString">CUSTOMPARAM5</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+			</FloatParam>
+			<VectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11273144">
+					<Name d:type="cDeltaString">AMBIENT</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11273168">
+					<Name d:type="cDeltaString">EMISSIVE</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 0.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11273192">
+					<Name d:type="cDeltaString">SPECULARCOLOR</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11273216">
+					<Name d:type="cDeltaString">DIFFUSECOLOR</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8000000 0.8000000 0.8000000 0.8000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+			</VectorParam>
+			<AlphaTestType d:type="cDeltaString">HC_ALPHATEST_GREATER</AlphaTestType>
+			<AlphaRef d:type="sUInt32">127</AlphaRef>
+			<TwoSided d:type="bool">0</TwoSided>
+			<MipLodBias>
+				<e d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</e>
+				<e d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</e>
+			</MipLodBias>
+			<TextureAddrModeU>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeU>
+			<TextureAddrModeV>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeV>
+			<TextureAddrModeW>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeW>
+			<BorderColour>
+				<e d:type="sUInt32">0</e>
+				<e d:type="sUInt32">0</e>
+			</BorderColour>
+		</cHcEffectMaterialDx>
+		<cHcEffectMaterialDx d:id="11274912">
+			<ShaderName d:type="cDeltaString">TrainEmissiveGlow.fx</ShaderName>
+			<TextureByName>
+				<e d:type="cDeltaString">textures\[00]decal_primarynumber_2</e>
+				<e d:type="cDeltaString">textures\[00]460_cab01em</e>
+			</TextureByName>
+			<Name d:type="cDeltaString">primarynumber_2</Name>
+			<CollisionSurface d:type="cDeltaString">METAL</CollisionSurface>
+			<VertexType d:type="ref">11294096</VertexType>
+			<FrameAlphaMode d:type="cDeltaString">ALPHA_MODE_NONE</FrameAlphaMode>
+			<PassPlatformData/>
+			<FloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11275116">
+					<Name d:type="cDeltaString">SPECULARPOWER</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000001040" d:precision="string">4</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11275128">
+					<Name d:type="cDeltaString">CUSTOMPARAM0</Name>
+					<Value d:type="sFloat32" d:alt_encoding="000000E0342F3A40" d:precision="string">26.1844</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11275140">
+					<Name d:type="cDeltaString">CUSTOMPARAM1</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11275152">
+					<Name d:type="cDeltaString">CUSTOMPARAM2</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11275164">
+					<Name d:type="cDeltaString">CUSTOMPARAM3</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11275176">
+					<Name d:type="cDeltaString">CUSTOMPARAM4</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+				<cHcEffectMaterialDx-cFloatParam d:id="11275188">
+					<Name d:type="cDeltaString">CUSTOMPARAM5</Name>
+					<Value d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</Value>
+				</cHcEffectMaterialDx-cFloatParam>
+			</FloatParam>
+			<VectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11275312">
+					<Name d:type="cDeltaString">AMBIENT</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11275336">
+					<Name d:type="cDeltaString">EMISSIVE</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0000000 0.0000000 0.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11275360">
+					<Name d:type="cDeltaString">SPECULARCOLOR</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">1.0000000 1.0000000 1.0000000 1.0000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+				<cHcEffectMaterialDx-cVectorParam d:id="11275384">
+					<Name d:type="cDeltaString">DIFFUSECOLOR</Name>
+					<Value d:numElements="4" d:elementType="sFloat32" d:precision="string">0.8000000 0.8000000 0.8000000 0.8000000</Value>
+				</cHcEffectMaterialDx-cVectorParam>
+			</VectorParam>
+			<AlphaTestType d:type="cDeltaString">HC_ALPHATEST_GREATER</AlphaTestType>
+			<AlphaRef d:type="sUInt32">127</AlphaRef>
+			<TwoSided d:type="bool">0</TwoSided>
+			<MipLodBias>
+				<e d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</e>
+				<e d:type="sFloat32" d:alt_encoding="0000000000000000" d:precision="string">0</e>
+			</MipLodBias>
+			<TextureAddrModeU>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeU>
+			<TextureAddrModeV>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeV>
+			<TextureAddrModeW>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+				<e d:type="cDeltaString">HC_TEXTURE_ADDR_MODE_WRAP</e>
+			</TextureAddrModeW>
+			<BorderColour>
+				<e d:type="sUInt32">0</e>
+				<e d:type="sUInt32">0</e>
+			</BorderColour>
+		</cHcEffectMaterialDx>
+	</Material>
+	<SourceLToPTransform>
+		<e d:numElements="16" d:elementType="sFloat32" d:precision="string">1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000</e>
+	</SourceLToPTransform>
+	<TransformDependency>
+		<e d:type="sInt32">-1</e>
+	</TransformDependency>
+	<TransformName>
+		<e d:type="cDeltaString">primarydigits_3</e>
+	</TransformName>
+	<Root>
+		<cHcSGBoundingSphere d:id="11351504">
+			<Child>
+				<cHcSGNodeLODSelector d:id="11351568">
+					<Child>
+						<cHcSGBoundingSphere d:id="11351632">
+							<Child>
+								<cHcSGNodeMaterial d:id="11039480">
+									<Child>
+										<cHcGeometryNodeSameState d:id="11125280">
+											<Child/>
+											<PrimitiveSetByDesc>
+												<cHcPrimitiveSetDescDx d:id="62260400">
+													<NumPrimitives d:type="sUInt32">2</NumPrimitives>
+													<PrimitiveType d:type="cDeltaString">PRIMTYPE_TRIANGLESTRIP</PrimitiveType>
+													<VertexIndexMin d:type="sUInt32">0</VertexIndexMin>
+													<VertexIndexRange d:type="sUInt32">4</VertexIndexRange>
+													<VertexIndexBase d:type="sInt32">0</VertexIndexBase>
+													<IndexArrayStart d:type="sInt32">0</IndexArrayStart>
+													<NumOriginalTriangles d:type="sUInt32">2</NumOriginalTriangles>
+												</cHcPrimitiveSetDescDx>
+											</PrimitiveSetByDesc>
+										</cHcGeometryNodeSameState>
+									</Child>
+									<Material d:type="ref">11271080</Material>
+								</cHcSGNodeMaterial>
+								<cHcSGNodeMaterial d:id="11039576">
+									<Child>
+										<cHcGeometryNodeSameState d:id="11125448">
+											<Child/>
+											<PrimitiveSetByDesc>
+												<cHcPrimitiveSetDescDx d:id="62260480">
+													<NumPrimitives d:type="sUInt32">2</NumPrimitives>
+													<PrimitiveType d:type="cDeltaString">PRIMTYPE_TRIANGLESTRIP</PrimitiveType>
+													<VertexIndexMin d:type="sUInt32">0</VertexIndexMin>
+													<VertexIndexRange d:type="sUInt32">4</VertexIndexRange>
+													<VertexIndexBase d:type="sInt32">4</VertexIndexBase>
+													<IndexArrayStart d:type="sInt32">4</IndexArrayStart>
+													<NumOriginalTriangles d:type="sUInt32">2</NumOriginalTriangles>
+												</cHcPrimitiveSetDescDx>
+											</PrimitiveSetByDesc>
+										</cHcGeometryNodeSameState>
+									</Child>
+									<Material d:type="ref">11272744</Material>
+								</cHcSGNodeMaterial>
+								<cHcSGNodeMaterial d:id="11038760">
+									<Child>
+										<cHcGeometryNodeSameState d:id="11124888">
+											<Child/>
+											<PrimitiveSetByDesc>
+												<cHcPrimitiveSetDescDx d:id="62260544">
+													<NumPrimitives d:type="sUInt32">2</NumPrimitives>
+													<PrimitiveType d:type="cDeltaString">PRIMTYPE_TRIANGLESTRIP</PrimitiveType>
+													<VertexIndexMin d:type="sUInt32">0</VertexIndexMin>
+													<VertexIndexRange d:type="sUInt32">4</VertexIndexRange>
+													<VertexIndexBase d:type="sInt32">8</VertexIndexBase>
+													<IndexArrayStart d:type="sInt32">8</IndexArrayStart>
+													<NumOriginalTriangles d:type="sUInt32">2</NumOriginalTriangles>
+												</cHcPrimitiveSetDescDx>
+											</PrimitiveSetByDesc>
+										</cHcGeometryNodeSameState>
+									</Child>
+									<Material d:type="ref">11274912</Material>
+								</cHcSGNodeMaterial>
+							</Child>
+							<Centre d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.0000000 0.0000000 0.0000000 1.0000000</Centre>
+							<Radius d:type="sFloat32" d:alt_encoding="0000004081F68D3F" d:precision="string">0.0146303</Radius>
+							<TransformID d:type="sInt32">0</TransformID>
+						</cHcSGBoundingSphere>
+					</Child>
+					<LODController d:type="ref">11305456</LODController>
+					<TransformID d:type="sInt32">0</TransformID>
+					<Point d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.0000000 0.0000000 0.0000000 1.0000000</Point>
+				</cHcSGNodeLODSelector>
+			</Child>
+			<Centre d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.0000000 0.0000000 0.0000000 1.0000000</Centre>
+			<Radius d:type="sFloat32" d:alt_encoding="0000004081F68D3F" d:precision="string">0.0146303</Radius>
+			<TransformID d:type="sInt32">-1</TransformID>
+		</cHcSGBoundingSphere>
+	</Root>
+	<CollisionRoot>
+		<d:nil/>
+	</CollisionRoot>
+	<RequiresScaledTransforms d:type="bool">0</RequiresScaledTransforms>
+	<RootMinExtents d:numElements="4" d:elementType="sFloat32" d:precision="string">-0.0126608 -0.0053329 -0.0023260 1.0000000</RootMinExtents>
+	<RootMaxExtents d:numElements="4" d:elementType="sFloat32" d:precision="string">0.0126608 0.0053329 0.0023260 1.0000000</RootMaxExtents>
+	<VertexData>
+		<cHcGeometryVertexDataDx d:id="62260608">
+			<VertexBuffer>
+				<cHcVertexBufferDx d:id="11117756">
+					<NumVertices d:type="sUInt32">12</NumVertices>
+					<VertexType>
+						<cHcVertexTypeDeclarationDx d:id="11294096">
+							<Element>
+								<cHcVertexTypeDeclarationDx-cElementDecl>
+									<UsageIndex d:type="sUInt32">0</UsageIndex>
+									<Usage d:type="cDeltaString">D3DDECLUSAGE_POSITION</Usage>
+									<Type d:type="cDeltaString">D3DDECLTYPE_FLOAT3</Type>
+									<StreamIndex d:type="sUInt32">0</StreamIndex>
+								</cHcVertexTypeDeclarationDx-cElementDecl>
+								<cHcVertexTypeDeclarationDx-cElementDecl>
+									<UsageIndex d:type="sUInt32">0</UsageIndex>
+									<Usage d:type="cDeltaString">D3DDECLUSAGE_NORMAL</Usage>
+									<Type d:type="cDeltaString">D3DDECLTYPE_FLOAT3</Type>
+									<StreamIndex d:type="sUInt32">0</StreamIndex>
+								</cHcVertexTypeDeclarationDx-cElementDecl>
+								<cHcVertexTypeDeclarationDx-cElementDecl>
+									<UsageIndex d:type="sUInt32">0</UsageIndex>
+									<Usage d:type="cDeltaString">D3DDECLUSAGE_TEXCOORD</Usage>
+									<Type d:type="cDeltaString">D3DDECLTYPE_FLOAT2</Type>
+									<StreamIndex d:type="sUInt32">0</StreamIndex>
+								</cHcVertexTypeDeclarationDx-cElementDecl>
+							</Element>
+						</cHcVertexTypeDeclarationDx>
+					</VertexType>
+					<Owner d:type="ref">11213144</Owner>
+					<d:blob d:size="384">E6D55A3BE9BFAEBB EC6F18BB00000000 7DADCC3EBAA56ABF FCA2893DB844733F
+3F6F4F3CE9BFAEBB EC6F18BB00000000 7DADCC3EBAA56ABF 58F64E3F3C42733F
+E6D55A3BE9BFAE3B EC6F183B00000000 7DADCC3EBAA56ABF 3C7B893DE038CC3C
+3F6F4F3CE9BFAE3B EC6F183B00000000 7DADCC3EBAA56ABF 60F14E3FE038CC3C
+CEB998BBE9BFAEBB EC6F18BB00000000 7DADCC3EBAA56ABF FCA2893DB844733F
+BEB9983BE9BFAEBB EC6F18BB00000000 7DADCC3EBAA56ABF 58F64E3F3C42733F
+CEB998BBE9BFAE3B EC6F183B00000000 7DADCC3EBAA56ABF 3C7B893DE038CC3C
+BEB9983BE9BFAE3B EC6F183B00000000 7DADCC3EBAA56ABF 60F14E3FE038CC3C
+476F4FBCE9BFAEBB EC6F18BB00000000 7DADCC3EBAA56ABF FCA2893DB844733F
+06D65ABBE9BFAEBB EC6F18BB00000000 7DADCC3EBAA56ABF 58F64E3F3C42733F
+476F4FBCE9BFAE3B EC6F183B00000000 7DADCC3EBAA56ABF 3C7B893DE038CC3C
+06D65ABBE9BFAE3B EC6F183B00000000 7DADCC3EBAA56ABF 60F14E3FE038CC3C</d:blob>
+				</cHcVertexBufferDx>
+			</VertexBuffer>
+			<IndexBuffer>
+				<cHcIndexBufferDx d:id="62260656">
+					<NumIndices d:type="sUInt32">12</NumIndices>
+					<BytesPerIndex d:type="sUInt8">2</BytesPerIndex>
+					<Owner d:type="ref">11213144</Owner>
+					<d:blob d:size="24">0000010002000300 0000010002000300 0000010002000300</d:blob>
+				</cHcIndexBufferDx>
+			</IndexBuffer>
+		</cHcGeometryVertexDataDx>
+	</VertexData>
+	<NamedObject/>
+	<OcclusionRegionMin/>
+	<OcclusionRegionMax/>
+</cHcGeometry>

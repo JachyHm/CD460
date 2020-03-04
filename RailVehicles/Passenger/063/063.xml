@@ -1,0 +1,2939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cWagonBlueprint>
+	<Element>
+		<Value>
+			<Attribute name="Name">
+				<cDeltaString>
+					<Element>
+						<Value>CD 063</Value>
+					</Element>
+				</cDeltaString>
+			</Attribute>
+			<Attribute name="BrowseInformation">
+				<iRailVehicleBlueprint-cBrowseRVInformation>
+					<Element>
+						<Value>
+							<Attribute name="DisplayName">
+								<Localisation-cUserLocalisedString>
+									<Element>
+										<Value>
+											<Attribute name="English">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="French">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Italian">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="German">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Spanish">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Dutch">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Polish">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Russian">
+												<cDeltaString>
+													<Element>
+														<Value>CD 063</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="Other">
+												<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+													<Element>
+														<Value />
+													</Element>
+												</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+											</Attribute>
+											<Attribute name="Key">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</Localisation-cUserLocalisedString>
+							</Attribute>
+						</Value>
+					</Element>
+				</iRailVehicleBlueprint-cBrowseRVInformation>
+			</Attribute>
+			<Attribute name="RailVehicleComponent">
+				<cWagonComponentBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="NumberingList">
+								<cCSVContainer>
+									<Element>
+										<Value>
+											<Attribute name="CsvFile">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</cCSVContainer>
+							</Attribute>
+							<Attribute name="NumberingFormat">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="Numberings">
+								<sUInt32>
+									<Element>
+										<Value>0</Value>
+									</Element>
+								</sUInt32>
+							</Attribute>
+							<Attribute name="FrontCouplingBlueprintID">
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<Element>
+										<Value>
+											<Attribute name="BlueprintSetID">
+												<iBlueprintLibrary-cBlueprintSetID>
+													<Element>
+														<Value>
+															<Attribute name="Provider">
+																<cDeltaString>
+																	<Element>
+																		<Value>Smejki</Value>
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+															<Attribute name="Product">
+																<cDeltaString>
+																	<Element>
+																		<Value>CD460pack01</Value>
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cBlueprintSetID>
+											</Attribute>
+											<Attribute name="BlueprintID">
+												<cDeltaString>
+													<Element>
+														<Value>RailVehicles\Couplings\CD_sroubovka.xml</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</Attribute>
+							<Attribute name="RearCouplingBlueprintID">
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<Element>
+										<Value>
+											<Attribute name="BlueprintSetID">
+												<iBlueprintLibrary-cBlueprintSetID>
+													<Element>
+														<Value>
+															<Attribute name="Provider">
+																<cDeltaString>
+																	<Element>
+																		<Value>Smejki</Value>
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+															<Attribute name="Product">
+																<cDeltaString>
+																	<Element>
+																		<Value>CD460pack01</Value>
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cBlueprintSetID>
+											</Attribute>
+											<Attribute name="BlueprintID">
+												<cDeltaString>
+													<Element>
+														<Value>RailVehicles\Couplings\CD_sroubovka.xml</Value>
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</Attribute>
+							<Attribute name="FrontCouplingPivot">
+								<cHcRMatrix4x4>
+									<Element>
+										<Value>
+											<Attribute name="Element">
+												<__Indexed__sFloat32>
+													<Element>
+														<Value>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1.151335</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>11.8916</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Value>
+													</Element>
+												</__Indexed__sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cHcRMatrix4x4>
+							</Attribute>
+							<Attribute name="RearCouplingPivot">
+								<cHcRMatrix4x4>
+									<Element>
+										<Value>
+											<Attribute name="Element">
+												<__Indexed__sFloat32>
+													<Element>
+														<Value>
+															<sFloat32>
+																<Element>
+																	<Value>-1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>-8.742278E-08</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>8.742278E-08</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>-1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>2.214501E-12</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1.114794</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>-11.76196</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Value>
+													</Element>
+												</__Indexed__sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cHcRMatrix4x4>
+							</Attribute>
+							<Attribute name="FrontCouplingReceivingPoint">
+								<cHcRMatrix4x4>
+									<Element>
+										<Value>
+											<Attribute name="Element">
+												<__Indexed__sFloat32>
+													<Element>
+														<Value>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1.748456E-07</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>-1.748456E-07</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>7.910269E-13</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1.111834</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>12.0188</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Value>
+													</Element>
+												</__Indexed__sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cHcRMatrix4x4>
+							</Attribute>
+							<Attribute name="RearCouplingReceivingPoint">
+								<cHcRMatrix4x4>
+									<Element>
+										<Value>
+											<Attribute name="Element">
+												<__Indexed__sFloat32>
+													<Element>
+														<Value>
+															<sFloat32>
+																<Element>
+																	<Value>-1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>-2.237186E-05</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>2.237186E-05</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>-1</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1.258158E-10</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1.073662</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>-11.82111</Value>
+																</Element>
+															</sFloat32>
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Value>
+													</Element>
+												</__Indexed__sFloat32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cHcRMatrix4x4>
+							</Attribute>
+							<Attribute name="Mass">
+								<sFloat32>
+									<Element>
+										<Value>37</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="EaseOfDerailment">
+								<sFloat32>
+									<Element>
+										<Value>0.4375</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="FrontPivotX">
+								<sFloat32>
+									<Element>
+										<Value>12.3</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="FrontPivotY">
+								<sFloat32>
+									<Element>
+										<Value>1</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="BackPivotX">
+								<sFloat32>
+									<Element>
+										<Value>-12.3</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="BackPivotY">
+								<sFloat32>
+									<Element>
+										<Value>1</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="CollisionCentreX">
+								<sFloat32>
+									<Element>
+										<Value>0</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="CollisionCentreY">
+								<sFloat32>
+									<Element>
+										<Value>2.1</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="CollisionWidth">
+								<sFloat32>
+									<Element>
+										<Value>2.8</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="CollisionHeight">
+								<sFloat32>
+									<Element>
+										<Value>4</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="CollisionLength">
+								<sFloat32>
+									<Element>
+										<Value>24.04</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="DragCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>7.2</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="RollingFrictionCoefficient">
+								<sFloat32>
+									<Element>
+										<Value>0.0015</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="DryFriction">
+								<sFloat32>
+									<Element>
+										<Value>0.5</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="WetFriction">
+								<sFloat32>
+									<Element>
+										<Value>0.25</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="SnowFriction">
+								<sFloat32>
+									<Element>
+										<Value>0.15</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="SandFrictionMultiplier">
+								<sFloat32>
+									<Element>
+										<Value>1.3</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="Bogey">
+								<__Indexed__cRailVehicleComponentBlueprint-tag_sBogey>
+									<Element>
+										<Value>
+											<cRailVehicleComponentBlueprint-tag_sBogey>
+												<Element>
+													<Value>
+														<Attribute name="BogeyPivotX">
+															<sFloat32>
+																<Element>
+																	<Value>8.646</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BogeyPivotY">
+															<sFloat32>
+																<Element>
+																	<Value>0.91</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BogeyBlueprint">
+															<iBlueprintLibrary-cAbsoluteBlueprintID>
+																<Element>
+																	<Value>
+																		<Attribute name="BlueprintSetID">
+																			<iBlueprintLibrary-cBlueprintSetID>
+																				<Element>
+																					<Value>
+																						<Attribute name="Provider">
+																							<cDeltaString>
+																								<Element>
+																									<Value>Smejki</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																						<Attribute name="Product">
+																							<cDeltaString>
+																								<Element>
+																									<Value>CD460pack01</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																					</Value>
+																				</Element>
+																			</iBlueprintLibrary-cBlueprintSetID>
+																		</Attribute>
+																		<Attribute name="BlueprintID">
+																			<cDeltaString>
+																				<Element>
+																					<Value>RailVehicles\Passenger\063\Bogey.xml</Value>
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</iBlueprintLibrary-cAbsoluteBlueprintID>
+														</Attribute>
+													</Value>
+												</Element>
+											</cRailVehicleComponentBlueprint-tag_sBogey>
+											<cRailVehicleComponentBlueprint-tag_sBogey>
+												<Element>
+													<Value>
+														<Attribute name="BogeyPivotX">
+															<sFloat32>
+																<Element>
+																	<Value>-8.82</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BogeyPivotY">
+															<sFloat32>
+																<Element>
+																	<Value>0.91</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BogeyBlueprint">
+															<iBlueprintLibrary-cAbsoluteBlueprintID>
+																<Element>
+																	<Value>
+																		<Attribute name="BlueprintSetID">
+																			<iBlueprintLibrary-cBlueprintSetID>
+																				<Element>
+																					<Value>
+																						<Attribute name="Provider">
+																							<cDeltaString>
+																								<Element>
+																									<Value>Smejki</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																						<Attribute name="Product">
+																							<cDeltaString>
+																								<Element>
+																									<Value>CD460pack01</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																					</Value>
+																				</Element>
+																			</iBlueprintLibrary-cBlueprintSetID>
+																		</Attribute>
+																		<Attribute name="BlueprintID">
+																			<cDeltaString>
+																				<Element>
+																					<Value>RailVehicles\Passenger\063\Bogey_0001.xml</Value>
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</iBlueprintLibrary-cAbsoluteBlueprintID>
+														</Attribute>
+													</Value>
+												</Element>
+											</cRailVehicleComponentBlueprint-tag_sBogey>
+										</Value>
+									</Element>
+								</__Indexed__cRailVehicleComponentBlueprint-tag_sBogey>
+							</Attribute>
+							<Attribute name="StopgoRemapper">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="IntermediateRemapper">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="ExpertRemapper">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="BogieAudioControlName">
+								<cDeltaString>
+									<Element>
+										<Value>Audio\RailVehicles\Passenger\063\Bogies\063_bogieSound.xml</Value>
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="CouplingAudioControlName">
+								<cDeltaString>
+									<Element>
+										<Value>Audio\RailVehicles\coupling_sound.xml</Value>
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="AnimatedBodyNodeName">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="MaxComfortableAcceleration">
+								<sFloat32>
+									<Element>
+										<Value>100</Value>
+									</Element>
+								</sFloat32>
+							</Attribute>
+							<Attribute name="TrainBrakeAssembly">
+								<__Indexed__EngineSimulation-cTrainBrakeSystemBlueprint>
+									<Element>
+										<Value>
+											<EngineSimulation-cTrainAirBrakeBlueprint>
+												<Element>
+													<Value>
+														<Attribute name="BrakeType">
+															<__Indexed__EngineSimulation-cTrainAirBrakeDataBlueprint>
+																<Element>
+																	<Value>
+																		<EngineSimulation-cTrainAirBrakeDataBlueprint>
+																			<Element>
+																				<Value>
+																					<Attribute name="EquipmentType">
+																						<EngineSimulation-eEquipmentType>
+																							<Element>
+																								<Value>eAirSinglePipe</Value>
+																							</Element>
+																						</EngineSimulation-eEquipmentType>
+																					</Attribute>
+																					<Attribute name="MaxForcePercentOfVehicleWeight">
+																						<sFloat32>
+																							<Element>
+																								<Value>130</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="Control">
+																						<__Indexed__EngineSimulation-cBrakeControlBlueprint>
+																							<Element>
+																								<Value />
+																							</Element>
+																						</__Indexed__EngineSimulation-cBrakeControlBlueprint>
+																					</Attribute>
+																					<Attribute name="Handbrake">
+																						<__Indexed__EngineSimulation-cHandbrake>
+																							<Element>
+																								<Value />
+																							</Element>
+																						</__Indexed__EngineSimulation-cHandbrake>
+																					</Attribute>
+																					<Attribute name="GraduatedRelease">
+																						<eBoolean>
+																							<Element>
+																								<Value>eTrue</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																					<Attribute name="ProportionalBrake">
+																						<eBoolean>
+																							<Element>
+																								<Value>eTrue</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																					<Attribute name="MaxReleaseRate">
+																						<sFloat32>
+																							<Element>
+																								<Value>1E+07</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="MaxApplicationRate">
+																						<sFloat32>
+																							<Element>
+																								<Value>1E+07</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="MaxCylinderPressure">
+																						<sFloat32>
+																							<Element>
+																								<Value>55.1</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="PressureForMaxForce">
+																						<sFloat32>
+																							<Element>
+																								<Value>55.1</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="MaxSystemPressure">
+																						<sFloat32>
+																							<Element>
+																								<Value>72.5189</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="MinSystemPressure">
+																						<sFloat32>
+																							<Element>
+																								<Value>43.5113</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="Distributor">
+																						<__Indexed__EngineSimulation-cBrakeDistributorBlueprint>
+																							<Element>
+																								<Value>
+																									<EngineSimulation-cBrakeDistributorBlueprint>
+																										<Element>
+																											<Value>
+																												<Attribute name="NormalFullReleasePressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>72.5189</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="FullServicePressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>43.5113</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="TrainPipeControlRatio">
+																													<sFloat32>
+																														<Element>
+																															<Value>2.53</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="MaxEmergencyResPressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>72.5189</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="MaxAuxResPressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>72.5189</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																												<Attribute name="EmergencyApplicationPressure">
+																													<sFloat32>
+																														<Element>
+																															<Value>43.5113</Value>
+																														</Element>
+																													</sFloat32>
+																												</Attribute>
+																											</Value>
+																										</Element>
+																									</EngineSimulation-cBrakeDistributorBlueprint>
+																								</Value>
+																							</Element>
+																						</__Indexed__EngineSimulation-cBrakeDistributorBlueprint>
+																					</Attribute>
+																					<Attribute name="EmergencyBraking">
+																						<__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking>
+																							<Element>
+																								<Value />
+																							</Element>
+																						</__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cEmergencyBraking>
+																					</Attribute>
+																					<Attribute name="AuxiliaryBraking">
+																						<__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking>
+																							<Element>
+																								<Value />
+																							</Element>
+																						</__Indexed__EngineSimulation-cBaseAirBrakeBlueprint-cAuxiliaryBraking>
+																					</Attribute>
+																					<Attribute name="PressureUsedFromPipePerPoundGained">
+																						<sFloat32>
+																							<Element>
+																								<Value>0.3</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="PressureGainedFromOnePipePounds">
+																						<sFloat32>
+																							<Element>
+																								<Value>100</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="RetainerType">
+																						<EngineSimulation-cBaseAirBrakeBlueprint-eRetainerType>
+																							<Element>
+																								<Value>eNoRetainer</Value>
+																							</Element>
+																						</EngineSimulation-cBaseAirBrakeBlueprint-eRetainerType>
+																					</Attribute>
+																					<Attribute name="TripleValve">
+																						<eBoolean>
+																							<Element>
+																								<Value>eFalse</Value>
+																							</Element>
+																						</eBoolean>
+																					</Attribute>
+																					<Attribute name="TripleValveRatio">
+																						<sFloat32>
+																							<Element>
+																								<Value>2.53</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																					<Attribute name="RetainerSlowReleaseRate">
+																						<sFloat32>
+																							<Element>
+																								<Value>15</Value>
+																							</Element>
+																						</sFloat32>
+																					</Attribute>
+																				</Value>
+																			</Element>
+																		</EngineSimulation-cTrainAirBrakeDataBlueprint>
+																	</Value>
+																</Element>
+															</__Indexed__EngineSimulation-cTrainAirBrakeDataBlueprint>
+														</Attribute>
+													</Value>
+												</Element>
+											</EngineSimulation-cTrainAirBrakeBlueprint>
+										</Value>
+									</Element>
+								</__Indexed__EngineSimulation-cTrainBrakeSystemBlueprint>
+							</Attribute>
+						</Value>
+					</Element>
+				</cWagonComponentBlueprint>
+			</Attribute>
+			<Attribute name="RenderComponent">
+				<cAnimObjectRenderBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="PrimaryNamedTextureSet">
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<Element>
+										<Value>
+											<Attribute name="BlueprintSetID">
+												<iBlueprintLibrary-cBlueprintSetID>
+													<Element>
+														<Value>
+															<Attribute name="Provider">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+															<Attribute name="Product">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cBlueprintSetID>
+											</Attribute>
+											<Attribute name="BlueprintID">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</Attribute>
+							<Attribute name="SecondaryNamedTextureSet">
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<Element>
+										<Value>
+											<Attribute name="BlueprintSetID">
+												<iBlueprintLibrary-cBlueprintSetID>
+													<Element>
+														<Value>
+															<Attribute name="Provider">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+															<Attribute name="Product">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cBlueprintSetID>
+											</Attribute>
+											<Attribute name="BlueprintID">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</Attribute>
+							<Attribute name="GeometryID">
+								<cDeltaString>
+									<Element>
+										<Value>RailVehicles\Passenger\063\063.igs</Value>
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="CollisionGeometryID">
+								<cDeltaString>
+									<Element>
+										<Value>RailVehicles\Passenger\063\063.igs</Value>
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="Pickable">
+								<eBoolean>
+									<Element>
+										<Value>eTrue</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="CastsShadows">
+								<eBoolean>
+									<Element>
+										<Value>eTrue</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="ShadowType">
+								<eShadowType>
+									<Element>
+										<Value>eShadowType_Blobby</Value>
+									</Element>
+								</eShadowType>
+							</Attribute>
+							<Attribute name="ViewType">
+								<cSceneryRenderBlueprint-eViewType>
+									<Element>
+										<Value>AllViews</Value>
+									</Element>
+								</cSceneryRenderBlueprint-eViewType>
+							</Attribute>
+							<Attribute name="Palettised">
+								<eBoolean>
+									<Element>
+										<Value>eFalse</Value>
+									</Element>
+								</eBoolean>
+							</Attribute>
+							<Attribute name="Palette0Index">
+								<sInt32>
+									<Element>
+										<Value>-1</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="Palette1Index">
+								<sInt32>
+									<Element>
+										<Value>-1</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="Palette2Index">
+								<sInt32>
+									<Element>
+										<Value>-1</Value>
+									</Element>
+								</sInt32>
+							</Attribute>
+							<Attribute name="HeatHaze">
+								<__Indexed__cSceneryRenderBlueprint-sHeatHaze>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cSceneryRenderBlueprint-sHeatHaze>
+							</Attribute>
+							<Attribute name="TexText">
+								<__Indexed__cSceneryRenderBlueprint-sTexText>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cSceneryRenderBlueprint-sTexText>
+							</Attribute>
+							<Attribute name="ProjectedLightElement">
+								<__Indexed__cSceneryRenderBlueprint-sProjectedLight>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cSceneryRenderBlueprint-sProjectedLight>
+							</Attribute>
+							<Attribute name="Instancable">
+								<bool>
+									<Element>
+										<Value>0</Value>
+									</Element>
+								</bool>
+							</Attribute>
+							<Attribute name="DetailLevelGenerationRange">
+								<cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+									<Element>
+										<Value>
+											<Attribute name="HighestLevel_1isHighest">
+												<sInt32>
+													<Element>
+														<Value>1</Value>
+													</Element>
+												</sInt32>
+											</Attribute>
+											<Attribute name="LowestLevel_10isLowest">
+												<sInt32>
+													<Element>
+														<Value>10</Value>
+													</Element>
+												</sInt32>
+											</Attribute>
+										</Value>
+									</Element>
+								</cSceneryRenderBlueprint-sDetailLevelGenerationRange>
+							</Attribute>
+							<Attribute name="AnimSet">
+								<__Indexed__iAnimObjectRenderBlueprint-cAnimation>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__iAnimObjectRenderBlueprint-cAnimation>
+							</Attribute>
+						</Value>
+					</Element>
+				</cAnimObjectRenderBlueprint>
+			</Attribute>
+			<Attribute name="PosOriComponent">
+				<cPosOriBlueprint>
+					<Element>
+						<Value />
+					</Element>
+				</cPosOriBlueprint>
+			</Attribute>
+			<Attribute name="ControlContainerComponent">
+				<cControlContainerBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="InteriorInterface">
+								<cControlContainerBlueprint-cInteriorInterface>
+									<Element>
+										<Value>
+											<Attribute name="InteriorGeometryID">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="NumberOfCabs">
+												<eNumberOfCabs>
+													<Element>
+														<Value>eSingleCab</Value>
+													</Element>
+												</eNumberOfCabs>
+											</Attribute>
+											<Attribute name="InteriorCamera">
+												<iBlueprintLibrary-cAbsoluteBlueprintID>
+													<Element>
+														<Value>
+															<Attribute name="BlueprintSetID">
+																<iBlueprintLibrary-cBlueprintSetID>
+																	<Element>
+																		<Value>
+																			<Attribute name="Provider">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																			<Attribute name="Product">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																		</Value>
+																	</Element>
+																</iBlueprintLibrary-cBlueprintSetID>
+															</Attribute>
+															<Attribute name="BlueprintID">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cAbsoluteBlueprintID>
+											</Attribute>
+											<Attribute name="CabOcclusion">
+												<iBlueprintLibrary-cAbsoluteBlueprintID>
+													<Element>
+														<Value>
+															<Attribute name="BlueprintSetID">
+																<iBlueprintLibrary-cBlueprintSetID>
+																	<Element>
+																		<Value>
+																			<Attribute name="Provider">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																			<Attribute name="Product">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																		</Value>
+																	</Element>
+																</iBlueprintLibrary-cBlueprintSetID>
+															</Attribute>
+															<Attribute name="BlueprintID">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cAbsoluteBlueprintID>
+											</Attribute>
+										</Value>
+									</Element>
+								</cControlContainerBlueprint-cInteriorInterface>
+							</Attribute>
+							<Attribute name="CarriageInteriorInterface">
+								<cControlContainerBlueprint-cInteriorInterface>
+									<Element>
+										<Value>
+											<Attribute name="InteriorGeometryID">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+											<Attribute name="NumberOfCabs">
+												<eNumberOfCabs>
+													<Element>
+														<Value>eSingleCab</Value>
+													</Element>
+												</eNumberOfCabs>
+											</Attribute>
+											<Attribute name="InteriorCamera">
+												<iBlueprintLibrary-cAbsoluteBlueprintID>
+													<Element>
+														<Value>
+															<Attribute name="BlueprintSetID">
+																<iBlueprintLibrary-cBlueprintSetID>
+																	<Element>
+																		<Value>
+																			<Attribute name="Provider">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																			<Attribute name="Product">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																		</Value>
+																	</Element>
+																</iBlueprintLibrary-cBlueprintSetID>
+															</Attribute>
+															<Attribute name="BlueprintID">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cAbsoluteBlueprintID>
+											</Attribute>
+											<Attribute name="CabOcclusion">
+												<iBlueprintLibrary-cAbsoluteBlueprintID>
+													<Element>
+														<Value>
+															<Attribute name="BlueprintSetID">
+																<iBlueprintLibrary-cBlueprintSetID>
+																	<Element>
+																		<Value>
+																			<Attribute name="Provider">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																			<Attribute name="Product">
+																				<cDeltaString>
+																					<Element>
+																						<Value />
+																					</Element>
+																				</cDeltaString>
+																			</Attribute>
+																		</Value>
+																	</Element>
+																</iBlueprintLibrary-cBlueprintSetID>
+															</Attribute>
+															<Attribute name="BlueprintID">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cAbsoluteBlueprintID>
+											</Attribute>
+										</Value>
+									</Element>
+								</cControlContainerBlueprint-cInteriorInterface>
+							</Attribute>
+							<Attribute name="HUDControlsPath">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="MinimalHUDControlsPath">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="HUDControlsTexturePath">
+								<cDeltaString>
+									<Element>
+										<Value />
+									</Element>
+								</cDeltaString>
+							</Attribute>
+							<Attribute name="ControlValues">
+								<__Indexed__cControlContainerBlueprint-cControlValue>
+									<Element>
+										<Value>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>DoorsOpenCloseRight</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value />
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>DoorsOpenCloseLeft</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eFalse</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value />
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>mgVS</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1.12589991E+15</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eTrue</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value />
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>mg</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1.12589991E+15</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eTrue</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value />
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+											<cControlContainerBlueprint-cControlValue>
+												<Element>
+													<Value>
+														<Attribute name="ControlName">
+															<cDeltaString>
+																<Element>
+																	<Value>mgPriprava</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DefaultValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MinimumValue">
+															<sFloat32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="MaximumValue">
+															<sFloat32>
+																<Element>
+																	<Value>1.12589991E+15</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="BriefDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="LocalisedControlName">
+															<Localisation-cUserLocalisedString>
+																<Element>
+																	<Value>
+																		<Attribute name="English">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="French">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Italian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="German">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Spanish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Dutch">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Polish">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Russian">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																		<Attribute name="Other">
+																			<__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</__Indexed__Localisation-cUserLocalisedString-cOtherStringLangPair>
+																		</Attribute>
+																		<Attribute name="Key">
+																			<cDeltaString>
+																				<Element>
+																					<Value />
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</Localisation-cUserLocalisedString>
+														</Attribute>
+														<Attribute name="DetailedDescription">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="ApplyToConsist">
+															<eBoolean>
+																<Element>
+																	<Value>eTrue</Value>
+																</Element>
+															</eBoolean>
+														</Attribute>
+														<Attribute name="HUDControlID">
+															<sUInt32>
+																<Element>
+																	<Value>0</Value>
+																</Element>
+															</sUInt32>
+														</Attribute>
+														<Attribute name="InterfaceElements">
+															<__Indexed__cControlContainerBlueprint-cElement>
+																<Element>
+																	<Value />
+																</Element>
+															</__Indexed__cControlContainerBlueprint-cElement>
+														</Attribute>
+													</Value>
+												</Element>
+											</cControlContainerBlueprint-cControlValue>
+										</Value>
+									</Element>
+								</__Indexed__cControlContainerBlueprint-cControlValue>
+							</Attribute>
+							<Attribute name="WiperPairs">
+								<__Indexed__cControlContainerBlueprint-cWiperPair>
+									<Element>
+										<Value />
+									</Element>
+								</__Indexed__cControlContainerBlueprint-cWiperPair>
+							</Attribute>
+						</Value>
+					</Element>
+				</cControlContainerBlueprint>
+			</Attribute>
+			<Attribute name="CargoComponent">
+				<cCargoComponentBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="CargoDef">
+								<__Indexed__cCargoDef>
+									<Element>
+										<Value>
+											<cPassengerDoorwayDef>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DvereLevePredni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DoorSide">
+															<eDoorSide>
+																<Element>
+																	<Value>LHS</Value>
+																</Element>
+															</eDoorSide>
+														</Attribute>
+														<Attribute name="OffsetX">
+															<sFloat32>
+																<Element>
+																	<Value>-1.42751</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="OffsetZ">
+															<sFloat32>
+																<Element>
+																	<Value>11.23446</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="RatePerSecond">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cPassengerDoorwayDef>
+											<cPassengerDoorwayDef>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DvereLeveProstredni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DoorSide">
+															<eDoorSide>
+																<Element>
+																	<Value>LHS</Value>
+																</Element>
+															</eDoorSide>
+														</Attribute>
+														<Attribute name="OffsetX">
+															<sFloat32>
+																<Element>
+																	<Value>-1.3356</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="OffsetZ">
+															<sFloat32>
+																<Element>
+																	<Value>0.0414</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="RatePerSecond">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cPassengerDoorwayDef>
+											<cPassengerDoorwayDef>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DvereLeveZadni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DoorSide">
+															<eDoorSide>
+																<Element>
+																	<Value>LHS</Value>
+																</Element>
+															</eDoorSide>
+														</Attribute>
+														<Attribute name="OffsetX">
+															<sFloat32>
+																<Element>
+																	<Value>-1.42845</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="OffsetZ">
+															<sFloat32>
+																<Element>
+																	<Value>-11.13657</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="RatePerSecond">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cPassengerDoorwayDef>
+											<cPassengerDoorwayDef>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DverePravePredni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DoorSide">
+															<eDoorSide>
+																<Element>
+																	<Value>RHS</Value>
+																</Element>
+															</eDoorSide>
+														</Attribute>
+														<Attribute name="OffsetX">
+															<sFloat32>
+																<Element>
+																	<Value>1.43393</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="OffsetZ">
+															<sFloat32>
+																<Element>
+																	<Value>11.28886</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="RatePerSecond">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cPassengerDoorwayDef>
+											<cPassengerDoorwayDef>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DverePraveProstredni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DoorSide">
+															<eDoorSide>
+																<Element>
+																	<Value>RHS</Value>
+																</Element>
+															</eDoorSide>
+														</Attribute>
+														<Attribute name="OffsetX">
+															<sFloat32>
+																<Element>
+																	<Value>1.34658</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="OffsetZ">
+															<sFloat32>
+																<Element>
+																	<Value>0.0414</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="RatePerSecond">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cPassengerDoorwayDef>
+											<cPassengerDoorwayDef>
+												<Element>
+													<Value>
+														<Attribute name="Name">
+															<cDeltaString>
+																<Element>
+																	<Value>DverePraveZadni</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="DoorSide">
+															<eDoorSide>
+																<Element>
+																	<Value>RHS</Value>
+																</Element>
+															</eDoorSide>
+														</Attribute>
+														<Attribute name="OffsetX">
+															<sFloat32>
+																<Element>
+																	<Value>1.43641</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="OffsetZ">
+															<sFloat32>
+																<Element>
+																	<Value>-11.12439</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+														<Attribute name="RatePerSecond">
+															<sFloat32>
+																<Element>
+																	<Value>100</Value>
+																</Element>
+															</sFloat32>
+														</Attribute>
+													</Value>
+												</Element>
+											</cPassengerDoorwayDef>
+										</Value>
+									</Element>
+								</__Indexed__cCargoDef>
+							</Attribute>
+							<Attribute name="CargoBlueprintID">
+								<iBlueprintLibrary-cAbsoluteBlueprintID>
+									<Element>
+										<Value>
+											<Attribute name="BlueprintSetID">
+												<iBlueprintLibrary-cBlueprintSetID>
+													<Element>
+														<Value>
+															<Attribute name="Provider">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+															<Attribute name="Product">
+																<cDeltaString>
+																	<Element>
+																		<Value />
+																	</Element>
+																</cDeltaString>
+															</Attribute>
+														</Value>
+													</Element>
+												</iBlueprintLibrary-cBlueprintSetID>
+											</Attribute>
+											<Attribute name="BlueprintID">
+												<cDeltaString>
+													<Element>
+														<Value />
+													</Element>
+												</cDeltaString>
+											</Attribute>
+										</Value>
+									</Element>
+								</iBlueprintLibrary-cAbsoluteBlueprintID>
+							</Attribute>
+						</Value>
+					</Element>
+				</cCargoComponentBlueprint>
+			</Attribute>
+			<Attribute name="ContainerComponent">
+				<cEntityContainerBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="TrackTerrainInEditor">
+								<bool>
+									<Element>
+										<Value>0</Value>
+									</Element>
+								</bool>
+							</Attribute>
+							<Attribute name="Children">
+								<__Indexed__cEntityContainerBlueprint-sChild>
+									<Element>
+										<Value>
+											<cEntityContainerBlueprint-sChild>
+												<Element>
+													<Value>
+														<Attribute name="ChildName">
+															<cDeltaString>
+																<Element>
+																	<Value>zvukLoziska</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="BlueprintID">
+															<iBlueprintLibrary-cAbsoluteBlueprintID>
+																<Element>
+																	<Value>
+																		<Attribute name="BlueprintSetID">
+																			<iBlueprintLibrary-cBlueprintSetID>
+																				<Element>
+																					<Value>
+																						<Attribute name="Provider">
+																							<cDeltaString>
+																								<Element>
+																									<Value>Smejki</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																						<Attribute name="Product">
+																							<cDeltaString>
+																								<Element>
+																									<Value>CD460pack01</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																					</Value>
+																				</Element>
+																			</iBlueprintLibrary-cBlueprintSetID>
+																		</Attribute>
+																		<Attribute name="BlueprintID">
+																			<cDeltaString>
+																				<Element>
+																					<Value>Audio\RailVehicles\Passenger\063\Bogies\063_loziskaBP.xml</Value>
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</iBlueprintLibrary-cAbsoluteBlueprintID>
+														</Attribute>
+														<Attribute name="Matrix">
+															<cHcRMatrix4x4>
+																<Element>
+																	<Value>
+																		<Attribute name="Element">
+																			<__Indexed__sFloat32>
+																				<Element>
+																					<Value>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																					</Value>
+																				</Element>
+																			</__Indexed__sFloat32>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</cHcRMatrix4x4>
+														</Attribute>
+														<Attribute name="ParentNodeName">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</cEntityContainerBlueprint-sChild>
+											<cEntityContainerBlueprint-sChild>
+												<Element>
+													<Value>
+														<Attribute name="ChildName">
+															<cDeltaString>
+																<Element>
+																	<Value>zvukZdrze</Value>
+																</Element>
+															</cDeltaString>
+														</Attribute>
+														<Attribute name="BlueprintID">
+															<iBlueprintLibrary-cAbsoluteBlueprintID>
+																<Element>
+																	<Value>
+																		<Attribute name="BlueprintSetID">
+																			<iBlueprintLibrary-cBlueprintSetID>
+																				<Element>
+																					<Value>
+																						<Attribute name="Provider">
+																							<cDeltaString>
+																								<Element>
+																									<Value>Smejki</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																						<Attribute name="Product">
+																							<cDeltaString>
+																								<Element>
+																									<Value>CD460pack01</Value>
+																								</Element>
+																							</cDeltaString>
+																						</Attribute>
+																					</Value>
+																				</Element>
+																			</iBlueprintLibrary-cBlueprintSetID>
+																		</Attribute>
+																		<Attribute name="BlueprintID">
+																			<cDeltaString>
+																				<Element>
+																					<Value>Audio\RailVehicles\Passenger\063\Bogies\063_zdrzeBP.xml</Value>
+																				</Element>
+																			</cDeltaString>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</iBlueprintLibrary-cAbsoluteBlueprintID>
+														</Attribute>
+														<Attribute name="Matrix">
+															<cHcRMatrix4x4>
+																<Element>
+																	<Value>
+																		<Attribute name="Element">
+																			<__Indexed__sFloat32>
+																				<Element>
+																					<Value>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>0</Value>
+																							</Element>
+																						</sFloat32>
+																						<sFloat32>
+																							<Element>
+																								<Value>1</Value>
+																							</Element>
+																						</sFloat32>
+																					</Value>
+																				</Element>
+																			</__Indexed__sFloat32>
+																		</Attribute>
+																	</Value>
+																</Element>
+															</cHcRMatrix4x4>
+														</Attribute>
+														<Attribute name="ParentNodeName">
+															<cDeltaString>
+																<Element>
+																	<Value />
+																</Element>
+															</cDeltaString>
+														</Attribute>
+													</Value>
+												</Element>
+											</cEntityContainerBlueprint-sChild>
+										</Value>
+									</Element>
+								</__Indexed__cEntityContainerBlueprint-sChild>
+							</Attribute>
+						</Value>
+					</Element>
+				</cEntityContainerBlueprint>
+			</Attribute>
+			<Attribute name="ScriptComponent">
+				<cScriptComponentBlueprint>
+					<Element>
+						<Value>
+							<Attribute name="Name">
+								<cDeltaString>
+									<Element>
+										<Value>RailVehicles\Passenger\063\063.lua</Value>
+									</Element>
+								</cDeltaString>
+							</Attribute>
+						</Value>
+					</Element>
+				</cScriptComponentBlueprint>
+			</Attribute>
+		</Value>
+	</Element>
+</cWagonBlueprint>

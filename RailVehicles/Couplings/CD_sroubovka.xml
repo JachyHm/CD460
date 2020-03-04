@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cCouplingTypeBlueprint>
+	<Element>
+		<Value>
+			<Attribute name="UncoupledGeometry">
+				<cDeltaString>
+					<Element>
+						<Value>RailVehicles\Couplings\CD_uncoupled.IGS</Value>
+					</Element>
+				</cDeltaString>
+			</Attribute>
+			<Attribute name="Bogey">
+				<cDeltaString>
+					<Element>
+						<Value />
+					</Element>
+				</cDeltaString>
+			</Attribute>
+			<Attribute name="Strength">
+				<sFloat32>
+					<Element>
+						<Value>300</Value>
+					</Element>
+				</sFloat32>
+			</Attribute>
+			<Attribute name="CouplingConnection">
+				<__Indexed__cCouplingConnectionBlueprint>
+					<Element>
+						<Value>
+							<cCouplingConnectionBlueprint>
+								<Element>
+									<Value>
+										<Attribute name="Type">
+											<cDeltaString>
+												<Element>
+													<Value>3link</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="CoupledGeometry">
+											<cDeltaString>
+												<Element>
+													<Value>RailVehicles\Couplings\CD_coupled.IGS</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="ReceivingGeometry">
+											<cDeltaString>
+												<Element>
+													<Value>RailVehicles\Couplings\CD_receiver.IGS</Value>
+												</Element>
+											</cDeltaString>
+										</Attribute>
+										<Attribute name="PivotType">
+											<ePivotType>
+												<Element>
+													<Value>eReceivingPoint</Value>
+												</Element>
+											</ePivotType>
+										</Attribute>
+										<Attribute name="MinDistance">
+											<sFloat32>
+												<Element>
+													<Value>0</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="MaxDistance">
+											<sFloat32>
+												<Element>
+													<Value>0.01</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="TargetDistance">
+											<sFloat32>
+												<Element>
+													<Value>0.02</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="SpringCoefficient">
+											<sFloat32>
+												<Element>
+													<Value>8000</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="Damping">
+											<sFloat32>
+												<Element>
+													<Value>6000</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="MaxForce">
+											<sFloat32>
+												<Element>
+													<Value>8000</Value>
+												</Element>
+											</sFloat32>
+										</Attribute>
+										<Attribute name="ManualCoupling">
+											<bool>
+												<Element>
+													<Value>1</Value>
+												</Element>
+											</bool>
+										</Attribute>
+									</Value>
+								</Element>
+							</cCouplingConnectionBlueprint>
+						</Value>
+					</Element>
+				</__Indexed__cCouplingConnectionBlueprint>
+			</Attribute>
+		</Value>
+	</Element>
+</cCouplingTypeBlueprint>
